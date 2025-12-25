@@ -145,6 +145,21 @@ export async function getRecentActivitiesGroupedByType(
 
 // (Optional) stubs for other imports; add as you see “module not found” errors:
 
+export async function getUpdatedTime() {
+  // get last updated time from any of the JSON files
+  const filePath = path.join(
+    process.cwd(),
+    "public",
+    "leaderboard",
+    `week.json`
+  );
+  if (!fs.existsSync(filePath)) return null;
+
+  const file = fs.readFileSync(filePath, "utf-8");
+  const data = JSON.parse(file);
+  return data.updatedAt ? new Date(data.updatedAt) : null;
+}
+
 export async function getLeaderboard() {
   return [];
 }

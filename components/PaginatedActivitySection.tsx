@@ -164,7 +164,7 @@ export function PaginatedActivitySection({
                   size="sm"
                   onClick={goToPrevious}
                   disabled={currentPage === 1}
-                  className="h-8 px-2 sm:px-3"
+                  className="h-8 px-2 sm:px-3 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-[#50B78B] transition-colors disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-inherit disabled:cursor-not-allowed cursor-pointer"
                 >
                   <ChevronLeft className="h-4 w-4" />
                   <span className="hidden sm:inline">Previous</span>
@@ -192,10 +192,10 @@ export function PaginatedActivitySection({
                         }
                         size="sm"
                         onClick={() => goToPage(pageNum)}
-                        className={`h-8 w-8 p-0 ${
+                        className={`h-8 w-8 p-0 transition-all cursor-pointer ${
                           currentPage === pageNum
-                            ? "bg-[#50B78B] hover:bg-[#50B78B]/90 text-white"
-                            : ""
+                            ? "bg-[#50B78B] hover:bg-[#50B78B]/90 text-white shadow-sm"
+                            : "hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-[#50B78B] hover:border-[#50B78B]/20 hover:shadow-sm"
                         }`}
                       >
                         {pageNum}
@@ -209,7 +209,7 @@ export function PaginatedActivitySection({
                   size="sm"
                   onClick={goToNext}
                   disabled={currentPage === totalPages}
-                  className="h-8 px-2 sm:px-3"
+                  className="h-8 px-2 sm:px-3 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-[#50B78B] transition-colors disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-inherit disabled:cursor-not-allowed cursor-pointer"
                 >
                   <span className="hidden sm:inline">Next</span>
                   <ChevronRight className="h-4 w-4" />

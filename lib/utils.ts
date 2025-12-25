@@ -1,6 +1,6 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { formatDistanceToNow } from "date-fns";
+import { formatDistanceToNowStrict } from "date-fns";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -39,7 +39,7 @@ export function getDateRange(period: "week" | "month" | "year"): {
  * @returns Human-readable time string (e.g., "2 hours ago")
  */
 export function formatTimeAgo(date: Date): string {
-  return formatDistanceToNow(date, { addSuffix: true });
+  return formatDistanceToNowStrict(date, { addSuffix: true });
 }
 
 /**

@@ -7,7 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";
 import { getConfig } from "@/lib/config";
 import Navbar from "@/components/navbar";
-
+import { Footer } from "@/components/footer";
 
 const figtree = Figtree({
   variable: "--font-figtree",
@@ -61,14 +61,7 @@ export default function RootLayout({
           <div className="min-h-screen flex flex-col">
             <Navbar config={config} />
             <main className="flex-1">{children}</main>
-            <footer className="border-t py-6 mt-12">
-              <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
-                <p>
-                  © {new Date().getFullYear()}{" "}
-                  {config.org.name}. All rights reserved.
-                </p>
-              </div>
-            </footer>
+            <Footer config={config} />
           </div>
         </ThemeProvider>
       </body>
