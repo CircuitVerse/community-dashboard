@@ -7,6 +7,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Home, Trophy, Users } from "lucide-react";
 import { useScrollDirection } from "@/lib/hooks/useScrollDirection";
+import { Button } from "./ui/button";
 
 interface NavbarProps {
   config: Config;
@@ -81,13 +82,15 @@ const Navbar = ({ config }: NavbarProps) => {
               href="https://github.com/CircuitVerse/community-dashboard"
               target="_blank"
             >
-              <Image
-                src="github.svg"
-                alt="GitHub"
-                width={20}
-                height={20}
-                className="dark:invert cursor-pointer hover:opacity-80 transition-opacity"
-              />
+              <Button variant={"outline"} size={"icon"}>
+                <Image
+                  src="github.svg"
+                  alt="GitHub"
+                  width={17}
+                  height={17}
+                  className="dark:invert cursor-pointer hover:opacity-80 transition-opacity"
+                />
+              </Button>
             </Link>
             <ThemeSelector />
           </div>
