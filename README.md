@@ -164,7 +164,7 @@ npx tsx scripts/generateLeaderboard.ts
 2. Create a feature branch: `git checkout -b feat/xyz`
 3. Commit with conventional messages
 4. Open a PR
-Please keep changes small and add context in PR description. For questions, Contact on slack.
+Please keep changes small and add context in PR description. For questions, Contant on slack.
 
 ##  Demo Site
-[https://cv-community-dashboard.netlify.app/](https://cv-community-dashboard.netlify.app/)
+https://circuitverse-leaderboard.vercel.app/

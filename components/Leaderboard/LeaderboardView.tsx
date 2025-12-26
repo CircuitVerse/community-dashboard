@@ -215,8 +215,7 @@ export default function LeaderboardView({
               </div>
 
               {/* Filters */}
-              <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
-
+              <div className="flex items-center gap-2">
                 {/* Search Bar */}
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -226,7 +225,7 @@ export default function LeaderboardView({
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="
-                      pl-9 h-9 w-full sm:w-64 bg-white dark:bg-[#07170f] border border-[#50B78B]/60 dark:border-[#50B78B]/40 text-foreground dark:text-foreground shadow-sm dark:shadow-none outline-none focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#50B78B] focus-visible:ring-offset-0 transition-colors
+                      pl-9 h-9 w-64 bg-white dark:bg-[#07170f] border border-[#50B78B]/60 dark:border-[#50B78B]/40 text-foreground dark:text-foreground shadow-sm dark:shadow-none outline-none focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#50B78B] focus-visible:ring-offset-0 transition-colors
                     "
                   />
                 </div>
@@ -340,8 +339,7 @@ export default function LeaderboardView({
                     )}
                   >
                     <CardContent>
-                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
-
+                      <div className="flex items-center gap-6">
                         {/* Rank */}
                         <div className="flex items-center justify-center size-12 shrink-0">
                           {getRankIcon(rank) || (
@@ -415,7 +413,6 @@ export default function LeaderboardView({
 
                         {/* Total Points with Trend Chart */}
                         <div className="flex items-center gap-4 shrink-0">
-                          <div className="hidden sm:block">
                           {/* Activity Trend Chart */}
                           {entry.daily_activity &&
                             entry.daily_activity.length > 0 && (
@@ -425,7 +422,7 @@ export default function LeaderboardView({
                                 endDate={endDate}
                                 mode="points"
                               />
-                            )}</div>
+                            )}
                           <div className="text-right">
                             <div className="text-3xl font-bold text-[#50B78B]">
                               {entry.total_points}
@@ -514,4 +511,4 @@ export default function LeaderboardView({
       </div>
     </div>
   );
-}  
+}

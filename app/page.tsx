@@ -4,11 +4,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  Avatar,
+  AvatarImage,
+  AvatarFallback,
+} from "@/components/ui/avatar";
 import RelativeTime from "@/components/RelativeTime";
 import { ActivityTypes } from "@/components/Leaderboard/stats-card/activity-types";
 import { ActivityLineCard } from "@/components/Leaderboard/stats-card/activity-line-card";
 import ActiveContributors from "@/components/Leaderboard/stats-card/active-contributors";
-import { PaginatedActivitySection } from "@/components/PaginatedActivitySection";
 
 import {
   ActivityGroup,
@@ -17,7 +21,7 @@ import {
 
 import Link from "next/link";
 import { getConfig } from "@/lib/config";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Sparkles } from "lucide-react";
 
 export default async function Home() {
   const config = getConfig();
@@ -86,11 +90,88 @@ export default async function Home() {
           ) : (
             <div className="space-y-8">
               {week.map((group) => (
-                <PaginatedActivitySection
-                  key={group.activity_definition}
-                  group={group}
-                  itemsPerPage={10}
-                />
+                <div key={group.activity_definition} className="space-y-3 select-none">
+                  <div className="flex items-center justify-between px-1">
+                    <div className="flex items-center gap-2">
+                      <span className="h-2 w-2 rounded-full bg-[#50B78B]" />
+                      <h3 className="text-xs uppercase tracking-wider text-zinc-500">
+                        {group.activity_name}
+                      </h3>
+                    </div>
+                    <span className="text-xs font-mono text-zinc-400">
+                      {group.activities.length} / WEEK
+                    </span>
+                  </div>
+
+                  <div className="rounded-2xl border bg-white dark:bg-zinc-900 overflow-hidden">
+                    <div className="divide-y">
+                      {group.activities.slice(0, 10).map((activity) => (
+                        <div
+                          key={activity.slug}
+                          className="group relative flex items-center gap-3 sm:gap-4 p-3 sm:p-4 hover:bg-zinc-50 dark:hover:bg-white/5 transition"
+                        >
+                          <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#50B78B] opacity-0 group-hover:opacity-100 transition" />
+
+                          <Avatar className="h-9 w-9 sm:h-10 sm:w-10 shrink-0">
+                            <AvatarImage
+                              src={activity.contributor_avatar_url ?? undefined}
+                            />
+                            <AvatarFallback>
+                              {(activity.contributor_name ??
+                                activity.contributor)
+                                .slice(0, 2)
+                                .toUpperCase()}
+                            </AvatarFallback>
+                          </Avatar>
+
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between gap-2">
+                              <p className="truncate text-sm font-medium">
+                                {activity.title ?? "Untitled Activity"}
+                              </p>
+
+                              <Link
+                                href={activity.link ?? "#"}
+                                target="_blank"
+                                className="opacity-0 group-hover:opacity-100 transition-opacity text-zinc-400 hover:text-[#50B78B] p-1"
+                              >
+                                <ArrowUpRight className="h-4 w-4" />
+                              </Link>
+                            </div>
+
+                            <div className="flex items-center gap-2 mt-0.5 text-xs text-zinc-500">
+                              <span>
+                                by{" "}
+                                <span className="text-zinc-700 dark:text-zinc-300">
+                                  {activity.contributor_name ??
+                                    activity.contributor}
+                                </span>
+                              </span>
+                              <span>•</span>
+                              <RelativeTime
+                                date={new Date(
+                                  activity.occured_at ??
+                                    activity.closed_at
+                                )}
+                              />
+                            </div>
+                          </div>
+
+                          {(activity.points ?? 0) > 0 && (
+                            <div className="flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold bg-zinc-100 dark:bg-zinc-800">
+                              <Sparkles className="h-3 w-3 text-[#50B78B]" />
+                              {activity.points}
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="bg-zinc-50 dark:bg-white/5 px-4 py-2 text-[10px] text-center text-zinc-400 uppercase tracking-widest">
+                      Activity Stream
+                    </div>
+                  </div>
+                </div>
               ))}
             </div>
           )}

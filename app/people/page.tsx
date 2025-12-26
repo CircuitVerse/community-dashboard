@@ -5,19 +5,9 @@ import type { Metadata } from "next";
 
 async function fetchPeople() {
   const base = process.env.NEXT_PUBLIC_BASE_URL ?? "";
-  const apiUrl = base ? `${base}/api/people` : "/api/people";
-  
-  try {
-    const res = await fetch(apiUrl, { cache: "no-store" });
-    if (!res.ok) {
-      console.warn(`Failed to fetch people: ${res.status} ${res.statusText}`);
-      return { updatedAt: 0, people: [] as any[] };
-    }
-    return res.json() as Promise<{ updatedAt: number; people: any[] }>;
-  } catch (error) {
-    console.error("Error fetching people:", error);
-    return { updatedAt: 0, people: [] as any[] };
-  }
+  const res = await fetch(`${base}/api/people`, { cache: "no-store" });
+  if (!res.ok) return { updatedAt: Date.now(), people: [] as any[] };
+  return res.json() as Promise<{ updatedAt: number; people: any[] }>;
 }
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -48,7 +38,7 @@ export default async function PeoplePage() {
           Meet the {people.length} amazing contributors who make {config.org.name} possible
         </p>
         <p className="text-xs text-muted-foreground mt-2">
-          {updatedAt > 0 && `Updated: ${new Date(updatedAt).toLocaleString()}`}
+          Updated: {new Date(updatedAt).toLocaleString()}
         </p>
       </div>
 
