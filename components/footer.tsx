@@ -63,7 +63,7 @@ export const Footer = async ({ config }: FooterProps) => {
                   aria-label="Facebook"
                 >
                   <Image
-                    src="facebook.svg"
+                    src="/facebook.svg"
                     alt="Facebook"
                     width={20}
                     height={20}
@@ -79,7 +79,7 @@ export const Footer = async ({ config }: FooterProps) => {
                   aria-label="YouTube"
                 >
                   <Image
-                    src="youtube.svg"
+                    src="/youtube.svg"
                     alt="YouTube"
                     width={20}
                     height={20}
@@ -95,7 +95,7 @@ export const Footer = async ({ config }: FooterProps) => {
                   aria-label="Twitter"
                 >
                   <Image
-                    src="twitter.svg"
+                    src="/twitter.svg"
                     alt="Twitter"
                     width={20}
                     height={20}
@@ -112,7 +112,7 @@ export const Footer = async ({ config }: FooterProps) => {
                   aria-label="LinkedIn"
                 >
                   <Image
-                    src="linkedIn.svg"
+                    src="/linkedIn.svg"
                     alt="LinkedIn"
                     width={20}
                     height={20}
@@ -128,7 +128,7 @@ export const Footer = async ({ config }: FooterProps) => {
                   aria-label="GitHub"
                 >
                   <Image
-                    src="github.svg"
+                    src="/github.svg"
                     alt="GitHub"
                     width={20}
                     height={20}
@@ -144,7 +144,7 @@ export const Footer = async ({ config }: FooterProps) => {
                   aria-label="Email"
                 >
                   <Image
-                    src="gmail.svg"
+                    src="/gmail.svg"
                     alt="Email"
                     width={20}
                     height={20}
