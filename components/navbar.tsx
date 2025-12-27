@@ -39,7 +39,7 @@ const Navbar = ({ config }: NavbarProps) => {
         <div className="relative mx-auto px-4 h-16 flex items-center justify-between">
           {/* Logo */}
           <Link
-            href="/"
+            href="https://circuitverse.org/"
             className="flex items-center gap-3"
           >
             <Image
