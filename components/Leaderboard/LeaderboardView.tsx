@@ -9,9 +9,9 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import Link from "next/link";
-import { Medal, Trophy, Filter, X } from "lucide-react";
+import { Medal, Trophy, Filter, X, ArrowDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useCallback } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import ActivityTrendChart from "../../components/Leaderboard/ActivityTrendChart";
 import { Input } from "@/components/ui/input";
@@ -22,9 +22,7 @@ export type LeaderboardEntry = {
   name: string | null;
   avatar_url: string | null;
   role?: string | null;
-
   total_points: number;
-
   activity_breakdown: Record<
     string,
     {
@@ -32,7 +30,6 @@ export type LeaderboardEntry = {
       points: number;
     }
   >;
-
   daily_activity?: Array<{
     date: string; // ISO string
     points: number;
@@ -72,8 +69,25 @@ export default function LeaderboardView({
   // Search query state
   const [searchQuery, setSearchQuery] = useState("");
 
+  // Sort configuration - aligned with actual activity_breakdown keys
+  const sortOptions = useMemo(
+    () => [
+      { key: "total_points", label: "Total Points" },
+      { key: "PR opened", label: "PRs Opened" },
+      { key: "PR merged", label: "PRs Merged" },
+      { key: "Issue opened", label: "Issues Opened" },
+    ] as const,
+    []
+  );
+
+  // Get active sort from query params, default to total_points
+  const activeSortKey = useMemo(() => {
+    const sortParam = searchParams.get("sort");
+    return (sortOptions.find((opt) => opt.key === sortParam)?.key ||
+      "total_points") as typeof sortOptions[number]["key"];
+  }, [searchParams, sortOptions]);
+
   // Get selected roles from query params
-  // If no roles are selected, default to all visible roles (excluding hidden ones)
   const selectedRoles = useMemo(() => {
     const rolesParam = searchParams.get("roles");
     if (rolesParam) {
@@ -100,18 +114,31 @@ export default function LeaderboardView({
     return Array.from(roles).sort();
   }, [entries]);
 
-  // Filter entries by selected roles and search query
-  const filteredEntries = useMemo(() => {
-    let filtered = entries;
+  // Sort comparator function - aligned with actual activity_breakdown keys
+  const getSortValue = useCallback((entry: LeaderboardEntry, sortKey: string): number => {
+    if (sortKey === "total_points") {
+      return entry.total_points;
+    }
 
-    // Filter by roles
-    if (selectedRoles.size > 0) {
+    // Direct lookup in activity_breakdown using exact keys from data structure
+    const activityData = entry.activity_breakdown[sortKey];
+    return activityData?.count ?? 0;
+  }, []);
+
+  // Filter and sort entries - correct processing order
+  const processedEntries = useMemo(() => {
+    let filtered = [...entries]; // Create copy to avoid mutating props
+
+    // 1. Filter by roles first (exclude hidden roles if no selection)
+    if (selectedRoles.size === 0) {
+      filtered = filtered.filter((entry) => !entry.role || !hiddenRoles.includes(entry.role));
+    } else {
       filtered = filtered.filter(
         (entry) => entry.role && selectedRoles.has(entry.role)
       );
     }
 
-    // Filter by search query
+    // 2. Filter by search query
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
       filtered = filtered.filter((entry) => {
@@ -121,8 +148,37 @@ export default function LeaderboardView({
       });
     }
 
+    // 3. Sort by active sort key (descending) - LAST step
+    filtered.sort((a, b) => {
+      const aValue = getSortValue(a, activeSortKey);
+      const bValue = getSortValue(b, activeSortKey);
+      return bValue - aValue; // Descending order
+    });
+
     return filtered;
-  }, [entries, selectedRoles, searchQuery]);
+  }, [entries, selectedRoles, searchQuery, activeSortKey, hiddenRoles, getSortValue]);
+
+  // Filter top contributors by selected roles
+  const filteredTopByActivity = useMemo(() => {
+    if (selectedRoles.size === 0) {
+      return topByActivity;
+    }
+
+    const filtered: typeof topByActivity = {};
+
+    for (const [activityName, contributors] of Object.entries(topByActivity)) {
+      const filteredContributors = contributors.filter((contributor) => {
+        const entry = entries.find((e) => e.username === contributor.username);
+        return entry?.role && selectedRoles.has(entry.role);
+      });
+
+      if (filteredContributors.length > 0) {
+        filtered[activityName] = filteredContributors;
+      }
+    }
+
+    return filtered;
+  }, [topByActivity, selectedRoles, entries]);
 
   const toggleRole = (role: string) => {
     const newSelected = new Set(selectedRoles);
@@ -134,9 +190,21 @@ export default function LeaderboardView({
     updateRolesParam(newSelected);
   };
 
+  const setSort = (sortKey: typeof sortOptions[number]["key"]) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (sortKey !== "total_points") {
+      params.set("sort", sortKey);
+    } else {
+      params.delete("sort");
+    }
+    router.push(`?${params.toString()}`, { scroll: false });
+  };
+
   const clearFilters = () => {
     const params = new URLSearchParams(searchParams.toString());
     params.delete("roles");
+    params.delete("sort");
+    // Note: search is local state only, no URL param needed
     router.push(`?${params.toString()}`, { scroll: false });
     setSearchQuery("");
   };
@@ -150,29 +218,6 @@ export default function LeaderboardView({
     }
     router.push(`?${params.toString()}`, { scroll: false });
   };
-
-  // Filter top contributors by selected roles
-  const filteredTopByActivity = useMemo(() => {
-    if (selectedRoles.size === 0) {
-      return topByActivity;
-    }
-
-    const filtered: typeof topByActivity = {};
-
-    for (const [activityName, contributors] of Object.entries(topByActivity)) {
-      const filteredContributors = contributors.filter((contributor) => {
-        // Find the contributor in entries to get their role
-        const entry = entries.find((e) => e.username === contributor.username);
-        return entry?.role && selectedRoles.has(entry.role);
-      });
-
-      if (filteredContributors.length > 0) {
-        filtered[activityName] = filteredContributors;
-      }
-    }
-
-    return filtered;
-  }, [topByActivity, selectedRoles, entries]);
 
   const getRankIcon = (rank: number) => {
     if (rank === 1)
@@ -194,7 +239,14 @@ export default function LeaderboardView({
     week: "Weekly",
     month: "Monthly",
     year: "Yearly",
-  };
+  } as const;
+
+  // Check if any filter/sort is active
+  const hasActiveFilters = useMemo(() => {
+    return selectedRoles.size > 0 ||
+      searchQuery.trim() !== "" ||
+      activeSortKey !== "total_points";
+  }, [selectedRoles, searchQuery, activeSortKey]);
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -209,14 +261,13 @@ export default function LeaderboardView({
                   {periodLabels[period]} Leaderboard
                 </h1>
                 <p className="text-muted-foreground">
-                  {filteredEntries.length} of {entries.length} contributors
-                  {(selectedRoles.size > 0 || searchQuery) && " (filtered)"}
+                  {processedEntries.length} of {entries.length} contributors
+                  {hasActiveFilters && " (filtered)"}
                 </p>
               </div>
 
               {/* Filters */}
               <div className="flex flex-col gap-2 w-full sm:w-auto sm:flex-row sm:items-center sm:justify-end">
-
                 {/* Search Bar */}
                 <div className="relative w-full sm:w-auto sm:min-w-[16rem]">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -231,95 +282,122 @@ export default function LeaderboardView({
                   />
                 </div>
 
+
+
                 {/* Role Filter */}
                 {availableRoles.length > 0 && (
-                  <>
-                    <div className="flex flex-row items-center gap-2 w-full sm:w-auto sm:flex-row sm:items-center sm:gap-2 justify-between sm:justify-start">
-                      {(selectedRoles.size > 0 || searchQuery) && (
+                  <div className="flex flex-row items-center gap-2 w-full sm:w-auto sm:flex-row sm:items-center sm:gap-2 justify-between sm:justify-start">
+                    {hasActiveFilters && (
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={clearFilters}
+                        className="h-9 shrink-0 hover:bg-[#50B78B]/20 dark:hover:bg-[#50B78B]/20 focus:border-[#50B78B] focus-visible:ring-2 focus-visible:ring-[#50B78B]/40 outline-none order-2 sm:order-1"
+                      >
+                        <X className="h-4 w-4 mr-1" />
+                        Clear
+                      </Button>
+                    )}
+                    <Popover>
+                      <PopoverTrigger asChild>
                         <Button
-                          variant="ghost"
+                          variant="outline"
                           size="sm"
-                          onClick={clearFilters}
-                          className="h-9 shrink-0 hover:bg-[#50B78B]/20 dark:hover:bg-[#50B78B]/20 focus:border-[#50B78B] focus-visible:ring-2 focus-visible:ring-[#50B78B]/40 outline-none order-2 sm:order-1"
+                          className="h-9 w-[min(11rem,calc(100%-6rem))] px-1 has-[>svg]:px-1 sm:w-auto sm:px-3 sm:has-[>svg]:px-2.5 border border-[#50B78B]/30 dark:border-[#50B78B]/30 hover:bg-[#50B78B]/20 dark:hover:bg-[#50B78B]/20 focus:border-[#50B78B] focus-visible:ring-2 focus-visible:ring-[#50B78B]/40 outline-none min-w-0 order-1 sm:order-2"
                         >
-                          <X className="h-4 w-4 mr-1" />
-                          Clear
+                          <Filter className="h-4 w-4 mr-1.5 sm:mr-2" />
+                          Role
+                          {selectedRoles.size > 0 && (
+                            <span className="ml-0.5 sm:ml-1 px-1.5 py-0.5 text-xs rounded-full bg-[#50B78B] text-white">
+                              {selectedRoles.size}
+                            </span>
+                          )}
                         </Button>
-                      )}
-                      <Popover>
-                        <PopoverTrigger asChild>
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            className="h-9 w-[min(11rem,calc(100%-6rem))] px-1 has-[>svg]:px-1 sm:w-auto sm:px-3 sm:has-[>svg]:px-2.5 border border-[#50B78B]/30 dark:border-[#50B78B]/30 hover:bg-[#50B78B]/20 dark:hover:bg-[#50B78B]/20 focus:border-[#50B78B] focus-visible:ring-2 focus-visible:ring-[#50B78B]/40 outline-none min-w-0 order-1 sm:order-2"
-                          >
-                            <Filter className="h-4 w-4 mr-1.5 sm:mr-2" />
-                            Role
-                            {selectedRoles.size > 0 && (
-                              <span className="ml-0.5 sm:ml-1 px-1.5 py-0.5 text-xs rounded-full bg-[#50B78B] text-white">
-                                {selectedRoles.size}
-                              </span>
-                            )}
-                          </Button>
-                        </PopoverTrigger>
-                        <PopoverContent
-                          className="w-64 max-w-[calc(100vw-2rem)] bg-white dark:bg-[#07170f]"
-                          align="end"
-                        >
-                          <div className="space-y-4">
-                            <h4 className="font-medium text-sm">
-                              Filter by Role
-                            </h4>
-                            <div className="space-y-2 max-h-64 overflow-y-auto">
-                              {availableRoles.map((role) => (
-                                <div
-                                  key={role}
-                                  className="flex items-center space-x-2"
+                      </PopoverTrigger>
+                      <PopoverContent
+                        className="w-64 max-w-[calc(100vw-2rem)] bg-white dark:bg-[#07170f]"
+                        align="end"
+                      >
+                        <div className="space-y-4">
+                          <h4 className="font-medium text-sm">
+                            Filter by Role
+                          </h4>
+                          <div className="space-y-2 max-h-64 overflow-y-auto">
+                            {availableRoles.map((role) => (
+                              <div
+                                key={role}
+                                className="flex items-center space-x-2"
+                              >
+                                <Checkbox
+                                  id={role}
+                                  checked={selectedRoles.has(role)}
+                                  onCheckedChange={() => toggleRole(role)}
+                                />
+                                <label
+                                  htmlFor={role}
+                                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
                                 >
-                                  <Checkbox
-                                    id={role}
-                                    checked={selectedRoles.has(role)}
-                                    onCheckedChange={() => toggleRole(role)}
-                                  />
-                                  <label
-                                    htmlFor={role}
-                                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
-                                  >
-                                    {role}
-                                  </label>
-                                </div>
-                              ))}
-                            </div>
+                                  {role}
+                                </label>
+                              </div>
+                            ))}
                           </div>
-                        </PopoverContent>
-                      </Popover>
-                    </div>
-                  </>
+                        </div>
+                      </PopoverContent>
+                    </Popover>
+                  </div>
                 )}
               </div>
             </div>
           </div>
 
           {/* Period Selector */}
-          <div className="flex gap-2 mb-8 border-b">
-            {(["week", "month", "year"] as const).map((p) => (
-              <Link
-                key={p}
-                href={`/leaderboard/${p}`}
-                className={cn(
-                  "px-4 py-2 font-medium transition-colors border-b-2 relative outline-none focus-visible:ring-2 focus-visible:ring-[#50B78B]/60 rounded-sm",
-                  period === p
-                    ? "border-[#50B78B] text-[#50B78B] bg-linear-to-t from-[#50B78B]/12 to-transparent dark:from-[#50B78B]/12"
-                    : "border-transparent text-muted-foreground hover:text-[#50B78B]"
-                )}
-              >
-                {periodLabels[p]}
-              </Link>
-            ))}
+          <div className="flex justify-between">
+
+            <div className="flex gap-2 mb-8 border-b">
+              {(["week", "month", "year"] as const).map((p) => (
+                <Link
+                  key={p}
+                  href={`/leaderboard/${p}`}
+                  className={cn(
+                    "px-4 py-2 font-medium transition-colors border-b-2 relative outline-none focus-visible:ring-2 focus-visible:ring-[#50B78B]/60 rounded-sm",
+                    period === p
+                      ? "border-[#50B78B] text-[#50B78B] bg-gradient-to-t from-[#50B78B]/12 to-transparent dark:from-[#50B78B]/12"
+                      : "border-transparent text-muted-foreground hover:text-[#50B78B]"
+                  )}
+                >
+                  {periodLabels[p]}
+                </Link>
+              ))}
+
+            </div>
+            {/* Sort Pills */}
+          <div className="inline-flex items-center rounded-full bg-black/40 p-1 gap-1">
+  {sortOptions.map((option, idx) => {
+    const isActive = activeSortKey === option.key;
+    return (
+      <button
+        key={option.key}
+        type="button"
+        onClick={() => setSort(option.key)}
+        className={cn(
+          "relative px-4 py-1.5 text-sm font-medium rounded-full transition-colors duration-200",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-black focus-visible:ring-[#285343]",
+          isActive
+            ? "bg-[#285343] text-white shadow-sm" // dark desaturated green like your tab
+            : "bg-transparent text-slate-200 hover:bg-white/5"
+        )}
+      >
+        {option.label}
+      </button>
+    );
+  })}
+</div>
+
           </div>
 
           {/* Leaderboard */}
-          {filteredEntries.length === 0 ? (
+          {processedEntries.length === 0 ? (
             <Card>
               <CardContent className="py-12 text-center text-muted-foreground">
                 {entries.length === 0
@@ -329,7 +407,7 @@ export default function LeaderboardView({
             </Card>
           ) : (
             <div className="space-y-4">
-              {filteredEntries.map((entry, index) => {
+              {processedEntries.map((entry, index) => {
                 const rank = index + 1;
                 const isTopThree = rank <= 3;
 
@@ -342,8 +420,7 @@ export default function LeaderboardView({
                     )}
                   >
                     <CardContent>
-                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
-
+                      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
                         {/* Rank */}
                         <div className="flex items-center justify-center size-12 shrink-0">
                           {getRankIcon(rank) || (
@@ -418,16 +495,16 @@ export default function LeaderboardView({
                         {/* Total Points with Trend Chart */}
                         <div className="flex items-center gap-4 shrink-0">
                           <div className="hidden sm:block">
-                          {/* Activity Trend Chart */}
-                          {entry.daily_activity &&
-                            entry.daily_activity.length > 0 && (
-                              <ActivityTrendChart
-                                dailyActivity={entry.daily_activity}
-                                startDate={startDate}
-                                endDate={endDate}
-                                mode="points"
-                              />
-                            )}</div>
+                            {entry.daily_activity &&
+                              entry.daily_activity.length > 0 && (
+                                <ActivityTrendChart
+                                  dailyActivity={entry.daily_activity}
+                                  startDate={startDate}
+                                  endDate={endDate}
+                                  mode="points"
+                                />
+                              )}
+                          </div>
                           <div className="text-right">
                             <div className="text-3xl font-bold text-[#50B78B]">
                               {entry.total_points}
@@ -516,4 +593,4 @@ export default function LeaderboardView({
       </div>
     </div>
   );
-}  
+}
