@@ -11,7 +11,7 @@ import {
 import Link from "next/link";
 import { Medal, Trophy, Filter, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useCallback } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import ActivityTrendChart from "../../components/Leaderboard/ActivityTrendChart";
 import { Input } from "@/components/ui/input";
@@ -71,6 +71,7 @@ export default function LeaderboardView({
 
   // Search query state
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedActivity, setSelectedActivity] = useState('total_points'); // Default to total_points
 
   // Get selected roles from query params
   // If no roles are selected, default to all visible roles (excluding hidden ones)
@@ -100,29 +101,75 @@ export default function LeaderboardView({
     return Array.from(roles).sort();
   }, [entries]);
 
-  // Filter entries by selected roles and search query
+  // ✅ DYNAMIC sortOptions from actual activity_breakdown keys
+  const sortOptions = useMemo(() => {
+    const allActivities = new Set<string>();
+    entries.forEach(entry => {
+      Object.keys(entry.activity_breakdown).forEach(key => {
+        allActivities.add(key);
+      });
+    });
+    
+    return [
+      { key: "total_points", label: "Total Points" },
+      ...Array.from(allActivities)
+        .sort()
+        .slice(0, 6) // Limit to top 6 activities
+        .map(key => ({
+          key,
+          label: key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1')
+        }))
+    ];
+  }, [entries]);
+
+  const toggleActivity = useCallback((key: string) => {
+    setSelectedActivity(key);
+  }, []);
+
+  // ✅ COMPLETE FILTER + SORT LOGIC (Filter first, then sort descending)
   const filteredEntries = useMemo(() => {
-    let filtered = entries;
+    // Step 1: Filter entries
+    const filtered = entries.filter(entry => {
+      // Role filter
+      if (selectedRoles.size > 0 && (!entry.role || !selectedRoles.has(entry.role))) {
+        return false;
+      }
 
-    // Filter by roles
-    if (selectedRoles.size > 0) {
-      filtered = filtered.filter(
-        (entry) => entry.role && selectedRoles.has(entry.role)
-      );
-    }
+      // Activity filter
+      if (selectedActivity !== 'total_points') {
+        const activityData = entry.activity_breakdown[selectedActivity];
+        if (!activityData || (activityData.count === 0 && activityData.points === 0)) {
+          return false;
+        }
+      }
 
-    // Filter by search query
-    if (searchQuery.trim()) {
-      const query = searchQuery.toLowerCase();
-      filtered = filtered.filter((entry) => {
+      // Search filter
+      if (searchQuery.trim()) {
+        const query = searchQuery.toLowerCase();
         const name = (entry.name || entry.username).toLowerCase();
         const username = entry.username.toLowerCase();
-        return name.includes(query) || username.includes(query);
+        if (!name.includes(query) && !username.includes(query)) {
+          return false;
+        }
+      }
+
+      return true;
+    });
+
+    // Step 2: Sort by selected activity DESCENDING
+    if (selectedActivity === 'total_points') {
+      return filtered.sort((a, b) => b.total_points - a.total_points);
+    } else {
+      return filtered.sort((a, b) => {
+        const aData = a.activity_breakdown[selectedActivity];
+        const bData = b.activity_breakdown[selectedActivity];
+        // Prioritize points, then count (weighted)
+        const aValue = (aData?.points || 0) * 2 + (aData?.count || 0);
+        const bValue = (bData?.points || 0) * 2 + (bData?.count || 0);
+        return bValue - aValue; // DESCENDING order
       });
     }
-
-    return filtered;
-  }, [entries, selectedRoles, searchQuery]);
+  }, [entries, selectedRoles, selectedActivity, searchQuery]);
 
   const toggleRole = (role: string) => {
     const newSelected = new Set(selectedRoles);
@@ -139,6 +186,7 @@ export default function LeaderboardView({
     params.delete("roles");
     router.push(`?${params.toString()}`, { scroll: false });
     setSearchQuery("");
+    setSelectedActivity('total_points'); // Reset activity filter
   };
 
   const updateRolesParam = (roles: Set<string>) => {
@@ -196,6 +244,10 @@ export default function LeaderboardView({
     year: "Yearly",
   };
 
+  // Filter badge logic
+  const hasActiveFilters = selectedRoles.size > 0 || searchQuery.trim() || selectedActivity !== 'total_points';
+  const filterCount = (selectedRoles.size > 0 ? selectedRoles.size : 0) + (selectedActivity !== 'total_points' ? 1 : 0);
+
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex gap-8">
@@ -210,7 +262,12 @@ export default function LeaderboardView({
                 </h1>
                 <p className="text-muted-foreground">
                   {filteredEntries.length} of {entries.length} contributors
-                  {(selectedRoles.size > 0 || searchQuery) && " (filtered)"}
+                  {hasActiveFilters && " (filtered)"}
+                  {selectedActivity !== 'total_points' && (
+                    <span className="ml-2 px-2 py-0.5 text-xs bg-[#50B78B]/20 rounded-full font-medium">
+                      Sorted by {sortOptions.find(opt => opt.key === selectedActivity)?.label}
+                    </span>
+                  )}
                 </p>
               </div>
 
@@ -235,7 +292,7 @@ export default function LeaderboardView({
                 {availableRoles.length > 0 && (
                   <>
                     <div className="flex flex-row items-center gap-2 w-full sm:w-auto sm:flex-row sm:items-center sm:gap-2 justify-between sm:justify-start">
-                      {(selectedRoles.size > 0 || searchQuery) && (
+                      {hasActiveFilters && (
                         <Button
                           variant="ghost"
                           size="sm"
@@ -254,44 +311,80 @@ export default function LeaderboardView({
                             className="h-9 w-[min(11rem,calc(100%-6rem))] px-1 has-[>svg]:px-1 sm:w-auto sm:px-3 sm:has-[>svg]:px-2.5 border border-[#50B78B]/30 dark:border-[#50B78B]/30 hover:bg-[#50B78B]/20 dark:hover:bg-[#50B78B]/20 focus:border-[#50B78B] focus-visible:ring-2 focus-visible:ring-[#50B78B]/40 outline-none min-w-0 order-1 sm:order-2"
                           >
                             <Filter className="h-4 w-4 mr-1.5 sm:mr-2" />
-                            Role
-                            {selectedRoles.size > 0 && (
+                            Filter
+                            {hasActiveFilters && (
                               <span className="ml-0.5 sm:ml-1 px-1.5 py-0.5 text-xs rounded-full bg-[#50B78B] text-white">
-                                {selectedRoles.size}
+                                {filterCount}
                               </span>
                             )}
                           </Button>
                         </PopoverTrigger>
-                        <PopoverContent
-                          className="w-64 max-w-[calc(100vw-2rem)] bg-white dark:bg-[#07170f]"
-                          align="end"
-                        >
-                          <div className="space-y-4">
-                            <h4 className="font-medium text-sm">
-                              Filter by Role
-                            </h4>
-                            <div className="space-y-2 max-h-64 overflow-y-auto">
-                              {availableRoles.map((role) => (
-                                <div
-                                  key={role}
-                                  className="flex items-center space-x-2"
-                                >
-                                  <Checkbox
-                                    id={role}
-                                    checked={selectedRoles.has(role)}
-                                    onCheckedChange={() => toggleRole(role)}
-                                  />
-                                  <label
-                                    htmlFor={role}
-                                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
-                                  >
-                                    {role}
-                                  </label>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        </PopoverContent>
+                       <PopoverContent 
+  className="w-80 max-w-[calc(100vw-2rem)] bg-white dark:bg-[#07170f] p-4"
+  align="end"
+>
+  {/* ✅ Role Filter Section */}
+  <div className="space-y-3">
+    <h4 className="font-medium text-sm text-foreground tracking-tight">
+      Filter by Role
+    </h4>
+    <div className="space-y-2">
+      {availableRoles.map((role) => (
+        <div
+          key={role}
+          className="flex items-center space-x-2 p-1 rounded-md hover:bg-accent/50 cursor-pointer group"
+        >
+          <Checkbox
+            id={role}
+            checked={selectedRoles.has(role)}
+            onCheckedChange={() => toggleRole(role)}
+          />
+          <label
+            htmlFor={role}
+            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer group-hover:text-foreground"
+          >
+            {role}
+          </label>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {/* Divider */}
+  <div className="w-full h-px bg-border my-3" />
+
+  {/* ✅ Activity Sort Section - FIXED RADIO BUTTONS */}
+  <div className="space-y-3">
+    <h4 className="font-medium text-sm text-foreground tracking-tight">
+      Sort by Activity
+    </h4>
+    <div className="space-y-2">
+      {sortOptions.map((activity) => (
+        <div
+          key={activity.key}
+          className="flex items-center space-x-2 p-1 rounded-md hover:bg-accent/50 cursor-pointer group"
+        >
+          <input
+            type="radio"  // ✅ FIXED: radio instead of Checkbox
+            id={activity.key}
+            name="activityFilter"
+            value={activity.key}
+            checked={selectedActivity === activity.key}
+            onChange={() => toggleActivity(activity.key)}
+            className="w-4 h-4 text-[#50B78B] bg-background border-input focus:ring-[#50B78B] focus:ring-2 cursor-pointer rounded-full appearance-none border-2 checked:bg-[#50B78B] checked:border-[#50B78B] hover:border-[#50B78B]/70 transition-all duration-200"
+          />
+          <label
+            htmlFor={activity.key}
+            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer group-hover:text-foreground"
+          >
+            {activity.label}
+          </label>
+        </div>
+      ))}
+    </div>
+  </div>
+</PopoverContent>
+
                       </Popover>
                     </div>
                   </>
@@ -342,7 +435,7 @@ export default function LeaderboardView({
                     )}
                   >
                     <CardContent>
-                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+                      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
 
                         {/* Rank */}
                         <div className="flex items-center justify-center size-12 shrink-0">
@@ -418,16 +511,17 @@ export default function LeaderboardView({
                         {/* Total Points with Trend Chart */}
                         <div className="flex items-center gap-4 shrink-0">
                           <div className="hidden sm:block">
-                          {/* Activity Trend Chart */}
-                          {entry.daily_activity &&
-                            entry.daily_activity.length > 0 && (
-                              <ActivityTrendChart
-                                dailyActivity={entry.daily_activity}
-                                startDate={startDate}
-                                endDate={endDate}
-                                mode="points"
-                              />
-                            )}</div>
+                            {/* Activity Trend Chart */}
+                            {entry.daily_activity &&
+                              entry.daily_activity.length > 0 && (
+                                <ActivityTrendChart
+                                  dailyActivity={entry.daily_activity}
+                                  startDate={startDate}
+                                  endDate={endDate}
+                                  mode="points"
+                                />
+                              )}
+                          </div>
                           <div className="text-right">
                             <div className="text-3xl font-bold text-[#50B78B]">
                               {entry.total_points}
@@ -516,4 +610,4 @@ export default function LeaderboardView({
       </div>
     </div>
   );
-}  
+}
