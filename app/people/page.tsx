@@ -45,7 +45,7 @@ export default async function PeoplePage() {
       <div className="mb-12 text-center">
         <h1 className="text-4xl font-bold mb-2">Our People.</h1>
         <p className="text-lg text-muted-foreground">
-          Meet the {people.length} amazing contributors who make {config.org.name} possible
+          Meet the {people.length} amazing contributors who make {config.org.name} possible.
         </p>
         <p className="text-xs text-muted-foreground mt-2">
           {updatedAt > 0 && `Updated: ${new Date(updatedAt).toLocaleString()}`}
