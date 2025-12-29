@@ -262,8 +262,6 @@ async function generateYear() {
   console.log(`✅ Generated year.json (${entries.length} contributors)`);
 
   derivePeriod(yearData, 7, "week");
-  derivePeriod(yearData, 14, "2week");
-  derivePeriod(yearData, 21, "3week");
   derivePeriod(yearData, 30, "month");
   derivePeriod(yearData, 60, "2month");
 

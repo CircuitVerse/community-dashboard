@@ -12,6 +12,8 @@ import { PaginatedActivitySection } from "@/components/PaginatedActivitySection"
 
 import {
   ActivityGroup,
+  getMonthlyActivityBuckets,
+  getPreviousMonthActivityCount,
   getRecentActivitiesGroupedByType,
 } from "@/lib/db";
 
@@ -26,15 +28,11 @@ export default async function Home() {
     groups.reduce((sum, g) => sum + g.activities.length, 0);
 
   const week = await getRecentActivitiesGroupedByType("week");
-  const week2 = await getRecentActivitiesGroupedByType("2week");
-  const week3 = await getRecentActivitiesGroupedByType("3week");
   const month = await getRecentActivitiesGroupedByType("month");
-  const month2 = await getRecentActivitiesGroupedByType("2month");
 
-  const w1 = totalCount(week);
-  const w2 = totalCount(week2) - w1;
-  const w3 = totalCount(week3) - totalCount(week2);
-  const w4 = totalCount(month) - totalCount(week3);
+  const previousMonthCount = await getPreviousMonthActivityCount();
+  const bucketData = await getMonthlyActivityBuckets();
+  console.log(bucketData, previousMonthCount);
 
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-black transition-colors">
@@ -52,11 +50,11 @@ export default async function Home() {
         <section className="grid gap-6 select-none sm:grid-cols-2 lg:grid-cols-3">
           <ActivityLineCard
             totalActivitiesLabel={totalCount(month)}
-            prev_month={totalCount(month2)}
-            week1={w1}
-            week2={w2}
-            week3={w3}
-            week4={w4}
+            prev_month={previousMonthCount}
+            week1={bucketData.w1}
+            week2={bucketData.w2}
+            week3={bucketData.w3}
+            week4={bucketData.w4}
           />
           <ActiveContributors data={month} />
           <ActivityTypes
