@@ -146,13 +146,9 @@ export function ActivityLineCard({
   if (prev_month === 0) {
     changeLabel = "New";
   } else if (prev_month < 100) {
-    const multiplier = totalActivitiesLabel / prev_month;
-    changeLabel = `${multiplier.toFixed(1)}×`;
+    changeLabel = `${(momChange! + 1).toFixed(1)}×`;
   } else {
-    const percent =
-      ((totalActivitiesLabel - prev_month) / prev_month) *
-      100;
-    changeLabel = `${percent.toFixed(1)}%`;
+    changeLabel = `${(momChange! * 100).toFixed(1)}%`;
   }
 
   return (
@@ -168,7 +164,13 @@ export function ActivityLineCard({
               {formattedTotal}
             </div>
             <CardDescription className="mt-2 text-sm font-medium">
-              Activity up significantly from last month
+              {prev_month === 0
+                ? "New activity tracking started"
+                : isUp
+                ? `Activity up from last month`
+                : isDown
+                ? `Activity down from last month`
+                : "Activity unchanged from last month"}
             </CardDescription>
           </div>
 
