@@ -71,21 +71,7 @@ export default function LeaderboardView({
   // Search query state
   const [searchQuery, setSearchQuery] = useState("");
   
-  const [viewMode, setViewMode] = useState<"grid" | "list">(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('leaderboard-view-mode');
-      if (saved === "grid" || saved === "list") {
-        return saved;
-      }
-    }
-    return "grid";
-  });
-  
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('leaderboard-view-mode', viewMode);
-    }
-  }, [viewMode]);
+  const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   
   const handleViewModeChange = (mode: "grid" | "list") => {
     setViewMode(mode);
