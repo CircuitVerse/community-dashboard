@@ -23,6 +23,8 @@ import {
   ExternalLink
 } from "lucide-react";
 
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
+
 interface ContributorEntry {
   username: string;
   name: string | null;
@@ -116,8 +118,11 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
   const monthlyPoints = monthlyActivity.reduce((sum, day) => sum + day.points, 0);
   const monthlyDays = monthlyActivity.length;
 
+  const displayName = contributor.name || contributor.username;
+  const displayUsername = `@${contributor.username}`;
+
   return (
-    <div className="mx-auto px-4 py-8 max-w-7xl">
+    <div className="mx-auto px-4 py-8 max-w-7xl lg:max-w-[1300px]">
       <Button onClick={onBack} variant="outline" className="mb-6 hover:bg-primary cursor-pointer transition-colors">
         <ArrowLeft className="w-4 h-4 mr-2" />
         Back to People
@@ -148,9 +153,28 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
                   )}
                 </div>
                 
-                <div className="text-center w-full">
-                  <h2 className="text-2xl font-bold mb-2">{contributor.name || contributor.username}</h2>
-                  <p className="text-muted-foreground mb-3 text-lg">@{contributor.username}</p>
+                <div className="text-center w-full min-w-0 px-4">
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <h2 className="text-2xl font-bold mb-2 truncate max-w-full min-w-0" aria-label={displayName}>
+                        {displayName}
+                      </h2>
+                    </TooltipTrigger>
+                    <TooltipContent sideOffset={6} side="top">
+                      {displayName}
+                    </TooltipContent>
+                  </Tooltip>
+
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <p className="text-muted-foreground mb-3 text-lg truncate max-w-full min-w-0" aria-label={displayUsername}>
+                        {displayUsername}
+                      </p>
+                    </TooltipTrigger>
+                    <TooltipContent sideOffset={6} side="bottom">
+                      {displayUsername}
+                    </TooltipContent>
+                  </Tooltip>
                   <Badge variant="secondary" className="mb-6 bg-primary/10 text-primary font-semibold px-4 py-2">
                     {contributor.role}
                   </Badge>
