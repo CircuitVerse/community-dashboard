@@ -33,7 +33,12 @@ export const Footer = async ({ config }: FooterProps) => {
               <h3 className="text-sm font-semibold uppercase tracking-wider text-zinc-900 dark:text-zinc-100">
                 About Us
               </h3>
-              <div className="flex items-center gap-2">
+              <Link
+                href="https://circuitverse.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
                 <Image
                   src={config.org.logo_url}
                   alt={config.org.name}
@@ -44,7 +49,7 @@ export const Footer = async ({ config }: FooterProps) => {
                 <span className="text-lg font-bold tracking-tight text-zinc-900 dark:text-white">
                   {config.org.name}
                 </span>
-              </div>
+              </Link>
             </div>
 
             <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-sm">
