@@ -9,14 +9,14 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import Link from "next/link";
-import { Medal, Trophy, Filter, X } from "lucide-react";
+import { Medal, Trophy, Filter, X, Divide } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import ActivityTrendChart from "../../components/Leaderboard/ActivityTrendChart";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
-import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
+import PointsInfoButton from "@/components/PointsInfoButton";
 
 export type LeaderboardEntry = {
   username: string;
@@ -196,83 +196,28 @@ export default function LeaderboardView({
     month: "Monthly",
     year: "Yearly",
   };
-
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex gap-8">
         {/* Main Content */}
         <div className="flex-1 min-w-0">
-         {/* Header */}
-<div className="mb-8">
-  <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between mb-4">
-    <div className="min-w-0">
-      <h1 className="flex items-center gap-2 text-4xl font-bold text-[#50B78B] mb-2">
-        <span>{periodLabels[period]} Leaderboard</span>
+          {/* Header */}
+          <div className="mb-8">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between mb-4">
+              <div className="min-w-0">
+                <h1 className="flex items-center gap-2 text-4xl font-bold text-[#50B78B] mb-2">
+                  <span>{periodLabels[period]} Leaderboard</span>
+                  <PointsInfoButton />
+                </h1>
 
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <button
-              type="button"
-              className="
-                text-xl
-                text-[#50B78B]/70
-                hover:text-[#50B78B]
-                cursor-pointer
-                focus:outline-none
-                focus-visible:ring-2
-                focus-visible:ring-[#50B78B]/50
-                rounded-sm
-              "
-              aria-label="How rankings are calculated"
-            >
-              ⓘ
-            </button>
-          </TooltipTrigger>
-
-          <TooltipContent
-            side="bottom"
-            sideOffset={10}
-            className="
-              max-w-xs
-              rounded-lg
-              border border-emerald-500/20
-              bg-neutral-900
-              px-4 py-3
-              text-sm
-              text-gray-200
-              shadow-xl
-              leading-relaxed
-            "
-          >
-            <div className="space-y-2">
-              <p className="font-semibold text-[#50B78B]">
-                How rankings are calculated
-              </p>
-
-              <ul className="space-y-1 text-sm">
-                <li>PR merged: <b className="text-[#50B78B]">+5</b> points</li>
-                <li>PR opened: <b className="text-[#50B78B]">+2</b> points</li>
-                <li>Issue opened: <b className="text-[#50B78B]">+1</b> point</li>
-              </ul>
-
-              <p className="text-xs text-gray-400">
-                Ranked by total contribution points.
-              </p>
-            </div>
-          </TooltipContent>
-        </Tooltip>
-      </h1>
-
-      <p className="text-muted-foreground">
-        {filteredEntries.length} of {entries.length} contributors
-        {(selectedRoles.size > 0 || searchQuery) && " (filtered)"}
-      </p>
-    </div>
-
+                <p className="text-muted-foreground">
+                  {filteredEntries.length} of {entries.length} contributors
+                  {(selectedRoles.size > 0 || searchQuery) && " (filtered)"}
+                </p>
+              </div>
 
               {/* Filters */}
               <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
-
                 {/* Search Bar */}
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -396,8 +341,7 @@ export default function LeaderboardView({
                     )}
                   >
                     <CardContent>
-                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
-
+                      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
                         {/* Rank */}
                         <div className="flex items-center justify-center size-12 shrink-0">
                           {getRankIcon(rank) || (
@@ -472,16 +416,17 @@ export default function LeaderboardView({
                         {/* Total Points with Trend Chart */}
                         <div className="flex items-center gap-4 shrink-0">
                           <div className="hidden sm:block">
-                          {/* Activity Trend Chart */}
-                          {entry.daily_activity &&
-                            entry.daily_activity.length > 0 && (
-                              <ActivityTrendChart
-                                dailyActivity={entry.daily_activity}
-                                startDate={startDate}
-                                endDate={endDate}
-                                mode="points"
-                              />
-                            )}</div>
+                            {/* Activity Trend Chart */}
+                            {entry.daily_activity &&
+                              entry.daily_activity.length > 0 && (
+                                <ActivityTrendChart
+                                  dailyActivity={entry.daily_activity}
+                                  startDate={startDate}
+                                  endDate={endDate}
+                                  mode="points"
+                                />
+                              )}
+                          </div>
                           <div className="text-right">
                             <div className="text-3xl font-bold text-[#50B78B]">
                               {entry.total_points}
@@ -570,4 +515,4 @@ export default function LeaderboardView({
       </div>
     </div>
   );
-}  
+}
