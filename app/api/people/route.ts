@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import path from "path";
 import fs from "fs";
-import { coreTeamMembers, alumniMembers, type TeamMember } from "@/lib/team-data";
+import { coreTeamMembers, alumniMembers } from "@/lib/team-data";
+import { calculateStreaks, DailyActivity } from "@/lib/streak-utils";
 
 interface ContributorEntry {
   username: string;
@@ -10,7 +11,9 @@ interface ContributorEntry {
   role: string;
   total_points: number;
   activity_breakdown: Record<string, { count: number; points: number }>;
-  daily_activity: Array<{ date: string; count: number; points: number }>;
+  daily_activity: DailyActivity[];
+  current_streak?: number;
+  longest_streak?: number;
 }
 
 interface LeaderboardData {
@@ -38,7 +41,6 @@ export async function GET() {
         }
 
         for (const entry of data.entries || []) {
-          // More precise bot filtering to avoid filtering legitimate users
           const username = entry.username.toLowerCase();
           const isBot = username.endsWith('[bot]') || 
                        username.endsWith('-bot') || 
@@ -49,13 +51,19 @@ export async function GET() {
                        username.startsWith('renovate[') ||
                        username.startsWith('dependabot[');
           
-          if (isBot) {
-            continue;
-          }
+          if (isBot) continue;
+
+          // Calculate streaks server-side
+          const streaks = calculateStreaks(entry.daily_activity);
+          const entryWithStreaks = {
+            ...entry,
+            current_streak: streaks.current,
+            longest_streak: streaks.longest
+          };
 
           const existing = allContributors.get(entry.username);
           if (!existing || entry.total_points > existing.total_points) {
-            allContributors.set(entry.username, entry);
+            allContributors.set(entry.username, entryWithStreaks);
           }
         }
       } catch (error) {

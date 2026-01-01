@@ -141,45 +141,67 @@ export async function getRecentActivitiesGroupedByType(
   return [...groups.values()];
 }
 
-
-
-// (Optional) stubs for other imports; add as you see “module not found” errors:
-
 export async function getUpdatedTime() {
-  // get last updated time from any of the JSON files
-  const filePath = path.join(
-    process.cwd(),
-    "public",
-    "leaderboard",
-    `week.json`
-  );
+  const filePath = path.join(process.cwd(), "public", "leaderboard", "week.json");
   if (!fs.existsSync(filePath)) return null;
-
   const file = fs.readFileSync(filePath, "utf-8");
   const data = JSON.parse(file);
   return data.updatedAt ? new Date(data.updatedAt) : null;
 }
 
-export async function getLeaderboard() {
-  return [];
-}
+export async function getLeaderboard() { return []; }
+export async function getTopContributorsByActivity() { return {}; }
+export async function getAllContributorsWithAvatars() { return []; }
+export async function getAllContributorUsernames() { return []; }
+export async function getContributor(_username: string) { return null; }
 
-export async function getTopContributorsByActivity() {
-  return {};
-}
+import { calculateStreaks, DailyActivity } from "./streak-utils";
 
-export async function getAllContributorsWithAvatars() {
-  return [];
-}
+/**
+ * Calculates contributor profile and stats
+ */
+export async function getContributorProfile(username: string) {
+  const filePath = path.join(process.cwd(), "public", "leaderboard", "year.json");
+  if (!fs.existsSync(filePath)) return { contributor: null, activities: [], totalPoints: 0, activityByDate: {} };
 
-export async function getAllContributorUsernames() {
-  return [];
-}
+  const file = fs.readFileSync(filePath, "utf-8");
+  const data = JSON.parse(file);
+  const contributor = data.entries.find((e: { user: { login: string }; total_points: number; raw_activities: any[] }) => e.user.login === username);
 
-export async function getContributor(_username: string) {
-  return null;
-}
+  if (!contributor) return { contributor: null, activities: [], totalPoints: 0, activityByDate: {} };
 
-export async function getContributorProfile(_username: string) {
-  return { contributor: null, activities: [], totalPoints: 0, activityByDate: {} };
+  const activities = (contributor.raw_activities || []).map((a: any) => ({
+    ...a,
+    occured_at: new Date(a.occured_at),
+  }));
+
+  const dailyActivityMap = new Map();
+  activities.forEach((activity: any) => {
+    const date = new Date(activity.occured_at).toISOString().split("T")[0];
+    if (!dailyActivityMap.has(date)) {
+      dailyActivityMap.set(date, { count: 0, points: 0 });
+    }
+    const dayData = dailyActivityMap.get(date);
+    dayData.count += 1;
+    dayData.points += (activity.points || 0);
+  });
+
+  const dailyActivity: DailyActivity[] = Array.from(dailyActivityMap.entries()).map(([date, stats]: [string, any]) => ({
+    date,
+    ...stats
+  }));
+
+  const streaks = calculateStreaks(dailyActivity);
+
+  return {
+    contributor,
+    activities,
+    totalPoints: contributor.total_points,
+    activityByDate: dailyActivityMap,
+    dailyActivity,
+    stats: {
+      currentStreak: streaks.current,
+      longestStreak: streaks.longest
+    }
+  };
 }
