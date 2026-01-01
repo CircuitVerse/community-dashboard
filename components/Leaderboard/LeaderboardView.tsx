@@ -9,13 +9,12 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import Link from "next/link";
-import { Medal, Trophy, Filter, X } from "lucide-react";
+import { Medal, Trophy, Filter, X, Search, Grid3X3, List } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import ActivityTrendChart from "../../components/Leaderboard/ActivityTrendChart";
 import { Input } from "@/components/ui/input";
-import { Search } from "lucide-react";
+import { LeaderboardCard } from "./LeaderboardCard";
 
 export type LeaderboardEntry = {
   username: string;
@@ -71,6 +70,12 @@ export default function LeaderboardView({
 
   // Search query state
   const [searchQuery, setSearchQuery] = useState("");
+  
+  const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
+  
+  const handleViewModeChange = (mode: "grid" | "list") => {
+    setViewMode(mode);
+  };
 
   // Get selected roles from query params
   // If no roles are selected, default to all visible roles (excluding hidden ones)
@@ -174,22 +179,6 @@ export default function LeaderboardView({
     return filtered;
   }, [topByActivity, selectedRoles, entries]);
 
-  const getRankIcon = (rank: number) => {
-    if (rank === 1)
-      return (
-        <Trophy className="h-6 w-6 text-[#FFD700]" aria-label="1st place" />
-      );
-    if (rank === 2)
-      return (
-        <Medal className="h-6 w-6 text-[#C0C0C0]" aria-label="2nd place" />
-      );
-    if (rank === 3)
-      return (
-        <Medal className="h-6 w-6 text-[#CD7F32]/70" aria-label="3rd place" />
-      );
-    return null;
-  };
-
   const periodLabels = {
     week: "Weekly",
     month: "Monthly",
@@ -197,25 +186,58 @@ export default function LeaderboardView({
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 max-w-7xl">
       <div className="flex gap-8">
         {/* Main Content */}
         <div className="flex-1 min-w-0">
           {/* Header */}
-          <div className="mb-8">
-            <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between mb-4">
-              <div className="min-w-0">
-                <h1 className="text-4xl text-[#50B78B] font-bold mb-2">
-                  {periodLabels[period]} Leaderboard
+          <div className="mb-8 text-center">
+            <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between mb-6">
+              <div className="min-w-0 text-center md:text-left">
+                <h1 className="text-4xl font-bold mb-2">
+                  <span className="text-black dark:text-white">{periodLabels[period]} </span>
+                  <span className="text-[#42B883]">Leaderboard</span>
                 </h1>
-                <p className="text-muted-foreground">
+                <p className="text-lg text-muted-foreground mb-2">
+                  Celebrating our amazing community contributors
+                </p>
+                <p className="text-sm text-muted-foreground">
                   {filteredEntries.length} of {entries.length} contributors
                   {(selectedRoles.size > 0 || searchQuery) && " (filtered)"}
                 </p>
               </div>
 
-              {/* Filters */}
-              <div className="flex flex-col gap-2 w-full sm:w-auto sm:flex-row sm:items-center sm:justify-end">
+              <div className="flex flex-col gap-3 w-full sm:w-auto sm:flex-row sm:items-center sm:justify-end">
+                
+              <div className="w-fit self-center sm:self-auto flex items-center justify-center gap-1 p-1 bg-muted rounded-lg">
+                   <Button
+                    variant={viewMode === "grid" ? "default" : "ghost"}
+                    size="sm"
+                    onClick={() => handleViewModeChange("grid")}
+                    className={cn(
+                      "h-8 px-3",
+                      viewMode === "grid" 
+                        ? "bg-[#42B883] hover:bg-[#369970] text-white" 
+                        : "hover:bg-[#42B883]/10 text-muted-foreground"
+                    )}
+                  >
+                    <Grid3X3 className="h-4 w-4" />
+                  </Button>
+                  <Button
+                    variant={viewMode === "list" ? "default" : "ghost"}
+                    size="sm"
+                    onClick={() => handleViewModeChange("list")}
+                    className={cn(
+                      "h-8 px-3",
+                      viewMode === "list" 
+                        ? "bg-[#42B883] hover:bg-[#369970] text-white" 
+                        : "hover:bg-[#42B883]/10 text-muted-foreground"
+                    )}
+                  >
+                    <List className="h-4 w-4" />
+                  </Button>
+                 
+                </div>
 
                 {/* Search Bar */}
                 <div className="relative w-full sm:flex-1 sm:min-w-0 md:w-[16rem]">
@@ -226,7 +248,7 @@ export default function LeaderboardView({
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className={cn(
-                      "pl-9 h-9 w-full bg-white dark:bg-[#07170f] border border-[#50B78B]/60 dark:border-[#50B78B]/40 text-foreground dark:text-foreground shadow-sm dark:shadow-none outline-none focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#50B78B] focus-visible:ring-offset-0 transition-colors",
+                      "pl-9 h-9 w-full bg-white dark:bg-[#07170f] border border-[#42B883]/60 dark:border-[#42B883]/40 text-foreground dark:text-foreground shadow-sm dark:shadow-none outline-none focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#42B883] focus-visible:ring-offset-0 transition-colors",
                      "sm:w-full"
                     )}
                   />
@@ -241,7 +263,7 @@ export default function LeaderboardView({
                           variant="ghost"
                           size="sm"
                           onClick={clearFilters}
-                          className="h-9 shrink-0 hover:bg-[#50B78B]/20 dark:hover:bg-[#50B78B]/20 focus:border-[#50B78B] focus-visible:ring-2 focus-visible:ring-[#50B78B]/40 outline-none order-2 sm:order-1"
+                          className="h-9 shrink-0 hover:bg-[#42B883]/20 dark:hover:bg-[#42B883]/20 focus:border-[#42B883] focus-visible:ring-2 focus-visible:ring-[#42B883]/40 outline-none order-2 sm:order-1"
                         >
                           <X className="h-4 w-4 mr-1" />
                           Clear
@@ -252,12 +274,12 @@ export default function LeaderboardView({
                           <Button
                             variant="outline"
                             size="sm"
-                            className="h-9 w-[min(11rem,calc(100%-6rem))] px-1 has-[>svg]:px-1 sm:w-auto sm:px-3 sm:has-[>svg]:px-2.5 border border-[#50B78B]/30 dark:border-[#50B78B]/30 hover:bg-[#50B78B]/20 dark:hover:bg-[#50B78B]/20 focus:border-[#50B78B] focus-visible:ring-2 focus-visible:ring-[#50B78B]/40 outline-none min-w-0 order-1 sm:order-2"
+                            className="h-9 w-[min(11rem,calc(100%-6rem))] px-1 has-[>svg]:px-1 sm:w-auto sm:px-3 sm:has-[>svg]:px-2.5 border border-[#42B883]/30 dark:border-[#42B883]/30 hover:bg-[#42B883]/20 dark:hover:bg-[#42B883]/20 focus:border-[#42B883] focus-visible:ring-2 focus-visible:ring-[#42B883]/40 outline-none min-w-0 order-1 sm:order-2"
                           >
                             <Filter className="h-4 w-4 mr-1.5 sm:mr-2" />
                             Role
                             {selectedRoles.size > 0 && (
-                              <span className="ml-0.5 sm:ml-1 px-1.5 py-0.5 text-xs rounded-full bg-[#50B78B] text-white">
+                              <span className="ml-0.5 sm:ml-1 px-1.5 py-0.5 text-xs rounded-full bg-[#42B883] text-white">
                                 {selectedRoles.size}
                               </span>
                             )}
@@ -308,10 +330,10 @@ export default function LeaderboardView({
                 key={p}
                 href={`/leaderboard/${p}`}
                 className={cn(
-                  "px-4 py-2 font-medium transition-colors border-b-2 relative outline-none focus-visible:ring-2 focus-visible:ring-[#50B78B]/60 rounded-sm",
+                  "px-4 py-2 font-medium transition-colors border-b-2 relative outline-none focus-visible:ring-2 focus-visible:ring-[#42B883]/60 rounded-sm",
                   period === p
-                    ? "border-[#50B78B] text-[#50B78B] bg-linear-to-t from-[#50B78B]/12 to-transparent dark:from-[#50B78B]/12"
-                    : "border-transparent text-muted-foreground hover:text-[#50B78B]"
+                    ? "border-[#42B883] text-[#42B883] bg-linear-to-t from-[#42B883]/12 to-transparent dark:from-[#42B883]/12"
+                    : "border-transparent text-muted-foreground hover:text-[#42B883]"
                 )}
               >
                 {periodLabels[p]}
@@ -321,140 +343,41 @@ export default function LeaderboardView({
 
           {/* Leaderboard */}
           {filteredEntries.length === 0 ? (
-            <Card>
-              <CardContent className="py-12 text-center text-muted-foreground">
-                {entries.length === 0
-                  ? "No contributors with points in this period"
-                  : "No contributors match the selected filters"}
+            <Card className="border-[#42B883]/20">
+              <CardContent className="py-16 text-center">
+                <div className="w-24 h-24 mx-auto mb-6 opacity-20">
+                  <Trophy className="w-full h-full text-[#42B883]" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3 text-muted-foreground">
+                  {entries.length === 0
+                    ? "No contributors with points in this period"
+                    : "No contributors match the selected filters"}
+                </h3>
+                <p className="text-muted-foreground max-w-md mx-auto">
+                  {entries.length === 0
+                    ? "Check back later as contributors start earning points through their activities."
+                    : "Try adjusting your search or filter criteria to find more contributors."}
+                </p>
               </CardContent>
             </Card>
           ) : (
-            <div className="space-y-4">
+            <div className={cn(
+              "transition-all duration-300 ease-in-out",
+              viewMode === "grid" 
+                ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6" 
+                : "space-y-4"
+            )}>
               {filteredEntries.map((entry, index) => {
                 const rank = index + 1;
-                const isTopThree = rank <= 3;
-
                 return (
-                  <Card
+                  <LeaderboardCard
                     key={entry.username}
-                    className={cn(
-                      "transition-all hover:shadow-md",
-                      isTopThree && "border-[#50B78B]/50"
-                    )}
-                  >
-                    <CardContent>
-                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
-
-                        {/* Rank */}
-                        <div className="flex items-center justify-center size-12 shrink-0">
-                          {getRankIcon(rank) || (
-                            <span className="text-2xl font-bold text-[#50B78B]">
-                              {rank}
-                            </span>
-                          )}
-                        </div>
-
-                        {/* Avatar */}
-                        <Avatar className="size-14 shrink-0">
-                          <AvatarImage
-                            src={entry.avatar_url || undefined}
-                            alt={entry.name || entry.username}
-                          />
-                          <AvatarFallback>
-                            {(entry.name || entry.username)
-                              .substring(0, 2)
-                              .toUpperCase()}
-                          </AvatarFallback>
-                        </Avatar>
-
-                        {/* Contributor Info */}
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2 flex-wrap mb-1">
-                            <h3 className="text-lg font-semibold">
-                              {entry.name || entry.username}
-                            </h3>
-                            {entry.role && (
-                              <span className="text-xs px-2 py-1 rounded-full bg-[#50B78B]/10 text-[#50B78B]">
-                                {entry.role}
-                              </span>
-                            )}
-                          </div>
-
-                          <a
-                            href={`https://github.com/${entry.username}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-sm text-muted-foreground hover:text-[#50B78B] transition-colors"
-                          >
-                            @{entry.username}
-                          </a>
-
-                          <div className="mb-3" />
-
-                          {/* Activity Breakdown */}
-                          <div className="flex flex-wrap gap-3">
-                            {Object.entries(entry.activity_breakdown)
-                              .sort((a, b) => {
-                                // Predefined priority order for consistent display across rows
-                                const activityPriority: Record<string, number> = {
-                                  "PR merged": 1,
-                                  "PR opened": 2,
-                                  "Issue opened": 3,
-                                };
-                                const priorityA = activityPriority[a[0]] ?? 99;
-                                const priorityB = activityPriority[b[0]] ?? 99;
-                                // Sort by priority first, then alphabetically for unknown activities
-                                if (priorityA !== priorityB) {
-                                  return priorityA - priorityB;
-                                }
-                                return a[0].localeCompare(b[0]);
-                              })
-                              .map(([activityName, data]) => (
-                                <div
-                                  key={activityName}
-                                  className="text-xs bg-muted px-3 py-1 rounded-full"
-                                >
-                                  <span className="font-medium">
-                                    {activityName}:
-                                  </span>{" "}
-                                  <span className="text-muted-foreground">
-                                    {data.count}
-                                  </span>
-                                  {data.points > 0 && (
-                                    <span className="text-[#50B78B] ml-1">
-                                      (+{data.points})
-                                    </span>
-                                  )}
-                                </div>
-                              ))}
-                          </div>
-                        </div>
-
-                        {/* Total Points with Trend Chart */}
-                        <div className="flex items-center gap-4 shrink-0">
-                          <div className="hidden sm:block">
-                          {/* Activity Trend Chart */}
-                          {entry.daily_activity &&
-                            entry.daily_activity.length > 0 && (
-                              <ActivityTrendChart
-                                dailyActivity={entry.daily_activity}
-                                startDate={startDate}
-                                endDate={endDate}
-                                mode="points"
-                              />
-                            )}</div>
-                          <div className="text-right">
-                            <div className="text-3xl font-bold text-[#50B78B]">
-                              {entry.total_points}
-                            </div>
-                            <div className="text-xs text-muted-foreground">
-                              points
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                    entry={entry}
+                    rank={rank}
+                    startDate={startDate}
+                    endDate={endDate}
+                    variant={viewMode}
+                  />
                 );
               })}
             </div>
@@ -465,48 +388,50 @@ export default function LeaderboardView({
         {Object.keys(filteredTopByActivity).length > 0 && (
           <div className="hidden xl:block w-80 shrink-0">
             <div>
-              <h2 className="text-xl font-bold mb-6">Top Contributors</h2>
+              <h2 className="text-xl font-bold mb-6">
+                <span className="text-black dark:text-white">Top </span>
+                <span className="text-[#42B883]">Contributors</span>
+              </h2>
               <div className="space-y-4">
                 {Object.entries(filteredTopByActivity).map(
                   ([activityName, contributors]) => (
-                    <Card key={activityName} className="overflow-hidden p-0">
+                    <Card key={activityName} className="overflow-hidden p-0 border-[#42B883]/20">
                       <CardContent className="p-0">
-                        <div className="bg-[#50B78B]/8 dark:bg-[#50B78B]/12 px-4 py-2.5 border-b">
+                        <div className="bg-[#42B883]/8 dark:bg-[#42B883]/12 px-4 py-2.5 border-b border-[#42B883]/20">
                           <h3 className="font-semibold text-sm text-foreground">
                             {activityName}
                           </h3>
                         </div>
                         <div className="p-3 space-y-2">
                           {contributors.map((contributor, index) => (
-                            <Link
+                            <div
                               key={contributor.username}
-                              href={`/${contributor.username}`}
-                              className="flex items-center gap-2.5 p-2 rounded-md hover:bg-accent transition-colors group"
+                              className="flex items-center gap-2.5 p-2 rounded-md hover:bg-[#42B883]/5 transition-colors group cursor-pointer"
                             >
                               <div className="flex items-center justify-center w-5 h-5 shrink-0">
                                 {index === 0 && (
-                                  <Trophy className="h-4 w-4 text-[#50B78B]" />
+                                  <Trophy className="h-4 w-4 text-yellow-500" />
                                 )}
                                 {index === 1 && (
-                                  <Medal className="h-4 w-4 text-zinc-400" />
+                                  <Medal className="h-4 w-4 text-gray-400" />
                                 )}
                                 {index === 2 && (
-                                  <Medal className="h-4 w-4 text-[#50B78B]/70" />
+                                  <Medal className="h-4 w-4 text-amber-600" />
                                 )}
                               </div>
-                              <Avatar className="h-9 w-9 shrink-0 border">
+                              <Avatar className="h-9 w-9 shrink-0 border border-[#42B883]/10">
                                 <AvatarImage
                                   src={contributor.avatar_url || undefined}
                                   alt={contributor.name || contributor.username}
                                 />
-                                <AvatarFallback className="text-xs">
+                                <AvatarFallback className="text-xs bg-gradient-to-br from-[#42B883]/20 to-[#42B883]/10 text-[#42B883]">
                                   {(contributor.name || contributor.username)
                                     .substring(0, 2)
                                     .toUpperCase()}
                                 </AvatarFallback>
                               </Avatar>
                               <div className="flex-1 min-w-0">
-                                <p className="text-sm font-medium truncate group-hover:text-[#50B78B] transition-colors leading-tight">
+                                <p className="text-sm font-medium truncate group-hover:text-[#42B883] transition-colors leading-tight">
                                   {contributor.name || contributor.username}
                                 </p>
                                 <p className="text-xs text-muted-foreground mt-0.5">
@@ -514,10 +439,10 @@ export default function LeaderboardView({
                                   {contributor.count === 1
                                     ? "activity"
                                     : "activities"}{" "}
-                                  · {contributor.points} pts
+                                  · <span className="font-semibold text-[#42B883]">{contributor.points} pts</span>
                                 </p>
                               </div>
-                            </Link>
+                            </div>
                           ))}
                         </div>
                       </CardContent>
