@@ -9,7 +9,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import Link from "next/link";
-import { Medal, Trophy, Filter, X } from "lucide-react";
+import { Medal, Trophy, Filter, X, GitMerge, GitPullRequest, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useMemo, useState, useEffect } from "react";
 import { sortEntries, type SortBy } from "@/lib/leaderboard";
@@ -35,7 +35,7 @@ export type LeaderboardEntry = {
   >;
 
   daily_activity?: Array<{
-    date: string; // ISO string
+    date: string;
     points: number;
     count: number;
   }>;
@@ -59,6 +59,42 @@ interface LeaderboardViewProps {
   hiddenRoles: string[];
 }
 
+// Activity type styling configuration
+const activityStyles: Record<string, {
+  icon: React.ComponentType<{ className?: string }>;
+  bgColor: string;
+  textColor: string;
+  borderColor: string;
+}> = {
+  "PR merged": {
+    icon: GitMerge,
+    bgColor: "bg-purple-500/10 dark:bg-purple-500/15",
+    textColor: "text-purple-700 dark:text-purple-400",
+    borderColor: "border-l-purple-500"
+  },
+  "PR opened": {
+    icon: GitPullRequest,
+    bgColor: "bg-blue-500/10 dark:bg-blue-500/15",
+    textColor: "text-blue-700 dark:text-blue-400",
+    borderColor: "border-l-blue-500"
+  },
+  "Issue opened": {
+    icon: AlertCircle,
+    bgColor: "bg-orange-500/10 dark:bg-orange-500/15",
+    textColor: "text-orange-700 dark:text-orange-400",
+    borderColor: "border-l-orange-500"
+  }
+};
+
+const getActivityStyle = (activityName: string) => {
+  return activityStyles[activityName] || {
+    icon: () => null,
+    bgColor: "bg-muted",
+    textColor: "text-muted-foreground",
+    borderColor: "border-l-gray-400"
+  };
+};
+
 export default function LeaderboardView({
   entries,
   period,
@@ -70,7 +106,6 @@ export default function LeaderboardView({
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  // Search query state
   const [searchQuery, setSearchQuery] = useState("");
 
   // sorting
@@ -96,7 +131,6 @@ export default function LeaderboardView({
     if (rolesParam) {
       return new Set(rolesParam.split(","));
     }
-    // Default: exclude hidden roles
     const allRoles = new Set<string>();
     entries.forEach((entry) => {
       if (entry.role && !hiddenRoles.includes(entry.role)) {
@@ -106,7 +140,6 @@ export default function LeaderboardView({
     return allRoles;
   }, [searchParams, entries, hiddenRoles]);
 
-  // Get unique roles from entries
   const availableRoles = useMemo(() => {
     const roles = new Set<string>();
     entries.forEach((entry) => {
@@ -117,18 +150,15 @@ export default function LeaderboardView({
     return Array.from(roles).sort();
   }, [entries]);
 
-  // Filter entries by selected roles and search query
   const filteredEntries = useMemo(() => {
     let filtered = entries;
 
-    // Filter by roles
     if (selectedRoles.size > 0) {
       filtered = filtered.filter(
         (entry) => entry.role && selectedRoles.has(entry.role)
       );
     }
 
-    // Filter by search query
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
       filtered = filtered.filter((entry) => {
@@ -186,7 +216,6 @@ export default function LeaderboardView({
     if(typeof window !== 'undefined') window.history.replaceState(null, '', `${pathname}?${params.toString()}`);
   };
 
-  // Filter top contributors by selected roles
   const filteredTopByActivity = useMemo(() => {
     if (selectedRoles.size === 0) {
       return topByActivity;
@@ -196,7 +225,6 @@ export default function LeaderboardView({
 
     for (const [activityName, contributors] of Object.entries(topByActivity)) {
       const filteredContributors = contributors.filter((contributor) => {
-        // Find the contributor in entries to get their role
         const entry = entries.find((e) => e.username === contributor.username);
         return entry?.role && selectedRoles.has(entry.role);
       });
@@ -438,7 +466,7 @@ export default function LeaderboardView({
                     )}
                   >
                     <CardContent>
-                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+                      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
 
                         {/* Rank */}
                         <div className="flex items-center justify-center size-12 shrink-0">
@@ -486,11 +514,10 @@ export default function LeaderboardView({
 
                           <div className="mb-3" />
 
-                          {/* Activity Breakdown */}
-                          <div className="flex flex-wrap gap-3">
+                          {/* Activity Breakdown - Enhanced with visual distinction */}
+                          <div className="flex flex-wrap gap-2">
                             {Object.entries(entry.activity_breakdown)
                               .sort((a, b) => {
-                                // Predefined priority order for consistent display across rows
                                 const activityPriority: Record<string, number> = {
                                   "PR merged": 1,
                                   "PR opened": 2,
@@ -498,37 +525,49 @@ export default function LeaderboardView({
                                 };
                                 const priorityA = activityPriority[a[0]] ?? 99;
                                 const priorityB = activityPriority[b[0]] ?? 99;
-                                // Sort by priority first, then alphabetically for unknown activities
                                 if (priorityA !== priorityB) {
                                   return priorityA - priorityB;
                                 }
                                 return a[0].localeCompare(b[0]);
                               })
-                              .map(([activityName, data]) => (
-                                <div
-                                  key={activityName}
-                                  className="text-xs bg-muted px-3 py-1 rounded-full"
-                                >
-                                  <span className="font-medium">
-                                    {activityName}:
-                                  </span>{" "}
-                                  <span className="text-muted-foreground">
-                                    {data.count}
-                                  </span>
-                                  {data.points > 0 && (
-                                    <span className="text-[#50B78B] ml-1">
-                                      (+{data.points})
-                                    </span>
-                                  )}
-                                </div>
-                              ))}
+                              .map(([activityName, data]) => {
+                                const style = getActivityStyle(activityName);
+                                const IconComponent = style.icon;
+                                
+                                return (
+                                  <div
+                                    key={activityName}
+                                    className={cn(
+                                      "relative text-xs px-3 py-1.5 rounded-md border-l-2 transition-all hover:shadow-sm",
+                                      style.bgColor,
+                                      style.borderColor
+                                    )}
+                                  >
+                                    <div className="flex items-center gap-1.5">
+                                      {IconComponent && (
+                                        <IconComponent className={cn("w-3.5 h-3.5", style.textColor)} />
+                                      )}
+                                      <span className={cn("font-semibold", style.textColor)}>
+                                        {activityName}:
+                                      </span>
+                                      <span className="text-muted-foreground font-medium">
+                                        {data.count}
+                                      </span>
+                                      {data.points > 0 && (
+                                        <span className={cn("ml-0.5 font-bold", style.textColor)}>
+                                          (+{data.points})
+                                        </span>
+                                      )}
+                                    </div>
+                                  </div>
+                                );
+                              })}
                           </div>
                         </div>
 
                         {/* Total Points with Trend Chart */}
                         <div className="flex items-center gap-4 shrink-0">
                           <div className="hidden sm:block">
-                          {/* Activity Trend Chart */}
                           {entry.daily_activity &&
                             entry.daily_activity.length > 0 && (
                               <ActivityTrendChart
@@ -537,7 +576,8 @@ export default function LeaderboardView({
                                 endDate={endDate}
                                 mode="points"
                               />
-                            )}</div>
+                            )}
+                          </div>
                           <div className="text-right">
                             <div className="text-3xl font-bold text-[#50B78B]">
                               {entry.total_points}
@@ -563,61 +603,67 @@ export default function LeaderboardView({
               <h2 className="text-xl font-bold mb-6">Top Contributors</h2>
               <div className="space-y-4">
                 {Object.entries(filteredTopByActivity).map(
-                  ([activityName, contributors]) => (
-                    <Card key={activityName} className="overflow-hidden p-0">
-                      <CardContent className="p-0">
-                        <div className="bg-[#50B78B]/8 dark:bg-[#50B78B]/12 px-4 py-2.5 border-b">
-                          <h3 className="font-semibold text-sm text-foreground">
-                            {activityName}
-                          </h3>
-                        </div>
-                        <div className="p-3 space-y-2">
-                          {contributors.map((contributor, index) => (
-                            <Link
-                              key={contributor.username}
-                              href={`/${contributor.username}`}
-                              className="flex items-center gap-2.5 p-2 rounded-md hover:bg-accent transition-colors group"
-                            >
-                              <div className="flex items-center justify-center w-5 h-5 shrink-0">
-                                {index === 0 && (
-                                  <Trophy className="h-4 w-4 text-[#50B78B]" />
-                                )}
-                                {index === 1 && (
-                                  <Medal className="h-4 w-4 text-zinc-400" />
-                                )}
-                                {index === 2 && (
-                                  <Medal className="h-4 w-4 text-[#50B78B]/70" />
-                                )}
-                              </div>
-                              <Avatar className="h-9 w-9 shrink-0 border">
-                                <AvatarImage
-                                  src={contributor.avatar_url || undefined}
-                                  alt={contributor.name || contributor.username}
-                                />
-                                <AvatarFallback className="text-xs">
-                                  {(contributor.name || contributor.username)
-                                    .substring(0, 2)
-                                    .toUpperCase()}
-                                </AvatarFallback>
-                              </Avatar>
-                              <div className="flex-1 min-w-0">
-                                <p className="text-sm font-medium truncate group-hover:text-[#50B78B] transition-colors leading-tight">
-                                  {contributor.name || contributor.username}
-                                </p>
-                                <p className="text-xs text-muted-foreground mt-0.5">
-                                  {contributor.count}{" "}
-                                  {contributor.count === 1
-                                    ? "activity"
-                                    : "activities"}{" "}
-                                  · {contributor.points} pts
-                                </p>
-                              </div>
-                            </Link>
-                          ))}
-                        </div>
-                      </CardContent>
-                    </Card>
-                  )
+                  ([activityName, contributors]) => {
+                    const style = getActivityStyle(activityName);
+                    
+                    return (
+                      <Card key={activityName} className="overflow-hidden p-0">
+                        <CardContent className="p-0">
+                          <div className={cn(
+                            "px-4 py-2.5 border-b border-l-4",
+                            style.bgColor,
+                            style.borderColor
+                          )}>
+                            <h3 className={cn("font-semibold text-sm", style.textColor)}>
+                              {activityName}
+                            </h3>
+                          </div>
+                          <div className="p-3 space-y-2">
+                            {contributors.map((contributor, index) => (
+                              <Link
+                                key={contributor.username}
+                                href={`/${contributor.username}`}
+                                className="flex items-center gap-2.5 p-2 rounded-md hover:bg-accent transition-colors group"
+                              >
+                                <div className="flex items-center justify-center w-5 h-5 shrink-0">
+                                  {index === 0 && (
+                                    <Trophy className="h-4 w-4 text-[#50B78B]" />
+                                  )}
+                                  {index === 1 && (
+                                    <Medal className="h-4 w-4 text-zinc-400" />
+                                  )}
+                                  {index === 2 && (
+                                    <Medal className="h-4 w-4 text-[#50B78B]/70" />
+                                  )}
+                                </div>
+                                <Avatar className="h-9 w-9 shrink-0 border">
+                                  <AvatarImage
+                                    src={contributor.avatar_url || undefined}
+                                    alt={contributor.name || contributor.username}
+                                  />
+                                  <AvatarFallback className="text-xs">
+                                    {(contributor.name || contributor.username)
+                                      .substring(0, 2)
+                                      .toUpperCase()}
+                                  </AvatarFallback>
+                                </Avatar>
+                                <div className="flex-1 min-w-0">
+                                  <p className="text-sm font-medium truncate group-hover:text-[#50B78B] transition-colors leading-tight">
+                                    {contributor.name || contributor.username}
+                                  </p>
+                                  <div className="flex items-center gap-2 mt-0.5 text-xs text-muted-foreground">
+                                    <span>{contributor.count} {contributor.count === 1 ? "activity" : "activities"}</span>
+                                    <span>·</span>
+                                    <span>{contributor.points} pts</span>
+                                  </div>
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
+                        </CardContent>
+                      </Card>
+                    );
+                  }
                 )}
               </div>
             </div>
@@ -626,4 +672,4 @@ export default function LeaderboardView({
       </div>
     </div>
   );
-}  
+}

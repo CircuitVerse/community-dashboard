@@ -6,12 +6,12 @@ import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { GitHubHeatmap } from "@/components/people/GitHubHeatmap";
 import { useState } from "react";
-import { 
-  Activity, 
-  Calendar, 
-  GitCommit, 
-  Star, 
-  Trophy, 
+import {
+  Activity,
+  Calendar,
+  GitCommit,
+  Star,
+  Trophy,
   TrendingUp,
   BarChart3,
   Clock,
@@ -20,12 +20,30 @@ import {
   ArrowLeft,
   Target,
   Github,
-  ExternalLink
+  ExternalLink,
+  GitMerge,
+  AlertCircle
 } from "lucide-react";
 import { AchievementBadges } from "@/components/people/AchievementBadges";
 import { getContributorBadges } from "@/lib/badges";
 
-import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
+type ActivityUIConfig = {
+  icon: React.ReactNode;
+  gradient: string;
+  borderColor: string;
+  bgColor: string;
+  iconBg: string;
+  textColor: string;
+  accentColor: string;
+};
+
+
+type ActivityKey =
+  | "PR merged"
+  | "PR opened"
+  | "Issue opened"
+  | "commit"
+  | "star";
 
 interface ContributorEntry {
   username: string;
@@ -51,19 +69,102 @@ interface ContributorDetailProps {
   onBack: () => void;
 }
 
+// Activity type configuration with unique visual identity
+const activityConfig: Record<ActivityKey, ActivityUIConfig> = {
+  "PR merged": {
+    icon: <GitMerge className="w-4 h-4" />,
+    gradient: "from-purple-500/10 via-purple-500/5 to-transparent",
+    borderColor: "border-purple-500/30 hover:border-purple-500/50",
+    bgColor: "bg-purple-500/5",
+    iconBg: "bg-purple-500/15 group-hover:bg-purple-500/25",
+    textColor: "text-purple-600 dark:text-purple-400",
+    accentColor: "bg-purple-500",
+  },
+  "PR opened": {
+    icon: <GitPullRequest className="w-4 h-4" />,
+    gradient: "from-blue-500/10 via-blue-500/5 to-transparent",
+    borderColor: "border-blue-500/30 hover:border-blue-500/50",
+    bgColor: "bg-blue-500/5",
+    iconBg: "bg-blue-500/15 group-hover:bg-blue-500/25",
+    textColor: "text-blue-600 dark:text-blue-400",
+    accentColor: "bg-blue-500",
+  },
+  "Issue opened": {
+    icon: <AlertCircle className="w-4 h-4" />,
+    gradient: "from-orange-500/10 via-orange-500/5 to-transparent",
+    borderColor: "border-orange-500/30 hover:border-orange-500/50",
+    bgColor: "bg-orange-500/5",
+    iconBg: "bg-orange-500/15 group-hover:bg-orange-500/25",
+    textColor: "text-orange-600 dark:text-orange-400",
+    accentColor: "bg-orange-500",
+  },
+  commit: {
+    icon: <GitCommit className="w-4 h-4" />,
+    gradient: "from-green-500/10 via-green-500/5 to-transparent",
+    borderColor: "border-green-500/30 hover:border-green-500/50",
+    bgColor: "bg-green-500/5",
+    iconBg: "bg-green-500/15 group-hover:bg-green-500/25",
+    textColor: "text-green-600 dark:text-green-400",
+    accentColor: "bg-green-500",
+  },
+  star: {
+    icon: <Star className="w-4 h-4" />,
+    gradient: "from-yellow-500/10 via-yellow-500/5 to-transparent",
+    borderColor: "border-yellow-500/30 hover:border-yellow-500/50",
+    bgColor: "bg-yellow-500/5",
+    iconBg: "bg-yellow-500/15 group-hover:bg-yellow-500/25",
+    textColor: "text-yellow-600 dark:text-yellow-400",
+    accentColor: "bg-yellow-500",
+  },
+};
+
+
+
+const defaultConfig: ActivityUIConfig = {
+  icon: <Activity className="w-4 h-4" />,
+  gradient: "from-gray-500/10 via-gray-500/5 to-transparent",
+  borderColor: "border-gray-500/30 hover:border-gray-500/50",
+  bgColor: "bg-gray-500/5",
+  iconBg: "bg-gray-500/15 group-hover:bg-gray-500/25",
+  textColor: "text-gray-600 dark:text-gray-400",
+  accentColor: "bg-gray-500",
+};
+
+
 export function ContributorDetail({ contributor, onBack }: ContributorDetailProps) {
-  // Initialize current time directly for simple use case
   const [currentTime] = useState(() => Date.now());
 
-  const getActivityIcon = (activityType: string) => {
+  const getActivityConfig = (activityType: string): ActivityUIConfig => {
     const type = activityType.toLowerCase();
-    if (type.includes('commit')) return <GitCommit className="w-4 h-4" />;
-    if (type.includes('pr merged') || type.includes('merged')) return <GitPullRequest className="w-4 h-4 text-green-600" />;
-    if (type.includes('pr opened') || type.includes('opened')) return <GitPullRequest className="w-4 h-4 text-blue-600" />;
-    if (type.includes('pr') || type.includes('pull')) return <GitPullRequest className="w-4 h-4" />;
-    if (type.includes('issue')) return <Bug className="w-4 h-4" />;
-    if (type.includes('star')) return <Star className="w-4 h-4" />;
-    return <Activity className="w-4 h-4" />;
+
+    if (activityType in activityConfig) {
+      return activityConfig[activityType as ActivityKey];
+    }
+
+    if (type.includes("pr merged") || type.includes("merged")) {
+      return activityConfig["PR merged"];
+    }
+    if (type.includes("pr opened") || type.includes("opened pr")) {
+      return activityConfig["PR opened"];
+    }
+    if (type.includes("issue")) {
+      return activityConfig["Issue opened"];
+    }
+    if (type.includes("commit")) {
+      return activityConfig["commit"];
+    }
+    if (type.includes("star")) {
+      return activityConfig["star"];
+    }
+
+    return defaultConfig;
+  };
+
+
+
+
+  const getActivityIcon = (activityType: string) => {
+    return getActivityConfig(activityType).icon;
   };
 
   const sortedActivities = Object.entries(contributor.activity_breakdown || {})
@@ -71,8 +172,8 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
 
   const recentActivity = contributor.daily_activity || [];
   const totalDaysActive = recentActivity.length;
-  const averagePointsPerDay = totalDaysActive > 0 
-    ? Math.round((contributor.total_points || 0) / totalDaysActive) 
+  const averagePointsPerDay = totalDaysActive > 0
+    ? Math.round((contributor.total_points || 0) / totalDaysActive)
     : 0;
 
   // Using server-side streaks provided by the API
@@ -84,8 +185,8 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
   const thisMonth = new Date();
   const monthlyActivity = recentActivity.filter(day => {
     const dayDate = new Date(day.date);
-    return dayDate.getMonth() === thisMonth.getMonth() && 
-           dayDate.getFullYear() === thisMonth.getFullYear();
+    return dayDate.getMonth() === thisMonth.getMonth() &&
+      dayDate.getFullYear() === thisMonth.getFullYear();
   });
 
   const monthlyPoints = monthlyActivity.reduce((sum, day) => sum + day.points, 0);
@@ -97,12 +198,12 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
   const displayUsername = `@${contributor.username}`;
 
   return (
-    <div className="mx-auto px-4 py-8 max-w-7xl lg:max-w-[1300px]">
+    <div className="mx-auto px-4 py-8 max-w-7xl">
       <Button onClick={onBack} variant="outline" className="mb-6 hover:bg-primary cursor-pointer transition-colors">
         <ArrowLeft className="w-4 h-4 mr-2" />
         Back to People
       </Button>
-      
+
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-1">
           <Card className="sticky top-4 bg-gradient-to-br from-background via-background to-muted/20 shadow-lg border-0 ring-1 ring-border">
@@ -127,29 +228,10 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
                     </div>
                   )}
                 </div>
-                
-                <div className="text-center w-full min-w-0 px-4">
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <h2 className="text-2xl font-bold mb-2 truncate max-w-full min-w-0" aria-label={displayName}>
-                        {displayName}
-                      </h2>
-                    </TooltipTrigger>
-                    <TooltipContent sideOffset={6} side="top">
-                      {displayName}
-                    </TooltipContent>
-                  </Tooltip>
 
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <p className="text-muted-foreground mb-3 text-lg truncate max-w-full min-w-0" aria-label={displayUsername}>
-                        {displayUsername}
-                      </p>
-                    </TooltipTrigger>
-                    <TooltipContent sideOffset={6} side="bottom">
-                      {displayUsername}
-                    </TooltipContent>
-                  </Tooltip>
+                <div className="text-center w-full">
+                  <h2 className="text-2xl font-bold mb-2">{contributor.name || contributor.username}</h2>
+                  <p className="text-muted-foreground mb-3 text-lg">@{contributor.username}</p>
                   <Badge variant="secondary" className="mb-6 bg-primary/10 text-primary font-semibold px-4 py-2">
                     {contributor.role}
                   </Badge>
@@ -161,13 +243,13 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
                     <span className="font-bold text-xl text-yellow-700">{contributor.total_points || 0}</span>
                     <span className="text-xs text-yellow-600 text-center font-medium">Total Points</span>
                   </div>
-                  
+
                   <div className="flex flex-col items-center p-4 rounded-xl bg-gradient-to-br from-blue-50 via-blue-50 to-blue-100 dark:from-blue-400 dark:to-blue-300 border border-blue-200 dark:border-blue-800">
                     <Calendar className="w-6 h-6 text-blue-600 mb-2" />
                     <span className="font-bold text-xl text-blue-700">{totalDaysActive}</span>
                     <span className="text-xs text-blue-600 text-center font-medium">Active Days</span>
                   </div>
-                  
+
                   <div className="flex flex-col items-center p-4 rounded-xl bg-gradient-to-br from-green-50 via-green-50 to-green-100 dark:from-green-400 dark:to-green-300 border border-green-200 dark:border-green-800">
                     <div className="flex items-center gap-2 mb-2">
                       <TrendingUp className={`w-6 h-6 text-green-600 ${currentStreak > 0 ? "animate-pulse-slow" : ""}`} />
@@ -197,8 +279,8 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
                   </div>
                 </div>
 
-                <a 
-                  href={`https://github.com/${contributor.username}`} 
+                <a
+                  href={`https://github.com/${contributor.username}`}
                   target="_blank" rel="noopener noreferrer"
                   className="w-full flex justify-center mt-4"
                 >
@@ -305,25 +387,49 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {sortedActivities.map(([activity, data]) => {
+                  const config = getActivityConfig(activity);
+
                   return (
-                    <div key={activity} className="group p-5 rounded-xl border bg-gradient-to-br from-background to-muted/30 hover:shadow-lg hover:border-primary/30 transition-all duration-200">
+                    <div
+                      key={activity}
+                      className={`group relative p-5 rounded-xl border ${config.borderColor} bg-gradient-to-br ${config.gradient} hover:shadow-lg transition-all duration-200 overflow-hidden`}
+                    >
+                      {/* Accent bar on the left */}
+                      <div className={`absolute left-0 top-0 bottom-0 w-1 ${config.accentColor}`} />
+
                       <div className="flex items-center gap-3 mb-4">
-                        <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                          {getActivityIcon(activity)}
+                        <div className={`p-2.5 rounded-lg ${config.iconBg} transition-colors ${config.textColor}`}>
+                          {config.icon}
                         </div>
-                        <div>
-                          <h4 className="font-semibold text-lg">{activity}</h4>
+                        <div className="flex-1">
+                          <h4 className={`font-semibold text-lg ${config.textColor}`}>{activity}</h4>
                           <p className="text-sm text-muted-foreground">{data.count} contributions</p>
                         </div>
+                        <Badge className={`${config.bgColor} ${config.textColor} border-0 font-bold text-base px-3 py-1`}>
+                          {data.points}
+                        </Badge>
                       </div>
-                      <div className="space-y-3">
-                        <div className="flex justify-between items-center">
-                          <span className="text-sm font-medium">Activity</span>
-                          <span className="font-bold text-lg text-primary">{data.points} points</span>
+
+                      <div className="space-y-3 pl-1">
+                        <div className="flex justify-between items-center text-sm">
+                          <span className="font-medium text-muted-foreground">Average per contribution</span>
+                          <span className={`font-bold ${config.textColor}`}>
+                            {Math.round(data.points / data.count)} pts
+                          </span>
                         </div>
-                        <div className="flex justify-between text-xs text-muted-foreground">
-                          <span>{Math.round(data.points / data.count)} avg points</span>
-                          <span>{data.count} {data.count === 1 ? 'contribution' : 'contributions'}</span>
+
+                        {/* Visual progress bar */}
+                        <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
+                          <div
+                            className={`h-full ${config.accentColor} transition-all duration-300`}
+                            style={{
+                              width: `${Math.min(
+                                maxPoints > 0 ? (data.points / maxPoints) * 100 : 0,
+                                100
+                              )}%`,
+                            }}
+
+                          />
                         </div>
                       </div>
                     </div>
@@ -348,26 +454,26 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
                     const date = new Date(activity.occured_at);
                     const isVeryRecent = index < 3;
                     const daysAgo = Math.floor((currentTime - date.getTime()) / (1000 * 60 * 60 * 24));
-                    
+                    const config = getActivityConfig(activity.type);
+
                     return (
-                      <div 
+                      <div
                         key={`${activity.link}-${index}`}
-                        className={`group flex items-start gap-4 p-4 rounded-lg border transition-all duration-200 hover:shadow-md ${
-                          isVeryRecent 
-                            ? 'bg-gradient-to-r from-primary/5 to-primary/10 border-primary/20 hover:border-primary/40' 
+                        className={`group flex items-start gap-4 p-4 rounded-lg border transition-all duration-200 hover:shadow-md ${isVeryRecent
+                            ? `${config.borderColor} bg-gradient-to-r ${config.gradient}`
                             : 'bg-muted/20 hover:bg-muted/40 hover:border-primary/20'
-                        }`}
+                          }`}
                       >
-                        <div className={`mt-1 p-2 rounded-lg ${isVeryRecent ? 'bg-primary/10' : 'bg-muted'} group-hover:bg-primary/20 transition-colors`}>
-                          {getActivityIcon(activity.type)}
+                        <div className={`mt-1 p-2 rounded-lg ${config.iconBg} ${config.textColor} transition-colors`}>
+                          {config.icon}
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-start justify-between gap-3 mb-2">
                             <div className="flex-1 min-w-0">
                               {activity.link ? (
-                                <a 
-                                  href={activity.link} 
-                                  target="_blank" 
+                                <a
+                                  href={activity.link}
+                                  target="_blank"
                                   rel="noopener noreferrer"
                                   className="font-medium text-sm line-clamp-2 mb-1 group-hover:text-primary transition-colors cursor-pointer hover:underline"
                                 >
@@ -379,7 +485,7 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
                                 </h4>
                               )}
                               <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                                <span className={`font-medium px-2 py-1 rounded-full ${isVeryRecent ? 'bg-primary/20 text-primary' : 'bg-muted'}`}>
+                                <span className={`font-medium px-2 py-1 rounded-full ${config.bgColor} ${config.textColor}`}>
                                   {activity.type}
                                 </span>
                                 <span className="flex items-center gap-1">
@@ -389,23 +495,23 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
                               </div>
                             </div>
                             <div className="flex items-center gap-3 shrink-0">
-                              <Badge 
-                                variant={isVeryRecent ? "default" : "secondary"} 
-                                className={`text-xs font-bold ${isVeryRecent ? 'bg-primary shadow-sm' : ''}`}
+                              <Badge
+                                variant={isVeryRecent ? "default" : "secondary"}
+                                className={`text-xs font-bold ${isVeryRecent ? `${config.bgColor} ${config.textColor} border-0` : ''}`}
                               >
                                 +{activity.points} pts
                               </Badge>
                               {isVeryRecent && (
-                                <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                                <div className={`w-2 h-2 ${config.accentColor} rounded-full animate-pulse`} />
                               )}
                             </div>
                           </div>
                           {activity.link && (
-                            <a 
-                              href={activity.link} 
+                            <a
+                              href={activity.link}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1 text-xs text-primary hover:text-primary/80 hover:underline font-medium"
+                              className={`inline-flex items-center gap-1 text-xs hover:underline font-medium ${config.textColor}`}
                             >
                               View Contribution
                               <ExternalLink className="w-3 h-3" />
@@ -420,7 +526,7 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
             </Card>
           )}
 
-          <GitHubHeatmap 
+          <GitHubHeatmap
             dailyActivity={recentActivity}
             className="border-primary/20"
           />
