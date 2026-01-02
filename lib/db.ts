@@ -1,6 +1,5 @@
 // lib/db.ts — temporary stub (no DB)
 
-import { UserEntry } from "@/scripts/generateLeaderboard";
 import fs from "fs";
 import path from "path";
 
@@ -25,11 +24,6 @@ export type ActivityGroup = {
   activities: ActivityItem[];
 };
 
-type RecentActivitiesJSON = {
-  updatedAt: number;
-  entries: UserEntry[];
-  groups: ActivityGroup[];
-};
 
 // Used by app/page.tsx
 // export async function getRecentActivitiesGroupedByType(valid: "week" | "month" | "year"): Promise<ActivityGroup[]> {
@@ -146,12 +140,12 @@ export async function getRecentActivitiesGroupedByType(
 // (Optional) stubs for other imports; add as you see “module not found” errors:
 
 export async function getUpdatedTime() {
-  // get last updated time from any of the JSON files
+  // get last updated time from year.json (primary source for all period data)
   const filePath = path.join(
     process.cwd(),
     "public",
     "leaderboard",
-    `week.json`
+    `year.json`
   );
   if (!fs.existsSync(filePath)) return null;
 

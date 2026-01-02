@@ -33,7 +33,12 @@ export const Footer = async ({ config }: FooterProps) => {
               <h3 className="text-sm font-semibold uppercase tracking-wider text-zinc-900 dark:text-zinc-100">
                 About Us
               </h3>
-              <div className="flex items-center gap-2">
+              <Link
+                href="https://circuitverse.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
                 <Image
                   src={config.org.logo_url}
                   alt={config.org.name}
@@ -44,7 +49,7 @@ export const Footer = async ({ config }: FooterProps) => {
                 <span className="text-lg font-bold tracking-tight text-zinc-900 dark:text-white">
                   {config.org.name}
                 </span>
-              </div>
+              </Link>
             </div>
 
             <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-sm">
@@ -63,7 +68,7 @@ export const Footer = async ({ config }: FooterProps) => {
                   aria-label="Facebook"
                 >
                   <Image
-                    src="facebook.svg"
+                    src="/facebook.svg"
                     alt="Facebook"
                     width={20}
                     height={20}
@@ -79,7 +84,7 @@ export const Footer = async ({ config }: FooterProps) => {
                   aria-label="YouTube"
                 >
                   <Image
-                    src="youtube.svg"
+                    src="/youtube.svg"
                     alt="YouTube"
                     width={20}
                     height={20}
@@ -95,7 +100,7 @@ export const Footer = async ({ config }: FooterProps) => {
                   aria-label="Twitter"
                 >
                   <Image
-                    src="twitter.svg"
+                    src="/twitter.svg"
                     alt="Twitter"
                     width={20}
                     height={20}
@@ -112,7 +117,7 @@ export const Footer = async ({ config }: FooterProps) => {
                   aria-label="LinkedIn"
                 >
                   <Image
-                    src="linkedIn.svg"
+                    src="/linkedIn.svg"
                     alt="LinkedIn"
                     width={20}
                     height={20}
@@ -128,7 +133,7 @@ export const Footer = async ({ config }: FooterProps) => {
                   aria-label="GitHub"
                 >
                   <Image
-                    src="github.svg"
+                    src="/github.svg"
                     alt="GitHub"
                     width={20}
                     height={20}
@@ -144,7 +149,7 @@ export const Footer = async ({ config }: FooterProps) => {
                   aria-label="Email"
                 >
                   <Image
-                    src="gmail.svg"
+                    src="/gmail.svg"
                     alt="Email"
                     width={20}
                     height={20}

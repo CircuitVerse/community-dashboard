@@ -43,7 +43,7 @@ async function main() {
     const cssContent = await response.text();
     await writeFile(outputPath, cssContent, "utf8");
     console.log(`✅ Theme downloaded successfully`);
-  } catch (error) {
+  } catch {
     console.warn("⚠️ Theme fetch failed. Using empty override.");
     await writeFile(outputPath, "", "utf8");
   }

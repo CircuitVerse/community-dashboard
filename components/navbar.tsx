@@ -84,7 +84,7 @@ const Navbar = ({ config }: NavbarProps) => {
             >
               <Button variant={"outline"} size={"icon"}>
                 <Image
-                  src="github.svg"
+                  src="/github.svg"
                   alt="GitHub"
                   width={17}
                   height={17}

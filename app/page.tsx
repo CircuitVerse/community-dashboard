@@ -1,10 +1,3 @@
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import RelativeTime from "@/components/RelativeTime";
 import { ActivityTypes } from "@/components/Leaderboard/stats-card/activity-types";
 import { ActivityLineCard } from "@/components/Leaderboard/stats-card/activity-line-card";
 import ActiveContributors from "@/components/Leaderboard/stats-card/active-contributors";
