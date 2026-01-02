@@ -232,6 +232,29 @@ export async function getContributorProfile(username: string) {
 
   const streaks = calculateStreaks(dailyActivity);
 
+  // Calculate PR Turn-around Time
+  const prOpenedMap = new Map<string, Date>();
+  const turnAroundTimes: number[] = [];
+
+  // Sort activities chronologically to match opened before merged
+  const sortedActivities = [...activities].sort((a, b) => a.occured_at.getTime() - b.occured_at.getTime());
+
+  sortedActivities.forEach(activity => {
+    if (activity.type === "PR opened") {
+      prOpenedMap.set(activity.link, activity.occured_at);
+    } else if (activity.type === "PR merged") {
+      const openedAt = prOpenedMap.get(activity.link);
+      if (openedAt) {
+        const diff = activity.occured_at.getTime() - openedAt.getTime();
+        turnAroundTimes.push(diff);
+      }
+    }
+  });
+
+  const avgTurnAroundMs = turnAroundTimes.length > 0 
+    ? turnAroundTimes.reduce((a, b) => a + b, 0) / turnAroundTimes.length 
+    : 0;
+
   return {
     contributor,
     activities,
@@ -240,7 +263,8 @@ export async function getContributorProfile(username: string) {
     dailyActivity,
     stats: {
       currentStreak: streaks.current,
-      longestStreak: streaks.longest
+      longestStreak: streaks.longest,
+      avgTurnAroundMs
     }
   };
 }

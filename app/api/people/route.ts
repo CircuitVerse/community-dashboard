@@ -14,6 +14,7 @@ interface ContributorEntry {
   daily_activity: DailyActivity[];
   current_streak?: number;
   longest_streak?: number;
+  activities?: any[];
 }
 
 interface LeaderboardData {
@@ -57,6 +58,7 @@ export async function GET() {
           const streaks = calculateStreaks(entry.daily_activity);
           const entryWithStreaks = {
             ...entry,
+            activities: entry.activities || (entry as any).raw_activities || [],
             current_streak: streaks.current,
             longest_streak: streaks.longest
           };
