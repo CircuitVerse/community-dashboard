@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Hint from "./hint";
 
 const POINTS_CONFIG = [
@@ -34,6 +34,7 @@ const PointsContent = ({ isMobile = false, onClose }: PointsContentProps) => (
         <button
           onClick={onClose}
           className="text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200 text-2xl leading-none"
+          aria-label="Close"
         >
           ×
         </button>
@@ -95,6 +96,37 @@ const PointsContent = ({ isMobile = false, onClose }: PointsContentProps) => (
 
 export default function PointsInfoButton() {
   const [showMobileInfo, setShowMobileInfo] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+
+  // Handle focus management
+  useEffect(() => {
+    if (showMobileInfo && dialogRef.current) {
+      dialogRef.current.focus();
+    }
+  }, [showMobileInfo]);
+
+  // Return focus to trigger button when modal closes
+  useEffect(() => {
+    if (!showMobileInfo && triggerRef.current) {
+      triggerRef.current.focus();
+    }
+  }, [showMobileInfo]);
+
+  // Handle Escape key to close modal
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && showMobileInfo) {
+        setShowMobileInfo(false);
+      }
+    };
+    
+    if (showMobileInfo) {
+      document.addEventListener("keydown", handleEscape);
+    }
+    
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, [showMobileInfo]);
 
   return (
     <>
@@ -114,9 +146,11 @@ export default function PointsInfoButton() {
       {/* Mobile: Bottom sheet modal */}
       <div className="md:hidden">
         <button
+          ref={triggerRef}
           type="button"
           onClick={() => setShowMobileInfo(true)}
           className="text-lg text-[#50B78B]/70 active:text-[#50B78B] transition-colors focus:outline-none rounded-sm"
+          aria-label="Show points allocation"
         >
           ⓘ
         </button>
@@ -126,11 +160,16 @@ export default function PointsInfoButton() {
             <div
               className="fixed inset-0 bg-black/60 z-40 animate-in fade-in duration-200"
               onClick={() => setShowMobileInfo(false)}
+              aria-hidden="true"
             />
 
             <div
+              ref={dialogRef}
               className="fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-zinc-900 rounded-t-2xl border-t border-zinc-200 dark:border-zinc-800 shadow-2xl animate-in slide-in-from-bottom duration-300"
               role="dialog"
+              aria-labelledby="points-modal-title"
+              aria-modal="true"
+              tabIndex={-1}
             >
               <PointsContent
                 isMobile
