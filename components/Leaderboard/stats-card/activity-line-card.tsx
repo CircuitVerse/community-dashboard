@@ -131,13 +131,25 @@ export function ActivityLineCard({
     [week1, week2, week3, week4, maxValue]
   );
 
-  const wowChange =
-    prev_month > 0
-      ? ((totalActivitiesLabel - prev_month) / prev_month) *
-        100
-      : 0;
-  const isUp = wowChange > 0;
-  const isDown = wowChange < 0;
+  let momChange: number | null = null;
+
+  if (prev_month > 0) {
+    momChange =
+      (totalActivitiesLabel - prev_month) / prev_month;
+  }
+
+  const isUp = momChange !== null && momChange > 0;
+  const isDown = momChange !== null && momChange < 0;
+
+  let changeLabel: string;
+
+  if (prev_month === 0) {
+    changeLabel = "New";
+  } else if (prev_month < 100) {
+    changeLabel = `${(momChange! + 1).toFixed(1)}×`;
+  } else {
+    changeLabel = `${(momChange! * 100).toFixed(1)}%`;
+  }
 
   return (
     <Card className="rounded-[20px] border-zinc-200 dark:border-white/10 bg-white dark:bg-linear-to-b dark:from-zinc-900 dark:via-zinc-900 dark:to-black shadow-xl shadow-[#edfff7] dark:shadow-black/50 overflow-hidden">
@@ -152,7 +164,13 @@ export function ActivityLineCard({
               {formattedTotal}
             </div>
             <CardDescription className="mt-2 text-sm font-medium">
-              Activity up significantly from last month
+              {prev_month === 0
+                ? "New activity tracking started"
+                : isUp
+                ? `Activity up from last month`
+                : isDown
+                ? `Activity down from last month`
+                : "Activity unchanged from last month"}
             </CardDescription>
           </div>
 
@@ -176,7 +194,7 @@ export function ActivityLineCard({
               {isDown && (
                 <ArrowDownRight className="mr-1 size-4" />
               )}
-              {Math.abs(wowChange).toFixed(1)}%
+              {changeLabel}
             </span>
           </div>
         </div>

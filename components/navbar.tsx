@@ -5,7 +5,7 @@ import { Config } from "@/types/config";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Trophy, Users, Github } from "lucide-react";
+import { Home, Trophy, Users } from "lucide-react";
 import { useScrollDirection } from "@/lib/hooks/useScrollDirection";
 import { Button } from "./ui/button";
 

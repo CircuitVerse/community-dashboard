@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Github } from "lucide-react";
-import { useState, useMemo } from "react";
+import { useState } from "react";
 
 interface HeatmapProps {
   dailyActivity: Array<{ date: string; count: number; points: number }>;

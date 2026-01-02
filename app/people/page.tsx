@@ -27,22 +27,9 @@ interface ContributorEntry {
   }>;
 }
 
-interface ApiResponse {
-  updatedAt: number;
-  people: ContributorEntry[];
-  coreTeam: TeamMember[];
-  alumni: TeamMember[];
-  stats?: {
-    totalContributors: number;
-    totalPoints: number;
-    averagePoints: number;
-    topRoles: [string, number][];
-  };
-}
-
 type PeopleResponse = {
   updatedAt: number;
-  people: any[];
+  people: ContributorEntry[];
   coreTeam: TeamMember[];
   alumni: TeamMember[];
 };

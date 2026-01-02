@@ -1,12 +1,6 @@
 "use client";
 
 import { formatTimeAgo } from "@/lib/utils";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import { format } from "date-fns";
 import { isYesterday } from "date-fns";
 import Hint from "./hint";

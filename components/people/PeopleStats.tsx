@@ -7,7 +7,6 @@ import {
   Trophy, 
   Activity, 
   TrendingUp, 
-  Calendar,
   Star,
   GitCommit,
   Target,
@@ -35,16 +34,6 @@ export function PeopleStats({ contributors, onContributorClick }: PeopleStatsPro
   const totalPoints = contributors.reduce((sum, c) => sum + (c.total_points || 0), 0);
   const averagePoints = totalContributors > 0 ? Math.round(totalPoints / totalContributors) : 0;
   
-  // Role distribution
-  const roleDistribution = contributors.reduce((acc, contributor) => {
-    const role = contributor.role || 'Unknown';
-    acc[role] = (acc[role] || 0) + 1;
-    return acc;
-  }, {} as Record<string, number>);
-
-  const topRoles = Object.entries(roleDistribution)
-    .sort(([, a], [, b]) => b - a)
-    .slice(0, 5);
 
   // Activity stats
   const totalActivities = contributors.reduce((sum, c) => {

@@ -22,10 +22,18 @@ interface PaginatedActivitySectionProps {
   itemsPerPage?: number;
 }
 
+/**
+* Displays a paginated list of activities with a sliding window navigation.
+* @param props - Component properties
+* @param props.group - The activity group to display
+* @param props.itemsPerPage - Number of items per page (default: 9)
+* @returns A paginated activity section component
+*/ 
 export function PaginatedActivitySection({
   group,
   itemsPerPage = 9,
-}: PaginatedActivitySectionProps) {
+}: PaginatedActivitySectionProps){
+  /** Current active page number */
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalPages = Math.ceil(group.activities.length / itemsPerPage);
@@ -33,29 +41,54 @@ export function PaginatedActivitySection({
   const endIndex = startIndex + itemsPerPage;
   const currentActivities = group.activities.slice(startIndex, endIndex);
 
-  const goToPage = (page: number) => {
-    setCurrentPage(Math.max(1, Math.min(page, totalPages)));
-  };
+  /** Number of page buttons visible at once */
+  const windowSize = 3;
 
-  const goToPrevious = () => {
-    setCurrentPage((prev) => Math.max(1, prev - 1));
-  };
+  /** Starting page number of the visible pagination window */
+  const [windowStart, setWindowStart] = useState(1);
 
+  /** Navigate to the next page and shift the pagination window forward when required */
   const goToNext = () => {
-    setCurrentPage((prev) => Math.min(totalPages, prev + 1));
+    const nextPage = Math.min(totalPages, currentPage + 1);
+    setCurrentPage(nextPage);
+    setWindowStart((ws) => {
+      if (nextPage > ws + windowSize - 1) {
+        return ws + 1;
+      }
+      return ws;
+    });
   };
 
-  const getPageNumbers = () => {
-    const pages: (number | string)[] = [];
+  /** Navigate to the previous page and shift the pagination window backward if required **/
+  const goToPrevious = () => {
+    const nextPage = Math.max(1, currentPage - 1);
+    setCurrentPage(nextPage);
+    setWindowStart((ws) => {
+      if (nextPage < ws) {
+        return ws - 1;
+      }
+      return ws;
+    });
+  };
 
-    if (totalPages <= 4) {
-      // Show all pages if 4 or fewer
-      for (let i = 1; i <= totalPages; i++) pages.push(i);
-    } else {
-      // Show: 1 2 3 ... last
-      pages.push(1, 2, 3);
-      pages.push("...");
-      pages.push(totalPages);
+  /** Navigate to a specific page and adjust the pagination window to keep it in view **/
+  const goToPage = (page: number) => {
+    setCurrentPage(page);
+    setWindowStart((ws) => {
+      if (page < ws) return page;
+      if (page > ws + windowSize - 1) {
+        return page - windowSize + 1;
+      }
+      return ws;
+    });
+  };
+
+  /** returns the list of pagenos currently visible in the pagination window **/
+  const getPageNumbers = () => {
+    const pages: number[] = [];
+    const end = Math.min(windowStart + windowSize - 1, totalPages);
+    for(let i = windowStart; i <= end; i++){
+      pages.push(i);
     }
 
     return pages;
@@ -123,11 +156,7 @@ export function PaginatedActivitySection({
                       </span>
                     </span>
                     <span>•</span>
-                    <RelativeTime
-                      date={new Date(
-                        activity.occured_at ?? activity.closed_at
-                      )}
-                    />
+                    <RelativeTime date={new Date(activity.occured_at)} />
                   </div>
                 </div>
 
@@ -145,62 +174,79 @@ export function PaginatedActivitySection({
         {/* Pagination Controls */}
         {totalPages > 1 && (
           <div className="bg-zinc-50 dark:bg-white/5 px-4 py-3 border-t">
-            <div className="flex items-center justify-center gap-1 sm:gap-2">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={goToPrevious}
-                disabled={currentPage === 1}
-                className="h-8 px-2 sm:px-3 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-[#50B78B] transition-colors disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-inherit disabled:cursor-not-allowed cursor-pointer"
-              >
-                <ChevronLeft className="h-4 w-4" />
-                <span className="hidden sm:inline">Previous</span>
-              </Button>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center justify-center gap-1 sm:gap-2 mx-auto">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={goToPrevious}
+                  disabled={currentPage === 1}
+                  className="h-8 px-2 sm:px-3 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-[#50B78B] transition-colors disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-inherit disabled:cursor-not-allowed cursor-pointer"
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                  <span className="hidden sm:inline">Previous</span>
+                </Button>
 
-              <div className="flex items-center gap-1">
-                {getPageNumbers().map((page, index) => {
-                  if (page === "...") {
-                    return (
-                      <span
-                        key={`ellipsis-${index}`}
-                        className="px-2 text-xs text-zinc-400"
-                      >
-                        ...
-                      </span>
-                    );
-                  }
-
-                  const pageNum = page as number;
-                  return (
+                <div className="flex items-center gap-1">
+                  {getPageNumbers().map((pageNum) => (
                     <Button
-                      key={pageNum}
-                      variant={
-                        currentPage === pageNum ? "default" : "ghost"
-                      }
+                      key={`${windowStart}-${pageNum}`}
+                      variant={currentPage === pageNum ? "default" : "ghost"}
                       size="sm"
                       onClick={() => goToPage(pageNum)}
-                      className={`h-8 w-8 p-0 transition-all cursor-pointer ${
+                      className={`h-8 w-8 p-0 cursor-pointer ${
                         currentPage === pageNum
-                          ? "bg-[#50B78B] hover:bg-[#50B78B]/90 text-white shadow-sm"
-                          : "hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-[#50B78B] hover:border-[#50B78B]/20 hover:shadow-sm"
+                          ? "bg-[#50B78B] text-white"
+                          : "hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-[#50B78B]"
                       }`}
                     >
                       {pageNum}
                     </Button>
-                  );
-                })}
-              </div>
+                  ))}  
+                  {(() => { 
+                    const windowEnd = windowStart + windowSize - 1;
+                    if(windowEnd >= totalPages) return null;
+                    const PageButton = (page: number) => (
+                      <Button
+                        key={`${windowStart}-${page}`}
+                        variant={currentPage === page ? "default" : "ghost"}
+                        size="sm"
+                        onClick={() => goToPage(page)}
+                        className={`h-8 w-8 p-0 cursor-pointer ${
+                          currentPage === page
+                            ? "bg-[#50B78B] text-white"
+                            : "hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-[#50B78B]"
+                        }`}
+                      >
+                        {page}
+                      </Button>
+                    );
+                    if(windowEnd === totalPages - 1){
+                      return PageButton(totalPages);
+                    }
+                    return(
+                      <>
+                        <span className="px-1 text-zinc-400">…</span>
+                        {PageButton(totalPages)}
+                      </>
+                    );
+                  })()}
+                </div>
 
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={goToNext}
-                disabled={currentPage === totalPages}
-                className="h-8 px-2 sm:px-3 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-[#50B78B] transition-colors disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-inherit disabled:cursor-not-allowed cursor-pointer"
-              >
-                <span className="hidden sm:inline">Next</span>
-                <ChevronRight className="h-4 w-4" />
-              </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={goToNext}
+                  disabled={currentPage === totalPages}
+                  className="h-8 px-2 sm:px-3 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-[#50B78B] transition-colors disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-inherit disabled:cursor-not-allowed cursor-pointer"
+                >
+                  <span className="hidden sm:inline">Next</span>
+                  <ChevronRight className="h-4 w-4" />
+                </Button>
+              </div>
+              <span className="text-xs text-zinc-500 font-mono ml-4 shrink-0">
+                {currentPage} / {totalPages}
+              </span>
             </div>
           </div>
         )}

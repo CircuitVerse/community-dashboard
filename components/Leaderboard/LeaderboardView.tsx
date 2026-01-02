@@ -11,8 +11,9 @@ import {
 import Link from "next/link";
 import { Medal, Trophy, Filter, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useMemo, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useMemo, useState, useEffect } from "react";
+import { sortEntries, type SortBy } from "@/lib/leaderboard";
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import ActivityTrendChart from "../../components/Leaderboard/ActivityTrendChart";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
@@ -72,6 +73,22 @@ export default function LeaderboardView({
   // Search query state
   const [searchQuery, setSearchQuery] = useState("");
 
+  // sorting
+  const [sortBy, setSortBy] = useState<SortBy>(() => {
+    const s = searchParams.get('sort');
+    if(s === 'pr_opened' || s === 'pr_merged' || s === 'issues')
+      return s as SortBy;
+    return 'points';
+  });
+
+  useEffect(() => {
+    const s = searchParams.get('sort');
+    setSortBy(s === 'pr_opened' || s === 'pr_merged' || s === 'issues' ? (s as SortBy) : 'points');
+  }, [searchParams]);
+
+  const [popoverOpen, setPopoverOpen] = useState(false);
+  const pathname = usePathname();
+
   // Get selected roles from query params
   // If no roles are selected, default to all visible roles (excluding hidden ones)
   const selectedRoles = useMemo(() => {
@@ -121,8 +138,16 @@ export default function LeaderboardView({
       });
     }
 
+    // applying sorting
+    try{
+      filtered = sortEntries(filtered, sortBy);
+    } 
+    catch(e){
+      console.error('Error sorting entries:', e);
+    }
+
     return filtered;
-  }, [entries, selectedRoles, searchQuery]);
+  }, [entries, selectedRoles, searchQuery, sortBy]);
 
   const toggleRole = (role: string) => {
     const newSelected = new Set(selectedRoles);
@@ -135,11 +160,21 @@ export default function LeaderboardView({
   };
 
   const clearFilters = () => {
-    const params = new URLSearchParams(searchParams.toString());
-    params.delete("roles");
-    router.push(`?${params.toString()}`, { scroll: false });
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
+  const params = new URLSearchParams(searchParams.toString());
+  if(isMobile){
     setSearchQuery("");
-  };
+    return;
+  }
+  params.delete("roles");
+  params.delete("sort");
+  params.delete("order");
+
+  window.history.replaceState(null, "", `${pathname}?${params.toString()}`);
+  setSearchQuery("");
+  setSortBy("points");
+};
+ 
 
   const updateRolesParam = (roles: Set<string>) => {
     const params = new URLSearchParams(searchParams.toString());
@@ -148,7 +183,7 @@ export default function LeaderboardView({
     } else {
       params.delete("roles");
     }
-    router.push(`?${params.toString()}`, { scroll: false });
+    if(typeof window !== 'undefined') window.history.replaceState(null, '', `${pathname}?${params.toString()}`);
   };
 
   // Filter top contributors by selected roles
@@ -215,63 +250,124 @@ export default function LeaderboardView({
               </div>
 
               {/* Filters */}
-              <div className="flex flex-col gap-2 w-full sm:w-auto sm:flex-row sm:items-center sm:justify-end">
+              <div
+                className="
+                  w-full
+                  md:w-auto md:ml-auto
+                  flex flex-col
+                  md:items-end
+                  lg:flex-row lg:items-center
+                  gap-2
+                "
+              >
+                <div className="flex items-center gap-2 w-full md:justify-end">
+                  <div className="relative w-full md:w-[16rem]">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                    <Input
+                      type="text"
+                      placeholder="Search contributors..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="pl-9 h-9 w-full bg-white dark:bg-[#07170f] border border-[#50B78B]/60 dark:border-[#50B78B]/40 focus-visible:ring-2 focus-visible:ring-[#50B78B]"
+                    />
+                  </div>
 
-                {/* Search Bar */}
-                <div className="relative w-full sm:flex-1 sm:min-w-0 md:w-[16rem]">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                  <Input
-                    type="text"
-                    placeholder="Search contributors..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className={cn(
-                      "pl-9 h-9 w-full bg-white dark:bg-[#07170f] border border-[#50B78B]/60 dark:border-[#50B78B]/40 text-foreground dark:text-foreground shadow-sm dark:shadow-none outline-none focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#50B78B] focus-visible:ring-offset-0 transition-colors",
-                     "sm:w-full"
-                    )}
-                  />
+                  <div className="hidden sm:flex">
+                    <button
+                      type="button"
+                      className="h-9 w-28 px-3 rounded-md bg-[#50B78B] text-white text-sm flex items-center justify-center gap-2"
+                    >
+                      <span>
+                        {sortBy === "points"
+                          ? "Total Points"
+                          : sortBy === "pr_opened"
+                          ? "PR Opened"
+                          : sortBy === "pr_merged"
+                          ? "PR Merged"
+                          : "Issue Opened"}
+                      </span>
+                    </button>
+                  </div>
                 </div>
 
-                {/* Role Filter */}
-                {availableRoles.length > 0 && (
-                  <>
-                    <div className="flex flex-row items-center gap-2 w-full sm:w-auto sm:flex-row sm:items-center sm:gap-2 justify-between sm:justify-start">
-                      {(selectedRoles.size > 0 || searchQuery) && (
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={clearFilters}
-                          className="h-9 shrink-0 hover:bg-[#50B78B]/20 dark:hover:bg-[#50B78B]/20 focus:border-[#50B78B] focus-visible:ring-2 focus-visible:ring-[#50B78B]/40 outline-none order-2 sm:order-1"
-                        >
-                          <X className="h-4 w-4 mr-1" />
-                          Clear
-                        </Button>
-                      )}
-                      <Popover>
-                        <PopoverTrigger asChild>
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            className="h-9 w-[min(11rem,calc(100%-6rem))] px-1 has-[>svg]:px-1 sm:w-auto sm:px-3 sm:has-[>svg]:px-2.5 border border-[#50B78B]/30 dark:border-[#50B78B]/30 hover:bg-[#50B78B]/20 dark:hover:bg-[#50B78B]/20 focus:border-[#50B78B] focus-visible:ring-2 focus-visible:ring-[#50B78B]/40 outline-none min-w-0 order-1 sm:order-2"
-                          >
-                            <Filter className="h-4 w-4 mr-1.5 sm:mr-2" />
-                            Role
-                            {selectedRoles.size > 0 && (
-                              <span className="ml-0.5 sm:ml-1 px-1.5 py-0.5 text-xs rounded-full bg-[#50B78B] text-white">
-                                {selectedRoles.size}
-                              </span>
-                            )}
-                          </Button>
-                        </PopoverTrigger>
+                <div className="flex items-center gap-2 justify-end">
+                  {(selectedRoles.size > 0 || searchQuery || sortBy !== "points") && (
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={clearFilters}
+                      className="h-9 hover:bg-[#50B78B]/20 cursor-pointer"
+                    >
+                      <X className="h-4 w-4 mr-1" />
+                      Clear
+                    </Button>
+                  )}
+
+                  <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
+                    <PopoverTrigger asChild>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="h-9 border border-[#50B78B]/30 hover:bg-[#50B78B]/20 cursor-pointer"
+                      >
+                        <Filter className="h-4 w-4 mr-1.5" />
+                        Filter
+                        {selectedRoles.size > 0 && (
+                          <span className="ml-1 px-1.5 py-0.5 text-xs rounded-full bg-[#50B78B] text-white">
+                            {selectedRoles.size}
+                          </span>
+                        )}
+                      </Button>
+                    </PopoverTrigger>
                         <PopoverContent
-                          className="w-64 max-w-[calc(100vw-2rem)] bg-white dark:bg-[#07170f]"
                           align="end"
+                          className="w-56 bg-white dark:bg-[#07170f]"
                         >
-                          <div className="space-y-4">
+                          <div className="space-y-2">
                             <h4 className="font-medium text-sm">
-                              Filter by Role
+                              Sort By
                             </h4>
-                            <div className="space-y-2 max-h-64 overflow-y-auto">
+                            <div className="space-y-0.5">
+                              {[
+                                { key: 'points' as SortBy, label: 'Total Points' },
+                                { key: 'pr_opened' as SortBy, label: 'PRs Opened' },
+                                { key: 'pr_merged' as SortBy, label: 'PRs Merged' },
+                                { key: 'issues' as SortBy, label: 'Issue Opened' },
+                              ].map((opt) => {
+                                const active = sortBy === opt.key;
+                                return (
+                                  <button
+                                    key={opt.key}
+                                    onClick={(e) => {
+                                      setPopoverOpen(false);
+                                      setSortBy(opt.key as SortBy);
+                                      const params = new URLSearchParams(searchParams.toString());
+                                      if(opt.key === 'points'){
+                                        params.delete('sort');
+                                        params.delete('order');
+                                        if(typeof window !== 'undefined') 
+                                          window.history.replaceState(null, '', `${pathname}?${params.toString()}`);
+                                      }else{
+                                        params.set('sort', opt.key);
+                                        params.set('order', 'desc');
+                                        if(typeof window !== 'undefined') 
+                                          window.history.replaceState(null, '', `${pathname}?${params.toString()}`);
+                                      }
+                                    }}
+                                    className={cn('w-full text-left px-4 py-2 cursor-pointer rounded-md text-sm', active ? 'bg-[#50B78B] text-white' : 'hover:bg-muted')}
+                                    aria-pressed={active}
+                                  >
+                                    <div className="flex items-center justify-between">
+                                      <div>{opt.label}</div>
+                                    </div>
+                                  </button>
+                                )
+                              })}
+                            </div>
+                            <h4 className="font-medium text-sm">
+                              Role
+                            </h4>
+                            <div className="space-y-2 max-h-64 overflow-y-auto px-4">
                               {availableRoles.map((role) => (
                                 <div
                                   key={role}
@@ -295,8 +391,7 @@ export default function LeaderboardView({
                         </PopoverContent>
                       </Popover>
                     </div>
-                  </>
-                )}
+                  
               </div>
             </div>
           </div>

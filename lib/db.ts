@@ -3,6 +3,7 @@
 import { UserEntry } from "@/scripts/generateLeaderboard";
 import fs from "fs";
 import path from "path";
+import { differenceInDays } from "date-fns";
 
 type ActivityItem = {
   slug: string;
@@ -11,7 +12,6 @@ type ActivityItem = {
   contributor_avatar_url: string | null;
   contributor_role: string | null;
   occured_at: string;
-  closed_at: string;
   title?: string | null;
   text?: string | null;
   link?: string | null;
@@ -29,6 +29,13 @@ type RecentActivitiesJSON = {
   updatedAt: number;
   entries: UserEntry[];
   groups: ActivityGroup[];
+};
+
+export type MonthBuckets = {
+  w1: number;
+  w2: number;
+  w3: number;
+  w4: number;
 };
 
 // Used by app/page.tsx
@@ -80,7 +87,7 @@ type RecentActivitiesJSON = {
 // }
 
 export async function getRecentActivitiesGroupedByType(
-  valid: "week" | "2week" | "3week" | "month" | "2month" | "year"
+  valid: "week" | "month" | "2month" | "year"
 ): Promise<ActivityGroup[]> {
   const filePath = path.join(
     process.cwd(),
@@ -120,7 +127,6 @@ export async function getRecentActivitiesGroupedByType(
       contributor_avatar_url: user.avatar_url,
       contributor_role: user.role ?? null,
       occured_at: act.occured_at,
-      closed_at: act.occured_at,
       title: act.title ?? null,     // ✅ REAL title
       link: act.link ?? null,       // ✅ REAL GitHub link
       points: act.points ?? 0,
