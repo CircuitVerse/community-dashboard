@@ -9,7 +9,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import Link from "next/link";
-import { Medal, Trophy, Filter, X, Divide } from "lucide-react";
+import { Medal, Trophy, Filter, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
