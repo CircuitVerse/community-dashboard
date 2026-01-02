@@ -169,6 +169,7 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
 
   const sortedActivities = Object.entries(contributor.activity_breakdown || {})
     .sort(([, a], [, b]) => b.points - a.points);
+  const maxPoints = Math.max(...sortedActivities.map(([_, d]) => d.points)) || 0;
 
   const recentActivity = contributor.daily_activity || [];
   const totalDaysActive = recentActivity.length;
