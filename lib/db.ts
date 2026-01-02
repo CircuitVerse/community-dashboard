@@ -187,20 +187,29 @@ import { calculateStreaks, DailyActivity } from "./streak-utils";
  */
 export async function getContributorProfile(username: string) {
   const filePath = path.join(process.cwd(), "public", "leaderboard", "year.json");
-  if (!fs.existsSync(filePath)) return { contributor: null, activities: [], totalPoints: 0, activityByDate: {} };
+  const defaultReturn = { 
+    contributor: null, 
+    activities: [], 
+    totalPoints: 0, 
+    activityByDate: {}, 
+    dailyActivity: [], 
+    stats: { currentStreak: 0, longestStreak: 0 } 
+  };
+
+  if (!fs.existsSync(filePath)) return defaultReturn;
 
   const file = fs.readFileSync(filePath, "utf-8");
   const data = JSON.parse(file);
 
   if (!data?.entries || !Array.isArray(data.entries)) {
-    return { contributor: null, activities: [], totalPoints: 0, activityByDate: {} };
+    return defaultReturn;
   }
 
-  const contributor = data.entries.find((e: { user: { login: string }; total_points: number; raw_activities: any[] }) => e.user.login === username);
+  const contributor = data.entries.find((entry: any) => entry.username.toLowerCase() === username.toLowerCase());
 
-  if (!contributor) return { contributor: null, activities: [], totalPoints: 0, activityByDate: {} };
+  if (!contributor) return defaultReturn;
 
-  const activities = (contributor.raw_activities || []).map((a: any) => ({
+  const activities = (contributor.activities || []).map((a: any) => ({
     ...a,
     occured_at: new Date(a.occured_at),
   }));
