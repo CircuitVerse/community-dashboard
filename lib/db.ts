@@ -149,11 +149,36 @@ export async function getUpdatedTime() {
   return data.updatedAt ? new Date(data.updatedAt) : null;
 }
 
-export async function getLeaderboard() { return []; }
-export async function getTopContributorsByActivity() { return {}; }
-export async function getAllContributorsWithAvatars() { return []; }
-export async function getAllContributorUsernames() { return []; }
-export async function getContributor(_username: string) { return null; }
+export async function getLeaderboard(): Promise<UserEntry[]> {
+  const filePath = path.join(process.cwd(), "public", "leaderboard", "year.json");
+  if (!fs.existsSync(filePath)) return [];
+
+  const file = fs.readFileSync(filePath, "utf-8");
+  const data = JSON.parse(file);
+  
+  if (!data?.entries) return [];
+
+  return data.entries.sort((a: any, b: any) => b.total_points - a.total_points);
+}
+
+export async function getAllContributorsWithAvatars() {
+  const leaderboard = await getLeaderboard();
+  return leaderboard.map(entry => ({
+    username: entry.username,
+    avatar_url: entry.avatar_url,
+    name: entry.name
+  }));
+}
+
+export async function getAllContributorUsernames() {
+  const leaderboard = await getLeaderboard();
+  return leaderboard.map(entry => entry.username);
+}
+
+export async function getContributor(username: string) {
+  const leaderboard = await getLeaderboard();
+  return leaderboard.find(entry => entry.username.toLowerCase() === username.toLowerCase()) || null;
+}
 
 import { calculateStreaks, DailyActivity } from "./streak-utils";
 
@@ -166,6 +191,11 @@ export async function getContributorProfile(username: string) {
 
   const file = fs.readFileSync(filePath, "utf-8");
   const data = JSON.parse(file);
+
+  if (!data?.entries || !Array.isArray(data.entries)) {
+    return { contributor: null, activities: [], totalPoints: 0, activityByDate: {} };
+  }
+
   const contributor = data.entries.find((e: { user: { login: string }; total_points: number; raw_activities: any[] }) => e.user.login === username);
 
   if (!contributor) return { contributor: null, activities: [], totalPoints: 0, activityByDate: {} };

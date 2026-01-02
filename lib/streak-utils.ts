@@ -28,7 +28,7 @@ export function calculateStreaks(dailyActivity: DailyActivity[]) {
       const currentDate = new Date(day.date);
       if (lastDate) {
         const diffTime = Math.abs(currentDate.getTime() - lastDate.getTime());
-        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
 
         if (diffDays === 1) {
           tempStreak++;
@@ -45,12 +45,18 @@ export function calculateStreaks(dailyActivity: DailyActivity[]) {
 
   // Calculate Current Streak (working backwards from today/yesterday)
   const today = new Date();
-  today.setHours(0, 0, 0, 0);
   const yesterday = new Date(today);
   yesterday.setDate(yesterday.getDate() - 1);
 
-  const todayStr = today.toISOString().split("T")[0];
-  const yesterdayStr = yesterday.toISOString().split("T")[0];
+  const formatDate = (date: Date) => {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
+
+  const todayStr = formatDate(today);
+  const yesterdayStr = formatDate(yesterday);
 
   const reverseDays = [...sortedDays].reverse();
   let currentStreak = 0;
