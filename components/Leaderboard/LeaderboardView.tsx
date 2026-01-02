@@ -17,6 +17,7 @@ import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import ActivityTrendChart from "../../components/Leaderboard/ActivityTrendChart";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
+import PointsInfoButton from "@/components/PointsInfoButton";
 
 export type LeaderboardEntry = {
   username: string;
@@ -230,7 +231,6 @@ export default function LeaderboardView({
     month: "Monthly",
     year: "Yearly",
   };
-
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex gap-8">
@@ -238,11 +238,13 @@ export default function LeaderboardView({
         <div className="flex-1 min-w-0">
           {/* Header */}
           <div className="mb-8">
-            <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between mb-4">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between mb-4">
               <div className="min-w-0">
-                <h1 className="text-4xl text-[#50B78B] font-bold mb-2">
-                  {periodLabels[period]} Leaderboard
+                <h1 className="flex items-center gap-2 text-4xl font-bold text-[#50B78B] mb-2">
+                  <span>{periodLabels[period]} Leaderboard</span>
+                  <PointsInfoButton />
                 </h1>
+
                 <p className="text-muted-foreground">
                   {filteredEntries.length} of {entries.length} contributors
                   {(selectedRoles.size > 0 || searchQuery) && " (filtered)"}
@@ -250,44 +252,19 @@ export default function LeaderboardView({
               </div>
 
               {/* Filters */}
-              <div
-                className="
-                  w-full
-                  md:w-auto md:ml-auto
-                  flex flex-col
-                  md:items-end
-                  lg:flex-row lg:items-center
-                  gap-2
-                "
-              >
-                <div className="flex items-center gap-2 w-full md:justify-end">
-                  <div className="relative w-full md:w-[16rem]">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                    <Input
-                      type="text"
-                      placeholder="Search contributors..."
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      className="pl-9 h-9 w-full bg-white dark:bg-[#07170f] border border-[#50B78B]/60 dark:border-[#50B78B]/40 focus-visible:ring-2 focus-visible:ring-[#50B78B]"
-                    />
-                  </div>
-
-                  <div className="hidden sm:flex">
-                    <button
-                      type="button"
-                      className="h-9 w-28 px-3 rounded-md bg-[#50B78B] text-white text-sm flex items-center justify-center gap-2"
-                    >
-                      <span>
-                        {sortBy === "points"
-                          ? "Total Points"
-                          : sortBy === "pr_opened"
-                          ? "PR Opened"
-                          : sortBy === "pr_merged"
-                          ? "PR Merged"
-                          : "Issue Opened"}
-                      </span>
-                    </button>
-                  </div>
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+                {/* Search Bar */}
+                <div className="relative">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Input
+                    type="text"
+                    placeholder="Search contributors..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="
+                      pl-9 h-9 w-full sm:w-64 bg-white dark:bg-[#07170f] border border-[#50B78B]/60 dark:border-[#50B78B]/40 text-foreground dark:text-foreground shadow-sm dark:shadow-none outline-none focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#50B78B] focus-visible:ring-offset-0 transition-colors
+                    "
+                  />
                 </div>
 
                 <div className="flex items-center gap-2 justify-end">
@@ -438,8 +415,7 @@ export default function LeaderboardView({
                     )}
                   >
                     <CardContent>
-                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
-
+                      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
                         {/* Rank */}
                         <div className="flex items-center justify-center size-12 shrink-0">
                           {getRankIcon(rank) || (
@@ -528,16 +504,17 @@ export default function LeaderboardView({
                         {/* Total Points with Trend Chart */}
                         <div className="flex items-center gap-4 shrink-0">
                           <div className="hidden sm:block">
-                          {/* Activity Trend Chart */}
-                          {entry.daily_activity &&
-                            entry.daily_activity.length > 0 && (
-                              <ActivityTrendChart
-                                dailyActivity={entry.daily_activity}
-                                startDate={startDate}
-                                endDate={endDate}
-                                mode="points"
-                              />
-                            )}</div>
+                            {/* Activity Trend Chart */}
+                            {entry.daily_activity &&
+                              entry.daily_activity.length > 0 && (
+                                <ActivityTrendChart
+                                  dailyActivity={entry.daily_activity}
+                                  startDate={startDate}
+                                  endDate={endDate}
+                                  mode="points"
+                                />
+                              )}
+                          </div>
                           <div className="text-right">
                             <div className="text-3xl font-bold text-[#50B78B]">
                               {entry.total_points}
@@ -626,4 +603,4 @@ export default function LeaderboardView({
       </div>
     </div>
   );
-}  
+}
