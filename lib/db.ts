@@ -274,3 +274,48 @@ export async function getContributorProfile(username: string) {
     }
   };
 }
+
+export async function getMonthlyActivityBuckets(): Promise<MonthBuckets> {
+  const month = await getRecentActivitiesGroupedByType("month");
+  const activities = month.flatMap(g => g.activities);
+  const now = new Date();
+  
+  const buckets: MonthBuckets = { w1: 0, w2: 0, w3: 0, w4: 0 };
+  
+  for (const activity of activities) {
+    const activityDate = new Date(activity.occured_at);
+    const daysAgo = differenceInDays(now, activityDate);
+    
+    if (daysAgo < 7) buckets.w1++;
+    else if (daysAgo < 14) buckets.w2++;
+    else if (daysAgo < 21) buckets.w3++;
+    else if (daysAgo < 28) buckets.w4++;
+  }
+  
+  return buckets;
+}
+
+export async function getPreviousMonthActivityCount(): Promise<number> {
+  const filePath = path.join(process.cwd(), "public", "leaderboard", "month.json");
+  if (!fs.existsSync(filePath)) return 0;
+
+  const file = fs.readFileSync(filePath, "utf-8");
+  const data = JSON.parse(file);
+  
+  if (!data?.entries?.length) return 0;
+  
+  const activities = data.entries.flatMap((entry: any) => entry.activities || []);
+  const now = new Date();
+
+  let count = 0;
+  for (const activity of activities) {
+    const activityDate = new Date(activity.occured_at);
+    const daysAgo = differenceInDays(now, activityDate);
+
+    if (daysAgo >= 30 && daysAgo < 60) {
+      count++;
+    }
+  }
+
+  return count;
+}
