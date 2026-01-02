@@ -65,8 +65,8 @@ scripts/
 
 | Activity        | Points |
 |-----------------|--------|
+| PR Merged       | 5      |
 | PR opened       | 2      |
-| PR merged       | 5      |
 | Issue opened    | 1      |
 
 > PR reviews and label triaging are intentionally excluded for now and will be added via separate issues.
@@ -147,16 +147,7 @@ npm run dev
 ```bash
 export GITHUB_TOKEN=ghp_your_token_here
 npx tsx scripts/generateLeaderboard.ts
-```
-
----
-
-## 🛣 Roadmap
-
-- PR review scoring
-- Issue triaging
-- Maintainer weighting
-
+``` 
 ---
 
 ## 🤝 Contributing
