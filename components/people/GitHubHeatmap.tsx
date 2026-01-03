@@ -37,15 +37,13 @@ export function GitHubHeatmap({ dailyActivity, className = "" }: HeatmapProps) {
     const years = new Set(dailyActivity.map((d) => getYearFromDateStr(d.date)));
     // Add current year if not present (for empty states)
     years.add(new Date().getFullYear());
-    return Array.from(years).sort((a, b) => b - a);
+    // Sort ascending so buttons show: 2025, 2026 (bigger year last)
+    return Array.from(years).sort((a, b) => a - b);
   }, [dailyActivity]);
 
-  // Default to the most recent year with data, or current year
+  // Default to current year (2026)
   const [selectedYear, setSelectedYear] = useState(() => {
-    if (dailyActivity.length === 0) return new Date().getFullYear();
-    // Find the latest year in the activity data
-    const years = dailyActivity.map((d) => getYearFromDateStr(d.date));
-    return Math.max(...years);
+    return new Date().getFullYear();
   });
 
   // Filter activity for selected year
@@ -267,10 +265,10 @@ export function GitHubHeatmap({ dailyActivity, className = "" }: HeatmapProps) {
       </CardHeader>
       <CardContent>
         <div className="space-y-3">
-          {/* Scrollable heatmap area */}
-          <div className="overflow-x-auto">
+          {/* Scrollable heatmap area - only horizontal scroll, no vertical */}
+          <div className="overflow-x-auto overflow-y-hidden">
             {/* Month labels */}
-            <div className="relative h-4 min-w-[780px] sm:min-w-0 ml-8">
+            <div className="relative h-4 min-w-[780px] ml-8">
               {monthPositions.map((pos, i) => (
                 <div
                   key={i}
@@ -283,7 +281,7 @@ export function GitHubHeatmap({ dailyActivity, className = "" }: HeatmapProps) {
             </div>
 
             {/* Day labels and heatmap */}
-            <div className="flex gap-1 min-w-[780px] sm:min-w-0">
+            <div className="flex gap-1 min-w-[780px]">
               {/* Day labels */}
               <div className="flex flex-col gap-1 text-xs text-muted-foreground w-8 shrink-0 justify-around">
                 {dayLabels.map((label, i) => (
