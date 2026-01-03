@@ -86,7 +86,9 @@ export function PeopleStats({ contributors, onContributorClick }: PeopleStatsPro
               </div>
               <div>
                 <p className="text-md text-white/80">Total Contributors</p>
-                <p className="text-2xl font-bold text-white">{totalContributors}</p>
+                <p className="text-2xl font-bold text-white">
+                  {totalContributors}
+                </p>
                 <p className="text-sm text-white/70">Active community</p>
               </div>
             </div>
@@ -101,7 +103,9 @@ export function PeopleStats({ contributors, onContributorClick }: PeopleStatsPro
               </div>
               <div>
                 <p className="text-md text-white/80">Total Points</p>
-                <p className="text-2xl font-bold text-white">{totalPoints.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-white">
+                  {totalPoints.toLocaleString()}
+                </p>
                 <p className="text-sm text-white/70">Community effort</p>
               </div>
             </div>
@@ -131,8 +135,15 @@ export function PeopleStats({ contributors, onContributorClick }: PeopleStatsPro
               </div>
               <div>
                 <p className="text-md text-white/80">Active This Year</p>
-                <p className="text-2xl font-bold text-white">{recentlyActive}</p>
-                <p className="text-sm text-white/70">{totalContributors > 0 ? Math.round((recentlyActive/totalContributors)*100) : 0}% of community</p>
+                <p className="text-2xl font-bold text-white">
+                  {recentlyActive}
+                </p>
+                <p className="text-sm text-white/70">
+                  {totalContributors > 0
+                    ? Math.round((recentlyActive / totalContributors) * 100)
+                    : 0}
+                  % of community
+                </p>
               </div>
             </div>
           </CardContent>
@@ -147,40 +158,52 @@ export function PeopleStats({ contributors, onContributorClick }: PeopleStatsPro
               Top Contributors of the year
             </CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
+          <CardContent className="px-2 sm:px-6">
+            <div className="space-y-3">
               {topContributors.map((contributor, index) => (
-                <div 
-                  key={contributor.username} 
-                  className="flex items-center gap-3 p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors cursor-pointer"
+                <div
+                  key={contributor.username}
+                  className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors cursor-pointer group"
                   onClick={() => onContributorClick?.(contributor)}
                 >
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${{
-                    0: 'bg-gradient-to-br from-yellow-400 to-yellow-600 text-white shadow-md',
-                    1: 'bg-gradient-to-br from-gray-300 to-gray-500 text-white shadow-md',
-                    2: 'bg-gradient-to-br from-amber-400 to-amber-600 text-white shadow-md'
-                  }[index] || 'bg-gradient-to-br from-primary/20 to-primary/40 text-primary font-semibold'}`}>
+                  <div
+                    className={`shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold ${
+                      {
+                        0: "bg-gradient-to-br from-yellow-400 to-yellow-600 text-white shadow-md",
+                        1: "bg-gradient-to-br from-gray-300 to-gray-500 text-white shadow-md",
+                        2: "bg-gradient-to-br from-amber-400 to-amber-600 text-white shadow-md",
+                      }[index] ||
+                      "bg-gradient-to-br from-primary/20 to-primary/40 text-primary"
+                    }`}
+                  >
                     {index + 1}
                   </div>
-                  <img 
-                    src={contributor.avatar_url} 
+
+                  <img
+                    src={contributor.avatar_url}
                     alt={contributor.name || contributor.username}
-                    className="w-10 h-10 rounded-full ring-2 ring-primary/10"
+                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-full shrink-0 ring-2 ring-primary/10"
                   />
+
                   <div className="flex-1 min-w-0">
-                    <p className="font-semibold text-sm truncate">
+                    <p className="font-semibold text-xs sm:text-sm truncate">
                       {contributor.name || contributor.username}
                     </p>
-                    <p className="text-xs text-muted-foreground">
+                    <p className="text-[10px] sm:text-xs text-muted-foreground truncate">
                       @{contributor.username} • {contributor.role}
                     </p>
                   </div>
-                  <div className="text-right">
-                    <Badge variant="outline" className="font-bold">
+
+                  <div className="text-right shrink-0">
+                    <Badge
+                      variant="outline"
+                      className="px-1.5 py-0 text-[10px] sm:text-xs font-bold"
+                    >
                       {contributor.total_points || 0} pts
                     </Badge>
-                    <p className="text-xs text-muted-foreground mt-1">
-                      {contributor.daily_activity?.length || 0} active days
+
+                    <p className="hidden sm:block text-[10px] text-muted-foreground mt-1">
+                      {contributor.daily_activity?.length || 0} Active days
                     </p>
                   </div>
                 </div>
@@ -199,20 +222,36 @@ export function PeopleStats({ contributors, onContributorClick }: PeopleStatsPro
           <CardContent>
             <div className="grid grid-cols-2 gap-4 mb-6">
               <div className="text-center p-4 bg-muted/30 rounded-lg">
-                <div className="text-2xl font-bold text-green-600 dark:text-green-400">{totalActivities.toLocaleString()}</div>
-                <div className="text-sm text-muted-foreground">Total Activities</div>
+                <div className="text-2xl font-bold text-green-600 dark:text-green-400">
+                  {totalActivities.toLocaleString()}
+                </div>
+                <div className="text-sm text-muted-foreground">
+                  Total Activities
+                </div>
               </div>
               <div className="text-center p-4 bg-muted/30 rounded-lg">
-                <div className="text-2xl font-bold text-green-600 dark:text-green-400">{averageActiveDays}</div>
-                <div className="text-sm text-muted-foreground">Avg Active Days</div>
+                <div className="text-2xl font-bold text-green-600 dark:text-green-400">
+                  {averageActiveDays}
+                </div>
+                <div className="text-sm text-muted-foreground">
+                  Avg Active Days
+                </div>
               </div>
               <div className="text-center p-4 bg-muted/30 rounded-lg">
-                <div className="text-2xl font-bold text-green-600 dark:text-green-400">{Math.round(totalActivities / totalContributors)}</div>
-                <div className="text-sm text-muted-foreground">Avg Activities</div>
+                <div className="text-2xl font-bold text-green-600 dark:text-green-400">
+                  {Math.round(totalActivities / totalContributors)}
+                </div>
+                <div className="text-sm text-muted-foreground">
+                  Avg Activities
+                </div>
               </div>
               <div className="text-center p-4 bg-muted/30 rounded-lg">
-                <div className="text-2xl font-bold text-green-600 dark:text-green-400">{Math.round((recentlyActive / totalContributors) * 100)}%</div>
-                <div className="text-sm text-muted-foreground">Weekly Active Rate</div>
+                <div className="text-2xl font-bold text-green-600 dark:text-green-400">
+                  {Math.round((recentlyActive / totalContributors) * 100)}%
+                </div>
+                <div className="text-sm text-muted-foreground">
+                  Weekly Active Rate
+                </div>
               </div>
             </div>
 
@@ -220,21 +259,33 @@ export function PeopleStats({ contributors, onContributorClick }: PeopleStatsPro
               {topActivityTypes.map(([type, data]) => {
                 const getActivityIcon = (activityType: string) => {
                   const typeStr = activityType.toLowerCase();
-                  if (typeStr.includes('commit')) return <GitCommit className="w-4 h-4" />;
-                  if (typeStr.includes('pr') || typeStr.includes('pull')) return <GitPullRequest className="w-4 h-4" />;
-                  if (typeStr.includes('issue')) return <Activity className="w-4 h-4" />;
+                  if (typeStr.includes("commit"))
+                    return <GitCommit className="w-4 h-4" />;
+                  if (typeStr.includes("pr") || typeStr.includes("pull"))
+                    return <GitPullRequest className="w-4 h-4" />;
+                  if (typeStr.includes("issue"))
+                    return <Activity className="w-4 h-4" />;
                   return <Activity className="w-4 h-4" />;
                 };
 
                 return (
-                  <div key={type} className="p-3 border rounded-lg bg-gradient-to-br from-background to-muted/30">
+                  <div
+                    key={type}
+                    className="p-3 border rounded-lg bg-gradient-to-br from-background to-muted/30"
+                  >
                     <div className="flex items-center gap-2 mb-2">
                       {getActivityIcon(type)}
-                      <span className="font-medium text-sm truncate">{type}</span>
+                      <span className="font-medium text-sm truncate">
+                        {type}
+                      </span>
                     </div>
                     <div className="space-y-1">
-                      <div className="text-lg font-bold text-green-600 dark:text-green-400">{data.count}</div>
-                      <div className="text-xs text-muted-foreground">{data.points} total points</div>
+                      <div className="text-lg font-bold text-green-600 dark:text-green-400">
+                        {data.count}
+                      </div>
+                      <div className="text-xs text-muted-foreground">
+                        {data.points} total points
+                      </div>
                     </div>
                   </div>
                 );
