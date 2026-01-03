@@ -116,15 +116,37 @@ export default function LeaderboardView({
     });
     return Array.from(roles).sort();
   }, [entries]);
+  const isRoleFilterActive = useMemo(() => {
+    return searchParams.has("roles");
+  }, [searchParams]);
 
-  const originalRanks = useMemo(() => {
-    const sortedByPoints = sortEntries(entries, 'points');
+  /**
+ * Computes a stable rank for each contributor based on the
+ * fully sorted leaderboard list
+ *
+ * @remarks
+ * - Rank is independent of filters and pagination
+ * - Ensures consistent rank display across UI states
+ *
+ * @returns {Map<string, number>} Map of username -> rank
+ */
+
+  const entryRanks = useMemo(() => {
+    let entriesForRanking = entries;
+    
+    if (isRoleFilterActive) {
+      entriesForRanking = entries.filter(
+        (entry) => entry.role && selectedRoles.has(entry.role)
+      );
+    }
+
+    const sorted = sortEntries(entriesForRanking, sortBy);
     const rankMap = new Map<string, number>();
-    sortedByPoints.forEach((entry, index) => {
+    sorted.forEach((entry, index) => {
       rankMap.set(entry.username, index + 1);
     });
     return rankMap;
-  }, [entries]);
+  }, [entries, isRoleFilterActive, selectedRoles, sortBy]);
 
   // Filter entries by selected roles and search query
   const filteredEntries = useMemo(() => {
@@ -168,6 +190,17 @@ export default function LeaderboardView({
     updateRolesParam(newSelected);
   };
 
+  /**
+ * Clears all active filters and resets sorting state.
+ *
+ * @remarks
+ * - On mobile devices, only the search query is cleared
+ *   to avoid unnecessary URL updates.
+ * - On larger screens, roles, sorting, and order params
+ *   are fully reset.
+ *
+ * @returns {void}
+ */
   const clearFilters = () => {
   const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
   const params = new URLSearchParams(searchParams.toString());
@@ -435,7 +468,7 @@ export default function LeaderboardView({
           ) : (
             <div className="space-y-4">
               {filteredEntries.map((entry, index) => {
-                const savedRank = originalRanks.get(entry.username);
+                const savedRank = entryRanks.get(entry.username);
                 const rank = savedRank ? savedRank : index + 1;                
                 const isTopThree = rank <= 3;
 
