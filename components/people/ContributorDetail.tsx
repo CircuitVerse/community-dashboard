@@ -24,6 +24,8 @@ import {
   GitMerge,
   AlertCircle
 } from "lucide-react";
+import { AchievementBadges } from "@/components/people/AchievementBadges";
+import { getContributorBadges } from "@/lib/badges";
 
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 
@@ -53,6 +55,8 @@ interface ContributorEntry {
   total_points: number;
   activity_breakdown: Record<string, { count: number; points: number }>;
   daily_activity: Array<{ date: string; count: number; points: number }>;
+  current_streak?: number;
+  longest_streak?: number;
   activities?: Array<{
     type: string;
     title: string;
@@ -167,6 +171,7 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
 
   const sortedActivities = Object.entries(contributor.activity_breakdown || {})
     .sort(([, a], [, b]) => b.points - a.points);
+  const maxPoints = Math.max(...sortedActivities.map(([_, d]) => d.points)) || 0;
 
   const recentActivity = contributor.daily_activity || [];
   const totalDaysActive = recentActivity.length;
@@ -174,36 +179,9 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
     ? Math.round((contributor.total_points || 0) / totalDaysActive)
     : 0;
 
-  // Calculate streak
-  const sortedDates = recentActivity
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-
-  let currentStreak = 0;
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  const uniqueDates = Array.from(new Set(sortedDates.map(d => d.date)));
-  
-  let expectedDaysDiff = 0; // Start expecting today (0 days ago)
-  
-  for (const dateStr of uniqueDates) {
-    const activityDate = new Date(dateStr);
-    activityDate.setHours(0, 0, 0, 0);
-    const daysDiff = Math.floor((today.getTime() - activityDate.getTime()) / (1000 * 60 * 60 * 24));
-
-    if (currentStreak === 0 && (daysDiff === 0 || daysDiff === 1)) {
-      currentStreak++;
-      expectedDaysDiff = daysDiff + 1;
-      continue;
-    }
-
-    if (daysDiff === expectedDaysDiff) {
-      currentStreak++;
-      expectedDaysDiff++;
-    } else {
-      break;
-    }
-  }
+  // Using server-side streaks provided by the API
+  const currentStreak = contributor.current_streak || 0;
+  const longestStreak = contributor.longest_streak || 0;
 
   const recentContributions = contributor.activities?.slice(0, 15) || [];
 
@@ -216,10 +194,11 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
 
   const monthlyPoints = monthlyActivity.reduce((sum, day) => sum + day.points, 0);
   const monthlyDays = monthlyActivity.length;
-  const maxPoints =
-  sortedActivities.length > 0
-    ? Math.max(...sortedActivities.map(([, d]) => d.points))
-    : 0;
+
+  const earnedBadges = getContributorBadges(contributor);
+
+  const displayName = contributor.name || contributor.username;
+  const displayUsername = `@${contributor.username}`;
 
   const displayName = contributor.name || contributor.username;
   const displayUsername = `@${contributor.username}`;
@@ -297,15 +276,31 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
                   </div>
 
                   <div className="flex flex-col items-center p-4 rounded-xl bg-gradient-to-br from-green-50 via-green-50 to-green-100 dark:from-green-400 dark:to-green-300 border border-green-200 dark:border-green-800">
-                    <TrendingUp className="w-6 h-6 text-green-600 mb-2" />
-                    <span className="font-bold text-xl text-green-700">{currentStreak}</span>
-                    <span className="text-xs text-green-600 text-center font-medium">Day Streak</span>
+                    <div className="flex items-center gap-2 mb-2">
+                      <TrendingUp className={`w-6 h-6 text-green-600 ${currentStreak > 0 ? "animate-pulse-slow" : ""}`} />
+                      <span className="font-bold text-xl text-green-700">{currentStreak}</span>
+                    </div>
+                    <span className="text-xs text-green-600 text-center font-medium">Current Streak 🔥</span>
                   </div>
 
-                  <div className="flex flex-col items-center p-4 rounded-xl bg-gradient-to-br from-purple-50 via-purple-50 to-purple-100 dark:from-purple-400 dark:to-purple-300 border border-purple-200 dark:border-purple-800">
+                  <div className="flex flex-col items-center p-4 rounded-xl bg-gradient-to-br from-orange-50 via-orange-50 to-orange-100 dark:from-orange-400 dark:to-orange-300 border border-orange-200 dark:border-orange-800">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Trophy className="w-6 h-6 text-orange-600" />
+                      <span className="font-bold text-xl text-orange-700">{longestStreak}</span>
+                    </div>
+                    <span className="text-xs text-orange-600 text-center font-medium">Longest Streak 🏆</span>
+                  </div>
+                  
+                   <div className="flex flex-col items-center p-4 rounded-xl bg-gradient-to-br from-purple-50 via-purple-50 to-purple-100 dark:from-purple-400 dark:to-purple-300 border border-purple-200 dark:border-purple-800">
                     <Target className="w-6 h-6 text-purple-600 mb-2" />
                     <span className="font-bold text-xl text-purple-700">{averagePointsPerDay}</span>
                     <span className="text-xs text-purple-600 text-center font-medium">Avg/Day</span>
+                  </div>
+
+                  <div className="flex flex-col items-center p-4 rounded-xl bg-gradient-to-br from-pink-50 via-pink-50 to-pink-100 dark:from-pink-400 dark:to-pink-300 border border-pink-200 dark:border-pink-800">
+                    <Activity className="w-6 h-6 text-pink-600 mb-2" />
+                    <span className="font-bold text-xl text-pink-700">{sortedActivities.length}</span>
+                    <span className="text-xs text-pink-600 text-center font-medium">Activity Types</span>
                   </div>
                 </div>
 
@@ -324,6 +319,60 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
         </div>
 
         <div className="lg:col-span-3 space-y-8">
+          <AchievementBadges badges={earnedBadges} />
+
+          {/* Efficiency Metrics */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Card className="bg-gradient-to-br from-indigo-500/10 to-purple-500/10 border-indigo-500/20 shadow-sm">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm font-medium flex items-center gap-2 text-indigo-600 dark:text-indigo-400">
+                  <Clock className="w-4 h-4" />
+                  PR Turn-around
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-3xl font-bold">
+                    {(() => {
+                      const prOpened = new Map<string, number>();
+                      const times: number[] = [];
+                      const sorted = [...(contributor.activities || [])].sort(
+                        (a, b) => new Date(a.occured_at).getTime() - new Date(b.occured_at).getTime()
+                      );
+                      
+                      sorted.forEach(act => {
+                        if (act.type === "PR opened") prOpened.set(act.link, new Date(act.occured_at).getTime());
+                        else if (act.type === "PR merged" && prOpened.has(act.link)) {
+                          times.push(new Date(act.occured_at).getTime() - prOpened.get(act.link)!);
+                        }
+                      });
+                      
+                      if (times.length === 0) return "N/A";
+                      const avgHours = Math.round(times.reduce((a, b) => a + b, 0) / times.length / (1000 * 3600));
+                      return avgHours > 24 ? `${Math.round(avgHours / 2.4) / 10} days` : `${avgHours}h`;
+                    })()}
+                  </span>
+                  <span className="text-muted-foreground text-sm">avg. merge time</span>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-orange-500/10 to-red-500/10 border-orange-500/20 shadow-sm">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm font-medium flex items-center gap-2 text-orange-600 dark:text-orange-400">
+                  <TrendingUp className="w-4 h-4" />
+                  Activity Impact
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-3xl font-bold">{currentStreak}d</span>
+                  <span className="text-muted-foreground text-sm">current streak</span>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+          
           <Card className="bg-gradient-to-r from-primary/5 to-primary/10 border-primary/20">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-primary">
@@ -346,8 +395,8 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
                   <div className="text-sm text-muted-foreground">Daily Average</div>
                 </div>
                 <div className="text-center p-4 bg-background/50 rounded-lg">
-                  <div className="text-2xl font-bold text-primary">{sortedActivities.length}</div>
-                  <div className="text-sm text-muted-foreground">Activity Types</div>
+                  <div className="text-2xl font-bold text-primary">{(contributor.activities || []).length}</div>
+                  <div className="text-sm text-muted-foreground">Total Actions</div>
                 </div>
               </div>
             </CardContent>
