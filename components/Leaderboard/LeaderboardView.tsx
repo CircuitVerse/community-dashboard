@@ -9,14 +9,31 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import Link from "next/link";
-import { Medal, Trophy, Filter, X } from "lucide-react";
+import {
+  Search,
+  ChevronLeft,
+  ChevronRight,
+  Filter,
+  X,
+  Medal,
+  Trophy,
+  GitMerge,
+  GitPullRequest,
+  AlertCircle,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useMemo, useState, useEffect } from "react";
 import { sortEntries, type SortBy } from "@/lib/leaderboard";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import ActivityTrendChart from "../../components/Leaderboard/ActivityTrendChart";
 import { Input } from "@/components/ui/input";
-import { Search } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export type LeaderboardEntry = {
   username: string;
@@ -35,7 +52,7 @@ export type LeaderboardEntry = {
   >;
 
   daily_activity?: Array<{
-    date: string; // ISO string
+    date: string;
     points: number;
     count: number;
   }>;
@@ -59,6 +76,42 @@ interface LeaderboardViewProps {
   hiddenRoles: string[];
 }
 
+// Activity type styling configuration
+const activityStyles: Record<string, {
+  icon: React.ComponentType<{ className?: string }>;
+  bgColor: string;
+  textColor: string;
+  borderColor: string;
+}> = {
+  "PR merged": {
+    icon: GitMerge,
+    bgColor: "bg-purple-500/10 dark:bg-purple-500/15",
+    textColor: "text-purple-700 dark:text-purple-400",
+    borderColor: "border-l-purple-500"
+  },
+  "PR opened": {
+    icon: GitPullRequest,
+    bgColor: "bg-blue-500/10 dark:bg-blue-500/15",
+    textColor: "text-blue-700 dark:text-blue-400",
+    borderColor: "border-l-blue-500"
+  },
+  "Issue opened": {
+    icon: AlertCircle,
+    bgColor: "bg-orange-500/10 dark:bg-orange-500/15",
+    textColor: "text-orange-700 dark:text-orange-400",
+    borderColor: "border-l-orange-500"
+  }
+};
+
+const getActivityStyle = (activityName: string) => {
+  return activityStyles[activityName] || {
+    icon: () => null,
+    bgColor: "bg-muted",
+    textColor: "text-muted-foreground",
+    borderColor: "border-l-gray-400"
+  };
+};
+
 export default function LeaderboardView({
   entries,
   period,
@@ -70,8 +123,54 @@ export default function LeaderboardView({
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  // Search query state
   const [searchQuery, setSearchQuery] = useState("");
+
+  // Page size state - default to showing all entries (preserve existing behavior)
+  const [pageSize, setPageSize] = useState<number>(() => {
+    const limit = searchParams.get('limit');
+    if (limit) {
+      const parsed = parseInt(limit, 10);
+      if ([10, 25, 50, 100].includes(parsed)) {
+        return parsed;
+      }
+    }
+    // Default: show all entries (preserve existing behavior)
+    return Infinity;
+  });
+
+  useEffect(() => {
+    const limit = searchParams.get('limit');
+    if (limit) {
+      const parsed = parseInt(limit, 10);
+      if ([10, 25, 50, 100].includes(parsed)) {
+        setPageSize(parsed);
+      } else {
+        setPageSize(Infinity);
+      }
+    } else {
+      setPageSize(Infinity);
+    }
+  }, [searchParams]);
+
+  // Current page state - default to page 1
+  const [currentPage, setCurrentPage] = useState<number>(() => {
+    const page = searchParams.get('page');
+    if (page) {
+      const parsed = parseInt(page, 10);
+      return parsed > 0 ? parsed : 1;
+    }
+    return 1;
+  });
+
+  useEffect(() => {
+    const page = searchParams.get('page');
+    if (page) {
+      const parsed = parseInt(page, 10);
+      setCurrentPage(parsed > 0 ? parsed : 1);
+    } else {
+      setCurrentPage(1);
+    }
+  }, [searchParams]);
 
   // sorting
   const [sortBy, setSortBy] = useState<SortBy>(() => {
@@ -96,7 +195,6 @@ export default function LeaderboardView({
     if (rolesParam) {
       return new Set(rolesParam.split(","));
     }
-    // Default: exclude hidden roles
     const allRoles = new Set<string>();
     entries.forEach((entry) => {
       if (entry.role && !hiddenRoles.includes(entry.role)) {
@@ -106,7 +204,6 @@ export default function LeaderboardView({
     return allRoles;
   }, [searchParams, entries, hiddenRoles]);
 
-  // Get unique roles from entries
   const availableRoles = useMemo(() => {
     const roles = new Set<string>();
     entries.forEach((entry) => {
@@ -148,18 +245,15 @@ export default function LeaderboardView({
     return rankMap;
   }, [entries, isRoleFilterActive, selectedRoles, sortBy]);
 
-  // Filter entries by selected roles and search query
   const filteredEntries = useMemo(() => {
     let filtered = entries;
 
-    // Filter by roles
     if (selectedRoles.size > 0) {
       filtered = filtered.filter(
         (entry) => entry.role && selectedRoles.has(entry.role)
       );
     }
 
-    // Filter by search query
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
       filtered = filtered.filter((entry) => {
@@ -180,6 +274,50 @@ export default function LeaderboardView({
     return filtered;
   }, [entries, selectedRoles, searchQuery, sortBy]);
 
+  // Calculate total pages
+  const totalPages = useMemo(() => {
+    if (pageSize === Infinity) {
+      return 1; // Show all entries on one "page"
+    }
+    return Math.ceil(filteredEntries.length / pageSize);
+  }, [filteredEntries.length, pageSize]);
+
+  // Slice entries based on pageSize and currentPage
+  const paginatedEntries = useMemo(() => {
+    if (pageSize === Infinity) {
+      return filteredEntries;
+    }
+    const start = (currentPage - 1) * pageSize;
+    const end = start + pageSize;
+    return filteredEntries.slice(start, end);
+  }, [filteredEntries, pageSize, currentPage]);
+
+  // Reset to page 1 when pageSize changes or when filteredEntries change significantly
+  useEffect(() => {
+    if (currentPage > totalPages && totalPages > 0) {
+      // If current page is beyond total pages, reset to page 1
+      const params = new URLSearchParams(searchParams.toString());
+      params.delete("page");
+      if(typeof window !== 'undefined') {
+        window.history.replaceState(null, '', `${pathname}?${params.toString()}`);
+      }
+      setCurrentPage(1);
+    }
+  }, [totalPages, currentPage, searchParams, pathname]);
+
+  // Reset to page 1 when search query changes
+  useEffect(() => {
+    if (currentPage !== 1 && pageSize !== Infinity) {
+      const params = new URLSearchParams(searchParams.toString());
+      params.delete("page");
+      setCurrentPage(1);
+      if(typeof window !== 'undefined') {
+        window.history.replaceState(null, '', `${pathname}?${params.toString()}`);
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchQuery]); // Only reset when search query changes
+
   const toggleRole = (role: string) => {
     const newSelected = new Set(selectedRoles);
     if (newSelected.has(role)) {
@@ -187,7 +325,18 @@ export default function LeaderboardView({
     } else {
       newSelected.add(role);
     }
-    updateRolesParam(newSelected);
+    // Reset to page 1 when roles change
+    const params = new URLSearchParams(searchParams.toString());
+    if (newSelected.size > 0) {
+      params.set("roles", Array.from(newSelected).join(","));
+    } else {
+      params.delete("roles");
+    }
+    params.delete("page"); // Reset pagination
+    if(typeof window !== 'undefined') {
+      window.history.replaceState(null, '', `${pathname}?${params.toString()}`);
+    }
+    setCurrentPage(1);
   };
 
   /**
@@ -211,11 +360,63 @@ export default function LeaderboardView({
   params.delete("roles");
   params.delete("sort");
   params.delete("order");
+  // Reset to page 1 when clearing filters
+  params.delete("page");
+  setCurrentPage(1);
+  // Note: We preserve the limit param when clearing filters
 
   window.history.replaceState(null, "", `${pathname}?${params.toString()}`);
   setSearchQuery("");
   setSortBy("points");
 };
+
+  const updatePageSize = (newPageSize: number | "all") => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (newPageSize === "all" || newPageSize === Infinity) {
+      params.delete("limit");
+      setPageSize(Infinity);
+    } else {
+      params.set("limit", newPageSize.toString());
+      setPageSize(newPageSize);
+    }
+    // Reset to page 1 when page size changes
+    params.delete("page");
+    setCurrentPage(1);
+    if(typeof window !== 'undefined') {
+      window.history.replaceState(null, '', `${pathname}?${params.toString()}`);
+    }
+  };
+
+  const updatePage = (page: number) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (page === 1) {
+      params.delete("page");
+    } else {
+      params.set("page", page.toString());
+    }
+    setCurrentPage(page);
+    if(typeof window !== 'undefined') {
+      window.history.replaceState(null, '', `${pathname}?${params.toString()}`);
+    }
+  };
+
+  const goToNextPage = () => {
+    if (currentPage < totalPages) {
+      updatePage(currentPage + 1);
+    }
+  };
+
+  const goToPreviousPage = () => {
+    if (currentPage > 1) {
+      updatePage(currentPage - 1);
+    }
+  };
+
+  const goToPage = (page: number) => {
+    if (page >= 1 && page <= totalPages) {
+      updatePage(page);
+    }
+  };
  
 
   const updateRolesParam = (roles: Set<string>) => {
@@ -228,7 +429,6 @@ export default function LeaderboardView({
     if(typeof window !== 'undefined') window.history.replaceState(null, '', `${pathname}?${params.toString()}`);
   };
 
-  // Filter top contributors by selected roles
   const filteredTopByActivity = useMemo(() => {
     if (selectedRoles.size === 0) {
       return topByActivity;
@@ -238,7 +438,6 @@ export default function LeaderboardView({
 
     for (const [activityName, contributors] of Object.entries(topByActivity)) {
       const filteredContributors = contributors.filter((contributor) => {
-        // Find the contributor in entries to get their role
         const entry = entries.find((e) => e.username === contributor.username);
         return entry?.role && selectedRoles.has(entry.role);
       });
@@ -387,14 +586,15 @@ export default function LeaderboardView({
                                       if(opt.key === 'points'){
                                         params.delete('sort');
                                         params.delete('order');
-                                        if(typeof window !== 'undefined') 
-                                          window.history.replaceState(null, '', `${pathname}?${params.toString()}`);
                                       }else{
                                         params.set('sort', opt.key);
                                         params.set('order', 'desc');
-                                        if(typeof window !== 'undefined') 
-                                          window.history.replaceState(null, '', `${pathname}?${params.toString()}`);
                                       }
+                                      // Reset to page 1 when sort changes
+                                      params.delete('page');
+                                      setCurrentPage(1);
+                                      if(typeof window !== 'undefined') 
+                                        window.history.replaceState(null, '', `${pathname}?${params.toString()}`);
                                     }}
                                     className={cn('w-full text-left px-4 py-2 cursor-pointer rounded-md text-sm', active ? 'bg-[#50B78B] text-white' : 'hover:bg-muted')}
                                     aria-pressed={active}
@@ -439,21 +639,62 @@ export default function LeaderboardView({
           </div>
 
           {/* Period Selector */}
-          <div className="flex gap-2 mb-8 border-b">
-            {(["week", "month", "year"] as const).map((p) => (
-              <Link
-                key={p}
-                href={`/leaderboard/${p}`}
-                className={cn(
-                  "px-4 py-2 font-medium transition-colors border-b-2 relative outline-none focus-visible:ring-2 focus-visible:ring-[#50B78B]/60 rounded-sm",
-                  period === p
-                    ? "border-[#50B78B] text-[#50B78B] bg-linear-to-t from-[#50B78B]/12 to-transparent dark:from-[#50B78B]/12"
-                    : "border-transparent text-muted-foreground hover:text-[#50B78B]"
-                )}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8 border-b">
+            <div className="flex gap-2">
+              {(["week", "month", "year"] as const).map((p) => {
+                // Preserve query parameters when switching periods, but reset page to 1
+                const params = new URLSearchParams(searchParams.toString());
+                params.delete("page"); // Reset pagination when switching periods
+                const href = `/leaderboard/${p}${params.toString() ? `?${params.toString()}` : ''}`;
+                return (
+                  <Link
+                    key={p}
+                    href={href}
+                    className={cn(
+                      "px-4 py-2 font-medium transition-colors border-b-2 relative outline-none focus-visible:ring-2 focus-visible:ring-[#50B78B]/60 rounded-sm",
+                      period === p
+                        ? "border-[#50B78B] text-[#50B78B] bg-linear-to-t from-[#50B78B]/12 to-transparent dark:from-[#50B78B]/12"
+                        : "border-transparent text-muted-foreground hover:text-[#50B78B]"
+                    )}
+                  >
+                    {periodLabels[p]}
+                  </Link>
+                );
+              })}
+            </div>
+            
+            {/* Entries per page selector */}
+            <div className="flex items-center gap-2">
+              <label htmlFor="page-size-select" className="text-sm text-muted-foreground whitespace-nowrap">
+                Show
+              </label>
+              <Select
+                value={pageSize === Infinity ? "all" : pageSize.toString()}
+                onValueChange={(value) => {
+                  if (value === "all") {
+                    updatePageSize("all");
+                  } else {
+                    updatePageSize(parseInt(value, 10));
+                  }
+                }}
               >
-                {periodLabels[p]}
-              </Link>
-            ))}
+                <SelectTrigger
+                  id="page-size-select"
+                  size="sm"
+                  className="h-9 w-24 border border-[#50B78B]/30 hover:bg-[#50B78B]/20 focus-visible:ring-2 focus-visible:ring-[#50B78B]"
+                  aria-label="Select number of entries per page"
+                >
+                  <SelectValue placeholder="All" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="10">10</SelectItem>
+                  <SelectItem value="25">25</SelectItem>
+                  <SelectItem value="50">50</SelectItem>
+                  <SelectItem value="100">100</SelectItem>
+                  <SelectItem value="all">All</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
           </div>
 
           {/* Leaderboard */}
@@ -469,8 +710,14 @@ export default function LeaderboardView({
             <div className="space-y-4">
               {filteredEntries.map((entry, index) => {
                 const savedRank = entryRanks.get(entry.username);
-                const rank = savedRank ? savedRank : index + 1;                
-                const isTopThree = rank <= 3;
+
+                const rank =
+                  savedRank ??
+                  (pageSize === Infinity
+                    ? index + 1
+                    : (currentPage - 1) * pageSize + index + 1);
+
+                const isTopThree = rank <= 3; 
 
                 return (
                   <Card
@@ -481,7 +728,7 @@ export default function LeaderboardView({
                     )}
                   >
                     <CardContent>
-                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+                      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
 
                         {/* Rank */}
                         <div className="flex items-center justify-center size-12 shrink-0">
@@ -529,11 +776,10 @@ export default function LeaderboardView({
 
                           <div className="mb-3" />
 
-                          {/* Activity Breakdown */}
-                          <div className="flex flex-wrap gap-3">
+                          {/* Activity Breakdown - Enhanced with visual distinction */}
+                          <div className="flex flex-wrap gap-2">
                             {Object.entries(entry.activity_breakdown)
                               .sort((a, b) => {
-                                // Predefined priority order for consistent display across rows
                                 const activityPriority: Record<string, number> = {
                                   "PR merged": 1,
                                   "PR opened": 2,
@@ -541,37 +787,49 @@ export default function LeaderboardView({
                                 };
                                 const priorityA = activityPriority[a[0]] ?? 99;
                                 const priorityB = activityPriority[b[0]] ?? 99;
-                                // Sort by priority first, then alphabetically for unknown activities
                                 if (priorityA !== priorityB) {
                                   return priorityA - priorityB;
                                 }
                                 return a[0].localeCompare(b[0]);
                               })
-                              .map(([activityName, data]) => (
-                                <div
-                                  key={activityName}
-                                  className="text-xs bg-muted px-3 py-1 rounded-full"
-                                >
-                                  <span className="font-medium">
-                                    {activityName}:
-                                  </span>{" "}
-                                  <span className="text-muted-foreground">
-                                    {data.count}
-                                  </span>
-                                  {data.points > 0 && (
-                                    <span className="text-[#50B78B] ml-1">
-                                      (+{data.points})
-                                    </span>
-                                  )}
-                                </div>
-                              ))}
+                              .map(([activityName, data]) => {
+                                const style = getActivityStyle(activityName);
+                                const IconComponent = style.icon;
+                                
+                                return (
+                                  <div
+                                    key={activityName}
+                                    className={cn(
+                                      "relative text-xs px-3 py-1.5 rounded-md border-l-2 transition-all hover:shadow-sm",
+                                      style.bgColor,
+                                      style.borderColor
+                                    )}
+                                  >
+                                    <div className="flex items-center gap-1.5">
+                                      {IconComponent && (
+                                        <IconComponent className={cn("w-3.5 h-3.5", style.textColor)} />
+                                      )}
+                                      <span className={cn("font-semibold", style.textColor)}>
+                                        {activityName}:
+                                      </span>
+                                      <span className="text-muted-foreground font-medium">
+                                        {data.count}
+                                      </span>
+                                      {data.points > 0 && (
+                                        <span className={cn("ml-0.5 font-bold", style.textColor)}>
+                                          (+{data.points})
+                                        </span>
+                                      )}
+                                    </div>
+                                  </div>
+                                );
+                              })}
                           </div>
                         </div>
 
                         {/* Total Points with Trend Chart */}
                         <div className="flex items-center gap-4 shrink-0">
                           <div className="hidden sm:block">
-                          {/* Activity Trend Chart */}
                           {entry.daily_activity &&
                             entry.daily_activity.length > 0 && (
                               <ActivityTrendChart
@@ -580,7 +838,8 @@ export default function LeaderboardView({
                                 endDate={endDate}
                                 mode="points"
                               />
-                            )}</div>
+                            )}
+                          </div>
                           <div className="text-right">
                             <div className="text-3xl font-bold text-[#50B78B]">
                               {entry.total_points}
@@ -597,6 +856,103 @@ export default function LeaderboardView({
               })}
             </div>
           )}
+
+          {/* Pagination Controls */}
+          {pageSize !== Infinity && totalPages > 1 && filteredEntries.length > 0 && (
+            <div className="flex items-center justify-center gap-2 mt-8">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={goToPreviousPage}
+                disabled={currentPage === 1}
+                className="h-9 border border-[#50B78B]/30 hover:bg-[#50B78B]/20 disabled:opacity-50 disabled:cursor-not-allowed"
+                aria-label="Go to previous page"
+              >
+                <ChevronLeft className="h-4 w-4" />
+                <span className="sr-only">Previous</span>
+              </Button>
+
+              <div className="flex items-center gap-1">
+                {/* Calculate which page numbers to show */}
+                {(() => {
+                  const pages: number[] = [];
+                  
+                  if (totalPages <= 7) {
+                    // Show all pages if 7 or fewer
+                    for (let i = 1; i <= totalPages; i++) {
+                      pages.push(i);
+                    }
+                  } else {
+                    // Always show first page
+                    pages.push(1);
+                    
+                    if (currentPage <= 4) {
+                      // Show first 5 pages, then ellipsis, then last
+                      for (let i = 2; i <= 5; i++) {
+                        pages.push(i);
+                      }
+                      pages.push(-1); // -1 represents ellipsis
+                      pages.push(totalPages);
+                    } else if (currentPage >= totalPages - 3) {
+                      // Show first, ellipsis, then last 5 pages
+                      pages.push(-1); // -1 represents ellipsis
+                      for (let i = totalPages - 4; i <= totalPages; i++) {
+                        pages.push(i);
+                      }
+                    } else {
+                      // Show first, ellipsis, current-1, current, current+1, ellipsis, last
+                      pages.push(-1); // -1 represents ellipsis
+                      pages.push(currentPage - 1);
+                      pages.push(currentPage);
+                      pages.push(currentPage + 1);
+                      pages.push(-1); // -1 represents ellipsis
+                      pages.push(totalPages);
+                    }
+                  }
+
+                  return pages.map((pageNum, idx) => {
+                    if (pageNum === -1) {
+                      return (
+                        <span key={`ellipsis-${idx}`} className="px-2 text-muted-foreground">
+                          …
+                        </span>
+                      );
+                    }
+                    return (
+                      <Button
+                        key={pageNum}
+                        variant={currentPage === pageNum ? "default" : "ghost"}
+                        size="sm"
+                        onClick={() => goToPage(pageNum)}
+                        className={cn(
+                          "h-9 w-9 p-0",
+                          currentPage === pageNum
+                            ? "bg-[#50B78B] text-white hover:bg-[#50B78B]/90"
+                            : "hover:bg-[#50B78B]/20 hover:text-[#50B78B]"
+                        )}
+                        aria-label={`Go to page ${pageNum}`}
+                        aria-current={currentPage === pageNum ? "page" : undefined}
+                      >
+                        {pageNum}
+                      </Button>
+                    );
+                  });
+                })()}
+              </div>
+
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={goToNextPage}
+                disabled={currentPage === totalPages}
+                className="h-9 border border-[#50B78B]/30 hover:bg-[#50B78B]/20 disabled:opacity-50 disabled:cursor-not-allowed"
+                aria-label="Go to next page"
+              >
+                <ChevronRight className="h-4 w-4" />
+                <span className="sr-only">Next</span>
+              </Button>
+            </div>
+          )}
         </div>
 
         {/* Sidebar - Top Contributors by Activity */}
@@ -606,61 +962,67 @@ export default function LeaderboardView({
               <h2 className="text-xl font-bold mb-6">Top Contributors</h2>
               <div className="space-y-4">
                 {Object.entries(filteredTopByActivity).map(
-                  ([activityName, contributors]) => (
-                    <Card key={activityName} className="overflow-hidden p-0">
-                      <CardContent className="p-0">
-                        <div className="bg-[#50B78B]/8 dark:bg-[#50B78B]/12 px-4 py-2.5 border-b">
-                          <h3 className="font-semibold text-sm text-foreground">
-                            {activityName}
-                          </h3>
-                        </div>
-                        <div className="p-3 space-y-2">
-                          {contributors.map((contributor, index) => (
-                            <Link
-                              key={contributor.username}
-                              href={`/${contributor.username}`}
-                              className="flex items-center gap-2.5 p-2 rounded-md hover:bg-accent transition-colors group"
-                            >
-                              <div className="flex items-center justify-center w-5 h-5 shrink-0">
-                                {index === 0 && (
-                                  <Trophy className="h-4 w-4 text-[#50B78B]" />
-                                )}
-                                {index === 1 && (
-                                  <Medal className="h-4 w-4 text-zinc-400" />
-                                )}
-                                {index === 2 && (
-                                  <Medal className="h-4 w-4 text-[#50B78B]/70" />
-                                )}
-                              </div>
-                              <Avatar className="h-9 w-9 shrink-0 border">
-                                <AvatarImage
-                                  src={contributor.avatar_url || undefined}
-                                  alt={contributor.name || contributor.username}
-                                />
-                                <AvatarFallback className="text-xs">
-                                  {(contributor.name || contributor.username)
-                                    .substring(0, 2)
-                                    .toUpperCase()}
-                                </AvatarFallback>
-                              </Avatar>
-                              <div className="flex-1 min-w-0">
-                                <p className="text-sm font-medium truncate group-hover:text-[#50B78B] transition-colors leading-tight">
-                                  {contributor.name || contributor.username}
-                                </p>
-                                <p className="text-xs text-muted-foreground mt-0.5">
-                                  {contributor.count}{" "}
-                                  {contributor.count === 1
-                                    ? "activity"
-                                    : "activities"}{" "}
-                                  · {contributor.points} pts
-                                </p>
-                              </div>
-                            </Link>
-                          ))}
-                        </div>
-                      </CardContent>
-                    </Card>
-                  )
+                  ([activityName, contributors]) => {
+                    const style = getActivityStyle(activityName);
+                    
+                    return (
+                      <Card key={activityName} className="overflow-hidden p-0">
+                        <CardContent className="p-0">
+                          <div className={cn(
+                            "px-4 py-2.5 border-b border-l-4",
+                            style.bgColor,
+                            style.borderColor
+                          )}>
+                            <h3 className={cn("font-semibold text-sm", style.textColor)}>
+                              {activityName}
+                            </h3>
+                          </div>
+                          <div className="p-3 space-y-2">
+                            {contributors.map((contributor, index) => (
+                              <Link
+                                key={contributor.username}
+                                href={`/${contributor.username}`}
+                                className="flex items-center gap-2.5 p-2 rounded-md hover:bg-accent transition-colors group"
+                              >
+                                <div className="flex items-center justify-center w-5 h-5 shrink-0">
+                                  {index === 0 && (
+                                    <Trophy className="h-4 w-4 text-[#50B78B]" />
+                                  )}
+                                  {index === 1 && (
+                                    <Medal className="h-4 w-4 text-zinc-400" />
+                                  )}
+                                  {index === 2 && (
+                                    <Medal className="h-4 w-4 text-[#50B78B]/70" />
+                                  )}
+                                </div>
+                                <Avatar className="h-9 w-9 shrink-0 border">
+                                  <AvatarImage
+                                    src={contributor.avatar_url || undefined}
+                                    alt={contributor.name || contributor.username}
+                                  />
+                                  <AvatarFallback className="text-xs">
+                                    {(contributor.name || contributor.username)
+                                      .substring(0, 2)
+                                      .toUpperCase()}
+                                  </AvatarFallback>
+                                </Avatar>
+                                <div className="flex-1 min-w-0">
+                                  <p className="text-sm font-medium truncate group-hover:text-[#50B78B] transition-colors leading-tight">
+                                    {contributor.name || contributor.username}
+                                  </p>
+                                  <div className="flex items-center gap-2 mt-0.5 text-xs text-muted-foreground">
+                                    <span>{contributor.count} {contributor.count === 1 ? "activity" : "activities"}</span>
+                                    <span>·</span>
+                                    <span>{contributor.points} pts</span>
+                                  </div>
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
+                        </CardContent>
+                      </Card>
+                    );
+                  }
                 )}
               </div>
             </div>
@@ -669,4 +1031,4 @@ export default function LeaderboardView({
       </div>
     </div>
   );
-}  
+}

@@ -5,6 +5,8 @@ import { PaginatedActivitySection } from "@/components/PaginatedActivitySection"
 
 import {
   ActivityGroup,
+  getMonthlyActivityBuckets,
+  getPreviousMonthActivityCount,
   getRecentActivitiesGroupedByType,
 } from "@/lib/db";
 
@@ -18,23 +20,25 @@ export default async function Home() {
   const totalCount = (groups: ActivityGroup[]) =>
     groups.reduce((sum, g) => sum + g.activities.length, 0);
 
-  const week = await getRecentActivitiesGroupedByType("week");
-  const week2 = await getRecentActivitiesGroupedByType("2week");
-  const week3 = await getRecentActivitiesGroupedByType("3week");
-  const month = await getRecentActivitiesGroupedByType("month");
-  const month2 = await getRecentActivitiesGroupedByType("2month");
+  const week = await getRecentActivitiesGroupedByType(
+    "week"
+  );
+  const month = await getRecentActivitiesGroupedByType(
+    "month"
+  );
 
-  const w1 = totalCount(week);
-  const w2 = totalCount(week2) - w1;
-  const w3 = totalCount(week3) - totalCount(week2);
-  const w4 = totalCount(month) - totalCount(week3);
+  const previousMonthCount =
+    await getPreviousMonthActivityCount();
+  const bucketData = await getMonthlyActivityBuckets();
 
   return (
     <div className="min-h-screen transition-colors">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-10 space-y-14">
         <section className="text-center space-y-4">
-          <h1 className="text-5xl sm:text-5xl lg:text-7xl font-bold tracking-tight bg-clip-text text-transparent bg-linear-to-r from-[#50B78B] via-[#60C79B] to-[#70D7AB]
-">
+          <h1
+            className="text-5xl sm:text-5xl lg:text-7xl font-bold tracking-tight bg-clip-text text-transparent bg-linear-to-r from-[#50B78B] via-[#60C79B] to-[#70D7AB]
+"
+          >
             {config.org.name}
           </h1>
           <p className="max-w-2xl mx-auto text-sm sm:text-base text-zinc-600 dark:text-zinc-400">
@@ -45,11 +49,11 @@ export default async function Home() {
         <section className="grid gap-6 select-none sm:grid-cols-2 lg:grid-cols-3">
           <ActivityLineCard
             totalActivitiesLabel={totalCount(month)}
-            prev_month={totalCount(month2)}
-            week1={w1}
-            week2={w2}
-            week3={w3}
-            week4={w4}
+            prev_month={previousMonthCount}
+            week1={bucketData.w1}
+            week2={bucketData.w2}
+            week3={bucketData.w3}
+            week4={bucketData.w4}
           />
           <ActiveContributors data={month} />
           <ActivityTypes

@@ -1,7 +1,9 @@
 // lib/db.ts — temporary stub (no DB)
 
+import { UserEntry } from "@/scripts/generateLeaderboard";
 import fs from "fs";
 import path from "path";
+import { differenceInDays } from "date-fns";
 
 type ActivityItem = {
   slug: string;
@@ -10,7 +12,6 @@ type ActivityItem = {
   contributor_avatar_url: string | null;
   contributor_role: string | null;
   occured_at: string;
-  closed_at: string;
   title?: string | null;
   text?: string | null;
   link?: string | null;
@@ -24,6 +25,18 @@ export type ActivityGroup = {
   activities: ActivityItem[];
 };
 
+type RecentActivitiesJSON = {
+  updatedAt: number;
+  entries: UserEntry[];
+  groups: ActivityGroup[];
+};
+
+export type MonthBuckets = {
+  w1: number;
+  w2: number;
+  w3: number;
+  w4: number;
+};
 
 // Used by app/page.tsx
 // export async function getRecentActivitiesGroupedByType(valid: "week" | "month" | "year"): Promise<ActivityGroup[]> {
@@ -74,7 +87,7 @@ export type ActivityGroup = {
 // }
 
 export async function getRecentActivitiesGroupedByType(
-  valid: "week" | "2week" | "3week" | "month" | "2month" | "year"
+  valid: "week" | "month" | "2month" | "year"
 ): Promise<ActivityGroup[]> {
   const filePath = path.join(
     process.cwd(),
@@ -114,7 +127,6 @@ export async function getRecentActivitiesGroupedByType(
       contributor_avatar_url: user.avatar_url,
       contributor_role: user.role ?? null,
       occured_at: act.occured_at,
-      closed_at: act.occured_at,
       title: act.title ?? null,     // ✅ REAL title
       link: act.link ?? null,       // ✅ REAL GitHub link
       points: act.points ?? 0,
@@ -140,18 +152,68 @@ export async function getRecentActivitiesGroupedByType(
 // (Optional) stubs for other imports; add as you see “module not found” errors:
 
 export async function getUpdatedTime() {
-  // get last updated time from year.json (primary source for all period data)
+  // get last updated time from any of the JSON files
   const filePath = path.join(
     process.cwd(),
     "public",
     "leaderboard",
-    `year.json`
+    `week.json`
   );
   if (!fs.existsSync(filePath)) return null;
 
   const file = fs.readFileSync(filePath, "utf-8");
   const data = JSON.parse(file);
   return data.updatedAt ? new Date(data.updatedAt) : null;
+}
+
+export async function getMonthlyActivityBuckets(): Promise<MonthBuckets> {
+  const month = await getRecentActivitiesGroupedByType("month");
+  const activities = month.flatMap(g => g.activities);
+  const now = new Date();
+
+  const buckets: MonthBuckets = {
+    w1: 0,
+    w2: 0,
+    w3: 0,
+    w4: 0,
+  };
+
+  for (const activity of activities) {
+    const activityDate = new Date(activity.occured_at);
+    const daysAgo = differenceInDays(now, activityDate);
+
+    if (daysAgo < 0) continue;
+
+    if (daysAgo < 7) {
+      buckets.w1++;
+    } else if (daysAgo < 14) {
+      buckets.w2++;
+    } else if (daysAgo < 21) {
+      buckets.w3++;
+    } else if (daysAgo < 30) {
+      buckets.w4++;
+    }
+  }
+
+  return buckets;
+}
+
+export async function getPreviousMonthActivityCount(): Promise<number> {
+  const month = await getRecentActivitiesGroupedByType("2month");
+  const activities = month.flatMap(g => g.activities);
+  const now = new Date();
+
+  let count = 0;
+  for (const activity of activities) {
+    const activityDate = new Date(activity.occured_at);
+    const daysAgo = differenceInDays(now, activityDate);
+
+    if (daysAgo >= 30 && daysAgo < 60) {
+      count++;
+    }
+  }
+
+  return count;
 }
 
 export async function getLeaderboard() {

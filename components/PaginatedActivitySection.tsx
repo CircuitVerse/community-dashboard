@@ -156,11 +156,7 @@ export function PaginatedActivitySection({
                       </span>
                     </span>
                     <span>•</span>
-                    <RelativeTime
-                      date={new Date(
-                        activity.occured_at ?? activity.closed_at
-                      )}
-                    />
+                    <RelativeTime date={new Date(activity.occured_at)} />
                   </div>
                 </div>
 
