@@ -51,7 +51,7 @@ export default function PeoplePage() {
   const [people, setPeople] = useState<ContributorEntry[]>([]);
   const [coreTeam, setCoreTeam] = useState<TeamMember[]>([]);
   const [alumni, setAlumni] = useState<TeamMember[]>([]);
-  const [updatedAt, setUpdatedAt] = useState<number>(Date.now());
+  const [updatedAt, setUpdatedAt] = useState<number>(0);
   const [selectedContributor, setSelectedContributor] = useState<ContributorEntry | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
