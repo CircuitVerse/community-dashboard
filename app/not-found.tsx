@@ -8,17 +8,14 @@ export default function NotFound() {
   const router = useRouter();
 
   return (
-    <div className="relative min-h-screen flex justify-center px-6 pt-0 sm:pt-24 md:pt-28 lg:pt-18 overflow-hidden bg-background">
+    <div className="relative min-h-screen flex justify-center px-6 pt-0 sm:pt-24 md:pt-28 lg:pt-20 overflow-hidden bg-background">
 
       <div
-        aria-hidden
+        aria-hidden="true"
         className="absolute -top-32 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-[#50B78B]/20 blur-3xl"
       />
 
-      <main
-        role="alert"
-        className="relative z-10 max-w-xl text-center space-y-8"
-      >
+      <main className="relative z-10 max-w-xl text-center space-y-8">
         <div>
           <h1 className="text-[9rem] font-extrabold tracking-tight bg-gradient-to-r from-[#50B78B] to-[#70D7AB] bg-clip-text text-transparent">
             404
@@ -31,7 +28,7 @@ export default function NotFound() {
             Page not found
           </h2>
           <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            The page you’re looking for may have been moved, renamed, or doesn’t
+            The page you're looking for may have been moved, renamed, or doesn't
             exist. Please check the URL or return to the homepage.
           </p>
         </div>
