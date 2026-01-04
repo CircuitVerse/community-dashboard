@@ -189,12 +189,13 @@ export function PeopleStats({ contributors, onContributorClick }: PeopleStatsPro
                   />
 
                   {/* Name */}
+                  {/* Name */}
                   <div className="flex-1 min-w-0">
                     <p className="font-semibold text-sm truncate">
-                      {contributor.username}
+                      {contributor.name || contributor.username}
                     </p>
                     <p className="text-xs text-muted-foreground truncate">
-                      @{contributor.username}
+                      {contributor.role}
                     </p>
                   </div>
 
@@ -208,7 +209,7 @@ export function PeopleStats({ contributors, onContributorClick }: PeopleStatsPro
                       <span className="text-green-500 font-bold text-lg">
                         {contributor.total_points || 0}
                       </span>
-                      <span className="ml-1 text-xs text-white/80 font-semibold">
+                      <span className="ml-1 text-xs text-muted-foreground font-semibold">
                         pts
                       </span>
                     </span>
