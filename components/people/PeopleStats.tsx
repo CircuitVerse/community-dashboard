@@ -154,7 +154,7 @@ export function PeopleStats({ contributors, onContributorClick }: PeopleStatsPro
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Star className="w-5 h-5 text-yellow-500" />
+              <Star className="w-5 h-5  text-yellow-500" />
               Top Contributors of the year
             </CardTitle>
           </CardHeader>
@@ -163,48 +163,64 @@ export function PeopleStats({ contributors, onContributorClick }: PeopleStatsPro
               {topContributors.map((contributor, index) => (
                 <div
                   key={contributor.username}
-                  className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors cursor-pointer group"
                   onClick={() => onContributorClick?.(contributor)}
+                  className="flex items-center gap-3 p-3 rounded-xl
+             bg-muted/40 hover:bg-muted/60 transition cursor-pointer"
                 >
+                  {/* Rank */}
                   <div
-                    className={`shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold ${
-                      {
-                        0: "bg-gradient-to-br from-yellow-400 to-yellow-600 text-white shadow-md",
-                        1: "bg-gradient-to-br from-gray-300 to-gray-500 text-white shadow-md",
-                        2: "bg-gradient-to-br from-amber-400 to-amber-600 text-white shadow-md",
-                      }[index] ||
-                      "bg-gradient-to-br from-primary/20 to-primary/40 text-primary"
-                    }`}
+                    className={`w-8 h-8 rounded-full flex items-center justify-center 
+                text-sm font-bold shrink-0 ${
+                  {
+                    0: "bg-yellow-500 text-black",
+                    1: "bg-gray-400 text-black",
+                    2: "bg-amber-500 text-black",
+                  }[index] || "bg-primary/20 text-primary"
+                }`}
                   >
                     {index + 1}
                   </div>
 
+                  {/* Avatar */}
                   <img
                     src={contributor.avatar_url}
-                    alt={contributor.name || contributor.username}
-                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-full shrink-0 ring-2 ring-primary/10"
+                    alt={contributor.username}
+                    className="w-10 h-10 rounded-full shrink-0"
                   />
 
+                  {/* Name */}
                   <div className="flex-1 min-w-0">
-                    <p className="font-semibold text-xs sm:text-sm truncate">
-                      {contributor.name || contributor.username}
+                    <p className="font-semibold text-sm truncate">
+                      {contributor.username}
                     </p>
-                    <p className="text-[10px] sm:text-xs text-muted-foreground truncate">
-                      @{contributor.username} • {contributor.role}
+                    <p className="text-xs text-muted-foreground truncate">
+                      @{contributor.username}
                     </p>
                   </div>
 
-                  <div className="text-right shrink-0">
-                    <Badge
-                      variant="outline"
-                      className="px-1.5 py-0 text-[10px] sm:text-xs font-bold"
-                    >
-                      {contributor.total_points || 0} pts
-                    </Badge>
+                  {/* RIGHT SECTION (responsive) */}
+                  <div
+                    className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2
+               shrink-0 text-right"
+                  >
+                    {/* Points */}
+                    <span className="whitespace-nowrap">
+                      <span className="text-green-500 font-bold text-lg">
+                        {contributor.total_points || 0}
+                      </span>
+                      <span className="ml-1 text-xs text-white/80 font-semibold">
+                        pts
+                      </span>
+                    </span>
 
-                    <p className="hidden sm:block text-[10px] text-muted-foreground mt-1">
-                      {contributor.daily_activity?.length || 0} Active days
-                    </p>
+                    {/* Contributor badge */}
+                    <Badge
+                      variant="secondary"
+                      className="text-[10px] px-2 py-0.5 font-semibold
+                 self-start sm:self-auto"
+                    >
+                      CONTRIBUTOR
+                    </Badge>
                   </div>
                 </div>
               ))}
