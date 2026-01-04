@@ -686,13 +686,21 @@ export default function LeaderboardView({
               <CardContent className="py-16 text-center">
                 <Search className="h-12 w-12 mx-auto text-muted-foreground/40 mb-4" />
                 <h3 className="text-lg font-semibold mb-2">No results found</h3>
-                <p className="text-muted-foreground mb-6">
+                <p className="text-muted-foreground mb-2">
                   {entries.length === 0
                     ? "No contributors with points in this period"
                     : searchQuery
                     ? `No contributors matching "${searchQuery}"`
                     : "No contributors match the selected filters"}
                 </p>
+                {/* Helpful suggestions */}
+                {(searchQuery || selectedRoles.size > 0) && (
+                  <p className="text-sm text-muted-foreground/70 mb-6">
+                    {searchQuery 
+                      ? "Try checking for typos or using a different search term"
+                      : "Try adjusting or clearing your filters"}
+                  </p>
+                )}
                 {(searchQuery || selectedRoles.size > 0 || sortBy !== "points") && (
                   <Button
                     variant="outline"
