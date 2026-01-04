@@ -28,7 +28,7 @@ export default function NotFound() {
             Page not found
           </h2>
           <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            The page you're looking for may have been moved, renamed, or doesn't
+            The page you&apos;re looking for may have been moved, renamed, or doesn&apos;t
             exist. Please check the URL or return to the homepage.
           </p>
         </div>
