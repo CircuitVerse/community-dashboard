@@ -25,9 +25,8 @@ import { cn } from "@/lib/utils";
 import { useMemo, useState, useEffect } from "react";
 import { sortEntries, type SortBy } from "@/lib/leaderboard";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
-import ActivityTrendChart from "../../components/Leaderboard/ActivityTrendChart";
 import { Input } from "@/components/ui/input";
-import { LeaderboardCard } from "./LeaderboardCard";
+import { LeaderboardCard, type LeaderboardEntry } from "./LeaderboardCard";
 import {
   Select,
   SelectContent,
@@ -35,29 +34,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-
-export type LeaderboardEntry = {
-  username: string;
-  name: string | null;
-  avatar_url: string | null;
-  role?: string | null;
-
-  total_points: number;
-
-  activity_breakdown: Record<
-    string,
-    {
-      count: number;
-      points: number;
-    }
-  >;
-
-  daily_activity?: Array<{
-    date: string;
-    points: number;
-    count: number;
-  }>;
-};
 
 interface LeaderboardViewProps {
   entries: LeaderboardEntry[];
