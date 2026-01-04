@@ -241,13 +241,13 @@ export default function LeaderboardView({
     }
 
     if (debouncedSearchQuery.trim()) {
-  const query = debouncedSearchQuery.toLowerCase();
-  filtered = filtered.filter((entry) => {
-    const name = (entry.name || entry.username).toLowerCase();
-    const username = entry.username.toLowerCase();
-    return name.includes(query) || username.includes(query);
-  });
-}
+      const query = debouncedSearchQuery.toLowerCase();
+      filtered = filtered.filter((entry) => {
+        const name = (entry.name || entry.username).toLowerCase();
+        const username = entry.username.toLowerCase();
+        return name.includes(query) || username.includes(query);
+      });
+    }
 
 
     // applying sorting
@@ -280,24 +280,24 @@ export default function LeaderboardView({
   }, [filteredEntries, pageSize, currentPage]);
 
   // Reset to page 1 when pageSize changes or when filteredEntries change significantly
-useEffect(() => {
-  if (currentPage > totalPages && totalPages > 0) {
-    const params = new URLSearchParams(searchParams.toString());
-    params.delete("page");
-    setCurrentPage(1);
+  useEffect(() => {
+    if (currentPage > totalPages && totalPages > 0) {
+      const params = new URLSearchParams(searchParams.toString());
+      params.delete("page");
+      setCurrentPage(1);
 
-    if (typeof window !== "undefined") {
-      window.history.replaceState(null, "", `${pathname}?${params.toString()}`);
+      if (typeof window !== "undefined") {
+        window.history.replaceState(null, "", `${pathname}?${params.toString()}`);
+      }
     }
-  }
-}, [
-  debouncedSearchQuery,
-  pageSize,
-  totalPages,
-  currentPage,
-  searchParams,
-  pathname,
-]);
+  }, [
+    debouncedSearchQuery,
+    pageSize,
+    totalPages,
+    currentPage,
+    searchParams,
+    pathname,
+  ]);
 
 
 
@@ -680,13 +680,29 @@ useEffect(() => {
             </div>
           </div>
 
-          {/* Leaderboard */}
+          {/* Leaderboard - IMPROVED EMPTY STATE */}
           {filteredEntries.length === 0 ? (
             <Card>
-              <CardContent className="py-12 text-center text-muted-foreground">
-                {entries.length === 0
-                  ? "No contributors with points in this period"
-                  : "No contributors match the selected filters"}
+              <CardContent className="py-16 text-center">
+                <Search className="h-12 w-12 mx-auto text-muted-foreground/40 mb-4" />
+                <h3 className="text-lg font-semibold mb-2">No results found</h3>
+                <p className="text-muted-foreground mb-6">
+                  {entries.length === 0
+                    ? "No contributors with points in this period"
+                    : searchQuery
+                    ? `No contributors matching "${searchQuery}"`
+                    : "No contributors match the selected filters"}
+                </p>
+                {(searchQuery || selectedRoles.size > 0 || sortBy !== "points") && (
+                  <Button
+                    variant="outline"
+                    onClick={clearFilters}
+                    className="border-[#50B78B]/30 hover:bg-[#50B78B]/20 hover:text-[#50B78B]"
+                  >
+                    <X className="h-4 w-4 mr-2" />
+                    Clear Filters
+                  </Button>
+                )}
               </CardContent>
             </Card>
           ) : (
