@@ -22,7 +22,7 @@ export default function RelativeTime({
 
   return (
     <Hint label={absoluteTime} side="top">
-      <time className={className}>
+      <time className={className} suppressHydrationWarning>
         {isYesterday(date)
           ? "Yesterday"
           : formatTimeAgo(date)}
