@@ -230,6 +230,38 @@ export default function LeaderboardView({
     });
     return Array.from(roles).sort();
   }, [entries]);
+  const isRoleFilterActive = useMemo(() => {
+    return searchParams.has("roles");
+  }, [searchParams]);
+
+  /**
+ * Computes a stable rank for each contributor based on the
+ * fully sorted leaderboard list
+ *
+ * @remarks
+ * - Rank is independent of search query and pagination
+ * - When role filtering is active, ranks are computed within the filtered subset
+ * - Ensures consistent rank display across UI states
+ *
+ * @returns {Map<string, number>} Map of username -> rank
+ */
+
+  const entryRanks = useMemo(() => {
+    let entriesForRanking = entries;
+    
+    if (isRoleFilterActive) {
+      entriesForRanking = entries.filter(
+        (entry) => entry.role && selectedRoles.has(entry.role)
+      );
+    }
+
+    const sorted = sortEntries(entriesForRanking, sortBy);
+    const rankMap = new Map<string, number>();
+    sorted.forEach((entry, index) => {
+      rankMap.set(entry.username, index + 1);
+    });
+    return rankMap;
+  }, [entries, isRoleFilterActive, selectedRoles, sortBy]);
 
   const filteredEntries = useMemo(() => {
     let filtered = entries;
@@ -335,6 +367,17 @@ useEffect(() => {
     setCurrentPage(1);
   };
 
+  /**
+ * Clears all active filters and resets sorting state.
+ *
+ * @remarks
+ * - On mobile devices, only the search query is cleared
+ *   to avoid unnecessary URL updates.
+ * - On larger screens, roles, sorting, and order params
+ *   are fully reset.
+ *
+ * @returns {void}
+ */
   const clearFilters = () => {
     const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
     const params = new URLSearchParams(searchParams.toString());
@@ -691,12 +734,16 @@ useEffect(() => {
             </Card>
           ) : (
             <div className="space-y-4">
-              {paginatedEntries.map((entry, index) => {
-                // Calculate rank based on position in filtered list, accounting for pagination offset
-                const rank = pageSize === Infinity 
-                  ? index + 1 
-                  : (currentPage - 1) * pageSize + index + 1;
-                const isTopThree = rank <= 3;
+              {filteredEntries.map((entry, index) => {
+                const savedRank = entryRanks.get(entry.username);
+
+                const rank =
+                  savedRank ??
+                  (pageSize === Infinity
+                    ? index + 1
+                    : (currentPage - 1) * pageSize + index + 1);
+
+                const isTopThree = rank <= 3; 
 
                 return (
                   <Card
