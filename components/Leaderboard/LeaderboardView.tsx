@@ -700,15 +700,13 @@ export default function LeaderboardView({
             </div>
           </div>
 
-          {/* Leaderboard - IMPROVED EMPTY STATE */}
           {filteredEntries.length === 0 ? (
             <Card>
               <CardContent className="py-16 text-center">
-                {/* Improved Icon with circular background */}
                 <div className="relative mx-auto w-20 h-20 mb-6">
                   <div className="absolute inset-0 rounded-full bg-[#50B78B]/10 dark:bg-[#50B78B]/15" />
                   <div className="absolute inset-2 rounded-full bg-[#50B78B]/5 dark:bg-[#50B78B]/10 flex items-center justify-center">
-                    <SearchX className="h-8 w-8 text-[#50B78B]/70" />
+                    <Search className="h-8 w-8 text-[#50B78B]/70" />
                   </div>
                 </div>
                 <h3 className="text-lg font-semibold mb-2">No results found</h3>
