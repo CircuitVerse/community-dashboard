@@ -1,4 +1,4 @@
-import type { LeaderboardEntry } from "@/components/Leaderboard/LeaderboardView";
+import type { LeaderboardEntry } from "@/components/Leaderboard/LeaderboardCard";
 
 export type SortBy = 'points' | 'pr_opened' | 'pr_merged' | 'issues';
 

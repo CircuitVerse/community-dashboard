@@ -1,9 +1,8 @@
 import fs from "fs";
 import path from "path";
 import { Suspense } from "react";
-import LeaderboardView, {
-  LeaderboardEntry,
-} from "@/components/Leaderboard/LeaderboardView";
+import LeaderboardView from "@/components/Leaderboard/LeaderboardView";
+import { type LeaderboardEntry } from "@/components/Leaderboard/LeaderboardCard";
 
 export function generateStaticParams() {
   return [

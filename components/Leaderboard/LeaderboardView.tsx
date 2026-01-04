@@ -218,10 +218,14 @@ export default function LeaderboardView({
   // Rank is independent of search query and pagination
   // When role filtering is active, ranks are computed within the filtered subset
   const entryRanks = useMemo(() => {
-    // Always filter by selectedRoles to exclude hidden roles
-   const entriesForRanking = entries.filter(
-     (entry) => entry.role && selectedRoles.has(entry.role)
-   );
+    // Filter by selectedRoles (same logic as filteredEntries, but no search filter)
+    let entriesForRanking = entries;
+    
+    if (selectedRoles.size > 0) {
+      entriesForRanking = entriesForRanking.filter(
+        (entry) => entry.role && selectedRoles.has(entry.role)
+      );
+    }
     
     // Sort by current sort criteria and calculate ranks
     const sorted = sortEntries(entriesForRanking, sortBy);
@@ -731,10 +735,9 @@ export default function LeaderboardView({
                 : "space-y-4"
             )}>
               {paginatedEntries.map((entry, index) => {
-                // Calculate rank based on position in filtered list, accounting for pagination offset
-                const rank = pageSize === Infinity 
-                  ? index + 1 
-                  : (currentPage - 1) * pageSize + index + 1;
+                // Use the pre-computed rank from entryRanks, which is based on full sorted list
+                // This ensures rank doesn't change with search or pagination
+                const rank = entryRanks.get(entry.username) || 1;
                 return (
                   <LeaderboardCard
                     key={entry.username}
