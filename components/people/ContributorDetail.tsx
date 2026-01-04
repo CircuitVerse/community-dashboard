@@ -25,6 +25,7 @@ import {
   AlertCircle
 } from "lucide-react";
 import { AchievementBadges } from "@/components/people/AchievementBadges";
+import { ActivityChart } from "@/components/people/ActivityChart";
 import { getContributorBadges } from "@/lib/badges";
 
 type ActivityUIConfig = {
@@ -349,34 +350,43 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
             </Card>
           </div>
           
-          <Card className="bg-gradient-to-r from-primary/5 to-primary/10 border-primary/20">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-primary">
-                <BarChart3 className="w-5 h-5" />
-                This Month&apos;s Activity
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="text-center p-4 bg-background/50 rounded-lg">
-                  <div className="text-2xl font-bold text-primary">{monthlyPoints}</div>
-                  <div className="text-sm text-muted-foreground">Points Earned</div>
-                </div>
-                <div className="text-center p-4 bg-background/50 rounded-lg">
-                  <div className="text-2xl font-bold text-primary">{monthlyDays}</div>
-                  <div className="text-sm text-muted-foreground">Active Days</div>
-                </div>
-                <div className="text-center p-4 bg-background/50 rounded-lg">
-                  <div className="text-2xl font-bold text-primary">{monthlyDays > 0 ? Math.round(monthlyPoints / monthlyDays) : 0}</div>
-                  <div className="text-sm text-muted-foreground">Daily Average</div>
-                </div>
-                <div className="text-center p-4 bg-background/50 rounded-lg">
-                  <div className="text-2xl font-bold text-primary">{(contributor.activities || []).length}</div>
-                  <div className="text-sm text-muted-foreground">Total Actions</div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="md:col-span-2">
+              <Card className="bg-gradient-to-r from-primary/5 to-primary/10 border-primary/20 h-full">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-primary">
+                    <BarChart3 className="w-5 h-5" />
+                    This Month&apos;s Activity
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div className="text-center p-4 bg-background/50 rounded-lg">
+                      <div className="text-2xl font-bold text-primary">{monthlyPoints}</div>
+                      <div className="text-sm text-muted-foreground">Points Earned</div>
+                    </div>
+                    <div className="text-center p-4 bg-background/50 rounded-lg">
+                      <div className="text-2xl font-bold text-primary">{monthlyDays}</div>
+                      <div className="text-sm text-muted-foreground">Active Days</div>
+                    </div>
+                    <div className="text-center p-4 bg-background/50 rounded-lg">
+                      <div className="text-2xl font-bold text-primary">{monthlyDays > 0 ? Math.round(monthlyPoints / monthlyDays) : 0}</div>
+                      <div className="text-sm text-muted-foreground">Daily Average</div>
+                    </div>
+                    <div className="text-center p-4 bg-background/50 rounded-lg">
+                      <div className="text-2xl font-bold text-primary">{(contributor.activities || []).length}</div>
+                      <div className="text-sm text-muted-foreground">Total Actions</div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+            
+            <div className="md:col-span-1">
+              <ActivityChart data={contributor.activity_breakdown} />
+            </div>
+          </div>
 
           <Card>
             <CardHeader>
