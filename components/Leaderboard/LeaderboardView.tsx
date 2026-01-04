@@ -20,6 +20,7 @@ import {
   GitMerge,
   GitPullRequest,
   AlertCircle,
+  SearchX,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useMemo, useState, useEffect } from "react";
@@ -112,6 +113,21 @@ const getActivityStyle = (activityName: string) => {
   };
 };
 
+function useDebounce<T>(value: T, delay = 400): T {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+
+    return () => clearTimeout(handler);
+  }, [value, delay]);
+
+  return debouncedValue;
+}
+
+
 export default function LeaderboardView({
   entries,
   period,
@@ -124,6 +140,8 @@ export default function LeaderboardView({
   const searchParams = useSearchParams();
 
   const [searchQuery, setSearchQuery] = useState("");
+  const debouncedSearchQuery = useDebounce(searchQuery, 300);
+
 
   // Page size state - default to showing all entries (preserve existing behavior)
   const [pageSize, setPageSize] = useState<number>(() => {
@@ -213,38 +231,27 @@ export default function LeaderboardView({
     });
     return Array.from(roles).sort();
   }, [entries]);
-  const isRoleFilterActive = useMemo(() => {
-    return searchParams.has("roles");
-  }, [searchParams]);
 
-  /**
- * Computes a stable rank for each contributor based on the
- * fully sorted leaderboard list
- *
- * @remarks
- * - Rank is independent of search query and pagination
- * - When role filtering is active, ranks are computed within the filtered subset
- * - Ensures consistent rank display across UI states
- *
- * @returns {Map<string, number>} Map of username -> rank
- */
-
+  // Calculate ranks based on current sort criteria
+  // Rank is independent of search query and pagination
+  // When role filtering is active, ranks are computed within the filtered subset
   const entryRanks = useMemo(() => {
+    // Filter by selectedRoles only when roles are selected (consistent with filteredEntries)
     let entriesForRanking = entries;
-    
-    if (isRoleFilterActive) {
+    if (selectedRoles.size > 0) {
       entriesForRanking = entries.filter(
         (entry) => entry.role && selectedRoles.has(entry.role)
       );
     }
-
+    
+    // Sort by current sort criteria and calculate ranks
     const sorted = sortEntries(entriesForRanking, sortBy);
     const rankMap = new Map<string, number>();
     sorted.forEach((entry, index) => {
       rankMap.set(entry.username, index + 1);
     });
     return rankMap;
-  }, [entries, isRoleFilterActive, selectedRoles, sortBy]);
+  }, [entries, selectedRoles, sortBy]);
 
   const filteredEntries = useMemo(() => {
     let filtered = entries;
@@ -255,14 +262,15 @@ export default function LeaderboardView({
       );
     }
 
-    if (searchQuery.trim()) {
-      const query = searchQuery.toLowerCase();
+    if (debouncedSearchQuery.trim()) {
+      const query = debouncedSearchQuery.toLowerCase();
       filtered = filtered.filter((entry) => {
         const name = (entry.name || entry.username).toLowerCase();
         const username = entry.username.toLowerCase();
         return name.includes(query) || username.includes(query);
       });
     }
+
 
     // applying sorting
     try{
@@ -273,7 +281,7 @@ export default function LeaderboardView({
     }
 
     return filtered;
-  }, [entries, selectedRoles, searchQuery, sortBy]);
+  }, [entries, selectedRoles, debouncedSearchQuery, sortBy]);
 
   // Calculate total pages
   const totalPages = useMemo(() => {
@@ -296,15 +304,24 @@ export default function LeaderboardView({
   // Reset to page 1 when pageSize changes or when filteredEntries change significantly
   useEffect(() => {
     if (currentPage > totalPages && totalPages > 0) {
-      // If current page is beyond total pages, reset to page 1
       const params = new URLSearchParams(searchParams.toString());
       params.delete("page");
-      if(typeof window !== 'undefined') {
-        window.history.replaceState(null, '', `${pathname}?${params.toString()}`);
-      }
       setCurrentPage(1);
+
+      if (typeof window !== "undefined") {
+        window.history.replaceState(null, "", `${pathname}?${params.toString()}`);
+      }
     }
-  }, [totalPages, currentPage, searchParams, pathname]);
+  }, [
+    debouncedSearchQuery,
+    pageSize,
+    totalPages,
+    currentPage,
+    searchParams,
+    pathname,
+  ]);
+
+
 
   // Reset to page 1 when search query changes
   useEffect(() => {
@@ -317,7 +334,7 @@ export default function LeaderboardView({
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchQuery]); // Only reset when search query changes
+  }, [debouncedSearchQuery]); // Only reset when search query changes
 
   const toggleRole = (role: string) => {
     const newSelected = new Set(selectedRoles);
@@ -340,36 +357,25 @@ export default function LeaderboardView({
     setCurrentPage(1);
   };
 
-  /**
- * Clears all active filters and resets sorting state.
- *
- * @remarks
- * - On mobile devices, only the search query is cleared
- *   to avoid unnecessary URL updates.
- * - On larger screens, roles, sorting, and order params
- *   are fully reset.
- *
- * @returns {void}
- */
   const clearFilters = () => {
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
-  const params = new URLSearchParams(searchParams.toString());
-  if(isMobile){
-    setSearchQuery("");
-    return;
-  }
-  params.delete("roles");
-  params.delete("sort");
-  params.delete("order");
-  // Reset to page 1 when clearing filters
-  params.delete("page");
-  setCurrentPage(1);
-  // Note: We preserve the limit param when clearing filters
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
+    const params = new URLSearchParams(searchParams.toString());
+    if(isMobile){
+      setSearchQuery("");
+      return;
+    }
+    params.delete("roles");
+    params.delete("sort");
+    params.delete("order");
+    // Reset to page 1 when clearing filters
+    params.delete("page");
+    setCurrentPage(1);
+    // Note: We preserve the limit param when clearing filters
 
-  window.history.replaceState(null, "", `${pathname}?${params.toString()}`);
-  setSearchQuery("");
-  setSortBy("points");
-};
+    window.history.replaceState(null, "", `${pathname}?${params.toString()}`);
+    setSearchQuery("");
+    setSortBy("points");
+  };
 
   const updatePageSize = (newPageSize: number | "all") => {
     const params = new URLSearchParams(searchParams.toString());
@@ -418,7 +424,6 @@ export default function LeaderboardView({
       updatePage(page);
     }
   };
- 
 
   const updateRolesParam = (roles: Set<string>) => {
     const params = new URLSearchParams(searchParams.toString());
@@ -561,80 +566,79 @@ export default function LeaderboardView({
                         )}
                       </Button>
                     </PopoverTrigger>
-                        <PopoverContent
-                          align="end"
-                          className="w-56 bg-white dark:bg-[#07170f]"
-                        >
-                          <div className="space-y-2">
-                            <h4 className="font-medium text-sm">
-                              Sort By
-                            </h4>
-                            <div className="space-y-0.5">
-                              {[
-                                { key: 'points' as SortBy, label: 'Total Points' },
-                                { key: 'pr_opened' as SortBy, label: 'PRs Opened' },
-                                { key: 'pr_merged' as SortBy, label: 'PRs Merged' },
-                                { key: 'issues' as SortBy, label: 'Issue Opened' },
-                              ].map((opt) => {
-                                const active = sortBy === opt.key;
-                                return (
-                                  <button
-                                    key={opt.key}
-                                    onClick={(e) => {
-                                      setPopoverOpen(false);
-                                      setSortBy(opt.key as SortBy);
-                                      const params = new URLSearchParams(searchParams.toString());
-                                      if(opt.key === 'points'){
-                                        params.delete('sort');
-                                        params.delete('order');
-                                      }else{
-                                        params.set('sort', opt.key);
-                                        params.set('order', 'desc');
-                                      }
-                                      // Reset to page 1 when sort changes
-                                      params.delete('page');
-                                      setCurrentPage(1);
-                                      if(typeof window !== 'undefined') 
-                                        window.history.replaceState(null, '', `${pathname}?${params.toString()}`);
-                                    }}
-                                    className={cn('w-full text-left px-4 py-2 cursor-pointer rounded-md text-sm', active ? 'bg-[#50B78B] text-white' : 'hover:bg-muted')}
-                                    aria-pressed={active}
-                                  >
-                                    <div className="flex items-center justify-between">
-                                      <div>{opt.label}</div>
-                                    </div>
-                                  </button>
-                                )
-                              })}
-                            </div>
-                            <h4 className="font-medium text-sm">
-                              Role
-                            </h4>
-                            <div className="space-y-2 max-h-64 overflow-y-auto px-4">
-                              {availableRoles.map((role) => (
-                                <div
-                                  key={role}
-                                  className="flex items-center space-x-2"
-                                >
-                                  <Checkbox
-                                    id={role}
-                                    checked={selectedRoles.has(role)}
-                                    onCheckedChange={() => toggleRole(role)}
-                                  />
-                                  <label
-                                    htmlFor={role}
-                                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
-                                  >
-                                    {role}
-                                  </label>
+                    <PopoverContent
+                      align="end"
+                      className="w-56 bg-white dark:bg-[#07170f]"
+                    >
+                      <div className="space-y-2">
+                        <h4 className="font-medium text-sm">
+                          Sort By
+                        </h4>
+                        <div className="space-y-0.5">
+                          {[
+                            { key: 'points' as SortBy, label: 'Total Points' },
+                            { key: 'pr_opened' as SortBy, label: 'PRs Opened' },
+                            { key: 'pr_merged' as SortBy, label: 'PRs Merged' },
+                            { key: 'issues' as SortBy, label: 'Issue Opened' },
+                          ].map((opt) => {
+                            const active = sortBy === opt.key;
+                            return (
+                              <button
+                                key={opt.key}
+                                onClick={(e) => {
+                                  setPopoverOpen(false);
+                                  setSortBy(opt.key as SortBy);
+                                  const params = new URLSearchParams(searchParams.toString());
+                                  if(opt.key === 'points'){
+                                    params.delete('sort');
+                                    params.delete('order');
+                                  }else{
+                                    params.set('sort', opt.key);
+                                    params.set('order', 'desc');
+                                  }
+                                  // Reset to page 1 when sort changes
+                                  params.delete('page');
+                                  setCurrentPage(1);
+                                  if(typeof window !== 'undefined') 
+                                    window.history.replaceState(null, '', `${pathname}?${params.toString()}`);
+                                }}
+                                className={cn('w-full text-left px-4 py-2 cursor-pointer rounded-md text-sm', active ? 'bg-[#50B78B] text-white' : 'hover:bg-muted')}
+                                aria-pressed={active}
+                              >
+                                <div className="flex items-center justify-between">
+                                  <div>{opt.label}</div>
                                 </div>
-                              ))}
+                              </button>
+                            )
+                          })}
+                        </div>
+                        <h4 className="font-medium text-sm">
+                          Role
+                        </h4>
+                        <div className="space-y-2 max-h-64 overflow-y-auto px-4">
+                          {availableRoles.map((role) => (
+                            <div
+                              key={role}
+                              className="flex items-center space-x-2"
+                            >
+                              <Checkbox
+                                id={role}
+                                checked={selectedRoles.has(role)}
+                                onCheckedChange={() => toggleRole(role)}
+                              />
+                              <label
+                                htmlFor={role}
+                                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+                              >
+                                {role}
+                              </label>
                             </div>
-                          </div>
-                        </PopoverContent>
-                      </Popover>
-                    </div>
-                  
+                          ))}
+                        </div>
+                      </div>
+                    </PopoverContent>
+                  </Popover>
+                </div>
               </div>
             </div>
           </div>
@@ -698,27 +702,46 @@ export default function LeaderboardView({
             </div>
           </div>
 
-          {/* Leaderboard */}
+          {/* Leaderboard - IMPROVED EMPTY STATE */}
           {filteredEntries.length === 0 ? (
             <Card>
-              <CardContent className="py-12 text-center text-muted-foreground">
-                {entries.length === 0
-                  ? "No contributors with points in this period"
-                  : "No contributors match the selected filters"}
+              <CardContent className="py-16 text-center">
+                {/* Improved Icon with circular background */}
+                <div className="relative mx-auto w-20 h-20 mb-6">
+                  <div className="absolute inset-0 rounded-full bg-[#50B78B]/10 dark:bg-[#50B78B]/15" />
+                  <div className="absolute inset-2 rounded-full bg-[#50B78B]/5 dark:bg-[#50B78B]/10 flex items-center justify-center">
+                    <SearchX className="h-8 w-8 text-[#50B78B]/70" />
+                  </div>
+                </div>
+                <h3 className="text-lg font-semibold mb-2">No results found</h3>
+                <p className="text-muted-foreground mb-6">
+                  {entries.length === 0
+                    ? "No contributors with points in this period"
+                    : searchQuery
+                    ? `No contributors matching "${searchQuery}"`
+                    : "No contributors match the selected filters"}
+                </p>
+                {(searchQuery || selectedRoles.size > 0 || sortBy !== "points") && (
+                  <Button
+                    variant="outline"
+                    onClick={clearFilters}
+                    className="border-[#50B78B]/30 hover:bg-[#50B78B]/20 hover:text-[#50B78B]"
+                  >
+                    <X className="h-4 w-4 mr-2" />
+                    Clear Filters
+                  </Button>
+                )}
               </CardContent>
             </Card>
           ) : (
             <div className="space-y-4">
-              {filteredEntries.map((entry, index) => {
+              {paginatedEntries.map((entry, index) => {
+                // Use pre-calculated rank based on sort criteria (independent of search/pagination)
                 const savedRank = entryRanks.get(entry.username);
-
-                const rank =
-                  savedRank ??
-                  (pageSize === Infinity
-                    ? index + 1
-                    : (currentPage - 1) * pageSize + index + 1);
-
-                const isTopThree = rank <= 3; 
+                // Fallback: use position in filteredEntries (not pagination-dependent)
+                const fallbackRank = filteredEntries.findIndex(e => e.username === entry.username) + 1;
+                const rank = savedRank ?? fallbackRank;
+                const isTopThree = rank <= 3;
 
                 return (
                   <Card
@@ -740,18 +763,25 @@ export default function LeaderboardView({
                           )}
                         </div>
 
-                        {/* Avatar */}
-                        <Avatar className="size-14 shrink-0">
-                          <AvatarImage
-                            src={entry.avatar_url || undefined}
-                            alt={entry.name || entry.username}
-                          />
-                          <AvatarFallback>
-                            {(entry.name || entry.username)
-                              .substring(0, 2)
-                              .toUpperCase()}
-                          </AvatarFallback>
-                        </Avatar>
+                        {/* Avatar - NOW CLICKABLE */}
+                        <a
+                          href={`https://github.com/${entry.username}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="shrink-0"
+                        >
+                          <Avatar className="size-14 hover:ring-2 hover:ring-[#50B78B] transition-all cursor-pointer">
+                            <AvatarImage
+                              src={entry.avatar_url || undefined}
+                              alt={entry.name || entry.username}
+                            />
+                            <AvatarFallback>
+                              {(entry.name || entry.username)
+                                .substring(0, 2)
+                                .toUpperCase()}
+                            </AvatarFallback>
+                          </Avatar>
+                        </a>
 
                         {/* Contributor Info */}
                         <div className="flex-1 min-w-0">
