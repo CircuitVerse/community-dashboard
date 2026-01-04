@@ -206,8 +206,8 @@ export default function LeaderboardView({
   const [popoverOpen, setPopoverOpen] = useState(false);
   const pathname = usePathname();
   
-  const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
-  
+  const [viewMode, setViewMode] = useState<"grid" | "list">("list");
+
   const handleViewModeChange = (mode: "grid" | "list") => {
     setViewMode(mode);
   };
@@ -489,6 +489,19 @@ useEffect(() => {
                   </div>
 
                   <div className="w-fit self-center sm:self-auto flex items-center justify-center gap-1 p-1 bg-muted rounded-lg">
+                   <Button
+                      variant={viewMode === "list" ? "default" : "ghost"}
+                      size="sm"
+                      onClick={() => handleViewModeChange("list")}
+                      className={cn(
+                        "h-8 px-3",
+                        viewMode === "list" 
+                          ? "bg-[#50B78B] hover:bg-[#50B78B]/90 text-white" 
+                          : "hover:bg-[#50B78B]/10 text-muted-foreground"
+                      )}
+                    >
+                      <List className="h-4 w-4" />
+                    </Button>
                     <Button
                       variant={viewMode === "grid" ? "default" : "ghost"}
                       size="sm"
@@ -502,22 +515,9 @@ useEffect(() => {
                     >
                       <Grid3X3 className="h-4 w-4" />
                     </Button>
-                    <Button
-                      variant={viewMode === "list" ? "default" : "ghost"}
-                      size="sm"
-                      onClick={() => handleViewModeChange("list")}
-                      className={cn(
-                        "h-8 px-3",
-                        viewMode === "list" 
-                          ? "bg-[#50B78B] hover:bg-[#50B78B]/90 text-white" 
-                          : "hover:bg-[#50B78B]/10 text-muted-foreground"
-                      )}
-                    >
-                      <List className="h-4 w-4" />
-                    </Button>
                   </div>
 
-                  <div className="hidden sm:flex">
+                  <div className="flex">
                     <button
                       type="button"
                       className="h-9 w-28 px-3 rounded-md bg-[#50B78B] text-white text-sm flex items-center justify-center gap-2"

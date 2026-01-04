@@ -80,33 +80,31 @@ export function LeaderboardCard({
 }: LeaderboardCardProps) {
   const isTopThree = rank <= 3;
 
+  const openGitHubProfile = () => {
+    if (entry.username && /^[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/.test(entry.username)) {
+      window.open(`https://github.com/${encodeURIComponent(entry.username)}`, '_blank', 'noopener,noreferrer');
+    }
+  };
+
   const getRankIcon = (rank: number) => {
     if (rank === 1)
       return <Trophy className="h-4 w-4 text-yellow-600 dark:text-yellow-500" aria-label="1st place" />;
     if (rank === 2)
       return <Trophy className="h-4 w-4 text-gray-500 dark:text-gray-400" aria-label="2nd place" />;
-    if (rank === 3)
+    if (rank === 3) 
       return <Trophy className="h-4 w-4 text-amber-700 dark:text-amber-600" aria-label="3rd place" />;
     return null;
   };
 
   const getRankStyles = (rank: number) => {
-    const baseStyles = {
-      bg: "bg-green-200/30 dark:bg-green-900/30",
-      pulse: "66, 184, 131",
-      iconBg: "bg-[#42B883]/10"
-    };
-    
     if (rank <= 3) {
       return {
-        ...baseStyles,
-        border: "" 
+        border: "border-[#50B78B]/50" 
       };
     }
     
     return {
-      ...baseStyles,
-      border: "border-gray-200 dark:border-gray-800"
+      border: ""
     };
   };
 
@@ -127,12 +125,10 @@ export function LeaderboardCard({
       )}>
         <Card
           className={cn(
-            "relative z-10 overflow-hidden transition-all duration-500 cursor-pointer border-2",
-            styles.bg,
+            "relative z-10 overflow-hidden transition-all duration-500 border-2",
             styles.border,
             "hover:shadow-2xl hover:-translate-y-1"
           )}
-        onClick={() => window.open(`https://github.com/${entry.username}`, '_blank', 'noopener,noreferrer')}
         >
           {/* Glossy Shine Effect */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 dark:via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
@@ -149,13 +145,11 @@ export function LeaderboardCard({
 
               <div className="flex flex-col items-center gap-2 w-[35%]">
                 {/* Avatar */}
-                <a
-                  href={`https://github.com/${entry.username}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="shrink-0"
+                <div
+                  onClick={openGitHubProfile}
+                  className="shrink-0 cursor-pointer"
                 >
-                  <Avatar className="size-12 hover:ring-2 hover:ring-[#50B78B] transition-all cursor-pointer">
+                  <Avatar className="size-12 hover:ring-2 hover:ring-[#50B78B] transition-all">
                     <AvatarImage
                       src={entry.avatar_url || undefined}
                       alt={entry.name || entry.username}
@@ -167,21 +161,19 @@ export function LeaderboardCard({
                         .toUpperCase()}
                     </AvatarFallback>
                   </Avatar>
-                </a>
+                </div>
 
                 {/* Contributor Info */}
                 <div className="text-center">
                   <h3 className="font-semibold text-sm truncate leading-tight">
                     {entry.name || entry.username}
                   </h3>
-                  <a
-                    href={`https://github.com/${entry.username}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs text-muted-foreground hover:text-[#50B78B] transition-colors"
+                  <span
+                    onClick={openGitHubProfile}
+                    className="text-xs text-muted-foreground hover:text-[#50B78B] transition-colors cursor-pointer"
                   >
                     @{entry.username}
-                  </a>
+                  </span>
                 </div>
               </div>
 
@@ -263,13 +255,11 @@ export function LeaderboardCard({
               </div>
 
               {/* Avatar - Clickable */}
-              <a
-                href={`https://github.com/${entry.username}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="shrink-0"
+              <div
+                onClick={openGitHubProfile}
+                className="shrink-0 cursor-pointer"
               >
-                <Avatar className="size-14 hover:ring-2 hover:ring-[#50B78B] transition-all cursor-pointer">
+                <Avatar className="size-14 hover:ring-2 hover:ring-[#50B78B] transition-all">
                   <AvatarImage
                     src={entry.avatar_url || undefined}
                     alt={entry.name || entry.username}
@@ -281,7 +271,7 @@ export function LeaderboardCard({
                       .toUpperCase()}
                   </AvatarFallback>
                 </Avatar>
-              </a>
+              </div>
 
               {/* Contributor Info */}
               <div className="flex-1 min-w-0">
@@ -296,14 +286,12 @@ export function LeaderboardCard({
                   )}
                 </div>
 
-                <a
-                  href={`https://github.com/${entry.username}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground hover:text-[#50B78B] transition-colors"
+                <span
+                  onClick={openGitHubProfile}
+                  className="text-sm text-muted-foreground hover:text-[#50B78B] transition-colors cursor-pointer"
                 >
                   @{entry.username}
-                </a>
+                </span>
 
                 <div className="mb-3" />
 
@@ -323,6 +311,7 @@ export function LeaderboardCard({
                       }
                       return a[0].localeCompare(b[0]);
                     })
+                    .slice(0, 3) // Only show top 3 activities
                     .map(([activityName, data]) => {
                       const style = getActivityStyle(activityName);
                       const IconComponent = style.icon;
@@ -395,12 +384,10 @@ export function LeaderboardCard({
     )}>
       <Card 
         className={cn(
-          "relative z-10 overflow-hidden transition-all duration-500 cursor-pointer h-full border-2",
-          styles.bg,
+          "relative z-10 overflow-hidden transition-all duration-500 h-full border-2",
           styles.border,
           "hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1"
         )}
-        onClick={() => window.open(`https://github.com/${entry.username}`, '_blank', 'noopener,noreferrer')}
       >
       {/* Glossy Shine Effect */}
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 dark:via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
@@ -416,23 +403,33 @@ export function LeaderboardCard({
 
           <div className="flex flex-col items-center gap-2 w-[35%]">
             {/* Avatar */}
-            <Avatar className="size-12 ring-2 ring-[#42B883]/20 group-hover:ring-[#42B883]/40 transition-all">
-              <AvatarImage
-                src={entry.avatar_url || undefined}
-                alt={entry.name || entry.username}
-                className="object-cover"
-              />
-              <AvatarFallback className="bg-gradient-to-br from-[#42B883]/20 to-[#42B883]/10 text-[#42B883] font-semibold text-sm">
-                {(entry.name || entry.username)
-                  .substring(0, 2)
-                  .toUpperCase()}
-              </AvatarFallback>
-            </Avatar>
+            <div
+              onClick={openGitHubProfile}
+              className="cursor-pointer"
+            >
+              <Avatar className="size-12 ring-2 ring-[#42B883]/20 group-hover:ring-[#42B883]/40 transition-all">
+                <AvatarImage
+                  src={entry.avatar_url || undefined}
+                  alt={entry.name || entry.username}
+                  className="object-cover"
+                />
+                <AvatarFallback className="bg-gradient-to-br from-[#42B883]/20 to-[#42B883]/10 text-[#42B883] font-semibold text-sm">
+                  {(entry.name || entry.username)
+                    .substring(0, 2)
+                    .toUpperCase()}
+                </AvatarFallback>
+              </Avatar>
+            </div>
 
             {/* Contributor Info */}
             <div className="text-center">
               <h3 className="font-semibold text-sm truncate mb-1 leading-tight">{entry.name || entry.username}</h3>
-              <p className="text-xs text-muted-foreground truncate">@{entry.username}</p>
+              <p 
+                onClick={openGitHubProfile}
+                className="text-xs text-muted-foreground truncate cursor-pointer hover:text-[#50B78B] transition-colors"
+              >
+                @{entry.username}
+              </p>
             </div>
           </div>
 
@@ -505,18 +502,23 @@ export function LeaderboardCard({
         <div className="hidden sm:flex flex-col items-center gap-3 h-full">
           {/* Rank Badge */}
           <div className="relative flex-shrink-0">
-            <Avatar className="w-16 h-16 ring-2 ring-[#42B883]/20 group-hover:ring-[#42B883]/40 transition-all">
-              <AvatarImage
-                src={entry.avatar_url || undefined}
-                alt={entry.name || entry.username}
-                className="object-cover"
-              />
-              <AvatarFallback className="bg-gradient-to-br from-[#42B883]/20 to-[#42B883]/10 text-[#42B883] font-semibold text-sm">
-                {(entry.name || entry.username)
-                  .substring(0, 2)
-                  .toUpperCase()}
-              </AvatarFallback>
-            </Avatar>
+            <div
+              onClick={openGitHubProfile}
+              className="cursor-pointer"
+            >
+              <Avatar className="w-16 h-16 ring-2 ring-[#42B883]/20 group-hover:ring-[#42B883]/40 transition-all">
+                <AvatarImage
+                  src={entry.avatar_url || undefined}
+                  alt={entry.name || entry.username}
+                  className="object-cover"
+                />
+                <AvatarFallback className="bg-gradient-to-br from-[#42B883]/20 to-[#42B883]/10 text-[#42B883] font-semibold text-sm">
+                  {(entry.name || entry.username)
+                    .substring(0, 2)
+                    .toUpperCase()}
+                </AvatarFallback>
+              </Avatar>
+            </div>
             
             {/* Rank overlay */}
             <div className={cn(
@@ -532,7 +534,12 @@ export function LeaderboardCard({
           {/* User Info */}
           <div className="text-center min-w-0 w-full flex-shrink-0">
             <h3 className="font-semibold text-sm truncate mb-1">{entry.name || entry.username}</h3>
-            <p className="text-xs text-muted-foreground truncate mb-1">@{entry.username}</p>
+            <p 
+              onClick={openGitHubProfile}
+              className="text-xs text-muted-foreground truncate mb-1 cursor-pointer hover:text-[#50B78B] transition-colors"
+            >
+              @{entry.username}
+            </p>
             {entry.role && (
               <Badge variant="secondary" className="text-xs mb-2 bg-[#42B883]/10 text-[#42B883]">
                 {entry.role}
