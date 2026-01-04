@@ -1,5 +1,10 @@
 import fs from "fs";
 import path from "path";
+import { coreTeamMembers, alumniMembers } from "../lib/team-data";
+
+// Create sets for fast lookup
+const CORE_TEAM_USERNAMES = new Set(coreTeamMembers.map(m => m.username.toLowerCase()));
+const ALUMNI_USERNAMES = new Set(alumniMembers.map(m => m.username.toLowerCase()));
 
 /* -------------------------------------------------------
    CONFIG
@@ -21,6 +26,7 @@ const POINTS = {
   "PR opened": 2,
   "PR merged": 5,
   "Issue opened": 1,
+  "Review submitted": 4,
 } as const;
 
 /* -------------------------------------------------------
@@ -28,7 +34,7 @@ const POINTS = {
 ------------------------------------------------------- */
 
 export type RawActivity = {
-  type: "PR opened" | "PR merged" | "Issue opened";
+  type: "PR opened" | "PR merged" | "Issue opened" | "Review submitted";
   occured_at: string;
   title?: string | null;
   link?: string | null;
@@ -66,6 +72,33 @@ export type UserEntry = {
   activities?: RawActivity[];
 };
 
+interface GitHubSearchItem {
+  user: { login: string; name?: string | null; avatar_url?: string | null; type?: string };
+  title: string;
+  html_url: string;
+  created_at: string;
+  closed_at?: string | null;
+}
+
+interface YearData {
+  period: string;
+  updatedAt: number;
+  startDate?: string;
+  endDate?: string;
+  entries: Contributor[];
+}
+
+interface RecentActivityItem {
+  username: string;
+  name: string | null;
+  title: string | null;
+  link: string | null;
+  avatar_url: string | null;
+  type?: string;
+  date?: string;
+  points?: number;
+}
+
 /* -------------------------------------------------------
    UTILS
 ------------------------------------------------------- */
@@ -93,7 +126,7 @@ function sanitizeTitle(title?: string | null) {
     .trim();
 }
 
-function isBotUser(user: any): boolean {
+function isBotUser(user: { login?: string; type?: string } | null | undefined): boolean {
   if (!user?.login) return true;
   if (user.type && user.type !== "User") return true;
   return user.login.endsWith("[bot]");
@@ -127,8 +160,8 @@ async function searchByDateChunks(
   start: Date,
   end: Date,
   stepDays = 30
-): Promise<any[]> {
-  const all: any[] = [];
+): Promise<GitHubSearchItem[]> {
+  const all: GitHubSearchItem[] = [];
   let cursor = new Date(start);
 
   while (cursor < end) {
@@ -164,14 +197,23 @@ async function searchByDateChunks(
 
 function ensureUser(
   map: Map<string, Contributor>,
-  user: any
+  user: { login: string; name?: string | null; avatar_url?: string | null }
 ): Contributor {
   if (!map.has(user.login)) {
+    // Determine role based on team membership
+    const usernameLower = user.login.toLowerCase();
+    let role = "Contributor";
+    if (CORE_TEAM_USERNAMES.has(usernameLower)) {
+      role = "Maintainer";
+    } else if (ALUMNI_USERNAMES.has(usernameLower)) {
+      role = "Alumni";
+    }
+    
     map.set(user.login, {
       username: user.login,
       name: user.name ?? null,
       avatar_url: user.avatar_url ?? null,
-      role: "Contributor",
+      role,
       total_points: 0,
       activity_breakdown: {},
       daily_activity: [],
@@ -214,6 +256,135 @@ function addActivity(
 }
 
 /* -------------------------------------------------------
+   REVIEW FETCHING
+------------------------------------------------------- */
+
+interface GitHubRepo {
+  name: string;
+  full_name: string;
+}
+
+interface GitHubPR {
+  number: number;
+  user: { login: string; avatar_url?: string; type?: string };
+}
+
+interface GitHubReview {
+  user: { login: string; avatar_url?: string; type?: string };
+  state: string;
+  submitted_at: string;
+}
+
+async function fetchOrgRepos(): Promise<GitHubRepo[]> {
+  const repos: GitHubRepo[] = [];
+  let page = 1;
+  while (true) {
+    const res = await fetch(
+      `${GITHUB_API}/orgs/${ORG}/repos?per_page=100&page=${page}`,
+      {
+        headers: {
+          Authorization: `Bearer ${TOKEN}`,
+          Accept: "application/vnd.github+json",
+        },
+      }
+    );
+    if (!res.ok) break;
+    const data = await res.json();
+    if (!data.length) break;
+    repos.push(...data);
+    page++;
+    await sleep(1000);
+  }
+  return repos;
+}
+
+async function fetchRepoPRs(repo: string, _since: Date): Promise<GitHubPR[]> {
+  const prs: GitHubPR[] = [];
+  let page = 1;
+  while (true) {
+    const res = await fetch(
+      `${GITHUB_API}/repos/${ORG}/${repo}/pulls?state=all&per_page=100&page=${page}&sort=updated&direction=desc`,
+      {
+        headers: {
+          Authorization: `Bearer ${TOKEN}`,
+          Accept: "application/vnd.github+json",
+        },
+      }
+    );
+    if (!res.ok) break;
+    const data = await res.json();
+    if (!data.length) break;
+    prs.push(...data);
+    page++;
+    await sleep(1000);
+  }
+  return prs;
+}
+
+async function fetchPRReviews(repo: string, prNumber: number): Promise<GitHubReview[]> {
+  const res = await fetch(
+    `${GITHUB_API}/repos/${ORG}/${repo}/pulls/${prNumber}/reviews`,
+    {
+      headers: {
+        Authorization: `Bearer ${TOKEN}`,
+        Accept: "application/vnd.github+json",
+      },
+    }
+  );
+  if (!res.ok) return [];
+  await sleep(500);
+  return res.json();
+}
+
+async function fetchAllReviews(
+  users: Map<string, Contributor>,
+  since: Date,
+  now: Date
+) {
+  console.log("🔍 Review submitted");
+  
+  // Only fetch from main repos to speed up (limit API calls)
+  const MAIN_REPOS = ["CircuitVerse", "cv-frontend-vue", "mobile-app"];
+  
+  for (const repoName of MAIN_REPOS) {
+    console.log(`   → ${repoName}`);
+    const prs = await fetchRepoPRs(repoName, since);
+    
+    // Limit to 50 most recent PRs per repo
+    const limitedPRs = prs.slice(0, 50);
+    
+    for (const pr of limitedPRs) {
+      const reviews = await fetchPRReviews(repoName, pr.number);
+      
+      for (const review of reviews) {
+        // Skip bots
+        if (!review.user?.login) continue;
+        if (review.user.login.endsWith("[bot]")) continue;
+        if (review.user.type && review.user.type !== "User") continue;
+        
+        // Skip self-reviews
+        if (review.user.login === pr.user.login) continue;
+        
+        // Only count approved or changes_requested
+        if (!["APPROVED", "CHANGES_REQUESTED"].includes(review.state)) continue;
+        
+        // Check date
+        const reviewDate = new Date(review.submitted_at);
+        if (reviewDate < since || reviewDate > now) continue;
+        
+        addActivity(
+          ensureUser(users, review.user),
+          "Review submitted",
+          review.submitted_at,
+          POINTS["Review submitted"],
+          { title: `Review on PR #${pr.number}`, link: undefined }
+        );
+      }
+    }
+  }
+}
+
+/* -------------------------------------------------------
    GENERATE YEAR
 ------------------------------------------------------- */
 
@@ -246,7 +417,7 @@ async function generateYear() {
     addActivity(
       ensureUser(users, pr.user),
       "PR merged",
-      pr.closed_at,
+      pr.closed_at!,
       POINTS["PR merged"],
       { title: pr.title, link: pr.html_url }
     );
@@ -267,6 +438,9 @@ async function generateYear() {
       { title: issue.title, link: issue.html_url }
     );
   }
+
+  // Fetch reviews
+  await fetchAllReviews(users, since, now);
 
   const entries = [...users.values()]
     .filter((u) => u.total_points > 0)
@@ -301,7 +475,7 @@ async function generateYear() {
    DERIVED PERIODS
 ------------------------------------------------------- */
 
-function derivePeriod(source: any, days: number, period: string) {
+function derivePeriod(source: YearData, days: number, period: string) {
   const cutoff = daysAgo(days);
 
   const entries = source.entries
@@ -345,7 +519,7 @@ function derivePeriod(source: any, days: number, period: string) {
       };
     })
     .filter(Boolean)
-    .sort((a: any, b: any) => b.total_points - a.total_points);
+    .sort((a: UserEntry | null, b: UserEntry | null) => (b?.total_points ?? 0) - (a?.total_points ?? 0));
 
   fs.writeFileSync(
     path.join(process.cwd(), "public", "leaderboard", `${period}.json`),
@@ -371,9 +545,9 @@ function derivePeriod(source: any, days: number, period: string) {
    RECENT ACTIVITIES
 ------------------------------------------------------- */
 
-function generateRecentActivities(source: any, days = 14) {
+function generateRecentActivities(source: YearData, days = 14) {
   const cutoff = daysAgo(days);
-  const groups = new Map<string, any[]>();
+  const groups = new Map<string, RecentActivityItem[]>();
 
   for (const entry of source.entries) {
     for (const act of entry.raw_activities) {
@@ -384,8 +558,8 @@ function generateRecentActivities(source: any, days = 14) {
       groups.get(day)!.push({
         username: entry.username,
         name: entry.name,
-        title: act.title,
-        link: act.link,
+        title: act.title ?? null,
+        link: act.link ?? null,
         avatar_url: entry.avatar_url,
         points: act.points,
       });
