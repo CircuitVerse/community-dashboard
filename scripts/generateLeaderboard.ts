@@ -378,15 +378,142 @@ async function fetchAllReviews(
 }
 
 /* -------------------------------------------------------
+   INCREMENTAL UPDATE HELPERS
+------------------------------------------------------- */
+
+interface ExistingYearData {
+  period: string;
+  updatedAt: number;
+  lastFetchedAt?: number;
+  startDate?: string;
+  endDate?: string;
+  entries: Array<{
+    username: string;
+    name: string | null;
+    avatar_url: string | null;
+    role: string;
+    total_points: number;
+    activity_breakdown: Record<string, { count: number; points: number }>;
+    daily_activity: Array<{ date: string; count: number; points: number }>;
+    raw_activities: RawActivity[];
+  }>;
+}
+
+function loadExistingYearData(): ExistingYearData | null {
+  const filePath = path.join(process.cwd(), "public", "leaderboard", "year.json");
+  if (!fs.existsSync(filePath)) return null;
+  try {
+    const data = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+    return data as ExistingYearData;
+  } catch {
+    return null;
+  }
+}
+
+function mergeExistingActivities(
+  users: Map<string, Contributor>,
+  existing: ExistingYearData | null
+) {
+  if (!existing) return;
+  
+  for (const entry of existing.entries) {
+    // Create or get user
+    let user = users.get(entry.username);
+    if (!user) {
+      user = {
+        username: entry.username,
+        name: entry.name,
+        avatar_url: entry.avatar_url,
+        role: entry.role,
+        total_points: 0,
+        activity_breakdown: {},
+        daily_activity: [],
+        raw_activities: [],
+      };
+      users.set(entry.username, user);
+    }
+    
+    // Merge raw_activities from existing data
+    if (entry.raw_activities) {
+      for (const act of entry.raw_activities) {
+        user.raw_activities.push(act);
+      }
+    }
+  }
+}
+
+function deduplicateAndRecalculate(users: Map<string, Contributor>) {
+  for (const user of users.values()) {
+    // Deduplicate raw_activities by unique key
+    const seen = new Set<string>();
+    user.raw_activities = user.raw_activities.filter(act => {
+      const key = `${act.type}:${act.occured_at}:${act.link ?? act.title}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+    
+    // Recalculate totals from deduplicated activities
+    user.total_points = 0;
+    user.activity_breakdown = {};
+    user.daily_activity = [];
+    
+    const dailyMap = new Map<string, { count: number; points: number }>();
+    
+    for (const act of user.raw_activities) {
+      // Update total points
+      user.total_points += act.points;
+      
+      // Update activity breakdown
+      if (!user.activity_breakdown[act.type]) {
+        user.activity_breakdown[act.type] = { count: 0, points: 0 };
+      }
+      const breakdown = user.activity_breakdown[act.type]!;
+      breakdown.count += 1;
+      breakdown.points += act.points;
+      
+      // Update daily activity
+      const day = act.occured_at.slice(0, 10);
+      if (!dailyMap.has(day)) {
+        dailyMap.set(day, { count: 0, points: 0 });
+      }
+      const d = dailyMap.get(day)!;
+      d.count++;
+      d.points += act.points;
+    }
+    
+    // Convert daily map to array
+    user.daily_activity = [...dailyMap.entries()]
+      .map(([date, d]) => ({ date, count: d.count, points: d.points }))
+      .sort((a, b) => b.date.localeCompare(a.date));
+  }
+}
+
+/* -------------------------------------------------------
    GENERATE YEAR
 ------------------------------------------------------- */
 
 async function generateYear() {
   console.log("🚀 Generating leaderboard");
 
-  const since = daysAgo(365);
   const now = new Date();
   const users = new Map<string, Contributor>();
+  
+  // Load existing data for incremental update
+  const existing = loadExistingYearData();
+  const isIncremental = existing?.lastFetchedAt != null;
+  
+  // Determine fetch start date
+  let since: Date;
+  if (isIncremental && existing?.lastFetchedAt) {
+    // Incremental: fetch only since last run
+    since = new Date(existing.lastFetchedAt);
+    console.log(`📦 Incremental update since ${iso(since)}`);
+  } else {
+    // Full fetch: last 365 days
+    since = daysAgo(365);
+    console.log(`📦 Full fetch from ${iso(since)}`);
+  }
 
   console.log("🔍 PRs opened");
   for (const pr of await searchByDateChunks(`org:${ORG}+is:pr`, since, now)) {
@@ -434,6 +561,16 @@ async function generateYear() {
 
   // Fetch reviews
   await fetchAllReviews(users, since, now);
+  
+  // Merge existing activities (incremental mode)
+  if (isIncremental) {
+    console.log("🔄 Merging with existing data...");
+    mergeExistingActivities(users, existing);
+  }
+  
+  // Deduplicate and recalculate all totals
+  console.log("🧹 Deduplicating activities...");
+  deduplicateAndRecalculate(users);
 
   const entries = [...users.values()]
     .filter((u) => u.total_points > 0)
@@ -442,10 +579,14 @@ async function generateYear() {
   const outDir = path.join(process.cwd(), "public", "leaderboard");
   fs.mkdirSync(outDir, { recursive: true });
 
+  // Calculate actual date range (always show full year range for display)
+  const displaySince = daysAgo(365);
+  
   const yearData = {
     period: "year",
     updatedAt: Date.now(),
-    startDate: iso(since),
+    lastFetchedAt: Date.now(),  // Track when we last fetched for incremental updates
+    startDate: iso(displaySince),
     endDate: iso(now),
     hiddenRoles: [],
     topByActivity: {},
@@ -457,7 +598,8 @@ async function generateYear() {
     JSON.stringify(yearData, null, 2)
   );
 
-  console.log(`✅ Generated year.json (${entries.length})`);
+  const mode = isIncremental ? "(incremental)" : "(full)";
+  console.log(`✅ Generated year.json ${mode} (${entries.length})`);
 
   derivePeriod(yearData, 7, "week");
   derivePeriod(yearData, 30, "month");
