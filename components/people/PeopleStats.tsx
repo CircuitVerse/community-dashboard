@@ -154,71 +154,94 @@ export function PeopleStats({ contributors, onContributorClick }: PeopleStatsPro
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Star className="w-5 h-5  text-yellow-500" />
+              <Star className="w-5 h-5 text-yellow-500" />
               Top Contributors of the year
             </CardTitle>
           </CardHeader>
-          <CardContent className="px-2 sm:px-6">
-            <div className="space-y-3">
+          <CardContent>
+            <div className="space-y-2">
               {topContributors.map((contributor, index) => (
                 <div
                   key={contributor.username}
                   onClick={() => onContributorClick?.(contributor)}
-                  className="flex items-center gap-3 p-3 rounded-xl
-             bg-muted/40 hover:bg-muted/60 transition cursor-pointer"
+                  className="
+        rounded-xl bg-muted/40 hover:bg-muted/60 transition cursor-pointer
+        p-3
+      "
                 >
-                  {/* Rank */}
-                  <div
-                    className={`w-8 h-8 rounded-full flex items-center justify-center 
-                text-sm font-bold shrink-0 ${
-                  {
-                    0: "bg-yellow-500 text-black",
-                    1: "bg-gray-400 text-black",
-                    2: "bg-amber-500 text-black",
-                  }[index] || "bg-primary/20 text-primary"
-                }`}
-                  >
-                    {index + 1}
-                  </div>
+                  {/* TOP ROW */}
+                  <div className="flex items-center gap-3">
+                    {/* Rank */}
+                    <div
+                      className={`w-8 h-8 rounded-full flex items-center justify-center
+          text-sm font-bold shrink-0 ${
+            {
+              0: "bg-yellow-500 text-black",
+              1: "bg-gray-400 text-black",
+              2: "bg-amber-500 text-black",
+            }[index] || "bg-primary/20 text-primary"
+          }`}
+                    >
+                      {index + 1}
+                    </div>
 
-                  {/* Avatar */}
-                  <img
-                    src={contributor.avatar_url}
-                    alt={contributor.username}
-                    className="w-10 h-10 rounded-full shrink-0"
-                  />
+                    {/* Avatar */}
+                    <img
+                      src={contributor.avatar_url}
+                      alt={contributor.username}
+                      className="w-10 h-10 rounded-full shrink-0"
+                    />
 
-                  {/* Name */}
-                  {/* Name */}
-                  <div className="flex-1 min-w-0">
-                    <p className="font-semibold text-sm truncate">
-                      {contributor.name || contributor.username}
-                    </p>
-                    <p className="text-xs text-muted-foreground truncate">
-                      {contributor.role}
-                    </p>
-                  </div>
+                    {/* Name + Username */}
+                    {/* Name + Username */}
+                    <div className="flex-1 min-w-0">
+                      {/* Name + Desktop Badge */}
+                      <div className="flex items-center gap-2 min-w-0">
+                        <p className="font-semibold text-sm truncate">
+                          {contributor.name || contributor.username}
+                        </p>
 
-                  {/* RIGHT SECTION (responsive) */}
-                  <div
-                    className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2
-               shrink-0 text-right"
-                  >
-                    {/* Points */}
-                    <span className="whitespace-nowrap">
+                        {/* Desktop badge */}
+                        <Badge
+                          variant="secondary"
+                          className="hidden sm:inline-flex text-[10px] px-2 py-0.5 font-semibold"
+                        >
+                          CONTRIBUTOR
+                        </Badge>
+                      </div>
+
+                      <p className="text-xs text-muted-foreground truncate">
+                        @{contributor.username}
+                      </p>
+                    </div>
+
+                    {/* Desktop points */}
+                    <div className="hidden sm:block shrink-0 text-right">
                       <span className="text-green-500 font-bold text-lg">
                         {contributor.total_points || 0}
                       </span>
                       <span className="ml-1 text-xs text-muted-foreground font-semibold">
                         pts
                       </span>
-                    </span>
+                    </div>
+                  </div>
 
-                    {/* Contributor badge */}
+                  {/* MOBILE BOTTOM ROW */}
+                  <div className="mt-2 flex items-center justify-between sm:hidden">
+                    {/* Points */}
+                    <div>
+                      <span className="text-green-500 font-bold text-lg">
+                        {contributor.total_points || 0}
+                      </span>
+                      <span className="ml-1 text-xs text-muted-foreground font-semibold">
+                        pts
+                      </span>
+                    </div>
+
+                    {/* Badge */}
                     <Badge
                       variant="secondary"
-                      className="text-[10px] px-2 py-0.5 font-semibold
-                 self-start sm:self-auto"
+                      className="text-[10px] px-2 py-0.5 font-semibold"
                     >
                       CONTRIBUTOR
                     </Badge>
