@@ -21,6 +21,7 @@ import {
   GitPullRequest,
   AlertCircle,
   SearchX,
+  Eye,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useMemo, useState, useEffect } from "react";
@@ -104,8 +105,14 @@ const activityStyles: Record<
     icon: AlertCircle,
     bgColor: "bg-orange-500/10 dark:bg-orange-500/15",
     textColor: "text-orange-700 dark:text-orange-400",
-    borderColor: "border-l-orange-500",
+    borderColor: "border-l-orange-500"
   },
+  "Review submitted": {
+    icon: Eye,
+    bgColor: "bg-green-500/10 dark:bg-green-500/15",
+    textColor: "text-green-700 dark:text-green-400",
+    borderColor: "border-l-green-500"
+  }
 };
 
 const getActivityStyle = (activityName: string) => {
@@ -196,19 +203,15 @@ export default function LeaderboardView({
 
   // sorting
   const [sortBy, setSortBy] = useState<SortBy>(() => {
-    const s = searchParams.get("sort");
-    if (s === "pr_opened" || s === "pr_merged" || s === "issues")
+    const s = searchParams.get('sort');
+    if(s === 'pr_opened' || s === 'pr_merged' || s === 'issues' || s === 'reviews')
       return s as SortBy;
     return "points";
   });
 
   useEffect(() => {
-    const s = searchParams.get("sort");
-    setSortBy(
-      s === "pr_opened" || s === "pr_merged" || s === "issues"
-        ? (s as SortBy)
-        : "points"
-    );
+    const s = searchParams.get('sort');
+    setSortBy(s === 'pr_opened' || s === 'pr_merged' || s === 'issues' || s === 'reviews' ? (s as SortBy) : 'points');
   }, [searchParams]);
 
   const [popoverOpen, setPopoverOpen] = useState(false);
@@ -548,6 +551,8 @@ export default function LeaderboardView({
                           ? "PR Opened"
                           : sortBy === "pr_merged"
                           ? "PR Merged"
+                          : sortBy === "reviews"
+                          ? "Review Submitted"
                           : "Issue Opened"}
                       </span>
                     </button>
@@ -593,10 +598,11 @@ export default function LeaderboardView({
                         <h4 className="font-medium text-sm">Sort By</h4>
                         <div className="space-y-0.5">
                           {[
-                            { key: "points" as SortBy, label: "Total Points" },
-                            { key: "pr_opened" as SortBy, label: "PRs Opened" },
-                            { key: "pr_merged" as SortBy, label: "PRs Merged" },
-                            { key: "issues" as SortBy, label: "Issue Opened" },
+                            { key: 'points' as SortBy, label: 'Total Points' },
+                            { key: 'pr_opened' as SortBy, label: 'PRs Opened' },
+                            { key: 'pr_merged' as SortBy, label: 'PRs Merged' },
+                            { key: 'issues' as SortBy, label: 'Issue Opened' },
+                            { key: 'reviews' as SortBy, label: 'Review Submitted' },
                           ].map((opt) => {
                             const active = sortBy === opt.key;
                             return (
@@ -846,12 +852,12 @@ export default function LeaderboardView({
                           <div className="flex flex-wrap gap-2">
                             {Object.entries(entry.activity_breakdown)
                               .sort((a, b) => {
-                                const activityPriority: Record<string, number> =
-                                  {
-                                    "PR merged": 1,
-                                    "PR opened": 2,
-                                    "Issue opened": 3,
-                                  };
+                                const activityPriority: Record<string, number> = {
+                                  "PR merged": 1,
+                                  "PR opened": 2,
+                                  "Issue opened": 3,
+                                  "Review submitted": 4,
+                                };
                                 const priorityA = activityPriority[a[0]] ?? 99;
                                 const priorityB = activityPriority[b[0]] ?? 99;
                                 if (priorityA !== priorityB) {
