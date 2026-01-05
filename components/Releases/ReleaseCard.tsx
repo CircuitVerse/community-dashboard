@@ -32,6 +32,7 @@ export function ReleaseCard({ release }: { release: Release }) {
                 key={c.username}
                 href={`https://github.com/${c.username}`}
                 target="_blank"
+                rel="noopener noreferrer"
                 className={cn(
                   "flex items-center gap-2 px-3 py-1.5 rounded-full",
                   "bg-[#50B78B]/10 hover:bg-[#50B78B]/20 transition"
@@ -61,6 +62,7 @@ export function ReleaseCard({ release }: { release: Release }) {
             <Link
               href={release.githubUrl}
               target="_blank"
+              rel="noopener noreferrer"
               className="text-sm text-muted-foreground hover:text-[#50B78B] transition"
             >
               View on GitHub →
