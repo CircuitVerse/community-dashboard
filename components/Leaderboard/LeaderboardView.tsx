@@ -36,6 +36,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import PointsInfoButton from "@/components/PointsInfoButton";
 
 export type LeaderboardEntry = {
   username: string;
@@ -79,23 +80,26 @@ interface LeaderboardViewProps {
 }
 
 // Activity type styling configuration
-const activityStyles: Record<string, {
-  icon: React.ComponentType<{ className?: string }>;
-  bgColor: string;
-  textColor: string;
-  borderColor: string;
-}> = {
+const activityStyles: Record<
+  string,
+  {
+    icon: React.ComponentType<{ className?: string }>;
+    bgColor: string;
+    textColor: string;
+    borderColor: string;
+  }
+> = {
   "PR merged": {
     icon: GitMerge,
     bgColor: "bg-purple-500/10 dark:bg-purple-500/15",
     textColor: "text-purple-700 dark:text-purple-400",
-    borderColor: "border-l-purple-500"
+    borderColor: "border-l-purple-500",
   },
   "PR opened": {
     icon: GitPullRequest,
     bgColor: "bg-blue-500/10 dark:bg-blue-500/15",
     textColor: "text-blue-700 dark:text-blue-400",
-    borderColor: "border-l-blue-500"
+    borderColor: "border-l-blue-500",
   },
   "Issue opened": {
     icon: AlertCircle,
@@ -112,12 +116,14 @@ const activityStyles: Record<string, {
 };
 
 const getActivityStyle = (activityName: string) => {
-  return activityStyles[activityName] || {
-    icon: () => null,
-    bgColor: "bg-muted",
-    textColor: "text-muted-foreground",
-    borderColor: "border-l-gray-400"
-  };
+  return (
+    activityStyles[activityName] || {
+      icon: () => null,
+      bgColor: "bg-muted",
+      textColor: "text-muted-foreground",
+      borderColor: "border-l-gray-400",
+    }
+  );
 };
 
 function useDebounce<T>(value: T, delay = 400): T {
@@ -134,7 +140,6 @@ function useDebounce<T>(value: T, delay = 400): T {
   return debouncedValue;
 }
 
-
 export default function LeaderboardView({
   entries,
   period,
@@ -149,10 +154,9 @@ export default function LeaderboardView({
   const [searchQuery, setSearchQuery] = useState("");
   const debouncedSearchQuery = useDebounce(searchQuery, 300);
 
-
   // Page size state - default to showing all entries (preserve existing behavior)
   const [pageSize, setPageSize] = useState<number>(() => {
-    const limit = searchParams.get('limit');
+    const limit = searchParams.get("limit");
     if (limit) {
       const parsed = parseInt(limit, 10);
       if ([10, 25, 50, 100].includes(parsed)) {
@@ -164,7 +168,7 @@ export default function LeaderboardView({
   });
 
   useEffect(() => {
-    const limit = searchParams.get('limit');
+    const limit = searchParams.get("limit");
     if (limit) {
       const parsed = parseInt(limit, 10);
       if ([10, 25, 50, 100].includes(parsed)) {
@@ -179,7 +183,7 @@ export default function LeaderboardView({
 
   // Current page state - default to page 1
   const [currentPage, setCurrentPage] = useState<number>(() => {
-    const page = searchParams.get('page');
+    const page = searchParams.get("page");
     if (page) {
       const parsed = parseInt(page, 10);
       return parsed > 0 ? parsed : 1;
@@ -188,7 +192,7 @@ export default function LeaderboardView({
   });
 
   useEffect(() => {
-    const page = searchParams.get('page');
+    const page = searchParams.get("page");
     if (page) {
       const parsed = parseInt(page, 10);
       setCurrentPage(parsed > 0 ? parsed : 1);
@@ -202,7 +206,7 @@ export default function LeaderboardView({
     const s = searchParams.get('sort');
     if (s === 'pr_opened' || s === 'pr_merged' || s === 'issues' || s === 'reviews')
       return s as SortBy;
-    return 'points';
+    return "points";
   });
 
   useEffect(() => {
@@ -275,13 +279,11 @@ export default function LeaderboardView({
       });
     }
 
-
     // applying sorting
     try {
       filtered = sortEntries(filtered, sortBy);
-    }
-    catch (e) {
-      console.error('Error sorting entries:', e);
+    } catch (e) {
+      console.error("Error sorting entries:", e);
     }
 
     return filtered;
@@ -313,7 +315,11 @@ export default function LeaderboardView({
       setCurrentPage(1);
 
       if (typeof window !== "undefined") {
-        window.history.replaceState(null, "", `${pathname}?${params.toString()}`);
+        window.history.replaceState(
+          null,
+          "",
+          `${pathname}?${params.toString()}`
+        );
       }
     }
   }, [
@@ -325,16 +331,18 @@ export default function LeaderboardView({
     pathname,
   ]);
 
-
-
   // Reset to page 1 when search query changes
   useEffect(() => {
     if (currentPage !== 1 && pageSize !== Infinity) {
       const params = new URLSearchParams(searchParams.toString());
       params.delete("page");
       setCurrentPage(1);
-      if (typeof window !== 'undefined') {
-        window.history.replaceState(null, '', `${pathname}?${params.toString()}`);
+      if (typeof window !== "undefined") {
+        window.history.replaceState(
+          null,
+          "",
+          `${pathname}?${params.toString()}`
+        );
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -393,8 +401,8 @@ export default function LeaderboardView({
     // Reset to page 1 when page size changes
     params.delete("page");
     setCurrentPage(1);
-    if (typeof window !== 'undefined') {
-      window.history.replaceState(null, '', `${pathname}?${params.toString()}`);
+    if (typeof window !== "undefined") {
+      window.history.replaceState(null, "", `${pathname}?${params.toString()}`);
     }
   };
 
@@ -406,8 +414,8 @@ export default function LeaderboardView({
       params.set("page", page.toString());
     }
     setCurrentPage(page);
-    if (typeof window !== 'undefined') {
-      window.history.replaceState(null, '', `${pathname}?${params.toString()}`);
+    if (typeof window !== "undefined") {
+      window.history.replaceState(null, "", `${pathname}?${params.toString()}`);
     }
   };
 
@@ -437,7 +445,8 @@ export default function LeaderboardView({
     } else {
       params.delete("roles");
     }
-    if (typeof window !== 'undefined') window.history.replaceState(null, '', `${pathname}?${params.toString()}`);
+    if (typeof window !== "undefined")
+      window.history.replaceState(null, "", `${pathname}?${params.toString()}`);
   };
 
   const filteredTopByActivity = useMemo(() => {
@@ -482,7 +491,6 @@ export default function LeaderboardView({
     month: "Monthly",
     year: "Yearly",
   };
-
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex gap-8">
@@ -490,11 +498,17 @@ export default function LeaderboardView({
         <div className="flex-1 min-w-0">
           {/* Header */}
           <div className="mb-8">
-            <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between mb-4">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between mb-4">
               <div className="min-w-0">
-                <h1 className="text-4xl text-[#50B78B] font-bold mb-2">
-                  {periodLabels[period]} Leaderboard
-                </h1>
+                <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0 sm:overflow-visible">
+                  <h1 className="text-3xl sm:text-3xl md:text-4xl font-bold text-[#50B78B] mb-2 whitespace-nowrap sm:whitespace-normal inline-block sm:inline">
+                    {periodLabels[period]}{" "}
+                    <span className="inline-flex items-center gap-1.5 sm:gap-2">
+                      Leaderboard
+                      <PointsInfoButton />
+                    </span>
+                  </h1>
+                </div>
                 <p className="text-muted-foreground">
                   {filteredEntries.length} of {entries.length} contributors
                   {(selectedRoles.size > 0 || searchQuery) && " (filtered)"}
@@ -520,7 +534,9 @@ export default function LeaderboardView({
                       placeholder="Search contributors..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="pl-9 h-9 w-full bg-white dark:bg-[#07170f] border border-[#50B78B]/60 dark:border-[#50B78B]/40 focus-visible:ring-2 focus-visible:ring-[#50B78B]"
+                      className="pl-9 h-9 w-full bg-white dark:bg-[#07170f] 
+                                 border border-[#50B78B]/60 dark:border-[#50B78B]/40 
+                                 focus-visible:ring-2 focus-visible:ring-[#50B78B]"
                     />
                   </div>
 
@@ -545,7 +561,9 @@ export default function LeaderboardView({
                 </div>
 
                 <div className="flex items-center gap-2 justify-end">
-                  {(selectedRoles.size > 0 || searchQuery || sortBy !== "points") && (
+                  {(selectedRoles.size > 0 ||
+                    searchQuery ||
+                    sortBy !== "points") && (
                     <Button
                       variant="ghost"
                       size="sm"
@@ -577,65 +595,70 @@ export default function LeaderboardView({
                       align="end"
                       className="w-64 bg-white dark:bg-[#07170f] border-[#50B78B]/20"
                     >
-                      <div className="space-y-4">
-                        {/* Sort By Section */}
-                        <div>
-                          <h4 className="font-semibold text-sm mb-3 text-foreground">
-                            Sort By
-                          </h4>
-                          <div className="space-y-1">
-                            {[
-                              { key: 'points' as SortBy, label: 'Total Points' },
-                              { key: 'pr_opened' as SortBy, label: 'PRs Opened' },
-                              { key: 'pr_merged' as SortBy, label: 'PRs Merged' },
-                              { key: 'issues' as SortBy, label: 'Issue Opened' },
-                              { key: 'reviews' as SortBy, label: 'Review Submitted' },
-                            ].map((opt) => {
-                              const active = sortBy === opt.key;
-                              return (
-                                <button
-                                  key={opt.key}
-                                  onClick={(e) => {
-                                    setPopoverOpen(false);
-                                    setSortBy(opt.key as SortBy);
-                                    const params = new URLSearchParams(searchParams.toString());
-                                    if (opt.key === 'points') {
-                                      params.delete('sort');
-                                      params.delete('order');
-                                    } else {
-                                      params.set('sort', opt.key);
-                                      params.set('order', 'desc');
-                                    }
-                                    params.delete('page');
-                                    setCurrentPage(1);
-                                    if (typeof window !== 'undefined')
-                                      window.history.replaceState(null, '', `${pathname}?${params.toString()}`);
-                                  }}
-                                  className={cn(
-                                    'w-full text-left px-3 py-2 cursor-pointer rounded-md text-sm font-medium transition-all',
-                                    active 
-                                      ? 'bg-[#50B78B] text-white shadow-sm' 
-                                      : 'hover:bg-[#50B78B]/10 text-foreground'
-                                  )}
-                                  aria-pressed={active}
-                                >
-                                  {opt.label}
-                                </button>
-                              )
-                            })}
-                          </div>
+                      <div className="space-y-2">
+                        <h4 className="font-medium text-sm">Sort By</h4>
+                        <div className="space-y-0.5">
+                          {[
+                            { key: 'points' as SortBy, label: 'Total Points' },
+                            { key: 'pr_opened' as SortBy, label: 'PRs Opened' },
+                            { key: 'pr_merged' as SortBy, label: 'PRs Merged' },
+                            { key: 'issues' as SortBy, label: 'Issue Opened' },
+                            { key: 'reviews' as SortBy, label: 'Review Submitted' },
+                          ].map((opt) => {
+                            const active = sortBy === opt.key;
+                            return (
+                              <button
+                                key={opt.key}
+                                onClick={(e) => {
+                                  setPopoverOpen(false);
+                                  setSortBy(opt.key as SortBy);
+                                  const params = new URLSearchParams(
+                                    searchParams.toString()
+                                  );
+                                  if (opt.key === "points") {
+                                    params.delete("sort");
+                                    params.delete("order");
+                                  } else {
+                                    params.set("sort", opt.key);
+                                    params.set("order", "desc");
+                                  }
+                                  // Reset to page 1 when sort changes
+                                  params.delete("page");
+                                  setCurrentPage(1);
+                                  if (typeof window !== "undefined")
+                                    window.history.replaceState(
+                                      null,
+                                      "",
+                                      `${pathname}?${params.toString()}`
+                                    );
+                                }}
+                                className={cn(
+                                  "w-full text-left px-4 py-2 cursor-pointer rounded-md text-sm",
+                                  active
+                                    ? "bg-[#50B78B] text-white"
+                                    : "hover:bg-muted"
+                                )}
+                                aria-pressed={active}
+                              >
+                                <div className="flex items-center justify-between">
+                                  <div>{opt.label}</div>
+                                </div>
+                              </button>
+                            );
+                          })}
                         </div>
-
-                        {/* Divider */}
-                        <div className="border-t border-border" />
-
-                        {/* Role Section */}
-                        <div>
-                          <h4 className="font-semibold text-sm mb-3 text-foreground">
-                            Role
-                          </h4>
-                          <div className="space-y-2">
-                            {availableRoles.map((role) => (
+                        <h4 className="font-medium text-sm">Role</h4>
+                        <div className="space-y-2 max-h-64 overflow-y-auto px-4">
+                          {availableRoles.map((role) => (
+                            <div
+                              key={role}
+                              className="flex items-center space-x-2"
+                            >
+                              <Checkbox
+                                id={role}
+                                checked={selectedRoles.has(role)}
+                                onCheckedChange={() => toggleRole(role)}
+                              />
                               <label
                                 key={role}
                                 htmlFor={`role-${role}`}
@@ -680,8 +703,10 @@ export default function LeaderboardView({
             <div className="flex gap-2">
               {(["week", "month", "year"] as const).map((p) => {
                 const params = new URLSearchParams(searchParams.toString());
-                params.delete("page");
-                const href = `/leaderboard/${p}${params.toString() ? `?${params.toString()}` : ''}`;
+                params.delete("page"); // Reset pagination when switching periods
+                const href = `/leaderboard/${p}${
+                  params.toString() ? `?${params.toString()}` : ""
+                }`;
                 return (
                   <Link
                     key={p}
@@ -701,7 +726,10 @@ export default function LeaderboardView({
 
             {/* Entries per page selector */}
             <div className="flex items-center gap-2">
-              <label htmlFor="page-size-select" className="text-sm text-muted-foreground whitespace-nowrap">
+              <label
+                htmlFor="page-size-select"
+                className="text-sm text-muted-foreground whitespace-nowrap"
+              >
                 Show
               </label>
               <Select
@@ -751,7 +779,9 @@ export default function LeaderboardView({
                       ? `No contributors matching "${searchQuery}"`
                       : "No contributors match the selected filters"}
                 </p>
-                {(searchQuery || selectedRoles.size > 0 || sortBy !== "points") && (
+                {(searchQuery ||
+                  selectedRoles.size > 0 ||
+                  sortBy !== "points") && (
                   <Button
                     variant="outline"
                     onClick={clearFilters}
@@ -767,7 +797,11 @@ export default function LeaderboardView({
             <div className="space-y-4">
               {paginatedEntries.map((entry, index) => {
                 const savedRank = entryRanks.get(entry.username);
-                const fallbackRank = filteredEntries.findIndex(e => e.username === entry.username) + 1;
+                // Fallback: use position in filteredEntries (not pagination-dependent)
+                const fallbackRank =
+                  filteredEntries.findIndex(
+                    (e) => e.username === entry.username
+                  ) + 1;
                 const rank = savedRank ?? fallbackRank;
                 const isTopThree = rank <= 3;
 
@@ -781,7 +815,6 @@ export default function LeaderboardView({
                   >
                     <CardContent>
                       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
-
                         {/* Rank */}
                         <div className="flex items-center justify-center size-12 shrink-0">
                           {getRankIcon(rank) || (
@@ -867,16 +900,31 @@ export default function LeaderboardView({
                                   >
                                     <div className="flex items-center gap-1.5">
                                       {IconComponent && (
-                                        <IconComponent className={cn("w-3.5 h-3.5", style.textColor)} />
+                                        <IconComponent
+                                          className={cn(
+                                            "w-3.5 h-3.5",
+                                            style.textColor
+                                          )}
+                                        />
                                       )}
-                                      <span className={cn("font-semibold", style.textColor)}>
+                                      <span
+                                        className={cn(
+                                          "font-semibold",
+                                          style.textColor
+                                        )}
+                                      >
                                         {activityName}:
                                       </span>
                                       <span className="text-muted-foreground font-medium">
                                         {data.count}
                                       </span>
                                       {data.points > 0 && (
-                                        <span className={cn("ml-0.5 font-bold", style.textColor)}>
+                                        <span
+                                          className={cn(
+                                            "ml-0.5 font-bold",
+                                            style.textColor
+                                          )}
+                                        >
                                           (+{data.points})
                                         </span>
                                       )}
@@ -918,101 +966,110 @@ export default function LeaderboardView({
           )}
 
           {/* Pagination Controls */}
-          {pageSize !== Infinity && totalPages > 1 && filteredEntries.length > 0 && (
-            <div className="flex items-center justify-center gap-2 mt-8">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={goToPreviousPage}
-                disabled={currentPage === 1}
-                className="h-9 border border-[#50B78B]/30 hover:bg-[#50B78B]/20 disabled:opacity-50 disabled:cursor-not-allowed"
-                aria-label="Go to previous page"
-              >
-                <ChevronLeft className="h-4 w-4" />
-                <span className="sr-only">Previous</span>
-              </Button>
+          {pageSize !== Infinity &&
+            totalPages > 1 &&
+            filteredEntries.length > 0 && (
+              <div className="flex items-center justify-center gap-2 mt-8">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={goToPreviousPage}
+                  disabled={currentPage === 1}
+                  className="h-9 border border-[#50B78B]/30 hover:bg-[#50B78B]/20 disabled:opacity-50 disabled:cursor-not-allowed"
+                  aria-label="Go to previous page"
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                  <span className="sr-only">Previous</span>
+                </Button>
 
-              <div className="flex items-center gap-1">
-                {/* Calculate which page numbers to show */}
-                {(() => {
-                  const pages: number[] = [];
+                <div className="flex items-center gap-1">
+                  {/* Calculate which page numbers to show */}
+                  {(() => {
+                    const pages: number[] = [];
 
-                  if (totalPages <= 7) {
-                    // Show all pages if 7 or fewer
-                    for (let i = 1; i <= totalPages; i++) {
-                      pages.push(i);
-                    }
-                  } else {
-                    // Always show first page
-                    pages.push(1);
-
-                    if (currentPage <= 4) {
-                      // Show first 5 pages, then ellipsis, then last
-                      for (let i = 2; i <= 5; i++) {
-                        pages.push(i);
-                      }
-                      pages.push(-1); // -1 represents ellipsis
-                      pages.push(totalPages);
-                    } else if (currentPage >= totalPages - 3) {
-                      // Show first, ellipsis, then last 5 pages
-                      pages.push(-1); // -1 represents ellipsis
-                      for (let i = totalPages - 4; i <= totalPages; i++) {
+                    if (totalPages <= 7) {
+                      // Show all pages if 7 or fewer
+                      for (let i = 1; i <= totalPages; i++) {
                         pages.push(i);
                       }
                     } else {
-                      // Show first, ellipsis, current-1, current, current+1, ellipsis, last
-                      pages.push(-1); // -1 represents ellipsis
-                      pages.push(currentPage - 1);
-                      pages.push(currentPage);
-                      pages.push(currentPage + 1);
-                      pages.push(-1); // -1 represents ellipsis
-                      pages.push(totalPages);
-                    }
-                  }
+                      // Always show first page
+                      pages.push(1);
 
-                  return pages.map((pageNum, idx) => {
-                    if (pageNum === -1) {
+                      if (currentPage <= 4) {
+                        // Show first 5 pages, then ellipsis, then last
+                        for (let i = 2; i <= 5; i++) {
+                          pages.push(i);
+                        }
+                        pages.push(-1); // -1 represents ellipsis
+                        pages.push(totalPages);
+                      } else if (currentPage >= totalPages - 3) {
+                        // Show first, ellipsis, then last 5 pages
+                        pages.push(-1); // -1 represents ellipsis
+                        for (let i = totalPages - 4; i <= totalPages; i++) {
+                          pages.push(i);
+                        }
+                      } else {
+                        // Show first, ellipsis, current-1, current, current+1, ellipsis, last
+                        pages.push(-1); // -1 represents ellipsis
+                        pages.push(currentPage - 1);
+                        pages.push(currentPage);
+                        pages.push(currentPage + 1);
+                        pages.push(-1); // -1 represents ellipsis
+                        pages.push(totalPages);
+                      }
+                    }
+
+                    return pages.map((pageNum, idx) => {
+                      if (pageNum === -1) {
+                        return (
+                          <span
+                            key={`ellipsis-${idx}`}
+                            className="px-2 text-muted-foreground"
+                          >
+                            …
+                          </span>
+                        );
+                      }
                       return (
-                        <span key={`ellipsis-${idx}`} className="px-2 text-muted-foreground">
-                          …
-                        </span>
+                        <Button
+                          key={pageNum}
+                          variant={
+                            currentPage === pageNum ? "default" : "ghost"
+                          }
+                          size="sm"
+                          onClick={() => goToPage(pageNum)}
+                          className={cn(
+                            "h-9 w-9 p-0",
+                            currentPage === pageNum
+                              ? "bg-[#50B78B] text-white hover:bg-[#50B78B]/90"
+                              : "hover:bg-[#50B78B]/20 hover:text-[#50B78B]"
+                          )}
+                          aria-label={`Go to page ${pageNum}`}
+                          aria-current={
+                            currentPage === pageNum ? "page" : undefined
+                          }
+                        >
+                          {pageNum}
+                        </Button>
                       );
-                    }
-                    return (
-                      <Button
-                        key={pageNum}
-                        variant={currentPage === pageNum ? "default" : "ghost"}
-                        size="sm"
-                        onClick={() => goToPage(pageNum)}
-                        className={cn(
-                          "h-9 w-9 p-0",
-                          currentPage === pageNum
-                            ? "bg-[#50B78B] text-white hover:bg-[#50B78B]/90"
-                            : "hover:bg-[#50B78B]/20 hover:text-[#50B78B]"
-                        )}
-                        aria-label={`Go to page ${pageNum}`}
-                        aria-current={currentPage === pageNum ? "page" : undefined}
-                      >
-                        {pageNum}
-                      </Button>
-                    );
-                  });
-                })()}
-              </div>
+                    });
+                  })()}
+                </div>
 
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={goToNextPage}
-                disabled={currentPage === totalPages}
-                className="h-9 border border-[#50B78B]/30 hover:bg-[#50B78B]/20 disabled:opacity-50 disabled:cursor-not-allowed"
-                aria-label="Go to next page"
-              >
-                <ChevronRight className="h-4 w-4" />
-                <span className="sr-only">Next</span>
-              </Button>
-            </div>
-          )}
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={goToNextPage}
+                  disabled={currentPage === totalPages}
+                  className="h-9 border border-[#50B78B]/30 hover:bg-[#50B78B]/20 disabled:opacity-50 disabled:cursor-not-allowed"
+                  aria-label="Go to next page"
+                >
+                  <ChevronRight className="h-4 w-4" />
+                  <span className="sr-only">Next</span>
+                </Button>
+              </div>
+            )}
         </div>
 
         {/* Sidebar - Top Contributors by Activity */}
@@ -1028,12 +1085,19 @@ export default function LeaderboardView({
                     return (
                       <Card key={activityName} className="overflow-hidden p-0">
                         <CardContent className="p-0">
-                          <div className={cn(
-                            "px-4 py-2.5 border-b border-l-4",
-                            style.bgColor,
-                            style.borderColor
-                          )}>
-                            <h3 className={cn("font-semibold text-sm", style.textColor)}>
+                          <div
+                            className={cn(
+                              "px-4 py-2.5 border-b border-l-4",
+                              style.bgColor,
+                              style.borderColor
+                            )}
+                          >
+                            <h3
+                              className={cn(
+                                "font-semibold text-sm",
+                                style.textColor
+                              )}
+                            >
                               {activityName}
                             </h3>
                           </div>
@@ -1058,7 +1122,9 @@ export default function LeaderboardView({
                                 <Avatar className="h-9 w-9 shrink-0 border">
                                   <AvatarImage
                                     src={contributor.avatar_url || undefined}
-                                    alt={contributor.name || contributor.username}
+                                    alt={
+                                      contributor.name || contributor.username
+                                    }
                                   />
                                   <AvatarFallback className="text-xs">
                                     {(contributor.name || contributor.username)
@@ -1071,7 +1137,12 @@ export default function LeaderboardView({
                                     {contributor.name || contributor.username}
                                   </p>
                                   <div className="flex items-center gap-2 mt-0.5 text-xs text-muted-foreground">
-                                    <span>{contributor.count} {contributor.count === 1 ? "activity" : "activities"}</span>
+                                    <span>
+                                      {contributor.count}{" "}
+                                      {contributor.count === 1
+                                        ? "activity"
+                                        : "activities"}
+                                    </span>
                                     <span>·</span>
                                     <span>{contributor.points} pts</span>
                                   </div>
