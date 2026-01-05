@@ -496,11 +496,15 @@ export default function LeaderboardView({
           <div className="mb-8">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between mb-4">
               <div className="min-w-0">
-                <h1 className="flex items-center gap-2 text-4xl font-bold text-[#50B78B] mb-2">
-                  <span>{periodLabels[period]} Leaderboard</span>
-                  <PointsInfoButton />
-                </h1>
-
+                <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0 sm:overflow-visible">
+                  <h1 className="text-3xl sm:text-3xl md:text-4xl font-bold text-[#50B78B] mb-2 whitespace-nowrap sm:whitespace-normal inline-block sm:inline">
+                    {periodLabels[period]}{" "}
+                    <span className="inline-flex items-center gap-1.5 sm:gap-2">
+                      Leaderboard
+                      <PointsInfoButton />
+                    </span>
+                  </h1>
+                </div>
                 <p className="text-muted-foreground">
                   {filteredEntries.length} of {entries.length} contributors
                   {(selectedRoles.size > 0 || searchQuery) && " (filtered)"}
@@ -526,7 +530,9 @@ export default function LeaderboardView({
                       placeholder="Search contributors..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="pl-9 h-9 w-full bg-white dark:bg-[#07170f] border border-[#50B78B]/60 dark:border-[#50B78B]/40 focus-visible:ring-2 focus-visible:ring-[#50B78B]"
+                      className="pl-9 h-9 w-full bg-white dark:bg-[#07170f] 
+                                 border border-[#50B78B]/60 dark:border-[#50B78B]/40 
+                                 focus-visible:ring-2 focus-visible:ring-[#50B78B]"
                     />
                   </div>
 

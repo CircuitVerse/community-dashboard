@@ -3,8 +3,13 @@
 import { useState, useEffect, useRef } from "react";
 import Hint from "./hint";
 
+// Primary brand color - used throughout the component
+// Note: Tailwind arbitrary values require literal strings, so we keep hardcoded #50B78B in className
+const PRIMARY_COLOR = "#50B78B";
+
 const POINTS_CONFIG = [
   { label: "PR merged", points: 5 },
+  { label: "Review Submitted", points: 4 },
   { label: "PR opened", points: 2 },
   { label: "Issue opened", points: 1 },
 ] as const;
@@ -19,7 +24,8 @@ const PointsContent = ({ isMobile = false, onClose }: PointsContentProps) => (
     className={
       isMobile
         ? "p-6 bg-white dark:bg-zinc-900"
-        : "flex flex-col gap-3 w-[280px] p-3 bg-white dark:bg-zinc-800 rounded-lg shadow-lg border border-zinc-200 dark:border-zinc-700"
+        : `flex flex-col gap-3 w-[280px] p-3 bg-white dark:bg-zinc-800
+           rounded-lg shadow-lg border border-zinc-200 dark:border-zinc-700`
     }
   >
     {/* Header */}
@@ -33,7 +39,8 @@ const PointsContent = ({ isMobile = false, onClose }: PointsContentProps) => (
         </h3>
         <button
           onClick={onClose}
-          className="text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200 text-2xl leading-none px-2"
+          className="text-zinc-500 hover:text-zinc-700 dark:text-zinc-400
+                     dark:hover:text-zinc-200 text-2xl leading-none px-2"
           aria-label="Close modal"
         >
           ×
@@ -98,10 +105,8 @@ export default function PointsInfoButton() {
   const [showMobileInfo, setShowMobileInfo] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
-  // Track previous state to prevent focus theft on mount
   const prevShowMobileInfo = useRef(false);
 
-  // Move focus to modal when it opens
   useEffect(() => {
     if (showMobileInfo && dialogRef.current) {
       dialogRef.current.focus();
@@ -111,7 +116,6 @@ export default function PointsInfoButton() {
     }
   }, [showMobileInfo]);
 
-  // Return focus to trigger ONLY when modal transition goes from true -> false
   useEffect(() => {
     if (prevShowMobileInfo.current === true && showMobileInfo === false) {
       triggerRef.current?.focus();
@@ -119,7 +123,6 @@ export default function PointsInfoButton() {
     prevShowMobileInfo.current = showMobileInfo;
   }, [showMobileInfo]);
 
-  // Handle Escape key to close modal
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape" && showMobileInfo) {
@@ -141,7 +144,10 @@ export default function PointsInfoButton() {
         <Hint side="bottom" align="center" label={<PointsContent />}>
           <button
             type="button"
-            className="text-xl text-[#50B78B]/70 hover:text-[#50B78B] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#50B78B]/50 rounded-sm inline-flex items-center justify-center leading-none"
+            className="text-xl text-[#50B78B]/70 hover:text-[#50B78B]
+                       transition-colors focus:outline-none focus-visible:ring-2
+                       focus-visible:ring-[#50B78B]/50 rounded-sm inline-flex
+                       items-center justify-center leading-none"
             aria-label="Show points allocation"
           >
             ⓘ
@@ -150,28 +156,33 @@ export default function PointsInfoButton() {
       </div>
 
       {/* Mobile: Bottom sheet modal */}
-      <div className="md:hidden">
+      <div className="md:hidden inline-flex">
         <button
           ref={triggerRef}
           type="button"
           onClick={() => setShowMobileInfo(true)}
-          className="text-lg text-[#50B78B]/70 active:text-[#50B78B] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#50B78B]/50 rounded-sm"
+          className="text-lg text-[#50B78B]/70 active:text-[#50B78B]
+                     transition-colors focus:outline-none focus-visible:ring-2
+                     focus-visible:ring-[#50B78B]/50 rounded-sm"
           aria-label="Show points allocation"
         >
           ⓘ
         </button>
 
         {showMobileInfo && (
-          <>
+          <div className="fixed inset-0 z-[9999]">
             <div
-              className="fixed inset-0 bg-black/60 z-40 animate-in fade-in duration-200"
+              className="absolute inset-0 bg-black/60 animate-in fade-in duration-200"
               onClick={() => setShowMobileInfo(false)}
               aria-hidden="true"
             />
 
             <div
               ref={dialogRef}
-              className="fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-zinc-900 rounded-t-2xl border-t border-zinc-200 dark:border-zinc-800 shadow-2xl animate-in slide-in-from-bottom duration-300 focus:outline-none"
+              className="absolute bottom-0 left-0 right-0 bg-white dark:bg-zinc-900
+                         rounded-t-2xl border-t border-zinc-200 dark:border-zinc-800
+                         shadow-2xl animate-in slide-in-from-bottom duration-300
+                         focus:outline-none max-h-[80vh] overflow-y-auto"
               role="dialog"
               aria-labelledby="points-modal-title"
               aria-modal="true"
@@ -182,7 +193,7 @@ export default function PointsInfoButton() {
                 onClose={() => setShowMobileInfo(false)}
               />
             </div>
-          </>
+          </div>
         )}
       </div>
     </>
