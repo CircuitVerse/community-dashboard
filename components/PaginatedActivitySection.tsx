@@ -150,11 +150,18 @@ export function PaginatedActivitySection({
 
                   <div className="flex items-center gap-2 mt-0.5 text-xs text-zinc-500">
                     <span>
-                      by{" "}
-                      <span className="text-zinc-700 dark:text-zinc-300">
-                        {activity.contributor_name ?? activity.contributor}
-                      </span>
-                    </span>
+  by{" "}
+  <Link
+  href={`https://github.com/${activity.contributor}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-zinc-700 dark:text-zinc-300 hover:text-[#50B78B] hover:underline transition-colors"
+>
+  {activity.contributor_name ?? activity.contributor}
+</Link>
+
+</span>
+
                     <span>•</span>
                     <RelativeTime date={new Date(activity.occured_at)} />
                   </div>
