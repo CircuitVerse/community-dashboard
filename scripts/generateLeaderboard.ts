@@ -107,6 +107,27 @@ function sleep(ms: number) {
   return new Promise((r) => setTimeout(r, ms));
 }
 
+// Dynamic rate limiting based on GitHub API headers
+async function smartSleep(res: Response, defaultMs: number = 500): Promise<void> {
+  const remaining = res.headers.get('x-ratelimit-remaining');
+  if (remaining) {
+    const remainingCount = parseInt(remaining, 10);
+    if (remainingCount > 500) {
+      // Plenty of quota - go fast
+      await sleep(200);
+    } else if (remainingCount > 100) {
+      // Medium quota - normal speed
+      await sleep(400);
+    } else {
+      // Low quota - slow down
+      await sleep(1000);
+    }
+  } else {
+    // No header - use default
+    await sleep(defaultMs);
+  }
+}
+
 function iso(d: Date) {
   return d.toISOString().split("T")[0];
 }
@@ -303,7 +324,7 @@ async function fetchRepoPRs(repo: string, since: Date): Promise<GitHubPR[]> {
     if (lastPR?.updated_at && new Date(lastPR.updated_at) < since) break;
     
     page++;
-    await sleep(1000);
+    await smartSleep(res, 1000);
   }
   return prs;
 }
@@ -322,7 +343,7 @@ async function fetchPRReviews(repo: string, prNumber: number): Promise<GitHubRev
     console.error(`   ⚠️ Failed to fetch reviews for ${repo}#${prNumber}: ${res.status}`);
     return [];
   }
-  await sleep(500);
+  await smartSleep(res, 500);
   return res.json();
 }
 
