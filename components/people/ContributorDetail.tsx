@@ -205,7 +205,28 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
     }
   }
 
-  const recentContributions = contributor.activities?.slice(0, 15) || [];
+  const uniqueContributions = contributor.activities
+    ? (() => {
+        const seen = new Set<string>();
+        const unique: typeof contributor.activities = [];
+        
+        for (const activity of contributor.activities) {
+          const identifier = activity.link 
+            ? `${activity.type}-${activity.link}` 
+            : `${activity.type}-${activity.title}-${activity.occured_at}`;
+          
+          if (!seen.has(identifier)) {
+            seen.add(identifier);
+            unique.push(activity);
+          }
+        }
+        return unique;
+      })()
+    : [];
+
+  const recentContributions = uniqueContributions
+    .sort((a, b) => new Date(b.occured_at).getTime() - new Date(a.occured_at).getTime())
+    .slice(0, 15);
 
   const thisMonth = new Date();
   const monthlyActivity = recentActivity.filter(day => {
