@@ -189,7 +189,8 @@ async function searchByDateChunks(
   baseQuery: string,
   start: Date,
   end: Date,
-  stepDays = 30
+  stepDays = 30,
+  dateField = "created"
 ): Promise<GitHubSearchItem[]> {
   const all: GitHubSearchItem[] = [];
   let cursor = new Date(start);
@@ -205,7 +206,7 @@ async function searchByDateChunks(
     let page = 1;
     while (true) {
       const res = await ghSearch(
-        `${GITHUB_API}/search/issues?q=${baseQuery}+created:${from}..${iso(
+        `${GITHUB_API}/search/issues?q=${baseQuery}+${dateField}:${from}..${iso(
           to
         )}&per_page=100&page=${page}`
       );
@@ -617,7 +618,9 @@ async function generateYear() {
   for (const pr of await searchByDateChunks(
     `org:${ORG}+is:pr+is:merged`,
     since,
-    now
+    now,
+    30,
+    "merged"
   )) {
     if (isBotUser(pr.user)) continue;
     addActivity(
