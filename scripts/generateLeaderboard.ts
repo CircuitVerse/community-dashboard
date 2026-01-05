@@ -339,11 +339,9 @@ async function fetchAllReviews(
   for (const repoName of MAIN_REPOS) {
     console.log(`   → ${repoName}`);
     const prs = await fetchRepoPRs(repoName, since);
+    console.log(`      ${prs.length} PRs found`);
     
-    // Limit to 50 most recent PRs per repo
-    const limitedPRs = prs.slice(0, 50);
-    
-    for (const pr of limitedPRs) {
+    for (const pr of prs) {
       const reviews = await fetchPRReviews(repoName, pr.number);
       
       for (const review of reviews) {
