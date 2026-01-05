@@ -17,7 +17,10 @@ export default async function ReleasesPage() {
 
       <div className="space-y-4">
         {releases.map((release, index) => (
-          <ReleaseCard key={index} release={release} />
+         <ReleaseCard
+  key={`${release.repoSlug}-${release.version}`}
+  release={release}
+/>
         ))}
       </div>
     </div>

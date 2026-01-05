@@ -56,10 +56,10 @@ export function ReleaseCard({ release }: { release: Release }) {
         )}
 
         {/* GitHub link */}
-        {release.link && (
+        {release.githubUrl && (
           <div className="pt-2">
             <Link
-              href={release.link}
+              href={release.githubUrl}
               target="_blank"
               className="text-sm text-muted-foreground hover:text-[#50B78B] transition"
             >

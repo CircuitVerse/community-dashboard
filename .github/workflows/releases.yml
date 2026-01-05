@@ -18,7 +18,7 @@ jobs:
 
       - run: npm install
 
-      - run: node scripts/generateReleases.ts
+      - run: npx tsx scripts/generateReleases.ts
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
