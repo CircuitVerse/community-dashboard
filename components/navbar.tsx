@@ -5,7 +5,7 @@ import { Config } from "@/types/config";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Trophy, Users } from "lucide-react";
+import { Home, Trophy, Users, Tag } from "lucide-react";
 import { useScrollDirection } from "@/lib/hooks/useScrollDirection";
 import { Button } from "./ui/button";
 
@@ -15,13 +15,11 @@ interface NavbarProps {
 
 const navItems = [
   { name: "Home", href: "/", icon: Home },
-  {
-    name: "Leaderboard",
-    href: "/leaderboard",
-    icon: Trophy,
-  },
+  { name: "Leaderboard", href: "/leaderboard", icon: Trophy },
   { name: "People", href: "/people", icon: Users },
+  { name: "Releases", href: "/releases", icon: Tag },
 ];
+
 
 const Navbar = ({ config }: NavbarProps) => {
   const pathname = usePathname();
