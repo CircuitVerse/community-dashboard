@@ -204,7 +204,7 @@ export default function LeaderboardView({
   // sorting
   const [sortBy, setSortBy] = useState<SortBy>(() => {
     const s = searchParams.get('sort');
-    if(s === 'pr_opened' || s === 'pr_merged' || s === 'issues' || s === 'reviews')
+    if (s === 'pr_opened' || s === 'pr_merged' || s === 'issues' || s === 'reviews')
       return s as SortBy;
     return "points";
   });
@@ -363,8 +363,8 @@ export default function LeaderboardView({
       params.delete("roles");
     }
     params.delete("page"); // Reset pagination
-    if (typeof window !== "undefined") {
-      window.history.replaceState(null, "", `${pathname}?${params.toString()}`);
+    if (typeof window !== 'undefined') {
+      window.history.replaceState(null, '', `${pathname}?${params.toString()}`);
     }
     setCurrentPage(1);
   };
@@ -424,6 +424,7 @@ export default function LeaderboardView({
       updatePage(currentPage + 1);
     }
   };
+
 
   const goToPreviousPage = () => {
     if (currentPage > 1) {
@@ -548,12 +549,12 @@ export default function LeaderboardView({
                         {sortBy === "points"
                           ? "Total Points"
                           : sortBy === "pr_opened"
-                          ? "PR Opened"
-                          : sortBy === "pr_merged"
-                          ? "PR Merged"
-                          : sortBy === "reviews"
-                          ? "Review Submitted"
-                          : "Issue Opened"}
+                            ? "PR Opened"
+                            : sortBy === "pr_merged"
+                              ? "PR Merged"
+                              : sortBy === "reviews"
+                                ? "Review Submitted"
+                                : "Issue Opened"}
                       </span>
                     </button>
                   </div>
@@ -592,7 +593,7 @@ export default function LeaderboardView({
                     </PopoverTrigger>
                     <PopoverContent
                       align="end"
-                      className="w-56 bg-white dark:bg-[#07170f]"
+                      className="w-64 bg-white dark:bg-[#07170f] border-[#50B78B]/20"
                     >
                       <div className="space-y-2">
                         <h4 className="font-medium text-sm">Sort By</h4>
@@ -659,13 +660,35 @@ export default function LeaderboardView({
                                 onCheckedChange={() => toggleRole(role)}
                               />
                               <label
-                                htmlFor={role}
-                                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+                                key={role}
+                                htmlFor={`role-${role}`}
+                                className={cn(
+                                  "flex items-center gap-3 px-3 py-2.5 rounded-lg cursor-pointer transition-all duration-200 group",
+                                  selectedRoles.has(role)
+                                    ? "bg-[#50B78B]/10 border border-[#50B78B]/30 shadow-sm"
+                                    : "bg-muted/30 hover:bg-muted/60 border border-transparent"
+                                )}
                               >
-                                {role}
+                                <Checkbox
+                                  id={`role-${role}`}
+                                  checked={selectedRoles.has(role)}
+                                  onCheckedChange={() => toggleRole(role)}
+                                  className={cn(
+                                    "data-[state=checked]:bg-[#50B78B] data-[state=checked]:border-[#50B78B] border-2",
+                                    "transition-all duration-200"
+                                  )}
+                                />
+                                <span className={cn(
+                                  "text-sm font-medium flex-1 transition-colors",
+                                  selectedRoles.has(role) 
+                                    ? "text-[#50B78B]" 
+                                    : "text-foreground group-hover:text-[#50B78B]"
+                                )}>
+                                  {role}
+                                </span>
                               </label>
-                            </div>
-                          ))}
+                            ))}
+                          </div>
                         </div>
                       </div>
                     </PopoverContent>
@@ -679,7 +702,6 @@ export default function LeaderboardView({
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8 border-b">
             <div className="flex gap-2">
               {(["week", "month", "year"] as const).map((p) => {
-                // Preserve query parameters when switching periods, but reset page to 1
                 const params = new URLSearchParams(searchParams.toString());
                 params.delete("page"); // Reset pagination when switching periods
                 const href = `/leaderboard/${p}${
@@ -739,11 +761,10 @@ export default function LeaderboardView({
             </div>
           </div>
 
-          {/* Leaderboard - IMPROVED EMPTY STATE */}
+          {/* Leaderboard */}
           {filteredEntries.length === 0 ? (
             <Card>
               <CardContent className="py-16 text-center">
-                {/* Improved Icon with circular background */}
                 <div className="relative mx-auto w-20 h-20 mb-6">
                   <div className="absolute inset-0 rounded-full bg-[#50B78B]/10 dark:bg-[#50B78B]/15" />
                   <div className="absolute inset-2 rounded-full bg-[#50B78B]/5 dark:bg-[#50B78B]/10 flex items-center justify-center">
@@ -755,8 +776,8 @@ export default function LeaderboardView({
                   {entries.length === 0
                     ? "No contributors with points in this period"
                     : searchQuery
-                    ? `No contributors matching "${searchQuery}"`
-                    : "No contributors match the selected filters"}
+                      ? `No contributors matching "${searchQuery}"`
+                      : "No contributors match the selected filters"}
                 </p>
                 {(searchQuery ||
                   selectedRoles.size > 0 ||
@@ -775,7 +796,6 @@ export default function LeaderboardView({
           ) : (
             <div className="space-y-4">
               {paginatedEntries.map((entry, index) => {
-                // Use pre-calculated rank based on sort criteria (independent of search/pagination)
                 const savedRank = entryRanks.get(entry.username);
                 // Fallback: use position in filteredEntries (not pagination-dependent)
                 const fallbackRank =
@@ -804,7 +824,7 @@ export default function LeaderboardView({
                           )}
                         </div>
 
-                        {/* Avatar - NOW CLICKABLE */}
+                        {/* Avatar */}
                         <a
                           href={`https://github.com/${entry.username}`}
                           target="_blank"
