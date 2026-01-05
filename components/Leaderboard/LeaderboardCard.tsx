@@ -86,6 +86,24 @@ export function LeaderboardCard({
 }: LeaderboardCardProps) {
   const isTopThree = rank <= 3;
 
+  // Helper function to sort activities by priority then alphabetically
+  const sortActivitiesByPriority = (entries: Array<[string, { count: number; points: number }]>) => {
+    return entries.sort((a, b) => {
+      const activityPriority: Record<string, number> = {
+        "PR merged": 1,
+        "PR opened": 2,
+        "Issue opened": 3,
+        "Review submitted": 4,
+      };
+      const priorityA = activityPriority[a[0]] ?? 99;
+      const priorityB = activityPriority[b[0]] ?? 99;
+      if (priorityA !== priorityB) {
+        return priorityA - priorityB;
+      }
+      return a[0].localeCompare(b[0]);
+    });
+  };
+
   const openGitHubProfile = () => {
     if (entry.username && /^[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/.test(entry.username)) {
       window.open(`https://github.com/${encodeURIComponent(entry.username)}`, '_blank', 'noopener,noreferrer');
@@ -204,21 +222,7 @@ export function LeaderboardCard({
 
                 {/* Activity Tags */}
                 <div className="space-y-1 flex-1">
-                  {Object.entries(entry.activity_breakdown)
-                    .sort((a, b) => {
-                      const activityPriority: Record<string, number> = {
-                        "PR merged": 1,
-                        "PR opened": 2,
-                        "Issue opened": 3,
-                        "Review submitted": 4,
-                      };
-                      const priorityA = activityPriority[a[0]] ?? 99;
-                      const priorityB = activityPriority[b[0]] ?? 99;
-                      if (priorityA !== priorityB) {
-                        return priorityA - priorityB;
-                      }
-                      return a[0].localeCompare(b[0]);
-                    })
+                  {sortActivitiesByPriority(Object.entries(entry.activity_breakdown))
                     .filter(([activityName, data]) => data.count > 0)
                     .map(([activityName, data]) => {
                       const style = getActivityStyle(activityName);
@@ -306,21 +310,7 @@ export function LeaderboardCard({
 
                 {/* Activity Breakdown */}
                 <div className="flex flex-wrap gap-2">
-                  {Object.entries(entry.activity_breakdown)
-                    .sort((a, b) => {
-                      const activityPriority: Record<string, number> = {
-                        "PR merged": 1,
-                        "PR opened": 2,
-                        "Issue opened": 3,
-                        "Review submitted": 4,
-                      };
-                      const priorityA = activityPriority[a[0]] ?? 99;
-                      const priorityB = activityPriority[b[0]] ?? 99;
-                      if (priorityA !== priorityB) {
-                        return priorityA - priorityB;
-                      }
-                      return a[0].localeCompare(b[0]);
-                    })
+                  {sortActivitiesByPriority(Object.entries(entry.activity_breakdown))
                     .filter(([activityName, data]) => data.count > 0)
                     .map(([activityName, data]) => {
                       const style = getActivityStyle(activityName);
@@ -461,21 +451,7 @@ export function LeaderboardCard({
 
             {/* Activity Tags */}
             <div className="space-y-1 flex-1">
-              {Object.entries(entry.activity_breakdown)
-                .sort((a, b) => {
-                  const activityPriority: Record<string, number> = {
-                    "PR merged": 1,
-                    "PR opened": 2,
-                    "Issue opened": 3,
-                    "Review submitted": 4,
-                  };
-                  const priorityA = activityPriority[a[0]] ?? 99;
-                  const priorityB = activityPriority[b[0]] ?? 99;
-                  if (priorityA !== priorityB) {
-                    return priorityA - priorityB;
-                  }
-                  return a[0].localeCompare(b[0]);
-                })
+              {sortActivitiesByPriority(Object.entries(entry.activity_breakdown))
                 .filter(([activityName, data]) => data.count > 0)
                 .map(([activityName, data]) => {
                   const style = getActivityStyle(activityName);
@@ -570,20 +546,7 @@ export function LeaderboardCard({
           {/* Top Activities */}
           <div className="flex-1 w-full">
             <div className="space-y-1.5">
-              {Object.entries(entry.activity_breakdown)
-                .sort((a, b) => {
-                  const activityPriority: Record<string, number> = {
-                    "PR merged": 1,
-                    "PR opened": 2,
-                    "Issue opened": 3,
-                  };
-                  const priorityA = activityPriority[a[0]] ?? 99;
-                  const priorityB = activityPriority[b[0]] ?? 99;
-                  if (priorityA !== priorityB) {
-                    return priorityA - priorityB;
-                  }
-                  return a[0].localeCompare(b[0]);
-                })
+              {sortActivitiesByPriority(Object.entries(entry.activity_breakdown))
                 .filter(([activityName, data]) => data.count > 0)
                 .map(([activityName, data]) => {
                   const style = getActivityStyle(activityName);
