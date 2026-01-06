@@ -11,6 +11,13 @@ interface ContributorEntry {
   total_points: number;
   activity_breakdown: Record<string, { count: number; points: number }>;
   daily_activity: Array<{ date: string; count: number; points: number }>;
+  activities?: Array<{
+    type: string;
+    title: string;
+    occured_at: string;
+    link: string;
+    points: number;
+  }>;
 }
 
 interface LeaderboardData {
@@ -40,23 +47,73 @@ export async function GET() {
         for (const entry of data.entries || []) {
           // More precise bot filtering to avoid filtering legitimate users
           const username = entry.username.toLowerCase();
-          const isBot = username.endsWith('[bot]') || 
-                       username.endsWith('-bot') || 
-                       username.endsWith('_bot') ||
-                       username === 'dependabot' ||
-                       username === 'renovate' ||
-                       username === 'github-actions' ||
-                       username.startsWith('renovate[') ||
-                       username.startsWith('dependabot[');
-          
+          const isBot =
+            username.endsWith("[bot]") ||
+            username.endsWith("-bot") ||
+            username.endsWith("_bot") ||
+            username === "dependabot" ||
+            username === "renovate" ||
+            username === "github-actions" ||
+            username.startsWith("renovate[") ||
+            username.startsWith("dependabot[");
           if (isBot) {
             continue;
           }
 
           const existing = allContributors.get(entry.username);
-          if (!existing || entry.total_points > existing.total_points) {
-            allContributors.set(entry.username, entry);
-          }
+            if (!existing) {
+              allContributors.set(entry.username, {
+                ...entry,
+                activities: entry.activities ?? [],
+              });
+              continue;
+            }
+
+            const existingActivities = existing.activities ?? [];
+            const newActivities = entry.activities ?? [];
+
+            const seen = new Set<string>();
+            const combined: NonNullable<ContributorEntry["activities"]> = [];
+            for(const activity of [...existingActivities, ...newActivities]){
+              const identifier = activity.link
+                ? `${activity.type}-${activity.link}`
+                : `${activity.type}-${activity.title}-${activity.occured_at}`;
+              if(!seen.has(identifier)){
+                seen.add(identifier);
+                combined.push(activity);
+              }
+            }
+
+            combined.sort(
+              (a, b) =>
+                new Date(b.occured_at).getTime() -
+                new Date(a.occured_at).getTime()
+            );
+            
+            const expectedCount = Object.values(entry.activity_breakdown || {}).reduce((sum, v) => sum + v.count, 0);
+
+            if(combined.length < expectedCount){
+            for(const [type, info] of Object.entries(entry.activity_breakdown)){
+              const existingCount = combined.filter(a => a.type === type).length;
+              const missing = info.count - existingCount;
+
+              for(let i = 0; i < missing; i++){
+                combined.push({
+                  type,
+                  title: `${type} contribution`,
+                  occured_at: new Date(0).toISOString(),
+                  link: "",
+                  points: info.count > 0 ? Math.round(info.points / info.count) : 0,
+                });
+              }
+            }
+            }
+
+            allContributors.set(entry.username, {
+              ...existing,
+              ...entry,
+              activities: combined.slice(0, 15),
+            });
         }
       } catch (error) {
         console.error(`Error reading ${file}:`, error);

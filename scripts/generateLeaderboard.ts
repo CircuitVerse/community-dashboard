@@ -1,5 +1,10 @@
 import fs from "fs";
 import path from "path";
+import { coreTeamMembers, alumniMembers } from "../lib/team-data";
+
+// Create sets for fast lookup
+const CORE_TEAM_USERNAMES = new Set(coreTeamMembers.map(m => m.username.toLowerCase()));
+const ALUMNI_USERNAMES = new Set(alumniMembers.map(m => m.username.toLowerCase()));
 
 /* -------------------------------------------------------
    CONFIG
@@ -21,6 +26,7 @@ const POINTS = {
   "PR opened": 2,
   "PR merged": 5,
   "Issue opened": 1,
+  "Review submitted": 4,
 } as const;
 
 /* -------------------------------------------------------
@@ -28,7 +34,7 @@ const POINTS = {
 ------------------------------------------------------- */
 
 export type RawActivity = {
-  type: "PR opened" | "PR merged" | "Issue opened";
+  type: "PR opened" | "PR merged" | "Issue opened" | "Review submitted";
   occured_at: string;
   title?: string | null;
   link?: string | null;
@@ -66,12 +72,60 @@ export type UserEntry = {
   activities?: RawActivity[];
 };
 
+interface GitHubSearchItem {
+  user: { login: string; name?: string | null; avatar_url?: string | null; type?: string };
+  title: string;
+  html_url: string;
+  created_at: string;
+  closed_at?: string | null;
+}
+
+interface YearData {
+  period: string;
+  updatedAt: number;
+  startDate?: string;
+  endDate?: string;
+  entries: Contributor[];
+}
+
+interface RecentActivityItem {
+  username: string;
+  name: string | null;
+  title: string | null;
+  link: string | null;
+  avatar_url: string | null;
+  type?: string;
+  date?: string;
+  points?: number;
+}
+
 /* -------------------------------------------------------
    UTILS
 ------------------------------------------------------- */
 
 function sleep(ms: number) {
   return new Promise((r) => setTimeout(r, ms));
+}
+
+// Dynamic rate limiting based on GitHub API headers
+async function smartSleep(res: Response, defaultMs: number = 500): Promise<void> {
+  const remaining = res.headers.get('x-ratelimit-remaining');
+  if (remaining) {
+    const remainingCount = parseInt(remaining, 10);
+    if (remainingCount > 500) {
+      // Plenty of quota - go fast
+      await sleep(200);
+    } else if (remainingCount > 100) {
+      // Medium quota - normal speed
+      await sleep(400);
+    } else {
+      // Low quota - slow down
+      await sleep(1000);
+    }
+  } else {
+    // No header - use default
+    await sleep(defaultMs);
+  }
 }
 
 function iso(d: Date) {
@@ -93,10 +147,19 @@ function sanitizeTitle(title?: string | null) {
     .trim();
 }
 
-function isBotUser(user: any): boolean {
+function isBotUser(user: { login?: string; type?: string } | null | undefined): boolean {
   if (!user?.login) return true;
   if (user.type && user.type !== "User") return true;
   return user.login.endsWith("[bot]");
+}
+
+// Utility to split array into chunks for parallel processing
+function chunk<T>(arr: T[], size: number): T[][] {
+  const chunks: T[][] = [];
+  for (let i = 0; i < arr.length; i += size) {
+    chunks.push(arr.slice(i, i + size));
+  }
+  return chunks;
 }
 
 /* -------------------------------------------------------
@@ -126,9 +189,10 @@ async function searchByDateChunks(
   baseQuery: string,
   start: Date,
   end: Date,
-  stepDays = 30
-): Promise<any[]> {
-  const all: any[] = [];
+  stepDays = 30,
+  dateField = "created"
+): Promise<GitHubSearchItem[]> {
+  const all: GitHubSearchItem[] = [];
   let cursor = new Date(start);
 
   while (cursor < end) {
@@ -142,7 +206,7 @@ async function searchByDateChunks(
     let page = 1;
     while (true) {
       const res = await ghSearch(
-        `${GITHUB_API}/search/issues?q=${baseQuery}+created:${from}..${iso(
+        `${GITHUB_API}/search/issues?q=${baseQuery}+${dateField}:${from}..${iso(
           to
         )}&per_page=100&page=${page}`
       );
@@ -164,14 +228,23 @@ async function searchByDateChunks(
 
 function ensureUser(
   map: Map<string, Contributor>,
-  user: any
+  user: { login: string; name?: string | null; avatar_url?: string | null }
 ): Contributor {
   if (!map.has(user.login)) {
+    // Determine role based on team membership
+    const usernameLower = user.login.toLowerCase();
+    let role = "Contributor";
+    if (CORE_TEAM_USERNAMES.has(usernameLower)) {
+      role = "Maintainer";
+    } else if (ALUMNI_USERNAMES.has(usernameLower)) {
+      role = "Alumni";
+    }
+    
     map.set(user.login, {
       username: user.login,
       name: user.name ?? null,
       avatar_url: user.avatar_url ?? null,
-      role: "Contributor",
+      role,
       total_points: 0,
       activity_breakdown: {},
       daily_activity: [],
@@ -214,15 +287,320 @@ function addActivity(
 }
 
 /* -------------------------------------------------------
+   REVIEW FETCHING
+------------------------------------------------------- */
+
+interface GitHubRepo {
+  name: string;
+}
+
+interface GitHubPR {
+  number: number;
+  user: { login: string; avatar_url?: string; type?: string };
+  updated_at?: string;
+}
+
+interface GitHubReview {
+  user: { login: string; avatar_url?: string; type?: string };
+  state: string;
+  submitted_at: string;
+}
+
+async function fetchOrgRepos(): Promise<string[]> {
+  const repos: string[] = [];
+  let page = 1;
+
+  console.log(`📦 Fetching all repositories for ${ORG}...`);
+
+  while (true) {
+    const res = await fetch(
+      `${GITHUB_API}/orgs/${ORG}/repos?per_page=100&page=${page}`,
+      {
+        headers: {
+          Authorization: `Bearer ${TOKEN}`,
+          Accept: "application/vnd.github+json",
+        },
+      }
+    );
+
+    if (!res.ok) {
+        console.error(`   ⚠️ Failed to fetch repos: ${res.status}`);
+        break;
+    }
+
+    await smartSleep(res, 500);
+    const data: GitHubRepo[] = await res.json();
+    if (!data.length) break;
+
+    for (const r of data) {
+      repos.push(r.name);
+    }
+    page++;
+  }
+  return repos;
+}
+
+async function fetchRepoPRs(repo: string, since: Date): Promise<GitHubPR[]> {
+  const prs: GitHubPR[] = [];
+  let page = 1;
+  while (true) {
+    const res = await fetch(
+      `${GITHUB_API}/repos/${ORG}/${repo}/pulls?state=all&per_page=100&page=${page}&sort=updated&direction=desc`,
+      {
+        headers: {
+          Authorization: `Bearer ${TOKEN}`,
+          Accept: "application/vnd.github+json",
+        },
+      }
+    );
+    if (!res.ok) {
+      console.error(`   ⚠️ Failed to fetch PRs for ${repo}: ${res.status}`);
+      break;
+    }
+    const data = await res.json();
+    if (!data.length) break;
+    
+    // Filter PRs updated since the cutoff date
+    for (const pr of data) {
+      if (pr.updated_at && new Date(pr.updated_at) >= since) {
+        prs.push(pr);
+      }
+    }
+    
+    // Stop if we've gone past the since date
+    const lastPR = data[data.length - 1];
+    if (lastPR?.updated_at && new Date(lastPR.updated_at) < since) break;
+    
+    page++;
+    await smartSleep(res, 1000);
+  }
+  return prs;
+}
+
+async function fetchPRReviews(repo: string, prNumber: number): Promise<GitHubReview[]> {
+  const res = await fetch(
+    `${GITHUB_API}/repos/${ORG}/${repo}/pulls/${prNumber}/reviews`,
+    {
+      headers: {
+        Authorization: `Bearer ${TOKEN}`,
+        Accept: "application/vnd.github+json",
+      },
+    }
+  );
+  if (!res.ok) {
+    console.error(`   ⚠️ Failed to fetch reviews for ${repo}#${prNumber}: ${res.status}`);
+    return [];
+  }
+  await smartSleep(res, 500);
+  return res.json();
+}
+
+async function fetchAllReviews(
+  users: Map<string, Contributor>,
+  since: Date,
+  now: Date
+) {
+  console.log("🔍 Review submitted");
+  
+  // Fetch all repos in the organization
+  const allRepos = await fetchOrgRepos();
+  
+  // Track reviews to avoid duplicates (one review per reviewer per PR)
+  const reviewSeen = new Set<string>();
+  
+  // Parallel batch size
+  const BATCH_SIZE = 5;
+  
+  for (const repoName of allRepos) {
+    console.log(`   → ${repoName}`);
+    const prs = await fetchRepoPRs(repoName, since);
+    console.log(`      ${prs.length} PRs found (fetching in batches of ${BATCH_SIZE})`);
+    
+    // Process PRs in parallel batches
+    const prBatches = chunk(prs, BATCH_SIZE);
+    
+    for (const batch of prBatches) {
+      // Fetch reviews for batch in parallel
+      const reviewResults = await Promise.all(
+        batch.map(pr => fetchPRReviews(repoName, pr.number).then(reviews => ({ pr, reviews })))
+      );
+      
+      // Process review results
+      for (const { pr, reviews } of reviewResults) {
+        for (const review of reviews) {
+          // Skip bots
+          if (!review.user?.login) continue;
+          if (review.user.login.endsWith("[bot]")) continue;
+          if (review.user.type && review.user.type !== "User") continue;
+          
+          // Skip self-reviews
+          if (review.user.login === pr.user.login) continue;
+          
+          // Only count approved or changes_requested
+          if (!["APPROVED", "CHANGES_REQUESTED"].includes(review.state)) continue;
+          
+          // Check date
+          const reviewDate = new Date(review.submitted_at);
+          if (reviewDate < since || reviewDate > now) continue;
+          
+          // Deduplicate: only count one review per reviewer per PR
+          const dedupKey = `${review.user.login}:${repoName}:${pr.number}`;
+          if (reviewSeen.has(dedupKey)) continue;
+          reviewSeen.add(dedupKey);
+          
+          addActivity(
+            ensureUser(users, review.user),
+            "Review submitted",
+            review.submitted_at,
+            POINTS["Review submitted"],
+            { title: `Review on PR #${pr.number}`, link: `https://github.com/${ORG}/${repoName}/pull/${pr.number}` }
+          );
+        }
+      }
+      
+      // Small delay between batches to avoid overwhelming the API
+      await sleep(300);
+    }
+  }
+}
+
+/* -------------------------------------------------------
+   INCREMENTAL UPDATE HELPERS
+------------------------------------------------------- */
+
+interface ExistingYearData {
+  period: string;
+  updatedAt: number;
+  lastFetchedAt?: number;
+  startDate?: string;
+  endDate?: string;
+  entries: Array<{
+    username: string;
+    name: string | null;
+    avatar_url: string | null;
+    role: string;
+    total_points: number;
+    activity_breakdown: Record<string, { count: number; points: number }>;
+    daily_activity: Array<{ date: string; count: number; points: number }>;
+    raw_activities: RawActivity[];
+  }>;
+}
+
+function loadExistingYearData(): ExistingYearData | null {
+  const filePath = path.join(process.cwd(), "public", "leaderboard", "year.json");
+  if (!fs.existsSync(filePath)) return null;
+  try {
+    const data = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+    return data as ExistingYearData;
+  } catch {
+    return null;
+  }
+}
+
+function mergeExistingActivities(
+  users: Map<string, Contributor>,
+  existing: ExistingYearData | null
+) {
+  if (!existing) return;
+  
+  for (const entry of existing.entries) {
+    // Create or get user
+    let user = users.get(entry.username);
+    if (!user) {
+      user = {
+        username: entry.username,
+        name: entry.name,
+        avatar_url: entry.avatar_url,
+        role: entry.role,
+        total_points: 0,
+        activity_breakdown: {},
+        daily_activity: [],
+        raw_activities: [],
+      };
+      users.set(entry.username, user);
+    }
+    
+    // Merge raw_activities from existing data
+    if (entry.raw_activities) {
+      for (const act of entry.raw_activities) {
+        user.raw_activities.push(act);
+      }
+    }
+  }
+}
+
+function deduplicateAndRecalculate(users: Map<string, Contributor>) {
+  for (const user of users.values()) {
+    // Deduplicate raw_activities by unique key
+    const seen = new Set<string>();
+    user.raw_activities = user.raw_activities.filter(act => {
+      const key = `${act.type}:${act.occured_at}:${act.link ?? act.title}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+    
+    // Recalculate totals from deduplicated activities
+    user.total_points = 0;
+    user.activity_breakdown = {};
+    user.daily_activity = [];
+    
+    const dailyMap = new Map<string, { count: number; points: number }>();
+    
+    for (const act of user.raw_activities) {
+      // Update total points
+      user.total_points += act.points;
+      
+      // Update activity breakdown
+      if (!user.activity_breakdown[act.type]) {
+        user.activity_breakdown[act.type] = { count: 0, points: 0 };
+      }
+      const breakdown = user.activity_breakdown[act.type]!;
+      breakdown.count++;
+      breakdown.points += act.points;
+      
+      // Update daily activity
+      const day = act.occured_at.slice(0, 10);
+      if (!dailyMap.has(day)) {
+        dailyMap.set(day, { count: 0, points: 0 });
+      }
+      const d = dailyMap.get(day)!;
+      d.count++;
+      d.points += act.points;
+    }
+    
+    // Convert daily map to array
+    user.daily_activity = [...dailyMap.entries()]
+      .map(([date, d]) => ({ date, count: d.count, points: d.points }))
+      .sort((a, b) => b.date.localeCompare(a.date));
+  }
+}
+
+/* -------------------------------------------------------
    GENERATE YEAR
 ------------------------------------------------------- */
 
 async function generateYear() {
   console.log("🚀 Generating leaderboard");
 
-  const since = daysAgo(365);
   const now = new Date();
   const users = new Map<string, Contributor>();
+  
+  // Load existing data for incremental update
+  const existing = loadExistingYearData();
+  const isIncremental = existing?.lastFetchedAt != null;
+  
+  // Determine fetch start date
+  let since: Date;
+  if (isIncremental && existing?.lastFetchedAt) {
+    // Incremental: fetch only since last run
+    since = new Date(existing.lastFetchedAt);
+    console.log(`📦 Incremental update since ${iso(since)}`);
+  } else {
+    // Full fetch: last 365 days
+    since = daysAgo(365);
+    console.log(`📦 Full fetch from ${iso(since)}`);
+  }
 
   console.log("🔍 PRs opened");
   for (const pr of await searchByDateChunks(`org:${ORG}+is:pr`, since, now)) {
@@ -240,13 +618,15 @@ async function generateYear() {
   for (const pr of await searchByDateChunks(
     `org:${ORG}+is:pr+is:merged`,
     since,
-    now
+    now,
+    30,
+    "merged"
   )) {
     if (isBotUser(pr.user)) continue;
     addActivity(
       ensureUser(users, pr.user),
       "PR merged",
-      pr.closed_at,
+      pr.closed_at!,
       POINTS["PR merged"],
       { title: pr.title, link: pr.html_url }
     );
@@ -268,6 +648,19 @@ async function generateYear() {
     );
   }
 
+  // Fetch reviews
+  await fetchAllReviews(users, since, now);
+  
+  // Merge existing activities (incremental mode)
+  if (isIncremental) {
+    console.log("🔄 Merging with existing data...");
+    mergeExistingActivities(users, existing);
+  }
+  
+  // Deduplicate and recalculate all totals
+  console.log("🧹 Deduplicating activities...");
+  deduplicateAndRecalculate(users);
+
   const entries = [...users.values()]
     .filter((u) => u.total_points > 0)
     .sort((a, b) => b.total_points - a.total_points);
@@ -275,10 +668,14 @@ async function generateYear() {
   const outDir = path.join(process.cwd(), "public", "leaderboard");
   fs.mkdirSync(outDir, { recursive: true });
 
+  // Calculate actual date range (always show full year range for display)
+  const displaySince = daysAgo(365);
+  
   const yearData = {
     period: "year",
     updatedAt: Date.now(),
-    startDate: iso(since),
+    lastFetchedAt: Date.now(),  // Track when we last fetched for incremental updates
+    startDate: iso(displaySince),
     endDate: iso(now),
     hiddenRoles: [],
     topByActivity: {},
@@ -290,7 +687,8 @@ async function generateYear() {
     JSON.stringify(yearData, null, 2)
   );
 
-  console.log(`✅ Generated year.json (${entries.length})`);
+  const mode = isIncremental ? "(incremental)" : "(full)";
+  console.log(`✅ Generated year.json ${mode} (${entries.length})`);
 
   derivePeriod(yearData, 7, "week");
   derivePeriod(yearData, 30, "month");
@@ -301,7 +699,7 @@ async function generateYear() {
    DERIVED PERIODS
 ------------------------------------------------------- */
 
-function derivePeriod(source: any, days: number, period: string) {
+function derivePeriod(source: YearData, days: number, period: string) {
   const cutoff = daysAgo(days);
 
   const entries = source.entries
@@ -345,7 +743,7 @@ function derivePeriod(source: any, days: number, period: string) {
       };
     })
     .filter(Boolean)
-    .sort((a: any, b: any) => b.total_points - a.total_points);
+    .sort((a: UserEntry | null, b: UserEntry | null) => (b?.total_points ?? 0) - (a?.total_points ?? 0));
 
   fs.writeFileSync(
     path.join(process.cwd(), "public", "leaderboard", `${period}.json`),
@@ -371,9 +769,9 @@ function derivePeriod(source: any, days: number, period: string) {
    RECENT ACTIVITIES
 ------------------------------------------------------- */
 
-function generateRecentActivities(source: any, days = 14) {
+function generateRecentActivities(source: YearData, days = 14) {
   const cutoff = daysAgo(days);
-  const groups = new Map<string, any[]>();
+  const groups = new Map<string, RecentActivityItem[]>();
 
   for (const entry of source.entries) {
     for (const act of entry.raw_activities) {
@@ -384,8 +782,8 @@ function generateRecentActivities(source: any, days = 14) {
       groups.get(day)!.push({
         username: entry.username,
         name: entry.name,
-        title: act.title,
-        link: act.link,
+        title: act.title ?? null,
+        link: act.link ?? null,
         avatar_url: entry.avatar_url,
         points: act.points,
       });
