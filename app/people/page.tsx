@@ -61,6 +61,9 @@ export default function PeoplePage() {
   const [searchQuery, setSearchQuery] = useState("");
 
 
+  // Use scroll restoration hook - active when no contributor is selected (list view)
+  const { saveScrollPosition } = useScrollRestoration({ isActive: !selectedContributor });
+
 
   useEffect(() => {
     const loadData = async () => {
@@ -97,6 +100,7 @@ const filteredPeople = useMemo(() => {
 
 
   const handleContributorClick = (contributor: ContributorEntry) => {
+    saveScrollPosition();
     setSelectedContributor(contributor);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -131,11 +135,11 @@ const filteredPeople = useMemo(() => {
   return (
     <div className="mx-auto px-4 py-8 max-w-7xl">
       <div className="mb-8 text-center">
-        <h1 className="text-4xl font-bold mb-4">
+        <h1 className="text-4xl font-bold">
           <span className="text-black dark:text-white">Our </span>
-          <span className="text-[#42B883]">People</span>
+          <span className="text-emerald-600 dark:text-emerald-400">People</span>
         </h1>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-4">
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-4 mt-4">
           Meet the team who made CircuitVerse possible.
         </p>
         {updatedAt && (
@@ -198,7 +202,7 @@ const filteredPeople = useMemo(() => {
               <div className="h-8 bg-muted rounded w-72 mx-auto mb-4" />
               <div className="h-4 bg-muted rounded w-96 mx-auto" />
             </div>
-            
+
             <div className="space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {Array.from({ length: 4 }).map((_, i) => (
@@ -229,8 +233,12 @@ const filteredPeople = useMemo(() => {
 
               <div className="text-center py-16">
                 <Loader2 className="w-12 h-12 animate-spin mx-auto mb-4 text-green-600 dark:text-green-400" />
-                <h3 className="text-lg font-semibold mb-2">Loading Community Data</h3>
-                <p className="text-muted-foreground">Fetching team members and contributors...</p>
+                <h3 className="text-lg font-semibold mb-2">
+                  Loading Community Data
+                </h3>
+                <p className="text-muted-foreground">
+                  Fetching team members and contributors...
+                </p>
               </div>
             </div>
           </div>

@@ -25,6 +25,8 @@ import {
   AlertCircle
 } from "lucide-react";
 
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
+
 type ActivityUIConfig = {
   icon: React.ReactNode;
   gradient: string;
@@ -203,7 +205,30 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
     }
   }
 
-  const recentContributions = contributor.activities?.slice(0, 15) || [];
+  const uniqueContributions = contributor.activities
+    ? (() => {
+        const seen = new Set<string>();
+        const unique: typeof contributor.activities = [];
+        
+        for (const activity of contributor.activities) {
+          const identifier = activity.link 
+            ? `${activity.type}-${activity.link}` 
+            : `${activity.type}-${activity.title}-${activity.occured_at}`;
+          
+          if (!seen.has(identifier)) {
+            seen.add(identifier);
+            unique.push(activity);
+          }
+        }
+        return unique;
+      })()
+    : [];
+
+  const thirtyDaysAgo = currentTime - 30 * 24 * 60 * 60 * 1000;
+  const recentContributions = uniqueContributions
+    .filter((a) => new Date(a.occured_at).getTime() >= thirtyDaysAgo)
+    .sort((a, b) => new Date(b.occured_at).getTime() - new Date(a.occured_at).getTime())
+    .slice(0, 15);
 
   const thisMonth = new Date();
   const monthlyActivity = recentActivity.filter(day => {
@@ -219,9 +244,12 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
     ? Math.max(...sortedActivities.map(([, d]) => d.points))
     : 0;
 
+  const displayName = contributor.name || contributor.username;
+  const displayUsername = `@${contributor.username}`;
+
   return (
-    <div className="mx-auto px-4 py-8 max-w-7xl">
-      <Button onClick={onBack} variant="outline" className="mb-6 hover:bg-primary cursor-pointer transition-colors">
+    <div className="mx-auto px-4 py-8 max-w-7xl lg:max-w-[1300px]">
+      <Button onClick={onBack} variant="outline" className="mb-6 hover:bg-primary/10 cursor-pointer transition-colors">
         <ArrowLeft className="w-4 h-4 mr-2" />
         Back to People
       </Button>
@@ -251,9 +279,28 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
                   )}
                 </div>
 
-                <div className="text-center w-full">
-                  <h2 className="text-2xl font-bold mb-2">{contributor.name || contributor.username}</h2>
-                  <p className="text-muted-foreground mb-3 text-lg">@{contributor.username}</p>
+                 <div className="text-center w-full min-w-0 px-4">
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <h2 className="text-2xl font-bold mb-2 truncate max-w-full min-w-0" aria-label={displayName}>
+                        {displayName}
+                      </h2>
+                    </TooltipTrigger>
+                    <TooltipContent sideOffset={6} side="top">
+                      {displayName}
+                    </TooltipContent>
+                  </Tooltip>
+
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <p className="text-muted-foreground mb-3 text-lg truncate max-w-full min-w-0" aria-label={displayUsername}>
+                        {displayUsername}
+                      </p>
+                    </TooltipTrigger>
+                    <TooltipContent sideOffset={6} side="bottom">
+                      {displayUsername}
+                    </TooltipContent>
+                  </Tooltip>
                   <Badge variant="secondary" className="mb-6 bg-primary/10 text-primary font-semibold px-4 py-2">
                     {contributor.role}
                   </Badge>
@@ -391,16 +438,20 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
             </CardContent>
           </Card>
 
-          {recentContributions.length > 0 && (
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Clock className="w-5 h-5" />
-                  Recent Contributions
-                  <Badge variant="secondary" className="ml-2">{recentContributions.length}</Badge>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Clock className="w-5 h-5" />
+                Recent Contributions
+                <Badge variant="secondary" className="ml-2">{recentContributions.length}</Badge>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              {recentContributions.length === 0 ? (
+                <p className="text-sm text-muted-foreground text-center mb-4">
+                  No contributions in the last 30 days.
+                </p>
+              ) : (
                 <div className="space-y-3 max-h-80 overflow-y-auto pr-2">
                   {recentContributions.map((activity, index) => {
                     const date = new Date(activity.occured_at);
@@ -474,9 +525,9 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
                     );
                   })}
                 </div>
-              </CardContent>
-            </Card>
-          )}
+              )}
+            </CardContent>
+          </Card>
 
           <GitHubHeatmap
             dailyActivity={recentActivity}

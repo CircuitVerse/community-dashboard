@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import {
   Avatar,
   AvatarImage,
@@ -36,6 +36,26 @@ export function PaginatedActivitySection({
   /** Current active page number */
   const [currentPage, setCurrentPage] = useState(1);
 
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const scrollSectionToTop = () => {
+    if (typeof window === "undefined") return;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    requestAnimationFrame(() => {
+      if (!containerRef.current) return;
+
+      const rect = containerRef.current.getBoundingClientRect();
+      const absoluteTop = rect.top + window.scrollY;
+
+      const offset = 80;
+
+      window.scrollTo({
+        top: Math.max(absoluteTop - offset, 0),
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+      });
+    });
+  };
+
   const totalPages = Math.ceil(group.activities.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -51,6 +71,7 @@ export function PaginatedActivitySection({
   const goToNext = () => {
     const nextPage = Math.min(totalPages, currentPage + 1);
     setCurrentPage(nextPage);
+    scrollSectionToTop();
     setWindowStart((ws) => {
       if (nextPage > ws + windowSize - 1) {
         return ws + 1;
@@ -63,6 +84,7 @@ export function PaginatedActivitySection({
   const goToPrevious = () => {
     const nextPage = Math.max(1, currentPage - 1);
     setCurrentPage(nextPage);
+    scrollSectionToTop();
     setWindowStart((ws) => {
       if (nextPage < ws) {
         return ws - 1;
@@ -74,6 +96,7 @@ export function PaginatedActivitySection({
   /** Navigate to a specific page and adjust the pagination window to keep it in view **/
   const goToPage = (page: number) => {
     setCurrentPage(page);
+    scrollSectionToTop();
     setWindowStart((ws) => {
       if (page < ws) return page;
       if (page > ws + windowSize - 1) {
@@ -95,7 +118,7 @@ export function PaginatedActivitySection({
   };
 
   return (
-    <div className="space-y-3 select-none">
+    <div ref={containerRef} className="space-y-3 select-none">
       <div className="flex items-center justify-between px-1">
         <div className="flex items-center gap-2">
           <span className="h-2 w-2 rounded-full bg-[#50B78B]" />
@@ -150,11 +173,18 @@ export function PaginatedActivitySection({
 
                   <div className="flex items-center gap-2 mt-0.5 text-xs text-zinc-500">
                     <span>
-                      by{" "}
-                      <span className="text-zinc-700 dark:text-zinc-300">
-                        {activity.contributor_name ?? activity.contributor}
-                      </span>
-                    </span>
+  by{" "}
+  <Link
+  href={`https://github.com/${activity.contributor}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-zinc-700 dark:text-zinc-300 hover:text-[#50B78B] hover:underline transition-colors"
+>
+  {activity.contributor_name ?? activity.contributor}
+</Link>
+
+</span>
+
                     <span>•</span>
                     <RelativeTime date={new Date(activity.occured_at)} />
                   </div>

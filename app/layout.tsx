@@ -8,6 +8,7 @@ import type { Metadata } from "next";
 import { getConfig } from "@/lib/config";
 import Navbar from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 const figtree = Figtree({
   variable: "--font-figtree",
@@ -66,6 +67,7 @@ export default function RootLayout({
             <main className="flex-1">{children}</main>
             <Footer config={config} />
           </div>
+          <ScrollToTop />
         </ThemeProvider>
       </body>
     </html>

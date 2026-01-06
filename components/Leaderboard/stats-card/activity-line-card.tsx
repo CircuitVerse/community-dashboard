@@ -29,11 +29,44 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart";
 
-// --- 1. Custom Label Component ---
-const CustomPeakLabel = (props: any) => {
-  const { x, y, index, chartData, color } = props;
+/* -------------------------------------------------------------------------- */
+/*                               Types                                        */
+/* -------------------------------------------------------------------------- */
 
-  if (!chartData || !chartData[index]) return null;
+interface ChartDataItem {
+  week: string;
+  value: number;
+  isPeak: boolean;
+}
+
+interface CustomPeakLabelProps {
+  x?: number;
+  y?: number;
+  index?: number;
+  chartData?: ChartDataItem[];
+  color?: string;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                        Custom Peak Label                                   */
+/* -------------------------------------------------------------------------- */
+
+const CustomPeakLabel = ({
+  x,
+  y,
+  index,
+  chartData,
+  color = "#50B78B",
+}: CustomPeakLabelProps) => {
+  if (
+    x == null ||
+    y == null ||
+    index == null ||
+    !chartData ||
+    !chartData[index]
+  ) {
+    return null;
+  }
 
   const isPeak = chartData[index].isPeak;
   if (!isPeak) return null;
@@ -75,12 +108,20 @@ const CustomPeakLabel = (props: any) => {
   );
 };
 
+/* -------------------------------------------------------------------------- */
+/*                               Chart Config                                 */
+/* -------------------------------------------------------------------------- */
+
 const chartConfig = {
   value: {
     label: "Activities",
     color: "#50B78B",
   },
 } satisfies ChartConfig;
+
+/* -------------------------------------------------------------------------- */
+/*                              Props                                         */
+/* -------------------------------------------------------------------------- */
 
 interface ActivityLineCardProps {
   totalActivitiesLabel?: number;
@@ -91,6 +132,10 @@ interface ActivityLineCardProps {
   week4?: number;
 }
 
+/* -------------------------------------------------------------------------- */
+/*                           Component                                        */
+/* -------------------------------------------------------------------------- */
+
 export function ActivityLineCard({
   totalActivitiesLabel = 0,
   prev_month = 0,
@@ -99,34 +144,18 @@ export function ActivityLineCard({
   week3 = 0,
   week4 = 0,
 }: ActivityLineCardProps) {
-  const formattedTotal = new Intl.NumberFormat(
-    "en-US"
-  ).format(totalActivitiesLabel);
+  const formattedTotal = new Intl.NumberFormat("en-US").format(
+    totalActivitiesLabel
+  );
 
   const maxValue = Math.max(week1, week2, week3, week4);
 
-  const chartData = useMemo(
+  const chartData: ChartDataItem[] = useMemo(
     () => [
-      {
-        week: "1st",
-        value: week1,
-        isPeak: week1 === maxValue,
-      },
-      {
-        week: "2nd",
-        value: week2,
-        isPeak: week2 === maxValue,
-      },
-      {
-        week: "3rd",
-        value: week3,
-        isPeak: week3 === maxValue,
-      },
-      {
-        week: "4th",
-        value: week4,
-        isPeak: week4 === maxValue,
-      },
+      { week: "1st", value: week1, isPeak: week1 === maxValue },
+      { week: "2nd", value: week2, isPeak: week2 === maxValue },
+      { week: "3rd", value: week3, isPeak: week3 === maxValue },
+      { week: "4th", value: week4, isPeak: week4 === maxValue },
     ],
     [week1, week2, week3, week4, maxValue]
   );
@@ -167,9 +196,9 @@ export function ActivityLineCard({
               {prev_month === 0
                 ? "New activity tracking started"
                 : isUp
-                ? `Activity up from last month`
+                ? "Activity up from last month"
                 : isDown
-                ? `Activity down from last month`
+                ? "Activity down from last month"
                 : "Activity unchanged from last month"}
             </CardDescription>
           </div>
@@ -177,16 +206,13 @@ export function ActivityLineCard({
           <div className="flex flex-col items-end gap-4">
             <MoreHorizontal className="h-5 w-5 text-zinc-400" />
             <span
-              className={`
-                inline-flex items-center rounded-full px-3 py-1 text-sm font-semibold
-                ${
-                  isUp
-                    ? "bg-[#50B78B]/20 text-[#50B78B]"
-                    : isDown
-                    ? "bg-rose-500/20 text-rose-400"
-                    : "bg-zinc-500/20 text-zinc-400"
-                }
-              `}
+              className={`inline-flex items-center rounded-full px-3 py-1 text-sm font-semibold ${
+                isUp
+                  ? "bg-[#50B78B]/20 text-[#50B78B]"
+                  : isDown
+                  ? "bg-rose-500/20 text-rose-400"
+                  : "bg-zinc-500/20 text-zinc-400"
+              }`}
             >
               {isUp && (
                 <ArrowUpRight className="mr-1 size-4" />
@@ -208,12 +234,7 @@ export function ActivityLineCard({
           <LineChart
             accessibilityLayer
             data={chartData}
-            margin={{
-              top: 40,
-              left: 12,
-              right: 12,
-              bottom: 4,
-            }}
+            margin={{ top: 40, left: 12, right: 12, bottom: 4 }}
           >
             <defs>
               <linearGradient
@@ -251,7 +272,6 @@ export function ActivityLineCard({
             />
 
             <ChartTooltip
-              // This adds the vertical line on hover
               cursor={{
                 stroke: "#a1a1aa",
                 strokeWidth: 1,

@@ -26,13 +26,10 @@ export const Footer = async ({ config }: FooterProps) => {
 
   return (
     <footer className="border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-black transition-colors mt-5">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 lg:py-7">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 mb-12">
-          <div className="lg:col-span-5 space-y-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 lg:py-7 w-full">
+        <div className="grid grid-cols-3 md:grid-cols-9 lg:grid-cols-12 gap-8 lg:gap-12 mb-12">
+          <div className="col-span-2 col-start-1 md:col-span-4 lg:col-span-5 space-y-6">
             <div className="space-y-2">
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-zinc-900 dark:text-zinc-100">
-                About Us
-              </h3>
               <Link
                 href="https://circuitverse.org/"
                 target="_blank"
@@ -59,12 +56,12 @@ export const Footer = async ({ config }: FooterProps) => {
               intuitive graphical interface
             </p>
 
-            <div className="flex items-center gap-4 pt-2">
+            <div className="flex items-center gap-2 sm:gap-4 pt-2 flex-wrap">
               <Hint label="Facebook" side="bottom">
                 <Link
                   href="https://www.facebook.com/CircuitVerse"
                   target="_blank"
-                  className="text-zinc-400 hover:bg-zinc-100 group/yt dark:hover:bg-zinc-800 p-2 rounded-full transition-all duration-200"
+                  className="text-zinc-400 hover:bg-zinc-100 group/yt dark:hover:bg-zinc-800 p-2 sm:p-2 rounded-full transition-all duration-200"
                   aria-label="Facebook"
                 >
                   <Image
@@ -72,6 +69,7 @@ export const Footer = async ({ config }: FooterProps) => {
                     alt="Facebook"
                     width={20}
                     height={20}
+                    className="w-5 h-5 sm:w-5 sm:h-5"
                   />
                 </Link>
               </Hint>
@@ -80,7 +78,7 @@ export const Footer = async ({ config }: FooterProps) => {
                 <Link
                   href="https://www.youtube.com/@circuitverse4457"
                   target="_blank"
-                  className="text-zinc-400 hover:bg-zinc-100 group/yt dark:hover:bg-zinc-800 p-2 rounded-full transition-all duration-200"
+                  className="text-zinc-400 hover:bg-zinc-100 group/yt dark:hover:bg-zinc-800 p-2 sm:p-2 rounded-full transition-all duration-200"
                   aria-label="YouTube"
                 >
                   <Image
@@ -88,6 +86,7 @@ export const Footer = async ({ config }: FooterProps) => {
                     alt="YouTube"
                     width={20}
                     height={20}
+                    className="w-5 h-5 sm:w-5 sm:h-5"
                   />
                 </Link>
               </Hint>
@@ -96,7 +95,7 @@ export const Footer = async ({ config }: FooterProps) => {
                 <Link
                   href="https://x.com/CircuitVerse"
                   target="_blank"
-                  className="text-zinc-400 hover:bg-zinc-100 group/yt dark:hover:bg-zinc-800 p-2 rounded-full transition-all duration-200"
+                  className="text-zinc-400 hover:bg-zinc-100 group/yt dark:hover:bg-zinc-800 p-2 sm:p-2 rounded-full transition-all duration-200"
                   aria-label="Twitter"
                 >
                   <Image
@@ -104,7 +103,7 @@ export const Footer = async ({ config }: FooterProps) => {
                     alt="Twitter"
                     width={20}
                     height={20}
-                    className="dark:invert"
+                    className="w-5 h-5 sm:w-5 sm:h-5 dark:invert"
                   />
                 </Link>
               </Hint>
@@ -113,7 +112,7 @@ export const Footer = async ({ config }: FooterProps) => {
                 <Link
                   href="https://www.linkedin.com/company/circuitverse"
                   target="_blank"
-                  className="text-zinc-400 group/li hover:bg-zinc-100 dark:hover:bg-zinc-800 p-2 rounded-full transition-all duration-200"
+                  className="text-zinc-400 group/li hover:bg-zinc-100 dark:hover:bg-zinc-800 p-2 sm:p-2 rounded-full transition-all duration-200"
                   aria-label="LinkedIn"
                 >
                   <Image
@@ -121,6 +120,7 @@ export const Footer = async ({ config }: FooterProps) => {
                     alt="LinkedIn"
                     width={20}
                     height={20}
+                    className="w-5 h-5 sm:w-5 sm:h-5"
                   />
                 </Link>
               </Hint>
@@ -129,7 +129,7 @@ export const Footer = async ({ config }: FooterProps) => {
                 <Link
                   href="https://github.com/CircuitVerse"
                   target="_blank"
-                  className="text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 p-2 rounded-full transition-all duration-200"
+                  className="text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 p-2 sm:p-2 rounded-full transition-all duration-200"
                   aria-label="GitHub"
                 >
                   <Image
@@ -137,7 +137,7 @@ export const Footer = async ({ config }: FooterProps) => {
                     alt="GitHub"
                     width={20}
                     height={20}
-                    className="dark:invert"
+                    className="w-5 h-5 sm:w-5 sm:h-5 dark:invert"
                   />
                 </Link>
               </Hint>
@@ -145,7 +145,7 @@ export const Footer = async ({ config }: FooterProps) => {
               <Hint label="Email">
                 <Link
                   href="mailto:support@circuitverse.org"
-                  className="text-zinc-400 group/em hover:bg-zinc-100 dark:hover:bg-zinc-800 p-2 rounded-full transition-all duration-200"
+                  className="text-zinc-400 group/em hover:bg-zinc-100 dark:hover:bg-zinc-800 p-2 sm:p-2 rounded-full transition-all duration-200"
                   aria-label="Email"
                 >
                   <Image
@@ -153,14 +153,15 @@ export const Footer = async ({ config }: FooterProps) => {
                     alt="Email"
                     width={20}
                     height={20}
+                    className="w-5 h-5 sm:w-5 sm:h-5"
                   />
                 </Link>
               </Hint>
             </div>
           </div>
 
-          <div className="lg:col-span-3 lg:col-start-7">
-            <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-4">
+          <div className="col-span-1 col-start-3 md:col-span-2 lg:col-span-3 lg:col-start-7">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-3">
               Pages
             </h3>
             <ul className="space-y-3">
@@ -205,8 +206,8 @@ export const Footer = async ({ config }: FooterProps) => {
             </ul>
           </div>
 
-          <div className="lg:col-span-3">
-            <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-4">
+          <div className="col-span-3 md:col-span-3 md:col-start-auto lg:col-span-3">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-zinc-900 dark:text-zinc-100 mb-4">
               System Status
             </h3>
             <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-4 space-y-3">
@@ -247,8 +248,8 @@ export const Footer = async ({ config }: FooterProps) => {
           </div>
         </div>
 
-        <div className="border-t border-zinc-200 dark:border-zinc-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-zinc-500 dark:text-zinc-400">
+        <div className="border-t border-zinc-200 dark:border-zinc-800 pt-8 flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-4 w-full">
+          <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center sm:text-left">
             © {currentYear} {config.org.name}. All rights
             reserved.
           </p>

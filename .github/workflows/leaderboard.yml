@@ -5,6 +5,10 @@ on:
     - cron: "0 */6 * * *" # every 6 hours
   workflow_dispatch:
 
+concurrency:
+  group: leaderboard-generation
+  cancel-in-progress: false
+
 permissions:
   contents: write
  
@@ -22,7 +26,7 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run:  npm install
+        run:  npm ci
 
       - name: Generate leaderboard JSON
         env:

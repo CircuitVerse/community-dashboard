@@ -1,6 +1,6 @@
-import type { LeaderboardEntry } from "@/components/Leaderboard/LeaderboardView";
+import type { LeaderboardEntry } from "@/components/Leaderboard/LeaderboardCard";
 
-export type SortBy = 'points' | 'pr_opened' | 'pr_merged' | 'issues';
+export type SortBy = 'points' | 'pr_opened' | 'pr_merged' | 'issues' | 'reviews';
 
 export function getActivityCount(entry: LeaderboardEntry, activityKey: string){
   return entry.activity_breakdown?.[activityKey]?.count || 0;
@@ -17,6 +17,8 @@ export function sortEntries( entries: LeaderboardEntry[], sortBy: SortBy){
       res = getActivityCount(b, 'PR merged') - getActivityCount(a, 'PR merged');
     } else if(sortBy === 'issues'){
       res = getActivityCount(b, 'Issue opened') - getActivityCount(a, 'Issue opened');
+    } else if(sortBy === 'reviews'){
+      res = getActivityCount(b, 'Review submitted') - getActivityCount(a, 'Review submitted');
     }
 
     if(res === 0){
