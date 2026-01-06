@@ -103,7 +103,7 @@ export async function GET() {
                   title: `${type} contribution`,
                   occured_at: new Date(0).toISOString(),
                   link: "",
-                  points: Math.round(info.points / info.count),
+                  points: info.count > 0 ? Math.round(info.points / info.count) : 0,
                 });
               }
             }
