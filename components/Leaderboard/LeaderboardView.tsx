@@ -480,7 +480,7 @@ export default function LeaderboardView({
         <div className="flex-1 min-w-0">
           {/* Header */}
           <div className="mb-8">
-            <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between mb-4">
+            <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between mb-4">
               <div className="min-w-0">
                 <h1 className="text-4xl text-[#50B78B] font-bold mb-2">
                   {periodLabels[period]} Leaderboard
@@ -497,13 +497,13 @@ export default function LeaderboardView({
                   w-full
                   md:w-auto md:ml-auto
                   flex flex-col
-                  md:items-end
+                  md:flex-row md:items-center
                   lg:flex-row lg:items-center
                   gap-2
                 "
               >
                 {/* Search bar - full width on mobile */}
-                <div className="relative w-full md:w-[16rem]">
+                <div className="relative w-full md:w-[20rem] lg:w-[16rem]">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <Input
                     type="text"
