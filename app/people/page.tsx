@@ -9,6 +9,10 @@ import { PeopleGrid } from "@/components/people/PeopleGrid";
 import { ContributorDetail } from "@/components/people/ContributorDetail";
 import { TeamSection } from "@/components/people/TeamSection";
 import { type TeamMember } from "@/lib/team-data";
+import { Input } from "@/components/ui/input";
+import { Search } from "lucide-react";
+import { useMemo } from "react";
+
 
 interface ContributorEntry {
   username: string;
@@ -50,10 +54,12 @@ export default function PeoplePage() {
   const [people, setPeople] = useState<ContributorEntry[]>([]);
   const [coreTeam, setCoreTeam] = useState<TeamMember[]>([]);
   const [alumni, setAlumni] = useState<TeamMember[]>([]);
-  const [updatedAt, setUpdatedAt] = useState<number>(Date.now());
+  const [updatedAt, setUpdatedAt] = useState<number | null>(null);
   const [selectedContributor, setSelectedContributor] = useState<ContributorEntry | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+
 
 
   useEffect(() => {
@@ -77,6 +83,17 @@ export default function PeoplePage() {
     loadData();
   }, []);
 
+const filteredPeople = useMemo(() => {
+  if (!searchQuery.trim()) return people;
+
+  const query = searchQuery.toLowerCase();
+
+  return people.filter((person) => {
+    const name = person.name?.toLowerCase() || "";
+    const username = person.username.toLowerCase();
+    return name.includes(query) || username.includes(query);
+  });
+}, [people, searchQuery]);
 
 
   const handleContributorClick = (contributor: ContributorEntry) => {
@@ -234,29 +251,46 @@ export default function PeoplePage() {
             teamType="alumni"
           />
 
-          <div className="mb-8">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold mb-4">
-                <span className="text-black dark:text-white">Community </span>
-                <span className="text-[#42B883]">Contributors</span>
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Amazing community members who contribute to CircuitVerse through code, documentation, and more.
-              </p>
-            </div>
+        <div className="mb-8">
+  {/* TITLE + SEARCH ROW */}
+  <div className="flex items-center justify-between gap-4 mb-4">
+    <h2 className="text-3xl font-bold">
+      <span className="text-black dark:text-white">Community </span>
+      <span className="text-[#42B883]">Contributors</span>
+    </h2>
+
+    {/* SEARCH BAR — RIGHT SIDE */}
+    <div className="relative w-72">
+      <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+      <Input
+        type="text"
+        placeholder="Search contributors..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        className="pl-9 h-9"
+      />
+    </div>
+  </div>
+
+  {/* DESCRIPTION */}
+  <p className="text-lg text-muted-foreground max-w-3xl">
+    Amazing community members who contribute to CircuitVerse through
+    code, documentation, and more.
+  </p>
+</div>
+
             <div className="flex flex-col gap-4">
             <PeopleStats 
-              contributors={people} 
+              contributors={filteredPeople} 
               onContributorClick={handleContributorClick}
             />
 
             <PeopleGrid
-              contributors={people}
+              contributors={filteredPeople}
               onContributorClick={handleContributorClick}
               viewMode="grid"
               loading={false}
             />
-          </div>
           </div>
             
         </>
