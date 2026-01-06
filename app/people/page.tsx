@@ -11,6 +11,8 @@ import { TeamSection } from "@/components/people/TeamSection";
 import { type TeamMember } from "@/lib/team-data";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
+import { useScrollRestoration } from "@/lib/hooks/useScrollRestoration";
+
 
 
 
