@@ -294,6 +294,7 @@ const filteredPeople = useMemo(() => {
             <div className="flex flex-col gap-4">
             <PeopleStats 
               contributors={filteredPeople} 
+              allcontributors={people}
               onContributorClick={handleContributorClick}
             />
 

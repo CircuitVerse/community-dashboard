@@ -25,10 +25,11 @@ interface ContributorEntry {
 
 interface PeopleStatsProps {
   contributors: ContributorEntry[];
+  allcontributors: ContributorEntry[];
   onContributorClick?: (contributor: ContributorEntry) => void;
 }
 
-export function PeopleStats({ contributors, onContributorClick }: PeopleStatsProps) {
+export function PeopleStats({ contributors, allcontributors, onContributorClick }: PeopleStatsProps) {
   // Calculate stats
   const totalContributors = contributors.length;
   const totalPoints = contributors.reduce((sum, c) => sum + (c.total_points || 0), 0);
@@ -40,10 +41,17 @@ export function PeopleStats({ contributors, onContributorClick }: PeopleStatsPro
     return sum + Object.values(c.activity_breakdown || {}).reduce((actSum, act) => actSum + act.count, 0);
   }, 0);
 
-  // Most active contributors (last 7 days)
-  const topContributors = contributors
-    .sort((a, b) => (b.total_points || 0) - (a.total_points || 0))
-    .slice(0, 5);
+  
+// GLOBAL ranking (based on full contributors list)
+const rankedContributors = [...allcontributors]
+  .sort((a, b) => (b.total_points || 0) - (a.total_points || 0))
+  .map((contributor, index) => ({
+    ...contributor,
+    rank: index + 1,
+  }));
+
+// Top 5 contributors globally
+const topContributors = rankedContributors.slice(0, 5);
 
   // Active days stats
   const activeDaysData = contributors.map(c => c.daily_activity?.length || 0);
@@ -160,7 +168,7 @@ export function PeopleStats({ contributors, onContributorClick }: PeopleStatsPro
                     1: 'bg-gradient-to-br from-gray-300 to-gray-500 text-white shadow-md',
                     2: 'bg-gradient-to-br from-amber-400 to-amber-600 text-white shadow-md'
                   }[index] || 'bg-gradient-to-br from-primary/20 to-primary/40 text-primary font-semibold'}`}>
-                    {index + 1}
+                    {contributor.rank}
                   </div>
                   <img 
                     src={contributor.avatar_url} 
