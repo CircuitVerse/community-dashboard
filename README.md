@@ -139,6 +139,7 @@ types/
 | PR Merged       | 5      |
 | PR opened       | 2      |
 | Issue opened    | 1      |
+| PR reviewed     | 4      |
 
 > PR reviews and label triaging are intentionally excluded for now and will be added via separate issues.
 
