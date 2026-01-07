@@ -3,7 +3,6 @@
 ![Build Status](https://github.com/CircuitVerse/community-dashboard/actions/workflows/leaderboard.yml/badge.svg)
 ![License](https://img.shields.io/github/license/CircuitVerse/community-dashboard)
 ![Contributors](https://img.shields.io/github/contributors/CircuitVerse/community-dashboard)
-![Last Commit](https://img.shields.io/github/last-commit/CircuitVerse/community-dashboard)
 
 ---
 
