@@ -1,5 +1,6 @@
 "use client";
 
+import { useMemo } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { 
@@ -25,11 +26,12 @@ interface ContributorEntry {
 
 interface PeopleStatsProps {
   contributors: ContributorEntry[];
-  allcontributors: ContributorEntry[];
+  allContributors: ContributorEntry[];
   onContributorClick?: (contributor: ContributorEntry) => void;
 }
 
-export function PeopleStats({ contributors, allcontributors, onContributorClick }: PeopleStatsProps) {
+export function PeopleStats({ contributors, allContributors, onContributorClick }: PeopleStatsProps) {
+
   // Calculate stats
   const totalContributors = contributors.length;
   const totalPoints = contributors.reduce((sum, c) => sum + (c.total_points || 0), 0);
@@ -43,15 +45,16 @@ export function PeopleStats({ contributors, allcontributors, onContributorClick 
 
   
 // GLOBAL ranking (based on full contributors list)
-const rankedContributors = [...allcontributors]
-  .sort((a, b) => (b.total_points || 0) - (a.total_points || 0))
-  .map((contributor, index) => ({
-    ...contributor,
-    rank: index + 1,
-  }));
+const topContributors = useMemo(() => {
+  return [...allContributors]
+    .sort((a, b) => (b.total_points || 0) - (a.total_points || 0))
+    .slice(0, 5)
+    .map((contributor, index) => ({
+      ...contributor,
+      rank: index + 1,
+    }));
+}, [allContributors]);
 
-// Top 5 contributors globally
-const topContributors = rankedContributors.slice(0, 5);
 
   // Active days stats
   const activeDaysData = contributors.map(c => c.daily_activity?.length || 0);
