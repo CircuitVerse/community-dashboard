@@ -43,7 +43,7 @@ export default async function Page({
   params: Promise<{ period: "week" | "month" | "year" }>;
 }) {
   const { period } = await params;
-  // navigate to not found page, if time periods are othen week/month/year
+  // navigate to not found page, if time periods are other than week/month/year
   if (!isValidPeriod(period)) {
     notFound();
   }
