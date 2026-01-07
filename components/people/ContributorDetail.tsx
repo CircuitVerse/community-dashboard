@@ -491,7 +491,7 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
                                 <span className={`font-medium px-2 py-1 rounded-full ${config.bgColor} ${config.textColor}`}>
                                   {activity.type}
                                 </span>
-                                <span className="flex items-center gap-1">
+                                <span className="flex items-center gap-1 whitespace-nowrap shrink-0">
                                   <Calendar className="w-3 h-3" />
                                   {daysAgo === 0 ? 'Today' : daysAgo === 1 ? 'Yesterday' : `${daysAgo} days ago`}
                                 </span>
