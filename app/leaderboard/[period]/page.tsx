@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import { Suspense } from "react";
 import LeaderboardView from "@/components/Leaderboard/LeaderboardView";
+import { LeaderboardSkeleton } from "@/components/Leaderboard/LeaderboardSkeleton";
 import { type LeaderboardEntry } from "@/components/Leaderboard/LeaderboardCard";
 
 export function generateStaticParams() {
@@ -53,7 +54,7 @@ export default async function Page({
   const data: LeaderboardJSON = JSON.parse(file);
 
   return (
-    <Suspense fallback={<div className="p-8">Loading leaderboard…</div>}>
+    <Suspense fallback={<LeaderboardSkeleton count={10} variant="list" />}>
       <LeaderboardView
         entries={data.entries}
         period={period}
