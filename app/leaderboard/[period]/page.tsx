@@ -2,7 +2,9 @@ import fs from "fs";
 import path from "path";
 import { Suspense } from "react";
 import LeaderboardView from "@/components/Leaderboard/LeaderboardView";
+import { LeaderboardSkeleton } from "@/components/Leaderboard/LeaderboardSkeleton";
 import { type LeaderboardEntry } from "@/components/Leaderboard/LeaderboardCard";
+import { notFound } from "next/navigation";
 
 export function generateStaticParams() {
   return [
@@ -31,12 +33,21 @@ type LeaderboardJSON = {
   hiddenRoles: string[];
 };
 
+const VALID_PERIODS = ["week", "month", "year"] as const;
+function isValidPeriod(period: string): period is "week" | "month" | "year" {
+  return VALID_PERIODS.includes(period as "week" | "month" | "year");
+}
+
 export default async function Page({
   params,
 }: {
   params: Promise<{ period: "week" | "month" | "year" }>;
 }) {
   const { period } = await params;
+  // navigate to not found page, if time periods are other than week/month/year
+  if (!isValidPeriod(period)) {
+    notFound();
+  }
 
   const filePath = path.join(
     process.cwd(),
@@ -53,7 +64,7 @@ export default async function Page({
   const data: LeaderboardJSON = JSON.parse(file);
 
   return (
-    <Suspense fallback={<div className="p-8">Loading leaderboard…</div>}>
+    <Suspense fallback={<LeaderboardSkeleton count={10} variant="list" />}>
       <LeaderboardView
         entries={data.entries}
         period={period}

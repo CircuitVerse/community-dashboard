@@ -1,40 +1,45 @@
 {
   "period": "month",
-  "updatedAt": 1767702512722,
-  "startDate": "2025-12-07",
-  "endDate": "2026-01-06",
+  "updatedAt": 1767810079817,
+  "startDate": "2025-12-08",
+  "endDate": "2026-01-07",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
     {
       "username": "naman79820",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/159947791?u=c48301089f863779d54d2227553923ff284ac6a4&v=4",
       "role": "Contributor",
-      "total_points": 112,
+      "total_points": 148,
       "activity_breakdown": {
-        "PR opened": {
-          "count": 11,
-          "points": 22
-        },
-        "Issue opened": {
-          "count": 16,
-          "points": 16
-        },
         "Review submitted": {
-          "count": 11,
-          "points": 44
+          "count": 18,
+          "points": 72
+        },
+        "PR opened": {
+          "count": 12,
+          "points": 24
         },
         "PR merged": {
-          "count": 6,
-          "points": 30
+          "count": 7,
+          "points": 35
+        },
+        "Issue opened": {
+          "count": 17,
+          "points": 17
         }
       },
       "daily_activity": [
         {
+          "date": "2026-01-07",
+          "count": 3,
+          "points": 12
+        },
+        {
           "date": "2026-01-06",
-          "count": 4,
-          "points": 11
+          "count": 12,
+          "points": 36
         },
         {
           "date": "2026-01-05",
@@ -100,14 +105,37 @@
           "date": "2025-12-13",
           "count": 1,
           "points": 1
-        },
-        {
-          "date": "2025-12-07",
-          "count": 1,
-          "points": 1
         }
       ],
       "activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-01-07T17:28:53Z",
+          "title": "Review on PR #142",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/142",
+          "points": 4
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-01-07T17:26:26Z",
+          "title": "Review on PR #149",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/149",
+          "points": 4
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-01-07T14:31:01Z",
+          "title": "Review on PR #147",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/147",
+          "points": 4
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-06T23:21:51Z",
+          "title": "fix(tauri) - resolve desktop white screen and API version mismatch",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/729",
+          "points": 2
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-01-06T09:35:36Z",
@@ -116,11 +144,60 @@
           "points": 2
         },
         {
+          "type": "PR merged",
+          "occured_at": "2026-01-06T17:09:58Z",
+          "title": "Reuse Chapter 2 responsive iframe styles in Chapter 3 introduction",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/475",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-06T19:21:32Z",
+          "title": "🐞 Bug - Windows Tauri build fails due to Vuetify 2 imports (frontend blocker)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/726",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-06T19:09:39Z",
+          "title": "Vite build fails due to legacy Vuetify 2 import in v0/src/components/Extra.vue",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/725",
+          "points": 1
+        },
+        {
           "type": "Issue opened",
           "occured_at": "2026-01-06T09:12:51Z",
           "title": "Add CircuitVerse Member 092vk to About Page",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6571",
           "points": 1
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-01-06T22:52:10Z",
+          "title": "Review on PR #145",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/145",
+          "points": 4
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-01-06T22:47:53Z",
+          "title": "Review on PR #143",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/143",
+          "points": 4
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-01-06T14:08:28Z",
+          "title": "Review on PR #137",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/137",
+          "points": 4
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-01-06T14:01:05Z",
+          "title": "Review on PR #138",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/138",
+          "points": 4
         },
         {
           "type": "Review submitted",
@@ -383,13 +460,6 @@
         },
         {
           "type": "Issue opened",
-          "occured_at": "2025-12-07T18:46:05Z",
-          "title": "Title - Image not visible in Chapter 8 → Understanding Error Messages (Contention Error 1 and 0)",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/446",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
           "occured_at": "2026-01-04T08:39:20Z",
           "title": "Add Review Analytics Dashboard (Review Points, Velocity & Top Reviewers)",
           "link": "https://github.com/CircuitVerse/community-dashboard/issues/101",
@@ -415,6 +485,360 @@
           "title": "Review on PR #43",
           "link": "https://github.com/CircuitVerse/community-dashboard/pull/43",
           "points": 4
+        }
+      ]
+    },
+    {
+      "username": "Atharva7126",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/177391853?u=79266ed791029fdadb3001357630803bdfb93ee6&v=4",
+      "role": "Contributor",
+      "total_points": 85,
+      "activity_breakdown": {
+        "Review submitted": {
+          "count": 3,
+          "points": 12
+        },
+        "Issue opened": {
+          "count": 15,
+          "points": 15
+        },
+        "PR opened": {
+          "count": 9,
+          "points": 18
+        },
+        "PR merged": {
+          "count": 8,
+          "points": 40
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-01-07",
+          "count": 1,
+          "points": 4
+        },
+        {
+          "date": "2026-01-06",
+          "count": 3,
+          "points": 6
+        },
+        {
+          "date": "2026-01-05",
+          "count": 1,
+          "points": 4
+        },
+        {
+          "date": "2025-12-29",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2025-12-26",
+          "count": 7,
+          "points": 16
+        },
+        {
+          "date": "2025-12-25",
+          "count": 6,
+          "points": 17
+        },
+        {
+          "date": "2025-12-18",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2025-12-13",
+          "count": 2,
+          "points": 4
+        },
+        {
+          "date": "2026-01-02",
+          "count": 2,
+          "points": 7
+        },
+        {
+          "date": "2025-12-19",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2025-12-16",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2025-12-09",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2025-12-27",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-01-04",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-01-03",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-01-01",
+          "count": 4,
+          "points": 4
+        }
+      ],
+      "activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-01-07T13:40:30Z",
+          "title": "Review on PR #139",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/139",
+          "points": 4
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-06T05:33:30Z",
+          "title": "Bug - leaderboard card layout resets when switching between weekly/monthly/yearly views",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/135",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-06T04:55:47Z",
+          "title": "Feat - add skeleton loading cards for leaderboard page",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/134",
+          "points": 1
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-01-06T16:07:06Z",
+          "title": "Review on PR #139",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/139",
+          "points": 4
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-01-05T14:46:32Z",
+          "title": "Review on PR #116",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/116",
+          "points": 4
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-29T13:16:24Z",
+          "title": "Bug - Fixed graph logic to show actual data",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/44",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-26T05:09:24Z",
+          "title": "Fix - Overlapping of label \"High\"",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/16",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-25T19:22:36Z",
+          "title": "Feat - added github repo link in navbar",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/12",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-25T15:47:37Z",
+          "title": "Fix - fixed footer design and added reuseable component",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/9",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-25T14:14:59Z",
+          "title": "Fix - unnecessary padding in navbar",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/5",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-18T16:19:17Z",
+          "title": "Fix - adjust YouTube video iframe On Chapter 3 for responsive width and correct title",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/467",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-13T17:45:35Z",
+          "title": "Fix - Embed video demonstration for CircuitVerse Chrome extension",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/456",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-13T17:28:55Z",
+          "title": "Fix - Added YouTube embed - Saving Projects Within The CircuitVerse Simulator",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/455",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-02T10:19:51Z",
+          "title": "Fix month-over-month statistics by comparing correct date ranges",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/74",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2025-12-26T05:32:15Z",
+          "title": "Fix - Overlapping of label \"High\"",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/16",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2025-12-26T04:30:43Z",
+          "title": "Feat - added github repo link in navbar",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/12",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2025-12-25T18:31:00Z",
+          "title": "Fix - fixed footer design and added reuseable component",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/9",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2025-12-25T14:30:55Z",
+          "title": "Fix - unnecessary padding in navbar",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/5",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2025-12-19T04:14:04Z",
+          "title": "Fix - Embed video demonstration for CircuitVerse Chrome extension",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/456",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2025-12-16T11:39:43Z",
+          "title": "Fix - Added YouTube embed - Saving Projects Within The CircuitVerse Simulator",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/455",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2025-12-09T13:52:20Z",
+          "title": "Fix - add id to home features section for better accessibility",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6434",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-01-02T12:16:19Z",
+          "title": "Fix month-over-month statistics by comparing correct date ranges",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/74",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2025-12-27T06:07:29Z",
+          "title": "Feat - Fix leaderboard sorting, search, and clear filter functionality",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/34",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2025-12-26T10:56:51Z",
+          "title": "Feat - Add pagination to leaderboard (15–20 entries per page)",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/20",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2025-12-26T10:48:32Z",
+          "title": "Bug - Leaderboard page is not responsive on mobile viewports",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/19",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2025-12-26T05:19:03Z",
+          "title": "Clean Up Pagination - Remove Activity Stream Label and “Page X of Y”",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/17",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2025-12-26T04:56:02Z",
+          "title": "Bug - \"High\" label overlapping the card",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/15",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2025-12-25T13:57:02Z",
+          "title": "Feat - Adding github link in navbar",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/4",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2025-12-18T14:29:42Z",
+          "title": "Bug - Fix video title and YouTube UI overlap",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/466",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-04T10:39:59Z",
+          "title": "Feat - Add a Release Page for Contributors Leaderboard",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/104",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-03T09:01:00Z",
+          "title": "Bug - Top Contributors UI breaks on mobile viewport",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/82",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-01T18:19:46Z",
+          "title": "Back button in username section shows black background on hover",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/64",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-01T18:10:59Z",
+          "title": "Remove unnecessary and unused imports from the codebase",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/63",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-01T17:53:34Z",
+          "title": "Heading and subheading use the same color in \"Our People\" section",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/62",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-01T17:46:06Z",
+          "title": "Contribution heatmap displays wrong year and should support year switching",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/61",
+          "points": 1
         }
       ]
     },
@@ -701,541 +1125,565 @@
       ]
     },
     {
-      "username": "Atharva7126",
+      "username": "haaasini01",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/177391853?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/180000253?v=4",
       "role": "Contributor",
-      "total_points": 77,
+      "total_points": 73,
       "activity_breakdown": {
-        "Issue opened": {
-          "count": 15,
-          "points": 15
-        },
-        "Review submitted": {
-          "count": 1,
-          "points": 4
-        },
         "PR opened": {
-          "count": 9,
-          "points": 18
+          "count": 11,
+          "points": 22
         },
         "PR merged": {
           "count": 8,
           "points": 40
+        },
+        "Issue opened": {
+          "count": 11,
+          "points": 11
         }
       },
       "daily_activity": [
         {
           "date": "2026-01-06",
-          "count": 2,
-          "points": 2
+          "count": 9,
+          "points": 28
         },
         {
           "date": "2026-01-05",
-          "count": 1,
-          "points": 4
+          "count": 5,
+          "points": 11
         },
         {
-          "date": "2025-12-29",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2025-12-26",
-          "count": 7,
-          "points": 16
-        },
-        {
-          "date": "2025-12-25",
-          "count": 6,
-          "points": 17
-        },
-        {
-          "date": "2025-12-18",
+          "date": "2025-12-31",
           "count": 2,
           "points": 3
         },
         {
-          "date": "2025-12-13",
+          "date": "2025-12-30",
           "count": 2,
-          "points": 4
+          "points": 3
+        },
+        {
+          "date": "2025-12-28",
+          "count": 2,
+          "points": 3
         },
         {
           "date": "2026-01-02",
-          "count": 2,
-          "points": 7
-        },
-        {
-          "date": "2025-12-19",
-          "count": 1,
-          "points": 5
-        },
-        {
-          "date": "2025-12-16",
-          "count": 1,
-          "points": 5
-        },
-        {
-          "date": "2025-12-09",
-          "count": 1,
-          "points": 5
-        },
-        {
-          "date": "2025-12-27",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-01-04",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-01-03",
-          "count": 1,
-          "points": 1
+          "count": 5,
+          "points": 15
         },
         {
           "date": "2026-01-01",
-          "count": 4,
-          "points": 4
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-01-04",
+          "count": 3,
+          "points": 7
         }
       ],
       "activities": [
         {
-          "type": "Issue opened",
-          "occured_at": "2026-01-06T05:33:30Z",
-          "title": "Bug - leaderboard card layout resets when switching between weekly/monthly/yearly views",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/135",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-06T04:55:47Z",
-          "title": "Feat - add skeleton loading cards for leaderboard page",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/134",
-          "points": 1
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-01-05T14:46:32Z",
-          "title": "Review on PR #116",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/116",
-          "points": 4
-        },
-        {
           "type": "PR opened",
-          "occured_at": "2025-12-29T13:16:24Z",
-          "title": "Bug - Fixed graph logic to show actual data",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/44",
+          "occured_at": "2026-01-06T19:09:15Z",
+          "title": "fix - inconsistent updated timestamp between People page and footer",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/145",
           "points": 2
         },
         {
           "type": "PR opened",
-          "occured_at": "2025-12-26T05:09:24Z",
-          "title": "Fix - Overlapping of label \"High\"",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/16",
+          "occured_at": "2026-01-06T12:51:11Z",
+          "title": "fix - pagination scroll position on page change",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/138",
           "points": 2
         },
         {
           "type": "PR opened",
-          "occured_at": "2025-12-25T19:22:36Z",
-          "title": "Feat - added github repo link in navbar",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/12",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-25T15:47:37Z",
-          "title": "Fix - fixed footer design and added reuseable component",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/9",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-25T14:14:59Z",
-          "title": "Fix - unnecessary padding in navbar",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/5",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-18T16:19:17Z",
-          "title": "Fix - adjust YouTube video iframe On Chapter 3 for responsive width and correct title",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/467",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-13T17:45:35Z",
-          "title": "Fix - Embed video demonstration for CircuitVerse Chrome extension",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/456",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-13T17:28:55Z",
-          "title": "Fix - Added YouTube embed - Saving Projects Within The CircuitVerse Simulator",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/455",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-02T10:19:51Z",
-          "title": "Fix month-over-month statistics by comparing correct date ranges",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/74",
+          "occured_at": "2026-01-06T11:44:46Z",
+          "title": "fix - missing recent contributions for some contributor profiles",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/137",
           "points": 2
         },
         {
           "type": "PR merged",
-          "occured_at": "2025-12-26T05:32:15Z",
-          "title": "Fix - Overlapping of label \"High\"",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/16",
+          "occured_at": "2026-01-06T22:52:16Z",
+          "title": "fix - inconsistent updated timestamp between People page and footer",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/145",
           "points": 5
         },
         {
           "type": "PR merged",
-          "occured_at": "2025-12-26T04:30:43Z",
-          "title": "Feat - added github repo link in navbar",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/12",
+          "occured_at": "2026-01-06T14:01:27Z",
+          "title": "fix - pagination scroll position on page change",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/138",
           "points": 5
         },
         {
           "type": "PR merged",
-          "occured_at": "2025-12-25T18:31:00Z",
-          "title": "Fix - fixed footer design and added reuseable component",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/9",
+          "occured_at": "2026-01-06T14:08:36Z",
+          "title": "fix - missing recent contributions for some contributor profiles",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/137",
           "points": 5
         },
         {
           "type": "PR merged",
-          "occured_at": "2025-12-25T14:30:55Z",
-          "title": "Fix - unnecessary padding in navbar",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/5",
+          "occured_at": "2026-01-06T07:53:54Z",
+          "title": "fix - footer layout responsiveness on tablet and smaller screens",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/131",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-06T18:40:38Z",
+          "title": "inconsistent “updated” timestamp between people page and footer",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/144",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-06T09:47:21Z",
+          "title": "Pagination keeps scroll position on page change",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/136",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-05T19:41:10Z",
+          "title": "fix - footer layout responsiveness on tablet and smaller screens",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/131",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-05T15:28:25Z",
+          "title": "fix - modify Recent Contributions to be time sorted",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/127",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-01-05T18:03:31Z",
+          "title": "fix - modify Recent Contributions to be time sorted",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/127",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-05T16:22:40Z",
+          "title": "Footer not responsive below desktop view causing empty space",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/129",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-05T15:38:37Z",
+          "title": "Recent Contributions missing for some contributor profiles",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/128",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-31T15:47:16Z",
+          "title": "Remove stray char from truth table in Canonical Functions subchapter",
+          "link": "https://github.com/CircuitVerse/Interactive-Book/pull/745",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-30T15:15:24Z",
+          "title": "justify text alignment in documentation",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/483",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-28T14:39:11Z",
+          "title": "Enhancement - Add Boolean expressions to all logic gates in Chapter 4",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/477",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-02T12:37:29Z",
+          "title": "fix - reflect actual rank while searching",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/77",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-02T05:00:21Z",
+          "title": "fix - Update Pagination state for pages beyond 3",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/70",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-01T19:56:05Z",
+          "title": "Add Points, PR and Issue sort options to filter menu and improve clear behavior",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/67",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-01-04T19:21:57Z",
+          "title": "fix - reflect actual rank while searching",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/77",
           "points": 5
         },
         {
           "type": "PR merged",
-          "occured_at": "2025-12-19T04:14:04Z",
-          "title": "Fix - Embed video demonstration for CircuitVerse Chrome extension",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/456",
+          "occured_at": "2026-01-02T09:11:27Z",
+          "title": "fix - Update Pagination state for pages beyond 3",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/70",
           "points": 5
         },
         {
           "type": "PR merged",
-          "occured_at": "2025-12-16T11:39:43Z",
-          "title": "Fix - Added YouTube embed - Saving Projects Within The CircuitVerse Simulator",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/455",
-          "points": 5
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2025-12-09T13:52:20Z",
-          "title": "Fix - add id to home features section for better accessibility",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6434",
-          "points": 5
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-01-02T12:16:19Z",
-          "title": "Fix month-over-month statistics by comparing correct date ranges",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/74",
+          "occured_at": "2026-01-02T09:18:28Z",
+          "title": "Add Points, PR and Issue sort options to filter menu and improve clear behavior",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/67",
           "points": 5
         },
         {
           "type": "Issue opened",
-          "occured_at": "2025-12-27T06:07:29Z",
-          "title": "Feat - Fix leaderboard sorting, search, and clear filter functionality",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/34",
+          "occured_at": "2025-12-31T15:31:01Z",
+          "title": "Stray character displayed in the truth table in Canonical Functions subchapterz",
+          "link": "https://github.com/CircuitVerse/Interactive-Book/issues/744",
           "points": 1
         },
         {
           "type": "Issue opened",
-          "occured_at": "2025-12-26T10:56:51Z",
-          "title": "Feat - Add pagination to leaderboard (15–20 entries per page)",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/20",
+          "occured_at": "2025-12-30T14:15:28Z",
+          "title": "Feature Request - Enable justified text for docs content",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/482",
           "points": 1
         },
         {
           "type": "Issue opened",
-          "occured_at": "2025-12-26T10:48:32Z",
-          "title": "Bug - Leaderboard page is not responsive on mobile viewports",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/19",
+          "occured_at": "2025-12-28T12:28:32Z",
+          "title": "Enhancement - Boolean expressions for logic gates in Chapter 4",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/476",
           "points": 1
         },
         {
           "type": "Issue opened",
-          "occured_at": "2025-12-26T05:19:03Z",
-          "title": "Clean Up Pagination - Remove Activity Stream Label and “Page X of Y”",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/17",
+          "occured_at": "2026-01-04T18:53:24Z",
+          "title": "Recent Contributions should be time-sorted",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/111",
           "points": 1
         },
         {
           "type": "Issue opened",
-          "occured_at": "2025-12-26T04:56:02Z",
-          "title": "Bug - \"High\" label overlapping the card",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/15",
+          "occured_at": "2026-01-04T18:50:09Z",
+          "title": "Recent Contributions highlights wrong contributions",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/110",
           "points": 1
         },
         {
           "type": "Issue opened",
-          "occured_at": "2025-12-25T13:57:02Z",
-          "title": "Feat - Adding github link in navbar",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/4",
+          "occured_at": "2026-01-02T11:32:26Z",
+          "title": "Ranks change incorrectly while searching for contributors on leaderboard",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/75",
           "points": 1
         },
         {
           "type": "Issue opened",
-          "occured_at": "2025-12-18T14:29:42Z",
-          "title": "Bug - Fix video title and YouTube UI overlap",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/466",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-04T10:39:59Z",
-          "title": "Feat - Add a Release Page for Contributors Leaderboard",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/104",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-03T09:01:00Z",
-          "title": "Bug - Top Contributors UI breaks on mobile viewport",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/82",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-01T18:19:46Z",
-          "title": "Back button in username section shows black background on hover",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/64",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-01T18:10:59Z",
-          "title": "Remove unnecessary and unused imports from the codebase",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/63",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-01T17:53:34Z",
-          "title": "Heading and subheading use the same color in \"Our People\" section",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/62",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-01T17:46:06Z",
-          "title": "Contribution heatmap displays wrong year and should support year switching",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/61",
+          "occured_at": "2026-01-01T20:25:11Z",
+          "title": "Pagination fails to display active page beyond page 3 in Recent Activities section",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/68",
           "points": 1
         }
       ]
     },
     {
-      "username": "Nihal4777",
+      "username": "himanshujays29",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/65150640?u=25493788d913676f586e5d8c10be801ad634e3c9&v=4",
-      "role": "Maintainer",
-      "total_points": 67,
+      "avatar_url": "https://avatars.githubusercontent.com/u/158487820?v=4",
+      "role": "Contributor",
+      "total_points": 72,
       "activity_breakdown": {
-        "Review submitted": {
-          "count": 15,
-          "points": 60
-        },
         "PR opened": {
-          "count": 1,
-          "points": 2
+          "count": 11,
+          "points": 22
         },
         "PR merged": {
-          "count": 1,
-          "points": 5
+          "count": 8,
+          "points": 40
+        },
+        "Issue opened": {
+          "count": 10,
+          "points": 10
         }
       },
       "daily_activity": [
         {
-          "date": "2026-01-05",
-          "count": 1,
-          "points": 4
+          "date": "2026-01-07",
+          "count": 3,
+          "points": 8
         },
         {
-          "date": "2025-12-20",
+          "date": "2026-01-06",
+          "count": 4,
+          "points": 9
+        },
+        {
+          "date": "2025-12-31",
+          "count": 3,
+          "points": 9
+        },
+        {
+          "date": "2025-12-29",
+          "count": 4,
+          "points": 10
+        },
+        {
+          "date": "2025-12-21",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2025-12-16",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-01-04",
           "count": 2,
           "points": 7
         },
         {
-          "date": "2026-01-04",
-          "count": 1,
-          "points": 4
-        },
-        {
-          "date": "2025-12-25",
-          "count": 1,
-          "points": 4
-        },
-        {
-          "date": "2025-12-24",
-          "count": 4,
-          "points": 16
-        },
-        {
-          "date": "2025-12-19",
-          "count": 1,
-          "points": 4
-        },
-        {
-          "date": "2025-12-14",
-          "count": 1,
-          "points": 4
-        },
-        {
-          "date": "2025-12-13",
-          "count": 2,
+          "date": "2026-01-03",
+          "count": 3,
           "points": 8
         },
         {
-          "date": "2025-12-11",
-          "count": 1,
-          "points": 4
-        },
-        {
-          "date": "2025-12-07",
-          "count": 1,
-          "points": 4
-        },
-        {
           "date": "2026-01-02",
-          "count": 1,
-          "points": 4
+          "count": 4,
+          "points": 9
         },
         {
-          "date": "2026-01-03",
+          "date": "2025-12-23",
           "count": 1,
-          "points": 4
+          "points": 5
+        },
+        {
+          "date": "2025-12-30",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2025-12-28",
+          "count": 1,
+          "points": 1
         }
       ],
       "activities": [
         {
-          "type": "Review submitted",
-          "occured_at": "2026-01-05T11:08:29Z",
-          "title": "Review on PR #6557",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6557",
-          "points": 4
-        },
-        {
           "type": "PR opened",
-          "occured_at": "2025-12-20T14:33:59Z",
-          "title": "chore - install netcat-openbsd and fix bundler setup in devcontainer",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6490",
+          "occured_at": "2026-01-07T16:52:54Z",
+          "title": "Fix mobile date wrapping in Recent Contributions",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/149",
           "points": 2
         },
         {
           "type": "PR merged",
-          "occured_at": "2025-12-20T15:00:57Z",
-          "title": "chore - install netcat-openbsd and fix bundler setup in devcontainer",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6490",
+          "occured_at": "2026-01-07T17:26:33Z",
+          "title": "Fix mobile date wrapping in Recent Contributions",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/149",
           "points": 5
         },
         {
-          "type": "Review submitted",
-          "occured_at": "2026-01-04T17:58:43Z",
-          "title": "Review on PR #481",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/481",
-          "points": 4
+          "type": "Issue opened",
+          "occured_at": "2026-01-07T16:38:06Z",
+          "title": "Mobile UI Issue - Date text wraps into multiple lines in Recent Contributions",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/148",
+          "points": 1
         },
         {
-          "type": "Review submitted",
-          "occured_at": "2025-12-25T12:21:47Z",
-          "title": "Review on PR #462",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/462",
-          "points": 4
+          "type": "PR opened",
+          "occured_at": "2026-01-06T18:22:09Z",
+          "title": "UI - move leaderboard controls below contributor count",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/143",
+          "points": 2
         },
         {
-          "type": "Review submitted",
-          "occured_at": "2025-12-24T16:59:24Z",
-          "title": "Review on PR #452",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/452",
-          "points": 4
+          "type": "PR merged",
+          "occured_at": "2026-01-06T22:48:00Z",
+          "title": "UI - move leaderboard controls below contributor count",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/143",
+          "points": 5
         },
         {
-          "type": "Review submitted",
-          "occured_at": "2025-12-24T17:25:50Z",
-          "title": "Review on PR #465",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/465",
-          "points": 4
+          "type": "Issue opened",
+          "occured_at": "2026-01-06T16:48:31Z",
+          "title": "UI/UX Issue - Search and filter misalignment on leaderboard at 768–1023px",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/140",
+          "points": 1
         },
         {
-          "type": "Review submitted",
-          "occured_at": "2025-12-24T17:17:00Z",
-          "title": "Review on PR #461",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/461",
-          "points": 4
+          "type": "Issue opened",
+          "occured_at": "2026-01-06T05:48:08Z",
+          "title": "🐞 Bug - Favicon not showing on CircuitVerse main website",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6569",
+          "points": 1
         },
         {
-          "type": "Review submitted",
-          "occured_at": "2025-12-24T17:08:43Z",
-          "title": "Review on PR #459",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/459",
-          "points": 4
+          "type": "PR opened",
+          "occured_at": "2025-12-31T16:33:42Z",
+          "title": "Fix contributor name overflow in profile card layout",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/56",
+          "points": 2
         },
         {
-          "type": "Review submitted",
-          "occured_at": "2025-12-19T04:11:58Z",
-          "title": "Review on PR #456",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/456",
-          "points": 4
+          "type": "PR opened",
+          "occured_at": "2025-12-31T14:46:16Z",
+          "title": "chore - update aws-sdk-s3 to fix security vulnerability",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6535",
+          "points": 2
         },
         {
-          "type": "Review submitted",
-          "occured_at": "2025-12-14T10:02:18Z",
-          "title": "Review on PR #455",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/455",
-          "points": 4
+          "type": "PR opened",
+          "occured_at": "2025-12-29T17:49:01Z",
+          "title": "fix(ui) - improve leaderboard search layout",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/45",
+          "points": 2
         },
         {
-          "type": "Review submitted",
-          "occured_at": "2025-12-13T12:33:30Z",
-          "title": "Review on PR #441",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/441",
-          "points": 4
+          "type": "PR opened",
+          "occured_at": "2025-12-29T14:48:14Z",
+          "title": "Fix - grammar and spelling mistakes in comments and tutorials",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6523",
+          "points": 2
         },
         {
-          "type": "Review submitted",
-          "occured_at": "2025-12-13T12:49:50Z",
-          "title": "Review on PR #445",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/445",
-          "points": 4
+          "type": "PR opened",
+          "occured_at": "2025-12-21T14:32:55Z",
+          "title": "Fix typos errors across code and docs",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6497",
+          "points": 2
         },
         {
-          "type": "Review submitted",
-          "occured_at": "2025-12-11T16:22:27Z",
-          "title": "Review on PR #448",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/448",
-          "points": 4
+          "type": "PR opened",
+          "occured_at": "2025-12-16T10:34:08Z",
+          "title": "Fix typos, spelling errors, and grammar across simulator, docs, and locales",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6475",
+          "points": 2
         },
         {
-          "type": "Review submitted",
-          "occured_at": "2025-12-07T15:42:42Z",
-          "title": "Review on PR #443",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/443",
-          "points": 4
+          "type": "PR opened",
+          "occured_at": "2026-01-04T06:29:17Z",
+          "title": "fix(docs) - correct JSDoc typos and grammar in simulator files",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/711",
+          "points": 2
         },
         {
-          "type": "Review submitted",
-          "occured_at": "2026-01-02T11:23:50Z",
-          "title": "Review on PR #260",
-          "link": "https://github.com/CircuitVerse/Blog/pull/260",
-          "points": 4
+          "type": "PR opened",
+          "occured_at": "2026-01-03T10:34:57Z",
+          "title": "Fix regression - restore contributor name overflow handling",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/84",
+          "points": 2
         },
         {
-          "type": "Review submitted",
-          "occured_at": "2026-01-03T12:59:11Z",
-          "title": "Review on PR #686",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/686",
-          "points": 4
+          "type": "PR opened",
+          "occured_at": "2026-01-02T16:05:59Z",
+          "title": "docs - update core project structure section",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/80",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2025-12-31T18:54:04Z",
+          "title": "Fix contributor name overflow in profile card layout",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/56",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2025-12-29T18:08:02Z",
+          "title": "fix(ui) - improve leaderboard search layout",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/45",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2025-12-23T08:29:38Z",
+          "title": "Fix typos errors across code and docs",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6497",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-01-04T15:07:43Z",
+          "title": "fix(docs) - correct JSDoc typos and grammar in simulator files",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/711",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-01-03T11:09:08Z",
+          "title": "Fix regression - restore contributor name overflow handling",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/84",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-01-02T17:18:23Z",
+          "title": "docs - update core project structure section",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/80",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2025-12-30T03:53:49Z",
+          "title": "UI Bug - Contributor Username Overflows Profile Card",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/47",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2025-12-29T14:30:52Z",
+          "title": "🐞 Bug - Grammar and Spelling Issues in Comments and Tutorial Text",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6521",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2025-12-28T13:12:22Z",
+          "title": "UI/UX Issue - Search & Filter placement on Leaderboard (640px–760px)",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/40",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2025-12-16T09:49:20Z",
+          "title": "🐞 Bug - Fix typos and localization errors in simulator, docs, and config files",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6474",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-03T13:27:49Z",
+          "title": "🐞 Bug - Fix JSDoc Typos and Grammar Issues in Simulator Source Files",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/710",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-02T15:03:45Z",
+          "title": "Update README to show only core and relevant project structure",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/79",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-02T03:57:43Z",
+          "title": "Bug - Back to People button text not visible on hover (Light Mode)",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/69",
+          "points": 1
         }
       ]
     },
@@ -1244,22 +1692,27 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/143987856?v=4",
       "role": "Contributor",
-      "total_points": 67,
+      "total_points": 70,
       "activity_breakdown": {
         "PR opened": {
-          "count": 10,
-          "points": 20
+          "count": 11,
+          "points": 22
+        },
+        "Issue opened": {
+          "count": 8,
+          "points": 8
         },
         "PR merged": {
           "count": 8,
           "points": 40
-        },
-        "Issue opened": {
-          "count": 7,
-          "points": 7
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-01-07",
+          "count": 2,
+          "points": 3
+        },
         {
           "date": "2026-01-05",
           "count": 8,
@@ -1307,6 +1760,20 @@
         }
       ],
       "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-07T15:39:53Z",
+          "title": "fix(hotkeys) - replace localStorage.get() with localStorage.getItem()",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/732",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-07T15:31:06Z",
+          "title": "🐞 Bug - fix(hotkeys) - localStorage.get() causes TypeError in shortcut customization",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/731",
+          "points": 1
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-01-05T18:10:21Z",
@@ -1485,23 +1952,227 @@
       ]
     },
     {
+      "username": "Nihal4777",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/65150640?u=25493788d913676f586e5d8c10be801ad634e3c9&v=4",
+      "role": "Maintainer",
+      "total_points": 67,
+      "activity_breakdown": {
+        "Review submitted": {
+          "count": 15,
+          "points": 60
+        },
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-01-06",
+          "count": 1,
+          "points": 4
+        },
+        {
+          "date": "2026-01-05",
+          "count": 1,
+          "points": 4
+        },
+        {
+          "date": "2025-12-20",
+          "count": 2,
+          "points": 7
+        },
+        {
+          "date": "2026-01-04",
+          "count": 1,
+          "points": 4
+        },
+        {
+          "date": "2025-12-25",
+          "count": 1,
+          "points": 4
+        },
+        {
+          "date": "2025-12-24",
+          "count": 4,
+          "points": 16
+        },
+        {
+          "date": "2025-12-19",
+          "count": 1,
+          "points": 4
+        },
+        {
+          "date": "2025-12-14",
+          "count": 1,
+          "points": 4
+        },
+        {
+          "date": "2025-12-13",
+          "count": 2,
+          "points": 8
+        },
+        {
+          "date": "2025-12-11",
+          "count": 1,
+          "points": 4
+        },
+        {
+          "date": "2026-01-02",
+          "count": 1,
+          "points": 4
+        },
+        {
+          "date": "2026-01-03",
+          "count": 1,
+          "points": 4
+        }
+      ],
+      "activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-01-06T17:06:48Z",
+          "title": "Review on PR #475",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/475",
+          "points": 4
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-01-05T11:08:29Z",
+          "title": "Review on PR #6557",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6557",
+          "points": 4
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-20T14:33:59Z",
+          "title": "chore - install netcat-openbsd and fix bundler setup in devcontainer",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6490",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2025-12-20T15:00:57Z",
+          "title": "chore - install netcat-openbsd and fix bundler setup in devcontainer",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6490",
+          "points": 5
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-01-04T17:58:43Z",
+          "title": "Review on PR #481",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/481",
+          "points": 4
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2025-12-25T12:21:47Z",
+          "title": "Review on PR #462",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/462",
+          "points": 4
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2025-12-24T16:59:24Z",
+          "title": "Review on PR #452",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/452",
+          "points": 4
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2025-12-24T17:25:50Z",
+          "title": "Review on PR #465",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/465",
+          "points": 4
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2025-12-24T17:17:00Z",
+          "title": "Review on PR #461",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/461",
+          "points": 4
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2025-12-24T17:08:43Z",
+          "title": "Review on PR #459",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/459",
+          "points": 4
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2025-12-19T04:11:58Z",
+          "title": "Review on PR #456",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/456",
+          "points": 4
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2025-12-14T10:02:18Z",
+          "title": "Review on PR #455",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/455",
+          "points": 4
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2025-12-13T12:33:30Z",
+          "title": "Review on PR #441",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/441",
+          "points": 4
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2025-12-13T12:49:50Z",
+          "title": "Review on PR #445",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/445",
+          "points": 4
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2025-12-11T16:22:27Z",
+          "title": "Review on PR #448",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/448",
+          "points": 4
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-01-02T11:23:50Z",
+          "title": "Review on PR #260",
+          "link": "https://github.com/CircuitVerse/Blog/pull/260",
+          "points": 4
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-01-03T12:59:11Z",
+          "title": "Review on PR #686",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/686",
+          "points": 4
+        }
+      ]
+    },
+    {
       "username": "senutpal",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/168703537?v=4",
       "role": "Contributor",
-      "total_points": 57,
+      "total_points": 50,
       "activity_breakdown": {
         "PR opened": {
-          "count": 16,
-          "points": 32
+          "count": 13,
+          "points": 26
         },
         "PR merged": {
           "count": 4,
           "points": 20
         },
         "Issue opened": {
-          "count": 5,
-          "points": 5
+          "count": 4,
+          "points": 4
         }
       },
       "daily_activity": [
@@ -1554,16 +2225,6 @@
           "date": "2025-12-09",
           "count": 2,
           "points": 4
-        },
-        {
-          "date": "2025-12-08",
-          "count": 2,
-          "points": 4
-        },
-        {
-          "date": "2025-12-07",
-          "count": 2,
-          "points": 3
         },
         {
           "date": "2026-01-01",
@@ -1678,27 +2339,6 @@
         },
         {
           "type": "PR opened",
-          "occured_at": "2025-12-08T18:06:09Z",
-          "title": "refactor - convert verilogHelpers.js to TypeScript",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/688",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-08T15:40:51Z",
-          "title": "refactor - convert restrictedElementDiv.js to TypeScript",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/687",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-07T17:35:27Z",
-          "title": "fix - correct typo in system requirements filename and references (#444)",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/445",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
           "occured_at": "2026-01-01T07:33:37Z",
           "title": "refactor - migrate node.js to TypeScript",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/707",
@@ -1758,487 +2398,6 @@
           "occured_at": "2025-12-14T07:57:55Z",
           "title": "Bug - Fix 'scoll' typo in keyboard shortcuts documentation",
           "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/458",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2025-12-07T17:23:32Z",
-          "title": "Bug - Correct 'systemrequirments' typo in filename, doc ID, and sidebar entry",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/444",
-          "points": 1
-        }
-      ]
-    },
-    {
-      "username": "himanshujays29",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/158487820?v=4",
-      "role": "Contributor",
-      "total_points": 56,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 8,
-          "points": 8
-        },
-        "PR opened": {
-          "count": 9,
-          "points": 18
-        },
-        "PR merged": {
-          "count": 6,
-          "points": 30
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-01-06",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2025-12-31",
-          "count": 3,
-          "points": 9
-        },
-        {
-          "date": "2025-12-29",
-          "count": 4,
-          "points": 10
-        },
-        {
-          "date": "2025-12-21",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2025-12-16",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-01-04",
-          "count": 2,
-          "points": 7
-        },
-        {
-          "date": "2026-01-03",
-          "count": 3,
-          "points": 8
-        },
-        {
-          "date": "2026-01-02",
-          "count": 4,
-          "points": 9
-        },
-        {
-          "date": "2025-12-23",
-          "count": 1,
-          "points": 5
-        },
-        {
-          "date": "2025-12-30",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2025-12-28",
-          "count": 1,
-          "points": 1
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-06T05:48:08Z",
-          "title": "🐞 Bug - Favicon not showing on CircuitVerse main website",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6569",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-31T16:33:42Z",
-          "title": "Fix contributor name overflow in profile card layout",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/56",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-31T14:46:16Z",
-          "title": "chore - update aws-sdk-s3 to fix security vulnerability",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6535",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-29T17:49:01Z",
-          "title": "fix(ui) - improve leaderboard search layout",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/45",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-29T14:48:14Z",
-          "title": "Fix - grammar and spelling mistakes in comments and tutorials",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6523",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-21T14:32:55Z",
-          "title": "Fix typos errors across code and docs",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6497",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-16T10:34:08Z",
-          "title": "Fix typos, spelling errors, and grammar across simulator, docs, and locales",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6475",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-04T06:29:17Z",
-          "title": "fix(docs) - correct JSDoc typos and grammar in simulator files",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/711",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-03T10:34:57Z",
-          "title": "Fix regression - restore contributor name overflow handling",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/84",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-02T16:05:59Z",
-          "title": "docs - update core project structure section",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/80",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2025-12-31T18:54:04Z",
-          "title": "Fix contributor name overflow in profile card layout",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/56",
-          "points": 5
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2025-12-29T18:08:02Z",
-          "title": "fix(ui) - improve leaderboard search layout",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/45",
-          "points": 5
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2025-12-23T08:29:38Z",
-          "title": "Fix typos errors across code and docs",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6497",
-          "points": 5
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-01-04T15:07:43Z",
-          "title": "fix(docs) - correct JSDoc typos and grammar in simulator files",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/711",
-          "points": 5
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-01-03T11:09:08Z",
-          "title": "Fix regression - restore contributor name overflow handling",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/84",
-          "points": 5
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-01-02T17:18:23Z",
-          "title": "docs - update core project structure section",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/80",
-          "points": 5
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2025-12-30T03:53:49Z",
-          "title": "UI Bug - Contributor Username Overflows Profile Card",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/47",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2025-12-29T14:30:52Z",
-          "title": "🐞 Bug - Grammar and Spelling Issues in Comments and Tutorial Text",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6521",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2025-12-28T13:12:22Z",
-          "title": "UI/UX Issue - Search & Filter placement on Leaderboard (640px–760px)",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/40",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2025-12-16T09:49:20Z",
-          "title": "🐞 Bug - Fix typos and localization errors in simulator, docs, and config files",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6474",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-03T13:27:49Z",
-          "title": "🐞 Bug - Fix JSDoc Typos and Grammar Issues in Simulator Source Files",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/710",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-02T15:03:45Z",
-          "title": "Update README to show only core and relevant project structure",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/79",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-02T03:57:43Z",
-          "title": "Bug - Back to People button text not visible on hover (Light Mode)",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/69",
-          "points": 1
-        }
-      ]
-    },
-    {
-      "username": "haaasini01",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/180000253?v=4",
-      "role": "Contributor",
-      "total_points": 53,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 9,
-          "points": 18
-        },
-        "PR merged": {
-          "count": 5,
-          "points": 25
-        },
-        "Issue opened": {
-          "count": 10,
-          "points": 10
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-01-06",
-          "count": 3,
-          "points": 8
-        },
-        {
-          "date": "2026-01-05",
-          "count": 5,
-          "points": 11
-        },
-        {
-          "date": "2025-12-31",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2025-12-30",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2025-12-28",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-01-02",
-          "count": 5,
-          "points": 15
-        },
-        {
-          "date": "2026-01-01",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-01-04",
-          "count": 3,
-          "points": 7
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-06T11:44:46Z",
-          "title": "fix - missing recent contributions for some contributor profiles",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/137",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-01-06T07:53:54Z",
-          "title": "fix - footer layout responsiveness on tablet and smaller screens",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/131",
-          "points": 5
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-06T09:47:21Z",
-          "title": "Pagination keeps scroll position on page change",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/136",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-05T19:41:10Z",
-          "title": "fix - footer layout responsiveness on tablet and smaller screens",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/131",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-05T15:28:25Z",
-          "title": "fix - modify Recent Contributions to be time sorted",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/127",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-01-05T18:03:31Z",
-          "title": "fix - modify Recent Contributions to be time sorted",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/127",
-          "points": 5
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-05T16:22:40Z",
-          "title": "Footer not responsive below desktop view causing empty space",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/129",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-05T15:38:37Z",
-          "title": "Recent Contributions missing for some contributor profiles",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/128",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-31T15:47:16Z",
-          "title": "Remove stray char from truth table in Canonical Functions subchapter",
-          "link": "https://github.com/CircuitVerse/Interactive-Book/pull/745",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-30T15:15:24Z",
-          "title": "justify text alignment in documentation",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/483",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-28T14:39:11Z",
-          "title": "Enhancement - Add Boolean expressions to all logic gates in Chapter 4",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/477",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-02T12:37:29Z",
-          "title": "fix - reflect actual rank while searching",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/77",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-02T05:00:21Z",
-          "title": "fix - Update Pagination state for pages beyond 3",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/70",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-01T19:56:05Z",
-          "title": "Add Points, PR and Issue sort options to filter menu and improve clear behavior",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/67",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-01-04T19:21:57Z",
-          "title": "fix - reflect actual rank while searching",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/77",
-          "points": 5
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-01-02T09:11:27Z",
-          "title": "fix - Update Pagination state for pages beyond 3",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/70",
-          "points": 5
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-01-02T09:18:28Z",
-          "title": "Add Points, PR and Issue sort options to filter menu and improve clear behavior",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/67",
-          "points": 5
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2025-12-31T15:31:01Z",
-          "title": "Stray character displayed in the truth table in Canonical Functions subchapterz",
-          "link": "https://github.com/CircuitVerse/Interactive-Book/issues/744",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2025-12-30T14:15:28Z",
-          "title": "Feature Request - Enable justified text for docs content",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/482",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2025-12-28T12:28:32Z",
-          "title": "Enhancement - Boolean expressions for logic gates in Chapter 4",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/476",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-04T18:53:24Z",
-          "title": "Recent Contributions should be time-sorted",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/111",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-04T18:50:09Z",
-          "title": "Recent Contributions highlights wrong contributions",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/110",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-02T11:32:26Z",
-          "title": "Ranks change incorrectly while searching for contributors on leaderboard",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/75",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-01T20:25:11Z",
-          "title": "Pagination fails to display active page beyond page 3 in Recent Activities section",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/68",
           "points": 1
         }
       ]
@@ -2365,6 +2524,171 @@
           "title": "Review on PR #6472",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6472",
           "points": 4
+        }
+      ]
+    },
+    {
+      "username": "SouparnaChatterjee",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/115988950?v=4",
+      "role": "Contributor",
+      "total_points": 28,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 5,
+          "points": 10
+        },
+        "Issue opened": {
+          "count": 8,
+          "points": 8
+        },
+        "PR merged": {
+          "count": 2,
+          "points": 10
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-01-06",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-01-05",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2025-12-26",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-01-04",
+          "count": 4,
+          "points": 9
+        },
+        {
+          "date": "2026-01-03",
+          "count": 5,
+          "points": 11
+        },
+        {
+          "date": "2025-12-25",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2025-12-24",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-06T17:43:43Z",
+          "title": "docs - add badges, features, screenshots, and quick links to README",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/141",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-05T04:27:59Z",
+          "title": "Docs - Improve README with screenshots, badges, and features section",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/118",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-26T20:24:59Z",
+          "title": "feat(simulator) - add confirmation dialog before clearing canvas",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/702",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-04T13:03:20Z",
+          "title": "feat - improve empty state UI with search icon, suggestions, and clear button",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/106",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-03T18:26:17Z",
+          "title": "feat - make contributor avatar clickable to GitHub profile",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/93",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-03T15:35:21Z",
+          "title": "docs(chapter1) - improve introduction page readability and accessibility",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/488",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-01-04T16:13:13Z",
+          "title": "feat - improve empty state UI with search icon, suggestions, and clear button",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/106",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-01-03T20:31:57Z",
+          "title": "feat - make contributor avatar clickable to GitHub profile",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/93",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2025-12-26T19:31:59Z",
+          "title": "Feature - Add confirmation dialog before clearing Vue simulator canvas",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/701",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2025-12-25T16:07:24Z",
+          "title": "Drag panel position handling & text-selection behavior in Vue simulator",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/699",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2025-12-24T13:38:03Z",
+          "title": "perf - improve draggable panel performance in simulator",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6504",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-04T16:33:46Z",
+          "title": "Feature - Add share button to leaderboard page",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/108",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-04T07:51:12Z",
+          "title": "Feature - Improve empty state UI when no search results found",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/98",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-03T16:33:28Z",
+          "title": "Feature - Make contributor profile picture clickable to GitHub profile",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/90",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-03T12:09:53Z",
+          "title": "Improve readability, grammar, and MDX best practices in Chapter 1 Introduction",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/487",
+          "points": 1
         }
       ]
     },
@@ -2801,154 +3125,481 @@
       ]
     },
     {
-      "username": "SouparnaChatterjee",
+      "username": "Abdul-Raheem324",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/115988950?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/186626050?v=4",
       "role": "Contributor",
-      "total_points": 26,
+      "total_points": 24,
       "activity_breakdown": {
-        "Issue opened": {
-          "count": 8,
-          "points": 8
-        },
         "PR opened": {
-          "count": 4,
-          "points": 8
+          "count": 3,
+          "points": 6
         },
         "PR merged": {
-          "count": 2,
-          "points": 10
+          "count": 3,
+          "points": 15
+        },
+        "Issue opened": {
+          "count": 3,
+          "points": 3
         }
       },
       "daily_activity": [
         {
-          "date": "2026-01-05",
-          "count": 1,
-          "points": 1
+          "date": "2026-01-07",
+          "count": 3,
+          "points": 8
         },
         {
-          "date": "2025-12-26",
-          "count": 2,
-          "points": 3
+          "date": "2026-01-05",
+          "count": 1,
+          "points": 5
         },
         {
           "date": "2026-01-04",
           "count": 4,
-          "points": 9
+          "points": 10
         },
         {
           "date": "2026-01-03",
-          "count": 5,
-          "points": 11
-        },
-        {
-          "date": "2025-12-25",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2025-12-24",
           "count": 1,
           "points": 1
         }
       ],
       "activities": [
         {
-          "type": "Issue opened",
-          "occured_at": "2026-01-05T04:27:59Z",
-          "title": "Docs - Improve README with screenshots, badges, and features section",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/118",
-          "points": 1
-        },
-        {
           "type": "PR opened",
-          "occured_at": "2025-12-26T20:24:59Z",
-          "title": "feat(simulator) - add confirmation dialog before clearing canvas",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/702",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-04T13:03:20Z",
-          "title": "feat - improve empty state UI with search icon, suggestions, and clear button",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/106",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-03T18:26:17Z",
-          "title": "feat - make contributor avatar clickable to GitHub profile",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/93",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-03T15:35:21Z",
-          "title": "docs(chapter1) - improve introduction page readability and accessibility",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/488",
+          "occured_at": "2026-01-07T13:52:44Z",
+          "title": "fix - handle invalid leaderboard period with not found page",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/147",
           "points": 2
         },
         {
           "type": "PR merged",
-          "occured_at": "2026-01-04T16:13:13Z",
-          "title": "feat - improve empty state UI with search icon, suggestions, and clear button",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/106",
+          "occured_at": "2026-01-07T14:31:07Z",
+          "title": "fix - handle invalid leaderboard period with not found page",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/147",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-07T13:35:51Z",
+          "title": "fix(leaderboard) - prevent 500 error on invalid period routes",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/146",
+          "points": 1
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-01-05T08:35:01Z",
+          "title": "feat - add custom 404 page",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/113",
+          "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-04T21:02:14Z",
+          "title": "feat - add custom 404 page",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/113",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-04T10:32:50Z",
+          "title": "feat - add ScrollToTop component for improved navigation",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/103",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-01-04T15:11:48Z",
+          "title": "feat - add ScrollToTop component for improved navigation",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/103",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-04T18:37:52Z",
+          "title": "Add a Custom Not Found (404) Page",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/109",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-03T19:14:07Z",
+          "title": "Add Scroll-to-Top button for improved page navigation",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/95",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "username": "akshitvigg",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/156829501?v=4",
+      "role": "Contributor",
+      "total_points": 23,
+      "activity_breakdown": {
+        "PR merged": {
+          "count": 3,
+          "points": 15
+        },
+        "PR opened": {
+          "count": 3,
+          "points": 6
+        },
+        "Issue opened": {
+          "count": 2,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-01-07",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2026-01-06",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2025-12-30",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2025-12-14",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2025-12-24",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2026-01-04",
+          "count": 1,
+          "points": 5
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-01-07T14:29:07Z",
+          "title": "feat - add skeleton loading cards for leaderboard page",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/139",
+          "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-06T15:10:09Z",
+          "title": "feat - add skeleton loading cards for leaderboard page",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/139",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-30T11:27:27Z",
+          "title": "docs - fix duplicated words in documentation",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/481",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-14T14:20:24Z",
+          "title": "Fix grammar error - change 'an CircuitVerse' to 'a CircuitVerse' in LMS integration docs",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/461",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2025-12-24T17:17:32Z",
+          "title": "Fix grammar error - change 'an CircuitVerse' to 'a CircuitVerse' in LMS integration docs",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/461",
           "points": 5
         },
         {
           "type": "PR merged",
-          "occured_at": "2026-01-03T20:31:57Z",
-          "title": "feat - make contributor avatar clickable to GitHub profile",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/93",
+          "occured_at": "2026-01-04T17:59:19Z",
+          "title": "docs - fix duplicated words in documentation",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/481",
           "points": 5
         },
         {
           "type": "Issue opened",
-          "occured_at": "2025-12-26T19:31:59Z",
-          "title": "Feature - Add confirmation dialog before clearing Vue simulator canvas",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/701",
+          "occured_at": "2025-12-30T11:16:59Z",
+          "title": "Fix duplicated words in documentation files",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/480",
           "points": 1
         },
         {
           "type": "Issue opened",
-          "occured_at": "2025-12-25T16:07:24Z",
-          "title": "Drag panel position handling & text-selection behavior in Vue simulator",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/699",
+          "occured_at": "2025-12-14T14:03:50Z",
+          "title": "Fix grammar error - 'an CircuitVerse' should be 'a CircuitVerse' in LMS Integration",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/460",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "username": "Yana-do-code",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/173885830?v=4",
+      "role": "Contributor",
+      "total_points": 23,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 6,
+          "points": 12
+        },
+        "Issue opened": {
+          "count": 6,
+          "points": 6
+        },
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-01-07",
+          "count": 2,
+          "points": 4
+        },
+        {
+          "date": "2026-01-06",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-01-05",
+          "count": 4,
+          "points": 5
+        },
+        {
+          "date": "2026-01-04",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-01-02",
+          "count": 3,
+          "points": 8
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-07T17:39:32Z",
+          "title": "Fix - PostgreSQL btree index size limit exceeded error for project slugs",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6582",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-07T11:36:51Z",
+          "title": "ci - re-enable Windows builds in Tauri release workflow",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/730",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-06T09:18:05Z",
+          "title": "Fix - N+1 query in FeaturedCircuitsController",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6572",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-06T18:15:32Z",
+          "title": "🐞 Bug - Tauri dev exits with white screen on Windows",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/723",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-05T11:43:42Z",
+          "title": "docs - add sign-up/sign-in images and clickable links to Chapter 2 (Getting Started)",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/490",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-05T15:16:32Z",
+          "title": "fix(netlify) - pin Node 22 to fix Docusaurus build failure",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/493",
           "points": 1
         },
         {
           "type": "Issue opened",
-          "occured_at": "2025-12-24T13:38:03Z",
-          "title": "perf - improve draggable panel performance in simulator",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6504",
+          "occured_at": "2026-01-05T10:49:14Z",
+          "title": "Improve Docs Part 2 by adding user account creation images and links",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/489",
           "points": 1
         },
         {
           "type": "Issue opened",
-          "occured_at": "2026-01-04T16:33:46Z",
-          "title": "Feature - Add share button to leaderboard page",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/108",
+          "occured_at": "2026-01-05T08:30:23Z",
+          "title": "Feature - add a border outline in the search bar box",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6564",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-04T15:47:35Z",
+          "title": "fix - search bar box with a green outline border",
+          "link": "https://github.com/CircuitVerse/Blog/pull/261",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-02T07:58:28Z",
+          "title": "Update - copyright year to 2026",
+          "link": "https://github.com/CircuitVerse/Blog/pull/260",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-01-02T13:07:25Z",
+          "title": "Update - copyright year to 2026",
+          "link": "https://github.com/CircuitVerse/Blog/pull/260",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-04T15:49:03Z",
+          "title": "fix - search bar box with a green outline border",
+          "link": "https://github.com/CircuitVerse/Blog/issues/262",
           "points": 1
         },
         {
           "type": "Issue opened",
-          "occured_at": "2026-01-04T07:51:12Z",
-          "title": "Feature - Improve empty state UI when no search results found",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/98",
+          "occured_at": "2026-01-02T07:48:32Z",
+          "title": "fix the search bar with a black border to make it more visible",
+          "link": "https://github.com/CircuitVerse/Blog/issues/259",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "username": "Ayush1169",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/188789872?v=4",
+      "role": "Contributor",
+      "total_points": 22,
+      "activity_breakdown": {
+        "PR merged": {
+          "count": 2,
+          "points": 10
+        },
+        "PR opened": {
+          "count": 4,
+          "points": 8
+        },
+        "Issue opened": {
+          "count": 4,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-01-07",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2026-01-06",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-01-05",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-01-03",
+          "count": 3,
+          "points": 5
+        },
+        {
+          "date": "2026-01-04",
+          "count": 3,
+          "points": 7
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-01-07T17:29:00Z",
+          "title": "implimented search function in people module",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/142",
+          "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-06T18:12:52Z",
+          "title": "implimented search function in people module",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/142",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-05T07:03:07Z",
+          "title": "feat - add dynamic releases page with contributor recognition",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/120",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-05T09:31:26Z",
+          "title": "Add search functionality to the People page",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/121",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-03T10:49:21Z",
+          "title": "Add debounced search to leaderboard for improved performance",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/85",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-03T06:58:33Z",
+          "title": "fix - remove black hover from back button in username section issue #64",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/81",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-01-04T11:12:58Z",
+          "title": "Add debounced search to leaderboard for improved performance",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/85",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-04T09:04:12Z",
+          "title": "Make Recent Activity items fully clickable (title & avatar)",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/102",
           "points": 1
         },
         {
           "type": "Issue opened",
-          "occured_at": "2026-01-03T16:33:28Z",
-          "title": "Feature - Make contributor profile picture clickable to GitHub profile",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/90",
+          "occured_at": "2026-01-04T08:13:39Z",
+          "title": "Make leaderboard activity badges clickable to GitHub",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/100",
           "points": 1
         },
         {
           "type": "Issue opened",
-          "occured_at": "2026-01-03T12:09:53Z",
-          "title": "Improve readability, grammar, and MDX best practices in Chapter 1 Introduction",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/487",
+          "occured_at": "2026-01-03T09:56:28Z",
+          "title": "Improve leaderboard search performance by adding debounce",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/83",
           "points": 1
         }
       ]
@@ -3079,372 +3730,6 @@
       ]
     },
     {
-      "username": "Yana-do-code",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/173885830?v=4",
-      "role": "Contributor",
-      "total_points": 18,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 4,
-          "points": 8
-        },
-        "Issue opened": {
-          "count": 5,
-          "points": 5
-        },
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-01-06",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-01-05",
-          "count": 4,
-          "points": 5
-        },
-        {
-          "date": "2026-01-04",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-01-02",
-          "count": 3,
-          "points": 8
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-06T09:18:05Z",
-          "title": "Fix - N+1 query in FeaturedCircuitsController",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6572",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-05T11:43:42Z",
-          "title": "docs - add sign-up/sign-in images and clickable links to Chapter 2 (Getting Started)",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/490",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-05T15:16:32Z",
-          "title": "fix(netlify) - pin Node 22 to fix Docusaurus build failure",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/493",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-05T10:49:14Z",
-          "title": "Improve Docs Part 2 by adding user account creation images and links",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/489",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-05T08:30:23Z",
-          "title": "Feature - add a border outline in the search bar box",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6564",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-04T15:47:35Z",
-          "title": "fix - search bar box with a green outline border",
-          "link": "https://github.com/CircuitVerse/Blog/pull/261",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-02T07:58:28Z",
-          "title": "Update - copyright year to 2026",
-          "link": "https://github.com/CircuitVerse/Blog/pull/260",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-01-02T13:07:25Z",
-          "title": "Update - copyright year to 2026",
-          "link": "https://github.com/CircuitVerse/Blog/pull/260",
-          "points": 5
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-04T15:49:03Z",
-          "title": "fix - search bar box with a green outline border",
-          "link": "https://github.com/CircuitVerse/Blog/issues/262",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-02T07:48:32Z",
-          "title": "fix the search bar with a black border to make it more visible",
-          "link": "https://github.com/CircuitVerse/Blog/issues/259",
-          "points": 1
-        }
-      ]
-    },
-    {
-      "username": "ghanshyam2005singh",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/56252619?v=4",
-      "role": "Contributor",
-      "total_points": 17,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 3,
-          "points": 6
-        },
-        "PR merged": {
-          "count": 2,
-          "points": 10
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2025-12-24",
-          "count": 3,
-          "points": 5
-        },
-        {
-          "date": "2025-12-09",
-          "count": 2,
-          "points": 7
-        },
-        {
-          "date": "2025-12-08",
-          "count": 1,
-          "points": 5
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-24T11:52:20Z",
-          "title": "feat - add hover functionality to Getting Started dropdown",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6502",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-24T08:52:11Z",
-          "title": "Fix - Update form control focus border and add green box-shadow",
-          "link": "https://github.com/CircuitVerse/Blog/pull/258",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-09T11:40:00Z",
-          "title": "Fix - Button hover color now stays green (matches CircuitVerse scheme)",
-          "link": "https://github.com/CircuitVerse/Blog/pull/256",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2025-12-09T13:53:39Z",
-          "title": "Fix - Button hover color now stays green (matches CircuitVerse scheme)",
-          "link": "https://github.com/CircuitVerse/Blog/pull/256",
-          "points": 5
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2025-12-08T03:46:39Z",
-          "title": "docs - update README with Docusaurus setup instructions (#442)",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/443",
-          "points": 5
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2025-12-24T11:44:46Z",
-          "title": "Enhancement - Add hover-to-open functionality for \"Getting Started\" navbar dropdown",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6501",
-          "points": 1
-        }
-      ]
-    },
-    {
-      "username": "akshitvigg",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/156829501?v=4",
-      "role": "Contributor",
-      "total_points": 16,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        },
-        "PR merged": {
-          "count": 2,
-          "points": 10
-        },
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2025-12-30",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2025-12-14",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2025-12-24",
-          "count": 1,
-          "points": 5
-        },
-        {
-          "date": "2026-01-04",
-          "count": 1,
-          "points": 5
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-30T11:27:27Z",
-          "title": "docs - fix duplicated words in documentation",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/481",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-14T14:20:24Z",
-          "title": "Fix grammar error - change 'an CircuitVerse' to 'a CircuitVerse' in LMS integration docs",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/461",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2025-12-24T17:17:32Z",
-          "title": "Fix grammar error - change 'an CircuitVerse' to 'a CircuitVerse' in LMS integration docs",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/461",
-          "points": 5
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-01-04T17:59:19Z",
-          "title": "docs - fix duplicated words in documentation",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/481",
-          "points": 5
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2025-12-30T11:16:59Z",
-          "title": "Fix duplicated words in documentation files",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/480",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2025-12-14T14:03:50Z",
-          "title": "Fix grammar error - 'an CircuitVerse' should be 'a CircuitVerse' in LMS Integration",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/460",
-          "points": 1
-        }
-      ]
-    },
-    {
-      "username": "Abdul-Raheem324",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/186626050?v=4",
-      "role": "Contributor",
-      "total_points": 16,
-      "activity_breakdown": {
-        "PR merged": {
-          "count": 2,
-          "points": 10
-        },
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        },
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-01-05",
-          "count": 1,
-          "points": 5
-        },
-        {
-          "date": "2026-01-04",
-          "count": 4,
-          "points": 10
-        },
-        {
-          "date": "2026-01-03",
-          "count": 1,
-          "points": 1
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR merged",
-          "occured_at": "2026-01-05T08:35:01Z",
-          "title": "feat - add custom 404 page",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/113",
-          "points": 5
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-04T21:02:14Z",
-          "title": "feat - add custom 404 page",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/113",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-04T10:32:50Z",
-          "title": "feat - add ScrollToTop component for improved navigation",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/103",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-01-04T15:11:48Z",
-          "title": "feat - add ScrollToTop component for improved navigation",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/103",
-          "points": 5
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-04T18:37:52Z",
-          "title": "Add a Custom Not Found (404) Page",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/109",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-03T19:14:07Z",
-          "title": "Add Scroll-to-Top button for improved page navigation",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/95",
-          "points": 1
-        }
-      ]
-    },
-    {
       "username": "Radhikaa-chauhan",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/148184013?v=4",
@@ -3539,102 +3824,6 @@
       ]
     },
     {
-      "username": "Ayush1169",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/188789872?v=4",
-      "role": "Contributor",
-      "total_points": 15,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 3,
-          "points": 6
-        },
-        "Issue opened": {
-          "count": 4,
-          "points": 4
-        },
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-01-05",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-01-03",
-          "count": 3,
-          "points": 5
-        },
-        {
-          "date": "2026-01-04",
-          "count": 3,
-          "points": 7
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-05T07:03:07Z",
-          "title": "feat - add dynamic releases page with contributor recognition",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/120",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-05T09:31:26Z",
-          "title": "Add search functionality to the People page",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/121",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-03T10:49:21Z",
-          "title": "Add debounced search to leaderboard for improved performance",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/85",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-03T06:58:33Z",
-          "title": "fix - remove black hover from back button in username section issue #64",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/81",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-01-04T11:12:58Z",
-          "title": "Add debounced search to leaderboard for improved performance",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/85",
-          "points": 5
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-04T09:04:12Z",
-          "title": "Make Recent Activity items fully clickable (title & avatar)",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/102",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-04T08:13:39Z",
-          "title": "Make leaderboard activity badges clickable to GitHub",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/100",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-03T09:56:28Z",
-          "title": "Improve leaderboard search performance by adding debounce",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/83",
-          "points": 1
-        }
-      ]
-    },
-    {
       "username": "madaankartik",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/188013862?v=4",
@@ -3694,22 +3883,84 @@
       ]
     },
     {
+      "username": "ThatDeparted2061",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/166894150?v=4",
+      "role": "Maintainer",
+      "total_points": 13,
+      "activity_breakdown": {
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        },
+        "Review submitted": {
+          "count": 2,
+          "points": 8
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-01-06",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2025-12-31",
+          "count": 1,
+          "points": 4
+        },
+        {
+          "date": "2025-12-25",
+          "count": 1,
+          "points": 4
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-01-06T17:52:31Z",
+          "title": "Feature - Authentication model for web and tauri simulator",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/657",
+          "points": 5
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2025-12-31T13:22:45Z",
+          "title": "Review on PR #6511",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6511",
+          "points": 4
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2025-12-25T10:01:14Z",
+          "title": "Review on PR #6476",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6476",
+          "points": 4
+        }
+      ]
+    },
+    {
       "username": "star-warrior",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/69752445?v=4",
       "role": "Contributor",
-      "total_points": 12,
+      "total_points": 13,
       "activity_breakdown": {
+        "Issue opened": {
+          "count": 5,
+          "points": 5
+        },
         "PR opened": {
           "count": 4,
           "points": 8
-        },
-        "Issue opened": {
-          "count": 4,
-          "points": 4
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-01-06",
+          "count": 1,
+          "points": 1
+        },
         {
           "date": "2026-01-05",
           "count": 3,
@@ -3737,6 +3988,13 @@
         }
       ],
       "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-06T18:40:31Z",
+          "title": "🐞 Bug - Copy Pasted Circuit Breaks Ranodomly",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/724",
+          "points": 1
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-01-05T13:02:53Z",
@@ -3791,6 +4049,76 @@
           "occured_at": "2026-01-03T14:16:52Z",
           "title": "Feature - Ability to Import Online Circuits directly into Simulator",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6553",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "username": "ghanshyam2005singh",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/56252619?v=4",
+      "role": "Contributor",
+      "total_points": 12,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 3,
+          "points": 6
+        },
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2025-12-24",
+          "count": 3,
+          "points": 5
+        },
+        {
+          "date": "2025-12-09",
+          "count": 2,
+          "points": 7
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-24T11:52:20Z",
+          "title": "feat - add hover functionality to Getting Started dropdown",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6502",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-24T08:52:11Z",
+          "title": "Fix - Update form control focus border and add green box-shadow",
+          "link": "https://github.com/CircuitVerse/Blog/pull/258",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-09T11:40:00Z",
+          "title": "Fix - Button hover color now stays green (matches CircuitVerse scheme)",
+          "link": "https://github.com/CircuitVerse/Blog/pull/256",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2025-12-09T13:53:39Z",
+          "title": "Fix - Button hover color now stays green (matches CircuitVerse scheme)",
+          "link": "https://github.com/CircuitVerse/Blog/pull/256",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2025-12-24T11:44:46Z",
+          "title": "Enhancement - Add hover-to-open functionality for \"Getting Started\" navbar dropdown",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6501",
           "points": 1
         }
       ]
@@ -3996,6 +4324,73 @@
       ]
     },
     {
+      "username": "RiyaS905",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/184746190?v=4",
+      "role": "Contributor",
+      "total_points": 10,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 5,
+          "points": 10
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-01-06",
+          "count": 2,
+          "points": 4
+        },
+        {
+          "date": "2026-01-05",
+          "count": 2,
+          "points": 4
+        },
+        {
+          "date": "2025-12-28",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-06T13:05:58Z",
+          "title": "Update esbuild.config.js",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6575",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-06T12:21:17Z",
+          "title": "Update routes.rb",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6574",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-05T18:37:12Z",
+          "title": "Refactor Gemfile by adding and removing gems",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6566",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-05T18:22:02Z",
+          "title": "Refactor devcontainer.json for improved structure",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6565",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-28T08:34:36Z",
+          "title": "Fix UI alignment for grading scale and restriction checkboxes",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6515",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "divyanshujains",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/188545053?v=4",
@@ -4043,152 +4438,6 @@
           "occured_at": "2026-01-03T09:25:55Z",
           "title": "fix - differentiate team section headings by color hierarchy",
           "link": "https://github.com/CircuitVerse/community-dashboard/pull/76",
-          "points": 5
-        }
-      ]
-    },
-    {
-      "username": "ThatDeparted2061",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/166894150?v=4",
-      "role": "Maintainer",
-      "total_points": 8,
-      "activity_breakdown": {
-        "Review submitted": {
-          "count": 2,
-          "points": 8
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2025-12-31",
-          "count": 1,
-          "points": 4
-        },
-        {
-          "date": "2025-12-25",
-          "count": 1,
-          "points": 4
-        }
-      ],
-      "activities": [
-        {
-          "type": "Review submitted",
-          "occured_at": "2025-12-31T13:22:45Z",
-          "title": "Review on PR #6511",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6511",
-          "points": 4
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2025-12-25T10:01:14Z",
-          "title": "Review on PR #6476",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6476",
-          "points": 4
-        }
-      ]
-    },
-    {
-      "username": "RiyaS905",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/184746190?v=4",
-      "role": "Contributor",
-      "total_points": 8,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 4,
-          "points": 8
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-01-06",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-01-05",
-          "count": 2,
-          "points": 4
-        },
-        {
-          "date": "2025-12-28",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-06T12:21:17Z",
-          "title": "Update routes.rb",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6574",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-05T18:37:12Z",
-          "title": "Refactor Gemfile by adding and removing gems",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6566",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-05T18:22:02Z",
-          "title": "Refactor devcontainer.json for improved structure",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6565",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-28T08:34:36Z",
-          "title": "Fix UI alignment for grading scale and restriction checkboxes",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6515",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "salmoneatenbybear",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/177742943?v=4",
-      "role": "Maintainer",
-      "total_points": 7,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        },
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2025-12-07",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2025-12-08",
-          "count": 1,
-          "points": 5
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-07T13:56:17Z",
-          "title": "chore - About page members restructuring",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6444",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2025-12-08T03:43:45Z",
-          "title": "chore - About page members restructuring",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6444",
           "points": 5
         }
       ]
@@ -5004,6 +5253,86 @@
       ]
     },
     {
+      "username": "rolex-67",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/179861712?v=4",
+      "role": "Contributor",
+      "total_points": 3,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-01-06",
+          "count": 2,
+          "points": 3
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-06T20:06:35Z",
+          "title": "fix - standardized hex formats and removed duplicate theme keys",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/728",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-06T20:01:31Z",
+          "title": "🐞 Bug - refactor - Invalid color formats in theme engine causing browser validation errors and build warnings",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/727",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "username": "Mayank7371",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/166874794?v=4",
+      "role": "Contributor",
+      "total_points": 3,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-01-06",
+          "count": 2,
+          "points": 3
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-06T16:31:52Z",
+          "title": "Remove features and teachers links from the navbar",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6577",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-06T16:11:13Z",
+          "title": "Remove Features and Teachers links from navbar",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6576",
+          "points": 1
+        }
+      ]
+    },
+    {
       "username": "KARDT89",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/77930336?v=4",
@@ -5189,6 +5518,100 @@
           "title": "Migrate from Sprockets to Propshaft + Vite",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6499",
           "points": 2
+        }
+      ]
+    },
+    {
+      "username": "Aditya30ag",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/162010355?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-01-07",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-07T15:43:40Z",
+          "title": "Remove FIXME comments and temporary workarounds",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6580",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "sambhavi0",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/229612602?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-01-07",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-07T18:17:27Z",
+          "title": "Improve clarity of how to contribute section",
+          "link": "https://github.com/CircuitVerse/Interactive-Book/pull/746",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "abhiraj75",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/225247502?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 2,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-01-06",
+          "count": 2,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-06T17:39:58Z",
+          "title": "Improve navbar alignment and remove underline from navigation links (Simulator)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/722",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-06T16:44:57Z",
+          "title": "Improve navbar alignment and remove underline from navigation links (Simulator)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6578",
+          "points": 1
         }
       ]
     },
@@ -5570,35 +5993,6 @@
       ]
     },
     {
-      "username": "jeevansridharan",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/181938021?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2025-12-08",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-08T09:07:27Z",
-          "title": "UI Cleanup - Improve TestBenchPanel.vue Styling (Fixes #685)",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/686",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "Varshar21-07",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/183717561?v=4",
@@ -5688,35 +6082,6 @@
           "occured_at": "2025-12-19T10:17:12Z",
           "title": "UI bug - Change focus border color on Contact Us form from red to green",
           "link": "https://github.com/CircuitVerse/Blog/issues/257",
-          "points": 1
-        }
-      ]
-    },
-    {
-      "username": "satu0king",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/2092958?v=4",
-      "role": "Maintainer",
-      "total_points": 1,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2025-12-07",
-          "count": 1,
-          "points": 1
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2025-12-07T13:55:48Z",
-          "title": "🛑 Main Platform is down",
-          "link": "https://github.com/CircuitVerse/upptime/issues/165",
           "points": 1
         }
       ]
