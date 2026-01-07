@@ -567,12 +567,13 @@ export default function LeaderboardView({
                   </div>
 
                   <div className="flex items-center gap-2">
+                    {/* UPDATED CLEAR BUTTON WITH IMPROVED HOVER/ACTIVE STATES */}
                     {(selectedRoles.size > 0 || searchQuery || sortBy !== "points") && (
                       <Button
                         variant="ghost"
                         size="sm"
                         onClick={clearFilters}
-                        className="h-9 hover:bg-[#50B78B]/20 cursor-pointer"
+                        className="h-9 hover:bg-[#50B78B]/20 hover:text-[#50B78B] active:bg-[#50B78B]/30 active:text-[#50B78B] transition-all duration-200 cursor-pointer"
                       >
                         <X className="h-4 w-4 mr-1" />
                         Clear
