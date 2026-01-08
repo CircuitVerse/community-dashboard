@@ -191,12 +191,12 @@ export default function LeaderboardView({
   const pathname = usePathname();
   
   const [viewMode, setViewMode] = useState<"grid" | "list">(() => {
-    const v = searchParams.get("view");
+    const v = searchParams.get("v");
     return v === "grid" ? "grid" : "list";
   });
 
   useEffect(() => {
-    const v = searchParams.get("view");
+    const v = searchParams.get("v");
     setViewMode(v === "grid" ? "grid" : "list");
   }, [searchParams]);
   const topRef = useRef<HTMLDivElement | null>(null);
@@ -222,9 +222,9 @@ export default function LeaderboardView({
     setViewMode(mode);
     const params = new URLSearchParams(searchParams.toString());
     if (mode === "list") {
-      params.delete("view");
+      params.delete("v");
     } else {
-      params.set("view", mode);
+      params.set("v", mode);
     }
     if (typeof window !== "undefined") {
       window.history.replaceState(null, "", `${pathname}?${params.toString()}`);

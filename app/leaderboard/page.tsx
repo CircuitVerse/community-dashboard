@@ -17,6 +17,7 @@ import { LeaderboardSkeleton } from "@/components/Leaderboard/LeaderboardSkeleto
 function LeaderboardIndexPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const isGridView = searchParams?.get("v") === "grid";
 
   useEffect(() => {
     const params = searchParams?.toString();
@@ -24,7 +25,7 @@ function LeaderboardIndexPageContent() {
     router.replace(target);
   }, [router, searchParams]);
 
-  return <LeaderboardSkeleton count={10} variant="list" />;
+  return <LeaderboardSkeleton count={10} variant={isGridView ? "grid" : "list"} />;
 }
 
 export default function LeaderboardIndexPage() {
