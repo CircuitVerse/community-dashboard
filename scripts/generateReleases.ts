@@ -50,6 +50,24 @@ function extractContributors(commits: any[]) {
     .slice(0, 5);
 }
 
+// ---------- Helpers ----------
+
+function getReleaseSummary(body?: string) {
+  if (!body) {
+    return "This release includes internal improvements, bug fixes, and contributor updates.";
+  }
+
+  const firstLine = body
+    .split("\n")
+    .map((l) => l.trim())
+    .find(Boolean);
+
+  return (
+    firstLine ||
+    "This release includes internal improvements, bug fixes, and contributor updates."
+  );
+}
+
 // ---------- MAIN ----------
 
 async function run() {
@@ -84,8 +102,7 @@ async function run() {
         repoSlug: repo.slug,
         version: current.tag_name,
         date: current.published_at?.slice(0, 10),
-        summary:
-          current.body?.split("\n")[0] || "No summary provided.",
+        summary: getReleaseSummary(current.body),
         contributors,
         githubUrl: current.html_url,
       });
