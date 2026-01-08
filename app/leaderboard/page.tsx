@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import { LeaderboardSkeleton } from "@/components/Leaderboard/LeaderboardSkeleton";
 
 /**
@@ -13,7 +14,7 @@ import { LeaderboardSkeleton } from "@/components/Leaderboard/LeaderboardSkeleto
  * before navigating to /leaderboard/month, resulting in a ~1 second blank screen.
  * By rendering the skeleton while redirecting, users see immediate visual feedback.
  */
-export default function LeaderboardIndexPage() {
+function LeaderboardIndexPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -24,4 +25,12 @@ export default function LeaderboardIndexPage() {
   }, [router, searchParams]);
 
   return <LeaderboardSkeleton count={10} variant="list" />;
+}
+
+export default function LeaderboardIndexPage() {
+  return (
+    <Suspense fallback={<LeaderboardSkeleton count={10} variant="list" />}>
+      <LeaderboardIndexPageContent />
+    </Suspense>
+  );
 }
