@@ -1,6 +1,6 @@
 {
   "period": "week",
-  "updatedAt": 1767834236872,
+  "updatedAt": 1767853350978,
   "startDate": "2026-01-01",
   "endDate": "2026-01-08",
   "hiddenRoles": [],
@@ -1009,8 +1009,12 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/115988950?v=4",
       "role": "Contributor",
-      "total_points": 31,
+      "total_points": 32,
       "activity_breakdown": {
+        "Issue opened": {
+          "count": 7,
+          "points": 7
+        },
         "PR opened": {
           "count": 5,
           "points": 10
@@ -1018,13 +1022,14 @@
         "PR merged": {
           "count": 3,
           "points": 15
-        },
-        "Issue opened": {
-          "count": 6,
-          "points": 6
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-01-08",
+          "count": 1,
+          "points": 1
+        },
         {
           "date": "2026-01-07",
           "count": 3,
@@ -1052,6 +1057,13 @@
         }
       ],
       "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-08T04:41:41Z",
+          "title": "Feature - Make \"Total Points\" button functional as sort selector",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/153",
+          "points": 1
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-01-07T20:37:36Z",
@@ -2965,6 +2977,35 @@
           "occured_at": "2026-01-03T08:08:48Z",
           "title": "fix - improve notification badge UI positioning and readability",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6550",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "mohit0ranjan",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/89868255?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-01-08",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-08T01:12:34Z",
+          "title": "fix - resolve Rack - - Attack NoMethodError and encoding issues #6588",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6589",
           "points": 2
         }
       ]

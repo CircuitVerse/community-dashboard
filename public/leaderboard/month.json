@@ -1,6 +1,6 @@
 {
   "period": "month",
-  "updatedAt": 1767834236874,
+  "updatedAt": 1767853350980,
   "startDate": "2025-12-09",
   "endDate": "2026-01-08",
   "hiddenRoles": [],
@@ -2167,11 +2167,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/168703537?v=4",
       "role": "Contributor",
-      "total_points": 50,
+      "total_points": 48,
       "activity_breakdown": {
         "PR opened": {
-          "count": 13,
-          "points": 26
+          "count": 12,
+          "points": 24
         },
         "PR merged": {
           "count": 4,
@@ -2230,8 +2230,8 @@
         },
         {
           "date": "2025-12-09",
-          "count": 2,
-          "points": 4
+          "count": 1,
+          "points": 2
         },
         {
           "date": "2026-01-01",
@@ -2335,13 +2335,6 @@
           "occured_at": "2025-12-09T11:44:38Z",
           "title": "refactor - convert table2csv.js to TypeScript",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/692",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-09T06:16:23Z",
-          "title": "refactor - convert canvasApi.js to TypeScript",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/689",
           "points": 2
         },
         {
@@ -2539,8 +2532,12 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/115988950?v=4",
       "role": "Contributor",
-      "total_points": 36,
+      "total_points": 37,
       "activity_breakdown": {
+        "Issue opened": {
+          "count": 10,
+          "points": 10
+        },
         "PR opened": {
           "count": 6,
           "points": 12
@@ -2548,13 +2545,14 @@
         "PR merged": {
           "count": 3,
           "points": 15
-        },
-        "Issue opened": {
-          "count": 9,
-          "points": 9
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-01-08",
+          "count": 1,
+          "points": 1
+        },
         {
           "date": "2026-01-07",
           "count": 3,
@@ -2597,6 +2595,13 @@
         }
       ],
       "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-08T04:41:41Z",
+          "title": "Feature - Make \"Total Points\" button functional as sort selector",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/153",
+          "points": 1
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-01-07T20:37:36Z",
@@ -5586,6 +5591,35 @@
           "occured_at": "2026-01-07T15:43:40Z",
           "title": "Remove FIXME comments and temporary workarounds",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6580",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "mohit0ranjan",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/89868255?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-01-08",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-08T01:12:34Z",
+          "title": "fix - resolve Rack - - Attack NoMethodError and encoding issues #6588",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6589",
           "points": 2
         }
       ]
