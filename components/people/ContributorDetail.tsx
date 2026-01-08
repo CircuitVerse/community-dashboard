@@ -239,6 +239,18 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
 
   const monthlyPoints = monthlyActivity.reduce((sum, day) => sum + day.points, 0);
   const monthlyDays = monthlyActivity.length;
+  const monthlyActivityTypes = new Set<string>();
+  if(contributor.activities){
+    const currentMonth = thisMonth.getMonth();
+    const currentYear = thisMonth.getFullYear();
+    for(const activity of contributor.activities){
+      const activityDate = new Date(activity.occured_at);
+      if(activityDate.getMonth() === currentMonth && activityDate.getFullYear() === currentYear){
+        monthlyActivityTypes.add(activity.type);
+      }
+    }
+  }
+  const monthlyActivityTypesCount = monthlyActivityTypes.size;
   const maxPoints =
   sortedActivities.length > 0
     ? Math.max(...sortedActivities.map(([, d]) => d.points))
@@ -369,7 +381,7 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
                   <div className="text-sm text-muted-foreground">Daily Average</div>
                 </div>
                 <div className="text-center p-4 bg-background/50 rounded-lg">
-                  <div className="text-2xl font-bold text-primary">{sortedActivities.length}</div>
+                  <div className="text-2xl font-bold text-primary">{monthlyActivityTypesCount}</div>
                   <div className="text-sm text-muted-foreground">Activity Types</div>
                 </div>
               </div>
