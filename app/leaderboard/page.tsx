@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { LeaderboardSkeleton } from "@/components/Leaderboard/LeaderboardSkeleton";
 
 /**
@@ -15,10 +15,13 @@ import { LeaderboardSkeleton } from "@/components/Leaderboard/LeaderboardSkeleto
  */
 export default function LeaderboardIndexPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
-    router.replace("/leaderboard/month");
-  }, [router]);
+    const params = searchParams?.toString();
+    const target = `/leaderboard/month${params ? `?${params}` : ""}`;
+    router.replace(target);
+  }, [router, searchParams]);
 
   return <LeaderboardSkeleton count={10} variant="list" />;
 }

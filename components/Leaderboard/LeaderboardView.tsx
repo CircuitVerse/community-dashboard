@@ -190,7 +190,15 @@ export default function LeaderboardView({
   const [popoverOpen, setPopoverOpen] = useState(false);
   const pathname = usePathname();
   
-  const [viewMode, setViewMode] = useState<"grid" | "list">("list");
+  const [viewMode, setViewMode] = useState<"grid" | "list">(() => {
+    const v = searchParams.get("view");
+    return v === "grid" ? "grid" : "list";
+  });
+
+  useEffect(() => {
+    const v = searchParams.get("view");
+    setViewMode(v === "grid" ? "grid" : "list");
+  }, [searchParams]);
   const topRef = useRef<HTMLDivElement | null>(null);
   const scrollToLeaderboardTop = () => {
     if(typeof window === "undefined") return;
@@ -212,6 +220,15 @@ export default function LeaderboardView({
 
   const handleViewModeChange = (mode: "grid" | "list") => {
     setViewMode(mode);
+    const params = new URLSearchParams(searchParams.toString());
+    if (mode === "list") {
+      params.delete("view");
+    } else {
+      params.set("view", mode);
+    }
+    if (typeof window !== "undefined") {
+      window.history.replaceState(null, "", `${pathname}?${params.toString()}`);
+    }
   };
 
   // Get selected roles from query params
