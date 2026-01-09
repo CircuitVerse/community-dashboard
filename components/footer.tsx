@@ -7,7 +7,7 @@ import {
   HomeIcon,
   Trophy,
   Users,
-  Rocket,
+  Tag,
 } from "lucide-react";
 
 import Hint from "./hint";
@@ -211,7 +211,7 @@ export const Footer = async ({ config }: FooterProps) => {
                   className="group flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400 hover:text-[#50B78B] transition-colors"
                 >
                   <span className="text-zinc-400 group-hover:text-[#50B78B] transition-colors">
-                    <Rocket className="h-4 w-4" />
+                    <Tag className="h-4 w-4" />
                   </span>
                   Releases
                   <ArrowUpRight className="h-3 w-3 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-200" />
