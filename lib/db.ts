@@ -152,18 +152,26 @@ export async function getRecentActivitiesGroupedByType(
 // (Optional) stubs for other imports; add as you see “module not found” errors:
 
 export async function getUpdatedTime() {
-  // get last updated time from any of the JSON files
-  const filePath = path.join(
-    process.cwd(),
-    "public",
-    "leaderboard",
-    `week.json`
+  const publicPath = path.join(process.cwd(), "public", "leaderboard");
+  if(!fs.existsSync(publicPath)) return null;
+  const files = fs.readdirSync(publicPath).filter(
+    (file) => file.endsWith(".json") && file !== "recent-activities.json"
   );
-  if (!fs.existsSync(filePath)) return null;
 
-  const file = fs.readFileSync(filePath, "utf-8");
-  const data = JSON.parse(file);
-  return data.updatedAt ? new Date(data.updatedAt) : null;
+  let latestUpdatedAt = 0;
+  for(const file of files){
+    try{
+      const filePath = path.join(publicPath, file);
+      const data = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+      if (data.updatedAt && data.updatedAt > latestUpdatedAt) {
+        latestUpdatedAt = data.updatedAt;
+      }
+    } catch (error) {
+      // Skip files that can't be parsed
+      continue;
+    }
+  }
+  return latestUpdatedAt > 0 ? new Date(latestUpdatedAt) : null;
 }
 
 export async function getMonthlyActivityBuckets(): Promise<MonthBuckets> {

@@ -205,7 +205,30 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
     }
   }
 
-  const recentContributions = contributor.activities?.slice(0, 15) || [];
+  const uniqueContributions = contributor.activities
+    ? (() => {
+        const seen = new Set<string>();
+        const unique: typeof contributor.activities = [];
+        
+        for (const activity of contributor.activities) {
+          const identifier = activity.link 
+            ? `${activity.type}-${activity.link}` 
+            : `${activity.type}-${activity.title}-${activity.occured_at}`;
+          
+          if (!seen.has(identifier)) {
+            seen.add(identifier);
+            unique.push(activity);
+          }
+        }
+        return unique;
+      })()
+    : [];
+
+  const thirtyDaysAgo = currentTime - 30 * 24 * 60 * 60 * 1000;
+  const recentContributions = uniqueContributions
+    .filter((a) => new Date(a.occured_at).getTime() >= thirtyDaysAgo)
+    .sort((a, b) => new Date(b.occured_at).getTime() - new Date(a.occured_at).getTime())
+    .slice(0, 15);
 
   const thisMonth = new Date();
   const monthlyActivity = recentActivity.filter(day => {
@@ -216,6 +239,18 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
 
   const monthlyPoints = monthlyActivity.reduce((sum, day) => sum + day.points, 0);
   const monthlyDays = monthlyActivity.length;
+  const monthlyActivityTypes = new Set<string>();
+  if(contributor.activities){
+    const currentMonth = thisMonth.getMonth();
+    const currentYear = thisMonth.getFullYear();
+    for(const activity of contributor.activities){
+      const activityDate = new Date(activity.occured_at);
+      if(activityDate.getMonth() === currentMonth && activityDate.getFullYear() === currentYear){
+        monthlyActivityTypes.add(activity.type);
+      }
+    }
+  }
+  const monthlyActivityTypesCount = monthlyActivityTypes.size;
   const maxPoints =
   sortedActivities.length > 0
     ? Math.max(...sortedActivities.map(([, d]) => d.points))
@@ -346,7 +381,7 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
                   <div className="text-sm text-muted-foreground">Daily Average</div>
                 </div>
                 <div className="text-center p-4 bg-background/50 rounded-lg">
-                  <div className="text-2xl font-bold text-primary">{sortedActivities.length}</div>
+                  <div className="text-2xl font-bold text-primary">{monthlyActivityTypesCount}</div>
                   <div className="text-sm text-muted-foreground">Activity Types</div>
                 </div>
               </div>
@@ -415,16 +450,20 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
             </CardContent>
           </Card>
 
-          {recentContributions.length > 0 && (
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Clock className="w-5 h-5" />
-                  Recent Contributions
-                  <Badge variant="secondary" className="ml-2">{recentContributions.length}</Badge>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Clock className="w-5 h-5" />
+                Recent Contributions
+                <Badge variant="secondary" className="ml-2">{recentContributions.length}</Badge>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              {recentContributions.length === 0 ? (
+                <p className="text-sm text-muted-foreground text-center mb-4">
+                  No contributions in the last 30 days.
+                </p>
+              ) : (
                 <div className="space-y-3 max-h-80 overflow-y-auto pr-2">
                   {recentContributions.map((activity, index) => {
                     const date = new Date(activity.occured_at);
@@ -464,7 +503,7 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
                                 <span className={`font-medium px-2 py-1 rounded-full ${config.bgColor} ${config.textColor}`}>
                                   {activity.type}
                                 </span>
-                                <span className="flex items-center gap-1">
+                                <span className="flex items-center gap-1 whitespace-nowrap shrink-0">
                                   <Calendar className="w-3 h-3" />
                                   {daysAgo === 0 ? 'Today' : daysAgo === 1 ? 'Yesterday' : `${daysAgo} days ago`}
                                 </span>
@@ -498,9 +537,9 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
                     );
                   })}
                 </div>
-              </CardContent>
-            </Card>
-          )}
+              )}
+            </CardContent>
+          </Card>
 
           <GitHubHeatmap
             dailyActivity={recentActivity}

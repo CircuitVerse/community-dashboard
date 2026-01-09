@@ -5,6 +5,10 @@ on:
     - cron: "0 */6 * * *" # every 6 hours
   workflow_dispatch:
 
+concurrency:
+  group: leaderboard-generation
+  cancel-in-progress: false
+
 permissions:
   contents: write
  

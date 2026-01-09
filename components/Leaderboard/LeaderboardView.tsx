@@ -10,7 +10,6 @@ import {
 } from "@/components/ui/popover";
 import Link from "next/link";
 import {
-  Search,
   ChevronLeft,
   ChevronRight,
   Filter,
@@ -20,15 +19,16 @@ import {
   GitMerge,
   GitPullRequest,
   AlertCircle,
+  Search, Grid3X3, List,
   SearchX,
-  Eye,
+  Eye
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
 import { sortEntries, type SortBy } from "@/lib/leaderboard";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
-import ActivityTrendChart from "../../components/Leaderboard/ActivityTrendChart";
 import { Input } from "@/components/ui/input";
+import { LeaderboardCard, type LeaderboardEntry } from "./LeaderboardCard";
 import {
   Select,
   SelectContent,
@@ -36,29 +36,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-
-export type LeaderboardEntry = {
-  username: string;
-  name: string | null;
-  avatar_url: string | null;
-  role?: string | null;
-
-  total_points: number;
-
-  activity_breakdown: Record<
-    string,
-    {
-      count: number;
-      points: number;
-    }
-  >;
-
-  daily_activity?: Array<{
-    date: string;
-    points: number;
-    count: number;
-  }>;
-};
 
 interface LeaderboardViewProps {
   entries: LeaderboardEntry[];
@@ -212,6 +189,30 @@ export default function LeaderboardView({
 
   const [popoverOpen, setPopoverOpen] = useState(false);
   const pathname = usePathname();
+  
+  const [viewMode, setViewMode] = useState<"grid" | "list">("list");
+  const topRef = useRef<HTMLDivElement | null>(null);
+  const scrollToLeaderboardTop = () => {
+    if(typeof window === "undefined") return;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    requestAnimationFrame(() => {
+      if(!topRef.current) return;
+
+      const rect = topRef.current.getBoundingClientRect();
+      const absoluteTop = rect.top + window.scrollY;
+      const offset = 80;
+      
+      window.scrollTo({
+        top: Math.max(absoluteTop - offset, 0),
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+      });
+    });
+  };
+
+  const handleViewModeChange = (mode: "grid" | "list") => {
+    setViewMode(mode);
+  };
 
   // Get selected roles from query params
   // If no roles are selected, default to all visible roles (excluding hidden ones)
@@ -243,11 +244,15 @@ export default function LeaderboardView({
   // Rank is independent of search query and pagination
   // When role filtering is active, ranks are computed within the filtered subset
   const entryRanks = useMemo(() => {
-    // Always filter by selectedRoles to exclude hidden roles
-    const entriesForRanking = entries.filter(
-      (entry) => entry.role && selectedRoles.has(entry.role)
-    );
-
+    // Filter by selectedRoles (same logic as filteredEntries, but no search filter)
+    let entriesForRanking = entries;
+    
+    if (selectedRoles.size > 0) {
+      entriesForRanking = entriesForRanking.filter(
+        (entry) => entry.role && selectedRoles.has(entry.role)
+      );
+    }
+    
     // Sort by current sort criteria and calculate ranks
     const sorted = sortEntries(entriesForRanking, sortBy);
     const rankMap = new Map<string, number>();
@@ -406,6 +411,7 @@ export default function LeaderboardView({
       params.set("page", page.toString());
     }
     setCurrentPage(page);
+    scrollToLeaderboardTop();
     if (typeof window !== 'undefined') {
       window.history.replaceState(null, '', `${pathname}?${params.toString()}`);
     }
@@ -461,22 +467,6 @@ export default function LeaderboardView({
     return filtered;
   }, [topByActivity, selectedRoles, entries]);
 
-  const getRankIcon = (rank: number) => {
-    if (rank === 1)
-      return (
-        <Trophy className="h-6 w-6 text-[#FFD700]" aria-label="1st place" />
-      );
-    if (rank === 2)
-      return (
-        <Medal className="h-6 w-6 text-[#C0C0C0]" aria-label="2nd place" />
-      );
-    if (rank === 3)
-      return (
-        <Medal className="h-6 w-6 text-[#CD7F32]/70" aria-label="3rd place" />
-      );
-    return null;
-  };
-
   const periodLabels = {
     week: "Weekly",
     month: "Monthly",
@@ -484,13 +474,13 @@ export default function LeaderboardView({
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div ref={topRef} className="container mx-auto px-4 py-8">
       <div className="flex gap-8">
         {/* Main Content */}
         <div className="flex-1 min-w-0">
           {/* Header */}
           <div className="mb-8">
-            <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between mb-4">
+            <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between mb-4">
               <div className="min-w-0">
                 <h1 className="text-4xl text-[#50B78B] font-bold mb-2">
                   {periodLabels[period]} Leaderboard
@@ -507,73 +497,105 @@ export default function LeaderboardView({
                   w-full
                   md:w-auto md:ml-auto
                   flex flex-col
-                  md:items-end
+                  md:flex-row md:items-center
                   lg:flex-row lg:items-center
                   gap-2
                 "
               >
-                <div className="flex items-center gap-2 w-full md:justify-end">
-                  <div className="relative w-full md:w-[16rem]">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                    <Input
-                      type="text"
-                      placeholder="Search contributors..."
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      className="pl-9 h-9 w-full bg-white dark:bg-[#07170f] border border-[#50B78B]/60 dark:border-[#50B78B]/40 focus-visible:ring-2 focus-visible:ring-[#50B78B]"
-                    />
-                  </div>
-
-                  <div className="hidden sm:flex">
-                    <button
-                      type="button"
-                      className="h-9 w-28 px-3 rounded-md bg-[#50B78B] text-white text-sm flex items-center justify-center gap-2"
-                    >
-                      <span>
-                        {sortBy === "points"
-                          ? "Total Points"
-                          : sortBy === "pr_opened"
-                            ? "PR Opened"
-                            : sortBy === "pr_merged"
-                              ? "PR Merged"
-                              : sortBy === "reviews"
-                                ? "Review Submitted"
-                                : "Issue Opened"}
-                      </span>
-                    </button>
-                  </div>
+                {/* Search bar - full width on mobile */}
+                <div className="relative w-full md:w-[20rem] lg:w-[16rem]">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Input
+                    type="text"
+                    placeholder="Search contributors..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="pl-9 h-9 w-full bg-white dark:bg-[#07170f] border border-[#50B78B]/60 dark:border-[#50B78B]/40 focus-visible:ring-2 focus-visible:ring-[#50B78B]"
+                  />
                 </div>
 
-                <div className="flex items-center gap-2 justify-end">
-                  {(selectedRoles.size > 0 || searchQuery || sortBy !== "points") && (
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={clearFilters}
-                      className="h-9 hover:bg-[#50B78B]/20 cursor-pointer"
-                    >
-                      <X className="h-4 w-4 mr-1" />
-                      Clear
-                    </Button>
-                  )}
-
-                  <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
-                    <PopoverTrigger asChild>
-                      <Button
-                        variant="outline"
+                {/* Controls row - grid/list on left, filter on right */}
+                <div className="flex items-center justify-between w-full md:w-auto md:justify-end gap-2">
+                  <div className="flex items-center gap-2">
+                    <div className="w-fit flex items-center justify-center gap-1 p-1 bg-muted rounded-lg">
+                     <Button
+                        variant={viewMode === "list" ? "default" : "ghost"}
                         size="sm"
-                        className="h-9 border border-[#50B78B]/30 hover:bg-[#50B78B]/20 cursor-pointer"
-                      >
-                        <Filter className="h-4 w-4 mr-1.5" />
-                        Filter
-                        {selectedRoles.size > 0 && (
-                          <span className="ml-1 px-1.5 py-0.5 text-xs rounded-full bg-[#50B78B] text-white">
-                            {selectedRoles.size}
-                          </span>
+                        onClick={() => handleViewModeChange("list")}
+                        className={cn(
+                          "h-8 px-3",
+                          viewMode === "list" 
+                            ? "bg-[#50B78B] hover:bg-[#50B78B]/90 text-white" 
+                            : "hover:bg-[#50B78B]/10 text-muted-foreground"
                         )}
+                      >
+                        <List className="h-4 w-4" />
                       </Button>
-                    </PopoverTrigger>
-                    <PopoverContent
+                      <Button
+                        variant={viewMode === "grid" ? "default" : "ghost"}
+                        size="sm"
+                        onClick={() => handleViewModeChange("grid")}
+                        className={cn(
+                          "h-8 px-3",
+                          viewMode === "grid" 
+                            ? "bg-[#50B78B] hover:bg-[#50B78B]/90 text-white" 
+                            : "hover:bg-[#50B78B]/10 text-muted-foreground"
+                        )}
+                      >
+                        <Grid3X3 className="h-4 w-4" />
+                      </Button>
+                    </div>
+
+                    <div className="hidden md:flex">
+                      <button
+                        type="button"
+                        className="h-9 w-28 px-3 rounded-md bg-[#50B78B] text-white text-sm flex items-center justify-center gap-2"
+                      >
+                        <span>
+                          {sortBy === "points"
+                            ? "Total Points"
+                            : sortBy === "pr_opened"
+                              ? "PR Opened"
+                              : sortBy === "pr_merged"
+                                ? "PR Merged"
+                                : sortBy === "reviews"
+                                  ? "Review Submitted"
+                                  : "Issue Opened"}
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    {(selectedRoles.size > 0 || searchQuery || sortBy !== "points") && (
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={clearFilters}
+                        className="h-9 hover:bg-[#50B78B]/20 cursor-pointer"
+                      >
+                        <X className="h-4 w-4 mr-1" />
+                        Clear
+                      </Button>
+                    )}
+
+                    <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
+                      <PopoverTrigger asChild>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="h-9 border border-[#50B78B]/30 hover:bg-[#50B78B]/20 cursor-pointer"
+                        >
+                          <Filter className="h-4 w-4 mr-1.5" />
+                          Filter
+                          {selectedRoles.size > 0 && (
+                            <span className="ml-1 px-1.5 py-0.5 text-xs rounded-full bg-[#50B78B] text-white">
+                              {selectedRoles.size}
+                            </span>
+                          )}
+                        </Button>
+                      </PopoverTrigger>
+                      <PopoverContent
                       align="end"
                       className="w-64 bg-white dark:bg-[#07170f] border-[#50B78B]/20"
                     >
@@ -670,6 +692,7 @@ export default function LeaderboardView({
                       </div>
                     </PopoverContent>
                   </Popover>
+                  </div>
                 </div>
               </div>
             </div>
@@ -733,7 +756,6 @@ export default function LeaderboardView({
             </div>
           </div>
 
-          {/* Leaderboard */}
           {filteredEntries.length === 0 ? (
             <Card>
               <CardContent className="py-16 text-center">
@@ -764,154 +786,25 @@ export default function LeaderboardView({
               </CardContent>
             </Card>
           ) : (
-            <div className="space-y-4">
+            <div className={cn(
+              "transition-all duration-300 ease-in-out",
+              viewMode === "grid" 
+                ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6" 
+                : "space-y-4"
+            )}>
               {paginatedEntries.map((entry, index) => {
-                const savedRank = entryRanks.get(entry.username);
-                const fallbackRank = filteredEntries.findIndex(e => e.username === entry.username) + 1;
-                const rank = savedRank ?? fallbackRank;
-                const isTopThree = rank <= 3;
-
+                // Use the pre-computed rank from entryRanks, which is based on full sorted list
+                // This ensures rank doesn't change with search or pagination
+                const rank = entryRanks.get(entry.username) || 1;
                 return (
-                  <Card
+                  <LeaderboardCard
                     key={entry.username}
-                    className={cn(
-                      "transition-all hover:shadow-md",
-                      isTopThree && "border-[#50B78B]/50"
-                    )}
-                  >
-                    <CardContent>
-                      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
-
-                        {/* Rank */}
-                        <div className="flex items-center justify-center size-12 shrink-0">
-                          {getRankIcon(rank) || (
-                            <span className="text-2xl font-bold text-[#50B78B]">
-                              {rank}
-                            </span>
-                          )}
-                        </div>
-
-                        {/* Avatar */}
-                        <a
-                          href={`https://github.com/${entry.username}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="shrink-0"
-                        >
-                          <Avatar className="size-14 hover:ring-2 hover:ring-[#50B78B] transition-all cursor-pointer">
-                            <AvatarImage
-                              src={entry.avatar_url || undefined}
-                              alt={entry.name || entry.username}
-                            />
-                            <AvatarFallback>
-                              {(entry.name || entry.username)
-                                .substring(0, 2)
-                                .toUpperCase()}
-                            </AvatarFallback>
-                          </Avatar>
-                        </a>
-
-                        {/* Contributor Info */}
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2 flex-wrap mb-1">
-                            <h3 className="text-lg font-semibold">
-                              {entry.name || entry.username}
-                            </h3>
-                            {entry.role && (
-                              <span className="text-xs px-2 py-1 rounded-full bg-[#50B78B]/10 text-[#50B78B]">
-                                {entry.role}
-                              </span>
-                            )}
-                          </div>
-
-                          <a
-                            href={`https://github.com/${entry.username}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-sm text-muted-foreground hover:text-[#50B78B] transition-colors"
-                          >
-                            @{entry.username}
-                          </a>
-
-                          <div className="mb-3" />
-
-                          {/* Activity Breakdown - Enhanced with visual distinction */}
-                          <div className="flex flex-wrap gap-2">
-                            {Object.entries(entry.activity_breakdown)
-                              .sort((a, b) => {
-                                const activityPriority: Record<string, number> = {
-                                  "PR merged": 1,
-                                  "PR opened": 2,
-                                  "Issue opened": 3,
-                                  "Review submitted": 4,
-                                };
-                                const priorityA = activityPriority[a[0]] ?? 99;
-                                const priorityB = activityPriority[b[0]] ?? 99;
-                                if (priorityA !== priorityB) {
-                                  return priorityA - priorityB;
-                                }
-                                return a[0].localeCompare(b[0]);
-                              })
-                              .map(([activityName, data]) => {
-                                const style = getActivityStyle(activityName);
-                                const IconComponent = style.icon;
-
-                                return (
-                                  <div
-                                    key={activityName}
-                                    className={cn(
-                                      "relative text-xs px-3 py-1.5 rounded-md border-l-2 transition-all hover:shadow-sm",
-                                      style.bgColor,
-                                      style.borderColor
-                                    )}
-                                  >
-                                    <div className="flex items-center gap-1.5">
-                                      {IconComponent && (
-                                        <IconComponent className={cn("w-3.5 h-3.5", style.textColor)} />
-                                      )}
-                                      <span className={cn("font-semibold", style.textColor)}>
-                                        {activityName}:
-                                      </span>
-                                      <span className="text-muted-foreground font-medium">
-                                        {data.count}
-                                      </span>
-                                      {data.points > 0 && (
-                                        <span className={cn("ml-0.5 font-bold", style.textColor)}>
-                                          (+{data.points})
-                                        </span>
-                                      )}
-                                    </div>
-                                  </div>
-                                );
-                              })}
-                          </div>
-                        </div>
-
-                        {/* Total Points with Trend Chart */}
-                        <div className="flex items-center gap-4 shrink-0">
-                          <div className="hidden sm:block">
-                            {entry.daily_activity &&
-                              entry.daily_activity.length > 0 && (
-                                <ActivityTrendChart
-                                  dailyActivity={entry.daily_activity}
-                                  startDate={startDate}
-                                  endDate={endDate}
-                                  mode="points"
-                                />
-                              )}
-                          </div>
-                          <div className="text-right">
-                            <div className="text-3xl font-bold text-[#50B78B]">
-                              {entry.total_points}
-                            </div>
-                            <div className="text-xs text-muted-foreground">
-                              points
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                    entry={entry}
+                    rank={rank}
+                    startDate={startDate}
+                    endDate={endDate}
+                    variant={viewMode === "grid" ? "grid" : "list"}
+                  />
                 );
               })}
             </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Loader2, Activity } from "lucide-react";
@@ -9,7 +9,12 @@ import { PeopleGrid } from "@/components/people/PeopleGrid";
 import { ContributorDetail } from "@/components/people/ContributorDetail";
 import { TeamSection } from "@/components/people/TeamSection";
 import { type TeamMember } from "@/lib/team-data";
+import { Input } from "@/components/ui/input";
+import { Search } from "lucide-react";
 import { useScrollRestoration } from "@/lib/hooks/useScrollRestoration";
+
+
+
 
 interface ContributorEntry {
   username: string;
@@ -51,10 +56,12 @@ export default function PeoplePage() {
   const [people, setPeople] = useState<ContributorEntry[]>([]);
   const [coreTeam, setCoreTeam] = useState<TeamMember[]>([]);
   const [alumni, setAlumni] = useState<TeamMember[]>([]);
-  const [updatedAt, setUpdatedAt] = useState<number>(Date.now());
+  const [updatedAt, setUpdatedAt] = useState<number | null>(null);
   const [selectedContributor, setSelectedContributor] = useState<ContributorEntry | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+
 
   // Use scroll restoration hook - active when no contributor is selected (list view)
   const { saveScrollPosition } = useScrollRestoration({ isActive: !selectedContributor });
@@ -81,6 +88,17 @@ export default function PeoplePage() {
     loadData();
   }, []);
 
+const filteredPeople = useMemo(() => {
+  if (!searchQuery.trim()) return people;
+
+  const query = searchQuery.toLowerCase();
+
+  return people.filter((person) => {
+    const name = person.name?.toLowerCase() || "";
+    const username = person.username.toLowerCase();
+    return name.includes(query) || username.includes(query);
+  });
+}, [people, searchQuery]);
 
 
   const handleContributorClick = (contributor: ContributorEntry) => {
@@ -243,31 +261,51 @@ export default function PeoplePage() {
             teamType="alumni"
           />
 
-          <div className="mb-8">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold mb-4">
-                <span className="text-black dark:text-white">Community </span>
-                <span className="text-[#42B883]">Contributors</span>
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Amazing community members who contribute to CircuitVerse through
-                code, documentation, and more.
-              </p>
-            </div>
-            <div className="flex flex-col gap-4">
-              <PeopleStats
-                contributors={people}
-                onContributorClick={handleContributorClick}
-              />
+        <div className="mb-8">
+  {/* TITLE + SEARCH ROW */}
+    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
+    <h2 className="text-3xl font-bold">
+      <span className="text-black dark:text-white">Community </span>
+      <span className="text-[#42B883]">Contributors</span>
+    </h2>
 
-              <PeopleGrid
-                contributors={people}
-                onContributorClick={handleContributorClick}
-                viewMode="grid"
-                loading={false}
-              />
-            </div>
+    {/* SEARCH BAR — RIGHT SIDE */}
+    <div className="relative w-full sm:w-72">
+      <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+      <Input
+  type="text"
+  aria-label="Search contributors by name or username"
+  placeholder="Search contributors..."
+  value={searchQuery}
+  onChange={(e) => setSearchQuery(e.target.value)}
+  className="pl-9 h-9"
+/>
+
+    </div>
+  </div>
+
+  {/* DESCRIPTION */}
+  <p className="text-lg text-muted-foreground max-w-3xl">
+    Amazing community members who contribute to CircuitVerse through
+    code, documentation, and more.
+  </p>
+</div>
+
+            <div className="flex flex-col gap-4">
+            <PeopleStats 
+              contributors={filteredPeople} 
+              allContributors={people}
+              onContributorClick={handleContributorClick}
+            />
+
+            <PeopleGrid
+              contributors={filteredPeople}
+              onContributorClick={handleContributorClick}
+              viewMode="grid"
+              loading={false}
+            />
           </div>
+            
         </>
       )}
     </div>
