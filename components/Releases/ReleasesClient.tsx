@@ -19,29 +19,40 @@ export default function ReleasesClient({
   return (
     <div className="mt-6 space-y-6">
       {/* Tabs */}
-      <div className="flex gap-6 border-b pb-2">
-        <button
-          onClick={() => setActiveRepo("Mobile App")}
-          className={
-            activeRepo === "Mobile App"
-              ? "font-semibold text-[#50B78B]"
-              : "text-zinc-500"
-          }
-        >
-          Mobile App
-        </button>
+      <div
+  role="tablist"
+  aria-label="Release repositories"
+  className="flex gap-6 border-b pb-2"
+>
+  <button
+    role="tab"
+    aria-selected={activeRepo === "Mobile App"}
+    aria-controls="mobile-panel"
+    onClick={() => setActiveRepo("Mobile App")}
+    className={
+      activeRepo === "Mobile App"
+        ? "font-semibold text-[#50B78B]"
+        : "text-zinc-500"
+    }
+  >
+    Mobile App
+  </button>
 
-        <button
-          onClick={() => setActiveRepo("Vue Simulator")}
-          className={
-            activeRepo === "Vue Simulator"
-              ? "font-semibold text-[#50B78B]"
-              : "text-zinc-500"
-          }
-        >
-          Vue Simulator
-        </button>
-      </div>
+  <button
+    role="tab"
+    aria-selected={activeRepo === "Vue Simulator"}
+    aria-controls="vue-panel"
+    onClick={() => setActiveRepo("Vue Simulator")}
+    className={
+      activeRepo === "Vue Simulator"
+        ? "font-semibold text-[#50B78B]"
+        : "text-zinc-500"
+    }
+  >
+    Vue Simulator
+  </button>
+</div>
+  
 
       {/* Content */}
       {filtered.length === 0 ? (
