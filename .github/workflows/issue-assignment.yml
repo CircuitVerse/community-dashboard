@@ -15,6 +15,10 @@ jobs:
       !github.event.issue.pull_request &&
       contains(github.event.comment.body, '@bot assign')
     runs-on: ubuntu-latest
+    # Prevent race conditions - only one job per issue at a time
+    concurrency:
+      group: issue-assign-${{ github.event.issue.number }}
+      cancel-in-progress: false
 
     steps:
       - name: Check and Assign Issue
@@ -28,10 +32,35 @@ jobs:
 
             console.log(`Processing @bot assign from ${commenter} on issue #${issue.number}`);
 
-            // Check if issue is already assigned
-            if (issue.assignees && issue.assignees.length > 0) {
-              console.log(`Issue already assigned`);
+            // Validate exact command match
+            const commentBody = context.payload.comment.body.trim();
+            if (commentBody !== '@bot assign') {
+              console.log(`Comment "${commentBody}" is not an exact match for "@bot assign", skipping`);
+              return;
+            }
 
+            // Re-fetch issue to get current state (prevents race conditions)
+            const { data: currentIssue } = await github.rest.issues.get({
+              ...repo,
+              issue_number: issue.number
+            });
+
+            // Check if issue is already assigned
+            if (currentIssue.assignees && currentIssue.assignees.length > 0) {
+              const currentAssignee = currentIssue.assignees[0].login;
+
+              // Check if already assigned to the same commenter
+              if (currentAssignee === commenter) {
+                console.log(`Issue already assigned to commenter ${commenter}`);
+                await github.rest.issues.createComment({
+                  ...repo,
+                  issue_number: issue.number,
+                  body: `@${commenter} This issue is already assigned to you.`
+                });
+                return;
+              }
+
+              console.log(`Issue already assigned to ${currentAssignee}`);
               await github.rest.issues.createComment({
                 ...repo,
                 issue_number: issue.number,
@@ -40,18 +69,14 @@ jobs:
               return;
             }
 
-            // Check if commenter has any other open assigned issues
-            const { data: allOpenIssues } = await github.rest.issues.listForRepo({
-              ...repo,
-              state: 'open',
-              per_page: 100
+            // Check if commenter has any other open assigned issues using Search API
+            const { data: searchResult } = await github.rest.search.issuesAndPullRequests({
+              q: `repo:${repo.owner}/${repo.repo} is:issue is:open assignee:${commenter}`
             });
 
-            // Filter to find issues assigned to this commenter (excluding current issue)
-            const otherAssignedIssues = allOpenIssues.filter(i =>
-              i.number !== issue.number &&
-              i.assignees &&
-              i.assignees.some(a => a.login === commenter)
+            // Filter out the current issue and PRs
+            const otherAssignedIssues = searchResult.items.filter(i =>
+              i.number !== issue.number && !i.pull_request
             );
 
             if (otherAssignedIssues.length > 0) {
@@ -106,6 +131,10 @@ jobs:
       !github.event.issue.pull_request &&
       contains(github.event.comment.body, '@bot unclaim')
     runs-on: ubuntu-latest
+    # Prevent race conditions - only one job per issue at a time
+    concurrency:
+      group: issue-assign-${{ github.event.issue.number }}
+      cancel-in-progress: false
 
     steps:
       - name: Unclaim Issue
@@ -119,8 +148,21 @@ jobs:
 
             console.log(`Processing @bot unclaim from ${commenter} on issue #${issue.number}`);
 
+            // Validate exact command match
+            const commentBody = context.payload.comment.body.trim();
+            if (commentBody !== '@bot unclaim') {
+              console.log(`Comment "${commentBody}" is not an exact match for "@bot unclaim", skipping`);
+              return;
+            }
+
+            // Re-fetch issue to get current state
+            const { data: currentIssue } = await github.rest.issues.get({
+              ...repo,
+              issue_number: issue.number
+            });
+
             // Check if commenter is actually assigned to this issue
-            const isAssigned = issue.assignees && issue.assignees.some(a => a.login === commenter);
+            const isAssigned = currentIssue.assignees && currentIssue.assignees.some(a => a.login === commenter);
 
             if (!isAssigned) {
               console.log(`User ${commenter} is not assigned to this issue`);
@@ -165,7 +207,7 @@ jobs:
             await github.rest.issues.createComment({
               ...repo,
               issue_number: issue.number,
-              body: `@${commenter} You have been unassigned from this issue.`
+              body: `@${commenter} You have been unassigned from this issue. It's now available for others to claim.`
             });
 
             console.log(`Successfully unassigned ${commenter} from issue #${issue.number}`);
