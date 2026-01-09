@@ -24,33 +24,24 @@ function LeaderboardCardSkeleton({ variant = "list" }: { variant?: "grid" | "lis
     return (
       <Card className="overflow-hidden border">
         <CardContent className="p-4 sm:p-6">
-          {/* Mobile Layout */}
-          <div className="flex items-center gap-3 sm:hidden">
-            {/* Rank */}
-            <div className="w-[5%] flex justify-center">
-              <SkeletonPulse className="size-6 rounded-full" />
+          {/* Mobile Layout - match grid card structure */}
+          <div className="sm:hidden flex flex-col items-center text-center gap-3 h-full">
+            <div className="relative flex-shrink-0">
+              <SkeletonPulse className="size-16 rounded-full" />
+              <SkeletonPulse className="absolute -top-1 -right-1 size-6 rounded-full" />
             </div>
 
-            {/* Avatar + Name */}
-            <div className="flex flex-col items-center gap-2 w-[35%]">
-              <SkeletonPulse className="size-12 rounded-full" />
-              <div className="w-full space-y-1">
-                <SkeletonPulse className="h-3.5 w-full mx-auto" />
-                <SkeletonPulse className="h-3 w-3/4 mx-auto" />
-              </div>
+            <div className="text-center w-full space-y-2">
+              <SkeletonPulse className="h-4 w-24 mx-auto" />
+              <SkeletonPulse className="h-3 w-20 mx-auto" />
+              <SkeletonPulse className="h-5 w-16 mx-auto rounded-full" />
+              <SkeletonPulse className="h-5 w-14 mx-auto" />
             </div>
 
-            {/* Activity + Points */}
-            <div className="flex flex-col gap-2 w-[60%]">
-              <div className="flex items-center justify-between">
-                <SkeletonPulse className="h-5 w-14 rounded-full" />
-                <SkeletonPulse className="h-5 w-12" />
-              </div>
-              <div className="space-y-1.5">
-                <SkeletonPulse className="h-6 w-full rounded" />
-                <SkeletonPulse className="h-6 w-full rounded" />
-                <SkeletonPulse className="h-6 w-3/4 rounded" />
-              </div>
+            <div className="w-full space-y-2 flex-1">
+              <SkeletonPulse className="h-8 w-full rounded" />
+              <SkeletonPulse className="h-8 w-full rounded" />
+              <SkeletonPulse className="h-8 w-full rounded" />
             </div>
           </div>
 
@@ -182,7 +173,7 @@ export function LeaderboardSkeleton({ count = 10, variant = "list" }: Leaderboar
           {/* Cards */}
           <div className={cn(
             variant === "grid"
-              ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6"
+              ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6"
               : "space-y-4"
           )}>
             {Array.from({ length: count }).map((_, i) => (
