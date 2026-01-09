@@ -5,7 +5,7 @@ export default async function ReleasesPage() {
   const releases = await getReleases();
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-10 space-y-6">
+   <div className="max-w-5xl mx-auto px-4 pt-10 pb-32 space-y-6">
       <div>
         <h1 className="text-3xl font-bold text-[#50B78B]">
           Releases
