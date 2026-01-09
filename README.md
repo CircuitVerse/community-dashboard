@@ -19,17 +19,14 @@
 
 ## 📸 Screenshots
 
-### Leaderboard View (Light Mode)
-![Leaderboard Light Mode](docs/images/leaderboard-light.png)
+| 🌞 Leaderboard Light Mode View | 🌙 Leaderboard Dark Mode View |
+|--------------|-------------|
+| ![Leaderboard Light Mode](docs/images/leaderboard-light.png) | ![Leaderboard Dark Mode](docs/images/leaderboard-dark.png) |
 
-### Leaderboard View (Dark Mode)
-![Leaderboard Dark Mode](docs/images/leaderboard-dark.png)
+| 📱 Mobile Responsive View | 🗂️ Empty State UI |
+|---------------|---------------|
+| ![Mobile Responsive View](docs/images/leaderboard-mobile.png) | ![Empty State UI](docs/images/empty-state.png) |
 
-### Mobile Responsive View
-![Mobile View](docs/images/leaderboard-mobile.png)
-
-### Empty State UI
-![Empty State](docs/images/empty-state.png)
 
 ---
 
