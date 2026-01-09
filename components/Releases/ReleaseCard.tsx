@@ -10,7 +10,7 @@ export function ReleaseCard({ release }: { release: Release }) {
       <CardContent className="p-5 space-y-4">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4">
-          <div>
+          <div className="min-w-0">
             <h3 className="text-base sm:text-lg font-semibold break-words">
   {release.repo} — {release.version}
 </h3>
@@ -19,7 +19,7 @@ export function ReleaseCard({ release }: { release: Release }) {
 </p>
 
           </div>
-         <span className="text-xs sm:text-sm text-zinc-500 whitespace-nowrap sm:self-start">
+         <span className="text-xs sm:text-sm text-zinc-500 whitespace-normal sm:whitespace-nowrap sm:self-start">
   {release.date}
 </span>
        
