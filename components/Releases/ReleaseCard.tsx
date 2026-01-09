@@ -8,10 +8,10 @@ export function ReleaseCard({ release }: { release: Release }) {
   return (
     <Card className="transition-all hover:shadow-md hover:border-[#50B78B]/50">
       <CardContent className="p-5 space-y-4">
-        {/* Header */}
-        <div className="flex items-start justify-between gap-4">
+        {/* Header - Fixed for Mobile */}
+        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 sm:gap-4">
           <div>
-            <h3 className="text-lg font-semibold">
+            <h3 className="text-lg font-semibold break-words">
               {release.repo} — {release.version}
             </h3>
             <p className="text-sm text-muted-foreground">
