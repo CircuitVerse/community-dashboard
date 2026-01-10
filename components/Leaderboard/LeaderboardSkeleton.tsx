@@ -23,9 +23,9 @@ function LeaderboardCardSkeleton({ variant = "list" }: { variant?: "grid" | "lis
   if (variant === "list") {
     return (
       <Card className="overflow-hidden border">
-        <CardContent className="p-4 sm:p-6">
-          {/* Mobile Layout - match grid card structure */}
-          <div className="sm:hidden flex flex-col items-center text-center gap-3 h-full">
+        <CardContent className="p-4 lg:p-6">
+          {/* Mobile/Tablet Layout - match grid card structure */}
+          <div className="lg:hidden flex flex-col items-center text-center gap-3 h-full">
             <div className="relative flex-shrink-0">
               <SkeletonPulse className="size-16 rounded-full" />
               <SkeletonPulse className="absolute -top-1 -right-1 size-6 rounded-full" />
@@ -46,7 +46,7 @@ function LeaderboardCardSkeleton({ variant = "list" }: { variant?: "grid" | "lis
           </div>
 
           {/* Desktop Layout */}
-          <div className="hidden sm:flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-6">
             {/* Rank */}
             <SkeletonPulse className="size-10 rounded-full shrink-0" />
 

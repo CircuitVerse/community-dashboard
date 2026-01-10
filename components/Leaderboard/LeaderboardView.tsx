@@ -192,7 +192,7 @@ export default function LeaderboardView({
 
   const [viewMode, setViewMode] = useState<"grid" | "list">(() => {
     const v = searchParams.get("v");
-    if (typeof window !== "undefined" && window.innerWidth < 768) {
+    if (typeof window !== "undefined" && window.innerWidth < 1024) {
       return "list";
     }
     return v === "grid" ? "grid" : "list";
@@ -200,7 +200,7 @@ export default function LeaderboardView({
 
   useEffect(() => {
     const v = searchParams.get("v");
-    if (typeof window !== "undefined" && window.innerWidth < 768) {
+    if (typeof window !== "undefined" && window.innerWidth < 1024) {
       setViewMode("list");
       return;
     }
@@ -226,8 +226,8 @@ export default function LeaderboardView({
   };
 
   const handleViewModeChange = (mode: "grid" | "list") => {
-    // Prevent grid view on mobile
-    if (typeof window !== "undefined" && window.innerWidth < 768 && mode === "grid") {
+    // Prevent grid view on mobile/tablet
+    if (typeof window !== "undefined" && window.innerWidth < 1024 && mode === "grid") {
       return;
     }
     setViewMode(mode);
@@ -523,15 +523,14 @@ export default function LeaderboardView({
               <div
                 className="
                   w-full
-                  md:w-auto md:ml-auto
+                  lg:w-auto lg:ml-auto
                   flex flex-col
-                  md:flex-row md:items-center
                   lg:flex-row lg:items-center
                   gap-2
                 "
               >
-                {/* Search bar - full width on mobile */}
-                <div className="relative w-full md:w-[20rem] lg:w-[16rem]">
+                {/* Search bar - full width on mobile/tablet */}
+                <div className="relative w-full lg:w-[16rem]">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <Input
                     type="text"
@@ -543,10 +542,10 @@ export default function LeaderboardView({
                 </div>
 
                 {/* Controls row - grid/list on left, filter on right */}
-                <div className="flex items-center justify-between w-full md:w-auto md:justify-end gap-2">
+                <div className="flex items-center justify-between w-full lg:w-auto lg:justify-end gap-2">
                   <div className="flex items-center gap-2">
-                    {/* Hide grid/list toggle on mobile, show only on tablet+ */}
-                    <div className="hidden md:flex w-fit items-center justify-center gap-1 p-1 bg-muted rounded-lg">
+                    {/* Hide grid/list toggle on mobile/tablet, show only on desktop */}
+                    <div className="hidden lg:flex w-fit items-center justify-center gap-1 p-1 bg-muted rounded-lg">
                       <Button
                         variant={viewMode === "list" ? "default" : "ghost"}
                         size="sm"
@@ -818,8 +817,8 @@ export default function LeaderboardView({
             <div className={cn(
               "transition-all duration-300 ease-in-out",
               viewMode === "grid"
-                ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6"
-                : "space-y-4"
+                ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6"
+                : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 lg:gap-0 lg:space-y-4 lg:block"
             )}>
               {paginatedEntries.map((entry, index) => {
                 // Use the pre-computed rank from entryRanks, which is based on full sorted list

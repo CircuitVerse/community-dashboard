@@ -159,9 +159,9 @@ export function LeaderboardCard({
           {/* Glossy Shine Effect */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 dark:via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
 
-          <CardContent className="p-4 sm:p-6 relative z-10">
-            {/* Mobile View - Grid Card Structure */}
-            <div className="sm:hidden flex flex-col items-center text-center gap-3 h-full">
+          <CardContent className="p-4 lg:p-6 relative z-10">
+            {/* Mobile/Tablet View - Grid Card Structure */}
+            <div className="lg:hidden flex flex-col items-center text-center gap-3 h-full">
               {/* Rank Badge - Top Right of Avatar */}
               <div className="relative flex-shrink-0">
                 <div
@@ -255,7 +255,7 @@ export function LeaderboardCard({
               </div>
             </div>
 
-            <div className="hidden sm:flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+            <div className="hidden lg:flex flex-row items-center gap-6">
 
               {/* Rank */}
               <div className="flex items-center justify-center size-12 shrink-0">
