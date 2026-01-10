@@ -528,11 +528,15 @@ async function processIssueTriagingEvents(
 ) {
   try {
     // Extract repo name from html_url
-    const urlParts = issue.html_url.split('/');
-    const repoName = urlParts[4]; // github.com/org/repo/issues/number
-    const issueNumber = urlParts[6];
+    const url = new URL(issue.html_url);
+    const pathParts = url.pathname.split('/').filter(Boolean);
+    // Expected: [org, repo, 'issues', number]
+    if (pathParts.length < 4 || pathParts[2] !== 'issues') return;
     
-    if (!repoName || !issueNumber) return;
+    const repoName = pathParts[1];
+    const issueNumber = pathParts[3];
+    
+    if (!repoName || !issueNumber || isNaN(Number(issueNumber))) return;
     
     // Fetch issue events (labeled, assigned, closed)
     const eventsRes = await fetch(
@@ -580,15 +584,15 @@ async function processIssueTriagingEvents(
           break;
           
         case "assigned":
-          // Only count assignments by maintainers/collaborators (not self-assignments by issue authors)
-          if (event.actor.login !== issue.user.login) {
+          // Only count assignments where the actor is not assigning themselves
+          if (event.assignee && event.actor.login !== event.assignee.login) {
             addActivity(
               user,
               "Issue assigned",
               event.created_at,
               POINTS["Issue assigned"],
               { 
-                title: `Assigned issue #${issueNumber}`, 
+                title: `Assigned issue #${issueNumber} to ${event.assignee.login}`, 
                 link: issue.html_url 
               }
             );
