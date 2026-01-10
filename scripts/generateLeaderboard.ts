@@ -597,51 +597,53 @@ async function generateRepoOverview() {
   console.log("📊 Generating repo overview");
 
   const repos = await fetchOrgRepos();
+
   const res: RepoStats[] = [];
 
   console.log(`📦 ${repos.length} repositories found`);
 
   for (const repo of repos) {
-    console.log(`   📁 Fetching repo ${ORG}/${repo}...`);
-
-    const meta = await fetchRepoMeta(repo);
-    if (!meta) {
-      console.log(`      ⚠️ Skipped (meta fetch failed)`);
+    try {
+      console.log(`   📁 Fetching repo ${ORG}/${repo}...`);
+      const meta = await fetchRepoMeta(repo);
+      if (!meta) {
+        console.log(`      ⚠️ Skipped (meta fetch failed)`);
+        continue;
+      }
+      console.log(`      📈 Fetching CURRENT stats`);
+      const issue_created = await fetchIssuesCreated(repo);
+      const pr_opened = await fetchPRsOpened(repo);
+      const { current: pr_merged, previous: pr_merged_prev } = await fetchPRsMerge(repo);
+      
+      const currentTotal = issue_created + pr_opened + pr_merged;
+      res.push({
+        name: repo,
+        description: meta.description,
+        language: meta.language,
+        avatar_url: meta.owner.avatar_url,
+        html_url: meta.html_url,
+        stars: meta.stargazers_count,
+        forks: meta.forks,
+        current: {
+          pr_opened,
+          pr_merged,
+          issue_created,
+          currentTotalContribution: currentTotal
+        },
+        previous: {
+          pr_merged: pr_merged_prev,
+        },
+        growth: {
+          pr_merged: pr_merged - pr_merged_prev,
+        },
+      });
+      console.log(`      ✅ Done`);
+    } catch (error) {
+      console.error(`      ❌ Error processing ${repo}:`, error);
+      // Continue with next repo
       continue;
     }
-
-    console.log(`      📈 Fetching CURRENT stats`);
-    const issue_created = await fetchIssuesCreated(repo);
-    const pr_opened = await fetchPRsOpened(repo);
-    const { current: pr_merged, previous: pr_merged_prev } = await fetchPRsMerge(repo);
-    
-    const currentTotal = issue_created + pr_opened + pr_merged;
-
-    res.push({
-      name: repo,
-      description: meta.description,
-      language: meta.language,
-      avatar_url: meta.owner.avatar_url,
-      html_url: meta.html_url,
-      stars: meta.stargazers_count,
-      forks: meta.forks,
-      current: {
-        pr_opened,
-        pr_merged,
-        issue_created,
-        currentTotalContribution: currentTotal
-      },
-      previous: {
-        pr_merged: pr_merged_prev,
-      },
-      growth: {
-        pr_merged: pr_merged - pr_merged_prev,
-      },
-    });
-
-    console.log(`      ✅ Done`);
   }
-
   writeRepoOverview(res);
 }
 
@@ -875,7 +877,7 @@ async function generateYear() {
   derivePeriod(yearData, 7, "week");
   derivePeriod(yearData, 30, "month");
   generateRecentActivities(yearData);
-  generateRepoOverview();
+  await generateRepoOverview();
 }
 
 /* -------------------------------------------------------
