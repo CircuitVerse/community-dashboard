@@ -1,6 +1,6 @@
 // lib/db.ts — temporary stub (no DB)
 
-import { UserEntry } from "@/scripts/generateLeaderboard";
+import { RepoStats, UserEntry } from "@/scripts/generateLeaderboard";
 import fs from "fs";
 import path from "path";
 import { differenceInDays } from "date-fns";
@@ -224,8 +224,22 @@ export async function getPreviousMonthActivityCount(): Promise<number> {
   return count;
 }
 
-export async function getLeaderboard() {
-  return [];
+export async function getReposOverview(): Promise<RepoStats[]> {
+  const filePath = path.join(
+    process.cwd(),
+    "public",
+    "leaderboard",
+    `overview.json`
+  );
+
+  if (!fs.existsSync(filePath)) return [];
+
+  const file = fs.readFileSync(filePath, "utf-8");
+  const data = JSON.parse(file);
+
+  if (!data?.repos?.length) return [];
+
+  return data.repos;
 }
 
 export async function getTopContributorsByActivity() {
