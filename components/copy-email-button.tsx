@@ -43,7 +43,7 @@ export default function CopyEmailButton() {
 
   return (
     <div className="relative">
-      <Hint label="Email">  
+      <Hint label="Email">
         <button
           type="button"
           onClick={handleCopy}
