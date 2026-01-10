@@ -3,7 +3,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { Trophy, GitMerge, GitPullRequest, AlertCircle, Eye } from "lucide-react";
+import { Trophy, GitMerge, GitPullRequest, AlertCircle, Eye, Tag, UserPlus, CheckCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ActivityTrendChart from "./ActivityTrendChart";
 import "./LeaderboardCard.css";
@@ -37,6 +37,24 @@ const activityStyles: Record<string, {
     bgColor: "bg-green-500/10 dark:bg-green-500/15",
     textColor: "text-green-700 dark:text-green-400",
     borderColor: "border-l-green-500"
+  },
+  "Issue labeled": {
+    icon: Tag,
+    bgColor: "bg-yellow-500/10 dark:bg-yellow-500/15",
+    textColor: "text-yellow-700 dark:text-yellow-400",
+    borderColor: "border-l-yellow-500"
+  },
+  "Issue assigned": {
+    icon: UserPlus,
+    bgColor: "bg-indigo-500/10 dark:bg-indigo-500/15",
+    textColor: "text-indigo-700 dark:text-indigo-400",
+    borderColor: "border-l-indigo-500"
+  },
+  "Issue closed": {
+    icon: CheckCircle,
+    bgColor: "bg-emerald-500/10 dark:bg-emerald-500/15",
+    textColor: "text-emerald-700 dark:text-emerald-400",
+    borderColor: "border-l-emerald-500"
   }
 };
 
@@ -92,8 +110,11 @@ export function LeaderboardCard({
       const activityPriority: Record<string, number> = {
         "PR merged": 1,
         "PR opened": 2,
-        "Issue opened": 3,
-        "Review submitted": 4,
+        "Issue closed": 3,
+        "Issue assigned": 4,
+        "Issue opened": 5,
+        "Issue labeled": 6,
+        "Review submitted": 7,
       };
       const priorityA = activityPriority[a[0]] ?? 99;
       const priorityB = activityPriority[b[0]] ?? 99;

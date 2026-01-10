@@ -27,6 +27,9 @@ const POINTS = {
   "PR merged": 5,
   "Issue opened": 1,
   "Review submitted": 4,
+  "Issue labeled": 2,
+  "Issue assigned": 2,
+  "Issue closed": 1,
 } as const;
 
 /* -------------------------------------------------------
@@ -34,7 +37,7 @@ const POINTS = {
 ------------------------------------------------------- */
 
 export type RawActivity = {
-  type: "PR opened" | "PR merged" | "Issue opened" | "Review submitted";
+  type: "PR opened" | "PR merged" | "Issue opened" | "Review submitted" | "Issue labeled" | "Issue assigned" | "Issue closed";
   occured_at: string;
   title?: string | null;
   link?: string | null;
@@ -306,6 +309,15 @@ interface GitHubReview {
   submitted_at: string;
 }
 
+interface GitHubIssueEvent {
+  event: string;
+  actor: { login: string; avatar_url?: string; type?: string };
+  created_at: string;
+  label?: { name: string };
+  assignee?: { login: string };
+}
+
+
 async function fetchOrgRepos(): Promise<string[]> {
   const repos: string[] = [];
   let page = 1;
@@ -465,188 +477,165 @@ async function fetchAllReviews(
 }
 
 /* -------------------------------------------------------
-   OVERVIEW LOGIC
+   FETCH ISSUE TRIAGING ACTIVITIES
 ------------------------------------------------------- */
 
-export type RepoStats = {
-  name: string;
-  description: string | null;
-  language: string | null;
-  avatar_url: string;
-  html_url: string;
-  stars: number;
-  forks: number;
-  current: {
-    pr_opened: number;
-    pr_merged: number;
-    issue_created: number;
-    currentTotalContribution: number;
-  }
-  previous: {
-    pr_merged: number;
-  }
-  growth: {
-    pr_merged: number;
-  };
-};
-
-const NOW = new Date();
-const CURRENT_START = daysAgo(30);
-const PREVIOUS_START = daysAgo(60);
-
-// ------ Helpers ------
-
-async function fetchRepoMeta(repo:string) {
-   const res = await fetch(`${GITHUB_API}/repos/${ORG}/${repo}`, {
-    headers: {
-      Authorization: `Bearer ${TOKEN}`,
-      Accept: "application/vnd.github+json",
-    }
-  });
-
-  if (!res.ok) return null;
-  await smartSleep(res, 300)
-  return res.json()
-}
-
-async function fetchAll<T = any>(url: string): Promise<T[]> {
-   let page = 1;
-   const results: T[] = [];
-   while (true) {
-    const join = url.includes("?") ? "&" : "?";
-    const res = await fetch(`${url}${join}per_page=100&page=${page}`, {
-       headers: {
-         Authorization: `Bearer ${TOKEN}`,
-         Accept: "application/vnd.github+json",
-       },
-     });
-
-    if (!res.ok) {
-      const text = await res.text().catch(() => "");
-      throw new Error(`GitHub API ${res.status}: ${text}`);
-    }
-    await smartSleep(res, 500);
-    const data: T[] = await res.json();
-    results.push(...data);
-
-     if (data.length < 100) break;
-     page++;
-   }
-
-   return results;
- }
-
-// ------ Metric fetchers ------
-
-async function fetchIssuesCreated(repo: string) {
-  console.log("      🔎 Fetching current issues...");
-  const issues = await fetchAll(
-    `${GITHUB_API}/repos/${ORG}/${repo}/issues?state=all&since=${iso(CURRENT_START)}`
+async function fetchIssueTriagingActivities(
+  users: Map<string, Contributor>,
+  since: Date,
+  now: Date
+) {
+  console.log("🔍 Issue triaging activities");
+  
+  // Use GitHub Search API for better historical coverage
+  console.log("   📌 Fetching issue events (labeled, assigned, closed)...");
+  
+  // Search for issues that were updated in our timeframe to capture triaging activities
+  const updatedIssues = await searchByDateChunks(
+    `org:${ORG}+is:issue`,
+    since,
+    now,
+    30,
+    "updated"
   );
-
-  return issues.filter(
-    i =>
-      !i.pull_request &&
-      new Date(i.created_at) >= CURRENT_START &&
-      !isBotUser(i.user)
-  ).length;
-}
-
-async function fetchPRsOpened(repo: string) {
-  console.log("      🔎 Fetching current PRs opened...");
-  const prs = await fetchAll(
-    `${GITHUB_API}/repos/${ORG}/${repo}/pulls?state=all&sort=created&direction=desc`
-  );
-
-  return prs.filter(
-    pr => new Date(pr.created_at) >= CURRENT_START && (!isBotUser(pr.user))
-  ).length;
-}
-
-async function fetchPRsMerge(repo:string) {
-  console.log("      🔎 Fetching PRs merged...");
-  const prs = await fetchAll(
-    `${GITHUB_API}/repos/${ORG}/${repo}/pulls?state=closed&sort=updated&direction=desc`
-  );
-
-  let current = 0;
-  let previous = 0;
-
-  for (const pr of prs) {
-    if (!pr.merged_at) continue;
-    if (isBotUser(pr.user)) continue;
-    const mergedAt = new Date(pr.merged_at);
-    if (mergedAt >= CURRENT_START && mergedAt <= NOW) current++;
-    if (mergedAt >= PREVIOUS_START && mergedAt < CURRENT_START) previous++;
-  }
-
-  return { current, previous };
-}
-
-function writeRepoOverview(repo:RepoStats[]) {
-  fs.writeFileSync(
-      path.join(process.cwd(), "public", "leaderboard", "overview.json"),
-      JSON.stringify({
-        updatedAt: Date.now(),
-        period: "Last_30days",
-        repos: repo
-      }, null, 2)
+  
+  console.log(`   📊 Found ${updatedIssues.length} updated issues to scan for triaging activities`);
+  
+  // Process issues in batches to avoid rate limiting
+  const batchSize = 10;
+  const issueBatches = chunk(updatedIssues, batchSize);
+  
+  for (const [batchIndex, batch] of issueBatches.entries()) {
+    console.log(`   🔄 Processing issue batch ${batchIndex + 1}/${issueBatches.length}...`);
+    
+    // Process each issue for events
+    await Promise.all(
+      batch.map(issue => processIssueTriagingEvents(users, issue, since, now))
     );
-    console.log(`✅ Generated overview.json (${repo.length} repos)`);
+    
+    // Small delay between batches
+    await sleep(1000);
+  }
+  
+  console.log("✅ Issue triaging activities scan completed");
 }
 
-async function generateRepoOverview() {
-  console.log("📊 Generating repo overview");
-
-  const repos = await fetchOrgRepos();
-
-  const res: RepoStats[] = [];
-
-  console.log(`📦 ${repos.length} repositories found`);
-
-  for (const repo of repos) {
-    try {
-      console.log(`   📁 Fetching repo ${ORG}/${repo}...`);
-      const meta = await fetchRepoMeta(repo);
-      if (!meta) {
-        console.log(`      ⚠️ Skipped (meta fetch failed)`);
-        continue;
+async function processIssueTriagingEvents(
+  users: Map<string, Contributor>,
+  issue: GitHubSearchItem,
+  since: Date,
+  now: Date
+) {
+  try {
+    // Extract repo name from html_url
+    const url = new URL(issue.html_url);
+    const pathParts = url.pathname.split('/').filter(Boolean);
+    // Expected: [org, repo, 'issues', number]
+    if (pathParts.length < 4 || pathParts[2] !== 'issues') return;
+    
+    const repoName = pathParts[1];
+    const issueNumber = pathParts[3];
+    
+    if (!repoName || !issueNumber || isNaN(Number(issueNumber))) return;
+    
+    // Fetch issue events (labeled, assigned, closed)
+    const eventsRes = await fetch(
+      `${GITHUB_API}/repos/${ORG}/${repoName}/issues/${issueNumber}/events`,
+      {
+        headers: {
+          Authorization: `Bearer ${TOKEN}`,
+          Accept: "application/vnd.github+json",
+        },
       }
-      console.log(`      📈 Fetching CURRENT stats`);
-      const issue_created = await fetchIssuesCreated(repo);
-      const pr_opened = await fetchPRsOpened(repo);
-      const { current: pr_merged, previous: pr_merged_prev } = await fetchPRsMerge(repo);
-      
-      const currentTotal = issue_created + pr_opened + pr_merged;
-      res.push({
-        name: repo,
-        description: meta.description,
-        language: meta.language,
-        avatar_url: meta.owner.avatar_url,
-        html_url: meta.html_url,
-        stars: meta.stargazers_count,
-        forks: meta.forks,
-        current: {
-          pr_opened,
-          pr_merged,
-          issue_created,
-          currentTotalContribution: currentTotal
-        },
-        previous: {
-          pr_merged: pr_merged_prev,
-        },
-        growth: {
-          pr_merged: pr_merged - pr_merged_prev,
-        },
-      });
-      console.log(`      ✅ Done`);
-    } catch (error) {
-      console.error(`      ❌ Error processing ${repo}:`, error);
-      // Continue with next repo
-      continue;
+    );
+    
+    if (!eventsRes.ok) {
+      console.error(`     ⚠️ Failed to fetch events for ${repoName}#${issueNumber}: ${eventsRes.status}`);
+      return;
     }
+    
+    const events: GitHubIssueEvent[] = await eventsRes.json();
+    await smartSleep(eventsRes, 500);
+    
+    // Process events for triaging activities
+    for (const event of events) {
+      if (!event.actor?.login || isBotUser(event.actor)) continue;
+      
+      const eventDate = new Date(event.created_at);
+      if (eventDate < since || eventDate > now) continue;
+      
+      const user = ensureUser(users, event.actor);
+      
+      switch (event.event) {
+        case "labeled":
+          // Only count meaningful labels (not automated ones)
+          if (event.label?.name && !isAutomatedLabel(event.label.name)) {
+            addActivity(
+              user,
+              "Issue labeled",
+              event.created_at,
+              POINTS["Issue labeled"],
+              { 
+                title: `Labeled issue #${issueNumber}: ${event.label.name}`, 
+                link: issue.html_url 
+              }
+            );
+          }
+          break;
+          
+        case "assigned":
+          // Only count assignments where the actor is not assigning themselves
+          if (event.assignee && event.actor.login !== event.assignee.login) {
+            addActivity(
+              user,
+              "Issue assigned",
+              event.created_at,
+              POINTS["Issue assigned"],
+              { 
+                title: `Assigned issue #${issueNumber} to ${event.assignee.login}`, 
+                link: issue.html_url 
+              }
+            );
+          }
+          break;
+          
+        case "closed":
+          // Only count manual closures by maintainers
+          if (event.actor.login !== issue.user.login) {
+            addActivity(
+              user,
+              "Issue closed",
+              event.created_at,
+              POINTS["Issue closed"],
+              { 
+                title: `Closed issue #${issueNumber}: ${sanitizeTitle(issue.title)}`, 
+                link: issue.html_url 
+              }
+            );
+          }
+          break;
+      }
+    }
+  } catch (error) {
+    console.error(`     ❌ Error processing issue events: ${error}`);
   }
-  writeRepoOverview(res);
+}
+
+// Helper function to filter out automated labels
+function isAutomatedLabel(labelName: string): boolean {
+  const automatedLabels = [
+    'stale',
+    'wontfix',
+    'duplicate',
+    'invalid',
+    'dependencies',
+    'security',
+    'github_actions'
+  ];
+  
+  return automatedLabels.some(auto => 
+    labelName.toLowerCase().includes(auto.toLowerCase())
+  );
 }
 
 
@@ -836,6 +825,9 @@ async function generateYear() {
 
   // Fetch reviews
   await fetchAllReviews(users, since, now);
+  
+  // Fetch issue triaging activities
+  await fetchIssueTriagingActivities(users, since, now);
   
   // Merge existing activities (incremental mode)
   if (isIncremental) {
