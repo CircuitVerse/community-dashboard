@@ -145,6 +145,23 @@ export const Footer = async ({ config }: FooterProps) => {
               </Hint>
 
               <CopyEmailButton />
+
+              <Hint label="Slack">
+                <Link
+                  href="https://circuitverse-team.slack.com/ssb/redirect"
+                  target="_blank"
+                  className="text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 p-2 sm:p-2 rounded-full transition-all duration-200"
+                  aria-label="Slack"
+                >
+                  <Image
+                    src="/slack.svg"
+                    alt="Slack"
+                    width={20}
+                    height={20}
+                    className="w-5 h-5 sm:w-5 sm:h-5"
+                  />
+                </Link>
+              </Hint>
             </div>
           </div>
 
