@@ -173,8 +173,8 @@ export function LeaderboardSkeleton({ count = 10, variant = "list" }: Leaderboar
           {/* Cards */}
           <div className={cn(
             variant === "grid"
-              ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6"
-              : "space-y-4"
+              ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6"
+              : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 lg:gap-0 lg:space-y-4 lg:block"
           )}>
             {Array.from({ length: count }).map((_, i) => (
               <LeaderboardCardSkeleton key={i} variant={variant} />

@@ -190,13 +190,7 @@ export default function LeaderboardView({
   const [popoverOpen, setPopoverOpen] = useState(false);
   const pathname = usePathname();
 
-  const [viewMode, setViewMode] = useState<"grid" | "list">(() => {
-    const v = searchParams.get("v");
-    if (typeof window !== "undefined" && window.innerWidth < 1024) {
-      return "list";
-    }
-    return v === "grid" ? "grid" : "list";
-  });
+  const [viewMode, setViewMode] = useState<"grid" | "list">("list");
 
   useEffect(() => {
     const v = searchParams.get("v");
