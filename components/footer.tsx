@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 
 import Hint from "./hint";
+import CopyEmailButton from "./copy-email-button";
 
 import { Config } from "@/types/config";
 
@@ -143,15 +144,18 @@ export const Footer = async ({ config }: FooterProps) => {
                 </Link>
               </Hint>
 
-              <Hint label="Email">
+              <CopyEmailButton />
+
+              <Hint label="Slack">
                 <Link
-                  href="mailto:support@circuitverse.org"
-                  className="text-zinc-400 group/em hover:bg-zinc-100 dark:hover:bg-zinc-800 p-2 sm:p-2 rounded-full transition-all duration-200"
-                  aria-label="Email"
+                  href="https://circuitverse-team.slack.com/ssb/redirect"
+                  target="_blank"
+                  className="text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 p-2 sm:p-2 rounded-full transition-all duration-200"
+                  aria-label="Slack"
                 >
                   <Image
-                    src="/gmail.svg"
-                    alt="Email"
+                    src="/slack.svg"
+                    alt="Slack"
                     width={20}
                     height={20}
                     className="w-5 h-5 sm:w-5 sm:h-5"
