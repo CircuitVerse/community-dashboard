@@ -428,7 +428,7 @@ export default function LeaderboardView({
   const updatePageSize = (newPageSize: number | "all") => {
     const params = new URLSearchParams(searchParams.toString());
     if (newPageSize === "all" || newPageSize === Infinity) {
-      params.delete("limit");
+      params.set("limit", "all");
       setPageSize(Infinity);
     } else {
       params.set("limit", newPageSize.toString());
