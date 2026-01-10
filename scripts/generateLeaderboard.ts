@@ -469,31 +469,30 @@ async function fetchAllReviews(
 ------------------------------------------------------- */
 
 export type RepoStats = {
-  name: string | null,
-  description: string | null,
-  language: string | null,
-  avatar_url: string,
-  html_url: string,
-  stars: number | 0,
-  forks: number | 0,
+  name: string;
+  description: string | null;
+  language: string | null;
+  avatar_url: string;
+  html_url: string;
+  stars: number;
+  forks: number;
   current: {
-    pr_opened: number,
-    pr_merged: number,
-    issue_created: number,
-    currentTotalContribution: number | 0,
-  },
-  previous: {
-    pr_merged: number,
-  },
-  growth: {
-    pr_merged: number,
+    pr_opened: number;
+    pr_merged: number;
+    issue_created: number;
+    currentTotalContribution: number;
   }
-}
+  previous: {
+    pr_merged: number;
+  }
+  growth: {
+    pr_merged: number;
+  };
+};
 
 const NOW = new Date();
 const CURRENT_START = daysAgo(30);
 const PREVIOUS_START = daysAgo(60);
-const PREVIOUS_END = daysAgo(30);
 
 // ------ Helpers ------
 
@@ -510,29 +509,32 @@ async function fetchRepoMeta(repo:string) {
   return res.json()
 }
 
-async function fetchAll(url: string) {
-  let page = 1;
-  let results: any[] = [];
+async function fetchAll<T = any>(url: string): Promise<T[]> {
+   let page = 1;
+   const results: T[] = [];
+   while (true) {
+    const join = url.includes("?") ? "&" : "?";
+    const res = await fetch(`${url}${join}per_page=100&page=${page}`, {
+       headers: {
+         Authorization: `Bearer ${TOKEN}`,
+         Accept: "application/vnd.github+json",
+       },
+     });
 
-  while (true) {
-    const res = await fetch(`${url}&per_page=100&page=${page}`, {
-      headers: {
-        Authorization: `Bearer ${TOKEN}`,
-        Accept: "application/vnd.github+json",
-      },
-    });
-
-    if (!res.ok) break;
-
-    const data = await res.json();
+    if (!res.ok) {
+      const text = await res.text().catch(() => "");
+      throw new Error(`GitHub API ${res.status}: ${text}`);
+    }
+    await smartSleep(res, 500);
+    const data: T[] = await res.json();
     results.push(...data);
 
-    if (data.length < 100) break;
-    page++;
-  }
+     if (data.length < 100) break;
+     page++;
+   }
 
-  return results;
-}
+   return results;
+ }
 
 // ------ Metric fetchers ------
 
@@ -575,7 +577,7 @@ async function fetchPRsMerge(repo:string) {
     if (isBotUser(pr.user)) continue;
     const mergedAt = new Date(pr.merged_at);
     if (mergedAt >= CURRENT_START && mergedAt <= NOW) current++;
-    if (mergedAt >= PREVIOUS_START && mergedAt <= PREVIOUS_END) previous++;
+    if (mergedAt >= PREVIOUS_START && mergedAt < CURRENT_START) previous++;
   }
 
   return { current, previous };

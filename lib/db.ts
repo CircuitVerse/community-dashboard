@@ -25,11 +25,11 @@ export type ActivityGroup = {
   activities: ActivityItem[];
 };
 
-type RecentActivitiesJSON = {
-  updatedAt: number;
-  entries: UserEntry[];
-  groups: ActivityGroup[];
-};
+// type RecentActivitiesJSON = {
+//   updatedAt: number;
+//   entries: UserEntry[];
+//   groups: ActivityGroup[];
+// };
 
 export type MonthBuckets = {
   w1: number;
