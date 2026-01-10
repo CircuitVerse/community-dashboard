@@ -233,13 +233,16 @@ export async function getReposOverview(): Promise<RepoStats[]> {
   );
 
   if (!fs.existsSync(filePath)) return [];
-
-  const file = fs.readFileSync(filePath, "utf-8");
-  const data = JSON.parse(file);
-
-  if (!data?.repos?.length) return [];
-
-  return data.repos;
+  
+  try {
+    const file = fs.readFileSync(filePath, "utf-8");
+    const data = JSON.parse(file);
+    if (!data?.repos?.length) return [];
+    return data.repos;
+  } catch (error) {
+    console.error("Failed to parse overview.json:", error);
+    return [];
+  }
 }
 
 export async function getTopContributorsByActivity() {
