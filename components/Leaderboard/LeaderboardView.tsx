@@ -190,15 +190,25 @@ export default function LeaderboardView({
   const [popoverOpen, setPopoverOpen] = useState(false);
   const pathname = usePathname();
 
-  const [viewMode, setViewMode] = useState<"grid" | "list">("list");
-
-  useEffect(() => {
+  // Initialize from URL param (works on server and client)
+  const [viewMode, setViewMode] = useState<"grid" | "list">(() => {
     const v = searchParams.get("v");
+    return v === "grid" ? "grid" : "list";
+  });
+
+  // On mobile/tablet, always force list mode after mount
+  useEffect(() => {
     if (typeof window !== "undefined" && window.innerWidth < 1024) {
       setViewMode("list");
-      return;
     }
-    setViewMode(v === "grid" ? "grid" : "list");
+  }, []);
+
+  // Sync with URL param changes (for desktop)
+  useEffect(() => {
+    const v = searchParams.get("v");
+    if (typeof window !== "undefined" && window.innerWidth >= 1024) {
+      setViewMode(v === "grid" ? "grid" : "list");
+    }
   }, [searchParams]);
   const topRef = useRef<HTMLDivElement | null>(null);
   const scrollToLeaderboardTop = () => {
@@ -809,7 +819,6 @@ export default function LeaderboardView({
             </Card>
           ) : (
             <div className={cn(
-              "transition-all duration-300 ease-in-out",
               viewMode === "grid"
                 ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6"
                 : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 lg:gap-0 lg:space-y-4 lg:block"
