@@ -223,7 +223,7 @@ export function LeaderboardCard({
                 {/* Activity Tags */}
                 <div className="space-y-1 flex-1">
                   {sortActivitiesByPriority(Object.entries(entry.activity_breakdown))
-                    .filter(([activityName, data]) => data.count > 0)
+                    .filter(([_activityName, data]) => data.count > 0)
                     .map(([activityName, data]) => {
                       const style = getActivityStyle(activityName);
                       const IconComponent = style.icon;
@@ -311,7 +311,7 @@ export function LeaderboardCard({
                 {/* Activity Breakdown */}
                 <div className="flex flex-wrap gap-2">
                   {sortActivitiesByPriority(Object.entries(entry.activity_breakdown))
-                    .filter(([activityName, data]) => data.count > 0)
+                    .filter(([_activityName, data]) => data.count > 0)
                     .map(([activityName, data]) => {
                       const style = getActivityStyle(activityName);
                       const IconComponent = style.icon;
@@ -452,7 +452,7 @@ export function LeaderboardCard({
             {/* Activity Tags */}
             <div className="space-y-1 flex-1">
               {sortActivitiesByPriority(Object.entries(entry.activity_breakdown))
-                .filter(([activityName, data]) => data.count > 0)
+                .filter(([_activityName, data]) => data.count > 0)
                 .map(([activityName, data]) => {
                   const style = getActivityStyle(activityName);
                   const IconComponent = style.icon;
@@ -547,7 +547,7 @@ export function LeaderboardCard({
           <div className="flex-1 w-full">
             <div className="space-y-1.5">
               {sortActivitiesByPriority(Object.entries(entry.activity_breakdown))
-                .filter(([activityName, data]) => data.count > 0)
+                .filter(([_activityName, data]) => data.count > 0)
                 .map(([activityName, data]) => {
                   const style = getActivityStyle(activityName);
                   const IconComponent = style.icon;

@@ -26,7 +26,7 @@ import {
 import { cn } from "@/lib/utils";
 import { useMemo, useState, useEffect, useRef } from "react";
 import { sortEntries, type SortBy } from "@/lib/leaderboard";
-import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import { useSearchParams, usePathname } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import { LeaderboardCard, type LeaderboardEntry } from "./LeaderboardCard";
 import {
@@ -120,7 +120,6 @@ export default function LeaderboardView({
   topByActivity,
   hiddenRoles,
 }: LeaderboardViewProps) {
-  const router = useRouter();
   const searchParams = useSearchParams();
 
   const [searchQuery, setSearchQuery] = useState("");
@@ -453,15 +452,15 @@ export default function LeaderboardView({
     }
   };
 
-  const updateRolesParam = (roles: Set<string>) => {
-    const params = new URLSearchParams(searchParams.toString());
-    if (roles.size > 0) {
-      params.set("roles", Array.from(roles).join(","));
-    } else {
-      params.delete("roles");
-    }
-    if (typeof window !== 'undefined') window.history.replaceState(null, '', `${pathname}?${params.toString()}`);
-  };
+  // const updateRolesParam = (roles: Set<string>) => {
+  //   const params = new URLSearchParams(searchParams.toString());
+  //   if (roles.size > 0) {
+  //     params.set("roles", Array.from(roles).join(","));
+  //   } else {
+  //     params.delete("roles");
+  //   }
+  //   if (typeof window !== 'undefined') window.history.replaceState(null, '', `${pathname}?${params.toString()}`);
+  // };
 
   const filteredTopByActivity = useMemo(() => {
     if (selectedRoles.size === 0) {
@@ -634,7 +633,7 @@ export default function LeaderboardView({
                               return (
                                 <button
                                   key={opt.key}
-                                  onClick={(e) => {
+                                  onClick={(_e) => {
                                     setPopoverOpen(false);
                                     setSortBy(opt.key as SortBy);
                                     const params = new URLSearchParams(searchParams.toString());
@@ -809,7 +808,7 @@ export default function LeaderboardView({
                 ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6" 
                 : "space-y-4"
             )}>
-              {paginatedEntries.map((entry, index) => {
+              {paginatedEntries.map((entry) => {
                 // Use the pre-computed rank from entryRanks, which is based on full sorted list
                 // This ensures rank doesn't change with search or pagination
                 const rank = entryRanks.get(entry.username) || 1;

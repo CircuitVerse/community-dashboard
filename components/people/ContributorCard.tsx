@@ -27,14 +27,6 @@ interface ContributorCardProps {
 
 const ACTIVITY_ORDER = ["PR merged", "PR opened", "Issue opened"];
 
-const sortActivities = (
-  entries: [string, { count: number; points: number }][]
-) =>
-  entries.sort(
-    ([a], [b]) =>
-      ACTIVITY_ORDER.indexOf(a) - ACTIVITY_ORDER.indexOf(b)
-  );
-
 const getActivityIcon = (activity: string) => {
   const type = activity.toLowerCase();
   if (type.includes("merged")) {

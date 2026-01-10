@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export default function ThemeSelector() {
-  const { setTheme, theme } = useTheme();
+  const { setTheme } = useTheme();
 
   const handleThemeChange = (newTheme: string) => {
     // Ensure only valid theme values are set

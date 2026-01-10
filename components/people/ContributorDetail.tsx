@@ -16,7 +16,6 @@ import {
   BarChart3,
   Clock,
   GitPullRequest,
-  Bug,
   ArrowLeft,
   Target,
   Github,
@@ -161,9 +160,6 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
 
 
 
-  const getActivityIcon = (activityType: string) => {
-    return getActivityConfig(activityType).icon;
-  };
 
   const sortedActivities = Object.entries(contributor.activity_breakdown || {})
     .sort(([, a], [, b]) => b.points - a.points);

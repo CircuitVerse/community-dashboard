@@ -13,6 +13,7 @@ import {
   Target,
   GitPullRequest
 } from "lucide-react";
+import Image from "next/image";
 
 interface ContributorEntry {
   username: string;
@@ -173,7 +174,7 @@ const topContributors = useMemo(() => {
                   }[index] || 'bg-gradient-to-br from-primary/20 to-primary/40 text-primary font-semibold'}`}>
                     {contributor.rank}
                   </div>
-                  <img 
+                  <Image 
                     src={contributor.avatar_url} 
                     alt={contributor.name || contributor.username}
                     className="w-10 h-10 rounded-full ring-2 ring-primary/10"
