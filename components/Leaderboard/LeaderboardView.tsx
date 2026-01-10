@@ -127,30 +127,37 @@ export default function LeaderboardView({
   const debouncedSearchQuery = useDebounce(searchQuery, 300);
 
 
-  // Page size state - default to showing all entries (preserve existing behavior)
+  // Page size state - default to showing top 50 for better readability and performance
   const [pageSize, setPageSize] = useState<number>(() => {
     const limit = searchParams.get('limit');
     if (limit) {
+      if (limit === 'all') {
+        return Infinity;
+      }
       const parsed = parseInt(limit, 10);
       if ([10, 25, 50, 100].includes(parsed)) {
         return parsed;
       }
     }
-    // Default: show all entries (preserve existing behavior)
-    return Infinity;
+    // Default: show top 50 entries for better UX and performance
+    return 50;
   });
 
   useEffect(() => {
     const limit = searchParams.get('limit');
     if (limit) {
+      if (limit === 'all') {
+        setPageSize(Infinity);
+        return;
+      }
       const parsed = parseInt(limit, 10);
       if ([10, 25, 50, 100].includes(parsed)) {
         setPageSize(parsed);
       } else {
-        setPageSize(Infinity);
+        setPageSize(50);
       }
     } else {
-      setPageSize(Infinity);
+      setPageSize(50);
     }
   }, [searchParams]);
 
