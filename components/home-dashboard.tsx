@@ -11,6 +11,7 @@ import {
   GitFork,
   GitMerge,
   Trophy,
+  LucideIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
@@ -19,16 +20,50 @@ import { ActivityTypes } from "@/components/Leaderboard/stats-card/activity-type
 import { ActivityLineCard } from "@/components/Leaderboard/stats-card/activity-line-card";
 import ActiveContributors from "@/components/Leaderboard/stats-card/active-contributors";
 import { PaginatedActivitySection } from "@/components/PaginatedActivitySection";
+import { ActivityGroup, MonthBuckets } from "@/lib/db";
+import { Config } from "@/types/config";
+import { RepoStats } from "@/scripts/generateLeaderboard";
 
 // --- Types ---
 type ViewState = "overview" | "repositories";
 
+type MetricVariant = "neutral" | "active" | "success";
+
+type MetricFlowItemProps = {
+  icon: React.ReactNode;
+  count: number;
+  label: string;
+  variant: MetricVariant;
+};
+
+type OverviewData = {
+  totalMonth: number;
+  week: ActivityGroup[];
+  month: ActivityGroup[];
+  previousMonthCount: number;
+  bucketData: MonthBuckets;
+  config: Config;
+  reposData: {
+    reposOverview: RepoStats[];
+  };
+};
+
+type SummaryCardProps = {
+  label: string;
+  value: string | number;
+  sub?: string;
+  icon: React.ReactNode;
+  highlight?: boolean;
+  decoration?: "bar" | "graph" | "wave";
+};
+
 export default function HomeDashboard({
   overviewData,
 }: {
-  overviewData: any;
+  overviewData: OverviewData;
 }) {
-  const [activeTab, setActiveTab] = useState<ViewState>("overview");
+  const [activeTab, setActiveTab] =
+    useState<ViewState>("overview");
   const {
     config,
     week,
@@ -44,18 +79,24 @@ export default function HomeDashboard({
   // --- Logic to find most active repo ---
   function getActiveRepoStats() {
     if (!repos || repos.length === 0) {
-      return { name: "N/A", growth: 0, totalContributions: 0 };
+      return {
+        name: "N/A",
+        growth: 0,
+        totalContributions: 0,
+      };
     }
 
     const topRepo = [...repos].sort(
       (a, b) =>
-        b.current.currentTotalContribution - a.current.currentTotalContribution
+        b.current.currentTotalContribution -
+        a.current.currentTotalContribution
     )[0];
 
     return {
-      name: topRepo.name,
-      growth: topRepo.growth?.pr_merged ?? 0,
-      totalContributions: topRepo.current.currentTotalContribution
+      name: topRepo?.name,
+      growth: topRepo?.growth?.pr_merged ?? 0,
+      totalContributions:
+        topRepo?.current.currentTotalContribution,
     };
   }
   const activeRepo = getActiveRepoStats();
@@ -147,7 +188,7 @@ export default function HomeDashboard({
                   </div>
                 ) : (
                   <div className="space-y-8">
-                    {week.map((group: any) => (
+                    {week.map((group: ActivityGroup) => (
                       <PaginatedActivitySection
                         key={group.activity_definition}
                         group={group}
@@ -171,15 +212,15 @@ export default function HomeDashboard({
                   decoration="bar"
                 />
                 <SummaryCard
-                  label="Total Contributions"
-                  value={activeRepo.totalContributions}
+                  label="Top Repo Contributions"
+                  value={activeRepo.totalContributions ?? ""}
                   sub="Last 30 Days"
                   icon={<GitFork className="h-6 w-6" />}
                   decoration="graph"
                 />
                 <SummaryCard
                   label="Most Active Repo"
-                  value={activeRepo.name}
+                  value={activeRepo.name ?? ""}
                   sub={`+${activeRepo.growth} Merged PRs`}
                   icon={<Trophy className="h-6 w-6" />}
                   highlight={true}
@@ -199,7 +240,7 @@ export default function HomeDashboard({
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                  {sortedRepos.map((repo: any) => (
+                  {sortedRepos.map((repo: RepoStats) => (
                     <RepoCard key={repo.name} repo={repo} />
                   ))}
                 </div>
@@ -221,7 +262,7 @@ function SummaryCard({
   icon,
   highlight,
   decoration,
-}: any) {
+}: SummaryCardProps) {
   return (
     <div
       className={cn(
@@ -297,7 +338,7 @@ function SummaryCard({
   );
 }
 
-function RepoCard({ repo }: { repo: any }) {
+function RepoCard({ repo }: { repo: RepoStats }) {
   return (
     <div className="group flex flex-col h-full bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800 hover:border-[#50B78B]/50 transition-all duration-300 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg dark:hover:shadow-[#50B78B]/5">
       {/* Top Section */}
@@ -307,15 +348,13 @@ function RepoCard({ repo }: { repo: any }) {
             <div className="shrink-0 group-hover:border-[#50B78B]/30 group-hover:text-[#50B78B] transition-colors rounded-md overflow-hidden border border-zinc-100 dark:border-zinc-800">
               <Image
                 src={repo.avatar_url}
-                alt={repo.name}
+                alt={repo.name ?? "Image"}
                 width={40}
                 height={40}
               />
             </div>
             <div className="text-lg font-bold text-zinc-900 dark:text-zinc-100 hover:text-[#50B78B] dark:hover:text-[#50B78B] transition-colors truncate">
-              <Link href={repo.html_url}>
-                {repo.name}
-              </Link>
+              <Link href={repo.html_url}>{repo.name}</Link>
             </div>
           </div>
           <div className="flex flex-col items-end gap-1.5 shrink-0">
@@ -367,7 +406,7 @@ function MetricFlowItem({
   count,
   label,
   variant,
-}: any) {
+}: MetricFlowItemProps) {
   const variantStyles = {
     neutral: {
       icon: "text-zinc-400",

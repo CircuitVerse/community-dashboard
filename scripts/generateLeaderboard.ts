@@ -572,7 +572,7 @@ async function fetchPRsMerge(repo:string) {
 
   for (const pr of prs) {
     if (!pr.merged_at) continue;
-    if (!isBotUser(pr.user)) continue;
+    if (isBotUser(pr.user)) continue;
     const mergedAt = new Date(pr.merged_at);
     if (mergedAt >= CURRENT_START && mergedAt <= NOW) current++;
     if (mergedAt >= PREVIOUS_START && mergedAt <= PREVIOUS_END) previous++;
