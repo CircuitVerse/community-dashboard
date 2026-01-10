@@ -35,7 +35,7 @@ export const Footer = async ({ config }: FooterProps) => {
                 href="https://circuitverse.org/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2"
+                className="inline-flex w-fit items-center gap-2"
               >
                 <Image
                   src={config.org.logo_url}
@@ -169,7 +169,7 @@ export const Footer = async ({ config }: FooterProps) => {
               <li>
                 <Link
                   href="/"
-                  className="group flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400 hover:text-[#50B78B] transition-colors"
+                  className="group inline-flex w-fit items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400 hover:text-[#50B78B] transition-colors"
                 >
                   <span className="text-zinc-400 group-hover:text-[#50B78B] transition-colors">
                     <HomeIcon className="h-4 w-4" />
@@ -182,7 +182,7 @@ export const Footer = async ({ config }: FooterProps) => {
               <li>
                 <Link
                   href="/leaderboard"
-                  className="group flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400 hover:text-[#50B78B] transition-colors"
+                  className="group inline-flex w-fit items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400 hover:text-[#50B78B] transition-colors"
                 >
                   <span className="text-zinc-400 group-hover:text-[#50B78B] transition-colors">
                     <Trophy className="h-4 w-4" />
@@ -195,7 +195,7 @@ export const Footer = async ({ config }: FooterProps) => {
               <li>
                 <Link
                   href="/people"
-                  className="group flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400 hover:text-[#50B78B] transition-colors"
+                  className="group inline-flex w-fit items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400 hover:text-[#50B78B] transition-colors"
                 >
                   <span className="text-zinc-400 group-hover:text-[#50B78B] transition-colors">
                     <Users className="h-4 w-4" />
@@ -208,7 +208,7 @@ export const Footer = async ({ config }: FooterProps) => {
               <li>
                 <Link
                   href="/releases"
-                  className="group flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400 hover:text-[#50B78B] transition-colors"
+                  className="group inline-flex w-fit items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400 hover:text-[#50B78B] transition-colors"
                 >
                   <span className="text-zinc-400 group-hover:text-[#50B78B] transition-colors">
                     <Tag className="h-4 w-4" />
