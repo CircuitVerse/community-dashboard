@@ -172,7 +172,7 @@ export function LeaderboardCard({
       )}>
         <Card
           className={cn(
-            "relative z-10 overflow-hidden transition-all duration-500 border-2",
+            "relative z-10 overflow-hidden transition-all duration-500 border-2 h-full flex flex-col",
             styles.border,
             "hover:shadow-2xl hover:-translate-y-1"
           )}
