@@ -727,6 +727,7 @@ export default function LeaderboardView({
                             </div>
                           </div>
                         </div>
+                        </div>
                       </PopoverContent>
                     </Popover>
                   </div>
