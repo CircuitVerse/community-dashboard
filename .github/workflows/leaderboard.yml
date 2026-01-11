@@ -2,7 +2,7 @@ name: Generate Leaderboard
 
 on:
   schedule:
-    - cron: "0 */24 * * *" # every 6 hours
+    - cron: "0 0 * * *"   # every day at 00:00 UTC
   workflow_dispatch:
 
 concurrency:

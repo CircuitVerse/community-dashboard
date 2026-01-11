@@ -251,6 +251,9 @@ export const Footer = async ({ config }: FooterProps) => {
                     {updatedAt && formatTimeAgo(updatedAt)}
                   </span>
                 </p>
+                <p className="text-[11px] text-zinc-400 dark:text-zinc-500">
+                  Updated daily at <span className="font-medium">5:30 AM IST</span>
+                </p>
               </div>
             </div>
 
