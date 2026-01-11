@@ -126,30 +126,37 @@ export default function LeaderboardView({
   const debouncedSearchQuery = useDebounce(searchQuery, 300);
 
 
-  // Page size state - default to showing all entries (preserve existing behavior)
+  // Page size state - default to showing top 50 for better readability and performance
   const [pageSize, setPageSize] = useState<number>(() => {
     const limit = searchParams.get('limit');
     if (limit) {
+      if (limit === 'all') {
+        return Infinity;
+      }
       const parsed = parseInt(limit, 10);
       if ([10, 25, 50, 100].includes(parsed)) {
         return parsed;
       }
     }
-    // Default: show all entries (preserve existing behavior)
-    return Infinity;
+    // Default: show top 50 entries for better UX and performance
+    return 50;
   });
 
   useEffect(() => {
     const limit = searchParams.get('limit');
     if (limit) {
+      if (limit === 'all') {
+        setPageSize(Infinity);
+        return;
+      }
       const parsed = parseInt(limit, 10);
       if ([10, 25, 50, 100].includes(parsed)) {
         setPageSize(parsed);
       } else {
-        setPageSize(Infinity);
+        setPageSize(50);
       }
     } else {
-      setPageSize(Infinity);
+      setPageSize(50);
     }
   }, [searchParams]);
 
@@ -188,28 +195,39 @@ export default function LeaderboardView({
 
   const [popoverOpen, setPopoverOpen] = useState(false);
   const pathname = usePathname();
-  
+
+  // Initialize from URL param (works on server and client)
   const [viewMode, setViewMode] = useState<"grid" | "list">(() => {
     const v = searchParams.get("v");
     return v === "grid" ? "grid" : "list";
   });
 
+  // On mobile/tablet, always force list mode after mount
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.innerWidth < 1024) {
+      setViewMode("list");
+    }
+  }, []);
+
+  // Sync with URL param changes (for desktop)
   useEffect(() => {
     const v = searchParams.get("v");
-    setViewMode(v === "grid" ? "grid" : "list");
+    if (typeof window !== "undefined" && window.innerWidth >= 1024) {
+      setViewMode(v === "grid" ? "grid" : "list");
+    }
   }, [searchParams]);
   const topRef = useRef<HTMLDivElement | null>(null);
   const scrollToLeaderboardTop = () => {
-    if(typeof window === "undefined") return;
+    if (typeof window === "undefined") return;
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     requestAnimationFrame(() => {
-      if(!topRef.current) return;
+      if (!topRef.current) return;
 
       const rect = topRef.current.getBoundingClientRect();
       const absoluteTop = rect.top + window.scrollY;
       const offset = 80;
-      
+
       window.scrollTo({
         top: Math.max(absoluteTop - offset, 0),
         behavior: prefersReducedMotion ? "auto" : "smooth",
@@ -218,6 +236,10 @@ export default function LeaderboardView({
   };
 
   const handleViewModeChange = (mode: "grid" | "list") => {
+    // Prevent grid view on mobile/tablet
+    if (typeof window !== "undefined" && window.innerWidth < 1024 && mode === "grid") {
+      return;
+    }
     setViewMode(mode);
     const params = new URLSearchParams(searchParams.toString());
     if (mode === "list") {
@@ -262,13 +284,13 @@ export default function LeaderboardView({
   const entryRanks = useMemo(() => {
     // Filter by selectedRoles (same logic as filteredEntries, but no search filter)
     let entriesForRanking = entries;
-    
+
     if (selectedRoles.size > 0) {
       entriesForRanking = entriesForRanking.filter(
         (entry) => entry.role && selectedRoles.has(entry.role)
       );
     }
-    
+
     // Sort by current sort criteria and calculate ranks
     const sorted = sortEntries(entriesForRanking, sortBy);
     const rankMap = new Map<string, number>();
@@ -405,7 +427,7 @@ export default function LeaderboardView({
   const updatePageSize = (newPageSize: number | "all") => {
     const params = new URLSearchParams(searchParams.toString());
     if (newPageSize === "all" || newPageSize === Infinity) {
-      params.delete("limit");
+      params.set("limit", "all");
       setPageSize(Infinity);
     } else {
       params.set("limit", newPageSize.toString());
@@ -511,15 +533,14 @@ export default function LeaderboardView({
               <div
                 className="
                   w-full
-                  md:w-auto md:ml-auto
+                  lg:w-auto lg:ml-auto
                   flex flex-col
-                  md:flex-row md:items-center
                   lg:flex-row lg:items-center
                   gap-2
                 "
               >
-                {/* Search bar - full width on mobile */}
-                <div className="relative w-full md:w-[20rem] lg:w-[16rem]">
+                {/* Search bar - full width on mobile/tablet */}
+                <div className="relative w-full lg:w-[16rem]">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <Input
                     type="text"
@@ -531,17 +552,18 @@ export default function LeaderboardView({
                 </div>
 
                 {/* Controls row - grid/list on left, filter on right */}
-                <div className="flex items-center justify-between w-full md:w-auto md:justify-end gap-2">
+                <div className="flex items-center justify-between w-full lg:w-auto lg:justify-end gap-2">
                   <div className="flex items-center gap-2">
-                    <div className="w-fit flex items-center justify-center gap-1 p-1 bg-muted rounded-lg">
-                     <Button
+                    {/* Hide grid/list toggle on mobile/tablet, show only on desktop */}
+                    <div className="hidden lg:flex w-fit items-center justify-center gap-1 p-1 bg-muted rounded-lg">
+                      <Button
                         variant={viewMode === "list" ? "default" : "ghost"}
                         size="sm"
                         onClick={() => handleViewModeChange("list")}
                         className={cn(
                           "h-8 px-3",
-                          viewMode === "list" 
-                            ? "bg-[#50B78B] hover:bg-[#50B78B]/90 text-white" 
+                          viewMode === "list"
+                            ? "bg-[#50B78B] hover:bg-[#50B78B]/90 text-white"
                             : "hover:bg-[#50B78B]/10 text-muted-foreground"
                         )}
                       >
@@ -553,8 +575,8 @@ export default function LeaderboardView({
                         onClick={() => handleViewModeChange("grid")}
                         className={cn(
                           "h-8 px-3",
-                          viewMode === "grid" 
-                            ? "bg-[#50B78B] hover:bg-[#50B78B]/90 text-white" 
+                          viewMode === "grid"
+                            ? "bg-[#50B78B] hover:bg-[#50B78B]/90 text-white"
                             : "hover:bg-[#50B78B]/10 text-muted-foreground"
                         )}
                       >
@@ -662,52 +684,51 @@ export default function LeaderboardView({
                               )
                             })}
                           </div>
-                        </div>
 
-                        {/* Divider */}
-                        <div className="border-t border-border" />
+                          {/* Divider */}
+                          <div className="border-t border-border" />
 
-                        {/* Role Section */}
-                        <div>
-                          <h4 className="font-semibold text-sm mb-3 text-foreground">
-                            Role
-                          </h4>
-                          <div className="space-y-2">
-                            {availableRoles.map((role) => (
-                              <label
-                                key={role}
-                                htmlFor={`role-${role}`}
-                                className={cn(
-                                  "flex items-center gap-3 px-3 py-2.5 rounded-lg cursor-pointer transition-all duration-200 group",
-                                  selectedRoles.has(role)
-                                    ? "bg-[#50B78B]/10 border border-[#50B78B]/30 shadow-sm"
-                                    : "bg-muted/30 hover:bg-muted/60 border border-transparent"
-                                )}
-                              >
-                                <Checkbox
-                                  id={`role-${role}`}
-                                  checked={selectedRoles.has(role)}
-                                  onCheckedChange={() => toggleRole(role)}
+                          {/* Role Section */}
+                          <div>
+                            <h4 className="font-semibold text-sm mb-3 text-foreground">
+                              Role
+                            </h4>
+                            <div className="space-y-2">
+                              {availableRoles.map((role) => (
+                                <label
+                                  key={role}
+                                  htmlFor={`role-${role}`}
                                   className={cn(
-                                    "data-[state=checked]:bg-[#50B78B] data-[state=checked]:border-[#50B78B] border-2",
-                                    "transition-all duration-200"
+                                    "flex items-center gap-3 px-3 py-2.5 rounded-lg cursor-pointer transition-all duration-200 group",
+                                    selectedRoles.has(role)
+                                      ? "bg-[#50B78B]/10 border border-[#50B78B]/30 shadow-sm"
+                                      : "bg-muted/30 hover:bg-muted/60 border border-transparent"
                                   )}
-                                />
-                                <span className={cn(
-                                  "text-sm font-medium flex-1 transition-colors",
-                                  selectedRoles.has(role) 
-                                    ? "text-[#50B78B]" 
-                                    : "text-foreground group-hover:text-[#50B78B]"
-                                )}>
-                                  {role}
-                                </span>
-                              </label>
-                            ))}
+                                >
+                                  <Checkbox
+                                    id={`role-${role}`}
+                                    checked={selectedRoles.has(role)}
+                                    onCheckedChange={() => toggleRole(role)}
+                                    className={cn(
+                                      "data-[state=checked]:bg-[#50B78B] data-[state=checked]:border-[#50B78B] border-2",
+                                      "transition-all duration-200"
+                                    )}
+                                  />
+                                  <span className={cn(
+                                    "text-sm font-medium flex-1 transition-colors",
+                                    selectedRoles.has(role)
+                                      ? "text-[#50B78B]"
+                                      : "text-foreground group-hover:text-[#50B78B]"
+                                  )}>
+                                    {role}
+                                  </span>
+                                </label>
+                              ))}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </PopoverContent>
-                  </Popover>
+                      </PopoverContent>
+                    </Popover>
                   </div>
                 </div>
               </div>
@@ -803,10 +824,9 @@ export default function LeaderboardView({
             </Card>
           ) : (
             <div className={cn(
-              "transition-all duration-300 ease-in-out",
-              viewMode === "grid" 
-                ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6" 
-                : "space-y-4"
+              viewMode === "grid"
+                ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6"
+                : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 lg:gap-0 lg:space-y-4 lg:block"
             )}>
               {paginatedEntries.map((entry) => {
                 // Use the pre-computed rank from entryRanks, which is based on full sorted list
