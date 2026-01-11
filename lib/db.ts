@@ -15,6 +15,7 @@ type ActivityItem = {
   title?: string | null;
   text?: string | null;
   link?: string | null;
+  repo?: string | null;
   points: number | null;
 };
 
@@ -37,6 +38,14 @@ export type MonthBuckets = {
   w3: number;
   w4: number;
 };
+
+// Helper function to extract repository name from GitHub URL
+function extractRepoFromUrl(url: string | null | undefined): string | null {
+  if (!url || typeof url !== 'string') return null;
+  
+  const match = url.match(/github\.com\/[^/]+\/([^/]+)/);
+  return match && match[1] !== undefined ? match[1] : null;
+}
 
 // Used by app/page.tsx
 // export async function getRecentActivitiesGroupedByType(valid: "week" | "month" | "year"): Promise<ActivityGroup[]> {
@@ -125,10 +134,11 @@ export async function getRecentActivitiesGroupedByType(
       contributor: user.username,
       contributor_name: user.name,
       contributor_avatar_url: user.avatar_url,
-      contributor_role: user.role ?? null,
+      contributor_role: (user.role ?? null) as string | null,
       occured_at: act.occured_at,
       title: act.title ?? null,     // ✅ REAL title
       link: act.link ?? null,       // ✅ REAL GitHub link
+      repo: extractRepoFromUrl(act.link ?? null), // ✅ Extract repo name
       points: act.points ?? 0,
     });
   }
