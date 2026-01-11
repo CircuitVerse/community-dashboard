@@ -584,48 +584,6 @@ export function LeaderboardCard({
                         {IconComponent && (
                           <IconComponent className={cn("w-3 h-3", style.textColor)} />
                         )}
-                      >
-                        <div className="flex items-center gap-1.5">
-                          {IconComponent && (
-                            <IconComponent className={cn("w-3 h-3", style.textColor)} />
-                          )}
-                          <span className={cn("font-medium truncate", style.textColor)}>
-                            {activityName}:
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <span className="font-semibold">{data.count}</span>
-                          <span className={cn("font-bold", style.textColor)}>+{data.points}</span>
-                        </div>
-                      </div>
-                    );
-                  })}
-              </div>
-            </div>
-          </div>
-            
-          {/* Top Activities */}
-          <div className="flex-1 w-full">
-            <div className="space-y-1.5">
-              {sortActivitiesByPriority(Object.entries(entry.activity_breakdown))
-                .filter(([_activityName, data]) => data.count > 0)
-                .map(([activityName, data]) => {
-                  const style = getActivityStyle(activityName);
-                  const IconComponent = style.icon;
-                  
-                  return (
-                    <div
-                      key={activityName}
-                      className={cn(
-                        "relative text-xs px-3 py-2 rounded-md border-l-2 transition-all hover:shadow-sm flex items-center justify-between gap-2",
-                        style.bgColor,
-                        style.borderColor
-                      )}
-                    >
-                      <div className="flex items-center gap-1.5">
-                        {IconComponent && (
-                          <IconComponent className={cn("w-3 h-3", style.textColor)} />
-                        )}
                         <span className={cn("font-medium truncate", style.textColor)}>
                           {activityName}:
                         </span>
@@ -639,7 +597,6 @@ export function LeaderboardCard({
                 })}
             </div>
           </div>
-        </div>
       </CardContent>
     </Card>
     </div>
