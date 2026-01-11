@@ -8,7 +8,7 @@ export function ReleaseCard({ release }: { release: Release }) {
   return (
     <Card className="transition-all hover:shadow-md hover:border-[#50B78B]/50">
       <CardContent className="p-5 space-y-4">
-        {/* Header - Fixed for Mobile (Conflict Resolved Here) */}
+        {/* Header - Fixed for Mobile */}
         <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 sm:gap-4">
           <div>
             {/* Added break-words to prevent text overflowing on small screens */}
@@ -26,7 +26,7 @@ export function ReleaseCard({ release }: { release: Release }) {
           </span>
         </div>
 
-        {/* Contributors Section (PRESERVED) */}
+        {/* Contributors Section */}
         {release.contributors.length > 0 && (
           <div className="flex flex-wrap gap-3 pt-2">
             {release.contributors.map((c) => (
@@ -58,7 +58,7 @@ export function ReleaseCard({ release }: { release: Release }) {
           </div>
         )}
 
-        {/* GitHub Link (PRESERVED) */}
+        {/* GitHub Link */}
         {release.githubUrl && (
           <div className="pt-2">
             <Link
