@@ -185,14 +185,24 @@ export function PaginatedActivitySection({
 
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between gap-2">
-                    <div className="flex items-center gap-2 flex-1 min-w-0">
-                      <p className="truncate text-sm font-medium">
-                        {activity.title ?? "Untitled Activity"}
-                      </p>
+                    <div className="flex items-start gap-2 flex-1 min-w-0 sm:items-center">
+                      <div className="flex-1 min-w-0">
+                        <p className="truncate text-sm font-medium">
+                          {activity.title ?? "Untitled Activity"}
+                        </p>
+                        {activity.repo && (
+                          <Badge 
+                            variant="outline" 
+                            className={`text-xs font-mono shrink-0 mt-1 sm:hidden ${getRepoColor(activity.repo)}`}
+                          >
+                            {activity.repo}
+                          </Badge>
+                        )}
+                      </div>
                       {activity.repo && (
                         <Badge 
                           variant="outline" 
-                          className={`text-xs font-mono shrink-0 ${getRepoColor(activity.repo)}`}
+                          className={`text-xs font-mono shrink-0 hidden sm:block ${getRepoColor(activity.repo)}`}
                         >
                           {activity.repo}
                         </Badge>
