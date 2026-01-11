@@ -136,7 +136,7 @@ export function LeaderboardCard({
       return <Trophy className="h-4 w-4 text-yellow-600 dark:text-yellow-500" aria-label="1st place" />;
     if (rank === 2)
       return <Trophy className="h-4 w-4 text-gray-500 dark:text-gray-400" aria-label="2nd place" />;
-    if (rank === 3) 
+    if (rank === 3)
       return <Trophy className="h-4 w-4 text-amber-700 dark:text-amber-600" aria-label="3rd place" />;
     return null;
   };
@@ -148,7 +148,7 @@ export function LeaderboardCard({
         iconBg: "bg-[#42B883]/10"
       };
     }
-    
+
     return {
       border: "",
       iconBg: "bg-[#42B883]"
@@ -179,24 +179,17 @@ export function LeaderboardCard({
         >
           {/* Glossy Shine Effect */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 dark:via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-          
-          <CardContent className="p-4 sm:p-6 relative z-10">
-            <div className="flex items-center gap-3 sm:hidden">
-              <div className="flex items-center justify-center w-[5%]">
-                {getRankIcon(rank) || (
-                  <span className="text-lg font-bold text-[#50B78B]">
-                    {rank}
-                  </span>
-                )}
-              </div>
 
-              <div className="flex flex-col items-center gap-2 w-[35%]">
-                {/* Avatar */}
+          <CardContent className="p-4 lg:p-6 relative z-10">
+            {/* Mobile/Tablet View - Grid Card Structure */}
+            <div className="lg:hidden flex flex-col items-center text-center gap-3 h-full">
+              {/* Rank Badge - Top Right of Avatar */}
+              <div className="relative flex-shrink-0">
                 <div
                   onClick={openGitHubProfile}
-                  className="shrink-0 cursor-pointer"
+                  className="cursor-pointer"
                 >
-                  <Avatar className="size-12 hover:ring-2 hover:ring-[#50B78B] transition-all">
+                  <Avatar className="w-16 h-16 ring-2 ring-[#42B883]/20 group-hover:ring-[#42B883]/40 transition-all">
                     <AvatarImage
                       src={entry.avatar_url || undefined}
                       alt={entry.name || entry.username}
@@ -210,65 +203,71 @@ export function LeaderboardCard({
                   </Avatar>
                 </div>
 
-                {/* Contributor Info */}
-                <div className="text-center">
-                  <h3 className="font-semibold text-sm truncate leading-tight">
-                    {entry.name || entry.username}
-                  </h3>
-                  <span
-                    onClick={openGitHubProfile}
-                    className="text-xs text-muted-foreground hover:text-[#50B78B] transition-colors cursor-pointer"
-                  >
-                    @{entry.username}
-                  </span>
+                {/* Rank overlay */}
+                <div className={cn(
+                  "absolute -top-1 -right-1 flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold shadow-md border transition-transform group-hover:scale-110 text-white",
+                  isTopThree
+                    ? styles.iconBg
+                    : "bg-[#42B883] text-white border-white dark:border-gray-900"
+                )}>
+                  {rank <= 3 ? getRankIcon(rank) || rank : rank}
                 </div>
               </div>
 
-              <div className="flex flex-col gap-2 w-[60%]">
-                {/* Top Section - Contributor tag and Total Points */}
-                <div className="flex items-center justify-between">
-                  {entry.role && (
-                    <Badge variant="secondary" className="text-xs bg-[#42B883]/10 text-[#42B883]">
-                      {entry.role}
-                    </Badge>
-                  )}
-                  <div className="text-right">
-                    <div className="flex items-center justify-center gap-1 text-sm">
-                      <Trophy className="w-3 h-3 text-yellow-500" />
-                      <span className="font-bold text-[#42B883]">{entry.total_points}</span>
-                      <span className="text-muted-foreground text-xs">pts</span>
-                    </div>
+              {/* User Info */}
+              <div className="min-w-0 w-full flex-shrink-0">
+                <h3 className="font-semibold text-sm truncate mb-1">{entry.name || entry.username}</h3>
+                <p
+                  onClick={openGitHubProfile}
+                  className="text-xs text-muted-foreground truncate mb-1 cursor-pointer hover:text-[#50B78B] transition-colors"
+                >
+                  @{entry.username}
+                </p>
+                {entry.role && (
+                  <Badge variant="secondary" className="text-xs mb-2 bg-[#42B883]/10 text-[#42B883]">
+                    {entry.role}
+                  </Badge>
+                )}
+
+                {/* Points */}
+                <div className="mb-2">
+                  <div className="flex items-center justify-center gap-1 text-sm">
+                    <Trophy className="w-3 h-3 text-yellow-500" />
+                    <span className="font-bold text-[#42B883]">{entry.total_points}</span>
+                    <span className="text-muted-foreground text-xs">pts</span>
                   </div>
                 </div>
+              </div>
 
-                {/* Activity Tags */}
-                <div className="space-y-1 flex-1">
+              {/* Top Activities */}
+              <div className="flex-1 w-full">
+                <div className="space-y-1.5">
                   {sortActivitiesByPriority(Object.entries(entry.activity_breakdown))
                     .filter(([activityName, data]) => data.count > 0)
                     .map(([activityName, data]) => {
                       const style = getActivityStyle(activityName);
                       const IconComponent = style.icon;
-                      
+
                       return (
                         <div
                           key={activityName}
                           className={cn(
-                            "relative text-xs px-2 py-1.5 rounded-md border-l-2 transition-all hover:shadow-sm flex items-center justify-between gap-1",
+                            "relative text-xs px-3 py-2 rounded-md border-l-2 transition-all hover:shadow-sm flex items-center justify-between gap-2",
                             style.bgColor,
                             style.borderColor
                           )}
                         >
-                          <div className="flex items-center gap-1">
+                          <div className="flex items-center gap-1.5">
                             {IconComponent && (
                               <IconComponent className={cn("w-3 h-3", style.textColor)} />
                             )}
-                            <span className={cn("font-medium truncate text-xs", style.textColor)}>
-                              {activityName === "PR merged" ? "PR" : activityName === "PR opened" ? "Opened" : activityName === "Issue opened" ? "Issues" : activityName === "Review submitted" ? "Reviews" : activityName}:
+                            <span className={cn("font-medium truncate", style.textColor)}>
+                              {activityName}:
                             </span>
                           </div>
                           <div className="flex items-center gap-1">
-                            <span className="font-semibold text-xs">{data.count}</span>
-                            <span className={cn("font-bold text-xs", style.textColor)}>+{data.points}</span>
+                            <span className="font-semibold">{data.count}</span>
+                            <span className={cn("font-bold", style.textColor)}>+{data.points}</span>
                           </div>
                         </div>
                       );
@@ -277,7 +276,7 @@ export function LeaderboardCard({
               </div>
             </div>
 
-            <div className="hidden sm:flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+            <div className="hidden lg:flex flex-row items-center gap-6">
 
               {/* Rank */}
               <div className="flex items-center justify-center size-12 shrink-0">
@@ -336,7 +335,7 @@ export function LeaderboardCard({
                     .map(([activityName, data]) => {
                       const style = getActivityStyle(activityName);
                       const IconComponent = style.icon;
-                      
+
                       return (
                         <div
                           key={activityName}
@@ -371,15 +370,15 @@ export function LeaderboardCard({
               {/* Total Points with Trend Chart */}
               <div className="flex items-center gap-4 shrink-0">
                 <div className="hidden sm:block">
-                {entry.daily_activity &&
-                  entry.daily_activity.length > 0 && (
-                    <ActivityTrendChart
-                      dailyActivity={entry.daily_activity}
-                      startDate={startDate}
-                      endDate={endDate}
-                      mode="points"
-                    />
-                  )}
+                  {entry.daily_activity &&
+                    entry.daily_activity.length > 0 && (
+                      <ActivityTrendChart
+                        dailyActivity={entry.daily_activity}
+                        startDate={startDate}
+                        endDate={endDate}
+                        mode="points"
+                      />
+                    )}
                 </div>
                 <div className="text-right">
                   <div className="text-3xl font-bold text-[#50B78B]">
@@ -403,65 +402,159 @@ export function LeaderboardCard({
       "relative group",
       isTopThree && getAnimatedBorderClass(rank)
     )}>
-      <Card 
+      <Card
         className={cn(
           "relative z-10 overflow-hidden transition-all duration-500 h-full border-2",
           styles.border,
           "hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1"
         )}
       >
-      {/* Glossy Shine Effect */}
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 dark:via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-      <CardContent className="p-4 relative z-10 h-full flex flex-col">
-        <div className="flex gap-3 sm:hidden h-full">
-          <div className="flex items-start justify-center w-[5%] pt-1">
-            {getRankIcon(rank) || (
-              <span className="text-lg font-bold text-[#50B78B]">
-                {rank}
-              </span>
-            )}
-          </div>
-
-          <div className="flex flex-col items-center gap-2 w-[35%]">
-            {/* Avatar */}
-            <div
-              onClick={openGitHubProfile}
-              className="cursor-pointer"
-            >
-              <Avatar className="size-12 ring-2 ring-[#42B883]/20 group-hover:ring-[#42B883]/40 transition-all">
-                <AvatarImage
-                  src={entry.avatar_url || undefined}
-                  alt={entry.name || entry.username}
-                  className="object-cover"
-                />
-                <AvatarFallback className="bg-gradient-to-br from-[#42B883]/20 to-[#42B883]/10 text-[#42B883] font-semibold text-sm">
-                  {(entry.name || entry.username)
-                    .substring(0, 2)
-                    .toUpperCase()}
-                </AvatarFallback>
-              </Avatar>
+        {/* Glossy Shine Effect */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 dark:via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+        <CardContent className="p-4 relative z-10 h-full flex flex-col">
+          <div className="flex gap-3 sm:hidden h-full">
+            <div className="flex items-start justify-center w-[5%] pt-1">
+              {getRankIcon(rank) || (
+                <span className="text-lg font-bold text-[#50B78B]">
+                  {rank}
+                </span>
+              )}
             </div>
 
-            {/* Contributor Info */}
-            <div className="text-center">
-              <h3 className="font-semibold text-sm truncate mb-1 leading-tight">{entry.name || entry.username}</h3>
-              <p 
+            <div className="flex flex-col items-center gap-2 w-[35%]">
+              {/* Avatar */}
+              <div
                 onClick={openGitHubProfile}
-                className="text-xs text-muted-foreground truncate cursor-pointer hover:text-[#50B78B] transition-colors"
+                className="cursor-pointer"
+              >
+                <Avatar className="size-12 ring-2 ring-[#42B883]/20 group-hover:ring-[#42B883]/40 transition-all">
+                  <AvatarImage
+                    src={entry.avatar_url || undefined}
+                    alt={entry.name || entry.username}
+                    className="object-cover"
+                  />
+                  <AvatarFallback className="bg-gradient-to-br from-[#42B883]/20 to-[#42B883]/10 text-[#42B883] font-semibold text-sm">
+                    {(entry.name || entry.username)
+                      .substring(0, 2)
+                      .toUpperCase()}
+                  </AvatarFallback>
+                </Avatar>
+              </div>
+
+              {/* Contributor Info */}
+              <div className="text-center">
+                <h3 className="font-semibold text-sm truncate mb-1 leading-tight">{entry.name || entry.username}</h3>
+                <p
+                  onClick={openGitHubProfile}
+                  className="text-xs text-muted-foreground truncate cursor-pointer hover:text-[#50B78B] transition-colors"
+                >
+                  @{entry.username}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-2 w-[60%]">
+              <div className="flex items-center justify-between">
+                {entry.role && (
+                  <Badge variant="secondary" className="text-xs bg-[#42B883]/10 text-[#42B883]">
+                    {entry.role}
+                  </Badge>
+                )}
+                <div className="text-right">
+                  <div className="flex items-center justify-center gap-1 text-sm">
+                    <Trophy className="w-3 h-3 text-yellow-500" />
+                    <span className="font-bold text-[#42B883]">{entry.total_points}</span>
+                    <span className="text-muted-foreground text-xs">pts</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Activity Tags */}
+              <div className="space-y-1 flex-1">
+                {sortActivitiesByPriority(Object.entries(entry.activity_breakdown))
+                  .filter(([activityName, data]) => data.count > 0)
+                  .map(([activityName, data]) => {
+                    const style = getActivityStyle(activityName);
+                    const IconComponent = style.icon;
+
+                    return (
+                      <div
+                        key={activityName}
+                        className={cn(
+                          "relative text-xs px-2 py-1.5 rounded-md border-l-2 transition-all hover:shadow-sm flex items-center justify-between gap-1",
+                          style.bgColor,
+                          style.borderColor
+                        )}
+                      >
+                        <div className="flex items-center gap-1">
+                          {IconComponent && (
+                            <IconComponent className={cn("w-3 h-3", style.textColor)} />
+                          )}
+                          <span className={cn("font-medium truncate text-xs", style.textColor)}>
+                            {activityName === "PR merged" ? "PR" : activityName === "PR opened" ? "Opened" : activityName === "Issue opened" ? "Issues" : activityName === "Review submitted" ? "Reviews" : activityName}:
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <span className="font-semibold text-xs">{data.count}</span>
+                          <span className={cn("font-bold text-xs", style.textColor)}>+{data.points}</span>
+                        </div>
+                      </div>
+                    );
+                  })}
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop Layout */}
+          <div className="hidden sm:flex flex-col items-center gap-3 h-full">
+            {/* Rank Badge */}
+            <div className="relative flex-shrink-0">
+              <div
+                onClick={openGitHubProfile}
+                className="cursor-pointer"
+              >
+                <Avatar className="w-16 h-16 ring-2 ring-[#42B883]/20 group-hover:ring-[#42B883]/40 transition-all">
+                  <AvatarImage
+                    src={entry.avatar_url || undefined}
+                    alt={entry.name || entry.username}
+                    className="object-cover"
+                  />
+                  <AvatarFallback className="bg-gradient-to-br from-[#42B883]/20 to-[#42B883]/10 text-[#42B883] font-semibold text-sm">
+                    {(entry.name || entry.username)
+                      .substring(0, 2)
+                      .toUpperCase()}
+                  </AvatarFallback>
+                </Avatar>
+              </div>
+
+              {/* Rank overlay */}
+              <div className={cn(
+                "absolute -top-1 -right-1 flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold shadow-md border transition-transform group-hover:scale-110 text-white",
+                isTopThree
+                  ? styles.iconBg
+                  : "bg-[#42B883] text-white border-white dark:border-gray-900"
+              )}>
+                {rank <= 3 ? getRankIcon(rank) || rank : rank}
+              </div>
+            </div>
+
+            {/* User Info */}
+            <div className="text-center min-w-0 w-full flex-shrink-0">
+              <h3 className="font-semibold text-sm truncate mb-1">{entry.name || entry.username}</h3>
+              <p
+                onClick={openGitHubProfile}
+                className="text-xs text-muted-foreground truncate mb-1 cursor-pointer hover:text-[#50B78B] transition-colors"
               >
                 @{entry.username}
               </p>
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-2 w-[60%]">
-            <div className="flex items-center justify-between">
               {entry.role && (
-                <Badge variant="secondary" className="text-xs bg-[#42B883]/10 text-[#42B883]">
+                <Badge variant="secondary" className="text-xs mb-2 bg-[#42B883]/10 text-[#42B883]">
                   {entry.role}
                 </Badge>
               )}
-              <div className="text-right">
+
+              {/* Points */}
+              <div className="mb-2">
                 <div className="flex items-center justify-center gap-1 text-sm">
                   <Trophy className="w-3 h-3 text-yellow-500" />
                   <span className="font-bold text-[#42B883]">{entry.total_points}</span>
@@ -470,138 +563,44 @@ export function LeaderboardCard({
               </div>
             </div>
 
-            {/* Activity Tags */}
-            <div className="space-y-1 flex-1">
-              {sortActivitiesByPriority(Object.entries(entry.activity_breakdown))
-                .filter(([activityName, data]) => data.count > 0)
-                .map(([activityName, data]) => {
-                  const style = getActivityStyle(activityName);
-                  const IconComponent = style.icon;
-                  
-                  return (
-                    <div
-                      key={activityName}
-                      className={cn(
-                        "relative text-xs px-2 py-1.5 rounded-md border-l-2 transition-all hover:shadow-sm flex items-center justify-between gap-1",
-                        style.bgColor,
-                        style.borderColor
-                      )}
-                    >
-                      <div className="flex items-center gap-1">
-                        {IconComponent && (
-                          <IconComponent className={cn("w-3 h-3", style.textColor)} />
-                        )}
-                        <span className={cn("font-medium truncate text-xs", style.textColor)}>
-                          {activityName === "PR merged" ? "PR" : activityName === "PR opened" ? "Opened" : activityName === "Issue opened" ? "Issues" : activityName === "Review submitted" ? "Reviews" : activityName}:
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <span className="font-semibold text-xs">{data.count}</span>
-                        <span className={cn("font-bold text-xs", style.textColor)}>+{data.points}</span>
-                      </div>
-                    </div>
-                  );
-                })}
-            </div>
-          </div>
-        </div>
+            {/* Top Activities */}
+            <div className="flex-1 w-full">
+              <div className="space-y-1.5">
+                {sortActivitiesByPriority(Object.entries(entry.activity_breakdown))
+                  .filter(([activityName, data]) => data.count > 0)
+                  .map(([activityName, data]) => {
+                    const style = getActivityStyle(activityName);
+                    const IconComponent = style.icon;
 
-        {/* Desktop Layout */}
-        <div className="hidden sm:flex flex-col items-center gap-3 h-full">
-          {/* Rank Badge */}
-          <div className="relative flex-shrink-0">
-            <div
-              onClick={openGitHubProfile}
-              className="cursor-pointer"
-            >
-              <Avatar className="w-16 h-16 ring-2 ring-[#42B883]/20 group-hover:ring-[#42B883]/40 transition-all">
-                <AvatarImage
-                  src={entry.avatar_url || undefined}
-                  alt={entry.name || entry.username}
-                  className="object-cover"
-                />
-                <AvatarFallback className="bg-gradient-to-br from-[#42B883]/20 to-[#42B883]/10 text-[#42B883] font-semibold text-sm">
-                  {(entry.name || entry.username)
-                    .substring(0, 2)
-                    .toUpperCase()}
-                </AvatarFallback>
-              </Avatar>
-            </div>
-            
-            {/* Rank overlay */}
-            <div className={cn(
-              "absolute -top-1 -right-1 flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold shadow-md border transition-transform group-hover:scale-110 text-white",
-              isTopThree 
-                ? styles.iconBg
-                : "bg-[#42B883] text-white border-white dark:border-gray-900"
-            )}>
-              {rank <= 3 ? getRankIcon(rank) || rank : rank}
-            </div>
-          </div>
-          
-          {/* User Info */}
-          <div className="text-center min-w-0 w-full flex-shrink-0">
-            <h3 className="font-semibold text-sm truncate mb-1">{entry.name || entry.username}</h3>
-            <p 
-              onClick={openGitHubProfile}
-              className="text-xs text-muted-foreground truncate mb-1 cursor-pointer hover:text-[#50B78B] transition-colors"
-            >
-              @{entry.username}
-            </p>
-            {entry.role && (
-              <Badge variant="secondary" className="text-xs mb-2 bg-[#42B883]/10 text-[#42B883]">
-                {entry.role}
-              </Badge>
-            )}
-            
-            {/* Points */}
-            <div className="mb-2">
-              <div className="flex items-center justify-center gap-1 text-sm">
-                <Trophy className="w-3 h-3 text-yellow-500" />
-                <span className="font-bold text-[#42B883]">{entry.total_points}</span>
-                <span className="text-muted-foreground text-xs">pts</span>
+                    return (
+                      <div
+                        key={activityName}
+                        className={cn(
+                          "relative text-xs px-3 py-2 rounded-md border-l-2 transition-all hover:shadow-sm flex items-center justify-between gap-2",
+                          style.bgColor,
+                          style.borderColor
+                        )}
+                      >
+                        <div className="flex items-center gap-1.5">
+                          {IconComponent && (
+                            <IconComponent className={cn("w-3 h-3", style.textColor)} />
+                          )}
+                          <span className={cn("font-medium truncate", style.textColor)}>
+                            {activityName}:
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <span className="font-semibold">{data.count}</span>
+                          <span className={cn("font-bold", style.textColor)}>+{data.points}</span>
+                        </div>
+                      </div>
+                    );
+                  })}
               </div>
             </div>
           </div>
-            
-          {/* Top Activities */}
-          <div className="flex-1 w-full">
-            <div className="space-y-1.5">
-              {sortActivitiesByPriority(Object.entries(entry.activity_breakdown))
-                .filter(([activityName, data]) => data.count > 0)
-                .map(([activityName, data]) => {
-                  const style = getActivityStyle(activityName);
-                  const IconComponent = style.icon;
-                  
-                  return (
-                    <div
-                      key={activityName}
-                      className={cn(
-                        "relative text-xs px-3 py-2 rounded-md border-l-2 transition-all hover:shadow-sm flex items-center justify-between gap-2",
-                        style.bgColor,
-                        style.borderColor
-                      )}
-                    >
-                      <div className="flex items-center gap-1.5">
-                        {IconComponent && (
-                          <IconComponent className={cn("w-3 h-3", style.textColor)} />
-                        )}
-                        <span className={cn("font-medium truncate", style.textColor)}>
-                          {activityName}:
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <span className="font-semibold">{data.count}</span>
-                        <span className={cn("font-bold", style.textColor)}>+{data.points}</span>
-                      </div>
-                    </div>
-                  );
-                })}
-            </div>
-          </div>
-        </div>
-      </CardContent>
-    </Card>
+        </CardContent>
+      </Card>
     </div>
   );
 }
