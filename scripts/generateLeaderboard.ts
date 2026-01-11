@@ -27,6 +27,9 @@ const POINTS = {
   "PR merged": 5,
   "Issue opened": 1,
   "Review submitted": 4,
+  "Issue labeled": 2,
+  "Issue assigned": 2,
+  "Issue closed": 1,
 } as const;
 
 /* -------------------------------------------------------
@@ -34,7 +37,7 @@ const POINTS = {
 ------------------------------------------------------- */
 
 export type RawActivity = {
-  type: "PR opened" | "PR merged" | "Issue opened" | "Review submitted";
+  type: "PR opened" | "PR merged" | "Issue opened" | "Review submitted" | "Issue labeled" | "Issue assigned" | "Issue closed";
   occured_at: string;
   title?: string | null;
   link?: string | null;
@@ -306,6 +309,15 @@ interface GitHubReview {
   submitted_at: string;
 }
 
+interface GitHubIssueEvent {
+  event: string;
+  actor: { login: string; avatar_url?: string; type?: string };
+  created_at: string;
+  label?: { name: string };
+  assignee?: { login: string };
+}
+
+
 async function fetchOrgRepos(): Promise<string[]> {
   const repos: string[] = [];
   let page = 1;
@@ -463,6 +475,169 @@ async function fetchAllReviews(
     }
   }
 }
+
+/* -------------------------------------------------------
+   FETCH ISSUE TRIAGING ACTIVITIES
+------------------------------------------------------- */
+
+async function fetchIssueTriagingActivities(
+  users: Map<string, Contributor>,
+  since: Date,
+  now: Date
+) {
+  console.log("🔍 Issue triaging activities");
+  
+  // Use GitHub Search API for better historical coverage
+  console.log("   📌 Fetching issue events (labeled, assigned, closed)...");
+  
+  // Search for issues that were updated in our timeframe to capture triaging activities
+  const updatedIssues = await searchByDateChunks(
+    `org:${ORG}+is:issue`,
+    since,
+    now,
+    30,
+    "updated"
+  );
+  
+  console.log(`   📊 Found ${updatedIssues.length} updated issues to scan for triaging activities`);
+  
+  // Process issues in batches to avoid rate limiting
+  const batchSize = 10;
+  const issueBatches = chunk(updatedIssues, batchSize);
+  
+  for (const [batchIndex, batch] of issueBatches.entries()) {
+    console.log(`   🔄 Processing issue batch ${batchIndex + 1}/${issueBatches.length}...`);
+    
+    // Process each issue for events
+    await Promise.all(
+      batch.map(issue => processIssueTriagingEvents(users, issue, since, now))
+    );
+    
+    // Small delay between batches
+    await sleep(1000);
+  }
+  
+  console.log("✅ Issue triaging activities scan completed");
+}
+
+async function processIssueTriagingEvents(
+  users: Map<string, Contributor>,
+  issue: GitHubSearchItem,
+  since: Date,
+  now: Date
+) {
+  try {
+    // Extract repo name from html_url
+    const url = new URL(issue.html_url);
+    const pathParts = url.pathname.split('/').filter(Boolean);
+    // Expected: [org, repo, 'issues', number]
+    if (pathParts.length < 4 || pathParts[2] !== 'issues') return;
+    
+    const repoName = pathParts[1];
+    const issueNumber = pathParts[3];
+    
+    if (!repoName || !issueNumber || isNaN(Number(issueNumber))) return;
+    
+    // Fetch issue events (labeled, assigned, closed)
+    const eventsRes = await fetch(
+      `${GITHUB_API}/repos/${ORG}/${repoName}/issues/${issueNumber}/events`,
+      {
+        headers: {
+          Authorization: `Bearer ${TOKEN}`,
+          Accept: "application/vnd.github+json",
+        },
+      }
+    );
+    
+    if (!eventsRes.ok) {
+      console.error(`     ⚠️ Failed to fetch events for ${repoName}#${issueNumber}: ${eventsRes.status}`);
+      return;
+    }
+    
+    const events: GitHubIssueEvent[] = await eventsRes.json();
+    await smartSleep(eventsRes, 500);
+    
+    // Process events for triaging activities
+    for (const event of events) {
+      if (!event.actor?.login || isBotUser(event.actor)) continue;
+      
+      const eventDate = new Date(event.created_at);
+      if (eventDate < since || eventDate > now) continue;
+      
+      const user = ensureUser(users, event.actor);
+      
+      switch (event.event) {
+        case "labeled":
+          // Only count meaningful labels (not automated ones)
+          if (event.label?.name && !isAutomatedLabel(event.label.name)) {
+            addActivity(
+              user,
+              "Issue labeled",
+              event.created_at,
+              POINTS["Issue labeled"],
+              { 
+                title: `Labeled issue #${issueNumber}: ${event.label.name}`, 
+                link: issue.html_url 
+              }
+            );
+          }
+          break;
+          
+        case "assigned":
+          // Only count assignments where the actor is not assigning themselves
+          if (event.assignee && event.actor.login !== event.assignee.login) {
+            addActivity(
+              user,
+              "Issue assigned",
+              event.created_at,
+              POINTS["Issue assigned"],
+              { 
+                title: `Assigned issue #${issueNumber} to ${event.assignee.login}`, 
+                link: issue.html_url 
+              }
+            );
+          }
+          break;
+          
+        case "closed":
+          // Only count manual closures by maintainers
+          if (event.actor.login !== issue.user.login) {
+            addActivity(
+              user,
+              "Issue closed",
+              event.created_at,
+              POINTS["Issue closed"],
+              { 
+                title: `Closed issue #${issueNumber}: ${sanitizeTitle(issue.title)}`, 
+                link: issue.html_url 
+              }
+            );
+          }
+          break;
+      }
+    }
+  } catch (error) {
+    console.error(`     ❌ Error processing issue events: ${error}`);
+  }
+}
+
+// Helper function to filter out automated labels
+function isAutomatedLabel(labelName: string): boolean {
+  const automatedLabels = [
+    'stale',
+    'wontfix',
+    'duplicate',
+    'invalid',
+    'dependencies',
+    'security',
+    'github_actions'
+  ];
+  
+  return automatedLabels.some(auto => 
+    labelName.toLowerCase().includes(auto.toLowerCase())
+  );
+}
+
 
 /* -------------------------------------------------------
    INCREMENTAL UPDATE HELPERS
@@ -650,6 +825,9 @@ async function generateYear() {
 
   // Fetch reviews
   await fetchAllReviews(users, since, now);
+  
+  // Fetch issue triaging activities
+  await fetchIssueTriagingActivities(users, since, now);
   
   // Merge existing activities (incremental mode)
   if (isIncremental) {

@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import { LeaderboardSkeleton } from "@/components/Leaderboard/LeaderboardSkeleton";
 
 /**
@@ -13,12 +14,24 @@ import { LeaderboardSkeleton } from "@/components/Leaderboard/LeaderboardSkeleto
  * before navigating to /leaderboard/month, resulting in a ~1 second blank screen.
  * By rendering the skeleton while redirecting, users see immediate visual feedback.
  */
-export default function LeaderboardIndexPage() {
+function LeaderboardIndexPageContent() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const isGridView = searchParams?.get("v") === "grid";
 
   useEffect(() => {
-    router.replace("/leaderboard/month");
-  }, [router]);
+    const params = searchParams?.toString();
+    const target = `/leaderboard/month${params ? `?${params}` : ""}`;
+    router.replace(target);
+  }, [router, searchParams]);
 
-  return <LeaderboardSkeleton count={10} variant="list" />;
+  return <LeaderboardSkeleton count={10} variant={isGridView ? "grid" : "list"} />;
+}
+
+export default function LeaderboardIndexPage() {
+  return (
+    <Suspense fallback={<LeaderboardSkeleton count={10} variant="list" />}>
+      <LeaderboardIndexPageContent />
+    </Suspense>
+  );
 }

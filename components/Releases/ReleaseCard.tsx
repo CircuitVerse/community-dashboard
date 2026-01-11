@@ -8,9 +8,10 @@ export function ReleaseCard({ release }: { release: Release }) {
   return (
     <Card className="transition-all hover:shadow-md hover:border-[#50B78B]/50">
       <CardContent className="p-5 space-y-4">
-        {/* Header - Fixed for Mobile */}
+{/* Header - Fixed for Mobile */}
         <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 sm:gap-4">
           <div>
+            {/* MERGED: Kept 'break-words' to prevent overflow */}
             <h3 className="text-lg font-semibold break-words">
               {release.repo} — {release.version}
             </h3>
@@ -19,14 +20,16 @@ export function ReleaseCard({ release }: { release: Release }) {
             </p>
           </div>
 
-          <span className="text-sm text-zinc-500 whitespace-nowrap">
-            {release.date}
-          </span>
+          </div>
+         <span className="text-xs sm:text-sm text-zinc-500 whitespace-normal sm:whitespace-nowrap sm:self-start">
+  {release.date}
+</span>
+       
         </div>
 
         {/* Contributors */}
         {release.contributors.length > 0 && (
-          <div className="flex flex-wrap gap-3 pt-2">
+          <div className="flex flex-wrap gap-2 pt-2">
             {release.contributors.map((c) => (
               <Link
                 key={c.username}

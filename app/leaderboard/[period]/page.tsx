@@ -40,10 +40,15 @@ function isValidPeriod(period: string): period is "week" | "month" | "year" {
 
 export default async function Page({
   params,
+  searchParams,
 }: {
   params: Promise<{ period: "week" | "month" | "year" }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
   const { period } = await params;
+  const query = await searchParams;
+  const isGridView = query.v === "grid";
+  
   // navigate to not found page, if time periods are other than week/month/year
   if (!isValidPeriod(period)) {
     notFound();
@@ -64,7 +69,7 @@ export default async function Page({
   const data: LeaderboardJSON = JSON.parse(file);
 
   return (
-    <Suspense fallback={<LeaderboardSkeleton count={10} variant="list" />}>
+    <Suspense fallback={<LeaderboardSkeleton count={10} variant={isGridView ? "grid" : "list"} />}>
       <LeaderboardView
         entries={data.entries}
         period={period}

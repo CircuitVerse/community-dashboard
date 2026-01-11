@@ -1,11 +1,12 @@
 import { getReleases } from "@/lib/releases";
-import { ReleaseCard } from "@/components/Releases/ReleaseCard";
+import ReleasesClient from "@/components/Releases/ReleasesClient";
 
 export default async function ReleasesPage() {
   const releases = await getReleases();
 
   return (
-   <div className="max-w-5xl mx-auto px-4 pt-10 pb-32 space-y-6">
+    // MERGED: Added 'w-full' from main, kept 'pb-32' and 'space-y-6' from your fix
+    <div className="mx-auto w-full max-w-5xl px-4 pt-10 pb-32 space-y-6">
       <div>
         <h1 className="text-3xl font-bold text-[#50B78B]">
           Releases
@@ -15,14 +16,7 @@ export default async function ReleasesPage() {
         </p>
       </div>
 
-      <div className="space-y-4">
-        {releases.map((release, index) => (
-         <ReleaseCard
-  key={`${release.repoSlug}-${release.version}`}
-  release={release}
-/>
-        ))}
-      </div>
+      <ReleasesClient releases={releases} />
     </div>
   );
 }
