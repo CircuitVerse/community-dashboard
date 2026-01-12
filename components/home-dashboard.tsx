@@ -225,7 +225,7 @@ export default function HomeDashboard({
                   <SummaryCard
                     label="Most Active Repo"
                     value={activeRepo.name ?? ""}
-                    sub={`+${activeRepo.growth} Merged PRs`}
+                    sub={`${activeRepo.growth >= 0 ? '+' : ''}${activeRepo.growth} Merged PRs`}
                     icon={<Trophy className="h-6 w-6" />}
                     highlight={true}
                     decoration="wave"

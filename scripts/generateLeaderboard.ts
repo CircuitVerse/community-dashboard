@@ -634,7 +634,7 @@ async function generateRepoOverview() {
         name: repo,
         description: meta.description,
         language: meta.language,
-        avatar_url: meta.owner.avatar_url,
+        avatar_url: meta.owner?.avatar_url ?? '',
         html_url: meta.html_url,
         stars: meta.stargazers_count,
         forks: meta.forks,
