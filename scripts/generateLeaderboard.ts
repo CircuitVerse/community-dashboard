@@ -12,7 +12,7 @@ const ALUMNI_USERNAMES = new Set(alumniMembers.map(m => m.username.toLowerCase()
 
 const ORG = "CircuitVerse";
 const GITHUB_API = "https://api.github.com";
-const TOKEN = process.env.GITHUB_TOKEN;
+const TOKEN = process.env.GITHUB_TOKEN
 
 if (!TOKEN) {
   throw new Error("❌ GITHUB_TOKEN is required");
@@ -477,6 +477,191 @@ async function fetchAllReviews(
 }
 
 /* -------------------------------------------------------
+   OVERVIEW LOGIC
+------------------------------------------------------- */
+
+export type RepoStats = {
+  name: string;
+  description: string | null;
+  language: string | null;
+  avatar_url: string;
+  html_url: string;
+  stars: number;
+  forks: number;
+  current: {
+    pr_opened: number;
+    pr_merged: number;
+    issue_created: number;
+    currentTotalContribution: number;
+  }
+  previous: {
+    pr_merged: number;
+  }
+  growth: {
+    pr_merged: number;
+  };
+};
+
+const NOW = new Date();
+const CURRENT_START = daysAgo(30);
+const PREVIOUS_START = daysAgo(60);
+
+// ------ Helpers ------
+
+async function fetchRepoMeta(repo:string) {
+   const res = await fetch(`${GITHUB_API}/repos/${ORG}/${repo}`, {
+    headers: {
+      Authorization: `Bearer ${TOKEN}`,
+      Accept: "application/vnd.github+json",
+    }
+  });
+
+  if (!res.ok) return null;
+  await smartSleep(res, 300)
+  return res.json()
+}
+
+async function fetchAll<T = any>(url: string): Promise<T[]> {
+   let page = 1;
+   const results: T[] = [];
+   while (true) {
+    const join = url.includes("?") ? "&" : "?";
+    const res = await fetch(`${url}${join}per_page=100&page=${page}`, {
+       headers: {
+         Authorization: `Bearer ${TOKEN}`,
+         Accept: "application/vnd.github+json",
+       },
+     });
+
+    if (!res.ok) {
+      const text = await res.text().catch(() => "");
+      throw new Error(`GitHub API ${res.status}: ${text}`);
+    }
+    await smartSleep(res, 500);
+    const data: T[] = await res.json();
+    results.push(...data);
+
+     if (data.length < 100) break;
+     page++;
+   }
+
+   return results;
+ }
+
+// ------ Metric fetchers ------
+
+async function fetchIssuesCreated(repo: string) {
+  console.log("      🔎 Fetching current issues...");
+  const issues = await fetchAll(
+    `${GITHUB_API}/repos/${ORG}/${repo}/issues?state=all&since=${iso(CURRENT_START)}`
+  );
+
+  return issues.filter(
+    i =>
+      !i.pull_request &&
+      new Date(i.created_at) >= CURRENT_START &&
+      !isBotUser(i.user)
+  ).length;
+}
+
+async function fetchPRsOpened(repo: string) {
+  console.log("      🔎 Fetching current PRs opened...");
+  const prs = await fetchAll(
+    `${GITHUB_API}/repos/${ORG}/${repo}/pulls?state=all&sort=created&direction=desc`
+  );
+
+  return prs.filter(
+    pr => new Date(pr.created_at) >= CURRENT_START && (!isBotUser(pr.user))
+  ).length;
+}
+
+async function fetchPRsMerge(repo:string) {
+  console.log("      🔎 Fetching PRs merged...");
+  const prs = await fetchAll(
+    `${GITHUB_API}/repos/${ORG}/${repo}/pulls?state=closed&sort=updated&direction=desc`
+  );
+
+  let current = 0;
+  let previous = 0;
+
+  for (const pr of prs) {
+    if (!pr.merged_at) continue;
+    if (isBotUser(pr.user)) continue;
+    const mergedAt = new Date(pr.merged_at);
+    if (mergedAt >= CURRENT_START && mergedAt <= NOW) current++;
+    if (mergedAt >= PREVIOUS_START && mergedAt < CURRENT_START) previous++;
+  }
+
+  return { current, previous };
+}
+
+function writeRepoOverview(repo:RepoStats[]) {
+  fs.writeFileSync(
+      path.join(process.cwd(), "public", "leaderboard", "overview.json"),
+      JSON.stringify({
+        updatedAt: Date.now(),
+        period: "Last_30days",
+        repos: repo
+      }, null, 2)
+    );
+    console.log(`✅ Generated overview.json (${repo.length} repos)`);
+}
+
+async function generateRepoOverview() {
+  console.log("📊 Generating repo overview");
+
+  const repos = await fetchOrgRepos();
+
+  const res: RepoStats[] = [];
+
+  console.log(`📦 ${repos.length} repositories found`);
+
+  for (const repo of repos) {
+    try {
+      console.log(`   📁 Fetching repo ${ORG}/${repo}...`);
+      const meta = await fetchRepoMeta(repo);
+      if (!meta) {
+        console.log(`      ⚠️ Skipped (meta fetch failed)`);
+        continue;
+      }
+      console.log(`      📈 Fetching CURRENT stats`);
+      const issue_created = await fetchIssuesCreated(repo);
+      const pr_opened = await fetchPRsOpened(repo);
+      const { current: pr_merged, previous: pr_merged_prev } = await fetchPRsMerge(repo);
+      
+      const currentTotal = issue_created + pr_opened + pr_merged;
+      res.push({
+        name: repo,
+        description: meta.description,
+        language: meta.language,
+        avatar_url: meta.owner.avatar_url,
+        html_url: meta.html_url,
+        stars: meta.stargazers_count,
+        forks: meta.forks,
+        current: {
+          pr_opened,
+          pr_merged,
+          issue_created,
+          currentTotalContribution: currentTotal
+        },
+        previous: {
+          pr_merged: pr_merged_prev,
+        },
+        growth: {
+          pr_merged: pr_merged - pr_merged_prev,
+        },
+      });
+      console.log(`      ✅ Done`);
+    } catch (error) {
+      console.error(`      ❌ Error processing ${repo}:`, error);
+      // Continue with next repo
+      continue;
+    }
+  }
+  writeRepoOverview(res);
+}
+
+/* -------------------------------------------------------
    FETCH ISSUE TRIAGING ACTIVITIES
 ------------------------------------------------------- */
 
@@ -871,6 +1056,7 @@ async function generateYear() {
   derivePeriod(yearData, 7, "week");
   derivePeriod(yearData, 30, "month");
   generateRecentActivities(yearData);
+  await generateRepoOverview()
 }
 
 /* -------------------------------------------------------
