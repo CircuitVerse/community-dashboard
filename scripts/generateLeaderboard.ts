@@ -502,10 +502,6 @@ export type RepoStats = {
   };
 };
 
-const NOW = new Date();
-const CURRENT_START = daysAgo(30);
-const PREVIOUS_START = daysAgo(60);
-
 // ------ Helpers ------
 
 async function fetchRepoMeta(repo:string) {
@@ -550,32 +546,52 @@ async function fetchAll<T = any>(url: string): Promise<T[]> {
 
 // ------ Metric fetchers ------
 
-async function fetchIssuesCreated(repo: string) {
+async function fetchIssuesCreated(repo: string, current_start: Date) {
   console.log("      🔎 Fetching current issues...");
   const issues = await fetchAll(
-    `${GITHUB_API}/repos/${ORG}/${repo}/issues?state=all&since=${iso(CURRENT_START)}`
+    `${GITHUB_API}/repos/${ORG}/${repo}/issues?state=all&since=${iso(current_start)}`
   );
 
   return issues.filter(
     i =>
       !i.pull_request &&
-      new Date(i.created_at) >= CURRENT_START &&
+      new Date(i.created_at) >= current_start &&
       !isBotUser(i.user)
   ).length;
 }
 
-async function fetchPRsOpened(repo: string) {
+async function fetchPRsOpened(repo: string, current_start: Date) {
   console.log("      🔎 Fetching current PRs opened...");
-  const prs = await fetchAll(
-    `${GITHUB_API}/repos/${ORG}/${repo}/pulls?state=all&sort=created&direction=desc`
-  );
 
-  return prs.filter(
-    pr => new Date(pr.created_at) >= CURRENT_START && (!isBotUser(pr.user))
-  ).length;
+  let count = 0;
+  let page = 1;
+
+  while (true) {
+    const res = await fetch(
+      `${GITHUB_API}/repos/${ORG}/${repo}/pulls?state=all&sort=created&direction=desc&per_page=100&page=${page}`,
+      { headers: { Authorization: `Bearer ${TOKEN}`, Accept: "application/vnd.github+json" } }
+    );
+
+    if (!res.ok) break;
+
+    await smartSleep(res, 500);
+
+    const prs = await res.json();
+    if (!prs.length) break;
+    
+    for (const pr of prs) {
+      if (new Date(pr.created_at) < current_start) return count; // Early exit
+     if (!isBotUser(pr.user)) count++;
+    }
+
+    if (prs.length < 100) break;
+    page++;
+  }
+
+  return count;
 }
 
-async function fetchPRsMerge(repo:string) {
+async function fetchPRsMerge(repo:string, current_start: Date, previous_start: Date, now: Date) {
   console.log("      🔎 Fetching PRs merged...");
   const prs = await fetchAll(
     `${GITHUB_API}/repos/${ORG}/${repo}/pulls?state=closed&sort=updated&direction=desc`
@@ -588,8 +604,8 @@ async function fetchPRsMerge(repo:string) {
     if (!pr.merged_at) continue;
     if (isBotUser(pr.user)) continue;
     const mergedAt = new Date(pr.merged_at);
-    if (mergedAt >= CURRENT_START && mergedAt <= NOW) current++;
-    if (mergedAt >= PREVIOUS_START && mergedAt < CURRENT_START) previous++;
+    if (mergedAt >= current_start && mergedAt <= now) current++;
+    if (mergedAt >= previous_start && mergedAt < current_start) previous++;
   }
 
   return { current, previous };
@@ -609,6 +625,10 @@ function writeRepoOverview(repo:RepoStats[]) {
 
 async function generateRepoOverview() {
   console.log("📊 Generating repo overview");
+  
+  const NOW = new Date();
+  const CURRENT_START = daysAgo(30);
+  const PREVIOUS_START = daysAgo(60);
 
   const repos = await fetchOrgRepos();
 
@@ -625,9 +645,9 @@ async function generateRepoOverview() {
         continue;
       }
       console.log(`      📈 Fetching CURRENT stats`);
-      const issue_created = await fetchIssuesCreated(repo);
-      const pr_opened = await fetchPRsOpened(repo);
-      const { current: pr_merged, previous: pr_merged_prev } = await fetchPRsMerge(repo);
+      const issue_created = await fetchIssuesCreated(repo, CURRENT_START);
+      const pr_opened = await fetchPRsOpened(repo, CURRENT_START);
+      const { current: pr_merged, previous: pr_merged_prev } = await fetchPRsMerge(repo, CURRENT_START, PREVIOUS_START, NOW);
       
       const currentTotal = issue_created + pr_opened + pr_merged;
       res.push({
