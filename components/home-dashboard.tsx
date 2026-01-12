@@ -386,24 +386,42 @@ function RepoCard({ repo }: { repo: RepoStats }) {
       {/* Metrics Section */}
       <div className="px-5 pb-5 sm:px-6 sm:pb-6 pt-0">
         <div className="grid grid-cols-3 gap-2 rounded-xl bg-zinc-50 dark:bg-zinc-800/40 p-2 border border-zinc-100 dark:border-zinc-800/60">
-          <MetricFlowItem
-            icon={<CircleDot className="h-4 w-4 sm:h-5 sm:w-5" />}
-            count={repo.current.issue_created}
-            label="Issues"
-            variant="neutral"
-          />
-          <MetricFlowItem
-            icon={<GitPullRequest className="h-4 w-4 sm:h-5 sm:w-5" />}
-            count={repo.current.pr_opened}
-            label="Open"
-            variant="active"
-          />
-          <MetricFlowItem
-            icon={<GitMerge className="h-4 w-4 sm:h-5 sm:w-5" />}
-            count={repo.current.pr_merged}
-            label="Merged"
-            variant="success"
-          />
+          <Link
+            href={`${repo.html_url}/issues`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <MetricFlowItem
+              icon={<CircleDot className="h-4 w-4 sm:h-5 sm:w-5" />}
+              count={repo.current.issue_created}
+              label="Issues"
+              variant="neutral"
+            />
+          </Link>
+          <Link
+            href={`${repo.html_url}/pulls`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <MetricFlowItem
+              icon={<GitPullRequest className="h-4 w-4 sm:h-5 sm:w-5" />}
+              count={repo.current.pr_opened}
+              label="Open"
+              variant="active"
+            />
+          </Link>
+          <Link
+            href={`${repo.html_url}/pulls?q=is%3Apr+is%3Amerged`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <MetricFlowItem
+              icon={<GitMerge className="h-4 w-4 sm:h-5 sm:w-5" />}
+              count={repo.current.pr_merged}
+              label="Merged"
+              variant="success"
+            />
+          </Link>
         </div>
       </div>
     </div>
@@ -438,7 +456,7 @@ function MetricFlowItem({
   return (
     <div
       className={cn(
-        "flex flex-col items-center justify-center p-2 sm:p-3 rounded-lg transition-colors cursor-default",
+        "flex flex-col items-center justify-center p-2 sm:p-3 rounded-lg transition-colors cursor-pointer",
         styles.bg
       )}
     >
