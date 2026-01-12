@@ -1,7 +1,7 @@
 {
   "period": "year",
-  "updatedAt": 1768184899623,
-  "lastFetchedAt": 1768184899623,
+  "updatedAt": 1768200616383,
+  "lastFetchedAt": 1768200616383,
   "startDate": "2025-01-12",
   "endDate": "2026-01-12",
   "hiddenRoles": [],
@@ -3214,26 +3214,31 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
       "role": "Maintainer",
-      "total_points": 230,
+      "total_points": 243,
       "activity_breakdown": {
         "PR opened": {
-          "count": 20,
-          "points": 40
+          "count": 22,
+          "points": 44
         },
         "PR merged": {
+          "count": 20,
+          "points": 100
+        },
+        "Review submitted": {
           "count": 19,
-          "points": 95
+          "points": 76
         },
         "Issue opened": {
           "count": 23,
           "points": 23
-        },
-        "Review submitted": {
-          "count": 18,
-          "points": 72
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-01-12",
+          "count": 4,
+          "points": 13
+        },
         {
           "date": "2026-01-11",
           "count": 4,
@@ -3451,6 +3456,34 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-12T06:42:54Z",
+          "title": "Improve Vue simulator integration logic",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6611",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-12T06:20:00Z",
+          "title": "Merge CSS and JS",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/788",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-01-12T06:22:21Z",
+          "title": "Merge CSS and JS",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/788",
+          "points": 5
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-01-12T06:25:58Z",
+          "title": "Review on PR #550",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/550",
+          "points": 4
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-01-11T18:17:18Z",
@@ -15391,6 +15424,128 @@
       ]
     },
     {
+      "username": "pantha704",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/100998543?v=4",
+      "role": "Contributor",
+      "total_points": 25,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 12,
+          "points": 24
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-01-12",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-01-11",
+          "count": 11,
+          "points": 22
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-12T04:28:57Z",
+          "title": "fix - add missing GenerateCircuit arguments and sanitize CSS selectors",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/787",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-12T04:22:30Z",
+          "title": "🐞 Bug - GenerateCircuit() missing arguments and CSS selector injection risk in combinationalAnalysis.js",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/786",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-11T10:08:17Z",
+          "title": "refactor - remove jQuery from listeners.js",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/771",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-11T10:00:32Z",
+          "title": "refactor - convert sequential.js to TypeScript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/770",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-11T09:57:47Z",
+          "title": "chore - remove unused legacy i18n code in simulator/src",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/769",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-11T06:36:07Z",
+          "title": "refactor - remove jQuery from setup.js",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/768",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-11T06:36:06Z",
+          "title": "refactor - remove jQuery from engine.js",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/767",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-11T06:36:05Z",
+          "title": "refactor - remove jQuery from layoutMode.ts",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/766",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-11T06:36:03Z",
+          "title": "refactor - remove jQuery from combinationalAnalysis.js",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/765",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-11T04:51:11Z",
+          "title": "refactor - remove jQuery from minimap.js",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/764",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-11T04:51:10Z",
+          "title": "refactor - remove jQuery from drag.ts",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/763",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-11T04:51:08Z",
+          "title": "refactor - remove jQuery from utils.ts",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/762",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-11T04:36:34Z",
+          "title": "refactor - remove jQuery from ux.js",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/761",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "Abdul-Raheem324",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/186626050?v=4",
@@ -15839,105 +15994,6 @@
           "title": "Incorrect text alignment for RTL languages",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6054",
           "points": 1
-        }
-      ]
-    },
-    {
-      "username": "pantha704",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/100998543?v=4",
-      "role": "Contributor",
-      "total_points": 22,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 11,
-          "points": 22
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-01-11",
-          "count": 11,
-          "points": 22
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-11T10:08:17Z",
-          "title": "refactor - remove jQuery from listeners.js",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/771",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-11T10:00:32Z",
-          "title": "refactor - convert sequential.js to TypeScript",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/770",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-11T09:57:47Z",
-          "title": "chore - remove unused legacy i18n code in simulator/src",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/769",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-11T06:36:07Z",
-          "title": "refactor - remove jQuery from setup.js",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/768",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-11T06:36:06Z",
-          "title": "refactor - remove jQuery from engine.js",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/767",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-11T06:36:05Z",
-          "title": "refactor - remove jQuery from layoutMode.ts",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/766",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-11T06:36:03Z",
-          "title": "refactor - remove jQuery from combinationalAnalysis.js",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/765",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-11T04:51:11Z",
-          "title": "refactor - remove jQuery from minimap.js",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/764",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-11T04:51:10Z",
-          "title": "refactor - remove jQuery from drag.ts",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/763",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-11T04:51:08Z",
-          "title": "refactor - remove jQuery from utils.ts",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/762",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-11T04:36:34Z",
-          "title": "refactor - remove jQuery from ux.js",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/761",
-          "points": 2
         }
       ]
     },
@@ -17210,6 +17266,105 @@
       ]
     },
     {
+      "username": "sengmonkham",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/157476526?v=4",
+      "role": "Contributor",
+      "total_points": 14,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 3,
+          "points": 3
+        },
+        "PR opened": {
+          "count": 3,
+          "points": 6
+        },
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-01-12",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-01-11",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-01-09",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2026-01-05",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2025-12-21",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-12T06:14:19Z",
+          "title": "Redirect authenticated users to dashboard on homepage visit",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6610",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-11T06:58:07Z",
+          "title": "docs - fixed typos",
+          "link": "https://github.com/CircuitVerse/Interactive-Book/pull/748",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-11T06:51:35Z",
+          "title": "Contributing Guidelines and Fix Typos",
+          "link": "https://github.com/CircuitVerse/Interactive-Book/issues/747",
+          "points": 1
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-01-09T01:10:55Z",
+          "title": "fix - Incorrect project name in Code of Conduct",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/492",
+          "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-05T13:48:15Z",
+          "title": "fix - Incorrect project name in Code of Conduct",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/492",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-05T13:47:19Z",
+          "title": "Docs - Incorrect project name in Code of Conduct",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/491",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-21T07:14:07Z",
+          "title": "Fix - Improved login form layout by separating reCAPTCHA widget",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6494",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "aniketchawardol",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/142898217?v=4",
@@ -17529,93 +17684,6 @@
           "title": "🛑 Main Platform is down",
           "link": "https://github.com/CircuitVerse/upptime/issues/165",
           "points": 1
-        }
-      ]
-    },
-    {
-      "username": "sengmonkham",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/157476526?v=4",
-      "role": "Contributor",
-      "total_points": 13,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 3,
-          "points": 6
-        },
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        },
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-01-11",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-01-09",
-          "count": 1,
-          "points": 5
-        },
-        {
-          "date": "2026-01-05",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2025-12-21",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-11T06:58:07Z",
-          "title": "docs - fixed typos",
-          "link": "https://github.com/CircuitVerse/Interactive-Book/pull/748",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-11T06:51:35Z",
-          "title": "Contributing Guidelines and Fix Typos",
-          "link": "https://github.com/CircuitVerse/Interactive-Book/issues/747",
-          "points": 1
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-01-09T01:10:55Z",
-          "title": "fix - Incorrect project name in Code of Conduct",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/492",
-          "points": 5
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-05T13:48:15Z",
-          "title": "fix - Incorrect project name in Code of Conduct",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/492",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-05T13:47:19Z",
-          "title": "Docs - Incorrect project name in Code of Conduct",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/491",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-21T07:14:07Z",
-          "title": "Fix - Improved login form layout by separating reCAPTCHA widget",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6494",
-          "points": 2
         }
       ]
     },
@@ -18561,6 +18629,89 @@
       ]
     },
     {
+      "username": "manash213cyber",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/249688142?v=4",
+      "role": "Contributor",
+      "total_points": 10,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 4,
+          "points": 8
+        },
+        "Issue opened": {
+          "count": 2,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-01-12",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-01-09",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-01-02",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2025-12-21",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-12T05:06:46Z",
+          "title": "fix broken 'Edit this page' link",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/501",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-09T06:42:11Z",
+          "title": "Fix oversized SevenSegDisplay image in documentation",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/495",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-09T05:54:25Z",
+          "title": "SevenSegDisplay image is too large and requires vertical scrolling",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/494",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-21T07:02:45Z",
+          "title": "Fix doc typos",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/468",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-02T08:40:51Z",
+          "title": "Improve readability of text above Figure 4.18 in Chapter 4 docs",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/486",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-02T07:44:06Z",
+          "title": "Low contrast text - black text not readable on dark background",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/485",
+          "points": 1
+        }
+      ]
+    },
+    {
       "username": "RiyaS905",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/184746190?v=4",
@@ -18941,6 +19092,82 @@
       ]
     },
     {
+      "username": "akritah",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/69254659?v=4",
+      "role": "Contributor",
+      "total_points": 9,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "PR opened": {
+          "count": 4,
+          "points": 8
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-01-12",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2025-12-09",
+          "count": 2,
+          "points": 4
+        },
+        {
+          "date": "2025-12-04",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2025-12-02",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-12T06:33:53Z",
+          "title": "🐞 Bug - Duplicate CSS variable keys in theme definitions cause build warnings",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/789",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-09T11:11:45Z",
+          "title": "fix(ui) - prevent ElementsPanel from being dragged under Navbar (#260)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/691",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-09T10:53:12Z",
+          "title": "Fix/260 elements panel navbar overlap",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/690",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-04T11:36:49Z",
+          "title": "chore(ci) - add workflow to run simulator tests (#508)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/684",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-02T20:28:35Z",
+          "title": "fix(project) - prevent duplicate confirm modal when creating new proje…",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/683",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "Aditya30ag",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/162010355?v=4",
@@ -19292,77 +19519,6 @@
       ]
     },
     {
-      "username": "manash213cyber",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/249688142?v=4",
-      "role": "Contributor",
-      "total_points": 8,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 3,
-          "points": 6
-        },
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-01-09",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-01-02",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2025-12-21",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-09T06:42:11Z",
-          "title": "Fix oversized SevenSegDisplay image in documentation",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/495",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-09T05:54:25Z",
-          "title": "SevenSegDisplay image is too large and requires vertical scrolling",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/494",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-21T07:02:45Z",
-          "title": "Fix doc typos",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/468",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-02T08:40:51Z",
-          "title": "Improve readability of text above Figure 4.18 in Chapter 4 docs",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/486",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-02T07:44:06Z",
-          "title": "Low contrast text - black text not readable on dark background",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/485",
-          "points": 1
-        }
-      ]
-    },
-    {
       "username": "rolex-67",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/179861712?v=4",
@@ -19538,66 +19694,6 @@
           "title": "Review on PR #5337",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/5337",
           "points": 4
-        }
-      ]
-    },
-    {
-      "username": "akritah",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/69254659?v=4",
-      "role": "Contributor",
-      "total_points": 8,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 4,
-          "points": 8
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2025-12-09",
-          "count": 2,
-          "points": 4
-        },
-        {
-          "date": "2025-12-04",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2025-12-02",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-09T11:11:45Z",
-          "title": "fix(ui) - prevent ElementsPanel from being dragged under Navbar (#260)",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/691",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-09T10:53:12Z",
-          "title": "Fix/260 elements panel navbar overlap",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/690",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-04T11:36:49Z",
-          "title": "chore(ci) - add workflow to run simulator tests (#508)",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/684",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-02T20:28:35Z",
-          "title": "fix(project) - prevent duplicate confirm modal when creating new proje…",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/683",
-          "points": 2
         }
       ]
     },
