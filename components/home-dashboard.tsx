@@ -361,7 +361,13 @@ function RepoCard({ repo }: { repo: RepoStats }) {
             {/* Added min-w-0 to allow truncation inside flex */}
             <div className="min-w-0 flex-1">
               <div className="text-base sm:text-lg font-bold text-zinc-900 dark:text-zinc-100 hover:text-[#50B78B] dark:hover:text-[#50B78B] transition-colors truncate">
-                <Link href={repo.html_url}>{repo.name}</Link>
+                <Link 
+                  href={repo.html_url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                            >
+                      {repo.name}
+                </Link>
               </div>
             </div>
           </div>
