@@ -148,7 +148,7 @@ types/
 
 The leaderboard is updated automatically using **GitHub Actions**.
 
-- Runs every **6 hours**
+- Runs every **24 hours**
 - Can be triggered manually
 
 ---

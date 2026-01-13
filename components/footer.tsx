@@ -15,8 +15,8 @@ import CopyEmailButton from "./copy-email-button";
 
 import { Config } from "@/types/config";
 
-import { getUpdatedTime } from "@/lib/db";
-import { formatTimeAgo } from "@/lib/utils";
+/*import { getUpdatedTime } from "@/lib/db";
+import { formatTimeAgo } from "@/lib/utils";*/
 
 interface FooterProps {
   config: Config;
@@ -24,7 +24,7 @@ interface FooterProps {
 
 export const Footer = async ({ config }: FooterProps) => {
   const currentYear = new Date().getFullYear();
-  const updatedAt = await getUpdatedTime();
+  //const updatedAt = await getUpdatedTime();
 
   return (
     <footer className="border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-black transition-colors mt-5">
@@ -244,13 +244,18 @@ export const Footer = async ({ config }: FooterProps) => {
                 </div>
               </div>
 
-              <div className="border-t border-zinc-100 dark:border-zinc-800 pt-3">
+              {/*<div className="border-t border-zinc-100 dark:border-zinc-800 pt-3">
                 <p className="text-xs text-zinc-400 dark:text-zinc-500">
                   Data last updated{" "}
                   <span className="text-zinc-600 dark:text-zinc-300 font-medium">
                     {updatedAt && formatTimeAgo(updatedAt)}
                   </span>
                 </p>
+              </div>*/}
+              <div className="border-t border-zinc-100 dark:border-zinc-800 pt-3">
+               <p className="text-xs text-zinc-400 dark:text-zinc-500">
+                 Updated daily
+               </p>
               </div>
             </div>
 

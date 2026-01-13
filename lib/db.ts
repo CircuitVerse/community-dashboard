@@ -1,6 +1,6 @@
 // lib/db.ts — temporary stub (no DB)
 
-import { UserEntry } from "@/scripts/generateLeaderboard";
+import { RepoStats, UserEntry } from "@/scripts/generateLeaderboard";
 import fs from "fs";
 import path from "path";
 import { differenceInDays } from "date-fns";
@@ -15,6 +15,7 @@ type ActivityItem = {
   title?: string | null;
   text?: string | null;
   link?: string | null;
+  repo?: string | null;
   points: number | null;
 };
 
@@ -37,6 +38,14 @@ export type MonthBuckets = {
   w3: number;
   w4: number;
 };
+
+// Helper function to extract repository name from GitHub URL
+function extractRepoFromUrl(url: string | null | undefined): string | null {
+  if (!url || typeof url !== 'string') return null;
+  
+  const match = url.match(/github\.com\/[^/]+\/([^/]+)/);
+  return match && match[1] !== undefined ? match[1] : null;
+}
 
 // Used by app/page.tsx
 // export async function getRecentActivitiesGroupedByType(valid: "week" | "month" | "year"): Promise<ActivityGroup[]> {
@@ -125,10 +134,11 @@ export async function getRecentActivitiesGroupedByType(
       contributor: user.username,
       contributor_name: user.name,
       contributor_avatar_url: user.avatar_url,
-      contributor_role: user.role ?? null,
+      contributor_role: (user.role ?? null) as string | null,
       occured_at: act.occured_at,
       title: act.title ?? null,     // ✅ REAL title
       link: act.link ?? null,       // ✅ REAL GitHub link
+      repo: extractRepoFromUrl(act.link ?? null), // ✅ Extract repo name
       points: act.points ?? 0,
     });
   }
@@ -224,8 +234,25 @@ export async function getPreviousMonthActivityCount(): Promise<number> {
   return count;
 }
 
-export async function getLeaderboard() {
-  return [];
+export async function getReposOverview(): Promise<RepoStats[]> {
+  const filePath = path.join(
+    process.cwd(),
+    "public",
+    "leaderboard",
+    `overview.json`
+  );
+
+  if (!fs.existsSync(filePath)) return [];
+  
+  try {
+    const file = fs.readFileSync(filePath, "utf-8");
+    const data = JSON.parse(file);
+    if (!data?.repos?.length) return [];
+    return data.repos;
+  } catch (error) {
+    console.error("Failed to parse overview.json:", error);
+    return [];
+  }
 }
 
 export async function getTopContributorsByActivity() {
