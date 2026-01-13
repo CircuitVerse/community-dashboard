@@ -827,8 +827,8 @@ export default function LeaderboardView({
           ) : (
             <div className={cn(
               viewMode === "grid"
-                ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6"
-                : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 lg:gap-0 lg:space-y-4 lg:block"
+                ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 items-stretch"
+                : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 lg:gap-0 lg:space-y-4 lg:block items-stretch"
             )}>
               {paginatedEntries.map((entry, index) => {
                 // Use the pre-computed rank from entryRanks, which is based on full sorted list
