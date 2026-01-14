@@ -606,7 +606,7 @@ export default function LeaderboardView({
                   </div>
 
                   <div className="flex items-center gap-2">
-                    {/* UPDATED CLEAR BUTTON WITH GLOW EFFECT */}
+                    {/* CLEAR BUTTON WITH GLOW EFFECT */}
                     {(selectedRoles.size > 0 || searchQuery || sortBy !== "points") && (
                       <Button
                         variant="ghost"
@@ -619,12 +619,13 @@ export default function LeaderboardView({
                       </Button>
                     )}
 
+                    {/* UPDATED FILTER BUTTON WITH MATCHING GLOW EFFECT */}
                     <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
                       <PopoverTrigger asChild>
                         <Button
                           variant="outline"
                           size="sm"
-                          className="h-9 border border-[#50B78B]/30 hover:bg-[#50B78B]/20 cursor-pointer"
+                          className="h-9 border border-[#50B78B]/30 hover:bg-[#50B78B]/20 hover:text-[#50B78B] hover:shadow-[0_0_10px_rgba(80,183,139,0.3)] active:bg-[#50B78B]/30 active:shadow-[0_0_15px_rgba(80,183,139,0.5)] transition-all duration-200 cursor-pointer"
                         >
                           <Filter className="h-4 w-4 mr-1.5" />
                           Filter
