@@ -130,7 +130,7 @@ export function ReadyToMergeList() {
                       #{pr.number}
                     </Badge>
                     <Badge className="text-xs bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 flex items-center gap-1">
-                      <CheckCircle className="h-3 w-3" />
+                      <CheckCircle className="h-2 w-2" />
                       {pr.approvals} approval{pr.approvals !== 1 ? 's' : ''}
                     </Badge>
                   </div>

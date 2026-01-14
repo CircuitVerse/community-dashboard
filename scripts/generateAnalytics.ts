@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { coreTeamMembers, alumniMembers } from "../lib/team-data";
 
 /* -------------------------------------------------------
    CONFIG
@@ -504,7 +505,14 @@ function calculateReviewMetrics(
     ? reviewTimes.reduce((a, b) => a + b, 0) / reviewTimes.length 
     : 0;
 
+  // Get list of maintainer usernames (core team + alumni)
+  const maintainerUsernames = new Set([
+    ...coreTeamMembers.map(member => member.username.toLowerCase()),
+    ...alumniMembers.map(member => member.username.toLowerCase())
+  ]);
+
   const topReviewers = Object.entries(reviewerStats)
+    .filter(([username]) => maintainerUsernames.has(username.toLowerCase()))
     .sort(([, a], [, b]) => b.count - a.count)
     .slice(0, 10)
     .map(([username, stats]) => ({
