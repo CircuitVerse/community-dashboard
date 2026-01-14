@@ -1,8 +1,8 @@
 {
   "period": "month",
-  "updatedAt": 1768329703056,
-  "startDate": "2025-12-14",
-  "endDate": "2026-01-13",
+  "updatedAt": 1768357622862,
+  "startDate": "2025-12-15",
+  "endDate": "2026-01-14",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -11,7 +11,7 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 225,
+      "total_points": 229,
       "activity_breakdown": {
         "PR opened": {
           "count": 17,
@@ -22,8 +22,8 @@
           "points": 24
         },
         "Review submitted": {
-          "count": 33,
-          "points": 132
+          "count": 34,
+          "points": 136
         },
         "PR merged": {
           "count": 7,
@@ -33,8 +33,8 @@
       "daily_activity": [
         {
           "date": "2026-01-13",
-          "count": 3,
-          "points": 7
+          "count": 4,
+          "points": 11
         },
         {
           "date": "2026-01-12",
@@ -136,6 +136,13 @@
           "title": "🐞 Bug - Update README with clearer Windows setup instructions",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/795",
           "points": 1
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-01-13T19:36:43Z",
+          "title": "Review on PR #210",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/210",
+          "points": 4
         },
         {
           "type": "Review submitted",
@@ -1694,15 +1701,15 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/158487820?v=4",
       "role": "Contributor",
-      "total_points": 93,
+      "total_points": 98,
       "activity_breakdown": {
         "PR opened": {
           "count": 16,
           "points": 32
         },
         "PR merged": {
-          "count": 9,
-          "points": 45
+          "count": 10,
+          "points": 50
         },
         "Issue opened": {
           "count": 16,
@@ -1712,8 +1719,8 @@
       "daily_activity": [
         {
           "date": "2026-01-13",
-          "count": 3,
-          "points": 8
+          "count": 4,
+          "points": 13
         },
         {
           "date": "2026-01-12",
@@ -1808,6 +1815,13 @@
           "title": "feat - include all activity types in dashboard distribution chart",
           "link": "https://github.com/CircuitVerse/community-dashboard/pull/210",
           "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-01-13T19:36:49Z",
+          "title": "feat - include all activity types in dashboard distribution chart",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/210",
+          "points": 5
         },
         {
           "type": "PR merged",
@@ -6408,79 +6422,6 @@
       ]
     },
     {
-      "username": "SuyashJain17",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/153724685?v=4",
-      "role": "Contributor",
-      "total_points": 7,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 5,
-          "points": 5
-        },
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-01-11",
-          "count": 3,
-          "points": 3
-        },
-        {
-          "date": "2025-12-14",
-          "count": 3,
-          "points": 4
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-11T12:54:38Z",
-          "title": "🐞 Bugz - Race condition in Project#toggle_star can cause unhandled errors on concurrent requests",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6609",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-11T12:51:48Z",
-          "title": "Orphaned records remain when User is deleted (missing dependent - - destroy)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6608",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-11T12:41:14Z",
-          "title": "🐞 Bug - Missing index on tags.name causes full table scans during tag lookups",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6607",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-14T22:55:33Z",
-          "title": "Document common Windows setup pitfalls in setup guide",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6470",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2025-12-14T22:38:41Z",
-          "title": "Improve Windows setup documentation by documenting common pitfalls",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6469",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2025-12-14T22:15:10Z",
-          "title": "🐞 Notification bell icon missing aria-label in navbar",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6468",
-          "points": 1
-        }
-      ]
-    },
-    {
       "username": "vivekyadav-3",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/210567772?v=4",
@@ -7328,6 +7269,49 @@
           "occured_at": "2026-01-09T11:20:05Z",
           "title": "The theme toggle is currently implemented as a simple icon button (sun/moon). The button does not visually represent the current theme state clearly and lacks an intuitive toggle behavior, which leads to a poor user experience.",
           "link": "https://github.com/CircuitVerse/mobile-app/issues/462",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "username": "SuyashJain17",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/153724685?v=4",
+      "role": "Contributor",
+      "total_points": 3,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 3,
+          "points": 3
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-01-11",
+          "count": 3,
+          "points": 3
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-11T12:54:38Z",
+          "title": "🐞 Bugz - Race condition in Project#toggle_star can cause unhandled errors on concurrent requests",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6609",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-11T12:51:48Z",
+          "title": "Orphaned records remain when User is deleted (missing dependent - - destroy)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6608",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-11T12:41:14Z",
+          "title": "🐞 Bug - Missing index on tags.name causes full table scans during tag lookups",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6607",
           "points": 1
         }
       ]
