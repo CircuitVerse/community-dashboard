@@ -98,8 +98,8 @@ export function getContributorBadges(contributor: any) {
     addBadge("core_team");
   }
 
-  // Manually add WoC 5.0 for the user (vivekyadav1207vy)
-  if (contributor.username === "vivekyadav1207vy") {
+  // Manually add WoC 5.0 for the user
+  if (contributor.username === "vivekyadav1207vy" || contributor.username === "vivekyadav-3") {
     addBadge("woc_5");
   }
 

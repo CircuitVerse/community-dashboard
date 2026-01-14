@@ -12,82 +12,72 @@ export function calculateStreaks(dailyActivity: DailyActivity[]) {
     return { current: 0, longest: 0 };
   }
 
-  // Sort chronologically
-  const sortedDays = [...dailyActivity].sort(
-    (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
-  );
-
-  let longestStreak = 0;
-  let tempStreak = 0;
-  let lastDate: Date | null = null;
-
-  // Calculate Longest Streak with gap detection
-  sortedDays.forEach((day) => {
-    if (!day) return;
-    if (day.count > 0) {
-      const currentDate = new Date(day.date);
-      if (lastDate) {
-        const diffTime = Math.abs(currentDate.getTime() - lastDate.getTime());
-        const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
-
-        if (diffDays === 1) {
-          tempStreak++;
-        } else {
-          tempStreak = 1;
-        }
-      } else {
-        tempStreak = 1;
-      }
-      lastDate = currentDate;
-      if (tempStreak > longestStreak) longestStreak = tempStreak;
-    }
-  });
-
-  // Calculate Current Streak (working backwards from today/yesterday)
-  const today = new Date();
-  const yesterday = new Date(today);
-  yesterday.setDate(yesterday.getDate() - 1);
-
-  const formatDate = (date: Date) => {
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-    return `${year}-${month}-${day}`;
+  // Helper to parse YYYY-MM-DD to a UTC timestamp at midnight
+  const getTimestamp = (dateStr: string) => {
+    const [year, month, day] = dateStr.split('-').map(Number);
+    return Date.UTC(year, month - 1, day);
   };
 
-  const todayStr = formatDate(today);
-  const yesterdayStr = formatDate(yesterday);
+  const MS_PER_DAY = 1000 * 60 * 60 * 24;
 
-  const reverseDays = [...sortedDays].reverse();
-  let currentStreak = 0;
-  let lastActiveIndex = -1;
+  // Sort and filter for days with activity
+  const activeDays = dailyActivity
+    .filter(day => day.count > 0)
+    .map(day => ({
+      ...day,
+      timestamp: getTimestamp(day.date)
+    }))
+    .sort((a, b) => a.timestamp - b.timestamp);
 
-  for (let i = 0; i < reverseDays.length; i++) {
-    const day = reverseDays[i];
-    if (day && day.count > 0 && (day.date === todayStr || day.date === yesterdayStr)) {
-      lastActiveIndex = i;
-      break;
-    }
+  if (activeDays.length === 0) {
+    return { current: 0, longest: 0 };
   }
 
-  if (lastActiveIndex !== -1) {
+  // Calculate Longest Streak
+  let longestStreak = 0;
+  let tempStreak = 0;
+  let lastTimestamp: number | null = null;
+
+  activeDays.forEach((day) => {
+    if (lastTimestamp !== null) {
+      const diffDays = Math.round((day.timestamp - lastTimestamp) / MS_PER_DAY);
+
+      if (diffDays === 1) {
+        tempStreak++;
+      } else if (diffDays > 1) {
+        tempStreak = 1;
+      }
+      // If diffDays is 0, it's the same day, don't increment or reset
+    } else {
+      tempStreak = 1;
+    }
+    lastTimestamp = day.timestamp;
+    if (tempStreak > longestStreak) longestStreak = tempStreak;
+  });
+
+  // Calculate Current Streak
+  // We need to know what "today" and "yesterday" are in the same relative time
+  const now = new Date();
+  const todayUTC = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+  const yesterdayUTC = todayUTC - MS_PER_DAY;
+
+  const lastDay = activeDays[activeDays.length - 1];
+  let currentStreak = 0;
+
+  // Only consider current if the last active day was today or yesterday
+  if (lastDay.timestamp === todayUTC || lastDay.timestamp === yesterdayUTC) {
     currentStreak = 1;
-    for (let i = lastActiveIndex; i < reverseDays.length - 1; i++) {
-      const currentDay = reverseDays[i];
-      const nextDay = reverseDays[i + 1];
-      
-      if (!currentDay || !nextDay) break;
+    for (let i = activeDays.length - 1; i > 0; i--) {
+      const current = activeDays[i].timestamp;
+      const previous = activeDays[i - 1].timestamp;
+      const diff = Math.round((current - previous) / MS_PER_DAY);
 
-      const d1 = new Date(currentDay.date);
-      const d2 = new Date(nextDay.date);
-      const diffTime = Math.abs(d1.getTime() - d2.getTime());
-      const diffDays = Math.round(diffTime / (1000 * 3600 * 24));
-
-      if (diffDays === 1 && nextDay.count > 0) {
+      if (diff === 1) {
         currentStreak++;
-      } else {
+      } else if (diff > 1) {
         break;
       }
+      // diff === 0 handled implicitly (streak continues without incrementing count)
     }
   }
 
