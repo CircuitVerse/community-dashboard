@@ -1,0 +1,255 @@
+name: Issue Assignment Bot
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  claim-issue:
+    # Only run on issue comments (not PR comments) and when comment contains @bot claim
+    if: |
+      !github.event.issue.pull_request &&
+      contains(github.event.comment.body, '@bot claim')
+    runs-on: ubuntu-latest
+    # Prevent race conditions - only one job per issue at a time
+    concurrency:
+      group: issue-assign-${{ github.event.issue.number }}
+      cancel-in-progress: false
+
+    steps:
+      - name: Check and Assign Issue
+        uses: actions/github-script@v8
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const commenter = context.payload.comment.user.login;
+            const issue = context.payload.issue;
+            const repo = context.repo;
+
+            console.log(`Processing @bot claim from ${commenter} on issue #${issue.number}`);
+
+            // Validate exact command match
+            const commentBody = context.payload.comment.body.trim();
+            if (commentBody !== '@bot claim') {
+              console.log(`Comment "${commentBody}" is not an exact match for "@bot claim", skipping`);
+              return;
+            }
+
+            // Re-fetch issue to get current state (prevents race conditions)
+            const { data: currentIssue } = await github.rest.issues.get({
+              ...repo,
+              issue_number: issue.number
+            });
+
+            // Check if issue is already assigned
+            if (currentIssue.assignees && currentIssue.assignees.length > 0) {
+              const isAlreadyAssignedToCommenter = currentIssue.assignees.some(a => a.login === commenter);
+
+              if (isAlreadyAssignedToCommenter) {
+                console.log(`Issue already assigned to commenter ${commenter}`);
+                await github.rest.issues.createComment({
+                  ...repo,
+                  issue_number: issue.number,
+                  body: `@${commenter} This issue is already assigned to you.`
+                });
+                return;
+              }
+
+              // Assigned to someone else
+              const assigneesList = currentIssue.assignees.map(a => `@${a.login}`).join(', ');
+              console.log(`Issue already assigned to ${assigneesList}`);
+              await github.rest.issues.createComment({
+                ...repo,
+                issue_number: issue.number,
+                body: `@${commenter} This issue cannot be claimed, as it is already assigned to ${assigneesList}.`
+              });
+              return;
+            }
+
+            // Check if commenter has any other open assigned issues
+            // Using ONLY repo-scoped API (listForRepo) - no Search API dependency
+            // This approach works for all users including first-time contributors
+            let otherAssignedIssues = [];
+            let page = 1;
+            let hasMorePages = true;
+
+            console.log(`Checking for other assigned issues for ${commenter}...`);
+
+            while (hasMorePages) {
+              const { data: issues } = await github.rest.issues.listForRepo({
+                ...repo,
+                state: 'open',
+                per_page: 100,
+                page: page
+              });
+
+              if (issues.length === 0) {
+                hasMorePages = false;
+              } else {
+                // Filter: exclude current issue, exclude PRs, find issues assigned to commenter
+                const assignedToUser = issues.filter(i =>
+                  i.number !== issue.number &&
+                  !i.pull_request &&
+                  i.assignees &&
+                  i.assignees.some(a => a.login === commenter)
+                );
+                otherAssignedIssues = otherAssignedIssues.concat(assignedToUser);
+                page++;
+
+                // Stop early if we found assigned issues or reached end of results
+                if (otherAssignedIssues.length > 0 || issues.length < 100) {
+                  hasMorePages = false;
+                }
+              }
+            }
+
+            console.log(`Found ${otherAssignedIssues.length} other assigned issues for ${commenter}`);
+
+            if (otherAssignedIssues.length > 0) {
+              await github.rest.issues.createComment({
+                ...repo,
+                issue_number: issue.number,
+                body: `Hey @${commenter}, you already have an open issue assigned to you.\n\n**Please complete or close your existing issue before claiming a new one.**`
+              });
+              return;
+            }
+
+            // Assign the issue
+            console.log(`Assigning issue #${issue.number} to ${commenter}`);
+
+            try {
+              await github.rest.issues.addAssignees({
+                ...repo,
+                issue_number: issue.number,
+                assignees: [commenter]
+              });
+            } catch (error) {
+              console.log(`Failed to assign issue: ${error.message}`);
+              await github.rest.issues.createComment({
+                ...repo,
+                issue_number: issue.number,
+                body: `@${commenter} Failed to assign this issue. Please try again or contact a maintainer.`
+              });
+              return;
+            }
+
+            // Add "in progress" label
+            try {
+              await github.rest.issues.addLabels({
+                ...repo,
+                issue_number: issue.number,
+                labels: ['in progress']
+              });
+              console.log(`Added "in progress" label to issue #${issue.number}`);
+            } catch (error) {
+              console.log(`Could not add label: ${error.message}`);
+            }
+
+            await github.rest.issues.createComment({
+              ...repo,
+              issue_number: issue.number,
+              body: `Assigned to @${commenter}!`
+            });
+
+            console.log(`Successfully assigned issue #${issue.number} to ${commenter}`);
+
+  drop-issue:
+    # Only run on issue comments (not PR comments) and when comment contains @bot drop
+    if: |
+      !github.event.issue.pull_request &&
+      contains(github.event.comment.body, '@bot drop')
+    runs-on: ubuntu-latest
+    # Prevent race conditions - only one job per issue at a time
+    concurrency:
+      group: issue-assign-${{ github.event.issue.number }}
+      cancel-in-progress: false
+
+    steps:
+      - name: Drop Issue
+        uses: actions/github-script@v8
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const commenter = context.payload.comment.user.login;
+            const issue = context.payload.issue;
+            const repo = context.repo;
+
+            console.log(`Processing @bot drop from ${commenter} on issue #${issue.number}`);
+
+            // Validate exact command match
+            const commentBody = context.payload.comment.body.trim();
+            if (commentBody !== '@bot drop') {
+              console.log(`Comment "${commentBody}" is not an exact match for "@bot drop", skipping`);
+              return;
+            }
+
+            // Re-fetch issue to get current state
+            const { data: currentIssue } = await github.rest.issues.get({
+              ...repo,
+              issue_number: issue.number
+            });
+
+            // Check if commenter is actually assigned to this issue
+            const isAssigned = currentIssue.assignees && currentIssue.assignees.some(a => a.login === commenter);
+
+            if (!isAssigned) {
+              console.log(`User ${commenter} is not assigned to this issue`);
+
+              await github.rest.issues.createComment({
+                ...repo,
+                issue_number: issue.number,
+                body: `@${commenter} You are not assigned to this issue.`
+              });
+              return;
+            }
+
+            // Remove assignee
+            console.log(`Removing ${commenter} from issue #${issue.number}`);
+
+            try {
+              await github.rest.issues.removeAssignees({
+                ...repo,
+                issue_number: issue.number,
+                assignees: [commenter]
+              });
+            } catch (error) {
+              console.log(`Failed to unassign: ${error.message}`);
+              await github.rest.issues.createComment({
+                ...repo,
+                issue_number: issue.number,
+                body: `@${commenter} Failed to unassign you from this issue. Please try again or contact a maintainer.`
+              });
+              return;
+            }
+
+            // Remove "in progress" label if no one else is assigned
+            try {
+              // Re-fetch issue to check remaining assignees
+              const { data: updatedIssue } = await github.rest.issues.get({
+                ...repo,
+                issue_number: issue.number
+              });
+
+              if (!updatedIssue.assignees || updatedIssue.assignees.length === 0) {
+                await github.rest.issues.removeLabel({
+                  ...repo,
+                  issue_number: issue.number,
+                  name: 'in progress'
+                });
+                console.log(`Removed "in progress" label from issue #${issue.number}`);
+              }
+            } catch (error) {
+              console.log(`Could not remove label: ${error.message}`);
+            }
+
+            await github.rest.issues.createComment({
+              ...repo,
+              issue_number: issue.number,
+              body: `@${commenter} You have dropped this issue. It's now available for others to claim.`
+            });
+
+            console.log(`Successfully unassigned ${commenter} from issue #${issue.number}`);

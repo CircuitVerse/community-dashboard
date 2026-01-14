@@ -88,10 +88,10 @@ const ActiveContributors = ({
         {/* Action */}
         <div className="mt-auto">
           <Link
-            href="/people"
+            href="/people#contributors"
             className="block w-full rounded-xl border border-zinc-200 dark:border-white/5 bg-zinc-50 dark:bg-zinc-800/50 px-4 py-3 text-center text-sm font-medium text-zinc-900 dark:text-white transition hover:bg-zinc-100 dark:hover:bg-zinc-800"
           >
-            View All Members
+            View Contributors
           </Link>
         </div>
       </CardContent>

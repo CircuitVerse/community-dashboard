@@ -152,10 +152,10 @@ export function ActivityLineCard({
 
   const chartData: ChartDataItem[] = useMemo(
     () => [
-      { week: "1st", value: week1, isPeak: week1 === maxValue },
-      { week: "2nd", value: week2, isPeak: week2 === maxValue },
-      { week: "3rd", value: week3, isPeak: week3 === maxValue },
-      { week: "4th", value: week4, isPeak: week4 === maxValue },
+      { week: "4w", value: week4, isPeak: week4 === maxValue },
+      { week: "3w", value: week3, isPeak: week3 === maxValue },
+      { week: "2w", value: week2, isPeak: week2 === maxValue },
+      { week: "1w", value: week1, isPeak: week1 === maxValue },
     ],
     [week1, week2, week3, week4, maxValue]
   );

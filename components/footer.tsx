@@ -7,14 +7,16 @@ import {
   HomeIcon,
   Trophy,
   Users,
+  Tag,
 } from "lucide-react";
 
 import Hint from "./hint";
+import CopyEmailButton from "./copy-email-button";
 
 import { Config } from "@/types/config";
 
-import { getUpdatedTime } from "@/lib/db";
-import { formatTimeAgo } from "@/lib/utils";
+/*import { getUpdatedTime } from "@/lib/db";
+import { formatTimeAgo } from "@/lib/utils";*/
 
 interface FooterProps {
   config: Config;
@@ -22,7 +24,7 @@ interface FooterProps {
 
 export const Footer = async ({ config }: FooterProps) => {
   const currentYear = new Date().getFullYear();
-  const updatedAt = await getUpdatedTime();
+  //const updatedAt = await getUpdatedTime();
 
   return (
     <footer className="border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-black transition-colors mt-5">
@@ -34,7 +36,7 @@ export const Footer = async ({ config }: FooterProps) => {
                 href="https://circuitverse.org/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2"
+                className="inline-flex w-fit items-center gap-2"
               >
                 <Image
                   src={config.org.logo_url}
@@ -142,15 +144,18 @@ export const Footer = async ({ config }: FooterProps) => {
                 </Link>
               </Hint>
 
-              <Hint label="Email">
+              <CopyEmailButton />
+
+              <Hint label="Slack">
                 <Link
-                  href="mailto:support@circuitverse.org"
-                  className="text-zinc-400 group/em hover:bg-zinc-100 dark:hover:bg-zinc-800 p-2 sm:p-2 rounded-full transition-all duration-200"
-                  aria-label="Email"
+                  href="https://circuitverse-team.slack.com/ssb/redirect"
+                  target="_blank"
+                  className="text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 p-2 sm:p-2 rounded-full transition-all duration-200"
+                  aria-label="Slack"
                 >
                   <Image
-                    src="/gmail.svg"
-                    alt="Email"
+                    src="/slack.svg"
+                    alt="Slack"
                     width={20}
                     height={20}
                     className="w-5 h-5 sm:w-5 sm:h-5"
@@ -168,7 +173,7 @@ export const Footer = async ({ config }: FooterProps) => {
               <li>
                 <Link
                   href="/"
-                  className="group flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400 hover:text-[#50B78B] transition-colors"
+                  className="group inline-flex w-fit items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400 hover:text-[#50B78B] transition-colors"
                 >
                   <span className="text-zinc-400 group-hover:text-[#50B78B] transition-colors">
                     <HomeIcon className="h-4 w-4" />
@@ -181,7 +186,7 @@ export const Footer = async ({ config }: FooterProps) => {
               <li>
                 <Link
                   href="/leaderboard"
-                  className="group flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400 hover:text-[#50B78B] transition-colors"
+                  className="group inline-flex w-fit items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400 hover:text-[#50B78B] transition-colors"
                 >
                   <span className="text-zinc-400 group-hover:text-[#50B78B] transition-colors">
                     <Trophy className="h-4 w-4" />
@@ -194,12 +199,25 @@ export const Footer = async ({ config }: FooterProps) => {
               <li>
                 <Link
                   href="/people"
-                  className="group flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400 hover:text-[#50B78B] transition-colors"
+                  className="group inline-flex w-fit items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400 hover:text-[#50B78B] transition-colors"
                 >
                   <span className="text-zinc-400 group-hover:text-[#50B78B] transition-colors">
                     <Users className="h-4 w-4" />
                   </span>
                   People
+                  <ArrowUpRight className="h-3 w-3 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-200" />
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/releases"
+                  className="group inline-flex w-fit items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400 hover:text-[#50B78B] transition-colors"
+                >
+                  <span className="text-zinc-400 group-hover:text-[#50B78B] transition-colors">
+                    <Tag className="h-4 w-4" />
+                  </span>
+                  Releases
                   <ArrowUpRight className="h-3 w-3 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-200" />
                 </Link>
               </li>
@@ -226,13 +244,18 @@ export const Footer = async ({ config }: FooterProps) => {
                 </div>
               </div>
 
-              <div className="border-t border-zinc-100 dark:border-zinc-800 pt-3">
+              {/*<div className="border-t border-zinc-100 dark:border-zinc-800 pt-3">
                 <p className="text-xs text-zinc-400 dark:text-zinc-500">
                   Data last updated{" "}
                   <span className="text-zinc-600 dark:text-zinc-300 font-medium">
                     {updatedAt && formatTimeAgo(updatedAt)}
                   </span>
                 </p>
+              </div>*/}
+              <div className="border-t border-zinc-100 dark:border-zinc-800 pt-3">
+               <p className="text-xs text-zinc-400 dark:text-zinc-500">
+                 Updated daily
+               </p>
               </div>
             </div>
 

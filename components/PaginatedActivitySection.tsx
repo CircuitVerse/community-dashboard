@@ -16,6 +16,33 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+
+// Helper function to get consistent colors for repositories
+function getRepoColor(repoName: string | null): string {
+  const colors: readonly string[] = [
+    "bg-blue-100 text-blue-800 border-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-800",
+    "bg-green-100 text-green-800 border-green-200 dark:bg-green-900/30 dark:text-green-300 dark:border-green-800", 
+    "bg-purple-100 text-purple-800 border-purple-200 dark:bg-purple-900/30 dark:text-purple-300 dark:border-purple-800",
+    "bg-orange-100 text-orange-800 border-orange-200 dark:bg-orange-900/30 dark:text-orange-300 dark:border-orange-800",
+    "bg-pink-100 text-pink-800 border-pink-200 dark:bg-pink-900/30 dark:text-pink-300 dark:border-pink-800",
+    "bg-cyan-100 text-cyan-800 border-cyan-200 dark:bg-cyan-900/30 dark:text-cyan-300 dark:border-cyan-800",
+    "bg-indigo-100 text-indigo-800 border-indigo-200 dark:bg-indigo-900/30 dark:text-indigo-300 dark:border-indigo-800",
+    "bg-teal-100 text-teal-800 border-teal-200 dark:bg-teal-900/30 dark:text-teal-300 dark:border-teal-800"
+  ];
+
+  if (!repoName) {
+    return "bg-zinc-100 text-zinc-800 border-zinc-200 dark:bg-zinc-900/30 dark:text-zinc-300 dark:border-zinc-800";
+  }
+  
+  // Create a simple hash from the repo name for consistent color assignment
+  let hash = 0;
+  for (let i = 0; i < repoName.length; i++) {
+    hash = repoName.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  
+  return colors[Math.abs(hash) % colors.length] ?? "bg-zinc-100 text-zinc-800 border-zinc-200 dark:bg-zinc-900/30 dark:text-zinc-300 dark:border-zinc-800";
+}
 
 interface PaginatedActivitySectionProps {
   group: ActivityGroup;
@@ -158,14 +185,34 @@ export function PaginatedActivitySection({
 
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between gap-2">
-                    <p className="truncate text-sm font-medium">
-                      {activity.title ?? "Untitled Activity"}
-                    </p>
+                    <div className="flex items-start gap-2 flex-1 min-w-0 sm:items-center">
+                      <div className="flex-1 min-w-0">
+                        <p className="truncate text-sm font-medium">
+                          {activity.title ?? "Untitled Activity"}
+                        </p>
+                        {activity.repo && (
+                          <Badge 
+                            variant="outline" 
+                            className={`text-xs font-mono shrink-0 mt-1 sm:hidden ${getRepoColor(activity.repo)}`}
+                          >
+                            {activity.repo}
+                          </Badge>
+                        )}
+                      </div>
+                      {activity.repo && (
+                        <Badge 
+                          variant="outline" 
+                          className={`text-xs font-mono shrink-0 hidden sm:block ${getRepoColor(activity.repo)}`}
+                        >
+                          {activity.repo}
+                        </Badge>
+                      )}
+                    </div>
 
                     <Link
                       href={activity.link ?? "#"}
                       target="_blank"
-                      className="opacity-0 group-hover:opacity-100 transition-opacity text-zinc-400 hover:text-[#50B78B] p-1"
+                      className="opacity-0 group-hover:opacity-100 transition-opacity text-zinc-400 hover:text-[#50B78B] p-1 shrink-0"
                     >
                       <ArrowUpRight className="h-4 w-4" />
                     </Link>
