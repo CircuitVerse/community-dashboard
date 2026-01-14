@@ -33,21 +33,19 @@ export function ReviewVelocityChart() {
         
         // Use the dailyReviewData from the API if available
         if (result.reviewMetrics?.dailyReviewData) {
-          const chartData = result.reviewMetrics.dailyReviewData.map((item: DailyReviewItem) => ({
-            name: new Date(item.date).toLocaleDateString('en-US', { weekday: 'short' }),
-            reviews: item.reviews,
-            avgTime: Math.round(item.avgTimeHours),
-          }));
+          const chartData = result.reviewMetrics.dailyReviewData.map((item: DailyReviewItem) => {
+            // Parse date as UTC to avoid timezone shifts
+            const utcDate = new Date(item.date + 'T00:00:00Z');
+            return {
+              name: utcDate.toLocaleDateString('en-US', { weekday: 'short', timeZone: 'UTC' }),
+              reviews: item.reviews,
+              avgTime: Math.round(item.avgTimeHours),
+            };
+          });
           setData(chartData);
         } else {
-          // Fallback to sample data if no real data available
-          const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-          const mockData = days.map((day) => ({
-            name: day,
-            reviews: Math.floor(Math.random() * 15) + 3,
-            avgTime: Math.floor(Math.random() * 24) + 2,
-          }));
-          setData(mockData);
+          // Set empty data instead of random mock data
+          setData([]);
         }
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred');

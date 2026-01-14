@@ -75,15 +75,18 @@ export function ReviewDistributionChart() {
             
             setData(realData);
           } else {
-            // No data available, use sample data
-            const mockData: DistributionData[] = [
-              { name: 'Approved', value: 45, color: COLORS.approved },
-              { name: 'Changes Requested', value: 25, color: COLORS.changesRequested },
-              { name: 'Pending Review', value: 20, color: COLORS.pending },
-              { name: 'Commented', value: 10, color: COLORS.commented },
+            // No data available, use empty state data
+            const emptyData: DistributionData[] = [
+              { name: 'No Data', value: 100, color: '#e5e7eb' },
             ];
-            setData(mockData);
+            setData(emptyData);
           }
+        } else {
+          // Missing reviewStateDistribution, provide empty state
+          const emptyData: DistributionData[] = [
+            { name: 'No Data', value: 100, color: '#e5e7eb' },
+          ];
+          setData(emptyData);
         }
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred');

@@ -78,7 +78,26 @@ export function ActiveReviewersCard() {
     );
   }
 
-  if (!data?.reviewMetrics?.topReviewers) return null;
+  if (!data?.reviewMetrics?.topReviewers) {
+    return (
+      <Card className="col-span-2">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <Users className="h-5 w-5" />
+            Most Active Reviewers
+          </CardTitle>
+          <CardDescription>
+            Top contributors by review count in the last 30 days
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="text-center text-muted-foreground py-8">
+            No reviewers found
+          </div>
+        </CardContent>
+      </Card>
+    );
+  }
 
   const topReviewers = data.reviewMetrics.topReviewers.slice(0, 5);
 
@@ -95,28 +114,31 @@ export function ActiveReviewersCard() {
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
-          {topReviewers.map((reviewer, index) => (
-            <div key={reviewer.username} className="flex items-center justify-between">
-              <div className="flex items-center space-x-3">
-                <div className="flex items-center justify-center w-8 h-8 text-sm font-medium text-muted-foreground">
-                  #{index + 1}
-                </div>
-                <Avatar className="h-10 w-10">
-                  <AvatarImage src={reviewer.avatarUrl} alt={reviewer.username} />
-                  <AvatarFallback>{reviewer.username.slice(0, 2).toUpperCase()}</AvatarFallback>
-                </Avatar>
-                <div>
-                  <div className="font-medium">{reviewer.username}</div>
-                  <div className="text-sm text-muted-foreground">
-                    {reviewer.reviewCount} review{reviewer.reviewCount !== 1 ? 's' : ''}
+          {topReviewers.map((reviewer, index) => {
+            const fallback = (reviewer.username ?? '').slice(0, 2).toUpperCase() || '??';
+            return (
+              <div key={reviewer.username ?? `reviewer-${index}`} className="flex items-center justify-between">
+                <div className="flex items-center space-x-3">
+                  <div className="flex items-center justify-center w-8 h-8 text-sm font-medium text-muted-foreground">
+                    #{index + 1}
+                  </div>
+                  <Avatar className="h-10 w-10">
+                    <AvatarImage src={reviewer.avatarUrl} alt={reviewer.username || 'Unknown'} />
+                    <AvatarFallback>{fallback}</AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <div className="font-medium">{reviewer.username || 'Unknown'}</div>
+                    <div className="text-sm text-muted-foreground">
+                      {reviewer.reviewCount} review{reviewer.reviewCount !== 1 ? 's' : ''}
+                    </div>
                   </div>
                 </div>
+                <Badge variant="secondary">
+                  {reviewer.reviewCount}
+                </Badge>
               </div>
-              <Badge variant="secondary">
-                {reviewer.reviewCount}
-              </Badge>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </CardContent>
     </Card>

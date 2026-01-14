@@ -125,8 +125,8 @@ export function PendingTriageList() {
               {issuesPendingTriage.map((issue) => (
               <div key={`${issue.repository}-${issue.number}`} className="flex items-start space-x-3 p-3 rounded-lg border bg-card hover:bg-accent/50 transition-colors">
                 <Avatar className="h-8 w-8 mt-1">
-                  <AvatarImage src={issue.authorAvatar} alt={issue.author} />
-                  <AvatarFallback>{issue.author.slice(0, 2).toUpperCase()}</AvatarFallback>
+                  <AvatarImage src={issue.authorAvatar} alt={issue.author || 'Unknown'} />
+                  <AvatarFallback>{(issue.author || '?').slice(0, 2).toUpperCase()}</AvatarFallback>
                 </Avatar>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1 flex-wrap">
@@ -139,8 +139,8 @@ export function PendingTriageList() {
                     {issue.labels.length > 0 ? (
                       <div className="flex items-center gap-1">
                         <Tag className="h-3 w-3" />
-                        {issue.labels.slice(0, 2).map(label => (
-                          <Badge key={label} variant="outline" className="text-xs">
+                        {issue.labels.slice(0, 2).map((label, idx) => (
+                          <Badge key={`${label}-${idx}`} variant="outline" className="text-xs">
                             {label}
                           </Badge>
                         ))}
@@ -159,6 +159,7 @@ export function PendingTriageList() {
                   <Link 
                     href={issue.url} 
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="font-medium text-sm hover:underline flex items-center gap-1"
                   >
                     {issue.title}

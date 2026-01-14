@@ -118,8 +118,8 @@ export function ReadyToMergeList() {
               {prsReadyToMerge.map((pr) => (
               <div key={`${pr.repository}-${pr.number}`} className="flex items-start space-x-3 p-3 rounded-lg border bg-card hover:bg-accent/50 transition-colors">
                 <Avatar className="h-8 w-8 mt-1">
-                  <AvatarImage src={pr.authorAvatar} alt={pr.author} />
-                  <AvatarFallback>{pr.author.slice(0, 2).toUpperCase()}</AvatarFallback>
+                  <AvatarImage src={pr.authorAvatar} alt={pr.author || 'Unknown'} />
+                  <AvatarFallback>{(pr.author || '?').slice(0, 2).toUpperCase()}</AvatarFallback>
                 </Avatar>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1">
@@ -137,6 +137,7 @@ export function ReadyToMergeList() {
                   <Link 
                     href={pr.url} 
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="font-medium text-sm hover:underline flex items-center gap-1"
                   >
                     {pr.title}

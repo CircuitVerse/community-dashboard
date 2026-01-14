@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import path from "path";
 import fs from "fs";
 
+export const runtime = "nodejs";
+
 interface ReviewMetrics {
   totalReviews: number;
   reviewsLast7Days: number;

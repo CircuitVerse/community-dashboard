@@ -82,11 +82,11 @@ export function IssueTriageCard() {
     );
   }
 
-  if (!data) return null;
+  if (!data || !data.issueMetrics) return null;
 
   const metrics = data.issueMetrics;
-  const triageRate = metrics.openIssues > 0 
-    ? Math.round((1 - metrics.pendingTriage / metrics.openIssues) * 100)
+  const triageRate = (metrics.openIssues ?? 0) > 0 
+    ? Math.round((1 - (metrics.pendingTriage ?? 0) / (metrics.openIssues ?? 1)) * 100)
     : 100;
 
   return (
@@ -98,7 +98,7 @@ export function IssueTriageCard() {
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold text-orange-600 dark:text-orange-400">
-            {metrics.pendingTriage}
+            {metrics.pendingTriage ?? 0}
           </div>
           <p className="text-xs text-muted-foreground">
             Awaiting labels or categorization
@@ -128,7 +128,7 @@ export function IssueTriageCard() {
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold">
-            {Math.round(metrics.triageVelocity.daily * 10) / 10}
+            {Math.round((metrics.triageVelocity?.daily ?? 0) * 10) / 10}
           </div>
           <p className="text-xs text-muted-foreground">
             Issues triaged per day
@@ -142,15 +142,15 @@ export function IssueTriageCard() {
           <GitBranch className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">{metrics.openIssues}</div>
+          <div className="text-2xl font-bold">{metrics.openIssues ?? 0}</div>
           <div className="flex items-center text-xs text-muted-foreground">
             <Badge 
               variant="outline" 
               className="mr-1 bg-green-50 text-green-700 dark:bg-green-900 dark:text-green-300 border-green-200 dark:border-green-700"
             >
-              {metrics.closedIssues} closed
+              {metrics.closedIssues ?? 0} closed
             </Badge>
-            this month
+            in last 6 months
           </div>
         </CardContent>
       </Card>

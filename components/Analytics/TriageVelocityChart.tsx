@@ -43,26 +43,8 @@ export function TriageVelocityChart() {
           }));
           setData(realData);
         } else {
-          // Generate mock historical triage data for the last 14 days
-          const mockData: TriageData[] = [];
-          const today = new Date();
-          
-          for (let i = 13; i >= 0; i--) {
-            const date = new Date(today);
-            date.setDate(date.getDate() - i);
-            
-            const triaged = Math.floor(Math.random() * 8) + 2;
-            const pending = Math.floor(Math.random() * 15) + 5;
-            
-            mockData.push({
-              date: date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
-              triaged,
-              pending,
-              total: triaged + pending,
-            });
-          }
-          
-          setData(mockData);
+          // No data available, use empty state
+          setData([]);
         }
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred');

@@ -223,27 +223,85 @@ async function fetchFromGitHub(endpoint: string): Promise<unknown> {
 
 async function getRepositories(): Promise<Array<{ name: string; owner: { login: string } }>> {
   console.log("📥 Fetching repositories...");
-  const repos = await fetchFromGitHub(`/orgs/${ORG}/repos?type=all&per_page=100`) as Array<{ name: string; owner: { login: string }; archived: boolean; disabled: boolean }>;
-  return repos.filter((repo: { archived: boolean; disabled: boolean }) => !repo.archived && !repo.disabled);
+  const allRepos: Array<{ name: string; owner: { login: string }; archived: boolean; disabled: boolean }> = [];
+  let page = 1;
+  const perPage = 100;
+  
+  while (true) {
+    const repos = await fetchFromGitHub(`/orgs/${ORG}/repos?type=all&per_page=${perPage}&page=${page}`) as Array<{ name: string; owner: { login: string }; archived: boolean; disabled: boolean }>;
+    
+    if (repos.length === 0) break;
+    
+    allRepos.push(...repos);
+    
+    if (repos.length < perPage) break;
+    
+    page++;
+  }
+  
+  return allRepos.filter((repo) => !repo.archived && !repo.disabled);
 }
 
 async function getPullRequests(owner: string, repo: string, since: Date): Promise<GitHubPullRequest[]> {
   console.log(`📥 Fetching PRs for ${repo}...`);
-  const prs = await fetchFromGitHub(
-    `/repos/${owner}/${repo}/pulls?state=all&sort=updated&direction=desc&since=${since.toISOString()}&per_page=100`
-  ) as GitHubPullRequest[];
-  return prs.filter((pr: GitHubPullRequest) => !isBotUser(pr.user));
+  const allPrs: GitHubPullRequest[] = [];
+  let page = 1;
+  const perPage = 100;
+  
+  while (true) {
+    const prs = await fetchFromGitHub(
+      `/repos/${owner}/${repo}/pulls?state=all&sort=updated&direction=desc&per_page=${perPage}&page=${page}`
+    ) as GitHubPullRequest[];
+    
+    if (prs.length === 0) break;
+    
+    // Filter by date since the API doesn't support 'since' for pulls
+    const filteredPrs = prs.filter((pr: GitHubPullRequest) => 
+      !isBotUser(pr.user) && new Date(pr.updated_at) >= since
+    );
+    
+    allPrs.push(...filteredPrs);
+    
+    // If we got fewer than perPage results, or if oldest PR is before 'since', we're done
+    if (prs.length < perPage || prs.some(pr => new Date(pr.updated_at) < since)) {
+      break;
+    }
+    
+    page++;
+  }
+  
+  return allPrs;
 }
 
 async function getIssues(owner: string, repo: string, since: Date): Promise<GitHubIssue[]> {
   console.log(`📥 Fetching issues for ${repo}...`);
-  const issues = await fetchFromGitHub(
-    `/repos/${owner}/${repo}/issues?state=all&sort=updated&direction=desc&since=${since.toISOString()}&per_page=100`
-  ) as GitHubIssue[];
-  // Filter out PRs (GitHub treats PRs as issues) and bot users
-  return issues.filter((issue: GitHubIssue) => 
-    !issue.pull_request && !isBotUser(issue.user)
-  );
+  const allIssues: GitHubIssue[] = [];
+  let page = 1;
+  const perPage = 100;
+  
+  while (true) {
+    const issues = await fetchFromGitHub(
+      `/repos/${owner}/${repo}/issues?state=all&sort=updated&direction=desc&since=${since.toISOString()}&per_page=${perPage}&page=${page}`
+    ) as GitHubIssue[];
+    
+    if (issues.length === 0) break;
+    
+    // Filter out PRs (GitHub treats PRs as issues) and bot users, and filter by date
+    const filteredIssues = issues.filter((issue: GitHubIssue) => 
+      !issue.pull_request && !isBotUser(issue.user) && new Date(issue.updated_at) >= since
+    );
+    
+    allIssues.push(...filteredIssues);
+    
+    // If we got fewer than perPage results, we're done
+    if (issues.length < perPage) {
+      break;
+    }
+    
+    page++;
+  }
+  
+  return allIssues;
 }
 
 async function getReviews(owner: string, repo: string, prNumber: number): Promise<GitHubReview[]> {
@@ -263,7 +321,7 @@ async function getReviews(owner: string, repo: string, prNumber: number): Promis
 function calculateReviewMetrics(
   pullRequests: GitHubPullRequest[], 
   allReviews: Record<string, GitHubReview[]>,
-  repoMap: Record<string, string> // Maps PR number to repository name
+  repoMap: Record<string, string> // Maps composite key (repo:number) to repository name
 ): ReviewMetrics {
   const now = new Date();
   const last7Days = daysAgo(7);
@@ -302,8 +360,24 @@ function calculateReviewMetrics(
   }> = [];
 
   // Process all reviews
-  Object.entries(allReviews).forEach(([prNumber, reviews]) => {
-    const pr = pullRequests.find(p => p.number.toString() === prNumber);
+  Object.entries(allReviews).forEach(([compositeKey, reviews]) => {
+    // Extract repo info and PR number from composite key (owner/repo#number)
+    const keyParts = compositeKey.split('#');
+    if (keyParts.length !== 2) return;
+    
+    const [repoPath, prNumberStr] = keyParts;
+    if (!repoPath || !prNumberStr) return;
+    
+    const repoParts = repoPath.split('/');
+    if (repoParts.length !== 2) return;
+    
+    const [, repoName] = repoParts;
+    if (!repoName) return;
+    
+    const prNumber = parseInt(prNumberStr, 10);
+    if (isNaN(prNumber)) return;
+    
+    const pr = pullRequests.find(p => p.number === prNumber && repoMap[compositeKey] === repoName);
     if (!pr) return;
 
     reviews.forEach(review => {
@@ -359,7 +433,16 @@ function calculateReviewMetrics(
     // Skip closed PRs, merged PRs, and draft PRs for review considerations
     if (pr.state !== 'open' || pr.merged_at || pr.draft) return;
 
-    const prReviews = allReviews[pr.number.toString()] || [];
+    // Find the composite key for this PR
+    const compositeKey = Object.keys(repoMap).find(key => {
+      const keyParts = key.split('#');
+      if (keyParts.length !== 2) return false;
+      const [, prNumberStr] = keyParts;
+      if (!prNumberStr) return false;
+      return parseInt(prNumberStr, 10) === pr.number && repoMap[key];
+    });
+    
+    const prReviews = compositeKey ? (allReviews[compositeKey] || []) : [];
     const approvals = prReviews.filter(r => r.state === 'APPROVED').length;
     const changesRequested = prReviews.filter(r => r.state === 'CHANGES_REQUESTED').length;
     const ageHours = (now.getTime() - new Date(pr.created_at).getTime()) / (1000 * 60 * 60);
@@ -373,7 +456,7 @@ function calculateReviewMetrics(
         authorAvatar: pr.user.avatar_url,
         createdAt: pr.created_at,
         url: pr.html_url,
-        repository: repoMap[pr.number.toString()] || 'unknown',
+        repository: compositeKey ? (repoMap[compositeKey] ?? 'unknown') : 'unknown',
         ageHours: Math.round(ageHours * 10) / 10,
         isDraft: pr.draft,
       });
@@ -388,7 +471,7 @@ function calculateReviewMetrics(
         authorAvatar: pr.user.avatar_url,
         createdAt: pr.created_at,
         url: pr.html_url,
-        repository: repoMap[pr.number.toString()] || 'unknown',
+        repository: compositeKey ? (repoMap[compositeKey] ?? 'unknown') : 'unknown',
         approvals,
         ageHours: Math.round(ageHours * 10) / 10,
       });
@@ -488,6 +571,15 @@ function calculateIssueMetrics(issues: GitHubIssue[], repoMap: Record<string, st
       ageDistribution.moreThanThirtyDays++;
     }
 
+    // Find the composite key for this issue
+    const compositeKey = Object.keys(repoMap).find(key => {
+      const keyParts = key.split('#');
+      if (keyParts.length !== 2) return false;
+      const [, issueNumberStr] = keyParts;
+      if (!issueNumberStr) return false;
+      return parseInt(issueNumberStr, 10) === issue.number && repoMap[key];
+    });
+
     return {
       number: issue.number,
       title: issue.title,
@@ -495,7 +587,7 @@ function calculateIssueMetrics(issues: GitHubIssue[], repoMap: Record<string, st
       authorAvatar: issue.user.avatar_url,
       createdAt: issue.created_at,
       url: issue.html_url,
-      repository: repoMap[issue.number.toString()] || 'unknown',
+      repository: compositeKey ? (repoMap[compositeKey] ?? 'unknown') : 'unknown',
       ageHours: Math.round(ageInHours * 10) / 10,
       labels: issue.labels.map(label => label.name),
     };
@@ -575,9 +667,10 @@ async function generateAnalytics(): Promise<void> {
         const pullRequests = await getPullRequests(repo.owner.login, repo.name, since);
         allPullRequests.push(...pullRequests);
         
-        // Map PR numbers to repo names
+        // Map PR numbers to repo names using composite keys
         pullRequests.forEach(pr => {
-          repoMap[pr.number.toString()] = repo.name;
+          const compositeKey = `${repo.owner.login}/${repo.name}#${pr.number}`;
+          repoMap[compositeKey] = repo.name;
         });
         
         console.log(`  ✅ Found ${pullRequests.length} pull requests`);
@@ -587,7 +680,8 @@ async function generateAnalytics(): Promise<void> {
         for (const pr of recentPRs) {
           const reviews = await getReviews(repo.owner.login, repo.name, pr.number);
           if (reviews.length > 0) {
-            allReviews[pr.number.toString()] = reviews;
+            const compositeKey = `${repo.owner.login}/${repo.name}#${pr.number}`;
+            allReviews[compositeKey] = reviews;
           }
         }
         console.log(`  ✅ Found reviews for ${Object.keys(allReviews).length} PRs`);
@@ -596,9 +690,10 @@ async function generateAnalytics(): Promise<void> {
         const issues = await getIssues(repo.owner.login, repo.name, since);
         allIssues.push(...issues);
         
-        // Map issue numbers to repo names
+        // Map issue numbers to repo names using composite keys
         issues.forEach(issue => {
-          repoMap[issue.number.toString()] = repo.name;
+          const compositeKey = `${repo.owner.login}/${repo.name}#${issue.number}`;
+          repoMap[compositeKey] = repo.name;
         });
         
         console.log(`  ✅ Found ${issues.length} issues`);

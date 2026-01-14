@@ -145,7 +145,7 @@ export function ReviewMetricsCard() {
                 {changePercent > 0 ? '+' : ''}{changePercent}%
               </Badge>
             )}
-            vs last month
+            vs last 30 days (projected)
           </div>
         </CardContent>
       </Card>
