@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "prebuild": "tsx scripts/get-theme.ts && tsx scripts/generateAnalytics.ts",
+    "prebuild": "tsx scripts/get-theme.ts",
     "generate:leaderboard": "tsx scripts/generateLeaderboard.ts",
     "generate:analytics": "tsx scripts/generateAnalytics.ts",
     "generate:workflow": "tsx scripts/generate-github-workflow.ts",

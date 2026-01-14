@@ -31,7 +31,7 @@ export function IssueAgeDistribution() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('/api/analytics?type=issues');
+        const response = await fetch('/api/analytics');
         if (!response.ok) {
           throw new Error('Failed to fetch issue age distribution');
         }

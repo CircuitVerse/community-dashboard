@@ -26,7 +26,7 @@ export function ActiveReviewersCard() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('/api/analytics?type=reviews');
+        const response = await fetch('/api/analytics');
         if (!response.ok) {
           throw new Error('Failed to fetch reviewer data');
         }

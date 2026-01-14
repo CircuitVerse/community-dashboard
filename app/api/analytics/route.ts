@@ -99,9 +99,6 @@ interface AnalyticsData {
 
 export async function GET(request: Request) {
   try {
-    const { searchParams } = new URL(request.url);
-    const type = searchParams.get('type') || 'all';
-    
     // Read analytics data from the generated JSON file
     const analyticsPath = path.join(process.cwd(), 'public', 'analytics', 'analytics.json');
     
@@ -112,28 +109,9 @@ export async function GET(request: Request) {
     }
     
     const analyticsData: AnalyticsData = JSON.parse(fs.readFileSync(analyticsPath, 'utf-8'));
-    
-    // Filter data based on type parameter
-    const baseResult = {
-      organization: analyticsData.organization,
-      lastUpdated: analyticsData.lastUpdated,
-      repositories: analyticsData.repositories,
-    };
 
-    type ResultType = typeof baseResult & Partial<Pick<AnalyticsData, 'reviewMetrics' | 'issueMetrics'>>;
-    const result: ResultType = baseResult;
-
-    if (type === 'all') {
-      result.reviewMetrics = analyticsData.reviewMetrics;
-      result.issueMetrics = analyticsData.issueMetrics;
-    } else if (type === 'reviews') {
-      result.reviewMetrics = analyticsData.reviewMetrics;
-    } else if (type === 'issues') {
-      result.issueMetrics = analyticsData.issueMetrics;
-    }
-
-    // Add cache headers for better performance
-    return NextResponse.json(result, {
+    // Always return all analytics data
+    return NextResponse.json(analyticsData, {
       headers: {
         'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=600',
       },
