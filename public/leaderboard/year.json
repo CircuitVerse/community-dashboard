@@ -1,7 +1,7 @@
 {
   "period": "year",
-  "updatedAt": 1768459607083,
-  "lastFetchedAt": 1768459607083,
+  "updatedAt": 1768482179001,
+  "lastFetchedAt": 1768482179001,
   "startDate": "2025-01-15",
   "endDate": "2026-01-15",
   "hiddenRoles": [],
@@ -11420,11 +11420,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/173885830?v=4",
       "role": "Contributor",
-      "total_points": 77,
+      "total_points": 82,
       "activity_breakdown": {
         "PR merged": {
-          "count": 8,
-          "points": 40
+          "count": 9,
+          "points": 45
         },
         "PR opened": {
           "count": 14,
@@ -11436,6 +11436,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-01-15",
+          "count": 1,
+          "points": 5
+        },
         {
           "date": "2026-01-14",
           "count": 1,
@@ -11498,6 +11503,13 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-01-15T08:38:09Z",
+          "title": "Fix - N+1 query in FeaturedCircuitsController",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6572",
+          "points": 5
+        },
         {
           "type": "PR merged",
           "occured_at": "2026-01-14T17:45:23Z",
@@ -12601,15 +12613,15 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/168703537?v=4",
       "role": "Contributor",
-      "total_points": 58,
+      "total_points": 60,
       "activity_breakdown": {
+        "PR opened": {
+          "count": 17,
+          "points": 34
+        },
         "Issue opened": {
           "count": 6,
           "points": 6
-        },
-        "PR opened": {
-          "count": 16,
-          "points": 32
         },
         "PR merged": {
           "count": 4,
@@ -12617,6 +12629,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-01-15",
+          "count": 1,
+          "points": 2
+        },
         {
           "date": "2026-01-11",
           "count": 1,
@@ -12709,6 +12726,13 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-15T11:00:02Z",
+          "title": "perf - fix N+1 query on user profile page (#6637)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6640",
+          "points": 2
+        },
         {
           "type": "Issue opened",
           "occured_at": "2026-01-11T10:40:07Z",
@@ -17503,6 +17527,129 @@
       ]
     },
     {
+      "username": "JANVI-CHATURVEDI",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/170693385?v=4",
+      "role": "Contributor",
+      "total_points": 16,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 5,
+          "points": 10
+        },
+        "Issue opened": {
+          "count": 6,
+          "points": 6
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-01-15",
+          "count": 4,
+          "points": 6
+        },
+        {
+          "date": "2026-01-12",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-01-10",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-01-02",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-01-01",
+          "count": 2,
+          "points": 3
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-15T11:24:09Z",
+          "title": "Prevent duplicate collaborators per project",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6642",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-15T08:52:36Z",
+          "title": "Add model-level uniqueness validation for PendingInvitation email per group",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6639",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-15T11:15:08Z",
+          "title": "🐞 Bug - Missing uniqueness constraint for project collaborators",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6641",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-15T08:46:25Z",
+          "title": "🐞 Bug - Add model-level uniqueness validation for PendingInvitation email per group",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6638",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-12T14:21:43Z",
+          "title": "Improve tags page clear filter UI",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6618",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-12T14:16:59Z",
+          "title": "Tag filter state is not clearly indicated and cannot be easily cleared",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6617",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-10T05:39:46Z",
+          "title": "Fix footer FAQ link to point to correct documentation faq page",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6602",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-10T05:34:26Z",
+          "title": "🐞 Bug - Footer FAQ link points to wrong documentation page",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6601",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-01T14:42:28Z",
+          "title": "Show 'Continue with' on signup social auth section",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6540",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-02T06:47:08Z",
+          "title": "🐞 Bug - Signup page shows “Login with” above social auth buttons",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6545",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-01T14:37:53Z",
+          "title": "Signup social auth text update",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6539",
+          "points": 1
+        }
+      ]
+    },
+    {
       "username": "sengmonkham",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/157476526?v=4",
@@ -19352,96 +19499,6 @@
           "title": "New - added flutter web target",
           "link": "https://github.com/CircuitVerse/mobile-app/pull/308",
           "points": 5
-        }
-      ]
-    },
-    {
-      "username": "JANVI-CHATURVEDI",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/170693385?v=4",
-      "role": "Contributor",
-      "total_points": 10,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 3,
-          "points": 6
-        },
-        "Issue opened": {
-          "count": 4,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-01-12",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-01-10",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-01-02",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-01-01",
-          "count": 2,
-          "points": 3
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-12T14:21:43Z",
-          "title": "Improve tags page clear filter UI",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6618",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-12T14:16:59Z",
-          "title": "Tag filter state is not clearly indicated and cannot be easily cleared",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6617",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-10T05:39:46Z",
-          "title": "Fix footer FAQ link to point to correct documentation faq page",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6602",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-10T05:34:26Z",
-          "title": "🐞 Bug - Footer FAQ link points to wrong documentation page",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6601",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-01T14:42:28Z",
-          "title": "Show 'Continue with' on signup social auth section",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6540",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-02T06:47:08Z",
-          "title": "🐞 Bug - Signup page shows “Login with” above social auth buttons",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6545",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-01T14:37:53Z",
-          "title": "Signup social auth text update",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6539",
-          "points": 1
         }
       ]
     },
