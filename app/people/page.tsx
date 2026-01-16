@@ -52,6 +52,7 @@ async function fetchPeople(): Promise<PeopleResponse> {
     return { updatedAt: 0, people: [], coreTeam: [], alumni: [] };
   }
 }
+
 export default function PeoplePage() {
   const [people, setPeople] = useState<ContributorEntry[]>([]);
   const [coreTeam, setCoreTeam] = useState<TeamMember[]>([]);
@@ -61,6 +62,19 @@ export default function PeoplePage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  useEffect(() => {
+    if (!loading && window.location.hash === "#contributors") {
+      const el = document.getElementById("contributors");
+      if (el) {
+        const timer = setTimeout(() => {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 50);
+
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [loading]);
+
 
 
   // Use scroll restoration hook - active when no contributor is selected (list view)
@@ -261,58 +275,61 @@ const filteredPeople = useMemo(() => {
             teamType="alumni"
           />
 
-        <div className="mb-8">
-  {/* TITLE */}
+          <section id="contributors" className="mb-8">
+  <div className="mb-8">
     <div className="mb-4">
-    <h2 className="text-3xl font-bold">
-      <span className="text-black dark:text-white">Community </span>
-      <span className="text-[#42B883]">Contributors</span>
-    </h2>
+      <h2 className="text-3xl font-bold">
+        <span className="text-black dark:text-white">Community </span>
+        <span className="text-[#42B883]">Contributors</span>
+      </h2>
+    </div>
+
+    <p className="text-lg text-muted-foreground max-w-3xl mb-6">
+      Amazing community members who contribute to CircuitVerse through
+      code, documentation, and more.
+    </p>
   </div>
 
-  {/* DESCRIPTION */}
-  <p className="text-lg text-muted-foreground max-w-3xl mb-6">
-    Amazing community members who contribute to CircuitVerse through
-    code, documentation, and more.
-  </p>
-</div>
+  <div className="flex flex-col gap-4">
+    <PeopleStats 
+      contributors={filteredPeople} 
+      allContributors={people}
+      onContributorClick={handleContributorClick}
+    />
 
-            <div className="flex flex-col gap-4">
-            <PeopleStats 
-              contributors={filteredPeople} 
-              allContributors={people}
-              onContributorClick={handleContributorClick}
-            />
+    <div className="flex items-center justify-between gap-4 py-8">
+      <div className="flex items-center gap-2">
+        <Users className="w-5 h-5 text-muted-foreground" />
+        <span className="text-2xl font-bold text-foreground">
+          {filteredPeople.length}{' '}
+          <span className="text-[#42B883]">
+            {filteredPeople.length === 1 ? 'Contributor' : 'Contributors'}
+          </span>
+          {searchQuery && <span className="text-foreground"> found</span>}
+        </span>
+      </div>
 
-            <div className="flex items-center justify-between gap-4 py-8">
-              <div className="flex items-center gap-2">
-                <Users className="w-5 h-5 text-muted-foreground" />
-                <span className="text-2xl font-bold text-foreground">
-                  {filteredPeople.length}{' '}
-                  <span className="text-[#42B883]">
-                    {filteredPeople.length === 1 ? 'Contributor' : 'Contributors'}
-                  </span>
-                  {searchQuery && <span className="text-foreground"> found</span>}
-                </span>
-              </div>
-              <div className="relative w-full sm:w-72">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input
-                  type="text"
-                  placeholder="Search contributors..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-9 h-10"
-                />
-              </div>
-            </div>
-            <PeopleGrid
-              contributors={filteredPeople}
-              onContributorClick={handleContributorClick}
-              viewMode="grid"
-              loading={false}
-            />
-          </div>
+      <div className="relative w-full sm:w-72">
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+        <Input
+          type="text"
+          placeholder="Search contributors..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="pl-9 h-10"
+        />
+      </div>
+    </div>
+
+    <PeopleGrid
+      contributors={filteredPeople}
+      onContributorClick={handleContributorClick}
+      viewMode="grid"
+      loading={false}
+    />
+  </div>
+</section>
+
             
         </>
       )}

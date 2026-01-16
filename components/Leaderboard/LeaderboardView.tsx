@@ -21,7 +21,9 @@ import {
   AlertCircle,
   Search, Grid3X3, List,
   SearchX,
-  Eye
+  Eye,
+  Tag,
+  CheckCircle
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useMemo, useState, useEffect, useRef } from "react";
@@ -80,11 +82,23 @@ const activityStyles: Record<string, {
     textColor: "text-orange-700 dark:text-orange-400",
     borderColor: "border-l-orange-500"
   },
-  "Review submitted": {
-    icon: Eye,
+  "Issue closed": {
+    icon: CheckCircle,
     bgColor: "bg-green-500/10 dark:bg-green-500/15",
     textColor: "text-green-700 dark:text-green-400",
     borderColor: "border-l-green-500"
+  },
+  "Issue labeled": {
+    icon: Tag,
+    bgColor: "bg-pink-500/10 dark:bg-pink-500/15",
+    textColor: "text-pink-700 dark:text-pink-400",
+    borderColor: "border-l-pink-500"
+  },
+  "Review submitted": {
+    icon: Eye,
+    bgColor: "bg-teal-500/10 dark:bg-teal-500/15",
+    textColor: "text-teal-700 dark:text-teal-400",
+    borderColor: "border-l-teal-500"
   }
 };
 
@@ -184,14 +198,14 @@ export default function LeaderboardView({
   // sorting
   const [sortBy, setSortBy] = useState<SortBy>(() => {
     const s = searchParams.get('sort');
-    if (s === 'pr_opened' || s === 'pr_merged' || s === 'issues' || s === 'reviews')
+    if (s === 'pr_opened' || s === 'pr_merged' || s === 'issues' || s === 'reviews' || s === 'issue_closed' || s === 'issue_labeled')
       return s as SortBy;
     return 'points';
   });
 
   useEffect(() => {
     const s = searchParams.get('sort');
-    setSortBy(s === 'pr_opened' || s === 'pr_merged' || s === 'issues' || s === 'reviews' ? (s as SortBy) : 'points');
+    setSortBy(s === 'pr_opened' || s === 'pr_merged' || s === 'issues' || s === 'reviews' || s === 'issue_closed' || s === 'issue_labeled' ? (s as SortBy) : 'points');
   }, [searchParams]);
 
   const [popoverOpen, setPopoverOpen] = useState(false);
@@ -597,9 +611,13 @@ export default function LeaderboardView({
                               ? "PR Opened"
                               : sortBy === "pr_merged"
                                 ? "PR Merged"
-                                : sortBy === "reviews"
-                                  ? "Review Submitted"
-                                  : "Issue Opened"}
+                                : sortBy === "issue_closed"
+                                    ? "Issue Closed"
+                                    : sortBy === "issue_labeled"
+                                      ? "Issue Labeled"
+                                      : sortBy === "reviews"
+                                        ? "Review Submitted"
+                                        : "Issue Opened"}
                         </span>
                       </button>
                     </div>
@@ -650,6 +668,8 @@ export default function LeaderboardView({
                                 { key: 'pr_opened' as SortBy, label: 'PRs Opened' },
                                 { key: 'pr_merged' as SortBy, label: 'PRs Merged' },
                                 { key: 'issues' as SortBy, label: 'Issue Opened' },
+                                { key: 'issue_closed' as SortBy, label: 'Issue Closed' },
+                                { key: 'issue_labeled' as SortBy, label: 'Issue Labeled' },
                                 { key: 'reviews' as SortBy, label: 'Review Submitted' },
                               ].map((opt) => {
                                 const active = sortBy === opt.key;
@@ -827,8 +847,8 @@ export default function LeaderboardView({
           ) : (
             <div className={cn(
               viewMode === "grid"
-                ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6"
-                : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 lg:gap-0 lg:space-y-4 lg:block"
+                ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 items-stretch"
+                : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 lg:gap-0 lg:space-y-4 lg:block items-stretch"
             )}>
               {paginatedEntries.map((entry, index) => {
                 // Use the pre-computed rank from entryRanks, which is based on full sorted list
