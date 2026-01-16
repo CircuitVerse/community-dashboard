@@ -367,11 +367,10 @@ function RepoCard({ repo }: { repo: RepoStats }) {
           </div>
 
           <div className="flex flex-col items-end gap-1.5 shrink-0">
-            {repo.language && (
-              <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700">
-                {repo.language}
-              </span>
-            )}
+            <div className="flex items-center gap-1 text-xs font-semibold text-zinc-500 dark:text-zinc-400">
+              <GitFork className="h-3.5 w-3.5" />
+              {repo.forks}
+            </div>
             <div className="flex items-center gap-1 text-xs font-semibold text-zinc-500 dark:text-zinc-400">
               <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
               {repo.stars}
