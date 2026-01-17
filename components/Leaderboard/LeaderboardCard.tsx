@@ -162,6 +162,41 @@ export function LeaderboardCard({
     return "";
   };
 
+  const getGitHubSearchUrl = (activityName: string, username: string) => {
+    if (!username || !/^[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/.test(username)) {
+      return null;
+    }
+
+    const baseUrl = "https://github.com/search";
+    const encodedUsername = encodeURIComponent(username);
+    
+    switch (activityName) {
+      case "PR merged":
+        return `${baseUrl}?q=is%3Apr+author%3A${encodedUsername}+is%3Amerged`;
+      case "PR opened":
+        return `${baseUrl}?q=is%3Apr+author%3A${encodedUsername}+is%3Aopen`;
+      case "Issue opened":
+        return `${baseUrl}?q=is%3Aissue+author%3A${encodedUsername}+is%3Aopen`;
+      case "Issue closed":
+        return `${baseUrl}?q=is%3Aissue+author%3A${encodedUsername}+is%3Aclosed`;
+      case "Issue assigned":
+        return `${baseUrl}?q=is%3Aissue+assignee%3A${encodedUsername}`;
+      case "Issue labeled":
+        return `${baseUrl}?q=is%3Aissue+labeler%3A${encodedUsername}`;
+      case "Review submitted":
+        return `${baseUrl}?q=is%3Apr+reviewer%3A${encodedUsername}`;
+      default:
+        return null;
+    }
+  };
+
+  const openGitHubSearch = (activityName: string, username: string) => {
+    const url = getGitHubSearchUrl(activityName, username);
+    if (url) {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+  };
+
   const styles = getRankStyles(rank);
 
   if (variant === "list") {
@@ -251,8 +286,9 @@ export function LeaderboardCard({
                       return (
                         <div
                           key={activityName}
+                          onClick={() => openGitHubSearch(activityName, entry.username)}
                           className={cn(
-                            "relative text-xs px-3 py-2 rounded-md border-l-2 transition-all hover:shadow-sm flex items-center justify-between gap-2",
+                            "relative text-xs px-3 py-2 rounded-md border-l-2 transition-all hover:shadow-sm flex items-center justify-between gap-2 cursor-pointer",
                             style.bgColor,
                             style.borderColor
                           )}
@@ -339,8 +375,9 @@ export function LeaderboardCard({
                       return (
                         <div
                           key={activityName}
+                          onClick={() => openGitHubSearch(activityName, entry.username)}
                           className={cn(
-                            "relative text-xs px-3 py-1.5 rounded-md border-l-2 transition-all hover:shadow-sm",
+                            "relative text-xs px-3 py-1.5 rounded-md border-l-2 transition-all hover:shadow-sm cursor-pointer",
                             style.bgColor,
                             style.borderColor
                           )}
@@ -480,8 +517,9 @@ export function LeaderboardCard({
                     return (
                       <div
                         key={activityName}
+                        onClick={() => openGitHubSearch(activityName, entry.username)}
                         className={cn(
-                          "relative text-xs px-2 py-1.5 rounded-md border-l-2 transition-all hover:shadow-sm flex items-center justify-between gap-1",
+                          "relative text-xs px-2 py-1.5 rounded-md border-l-2 transition-all hover:shadow-sm flex items-center justify-between gap-1 cursor-pointer",
                           style.bgColor,
                           style.borderColor
                         )}
@@ -575,8 +613,9 @@ export function LeaderboardCard({
                     return (
                       <div
                         key={activityName}
+                        onClick={() => openGitHubSearch(activityName, entry.username)}
                         className={cn(
-                          "relative text-xs px-3 py-2 rounded-md border-l-2 transition-all hover:shadow-sm flex items-center justify-between gap-2",
+                          "relative text-xs px-3 py-2 rounded-md border-l-2 transition-all hover:shadow-sm flex items-center justify-between gap-2 cursor-pointer",
                           style.bgColor,
                           style.borderColor
                         )}
