@@ -5,7 +5,7 @@ import { Config } from "@/types/config";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Trophy, Users, Tag } from "lucide-react";
+import { Home, Trophy, Users, Tag, BarChart3 } from "lucide-react";
 import { useScrollDirection } from "@/lib/hooks/useScrollDirection";
 import { Button } from "./ui/button";
 
@@ -18,6 +18,7 @@ const navItems = [
   { name: "Leaderboard", href: "/leaderboard", icon: Trophy },
   { name: "People", href: "/people", icon: Users },
   { name: "Releases", href: "/releases", icon: Tag },
+  { name: "Analytics", href: "/analytics", icon: BarChart3 },
 ];
 
 
