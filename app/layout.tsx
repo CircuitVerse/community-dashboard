@@ -64,7 +64,8 @@ export default function RootLayout({
         >
           <div className="min-h-screen flex flex-col bg-zinc-50 dark:bg-black transition-colors">
             <Navbar config={config} />
-            <main className="flex-1">{children}</main>
+            <main className="flex-1 pt-24">{children}</main>
+
             <Footer config={config} />
           </div>
           <ScrollToTop />
