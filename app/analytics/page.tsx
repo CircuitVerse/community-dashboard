@@ -19,7 +19,7 @@ export default async function AnalyticsPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-10 space-y-8">
         <section className="text-center space-y-4">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight bg-clip-text text-transparent bg-linear-to-r from-[#50B78B] via-[#60C79B] to-[#70D7AB]">
-            Analytics Dashboard
+            Analytics
           </h1>
           <p className="max-w-2xl mx-auto text-sm sm:text-base text-zinc-600 dark:text-zinc-400">
             Comprehensive review and issue management metrics for {config.org.name}

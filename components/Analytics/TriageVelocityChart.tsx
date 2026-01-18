@@ -135,10 +135,10 @@ export function TriageVelocityChart() {
           Daily issue triage activity over the past 2 weeks
         </CardDescription>
       </CardHeader>
-      <CardContent>
-        <div className="h-64">
+          <CardContent>
+        <div className="h-64 -ml-4">
           <ResponsiveContainer width="100%" height="100%">
-            <AreaChart data={data}>
+            <AreaChart data={data} margin={{ top: 5, right: 10, left: -20, bottom: 5 }}>
               <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
               <XAxis 
                 dataKey="date" 
