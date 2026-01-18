@@ -33,8 +33,9 @@ const Navbar = ({ config }: NavbarProps) => {
   return (
     <>
       {/* Desktop Navbar */}
-      <header className="sticky top-0 z-40 border-b border-zinc-200/60 dark:border-white/10 bg-background/80 backdrop-blur-md">
-        <div className="relative mx-auto px-4 h-16 flex items-center justify-between">
+      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-5xl rounded-full border border-zinc-200/60 dark:border-white/10 bg-background/80 backdrop-blur-md shadow-md">
+        <div className="px-4 h-14 flex items-center justify-between">
+
           {/* Logo */}
           <Link
             href="/"
@@ -53,7 +54,7 @@ const Navbar = ({ config }: NavbarProps) => {
           </Link>
 
           {/* Nav Links */}
-          <nav className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-1 rounded-full border bg-background/90 backdrop-blur shadow-sm">
+          <nav className="flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-1 rounded-full border bg-background/90 backdrop-blur shadow-sm">
             {navItems.map((item) => {
               const active = isActive(item.href);
 
