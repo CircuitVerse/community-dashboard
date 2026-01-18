@@ -24,41 +24,83 @@ interface ActivityTypesProps {
 }
 
 const chartConfig = {
-  activities: {
-    label: "Activities",
-  },
-  pr_opened: {
-    label: "PR Opened",
-    color: "#34D399",
-  },
-  pr_merged: {
-    label: "PR Merged",
-    color: "#60A5FA",
-  },
-  issues: {
-    label: "Issues",
-    color: "#64748B",
-  },
-} satisfies ChartConfig
+    activities: {
+      label: "Activities",
+    },
+    "PR opened": {
+      label: "PR Opened",
+      color: "#34d399",
+    },
+    "PR merged": {
+      label: "PR Merged",
+      color: "#A855F7",
+    },
+    "Issue opened": {
+      label: "Issue Opened",
+      color: "#F97316",
+    },
+    "Issue closed": {
+      label: "Issue Closed",
+      color: "#3B82F6",
+    },
+    "Issue labeled": {
+      label: "Issue Labeled",
+      color: "#EAB308",
+    },
+    "Review submitted": {
+      label: "Review Submitted",
+      color: "#64748b",
+    },
+    "Issue assigned": {
+      label: "Issue Assigned",
+      color: "#6366F1",
+    },
+  } satisfies ChartConfig
 
 export function ActivityTypes({ entries, totalActivities }: ActivityTypesProps) {
-  const chartData = useMemo(() => [
-    { 
-      name: "PR Opened", 
-      value: entries[0]?.activities.length || 0, 
-      fill: "#34D399" 
-    },
-    { 
-      name: "PR Merged", 
-      value: entries[1]?.activities.length || 0, 
-      fill: "#60A5FA" 
-    },
-    { 
-      name: "Issues", 
-      value: entries[2]?.activities.length || 0, 
-      fill: "#64748B" 
-    },
-  ], [entries])
+    const chartData = useMemo(() => {
+        const findEntry = (name: string) => entries.find(e => e.activity_name === name);
+    
+        const data = [
+          { 
+            name: "PR opened", 
+            value: findEntry("PR opened")?.activities.length || 0, 
+            fill: chartConfig["PR opened"].color
+          },
+          { 
+            name: "PR merged", 
+            value: findEntry("PR merged")?.activities.length || 0, 
+            fill: chartConfig["PR merged"].color
+          },
+          { 
+            name: "Issue opened", 
+            value: findEntry("Issue opened")?.activities.length || 0, 
+            fill: chartConfig["Issue opened"].color 
+          },
+          { 
+            name: "Issue closed", 
+            value: findEntry("Issue closed")?.activities.length || 0, 
+            fill: chartConfig["Issue closed"].color
+          },
+          { 
+            name: "Issue labeled", 
+            value: findEntry("Issue labeled")?.activities.length || 0, 
+            fill: chartConfig["Issue labeled"].color
+          },
+          { 
+            name: "Review submitted", 
+            value: findEntry("Review submitted")?.activities.length || 0, 
+            fill: chartConfig["Review submitted"].color
+          },
+          { 
+            name: "Issue assigned", 
+            value: findEntry("Issue assigned")?.activities.length || 0, 
+            fill: chartConfig["Issue assigned"].color
+          },
+        ];
+        
+        return data.filter(item => item.value > 0);
+      }, [entries]);
 
   const calcPercentage = (items: number, totalItems: number) => {
     if (totalItems === 0) return "0.0"
@@ -126,14 +168,14 @@ export function ActivityTypes({ entries, totalActivities }: ActivityTypesProps) 
           </PieChart>
         </ChartContainer>
 
-        <div className="w-full space-y-3 text-sm mt-4">
+        <div className="w-full grid grid-cols-2 gap-x-6 gap-y-2 text-sm mt-4 px-2">
           {chartData.map((item) => (
-            <div key={item.name} className="flex items-center gap-3">
+            <div key={item.name} className="flex items-center gap-2">
               <span
                 className="h-2.5 w-2.5 rounded-full shadow-[0_0_6px_rgba(0,0,0,0.5)]"
                 style={{ backgroundColor: item.fill }}
               />
-              <span className="font-medium text-zinc-700 dark:text-zinc-300">
+              <span className="font-medium text-zinc-700 dark:text-zinc-300 truncate">
                 {item.name}
               </span>
               <span className="ml-auto font-semibold text-zinc-500">
