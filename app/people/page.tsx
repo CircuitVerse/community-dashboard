@@ -275,7 +275,7 @@ const filteredPeople = useMemo(() => {
             teamType="alumni"
           />
 
-          <section id="contributors" className="mb-8">
+          <section id="contributors" className="mb-8 scroll-mt-28">
   <div className="mb-8">
     <div className="mb-4">
       <h2 className="text-3xl font-bold">
