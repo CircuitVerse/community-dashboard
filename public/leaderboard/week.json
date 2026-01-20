@@ -1,8 +1,8 @@
 {
   "period": "week",
-  "updatedAt": 1768848218856,
-  "startDate": "2026-01-12",
-  "endDate": "2026-01-19",
+  "updatedAt": 1768875816471,
+  "startDate": "2026-01-13",
+  "endDate": "2026-01-20",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -185,11 +185,15 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 36,
+      "total_points": 35,
       "activity_breakdown": {
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        },
         "Issue opened": {
-          "count": 3,
-          "points": 3
+          "count": 2,
+          "points": 2
         },
         "Review submitted": {
           "count": 6,
@@ -198,17 +202,13 @@
         "PR merged": {
           "count": 1,
           "points": 5
-        },
-        "PR opened": {
-          "count": 2,
-          "points": 4
         }
       },
       "daily_activity": [
         {
           "date": "2026-01-19",
-          "count": 2,
-          "points": 5
+          "count": 3,
+          "points": 7
         },
         {
           "date": "2026-01-18",
@@ -224,14 +224,16 @@
           "date": "2026-01-13",
           "count": 4,
           "points": 11
-        },
-        {
-          "date": "2026-01-12",
-          "count": 2,
-          "points": 3
         }
       ],
       "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-19T20:19:25Z",
+          "title": "Fix dropdown menus remaining visible in fullscreen preview",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/832",
+          "points": 2
+        },
         {
           "type": "Issue opened",
           "occured_at": "2026-01-19T18:22:00Z",
@@ -301,20 +303,6 @@
           "title": "Review on PR #204",
           "link": "https://github.com/CircuitVerse/community-dashboard/pull/204",
           "points": 4
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-12T20:03:01Z",
-          "title": "Fix panel minimize/collapse not working on initial Tauri launch",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/791",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-12T20:36:25Z",
-          "title": "🐞 Bug - Verilog module does not initialize correctly on first launch in Tauri app (works after refresh)",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/792",
-          "points": 1
         }
       ]
     },
@@ -769,6 +757,107 @@
       ]
     },
     {
+      "username": "Me-Priyank",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/143987856?v=4",
+      "role": "Contributor",
+      "total_points": 16,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 4,
+          "points": 8
+        },
+        "Issue opened": {
+          "count": 3,
+          "points": 3
+        },
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-01-19",
+          "count": 4,
+          "points": 6
+        },
+        {
+          "date": "2026-01-18",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2026-01-15",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-01-14",
+          "count": 2,
+          "points": 3
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-19T20:06:06Z",
+          "title": "fix - align Verilog circuit labels with node positions",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/831",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-19T17:36:41Z",
+          "title": "docs - add backend API setup guide for Verilog and backend features",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/827",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-19T19:54:29Z",
+          "title": "🐞 Bug - Verilog-Generated Circuit Labels Misaligned with Connection Points",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/830",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-19T15:34:18Z",
+          "title": "docs - Missing backend API setup guide for Verilog and backend features",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/826",
+          "points": 1
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-01-18T13:11:45Z",
+          "title": "chore - remove legacy dead code files (SaveAs.js, Open.js)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/800",
+          "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-15T16:34:27Z",
+          "title": "refactor - convert Clock.js to TypeScript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/802",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-14T19:14:47Z",
+          "title": "chore - remove legacy dead code files (SaveAs.js, Open.js)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/800",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-14T19:05:12Z",
+          "title": "chore - remove legacy dead code files (SaveAs.js, Open.js)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/799",
+          "points": 1
+        }
+      ]
+    },
+    {
       "username": "Teesta-Mukherjee",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/168867474?v=4",
@@ -1065,93 +1154,6 @@
           "title": "refactor - convert sequential.js to TypeScript",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/770",
           "points": 5
-        }
-      ]
-    },
-    {
-      "username": "Me-Priyank",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/143987856?v=4",
-      "role": "Contributor",
-      "total_points": 13,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 3,
-          "points": 6
-        },
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        },
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-01-19",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-01-18",
-          "count": 1,
-          "points": 5
-        },
-        {
-          "date": "2026-01-15",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-01-14",
-          "count": 2,
-          "points": 3
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-19T17:36:41Z",
-          "title": "docs - add backend API setup guide for Verilog and backend features",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/827",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-19T15:34:18Z",
-          "title": "docs - Missing backend API setup guide for Verilog and backend features",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/826",
-          "points": 1
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-01-18T13:11:45Z",
-          "title": "chore - remove legacy dead code files (SaveAs.js, Open.js)",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/800",
-          "points": 5
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-15T16:34:27Z",
-          "title": "refactor - convert Clock.js to TypeScript",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/802",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-14T19:14:47Z",
-          "title": "chore - remove legacy dead code files (SaveAs.js, Open.js)",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/800",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-14T19:05:12Z",
-          "title": "chore - remove legacy dead code files (SaveAs.js, Open.js)",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/799",
-          "points": 1
         }
       ]
     },
@@ -1686,15 +1688,56 @@
       ]
     },
     {
+      "username": "yashveer-1",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/235941943?v=4",
+      "role": "Contributor",
+      "total_points": 4,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-01-19",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-01-18",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-19T23:35:09Z",
+          "title": "Add subtle empty canvas onboarding hint",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/833",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-18T02:16:26Z",
+          "title": "Add wire hover fallback without overriding node hover",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/820",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "Chait0001",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/179298922?v=4",
       "role": "Contributor",
-      "total_points": 6,
+      "total_points": 4,
       "activity_breakdown": {
         "PR opened": {
-          "count": 3,
-          "points": 6
+          "count": 2,
+          "points": 4
         }
       },
       "daily_activity": [
@@ -1705,11 +1748,6 @@
         },
         {
           "date": "2026-01-14",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-01-13",
           "count": 1,
           "points": 2
         }
@@ -1727,56 +1765,6 @@
           "occured_at": "2026-01-14T17:47:53Z",
           "title": "Fix spacing between CAPTCHA and login button on login page",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6635",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-13T02:05:16Z",
-          "title": "docs - document generating VAPID API keys",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6625",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "Harshitshukla0208",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/120409631?v=4",
-      "role": "Contributor",
-      "total_points": 6,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 3,
-          "points": 6
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-01-12",
-          "count": 3,
-          "points": 6
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-12T22:17:33Z",
-          "title": "fix(issue) - Address issue #6564 - Feature - add a border outline in the search bar box",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6624",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-12T22:15:58Z",
-          "title": "fix(issue) - Address issue #6596 - ActionView - - Template - - Error - No route matches { - action=>\"show\", - controller=>\"tags\", - tag=>\"\"}, missing required keys - - tag (ActionView - - Template - - Error)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6623",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-12T21:26:47Z",
-          "title": "fix(issue) - Address issue #6620 - UI - Navbar appears left-aligned instead of centered",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6622",
           "points": 2
         }
       ]
@@ -1936,35 +1924,6 @@
       ]
     },
     {
-      "username": "yashveer-1",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/235941943?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-01-18",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-18T02:16:26Z",
-          "title": "Add wire hover fallback without overriding node hover",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/820",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "RiyaS905",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/184746190?v=4",
@@ -2047,6 +2006,35 @@
           "occured_at": "2026-01-18T14:36:01Z",
           "title": "Update Code of Conduct attribution to Contributor Covenant v2.1",
           "link": "https://github.com/CircuitVerse/Interactive-Book/pull/758",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "narang24",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/183197536?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-01-20",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-20T02:03:25Z",
+          "title": "fix(simulator) - trigger simulation on wire creation",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/834",
           "points": 2
         }
       ]
@@ -2192,35 +2180,6 @@
           "occured_at": "2026-01-14T15:44:42Z",
           "title": "Prevent draggable elements to hide behind navbar",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/798",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "31groot",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/159657559?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-01-12",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-12T20:16:56Z",
-          "title": "fix - prevent crash when search query contains null byte (#6612)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6621",
           "points": 2
         }
       ]

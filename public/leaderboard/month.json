@@ -1,8 +1,8 @@
 {
   "period": "month",
-  "updatedAt": 1768848218858,
-  "startDate": "2025-12-20",
-  "endDate": "2026-01-19",
+  "updatedAt": 1768875816475,
+  "startDate": "2025-12-21",
+  "endDate": "2026-01-20",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -11,8 +11,12 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 249,
+      "total_points": 251,
       "activity_breakdown": {
+        "PR opened": {
+          "count": 17,
+          "points": 34
+        },
         "Issue opened": {
           "count": 25,
           "points": 25
@@ -24,17 +28,13 @@
         "PR merged": {
           "count": 8,
           "points": 40
-        },
-        "PR opened": {
-          "count": 16,
-          "points": 32
         }
       },
       "daily_activity": [
         {
           "date": "2026-01-19",
-          "count": 2,
-          "points": 5
+          "count": 3,
+          "points": 7
         },
         {
           "date": "2026-01-18",
@@ -133,6 +133,13 @@
         }
       ],
       "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-19T20:19:25Z",
+          "title": "Fix dropdown menus remaining visible in fullscreen preview",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/832",
+          "points": 2
+        },
         {
           "type": "Issue opened",
           "occured_at": "2026-01-19T18:22:00Z",
@@ -2266,15 +2273,15 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/143987856?v=4",
       "role": "Contributor",
-      "total_points": 104,
+      "total_points": 107,
       "activity_breakdown": {
         "PR opened": {
-          "count": 18,
-          "points": 36
+          "count": 19,
+          "points": 38
         },
         "Issue opened": {
-          "count": 13,
-          "points": 13
+          "count": 14,
+          "points": 14
         },
         "PR merged": {
           "count": 11,
@@ -2284,8 +2291,8 @@
       "daily_activity": [
         {
           "date": "2026-01-19",
-          "count": 2,
-          "points": 3
+          "count": 4,
+          "points": 6
         },
         {
           "date": "2026-01-18",
@@ -2371,10 +2378,24 @@
       "activities": [
         {
           "type": "PR opened",
+          "occured_at": "2026-01-19T20:06:06Z",
+          "title": "fix - align Verilog circuit labels with node positions",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/831",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
           "occured_at": "2026-01-19T17:36:41Z",
           "title": "docs - add backend API setup guide for Verilog and backend features",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/827",
           "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-19T19:54:29Z",
+          "title": "🐞 Bug - Verilog-Generated Circuit Labels Misaligned with Connection Points",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/830",
+          "points": 1
         },
         {
           "type": "Issue opened",
@@ -5823,6 +5844,154 @@
       ]
     },
     {
+      "username": "yashveer-1",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/235941943?v=4",
+      "role": "Contributor",
+      "total_points": 19,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 8,
+          "points": 16
+        },
+        "Issue opened": {
+          "count": 3,
+          "points": 3
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-01-19",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-01-18",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-01-11",
+          "count": 2,
+          "points": 4
+        },
+        {
+          "date": "2026-01-09",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-01-08",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-01-05",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-01-04",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-01-02",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2025-12-26",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2025-12-22",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-19T23:35:09Z",
+          "title": "Add subtle empty canvas onboarding hint",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/833",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-18T02:16:26Z",
+          "title": "Add wire hover fallback without overriding node hover",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/820",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-11T13:58:52Z",
+          "title": "Enable wire hover detection in global hover resolution",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/775",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-11T13:23:19Z",
+          "title": "Wire hover highlight",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/773",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-09T12:44:34Z",
+          "title": "UX - Improve cursor feedback for simulator hover targets",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/749",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-08T13:22:53Z",
+          "title": "Add subtle empty-canvas guidance text in simulator",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/741",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-05T12:32:29Z",
+          "title": "Feature - Fit view to selection in simulator toolbar",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/717",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-04T12:55:08Z",
+          "title": "UX - Fit view to selected elements (F shortcut)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/713",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-02T12:34:53Z",
+          "title": "UX - Reset view via Ctrl/Cmd+0 and empty canvas double-click",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/708",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2025-12-26T11:52:45Z",
+          "title": "🐞 Bug - Canvas does not fully redraw after resize (DevTools toggle) in v0 simulator",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/700",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2025-12-22T12:41:11Z",
+          "title": "Wire routing parity investigation - v0 simulator tightly couples wire geometry with transform/listener system",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/697",
+          "points": 1
+        }
+      ]
+    },
+    {
       "username": "Mustansir-06",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/210328475?v=4",
@@ -6222,142 +6391,6 @@
           "occured_at": "2026-01-01T14:37:53Z",
           "title": "Signup social auth text update",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6539",
-          "points": 1
-        }
-      ]
-    },
-    {
-      "username": "yashveer-1",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/235941943?v=4",
-      "role": "Contributor",
-      "total_points": 17,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 7,
-          "points": 14
-        },
-        "Issue opened": {
-          "count": 3,
-          "points": 3
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-01-18",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-01-11",
-          "count": 2,
-          "points": 4
-        },
-        {
-          "date": "2026-01-09",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-01-08",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-01-05",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-01-04",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-01-02",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2025-12-26",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2025-12-22",
-          "count": 1,
-          "points": 1
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-18T02:16:26Z",
-          "title": "Add wire hover fallback without overriding node hover",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/820",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-11T13:58:52Z",
-          "title": "Enable wire hover detection in global hover resolution",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/775",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-11T13:23:19Z",
-          "title": "Wire hover highlight",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/773",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-09T12:44:34Z",
-          "title": "UX - Improve cursor feedback for simulator hover targets",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/749",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-08T13:22:53Z",
-          "title": "Add subtle empty-canvas guidance text in simulator",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/741",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-05T12:32:29Z",
-          "title": "Feature - Fit view to selection in simulator toolbar",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/717",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-04T12:55:08Z",
-          "title": "UX - Fit view to selected elements (F shortcut)",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/713",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-02T12:34:53Z",
-          "title": "UX - Reset view via Ctrl/Cmd+0 and empty canvas double-click",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/708",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2025-12-26T11:52:45Z",
-          "title": "🐞 Bug - Canvas does not fully redraw after resize (DevTools toggle) in v0 simulator",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/700",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2025-12-22T12:41:11Z",
-          "title": "Wire routing parity investigation - v0 simulator tightly couples wire geometry with transform/listener system",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/697",
           "points": 1
         }
       ]
@@ -8507,6 +8540,35 @@
       ]
     },
     {
+      "username": "narang24",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/183197536?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-01-20",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-20T02:03:25Z",
+          "title": "fix(simulator) - trigger simulation on wire creation",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/834",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "SAMREEN111-hash",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/184510798?v=4",
@@ -8792,35 +8854,6 @@
           "occured_at": "2025-12-23T15:51:39Z",
           "title": "fix - Add search bar validation and input handling",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/698",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "sai-ganesh-1706",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/191041304?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2025-12-20",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-20T19:53:17Z",
-          "title": "Prevent redundant event rescheduling in simulator event queue",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6493",
           "points": 2
         }
       ]
