@@ -20,6 +20,7 @@ if (!TOKEN) {
   throw new Error("❌ GITHUB_TOKEN is required");
 }
 
+
 /* -------------------------------------------------------
    TYPES
 ------------------------------------------------------- */
@@ -28,10 +29,14 @@ interface RepoMeta {
   name: string;
   stargazers_count: number;
   forks_count: number;
-  watchers_count: number;
+  watchers_count: number; // This is usually stars in listing
   open_issues_count: number;
   size: number; // in KB
   license?: { spdx_id: string } | null;
+}
+
+interface RepoDetail {
+  subscribers_count: number;
 }
 
 interface OrgStats {
@@ -40,10 +45,10 @@ interface OrgStats {
   totalForks: number;
   totalWatchers: number;
   totalReleases: number;
-  totalPackages: number;
+  totalPackages: number | null;
   totalSizeGB: string;
   preferredLicense: string | null;
-  sponsors: number;
+  sponsors: number | null;
   issues: {
     open: number;
     closed: number;
@@ -75,11 +80,10 @@ async function fetchWithAuth(url: string) {
 
   if (!res.ok) {
     const text = await res.text();
-    console.warn(`GitHub API ${res.status}: ${text.substring(0, 100)}`);
-    return null;
+    throw new Error(`GitHub API ${res.status}: ${text.substring(0, 100)}`);
   }
 
-  await sleep(500); // Rate limiting
+  await sleep(200); // Slight rate limiting
   return res.json();
 }
 
@@ -88,22 +92,32 @@ async function fetchAllPages<T = unknown>(url: string): Promise<T[]> {
   const results: T[] = [];
 
   while (true) {
-    const join = url.includes("?") ? "&" : "?";
-    const data = await fetchWithAuth(`${url}${join}per_page=100&page=${page}`);
-    if (!data || !Array.isArray(data)) break;
-    results.push(...data);
-    if (data.length < 100) break;
-    page++;
+    try {
+      const join = url.includes("?") ? "&" : "?";
+      const data = await fetchWithAuth(`${url}${join}per_page=100&page=${page}`);
+      if (!data || !Array.isArray(data)) break;
+      results.push(...data);
+      if (data.length < 100) break;
+      page++;
+    } catch (e) {
+      console.warn(`Warning: Failed to fetch page ${page} of ${url}`, e);
+      break;
+    }
   }
 
   return results;
 }
 
 async function fetchSearchCount(query: string): Promise<number> {
-  const data = await fetchWithAuth(
-    `${GITHUB_API}/search/issues?q=${encodeURIComponent(query)}&per_page=1`
-  );
-  return data?.total_count || 0;
+  try {
+    const data = await fetchWithAuth(
+      `${GITHUB_API}/search/issues?q=${encodeURIComponent(query)}&per_page=1`
+    );
+    return data?.total_count || 0;
+  } catch (e) {
+    console.warn(`Warning: Failed search query '${query}'`, e);
+    return 0;
+  }
 }
 
 /* -------------------------------------------------------
@@ -123,29 +137,41 @@ async function fetchOrgStats(): Promise<OrgStats> {
   let totalWatchers = 0;
   let totalSizeKB = 0;
   const licenseCount: Record<string, number> = {};
+  
+  // Need to fetch details for actual subscribers (watchers) count and releases
+  console.log("   → Fetching detailed repo stats (subscribers & releases)...");
+  let totalReleases = 0;
 
   for (const repo of repos) {
     totalStars += repo.stargazers_count || 0;
     totalForks += repo.forks_count || 0;
-    totalWatchers += repo.watchers_count || 0;
     totalSizeKB += repo.size || 0;
     
     if (repo.license?.spdx_id) {
       licenseCount[repo.license.spdx_id] = (licenseCount[repo.license.spdx_id] || 0) + 1;
+    }
+
+    // Get real subscribers count (watchers)
+    try {
+      const detail = await fetchWithAuth(`${GITHUB_API}/repos/${ORG}/${repo.name}`) as RepoDetail;
+      totalWatchers += detail.subscribers_count || 0;
+    } catch (e) {
+      console.warn(`   ⚠️ Failed to fetch details for ${repo.name}, using list data`);
+      // Fallback to watchers_count from list (which is stars, but better than 0) or just ignore
+    }
+
+    // Get releases (ALL repos, no sampling)
+    try {
+      const releases = await fetchAllPages(`${GITHUB_API}/repos/${ORG}/${repo.name}/releases`);
+      totalReleases += releases.length;
+    } catch (e) {
+       console.warn(`   ⚠️ Failed to fetch releases for ${repo.name}`);
     }
   }
 
   // Find most common license
   const preferredLicense = Object.entries(licenseCount)
     .sort((a, b) => b[1] - a[1])[0]?.[0] || null;
-
-  // Fetch releases count
-  console.log("   → Fetching releases...");
-  let totalReleases = 0;
-  for (const repo of repos.slice(0, 10)) { // Sample first 10 repos for releases
-    const releases = await fetchAllPages(`${GITHUB_API}/repos/${ORG}/${repo.name}/releases`);
-    totalReleases += releases.length;
-  }
 
   // Fetch issue/PR counts using Search API
   console.log("   → Fetching issues...");
@@ -166,10 +192,10 @@ async function fetchOrgStats(): Promise<OrgStats> {
     totalForks,
     totalWatchers,
     totalReleases,
-    totalPackages: 0, // GitHub packages API requires different permissions
+    totalPackages: null, // GitHub packages API requires different permissions
     totalSizeGB,
     preferredLicense,
-    sponsors: 0, // Sponsors API requires special permissions
+    sponsors: null, // Sponsors API requires special permissions
     issues: {
       open: openIssues,
       closed: closedIssues,
@@ -316,7 +342,7 @@ function generateSVG(stats: OrgStats): string {
       <text x="22" y="24" class="stat-label">${stats.totalReleases} Releases</text>
       
       ${icon("package", 0, 48)}
-      <text x="22" y="48" class="stat-label">${stats.totalPackages} Packages</text>
+      <text x="22" y="48" class="stat-label">${stats.totalPackages || 0} Packages</text>
       
       ${icon("storage", 0, 72)}
       <text x="22" y="72" class="stat-label">${stats.totalSizeGB} GB used</text>
@@ -325,7 +351,7 @@ function generateSVG(stats: OrgStats): string {
     <!-- Right Column (aligned with license row) -->
     <g transform="translate(280, 0)">
       ${icon("heart", 0, 0)}
-      <text x="22" class="stat-label">${stats.sponsors} Sponsors</text>
+      <text x="22" class="stat-label">${stats.sponsors || 0} Sponsors</text>
       
       ${icon("star", 0, 24)}
       <text x="22" y="24" class="stat-label">${formatNumber(stats.totalStars)} Stargazers</text>
