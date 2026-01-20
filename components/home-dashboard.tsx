@@ -86,8 +86,7 @@ export default function HomeDashboard({
 
     const topRepo = [...repos].sort(
       (a, b) =>
-        b.current.currentTotalContribution -
-        a.current.currentTotalContribution
+        b.current.currentTotalContribution - a.current.currentTotalContribution,
     )[0];
 
     return {
@@ -100,8 +99,7 @@ export default function HomeDashboard({
 
   const sortedRepos = [...repos].sort(
     (a, b) =>
-      b.current.currentTotalContribution -
-      a.current.currentTotalContribution
+      b.current.currentTotalContribution - a.current.currentTotalContribution,
   );
 
   return (
@@ -128,7 +126,7 @@ export default function HomeDashboard({
                   "flex-1 sm:flex-none px-6 sm:px-8 py-2 rounded-full text-sm font-medium transition-all duration-300 relative z-10",
                   activeTab === "overview"
                     ? "bg-[#50B78B] text-white shadow-md"
-                    : "text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200"
+                    : "text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200",
                 )}
               >
                 Overview
@@ -139,7 +137,7 @@ export default function HomeDashboard({
                   "flex-1 sm:flex-none px-6 sm:px-8 py-2 rounded-full text-sm font-medium transition-all duration-300 relative z-10",
                   activeTab === "repositories"
                     ? "bg-[#50B78B] text-white shadow-md"
-                    : "text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200"
+                    : "text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200",
                 )}
               >
                 Repositories
@@ -163,10 +161,7 @@ export default function HomeDashboard({
                   week4={bucketData.w4}
                 />
                 <ActiveContributors data={month} />
-                <ActivityTypes
-                  entries={month}
-                  totalActivities={totalMonth}
-                />
+                <ActivityTypes entries={month} totalActivities={totalMonth} />
               </section>
 
               <section className="space-y-6 max-w-5xl mx-auto">
@@ -178,8 +173,7 @@ export default function HomeDashboard({
                     href="/leaderboard"
                     className="flex items-center gap-2 text-sm font-medium text-[#50B78B] hover:underline"
                   >
-                    View Leaderboard{" "}
-                    <ArrowRight className="h-4 w-4" />
+                    View Leaderboard <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
                 {week.length === 0 ? (
@@ -224,7 +218,7 @@ export default function HomeDashboard({
                   <SummaryCard
                     label="Most Active Repo"
                     value={activeRepo.name ?? ""}
-                    sub={`${activeRepo.growth >= 0 ? '+' : ''}${activeRepo.growth} Merged PRs`}
+                    sub={`${activeRepo.growth >= 0 ? "+" : ""}${activeRepo.growth} Merged PRs`}
                     icon={<Trophy className="h-6 w-6" />}
                     highlight={true}
                     decoration="wave"
@@ -234,8 +228,8 @@ export default function HomeDashboard({
 
               {/* Repos Grid */}
               <section className="space-y-6">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-2 gap-2">
-                  <h3 className="text-lg font-semibold text-zinc-800 dark:text-zinc-200 flex items-center gap-2">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 gap-2">
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#50B78B]">
                     Tracked Repositories
                   </h3>
                   <span className="self-start sm:self-auto text-xs font-mono text-zinc-500 bg-zinc-100 dark:bg-zinc-800 px-2 py-1 rounded-md">
@@ -267,84 +261,43 @@ function SummaryCard({
   highlight,
   decoration,
 }: SummaryCardProps) {
+  // Keep highlight and decoration in signature for TypeScript compatibility
+  // even though we don't use them in this simplified UI
   return (
-    <div
-      className={cn(
-        "relative overflow-hidden flex flex-col justify-between h-full p-5 sm:p-6 rounded-3xl transition-all duration-500 group",
-        // Light Mode: White Glass | Dark Mode: Dark Glass
-        "bg-white/60 dark:bg-zinc-900/40",
-        "border border-zinc-200 dark:border-zinc-800/60",
-        "backdrop-blur-md shadow-sm",
-        // Hover
-        "hover:border-[#50B78B]/30 hover:shadow-[0_0_30px_-10px_rgba(80,183,139,0.15)]",
-        // Highlight logic
-        highlight &&
-        "bg-linear-to-br from-zinc-50/80 to-white/40 dark:from-zinc-900/80 dark:to-zinc-900/40 border-[#50B78B]/20"
-      )}
-    >
-      <div className="absolute top-0 right-0 -mt-8 -mr-8 w-32 h-32 bg-[#50B78B]/10 dark:bg-[#50B78B]/5 rounded-full blur-3xl pointer-events-none group-hover:bg-[#50B78B]/20 dark:group-hover:bg-[#50B78B]/10 transition-colors" />
-      <div className="absolute bottom-0 left-0 -mb-8 -ml-8 w-24 h-24 bg-blue-500/10 dark:bg-blue-500/5 rounded-full blur-2xl pointer-events-none" />
-
-      {/* Header */}
-      <div className="flex items-start justify-between relative z-10">
-        <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors mt-1">
+    <div className="flex flex-col h-full rounded-[20px] border border-zinc-200 dark:border-white/10 bg-white dark:bg-linear-to-b dark:from-zinc-900 dark:via-zinc-900 dark:to-black shadow-xl shadow-[#edfff7] dark:shadow-black/50 overflow-hidden">
+      <div className="flex flex-row items-center justify-between p-6 pb-2">
+        <p className="text-xs font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
           {label}
         </p>
-
-        {/* Icon Box */}
-        <div
-          className={cn(
-            "shrink-0 p-3 rounded-2xl flex items-center justify-center transition-all duration-500",
-            "bg-zinc-100 dark:bg-zinc-800/50 text-zinc-400 dark:text-zinc-400",
-            "ring-1 ring-zinc-200 dark:ring-white/5",
-            "group-hover:bg-[#50B78B]/10 group-hover:text-[#50B78B] group-hover:scale-110 group-hover:rotate-3"
-          )}
-        >
+        <div className="text-zinc-400 dark:text-zinc-600">
           {icon}
         </div>
       </div>
 
-      {/* Main Value Area */}
-      <div className="mt-6 relative z-10 space-y-1">
-        <p
-          className={cn(
-            "font-bold text-zinc-800 dark:text-zinc-100 tracking-tight leading-none break-all",
-            String(value).length > 15
-              ? "text-xl sm:text-2xl"
-              : "text-3xl sm:text-4xl lg:text-5xl"
-          )}
-        >
-          {value}
-        </p>
-
-        {sub && (
-          <div className="flex items-center">
-            <p className="text-xs font-medium text-[#50B78B] uppercase tracking-wide opacity-90 truncate">
-              {sub}
-            </p>
+      <div className="flex flex-1 flex-col justify-between p-6 pt-4">
+        <div>
+          <div
+            className={cn(
+              "font-bold tracking-tight text-[#50B78B] dark:text-white",
+              String(value).length > 15
+                ? "text-xl sm:text-2xl break-all"
+                : "text-5xl"
+            )}
+          >
+            {value}
           </div>
-        )}
+          {sub && (
+            <p className="text-sm font-medium text-[#50B78B] mt-2">{sub}</p>
+          )}
+        </div>
       </div>
-
-      {decoration === "wave" && (
-        <svg
-          className="absolute bottom-0 left-0 w-full h-24 text-[#50B78B]/5 pointer-events-none"
-          viewBox="0 0 100 30"
-          preserveAspectRatio="none"
-        >
-          <path
-            fill="currentColor"
-            d="M0 30 Q 25 0 50 15 T 100 5 V 30 Z"
-          />
-        </svg>
-      )}
     </div>
   );
 }
 
 function RepoCard({ repo }: { repo: RepoStats }) {
   return (
-    <div className="group flex flex-col h-full bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800 hover:border-[#50B78B]/50 transition-all duration-300 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg dark:hover:shadow-[#50B78B]/5">
+    <div className="group flex flex-col h-full bg-white dark:bg-linear-to-b dark:from-zinc-900 dark:via-zinc-900 dark:to-black border border-zinc-200 dark:border-white/10 hover:border-[#50B78B]/30 transition-all duration-300 rounded-[20px] overflow-hidden shadow-xl shadow-[#edfff7] dark:shadow-black/50">
       {/* Top Section */}
       <div className="p-5 sm:p-6 grow space-y-4">
         <div className="flex items-start justify-between gap-3 sm:gap-4">
@@ -389,13 +342,15 @@ function RepoCard({ repo }: { repo: RepoStats }) {
           </div>
         </div>
         <p className="text-sm text-zinc-600 dark:text-zinc-400 line-clamp-2 leading-relaxed">
-          {repo.description?.trim() ? repo.description : "A CircuitVerse project repository"}
+          {repo.description?.trim()
+            ? repo.description
+            : "A CircuitVerse project repository"}
         </p>
       </div>
 
       {/* Metrics Section */}
       <div className="px-5 pb-5 sm:px-6 sm:pb-6 pt-0">
-        <div className="grid grid-cols-3 gap-2 rounded-xl bg-zinc-50 dark:bg-zinc-800/40 p-2 border border-zinc-100 dark:border-zinc-800/60">
+        <div className="grid grid-cols-3 gap-2 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 p-2 border border-zinc-100 dark:border-white/5">
           <Link
             href={`${repo.html_url}/issues`}
             target="_blank"
@@ -438,12 +393,7 @@ function RepoCard({ repo }: { repo: RepoStats }) {
   );
 }
 
-function MetricFlowItem({
-  icon,
-  count,
-  label,
-  variant,
-}: MetricFlowItemProps) {
+function MetricFlowItem({ icon, count, label, variant }: MetricFlowItemProps) {
   const variantStyles = {
     neutral: {
       icon: "text-zinc-400",
@@ -467,20 +417,18 @@ function MetricFlowItem({
     <div
       className={cn(
         "flex flex-col items-center justify-center p-2 sm:p-3 rounded-lg transition-colors cursor-pointer",
-        styles.bg
+        styles.bg,
       )}
     >
       <div
         className={cn(
           "mb-1.5 sm:mb-2 transform transition-transform group-hover:scale-110",
-          styles.icon
+          styles.icon,
         )}
       >
         {icon}
       </div>
-      <span
-        className={cn("text-lg sm:text-xl leading-none", styles.count)}
-      >
+      <span className={cn("text-lg sm:text-xl leading-none", styles.count)}>
         {count}
       </span>
       <span className="text-[10px] uppercase tracking-wider text-zinc-500 font-medium mt-1">
