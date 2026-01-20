@@ -279,7 +279,7 @@ function SummaryCard({
         "hover:border-[#50B78B]/30 hover:shadow-[0_0_30px_-10px_rgba(80,183,139,0.15)]",
         // Highlight logic
         highlight &&
-          "bg-linear-to-br from-zinc-50/80 to-white/40 dark:from-zinc-900/80 dark:to-zinc-900/40 border-[#50B78B]/20"
+        "bg-linear-to-br from-zinc-50/80 to-white/40 dark:from-zinc-900/80 dark:to-zinc-900/40 border-[#50B78B]/20"
       )}
     >
       <div className="absolute top-0 right-0 -mt-8 -mr-8 w-32 h-32 bg-[#50B78B]/10 dark:bg-[#50B78B]/5 rounded-full blur-3xl pointer-events-none group-hover:bg-[#50B78B]/20 dark:group-hover:bg-[#50B78B]/10 transition-colors" />
@@ -365,8 +365,8 @@ function RepoCard({ repo }: { repo: RepoStats }) {
                   href={repo.html_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                            >
-                      {repo.name}
+                >
+                  {repo.name}
                 </Link>
               </div>
               {repo.language && (
@@ -389,7 +389,7 @@ function RepoCard({ repo }: { repo: RepoStats }) {
           </div>
         </div>
         <p className="text-sm text-zinc-600 dark:text-zinc-400 line-clamp-2 leading-relaxed">
-          {repo.description ?? "No description"}
+          {repo.description?.trim() ? repo.description : "A CircuitVerse project repository"}
         </p>
       </div>
 

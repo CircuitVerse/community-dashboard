@@ -31,20 +31,22 @@ export default async function AnalyticsPage() {
           <h2 className="text-2xl font-semibold text-zinc-800 dark:text-zinc-200">
             Review Dashboard
           </h2>
-          <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             <Suspense fallback={<ReviewMetricsSkeleton />}>
               <ReviewMetricsCard />
             </Suspense>
-            <Suspense fallback={<ActiveReviewersSkeleton />}>
-              <ActiveReviewersCard />
-            </Suspense>
-            <div className="col-span-2">
+            <div className="col-span-full lg:col-span-2">
+              <Suspense fallback={<ActiveReviewersSkeleton />}>
+                <ActiveReviewersCard />
+              </Suspense>
+            </div>
+            <div className="col-span-full lg:col-span-2">
               <Suspense fallback={<ChartSkeleton />}>
                 <ReviewDistributionChart />
               </Suspense>
             </div>
           </div>
-          
+
           <div className="grid gap-6">
             <Suspense fallback={<ChartSkeleton />}>
               <ReviewVelocityChart />
@@ -62,7 +64,7 @@ export default async function AnalyticsPage() {
               <IssueTriageCard />
             </Suspense>
           </div>
-          
+
           <div className="grid gap-6 lg:grid-cols-2">
             <Suspense fallback={<ChartSkeleton />}>
               <IssueAgeDistribution />

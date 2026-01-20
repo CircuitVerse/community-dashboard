@@ -48,8 +48,7 @@ export function ReviewMetricsCard() {
 
   if (isLoading) {
     return (
-    <div className="col-span-full w-full">
-      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full">
+      <>
         {[1, 2, 3, 4].map((i) => (
           <Card key={i} className="animate-pulse w-full min-h-30">
             <CardHeader className="pb-2">
@@ -61,10 +60,9 @@ export function ReviewMetricsCard() {
             </CardContent>
           </Card>
         ))}
-      </div>
-    </div>
-  );
-}
+      </>
+    );
+  }
 
   if (error) {
     return (
@@ -81,78 +79,76 @@ export function ReviewMetricsCard() {
   if (!data) return null;
 
   const metrics = data.reviewMetrics;
-  const changePercent = metrics.reviewsLast30Days > 0 
+  const changePercent = metrics.reviewsLast30Days > 0
     ? Math.round((metrics.reviewsLast7Days * 4 - metrics.reviewsLast30Days) / metrics.reviewsLast30Days * 100)
     : 0;
 
   return (
-    <div className="col-span-full w-full">
-      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Reviews</CardTitle>
-            <GitPullRequest className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{metrics.totalReviews}</div>
-            <p className="text-xs text-muted-foreground">
-              {metrics.reviewsLast7Days} this week
-            </p>
-          </CardContent>
-        </Card>
+    <>
+      <Card>
+        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <CardTitle className="text-sm font-medium">Total Reviews</CardTitle>
+          <GitPullRequest className="h-4 w-4 text-muted-foreground" />
+        </CardHeader>
+        <CardContent>
+          <div className="text-2xl font-bold">{metrics.totalReviews}</div>
+          <p className="text-xs text-muted-foreground">
+            {metrics.reviewsLast7Days} this week
+          </p>
+        </CardContent>
+      </Card>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Avg Review Time</CardTitle>
-            <Clock className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">
-              {metrics.averageReviewTimeHours < 24 
-                ? `${metrics.averageReviewTimeHours}h`
-                : `${Math.round(metrics.averageReviewTimeHours / 24)}d`
-              }
-            </div>
-            <p className="text-xs text-muted-foreground">
-              Time to first review
-            </p>
-          </CardContent>
-        </Card>
+      <Card>
+        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <CardTitle className="text-sm font-medium">Avg Review Time</CardTitle>
+          <Clock className="h-4 w-4 text-muted-foreground" />
+        </CardHeader>
+        <CardContent>
+          <div className="text-2xl font-bold">
+            {metrics.averageReviewTimeHours < 24
+              ? `${metrics.averageReviewTimeHours}h`
+              : `${Math.round(metrics.averageReviewTimeHours / 24)}d`
+            }
+          </div>
+          <p className="text-xs text-muted-foreground">
+            Time to first review
+          </p>
+        </CardContent>
+      </Card>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Review Velocity</CardTitle>
-            <TrendingUp className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{Math.round(metrics.reviewVelocity.daily * 10) / 10}</div>
-            <p className="text-xs text-muted-foreground">
-              Reviews per day
-            </p>
-          </CardContent>
-        </Card>
+      <Card>
+        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <CardTitle className="text-sm font-medium">Review Velocity</CardTitle>
+          <TrendingUp className="h-4 w-4 text-muted-foreground" />
+        </CardHeader>
+        <CardContent>
+          <div className="text-2xl font-bold">{Math.round(metrics.reviewVelocity.daily * 10) / 10}</div>
+          <p className="text-xs text-muted-foreground">
+            Reviews per day
+          </p>
+        </CardContent>
+      </Card>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Weekly Trend</CardTitle>
-            <Users className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{metrics.reviewsLast7Days}</div>
-            <div className="flex items-center text-xs text-muted-foreground">
-              {changePercent !== 0 && (
-                <Badge 
-                  variant={changePercent > 0 ? "default" : "secondary"}
-                  className={`mr-1 ${changePercent > 0 ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'}`}
-                >
-                  {changePercent > 0 ? '+' : ''}{changePercent}%
-                </Badge>
-              )}
-              vs last 30 days (projected)
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-    </div>
+      <Card>
+        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <CardTitle className="text-sm font-medium">Weekly Trend</CardTitle>
+          <Users className="h-4 w-4 text-muted-foreground" />
+        </CardHeader>
+        <CardContent>
+          <div className="text-2xl font-bold">{metrics.reviewsLast7Days}</div>
+          <div className="flex items-center text-xs text-muted-foreground">
+            {changePercent !== 0 && (
+              <Badge
+                variant={changePercent > 0 ? "default" : "secondary"}
+                className={`mr-1 ${changePercent > 0 ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'}`}
+              >
+                {changePercent > 0 ? '+' : ''}{changePercent}%
+              </Badge>
+            )}
+            vs last 30 days (projected)
+          </div>
+        </CardContent>
+      </Card>
+    </>
   );
 }
