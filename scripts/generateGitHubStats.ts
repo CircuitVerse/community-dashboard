@@ -1,7 +1,7 @@
 /**
  * GitHub Stats SVG Generator
  * Generates a styled SVG showing CircuitVerse organization statistics
- * 
+ *
  * Run: npx tsx scripts/generateGitHubStats.ts
  */
 
@@ -19,7 +19,6 @@ const TOKEN = process.env.GITHUB_TOKEN;
 if (!TOKEN) {
   throw new Error("❌ GITHUB_TOKEN is required");
 }
-
 
 /* -------------------------------------------------------
    TYPES
@@ -94,7 +93,9 @@ async function fetchAllPages<T = unknown>(url: string): Promise<T[]> {
   while (true) {
     try {
       const join = url.includes("?") ? "&" : "?";
-      const data = await fetchWithAuth(`${url}${join}per_page=100&page=${page}`);
+      const data = await fetchWithAuth(
+        `${url}${join}per_page=100&page=${page}`,
+      );
       if (!data || !Array.isArray(data)) break;
       results.push(...data);
       if (data.length < 100) break;
@@ -124,54 +125,120 @@ async function fetchSearchCount(query: string): Promise<number> {
    DATA FETCHING
 ------------------------------------------------------- */
 
+interface OverviewData {
+  repos: {
+    name: string;
+    stars: number;
+    forks: number;
+  }[];
+}
+
 async function fetchOrgStats(): Promise<OrgStats> {
   console.log(`📊 Fetching stats for ${ORG}...`);
 
-  // Fetch all repositories
-  console.log("   → Fetching repositories...");
-  const repos = await fetchAllPages<RepoMeta>(`${GITHUB_API}/orgs/${ORG}/repos`);
+  // Read from local overview.json to reuse existing data
+  console.log("   → Reading from overview.json...");
+  const overviewPath = path.join(
+    process.cwd(),
+    "public",
+    "leaderboard",
+    "overview.json",
+  );
 
-  // Aggregate repo stats
+  let repos: RepoMeta[] = [];
   let totalStars = 0;
   let totalForks = 0;
+  let useLocalData = false;
+
+  try {
+    if (fs.existsSync(overviewPath)) {
+      const overviewData: OverviewData = JSON.parse(
+        fs.readFileSync(overviewPath, "utf-8"),
+      );
+
+      // Aggregate stats from overview.json
+      useLocalData = true;
+      totalStars = overviewData.repos.reduce(
+        (sum, repo) => sum + (repo.stars || 0),
+        0,
+      );
+      totalForks = overviewData.repos.reduce(
+        (sum, repo) => sum + (repo.forks || 0),
+        0,
+      );
+
+      // Map overview repos to RepoMeta format
+      repos = overviewData.repos.map((repo) => ({
+        name: repo.name,
+        stargazers_count: repo.stars,
+        forks_count: repo.forks,
+        watchers_count: 0,
+        open_issues_count: 0,
+        size: 0,
+        license: null,
+      }));
+
+      console.log(`   ✅ Loaded ${repos.length} repos from local data`);
+    } else {
+      console.log("   ⚠️ overview.json not found, falling back to API");
+      useLocalData = false;
+    }
+  } catch (e) {
+    console.log("   ⚠️ Failed to read overview.json, falling back to API");
+    useLocalData = false;
+  }
+
+  // Fallback: Fetch from API if local data unavailable
+  if (!useLocalData) {
+    console.log("   → Fetching repositories from API...");
+    repos = await fetchAllPages<RepoMeta>(`${GITHUB_API}/orgs/${ORG}/repos`);
+    totalStars = repos.reduce(
+      (sum, repo) => sum + (repo.stargazers_count || 0),
+      0,
+    );
+    totalForks = repos.reduce((sum, repo) => sum + (repo.forks_count || 0), 0);
+  }
+
+  // Fetch additional data that's not in overview.json
+  console.log(
+    "   → Fetching detailed repo stats (subscribers, releases, size, license)...",
+  );
   let totalWatchers = 0;
+  let totalReleases = 0;
   let totalSizeKB = 0;
   const licenseCount: Record<string, number> = {};
-  
-  // Need to fetch details for actual subscribers (watchers) count and releases
-  console.log("   → Fetching detailed repo stats (subscribers & releases)...");
-  let totalReleases = 0;
 
   for (const repo of repos) {
-    totalStars += repo.stargazers_count || 0;
-    totalForks += repo.forks_count || 0;
-    totalSizeKB += repo.size || 0;
-    
-    if (repo.license?.spdx_id) {
-      licenseCount[repo.license.spdx_id] = (licenseCount[repo.license.spdx_id] || 0) + 1;
-    }
-
     // Get real subscribers count (watchers)
     try {
-      const detail = await fetchWithAuth(`${GITHUB_API}/repos/${ORG}/${repo.name}`) as RepoDetail;
+      const detail = (await fetchWithAuth(
+        `${GITHUB_API}/repos/${ORG}/${repo.name}`,
+      )) as RepoDetail & { size: number; license?: { spdx_id: string } | null };
       totalWatchers += detail.subscribers_count || 0;
+      totalSizeKB += detail.size || 0;
+
+      if (detail.license?.spdx_id) {
+        licenseCount[detail.license.spdx_id] =
+          (licenseCount[detail.license.spdx_id] || 0) + 1;
+      }
     } catch (e) {
-      console.warn(`   ⚠️ Failed to fetch details for ${repo.name}, using list data`);
-      // Fallback to watchers_count from list (which is stars, but better than 0) or just ignore
+      console.warn(`   ⚠️ Failed to fetch details for ${repo.name}`);
     }
 
     // Get releases (ALL repos, no sampling)
     try {
-      const releases = await fetchAllPages(`${GITHUB_API}/repos/${ORG}/${repo.name}/releases`);
+      const releases = await fetchAllPages(
+        `${GITHUB_API}/repos/${ORG}/${repo.name}/releases`,
+      );
       totalReleases += releases.length;
     } catch (e) {
-       console.warn(`   ⚠️ Failed to fetch releases for ${repo.name}`);
+      console.warn(`   ⚠️ Failed to fetch releases for ${repo.name}`);
     }
   }
 
   // Find most common license
-  const preferredLicense = Object.entries(licenseCount)
-    .sort((a, b) => b[1] - a[1])[0]?.[0] || null;
+  const preferredLicense =
+    Object.entries(licenseCount).sort((a, b) => b[1] - a[1])[0]?.[0] || null;
 
   // Fetch issue/PR counts using Search API
   console.log("   → Fetching issues...");
@@ -181,7 +248,9 @@ async function fetchOrgStats(): Promise<OrgStats> {
   console.log("   → Fetching pull requests...");
   const openPRs = await fetchSearchCount(`org:${ORG} is:pr is:open`);
   const mergedPRs = await fetchSearchCount(`org:${ORG} is:pr is:merged`);
-  const closedPRs = await fetchSearchCount(`org:${ORG} is:pr is:closed is:unmerged`);
+  const closedPRs = await fetchSearchCount(
+    `org:${ORG} is:pr is:closed is:unmerged`,
+  );
   const draftPRs = await fetchSearchCount(`org:${ORG} is:pr draft:true`);
 
   const totalSizeGB = (totalSizeKB / 1024 / 1024).toFixed(2);
@@ -251,7 +320,7 @@ function generateProgressBar(
   values: { value: number; color: string }[],
   width: number,
   height: number = 8,
-  id: string
+  id: string,
 ): string {
   const total = values.reduce((sum, v) => sum + v.value, 0);
   if (total === 0) {
@@ -265,7 +334,7 @@ function generateProgressBar(
     const segmentWidth = (value / total) * width;
     if (segmentWidth > 0) {
       segments.push(
-        `<rect x="${x}" y="0" width="${segmentWidth}" height="${height}" fill="${color}"/>`
+        `<rect x="${x}" y="0" width="${segmentWidth}" height="${height}" fill="${color}"/>`,
       );
       x += segmentWidth;
     }
@@ -292,7 +361,9 @@ function generateSVG(stats: OrgStats): string {
       { value: stats.issues.open, color: "#22c55e" },
       { value: stats.issues.closed, color: "#a855f7" },
     ],
-    180, 10, "issuesClip"
+    180,
+    10,
+    "issuesClip",
   );
 
   const prsBar = generateProgressBar(
@@ -301,7 +372,9 @@ function generateSVG(stats: OrgStats): string {
       { value: stats.pullRequests.merged, color: "#a855f7" },
       { value: stats.pullRequests.closed, color: "#ef4444" },
     ],
-    180, 10, "prsClip"
+    180,
+    10,
+    "prsClip",
   );
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
@@ -418,7 +491,7 @@ function generateSVG(stats: OrgStats): string {
       <text x="108" y="10" class="legend-text">${formatNumber(stats.pullRequests.closed)} closed</text>
     </g>
   </g>
-</svg>`
+</svg>`;
 }
 
 /* -------------------------------------------------------
@@ -436,8 +509,12 @@ async function main() {
   console.log(`   Forks: ${stats.totalForks}`);
   console.log(`   Releases: ${stats.totalReleases}`);
   console.log(`   Size: ${stats.totalSizeGB} GB`);
-  console.log(`   Issues: ${stats.issues.open} open, ${stats.issues.closed} closed`);
-  console.log(`   PRs: ${stats.pullRequests.open} open, ${stats.pullRequests.merged} merged, ${stats.pullRequests.drafts} drafts`);
+  console.log(
+    `   Issues: ${stats.issues.open} open, ${stats.issues.closed} closed`,
+  );
+  console.log(
+    `   PRs: ${stats.pullRequests.open} open, ${stats.pullRequests.merged} merged, ${stats.pullRequests.drafts} drafts`,
+  );
 
   const svg = generateSVG(stats);
 
