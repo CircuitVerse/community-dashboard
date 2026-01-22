@@ -20,6 +20,7 @@ import {
   GitMerge,
   Trophy,
   Search,
+  X,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
@@ -349,8 +350,7 @@ export default function HomeDashboard({
                         }}
                         className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-[#50B78B]/30 bg-[#50B78B]/10 text-[#50B78B] font-medium hover:bg-[#50B78B]/20 transition-colors"
                       >
-                        <span className="sr-only">Clear Filters</span>
-                        <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                        <X className="h-4 w-4" />
                         Clear Filters
                       </button>
                     )}
