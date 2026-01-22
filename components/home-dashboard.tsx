@@ -279,6 +279,7 @@ export default function HomeDashboard({
                       <Input
                         type="text"
                         placeholder="Search repositories..."
+                        aria-label="Search repositories"
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
                         className="pl-9 w-full bg-white dark:bg-[#07170f] border border-[#50B78B]/60 dark:border-[#50B78B]/40 focus-visible:ring-2 focus-visible:ring-[#50B78B]"
