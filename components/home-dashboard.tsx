@@ -1,6 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -11,6 +19,7 @@ import {
   GitFork,
   GitMerge,
   Trophy,
+  Search,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
@@ -74,6 +83,41 @@ export default function HomeDashboard({
 
   const repos = reposData.reposOverview;
 
+  // Control Bar State 
+  const [search, setSearch] = useState("");
+  const [language, setLanguage] = useState<string>("__all__");
+  const [sort, setSort] = useState("contributions");
+
+  //  Language Options 
+  const languageOptions = Array.from(
+    new Set(repos.map((r) => r.language).filter((lang): lang is string => typeof lang === "string" && !!lang))
+  ).sort();
+
+  // Filtering & Sorting Logic 
+  const filteredRepos = repos
+    .filter((repo) =>
+      repo.name.toLowerCase().includes(search.toLowerCase())
+    )
+    .filter((repo) =>
+      language === "__all__" ? true : repo.language === language
+    );
+
+  const sortedRepos = [...filteredRepos].sort((a, b) => {
+    switch (sort) {
+      case "stars":
+        return b.stars - a.stars;
+      case "forks":
+        return b.forks - a.forks;
+      case "issues":
+        return b.current.issue_created - a.current.issue_created;
+      case "prs":
+        return b.current.pr_opened + b.current.pr_merged - (a.current.pr_opened + a.current.pr_merged);
+      case "contributions":
+      default:
+        return b.current.currentTotalContribution - a.current.currentTotalContribution;
+    }
+  });
+
   // --- Logic to find most active repo ---
   function getActiveRepoStats() {
     if (!repos || repos.length === 0) {
@@ -83,13 +127,11 @@ export default function HomeDashboard({
         totalContributions: 0,
       };
     }
-
     const topRepo = [...repos].sort(
       (a, b) =>
         b.current.currentTotalContribution -
         a.current.currentTotalContribution
     )[0];
-
     return {
       name: topRepo?.name,
       growth: topRepo?.growth?.pr_merged ?? 0,
@@ -97,12 +139,6 @@ export default function HomeDashboard({
     };
   }
   const activeRepo = getActiveRepoStats();
-
-  const sortedRepos = [...repos].sort(
-    (a, b) =>
-      b.current.currentTotalContribution -
-      a.current.currentTotalContribution
-  );
 
   return (
     <div className="min-h-screen transition-colors">
@@ -232,22 +268,99 @@ export default function HomeDashboard({
                 </div>
               </div>
 
-              {/* Repos Grid */}
+              {/* Repos Grid with Control Bar */}
               <section className="space-y-6">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-2 gap-2">
-                  <h3 className="text-lg font-semibold text-zinc-800 dark:text-zinc-200 flex items-center gap-2">
-                    Tracked Repositories
-                  </h3>
+                {/* --- Control Bar --- */}
+                <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-zinc-200 dark:border-zinc-800 pb-2 gap-2">
+                  <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
+                    {/* Search Bar with Icon */}
+                    <div className="relative w-full sm:w-56">
+                      <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
+                      <Input
+                        type="text"
+                        placeholder="Search repositories..."
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                        className="pl-9 w-full bg-white dark:bg-[#07170f] border border-[#50B78B]/60 dark:border-[#50B78B]/40 focus-visible:ring-2 focus-visible:ring-[#50B78B]"
+                      />
+                    </div>
+                    {/* Language Filter */}
+                    <Select
+                      value={language}
+                      onValueChange={setLanguage}
+                    >
+                      <SelectTrigger className="w-full sm:w-40 h-9 border border-[#50B78B]/30 hover:bg-[#50B78B]/20 focus-visible:ring-2 focus-visible:ring-[#50B78B]">
+                        <SelectValue placeholder="All Languages" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="__all__">All Languages</SelectItem>
+                        {languageOptions.map((lang) => (
+                          <SelectItem key={lang} value={lang}>
+                            {lang}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    {/* Sort Dropdown */}
+                    <Select
+                      value={sort}
+                      onValueChange={setSort}
+                    >
+                      <SelectTrigger className="w-full sm:w-44 h-9 border border-[#50B78B]/30 hover:bg-[#50B78B]/20 focus-visible:ring-2 focus-visible:ring-[#50B78B]">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="contributions">Most Contributions</SelectItem>
+                        <SelectItem value="stars">Most Stars</SelectItem>
+                        <SelectItem value="forks">Most Forks</SelectItem>
+                        <SelectItem value="issues">Most Issues</SelectItem>
+                        <SelectItem value="prs">Most PRs</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
                   <span className="self-start sm:self-auto text-xs font-mono text-zinc-500 bg-zinc-100 dark:bg-zinc-800 px-2 py-1 rounded-md">
-                    Showing {repos.length}
+                    Showing {sortedRepos.length}
                   </span>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
-                  {sortedRepos.map((repo: RepoStats) => (
-                    <RepoCard key={repo.name} repo={repo} />
-                  ))}
-                </div>
+                {/* --- Repo Grid or No Results --- */}
+                {sortedRepos.length === 0 ? (
+                  <div className="py-16 text-center rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/60 dark:bg-zinc-900/40 shadow-sm">
+                    <div className="relative mx-auto w-20 h-20 mb-6">
+                      <div className="absolute inset-0 rounded-full bg-[#50B78B]/10 dark:bg-[#50B78B]/15" />
+                      <div className="absolute inset-2 rounded-full bg-[#50B78B]/5 dark:bg-[#50B78B]/10 flex items-center justify-center">
+                        <Search className="h-8 w-8 text-[#50B78B]/70" />
+                      </div>
+                    </div>
+                    <h3 className="text-lg font-semibold mb-2">No results found</h3>
+                    <p className="text-muted-foreground mb-6">
+                      {search
+                        ? `No repositories matching "${search}"`
+                        : "No repositories match the selected filters"}
+                    </p>
+                    {(search || language !== "__all__" || sort !== "contributions") && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setSearch("");
+                          setLanguage("__all__");
+                          setSort("contributions");
+                        }}
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-[#50B78B]/30 bg-[#50B78B]/10 text-[#50B78B] font-medium hover:bg-[#50B78B]/20 transition-colors"
+                      >
+                        <span className="sr-only">Clear Filters</span>
+                        <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                        Clear Filters
+                      </button>
+                    )}
+                  </div>
+                ) : (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
+                    {sortedRepos.map((repo: RepoStats) => (
+                      <RepoCard key={repo.name} repo={repo} />
+                    ))}
+                  </div>
+                )}
               </section>
             </div>
           )}
