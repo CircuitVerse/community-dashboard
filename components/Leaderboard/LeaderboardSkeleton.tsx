@@ -12,7 +12,9 @@ function SkeletonPulse({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "animate-pulse rounded-md bg-muted/60",
+        // Use a more visible skeleton color in both themes
+        "animate-pulse rounded-md",
+        "bg-zinc-200 dark:bg-zinc-700",
         className
       )}
     />
