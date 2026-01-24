@@ -99,10 +99,10 @@ export function ActiveReviewersCard() {
     );
   }
 
-  const topReviewers = data.reviewMetrics.topReviewers.slice(0, 5);
+  const topReviewers = data.reviewMetrics.topReviewers.slice(0, 6);
 
   return (
-    <Card className="col-span-2">
+    <Card className="col-span-2 h-full flex flex-col">
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <Users className="h-5 w-5" />

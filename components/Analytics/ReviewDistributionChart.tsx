@@ -145,7 +145,7 @@ export function ReviewDistributionChart() {
   };
 
   return (
-    <Card className="col-span-2">
+    <Card className="col-span-2 h-full flex flex-col">
       <CardHeader className="pb-4">
         <CardTitle className="text-lg">Review State Distribution</CardTitle>
         <CardDescription className="text-sm">

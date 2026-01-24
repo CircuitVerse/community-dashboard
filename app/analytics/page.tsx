@@ -31,7 +31,7 @@ export default async function AnalyticsPage() {
           <h2 className="text-2xl font-semibold text-zinc-800 dark:text-zinc-200">
             Review Dashboard
           </h2>
-          <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-stretch">
             <Suspense fallback={<ReviewMetricsSkeleton />}>
               <ReviewMetricsCard />
             </Suspense>
