@@ -415,7 +415,7 @@ function generateSVG(stats: OrgStats): string {
       <text x="22" y="24" class="stat-label">${stats.totalReleases} Releases</text>
       
       ${icon("package", 0, 48)}
-      <text x="22" y="48" class="stat-label">${stats.totalPackages || 0} Packages</text>
+      <text x="22" y="48" class="stat-label">${stats.totalPackages ?? "N/A"} Packages</text>
       
       ${icon("storage", 0, 72)}
       <text x="22" y="72" class="stat-label">${stats.totalSizeGB} GB used</text>
@@ -424,7 +424,7 @@ function generateSVG(stats: OrgStats): string {
     <!-- Right Column (aligned with license row) -->
     <g transform="translate(280, 0)">
       ${icon("heart", 0, 0)}
-      <text x="22" class="stat-label">${stats.sponsors || 0} Sponsors</text>
+      <text x="22" class="stat-label">${stats.sponsors ?? "N/A"} Sponsors</text>
       
       ${icon("star", 0, 24)}
       <text x="22" y="24" class="stat-label">${formatNumber(stats.totalStars)} Stargazers</text>
@@ -464,14 +464,6 @@ function generateSVG(stats: OrgStats): string {
       
       <g transform="translate(100, 0)">${ICONS.issueClosed}</g>
       <text x="118" y="10" class="legend-text">${formatNumber(stats.issues.closed)} closed</text>
-    </g>
-    
-    <g transform="translate(0, 100)">
-      ${ICONS.issueDraft}
-      <text x="18" y="10" class="legend-text">${stats.issues.drafts} drafts</text>
-      
-      <g transform="translate(100, 0)">${ICONS.issueSkipped}</g>
-      <text x="118" y="10" class="legend-text">0 skipped</text>
     </g>
 
     <!-- PR Legend -->
