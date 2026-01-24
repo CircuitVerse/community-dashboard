@@ -51,7 +51,6 @@ interface OrgStats {
   issues: {
     open: number;
     closed: number;
-    drafts: number;
   };
   pullRequests: {
     open: number;
@@ -251,7 +250,7 @@ async function fetchOrgStats(): Promise<OrgStats> {
   const closedPRs = await fetchSearchCount(
     `org:${ORG} is:pr is:closed is:unmerged`,
   );
-  const draftPRs = await fetchSearchCount(`org:${ORG} is:pr draft:true`);
+  const draftPRs = await fetchSearchCount(`org:${ORG} is:pr is:draft`);
 
   const totalSizeGB = (totalSizeKB / 1024 / 1024).toFixed(2);
 
@@ -268,7 +267,6 @@ async function fetchOrgStats(): Promise<OrgStats> {
     issues: {
       open: openIssues,
       closed: closedIssues,
-      drafts: 0,
     },
     pullRequests: {
       open: openPRs,
@@ -297,8 +295,6 @@ const ICONS = {
   trend: `<svg width="14" height="14" viewBox="0 0 16 16" fill="#8b949e"><path d="M1 3a.5.5 0 01.5-.5h2a.5.5 0 01.5.5v10a.5.5 0 01-.5.5h-2a.5.5 0 01-.5-.5V3zm5 4a.5.5 0 01.5-.5h2a.5.5 0 01.5.5v6a.5.5 0 01-.5.5h-2a.5.5 0 01-.5-.5V7zm5-2a.5.5 0 01.5-.5h2a.5.5 0 01.5.5v8a.5.5 0 01-.5.5h-2a.5.5 0 01-.5-.5V5z"/></svg>`,
   issueOpen: `<svg width="12" height="12" viewBox="0 0 16 16" fill="#22c55e"><path d="M8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/><path d="M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z"/></svg>`,
   issueClosed: `<svg width="12" height="12" viewBox="0 0 16 16" fill="#a855f7"><path d="M11.28 6.78a.75.75 0 00-1.06-1.06L7.25 8.69 5.78 7.22a.75.75 0 00-1.06 1.06l2 2a.75.75 0 001.06 0l3.5-3.5z"/><path d="M16 8A8 8 0 110 8a8 8 0 0116 0zm-1.5 0a6.5 6.5 0 10-13 0 6.5 6.5 0 0013 0z"/></svg>`,
-  issueDraft: `<svg width="12" height="12" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z"/></svg>`,
-  issueSkipped: `<svg width="12" height="12" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z"/><path d="M4.5 7.5a.5.5 0 000 1h7a.5.5 0 000-1h-7z"/></svg>`,
   prOpen: `<svg width="12" height="12" viewBox="0 0 16 16" fill="#22c55e"><path d="M1.5 3.25a2.25 2.25 0 113 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 011.5 3.25zm5.677-.177L9.573.677A.25.25 0 0110 .854V2.5h1A2.5 2.5 0 0113.5 5v5.628a2.251 2.251 0 11-1.5 0V5a1 1 0 00-1-1h-1v1.646a.25.25 0 01-.427.177L7.177 3.427a.25.25 0 010-.354zM3.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm0 9.5a.75.75 0 100 1.5.75.75 0 000-1.5zm8.25.75a.75.75 0 101.5 0 .75.75 0 00-1.5 0z"/></svg>`,
   prMerged: `<svg width="12" height="12" viewBox="0 0 16 16" fill="#a855f7"><path d="M5.45 5.154A4.25 4.25 0 009.25 7.5h1.378a2.251 2.251 0 110 1.5H9.25A5.734 5.734 0 015 7.123v3.505a2.25 2.25 0 11-1.5 0V5.372a2.25 2.25 0 111.95-.218zM4.25 13.5a.75.75 0 100-1.5.75.75 0 000 1.5zm8.5-4.5a.75.75 0 100-1.5.75.75 0 000 1.5zM5 3.25a.75.75 0 10-1.5 0 .75.75 0 001.5 0z"/></svg>`,
   prDraft: `<svg width="12" height="12" viewBox="0 0 16 16" fill="#8b949e"><path d="M3.25 1A2.25 2.25 0 011 3.25v9.5A2.25 2.25 0 003.25 15h9.5A2.25 2.25 0 0015 12.75v-9.5A2.25 2.25 0 0012.75 1h-9.5zM2.5 3.25a.75.75 0 01.75-.75h9.5a.75.75 0 01.75.75v9.5a.75.75 0 01-.75.75h-9.5a.75.75 0 01-.75-.75v-9.5zM8 5a1 1 0 100 2 1 1 0 000-2zm0 4a1 1 0 100 2 1 1 0 000-2z"/></svg>`,
