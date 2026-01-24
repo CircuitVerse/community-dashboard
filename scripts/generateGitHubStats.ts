@@ -246,7 +246,7 @@ async function fetchOrgStats(): Promise<OrgStats> {
   const closedIssues = await fetchSearchCount(`org:${ORG} is:issue is:closed`);
 
   console.log("   → Fetching pull requests...");
-  const openPRs = await fetchSearchCount(`org:${ORG} is:pr is:open draft:false`);
+  const openPRs = await fetchSearchCount(`org:${ORG} is:pr is:open -is:draft`);
   const mergedPRs = await fetchSearchCount(`org:${ORG} is:pr is:merged`);
   const closedPRs = await fetchSearchCount(
     `org:${ORG} is:pr is:closed is:unmerged`,
