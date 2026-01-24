@@ -1,0 +1,48 @@
+name: Update GitHub Stats SVG
+
+on:
+  # Run daily at midnight UTC
+  schedule:
+    - cron: '0 0 * * *'
+  
+  # Run after leaderboard updates
+  workflow_run:
+    workflows: ["Generate Leaderboard Data"]
+    types:
+      - completed
+  
+  # Manual trigger
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-stats:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate GitHub Stats SVG
+        run: npx tsx scripts/generateGitHubStats.ts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit and push if changed
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add public/github-stats.svg
+          git diff --staged --quiet || git commit -m "chore: update GitHub stats SVG"
+          git push
