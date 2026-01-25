@@ -35,7 +35,7 @@ export default async function AnalyticsPage() {
             <Suspense fallback={<ReviewMetricsSkeleton />}>
               <ReviewMetricsCard />
             </Suspense>
-            <div className="col-span-full lg:col-span-2">
+            <div className="col-span-full lg:col-span-2 items-stretch">
               <Suspense fallback={<ActiveReviewersSkeleton />}>
                 <ActiveReviewersCard />
               </Suspense>
