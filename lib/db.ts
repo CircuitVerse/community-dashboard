@@ -1,6 +1,6 @@
 // lib/db.ts — temporary stub (no DB)
 
-import { RepoStats, UserEntry } from "@/scripts/generateLeaderboard";
+import { RepoStats, UserEntry } from "@/scripts/types";
 import fs from "fs";
 import path from "path";
 import { differenceInDays } from "date-fns";
@@ -42,7 +42,7 @@ export type MonthBuckets = {
 // Helper function to extract repository name from GitHub URL
 function extractRepoFromUrl(url: string | null | undefined): string | null {
   if (!url || typeof url !== 'string') return null;
-  
+
   const match = url.match(/github\.com\/[^/]+\/([^/]+)/);
   return match && match[1] !== undefined ? match[1] : null;
 }
@@ -61,7 +61,7 @@ function extractRepoFromUrl(url: string | null | undefined): string | null {
 //   if (fs.existsSync(filePath)) {
 //     const file = fs.readFileSync(filePath, "utf-8");
 //     const data: RecentActivitiesJSON = JSON.parse(file);
-    
+
 //     const groupsFromEntries: ActivityGroup[] =
 //       Object.entries(
 //         data.entries.reduce((acc, user) => {
@@ -91,7 +91,7 @@ function extractRepoFromUrl(url: string | null | undefined): string | null {
 
 //     activityGroups = groupsFromEntries;
 //   }
-  
+
 //   return activityGroups;
 // }
 
@@ -114,35 +114,35 @@ export async function getRecentActivitiesGroupedByType(
 
   const groups = new Map<string, ActivityGroup>();
 
- for (const user of data.entries) {
-  if (!user.activities) continue;
+  for (const user of data.entries) {
+    if (!user.activities) continue;
 
-  for (const act of user.activities) {
-    const type = act.type;
+    for (const act of user.activities) {
+      const type = act.type;
 
-    if (!groups.has(type)) {
-      groups.set(type, {
-        activity_definition: type,
-        activity_name: type,
-        activity_description: null,
-        activities: [],
+      if (!groups.has(type)) {
+        groups.set(type, {
+          activity_definition: type,
+          activity_name: type,
+          activity_description: null,
+          activities: [],
+        });
+      }
+
+      groups.get(type)!.activities.push({
+        slug: `${user.username}-${type}-${act.occured_at}-${groups.get(type)!.activities.length}`,
+        contributor: user.username,
+        contributor_name: user.name,
+        contributor_avatar_url: user.avatar_url,
+        contributor_role: (user.role ?? null) as string | null,
+        occured_at: act.occured_at,
+        title: act.title ?? null,     // ✅ REAL title
+        link: act.link ?? null,       // ✅ REAL GitHub link
+        repo: extractRepoFromUrl(act.link ?? null), // ✅ Extract repo name
+        points: act.points ?? 0,
       });
     }
-
-    groups.get(type)!.activities.push({
-      slug: `${user.username}-${type}-${act.occured_at}-${groups.get(type)!.activities.length}`,
-      contributor: user.username,
-      contributor_name: user.name,
-      contributor_avatar_url: user.avatar_url,
-      contributor_role: (user.role ?? null) as string | null,
-      occured_at: act.occured_at,
-      title: act.title ?? null,     // ✅ REAL title
-      link: act.link ?? null,       // ✅ REAL GitHub link
-      repo: extractRepoFromUrl(act.link ?? null), // ✅ Extract repo name
-      points: act.points ?? 0,
-    });
   }
-}
 
 
   // newest first
@@ -243,7 +243,7 @@ export async function getReposOverview(): Promise<RepoStats[]> {
   );
 
   if (!fs.existsSync(filePath)) return [];
-  
+
   try {
     const file = fs.readFileSync(filePath, "utf-8");
     const data = JSON.parse(file);
