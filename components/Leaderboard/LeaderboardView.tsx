@@ -23,7 +23,8 @@ import {
   SearchX,
   Eye,
   Tag,
-  CheckCircle
+  CheckCircle,
+  Loader2
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useMemo, useState, useEffect, useRef } from "react";
@@ -31,6 +32,7 @@ import { sortEntries, type SortBy } from "@/lib/leaderboard";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import { LeaderboardCard, type LeaderboardEntry } from "./LeaderboardCard";
+import { LeaderboardCardsSkeleton } from "./LeaderboardSkeleton";
 import {
   Select,
   SelectContent,
@@ -140,6 +142,8 @@ export default function LeaderboardView({
   const [searchQuery, setSearchQuery] = useState("");
   const debouncedSearchQuery = useDebounce(searchQuery, 300);
 
+  const [periodLoading, setPeriodLoading] = useState(false);
+  const [selectedPeriod, setSelectedPeriod] = useState<"week" | "month" | "year" | null>(period);
 
   // Page size state - default to showing top 50 for better readability and performance
   const [pageSize, setPageSize] = useState<number>(() => {
@@ -499,6 +503,19 @@ export default function LeaderboardView({
     if (typeof window !== 'undefined') window.history.replaceState(null, '', `${pathname}?${params.toString()}`);
   };
 
+  const handlePeriodChange = (newPeriod: "week" | "month" | "year") => {
+    if (newPeriod === period) return;
+    
+    setPeriodLoading(true);
+    setSelectedPeriod(newPeriod);
+    
+    const params = new URLSearchParams(searchParams.toString());
+    params.delete("page");
+    const href = `/leaderboard/${newPeriod}${params.toString() ? `?${params.toString()}` : ''}`;
+    
+    router.push(href);
+  };
+
   const filteredTopByActivity = useMemo(() => {
     if (selectedRoles.size === 0) {
       return topByActivity;
@@ -525,6 +542,12 @@ export default function LeaderboardView({
     month: "Monthly",
     year: "Yearly",
   };
+
+  // Reset loading state when period actually changes
+  useEffect(() => {
+    setPeriodLoading(false);
+    setSelectedPeriod(period);
+  }, [period]);
 
   return (
     <div ref={topRef} className="container mx-auto px-4 py-8">
@@ -761,22 +784,26 @@ export default function LeaderboardView({
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8 border-b">
             <div className="flex gap-2">
               {(["week", "month", "year"] as const).map((p) => {
-                const params = new URLSearchParams(searchParams.toString());
-                params.delete("page");
-                const href = `/leaderboard/${p}${params.toString() ? `?${params.toString()}` : ''}`;
+                const isActive = period === p;
+                const isLoading = periodLoading && selectedPeriod === p;
                 return (
-                  <Link
+                  <button
                     key={p}
-                    href={href}
+                    onClick={() => handlePeriodChange(p)}
+                    disabled={isLoading || isActive}
                     className={cn(
-                      "px-4 py-2 font-medium transition-colors border-b-2 relative outline-none focus-visible:ring-2 focus-visible:ring-[#50B78B]/60 rounded-sm",
-                      period === p
+                      "px-4 py-2 font-medium transition-colors border-b-2 relative outline-none focus-visible:ring-2 focus-visible:ring-[#50B78B]/60 rounded-sm flex items-center gap-2",
+                      isActive
                         ? "border-[#50B78B] text-[#50B78B] bg-linear-to-t from-[#50B78B]/12 to-transparent dark:from-[#50B78B]/12"
-                        : "border-transparent text-muted-foreground hover:text-[#50B78B]"
+                        : "border-transparent text-muted-foreground hover:text-[#50B78B] cursor-pointer",
+                      isLoading && "opacity-70"
                     )}
                   >
                     {periodLabels[p]}
-                  </Link>
+                    {isLoading && (
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                    )}
+                  </button>
                 );
               })}
             </div>
@@ -815,7 +842,12 @@ export default function LeaderboardView({
             </div>
           </div>
 
-          {filteredEntries.length === 0 ? (
+          {periodLoading ? (
+            <LeaderboardCardsSkeleton 
+              count={pageSize === Infinity ? 10 : Math.min(pageSize, 10)} 
+              variant={viewMode === "grid" ? "grid" : "list"} 
+            />
+          ) : filteredEntries.length === 0 ? (
             <Card>
               <CardContent className="py-16 text-center">
                 <div className="relative mx-auto w-20 h-20 mb-6">
@@ -869,7 +901,7 @@ export default function LeaderboardView({
           )}
 
           {/* Pagination Controls */}
-          {pageSize !== Infinity && totalPages > 1 && filteredEntries.length > 0 && (
+          {!periodLoading && pageSize !== Infinity && totalPages > 1 && filteredEntries.length > 0 && (
             <div className="flex items-center justify-center gap-2 mt-8">
               <Button
                 variant="outline"
