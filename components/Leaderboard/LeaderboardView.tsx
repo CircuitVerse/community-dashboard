@@ -784,7 +784,7 @@ export default function LeaderboardView({
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8 border-b">
             <div className="flex gap-2">
               {(["week", "month", "year"] as const).map((p) => {
-                const isActive = period === p;
+                const isActive = selectedPeriod === p;
                 const isLoading = periodLoading && selectedPeriod === p;
                 return (
                   <button
