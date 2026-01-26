@@ -143,7 +143,7 @@ export default function LeaderboardView({
   const debouncedSearchQuery = useDebounce(searchQuery, 300);
 
   const [periodLoading, setPeriodLoading] = useState(false);
-  const [selectedPeriod, setSelectedPeriod] = useState<"week" | "month" | "year" | null>(period);
+  const [selectedPeriod, setSelectedPeriod] = useState<"week" | "month" | "year">(period);
 
   // Page size state - default to showing top 50 for better readability and performance
   const [pageSize, setPageSize] = useState<number>(() => {
@@ -504,16 +504,21 @@ export default function LeaderboardView({
   };
 
   const handlePeriodChange = (newPeriod: "week" | "month" | "year") => {
-    if (newPeriod === period) return;
+    if (periodLoading || newPeriod === selectedPeriod) return;
     
     setPeriodLoading(true);
     setSelectedPeriod(newPeriod);
-    
-    const params = new URLSearchParams(searchParams.toString());
-    params.delete("page");
-    const href = `/leaderboard/${newPeriod}${params.toString() ? `?${params.toString()}` : ''}`;
-    
-    router.push(href);
+
+    try {
+      const params = new URLSearchParams(searchParams.toString());
+      params.delete("page");
+      const href = `/leaderboard/${newPeriod}${params.toString() ? `?${params.toString()}` : ''}`;
+      
+      router.push(href);
+    } catch {
+      setPeriodLoading(false);
+      setSelectedPeriod(period);
+    }
   };
 
   const filteredTopByActivity = useMemo(() => {
