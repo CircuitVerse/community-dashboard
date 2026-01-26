@@ -134,11 +134,11 @@ export async function getRecentActivitiesGroupedByType(
         contributor: user.username,
         contributor_name: user.name,
         contributor_avatar_url: user.avatar_url,
-        contributor_role: (user.role ?? null) as string | null,
+        contributor_role: user.role,
         occured_at: act.occured_at,
-        title: act.title ?? null,     // ✅ REAL title
-        link: act.link ?? null,       // ✅ REAL GitHub link
-        repo: extractRepoFromUrl(act.link ?? null), // ✅ Extract repo name
+        title: act.title ?? null,
+        link: act.link ?? null,
+        repo: extractRepoFromUrl(act.link ?? null),
         points: act.points ?? 0,
       });
     }

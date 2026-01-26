@@ -91,7 +91,7 @@ export class ScoringEngine {
             // Deduplicate raw_activities by unique key
             const seen = new Set<string>();
             user.raw_activities = user.raw_activities.filter(act => {
-                const key = `${act.type}:${act.occured_at}:${act.link ?? act.title}`;
+                const key = `${act.type}:${act.occured_at}:${act.link ?? act.title ?? JSON.stringify(act)}`;
                 if (seen.has(key)) return false;
                 seen.add(key);
                 return true;
