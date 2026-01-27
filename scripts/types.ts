@@ -77,10 +77,10 @@ export interface RepoStats {
         pr_merged: number;
         issue_created: number;
         currentTotalContribution: number;
-    }
+    };
     previous: {
         pr_merged: number;
-    }
+    };
     growth: {
         pr_merged: number;
     };
@@ -92,14 +92,5 @@ export interface ExistingYearData {
     lastFetchedAt?: number;
     startDate?: string;
     endDate?: string;
-    entries: Array<{
-        username: string;
-        name: string | null;
-        avatar_url: string | null;
-        role: string;
-        total_points: number;
-        activity_breakdown: Record<string, { count: number; points: number }>;
-        daily_activity: Array<{ date: string; count: number; points: number }>;
-        raw_activities: RawActivity[];
-    }>;
+    entries: Contributor[];
 }

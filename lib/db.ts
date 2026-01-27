@@ -26,11 +26,6 @@ export type ActivityGroup = {
   activities: ActivityItem[];
 };
 
-type RecentActivitiesJSON = {
-  updatedAt: number;
-  entries: UserEntry[];
-  groups: ActivityGroup[];
-};
 
 export type MonthBuckets = {
   w1: number;
@@ -47,53 +42,6 @@ function extractRepoFromUrl(url: string | null | undefined): string | null {
   return match && match[1] !== undefined ? match[1] : null;
 }
 
-// Used by app/page.tsx
-// export async function getRecentActivitiesGroupedByType(valid: "week" | "month" | "year"): Promise<ActivityGroup[]> {
-//   const filePath = path.join(
-//     process.cwd(),
-//     "public",
-//     "leaderboard",
-//     `${valid}.json`
-//   );
-
-//   let activityGroups: ActivityGroup[] = [];
-
-//   if (fs.existsSync(filePath)) {
-//     const file = fs.readFileSync(filePath, "utf-8");
-//     const data: RecentActivitiesJSON = JSON.parse(file);
-
-//     const groupsFromEntries: ActivityGroup[] =
-//       Object.entries(
-//         data.entries.reduce((acc, user) => {
-//           for (const [type, meta] of Object.entries(
-//             user.activity_breakdown
-//           )) {
-//             if (!acc[type]) {
-//               acc[type] = {
-//                 activity_definition: type,
-//                 activity_name: type,
-//                 activities: [],
-//               };
-//             }
-
-//             acc[type].activities.push({
-//               slug: `${user.username}-${type}`,
-//               contributor: user.username,
-//               contributor_name: user.name,
-//               contributor_avatar_url: user.avatar_url,
-//               occured_at: data.updatedAt,
-//               points: meta.points,
-//             });
-//           }
-//           return acc;
-//         }, {} as Record<string, ActivityGroup>)
-//       ).map(([, group]) => group);
-
-//     activityGroups = groupsFromEntries;
-//   }
-
-//   return activityGroups;
-// }
 
 export async function getRecentActivitiesGroupedByType(
   valid: "week" | "month" | "2month" | "year"
@@ -163,14 +111,14 @@ export async function getRecentActivitiesGroupedByType(
 
 export async function getUpdatedTime() {
   const publicPath = path.join(process.cwd(), "public", "leaderboard");
-  if(!fs.existsSync(publicPath)) return null;
+  if (!fs.existsSync(publicPath)) return null;
   const files = fs.readdirSync(publicPath).filter(
     (file) => file.endsWith(".json") && file !== "recent-activities.json"
   );
 
   let latestUpdatedAt = 0;
-  for(const file of files){
-    try{
+  for (const file of files) {
+    try {
       const filePath = path.join(publicPath, file);
       const data = JSON.parse(fs.readFileSync(filePath, "utf-8"));
       if (data.updatedAt && data.updatedAt > latestUpdatedAt) {

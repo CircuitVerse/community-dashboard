@@ -603,8 +603,9 @@ async function generateYear() {
 
   derivePeriod(yearData, 7, "week");
   derivePeriod(yearData, 30, "month");
+  derivePeriod(yearData, 60, "2month");
   generateRecentActivities(yearData);
-  await generateRepoOverview()
+  await generateRepoOverview();
 }
 
 /* -------------------------------------------------------
