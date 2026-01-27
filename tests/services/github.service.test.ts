@@ -1,13 +1,13 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { GitHubService } from '../../scripts/services/github.service';
 
-global.fetch = vi.fn();
-
 describe('GitHubService', () => {
     let service: GitHubService;
+    let fetchSpy: ReturnType<typeof vi.spyOn>;
 
     beforeEach(() => {
         service = new GitHubService('fake-token');
+        fetchSpy = vi.spyOn(globalThis, 'fetch');
         vi.clearAllMocks();
     });
 
@@ -24,30 +24,30 @@ describe('GitHubService', () => {
             const mockDataPage1 = [{ id: 1 }, ...Array(99).fill({ id: 0 })]; // 100 items
             const mockDataPage2 = [{ id: 2 }];
 
-            (fetch as unknown as ReturnType<typeof vi.fn>)
+            fetchSpy
                 .mockResolvedValueOnce({
                     ok: true,
                     headers: new Headers(),
                     json: async () => mockDataPage1,
-                })
+                } as Response)
                 .mockResolvedValueOnce({
                     ok: true,
                     headers: new Headers(),
                     json: async () => mockDataPage2,
-                });
+                } as Response);
 
             const results = await service.fetchAll('https://api.github.com/test');
 
-            expect(fetch).toHaveBeenCalledTimes(2);
+            expect(fetchSpy).toHaveBeenCalledTimes(2);
             expect(results).toHaveLength(101);
         });
 
         it('should throw error on failure', async () => {
-            (fetch as unknown as ReturnType<typeof vi.fn>).mockResolvedValueOnce({
+            fetchSpy.mockResolvedValueOnce({
                 ok: false,
                 status: 404,
                 text: async () => 'Not Found'
-            });
+            } as Response);
 
             await expect(service.fetchAll('https://api.github.com/bad')).rejects.toThrow('GitHub API 404');
         });
