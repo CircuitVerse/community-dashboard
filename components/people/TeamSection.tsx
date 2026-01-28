@@ -14,20 +14,24 @@ interface TeamSectionProps {
 }
 
 export function TeamSection({ title, description, members, teamType }: TeamSectionProps) {
-const resolvedColorClass =
-  teamType === "core"
-    ? "text-blue-600 dark:text-blue-400"
-    : "text-orange-600 dark:text-orange-400";
+  const isCore = teamType === "core";
+  const resolvedColorClass =
+    teamType === "core"
+      ? "text-blue-600 dark:text-blue-400"
+      : "text-orange-600 dark:text-orange-400";
   return (
-    <div className="mb-16">
-      <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold mb-4">
-          <span className="text-black dark:text-white">Our </span>
+    <div className="mb-20">
+      <div className="flex flex-col items-center text-center mb-12 relative">
+        <h2 className="text-4xl font-black tracking-tight mb-4">
+          <span className="text-zinc-900 dark:text-zinc-100">{isCore ? 'The ' : 'Our '}</span>
           <span className={resolvedColorClass}>{title}</span>
         </h2>
-        <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+
+        <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed mx-auto">
           {description}
         </p>
+
+        <div className={`w-24 h-1 bg-gradient-to-r from-transparent ${isCore ? 'via-blue-500/50' : 'via-orange-500/50'} to-transparent mt-6 rounded-full`} />
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
@@ -65,11 +69,10 @@ const resolvedColorClass =
                 </p>
 
                 <div
-                  className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
-                    teamType === "core"
-                      ? "bg-[#42B883]/10 text-[#42B883] border border-[#42B883]/20"
-                      : "bg-[#FF6B35]/10 text-[#FF6B35] border border-[#FF6B35]/20"
-                  }`}
+                  className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${teamType === "core"
+                    ? "bg-[#42B883]/10 text-[#42B883] border border-[#42B883]/20"
+                    : "bg-[#FF6B35]/10 text-[#FF6B35] border border-[#FF6B35]/20"
+                    }`}
                 >
                   {member.role}
                 </div>
