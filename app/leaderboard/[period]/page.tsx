@@ -60,47 +60,50 @@ export default async function Page({
           />
         }
       >
-        <LeaderboardData period={period} isGridView={isGridView} />
+        <LeaderboardData period={period} />
       </Suspense>
     </div>
   );
 }
 
-// --- Data Fetching Component ---
 async function LeaderboardData({
   period,
-  isGridView,
 }: {
   period: "week" | "month" | "year";
-  isGridView: boolean;
 }) {
   const filePath = path.join(
     process.cwd(),
     "public",
     "leaderboard",
-    `${period}.json`,
+    `${period}.json`
   );
 
   let data: LeaderboardJSON | null = null;
 
-  if (fs.existsSync(filePath)) {
-    try {
+  try {
+    if (fs.existsSync(filePath)) {
       const file = fs.readFileSync(filePath, "utf-8");
       data = JSON.parse(file) as LeaderboardJSON;
-    } catch (err) {
-      console.error("JSON parse error:", err);
     }
+  } catch (err) {
+    console.error("Leaderboard JSON error:", err);
   }
 
+  
   if (!data) {
     return (
       <div className="py-16 text-center">
-        <h2 className="text-xl font-semibold mb-2">Leaderboard unavailable</h2>
-        <p className="text-muted-foreground">Please try again later.</p>
+        <h2 className="text-xl font-semibold mb-2">
+          Leaderboard unavailable
+        </h2>
+        <p className="text-muted-foreground">
+          Leaderboard data is temporarily unavailable. Please try again later.
+        </p>
       </div>
     );
   }
 
+  
   return (
     <LeaderboardView
       entries={data.entries}
