@@ -4,7 +4,11 @@ import { LeaderboardSkeleton } from "@/components/Leaderboard/LeaderboardSkeleto
 import { type LeaderboardEntry } from "@/components/Leaderboard/LeaderboardCard";
 import { notFound } from "next/navigation";
 
-// ---- Types ----
+// Static JSON imports (Netlify-safe)
+import weekData from "@/public/leaderboard/week.json";
+import monthData from "@/public/leaderboard/month.json";
+import yearData from "@/public/leaderboard/year.json";
+
 type LeaderboardJSON = {
   period: "week" | "month" | "year";
   updatedAt: number;
@@ -13,6 +17,12 @@ type LeaderboardJSON = {
   entries: LeaderboardEntry[];
   topByActivity: Record<string, any>;
   hiddenRoles: string[];
+};
+
+const DATA_MAP: Record<"week" | "month" | "year", LeaderboardJSON> = {
+  week: weekData,
+  month: monthData,
+  year: yearData,
 };
 
 const VALID_PERIODS = ["week", "month", "year"] as const;
@@ -25,7 +35,6 @@ export function generateStaticParams() {
   return VALID_PERIODS.map((period) => ({ period }));
 }
 
-// ---- Page ----
 export default async function Page({
   params,
   searchParams,
@@ -41,54 +50,9 @@ export default async function Page({
     notFound();
   }
 
-  return (
-    <Suspense
-      fallback={
-        <LeaderboardSkeleton
-          count={10}
-          variant={isGridView ? "grid" : "list"}
-        />
-      }
-    >
-      <LeaderboardData period={period} />
-    </Suspense>
-  );
-}
+  const data = DATA_MAP[period];
 
-// ---- Data Loader (NO fs, only fetch) ----
-async function LeaderboardData({
-  period,
-}: {
-  period: "week" | "month" | "year";
-}) {
-  try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_SITE_URL}/leaderboard/${period}.json`,
-      { cache: "no-store" }
-    );
-
-    if (!res.ok) throw new Error("JSON not found");
-
-    const data: LeaderboardJSON = await res.json();
-
-    // basic validation
-    if (!data?.entries || !data?.startDate || !data?.endDate) {
-      throw new Error("Invalid JSON shape");
-    }
-
-    return (
-      <LeaderboardView
-        entries={data.entries}
-        period={period}
-        startDate={new Date(data.startDate)}
-        endDate={new Date(data.endDate)}
-        topByActivity={data.topByActivity}
-        hiddenRoles={data.hiddenRoles}
-      />
-    );
-  } catch (err) {
-    console.error("Leaderboard load error:", err);
-
+  if (!data) {
     return (
       <div className="py-16 text-center">
         <h2 className="text-xl font-semibold mb-2">Leaderboard unavailable</h2>
@@ -98,4 +62,24 @@ async function LeaderboardData({
       </div>
     );
   }
+
+  return (
+    <Suspense
+      fallback={
+        <LeaderboardSkeleton
+          count={10}
+          variant={isGridView ? "grid" : "list"}
+        />
+      }
+    >
+      <LeaderboardView
+        entries={data.entries}
+        period={period}
+        startDate={new Date(data.startDate)}
+        endDate={new Date(data.endDate)}
+        topByActivity={data.topByActivity}
+        hiddenRoles={data.hiddenRoles}
+      />
+    </Suspense>
+  );
 }
