@@ -1,4 +1,3 @@
-
 import fs from "fs";
 import path from "path";
 import { Suspense } from "react";
@@ -13,15 +12,22 @@ type LeaderboardJSON = {
   startDate: string;
   endDate: string;
   entries: LeaderboardEntry[];
-  topByActivity: Record<string, any>;
+  topByActivity: Record<
+    string,
+    Array<{
+      username: string;
+      name: string | null;
+      avatar_url: string | null;
+      points: number;
+      count: number;
+    }>
+  >;
   hiddenRoles: string[];
 };
 
 const VALID_PERIODS = ["week", "month", "year"] as const;
 
-function isValidPeriod(
-  period: string
-): period is (typeof VALID_PERIODS)[number] {
+function isValidPeriod(period: string): period is (typeof VALID_PERIODS)[number] {
   return VALID_PERIODS.includes(period as (typeof VALID_PERIODS)[number]);
 }
 
@@ -72,19 +78,22 @@ async function LeaderboardData({
 
   try {
     if (!fs.existsSync(filePath)) {
-      return fallbackUI();
+      throw new Error("Missing leaderboard JSON");
     }
 
     const file = fs.readFileSync(filePath, "utf-8");
-    const data = JSON.parse(file) as LeaderboardJSON;
+    const data = JSON.parse(file) as Partial<LeaderboardJSON>;
 
+    // minimal schema validation
     if (
       !data ||
-      !Array.isArray(data.entries) ||
+      !data.entries ||
       !data.startDate ||
-      !data.endDate
+      !data.endDate ||
+      !data.topByActivity ||
+      !data.hiddenRoles
     ) {
-      return fallbackUI();
+      throw new Error("Invalid leaderboard JSON shape");
     }
 
     return (
@@ -98,20 +107,15 @@ async function LeaderboardData({
       />
     );
   } catch (err) {
-    console.error("Leaderboard JSON error:", err);
-    return fallbackUI();
-  }
-}
+    console.error("Leaderboard load error:", err);
 
-function fallbackUI() {
-  return (
-    <div className="py-16 text-center">
-      <h2 className="text-xl font-semibold mb-2">
-        Leaderboard unavailable
-      </h2>
-      <p className="text-muted-foreground">
-        Leaderboard data is temporarily unavailable. Please try again later.
-      </p>
-    </div>
-  );
+    return (
+      <div className="py-16 text-center">
+        <h2 className="text-xl font-semibold mb-2">Leaderboard unavailable</h2>
+        <p className="text-muted-foreground">
+          Leaderboard data is temporarily unavailable. Please try again later.
+        </p>
+      </div>
+    );
+  }
 }
