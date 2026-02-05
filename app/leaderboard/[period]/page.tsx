@@ -1,5 +1,3 @@
-import fs from "fs";
-import path from "path";
 import { Suspense } from "react";
 import LeaderboardView from "@/components/Leaderboard/LeaderboardView";
 import { LeaderboardSkeleton } from "@/components/Leaderboard/LeaderboardSkeleton";
@@ -12,14 +10,14 @@ type LeaderboardJSON = {
   startDate: string;
   endDate: string;
   entries: LeaderboardEntry[];
-  topByActivity: Record<string, unknown>;
+  topByActivity: Record<string, any>;
   hiddenRoles: string[];
 };
 
 const VALID_PERIODS = ["week", "month", "year"] as const;
 
-function isValidPeriod(period: string): period is (typeof VALID_PERIODS)[number] {
-  return VALID_PERIODS.includes(period as (typeof VALID_PERIODS)[number]);
+function isValidPeriod(period: string): period is typeof VALID_PERIODS[number] {
+  return VALID_PERIODS.includes(period as any);
 }
 
 export function generateStaticParams() {
@@ -60,18 +58,17 @@ async function LeaderboardData({
 }: {
   period: "week" | "month" | "year";
 }) {
-  const filePath = path.join(process.cwd(), "public", "leaderboard", `${period}.json`);
-
   try {
-    if (!fs.existsSync(filePath)) {
-      throw new Error("Missing leaderboard file");
-    }
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL ?? ""}/leaderboard/${period}.json`,
+      { cache: "no-store" }
+    );
 
-    const file = fs.readFileSync(filePath, "utf-8");
-    const data: Partial<LeaderboardJSON> = JSON.parse(file);
+    if (!res.ok) throw new Error("Leaderboard fetch failed");
 
-    // minimal validation
-    if (!data.entries || !data.startDate || !data.endDate) {
+    const data: LeaderboardJSON = await res.json();
+
+    if (!data?.entries || !data.startDate || !data.endDate) {
       throw new Error("Invalid leaderboard JSON shape");
     }
 
@@ -81,8 +78,8 @@ async function LeaderboardData({
         period={period}
         startDate={new Date(data.startDate)}
         endDate={new Date(data.endDate)}
-        topByActivity={data.topByActivity ?? {}}
-        hiddenRoles={data.hiddenRoles ?? []}
+        topByActivity={data.topByActivity}
+        hiddenRoles={data.hiddenRoles}
       />
     );
   } catch (err) {
