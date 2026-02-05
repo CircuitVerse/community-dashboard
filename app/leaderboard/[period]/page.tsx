@@ -1,3 +1,4 @@
+
 import fs from "fs";
 import path from "path";
 import { Suspense } from "react";
@@ -12,23 +13,16 @@ type LeaderboardJSON = {
   startDate: string;
   endDate: string;
   entries: LeaderboardEntry[];
-  topByActivity: Record<
-    string,
-    Array<{
-      username: string;
-      name: string | null;
-      avatar_url: string | null;
-      points: number;
-      count: number;
-    }>
-  >;
+  topByActivity: Record<string, any>;
   hiddenRoles: string[];
 };
 
 const VALID_PERIODS = ["week", "month", "year"] as const;
 
-function isValidPeriod(period: string): period is "week" | "month" | "year" {
-  return VALID_PERIODS.includes(period as any);
+function isValidPeriod(
+  period: string
+): period is (typeof VALID_PERIODS)[number] {
+  return VALID_PERIODS.includes(period as (typeof VALID_PERIODS)[number]);
 }
 
 export function generateStaticParams() {
@@ -51,18 +45,16 @@ export default async function Page({
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <Suspense
-        fallback={
-          <LeaderboardSkeleton
-            count={10}
-            variant={isGridView ? "grid" : "list"}
-          />
-        }
-      >
-        <LeaderboardData period={period} />
-      </Suspense>
-    </div>
+    <Suspense
+      fallback={
+        <LeaderboardSkeleton
+          count={10}
+          variant={isGridView ? "grid" : "list"}
+        />
+      }
+    >
+      <LeaderboardData period={period} />
+    </Suspense>
   );
 }
 
@@ -78,40 +70,48 @@ async function LeaderboardData({
     `${period}.json`
   );
 
-  let data: LeaderboardJSON | null = null;
-
   try {
-    if (fs.existsSync(filePath)) {
-      const file = fs.readFileSync(filePath, "utf-8");
-      data = JSON.parse(file) as LeaderboardJSON;
+    if (!fs.existsSync(filePath)) {
+      return fallbackUI();
     }
+
+    const file = fs.readFileSync(filePath, "utf-8");
+    const data = JSON.parse(file) as LeaderboardJSON;
+
+    if (
+      !data ||
+      !Array.isArray(data.entries) ||
+      !data.startDate ||
+      !data.endDate
+    ) {
+      return fallbackUI();
+    }
+
+    return (
+      <LeaderboardView
+        entries={data.entries}
+        period={period}
+        startDate={new Date(data.startDate)}
+        endDate={new Date(data.endDate)}
+        topByActivity={data.topByActivity}
+        hiddenRoles={data.hiddenRoles}
+      />
+    );
   } catch (err) {
     console.error("Leaderboard JSON error:", err);
+    return fallbackUI();
   }
+}
 
-  
-  if (!data) {
-    return (
-      <div className="py-16 text-center">
-        <h2 className="text-xl font-semibold mb-2">
-          Leaderboard unavailable
-        </h2>
-        <p className="text-muted-foreground">
-          Leaderboard data is temporarily unavailable. Please try again later.
-        </p>
-      </div>
-    );
-  }
-
-  
+function fallbackUI() {
   return (
-    <LeaderboardView
-      entries={data.entries}
-      period={period}
-      startDate={new Date(data.startDate)}
-      endDate={new Date(data.endDate)}
-      topByActivity={data.topByActivity}
-      hiddenRoles={data.hiddenRoles}
-    />
+    <div className="py-16 text-center">
+      <h2 className="text-xl font-semibold mb-2">
+        Leaderboard unavailable
+      </h2>
+      <p className="text-muted-foreground">
+        Leaderboard data is temporarily unavailable. Please try again later.
+      </p>
+    </div>
   );
 }
