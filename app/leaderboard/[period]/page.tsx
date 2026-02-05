@@ -16,7 +16,7 @@ type LeaderboardJSON = {
 
 const VALID_PERIODS = ["week", "month", "year"] as const;
 
-function isValidPeriod(period: string): period is typeof VALID_PERIODS[number] {
+function isValidPeriod(period: string): period is "week" | "month" | "year" {
   return VALID_PERIODS.includes(period as any);
 }
 
@@ -26,28 +26,17 @@ export function generateStaticParams() {
 
 export default async function Page({
   params,
-  searchParams,
 }: {
   params: Promise<{ period: string }>;
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
   const { period } = await params;
-  const query = await searchParams;
-  const isGridView = query.v === "grid";
 
   if (!isValidPeriod(period)) {
     notFound();
   }
 
   return (
-    <Suspense
-      fallback={
-        <LeaderboardSkeleton
-          count={10}
-          variant={isGridView ? "grid" : "list"}
-        />
-      }
-    >
+    <Suspense fallback={<LeaderboardSkeleton count={10} variant="list" />}>
       <LeaderboardData period={period} />
     </Suspense>
   );
@@ -59,18 +48,13 @@ async function LeaderboardData({
   period: "week" | "month" | "year";
 }) {
   try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL ?? ""}/leaderboard/${period}.json`,
-      { cache: "no-store" }
-    );
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/leaderboard/${period}.json`, {
+      cache: "no-store",
+    });
 
-    if (!res.ok) throw new Error("Leaderboard fetch failed");
+    if (!res.ok) throw new Error("Missing JSON");
 
     const data: LeaderboardJSON = await res.json();
-
-    if (!data?.entries || !data.startDate || !data.endDate) {
-      throw new Error("Invalid leaderboard JSON shape");
-    }
 
     return (
       <LeaderboardView
@@ -82,9 +66,7 @@ async function LeaderboardData({
         hiddenRoles={data.hiddenRoles}
       />
     );
-  } catch (err) {
-    console.error("Leaderboard load error:", err);
-
+  } catch {
     return (
       <div className="py-16 text-center">
         <h2 className="text-xl font-semibold mb-2">Leaderboard unavailable</h2>
