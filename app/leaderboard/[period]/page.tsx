@@ -6,14 +6,6 @@ import { LeaderboardSkeleton } from "@/components/Leaderboard/LeaderboardSkeleto
 import { type LeaderboardEntry } from "@/components/Leaderboard/LeaderboardCard";
 import { notFound } from "next/navigation";
 
-export function generateStaticParams() {
-  return [
-    { period: "week" },
-    { period: "month" },
-    { period: "year" },
-  ];
-}
-
 type LeaderboardJSON = {
   period: "week" | "month" | "year";
   updatedAt: number;
@@ -34,50 +26,89 @@ type LeaderboardJSON = {
 };
 
 const VALID_PERIODS = ["week", "month", "year"] as const;
+
 function isValidPeriod(period: string): period is "week" | "month" | "year" {
-  return VALID_PERIODS.includes(period as "week" | "month" | "year");
+  return VALID_PERIODS.includes(period as any);
+}
+
+export function generateStaticParams() {
+  return VALID_PERIODS.map((period) => ({ period }));
 }
 
 export default async function Page({
   params,
   searchParams,
 }: {
-  params: Promise<{ period: "week" | "month" | "year" }>;
+  params: Promise<{ period: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
   const { period } = await params;
   const query = await searchParams;
   const isGridView = query.v === "grid";
-  
-  // navigate to not found page, if time periods are other than week/month/year
+
   if (!isValidPeriod(period)) {
     notFound();
   }
 
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <Suspense
+        fallback={
+          <LeaderboardSkeleton
+            count={10}
+            variant={isGridView ? "grid" : "list"}
+          />
+        }
+      >
+        <LeaderboardData period={period} isGridView={isGridView} />
+      </Suspense>
+    </div>
+  );
+}
+
+// --- Data Fetching Component ---
+async function LeaderboardData({
+  period,
+  isGridView,
+}: {
+  period: "week" | "month" | "year";
+  isGridView: boolean;
+}) {
   const filePath = path.join(
     process.cwd(),
     "public",
     "leaderboard",
-    `${period}.json`
+    `${period}.json`,
   );
 
-  if (!fs.existsSync(filePath)) {
-    throw new Error(`Leaderboard data not found for ${period}`);
+  let data: LeaderboardJSON | null = null;
+
+  if (fs.existsSync(filePath)) {
+    try {
+      const file = fs.readFileSync(filePath, "utf-8");
+      data = JSON.parse(file) as LeaderboardJSON;
+    } catch (err) {
+      console.error("JSON parse error:", err);
+    }
   }
 
-  const file = fs.readFileSync(filePath, "utf-8");
-  const data: LeaderboardJSON = JSON.parse(file);
+  if (!data) {
+    return (
+      <div className="py-16 text-center">
+        <h2 className="text-xl font-semibold mb-2">Leaderboard unavailable</h2>
+        <p className="text-muted-foreground">Please try again later.</p>
+      </div>
+    );
+  }
 
   return (
-    <Suspense fallback={<LeaderboardSkeleton count={10} variant={isGridView ? "grid" : "list"} />}>
-      <LeaderboardView
-        entries={data.entries}
-        period={period}
-        startDate={new Date(data.startDate)}
-        endDate={new Date(data.endDate)}
-        topByActivity={data.topByActivity}
-        hiddenRoles={data.hiddenRoles}
-      />
-    </Suspense>
+    <LeaderboardView
+      entries={data.entries}
+      period={period}
+      startDate={new Date(data.startDate)}
+      endDate={new Date(data.endDate)}
+      topByActivity={data.topByActivity}
+      hiddenRoles={data.hiddenRoles}
+    />
   );
 }
