@@ -12,16 +12,7 @@ type LeaderboardJSON = {
   startDate: string;
   endDate: string;
   entries: LeaderboardEntry[];
-  topByActivity: Record<
-    string,
-    Array<{
-      username: string;
-      name: string | null;
-      avatar_url: string | null;
-      points: number;
-      count: number;
-    }>
-  >;
+  topByActivity: Record<string, unknown>;
   hiddenRoles: string[];
 };
 
@@ -69,30 +60,18 @@ async function LeaderboardData({
 }: {
   period: "week" | "month" | "year";
 }) {
-  const filePath = path.join(
-    process.cwd(),
-    "public",
-    "leaderboard",
-    `${period}.json`
-  );
+  const filePath = path.join(process.cwd(), "public", "leaderboard", `${period}.json`);
 
   try {
     if (!fs.existsSync(filePath)) {
-      throw new Error("Missing leaderboard JSON");
+      throw new Error("Missing leaderboard file");
     }
 
     const file = fs.readFileSync(filePath, "utf-8");
-    const data = JSON.parse(file) as Partial<LeaderboardJSON>;
+    const data: Partial<LeaderboardJSON> = JSON.parse(file);
 
-    // minimal schema validation
-    if (
-      !data ||
-      !data.entries ||
-      !data.startDate ||
-      !data.endDate ||
-      !data.topByActivity ||
-      !data.hiddenRoles
-    ) {
+    // minimal validation
+    if (!data.entries || !data.startDate || !data.endDate) {
       throw new Error("Invalid leaderboard JSON shape");
     }
 
@@ -102,8 +81,8 @@ async function LeaderboardData({
         period={period}
         startDate={new Date(data.startDate)}
         endDate={new Date(data.endDate)}
-        topByActivity={data.topByActivity}
-        hiddenRoles={data.hiddenRoles}
+        topByActivity={data.topByActivity ?? {}}
+        hiddenRoles={data.hiddenRoles ?? []}
       />
     );
   } catch (err) {
