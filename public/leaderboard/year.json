@@ -1,9 +1,9 @@
 {
   "period": "year",
-  "updatedAt": 1770253947284,
-  "lastFetchedAt": 1770253947284,
-  "startDate": "2025-02-05",
-  "endDate": "2026-02-05",
+  "updatedAt": 1770340330444,
+  "lastFetchedAt": 1770340330444,
+  "startDate": "2025-02-06",
+  "endDate": "2026-02-06",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -12,23 +12,23 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 431,
+      "total_points": 436,
       "activity_breakdown": {
+        "Issue opened": {
+          "count": 39,
+          "points": 39
+        },
+        "Issue labeled": {
+          "count": 17,
+          "points": 34
+        },
         "PR opened": {
           "count": 38,
           "points": 76
         },
-        "Issue opened": {
-          "count": 38,
-          "points": 38
-        },
         "Review submitted": {
           "count": 48,
           "points": 192
-        },
-        "Issue labeled": {
-          "count": 15,
-          "points": 30
         },
         "Issue closed": {
           "count": 30,
@@ -40,6 +40,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-02-05",
+          "count": 3,
+          "points": 5
+        },
         {
           "date": "2026-02-01",
           "count": 5,
@@ -307,6 +312,27 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-05T17:39:35Z",
+          "title": "🐞 Bug - Unable to Drag and Drop Circuit Elements in cv-frontend-vue v1",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/922",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-05T17:39:36Z",
+          "title": "Labeled issue #922 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/922",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-05T17:39:37Z",
+          "title": "Labeled issue #922 - pending triage",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/922",
+          "points": 2
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-02-01T19:45:38Z",
@@ -10777,11 +10803,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
       "role": "Contributor",
-      "total_points": 143,
+      "total_points": 145,
       "activity_breakdown": {
         "PR opened": {
-          "count": 27,
-          "points": 54
+          "count": 28,
+          "points": 56
         },
         "PR merged": {
           "count": 11,
@@ -10797,6 +10823,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-02-05",
+          "count": 1,
+          "points": 2
+        },
         {
           "date": "2026-02-02",
           "count": 1,
@@ -10944,6 +10975,13 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-05T19:44:06Z",
+          "title": "Feat - Migrate the Logix admin dashboard to Avo",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6838",
+          "points": 2
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-02-02T15:26:24Z",
@@ -24629,6 +24667,78 @@
       ]
     },
     {
+      "username": "laky241",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/181271472?v=4",
+      "role": "Contributor",
+      "total_points": 10,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 5,
+          "points": 10
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-02-05",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-02-02",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-02-01",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-01-31",
+          "count": 2,
+          "points": 4
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-05T18:43:57Z",
+          "title": "replace bitwise OR with logical OR in checkToSave",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6837",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-02T18:19:48Z",
+          "title": "Fix parseint radix",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6821",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-01T18:32:58Z",
+          "title": "fix - replace invalid jQuery ajax 'failure' callback with 'error'",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6807",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-31T17:57:49Z",
+          "title": "fix - remove debug console.log from promptSave function",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6793",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-31T17:38:07Z",
+          "title": "fix - correct typo in subcircuit comments",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6792",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "Nid-debug",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/182516930?v=4",
@@ -25508,66 +25618,6 @@
           "title": "fix - differentiate team section headings by color hierarchy",
           "link": "https://github.com/CircuitVerse/community-dashboard/pull/76",
           "points": 5
-        }
-      ]
-    },
-    {
-      "username": "laky241",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/181271472?v=4",
-      "role": "Contributor",
-      "total_points": 8,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 4,
-          "points": 8
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-02-02",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-02-01",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-01-31",
-          "count": 2,
-          "points": 4
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-02T18:19:48Z",
-          "title": "Fix parseint radix",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6821",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-01T18:32:58Z",
-          "title": "fix - replace invalid jQuery ajax 'failure' callback with 'error'",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6807",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-31T17:57:49Z",
-          "title": "fix - remove debug console.log from promptSave function",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6793",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-31T17:38:07Z",
-          "title": "fix - correct typo in subcircuit comments",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6792",
-          "points": 2
         }
       ]
     },
@@ -27715,6 +27765,42 @@
       ]
     },
     {
+      "username": "Dark-Light-DL",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/245752959?v=4",
+      "role": "Contributor",
+      "total_points": 4,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-02-05",
+          "count": 2,
+          "points": 4
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-05T11:44:47Z",
+          "title": "fix(admin) - add Notification model for RailsAdmin panels (#6747)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6836",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-05T07:58:03Z",
+          "title": "fix - correct GitHub Actions conditional syntax in percy.yml",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6835",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "Mahaboobunnisa123",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/179287447?v=4",
@@ -28750,6 +28836,46 @@
           "title": "Review on PR #5367",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/5367",
           "points": 4
+        }
+      ]
+    },
+    {
+      "username": "Aaditya0411",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/184494169?v=4",
+      "role": "Contributor",
+      "total_points": 3,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-02-05",
+          "count": 2,
+          "points": 3
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-05T19:02:00Z",
+          "title": "fix - handle missing leaderboard JSON gracefully instead of crashing",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/253",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-05T18:22:36Z",
+          "title": "Bug - Handle missing leaderboard JSON gracefully instead of crashing",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/252",
+          "points": 1
         }
       ]
     },
