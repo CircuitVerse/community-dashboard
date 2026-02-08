@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
+import { useSearchParams, usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Loader2, Activity, Users } from "lucide-react";
+import { Loader2, Activity, Users, ChevronLeft, ChevronRight } from "lucide-react";
 import { PeopleStats } from "@/components/people/PeopleStats";
 import { PeopleGrid } from "@/components/people/PeopleGrid";
 import { ContributorDetail } from "@/components/people/ContributorDetail";
@@ -12,6 +13,14 @@ import { type TeamMember } from "@/lib/team-data";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 import { useScrollRestoration } from "@/lib/hooks/useScrollRestoration";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { cn } from "@/lib/utils";
 
 
 
@@ -62,6 +71,66 @@ export default function PeoplePage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const contributorsSectionRef = useRef<HTMLDivElement | null>(null);
+  // Stable primitive for effect deps so dependency array size never changes
+  const searchParamsString = typeof searchParams?.toString === "function" ? searchParams.toString() : "";
+
+  // Pagination state - synced with URL for shareable links and back/forward
+  const PAGE_SIZE_OPTIONS = [24, 48, 96, 192] as const;
+  const [pageSize, setPageSizeState] = useState<number>(() => {
+    if (typeof searchParams?.get !== "function") return 24;
+    const limit = searchParams.get("limit");
+    if (limit) {
+      if (limit === "all") return Infinity;
+      const parsed = parseInt(limit, 10);
+      if (PAGE_SIZE_OPTIONS.includes(parsed as (typeof PAGE_SIZE_OPTIONS)[number])) return parsed;
+    }
+    return 24;
+  });
+  const [currentPage, setCurrentPageState] = useState<number>(() => {
+    if (typeof searchParams?.get !== "function") return 1;
+    const page = searchParams.get("page");
+    if (page) {
+      const parsed = parseInt(page, 10);
+      return parsed > 0 ? parsed : 1;
+    }
+    return 1;
+  });
+
+  useEffect(() => {
+    const params = searchParams;
+    if (typeof params?.get !== "function") return;
+    const limit = params.get("limit");
+    if (limit) {
+      if (limit === "all") {
+        setPageSizeState(Infinity);
+        return;
+      }
+      const parsed = parseInt(limit, 10);
+      if (PAGE_SIZE_OPTIONS.includes(parsed as (typeof PAGE_SIZE_OPTIONS)[number])) {
+        setPageSizeState(parsed);
+      } else {
+        setPageSizeState(24);
+      }
+    } else {
+      setPageSizeState(24);
+    }
+  }, [searchParamsString]);
+
+  useEffect(() => {
+    const params = searchParams;
+    if (typeof params?.get !== "function") return;
+    const page = params.get("page");
+    if (page) {
+      const parsed = parseInt(page, 10);
+      setCurrentPageState(parsed > 0 ? parsed : 1);
+    } else {
+      setCurrentPageState(1);
+    }
+  }, [searchParamsString]);
+
   useEffect(() => {
     if (!loading && window.location.hash === "#contributors") {
       const el = document.getElementById("contributors");
@@ -114,6 +183,70 @@ const filteredPeople = useMemo(() => {
   });
 }, [people, searchQuery]);
 
+  const totalPages = useMemo(() => {
+    if (pageSize === Infinity) return 1;
+    return Math.ceil(filteredPeople.length / pageSize);
+  }, [filteredPeople.length, pageSize]);
+
+  const paginatedPeople = useMemo(() => {
+    if (pageSize === Infinity) return filteredPeople;
+    const start = (currentPage - 1) * pageSize;
+    return filteredPeople.slice(start, start + pageSize);
+  }, [filteredPeople, pageSize, currentPage]);
+
+  // Reset to page 1 when current page is out of range (e.g. after search/filter)
+  useEffect(() => {
+    if (currentPage > totalPages && totalPages > 0) {
+      const params = new URLSearchParams(searchParamsString);
+      params.delete("page");
+      setCurrentPageState(1);
+      if (typeof window !== "undefined") {
+        window.history.replaceState(null, "", `${pathname}?${params.toString()}`);
+      }
+    }
+  }, [totalPages, currentPage, searchParamsString, pathname ?? ""]);
+
+  const scrollToContributorsTop = () => {
+    if (typeof window === "undefined") return;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    requestAnimationFrame(() => {
+      if (!contributorsSectionRef.current) return;
+      const rect = contributorsSectionRef.current.getBoundingClientRect();
+      const absoluteTop = rect.top + window.scrollY;
+      const offset = 80;
+      window.scrollTo({
+        top: Math.max(absoluteTop - offset, 0),
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+      });
+    });
+  };
+
+  const updatePage = (page: number) => {
+    const params = new URLSearchParams(searchParams?.toString() ?? "");
+    if (page === 1) params.delete("page");
+    else params.set("page", page.toString());
+    setCurrentPageState(page);
+    scrollToContributorsTop();
+    if (typeof window !== "undefined") {
+      window.history.replaceState(null, "", `${pathname}?${params.toString()}`);
+    }
+  };
+
+  const updatePageSize = (newPageSize: number | "all") => {
+    const params = new URLSearchParams(searchParams?.toString() ?? "");
+    if (newPageSize === "all" || newPageSize === Infinity) {
+      params.set("limit", "all");
+      setPageSizeState(Infinity);
+    } else {
+      params.set("limit", newPageSize.toString());
+      setPageSizeState(newPageSize);
+    }
+    params.delete("page");
+    setCurrentPageState(1);
+    if (typeof window !== "undefined") {
+      window.history.replaceState(null, "", `${pathname}?${params.toString()}`);
+    }
+  };
 
   const handleContributorClick = (contributor: ContributorEntry) => {
     saveScrollPosition();
@@ -274,7 +407,7 @@ const filteredPeople = useMemo(() => {
             members={alumni}
             teamType="alumni"
           />
-<section id="contributors" className="mb-8 scroll-mt-28">
+<section id="contributors" ref={contributorsSectionRef} className="mb-8 scroll-mt-28">
   <div className="mb-8">
     <div className="mb-4">
       <h2 className="text-3xl font-bold">
@@ -296,7 +429,7 @@ const filteredPeople = useMemo(() => {
       onContributorClick={handleContributorClick}
     />
 
-    <div className="flex items-center justify-between gap-4 py-8">
+    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-8">
       <div className="flex items-center gap-2">
         <Users className="w-5 h-5 text-muted-foreground" />
         <span className="text-2xl font-bold text-foreground">
@@ -308,24 +441,128 @@ const filteredPeople = useMemo(() => {
         </span>
       </div>
 
-      <div className="relative w-full sm:w-72">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-        <Input
-          type="text"
-          placeholder="Search contributors..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="pl-9 h-10"
-        />
+      <div className="flex flex-wrap items-center gap-4">
+        <div className="relative w-full sm:w-72">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+          <Input
+            type="text"
+            placeholder="Search contributors..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="pl-9 h-10"
+          />
+        </div>
+        {filteredPeople.length > 0 && (
+          <div className="flex items-center gap-2">
+            <label htmlFor="people-page-size" className="text-sm text-muted-foreground whitespace-nowrap">
+              Show
+            </label>
+            <Select
+              value={pageSize === Infinity ? "all" : pageSize.toString()}
+              onValueChange={(value) => {
+                if (value === "all") updatePageSize("all");
+                else updatePageSize(parseInt(value, 10));
+              }}
+            >
+              <SelectTrigger
+                id="people-page-size"
+                size="sm"
+                className="h-9 w-24 border border-[#42B883]/30 hover:bg-[#42B883]/20 focus-visible:ring-2 focus-visible:ring-[#42B883]"
+                aria-label="Contributors per page"
+              >
+                <SelectValue placeholder="All" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="24">24</SelectItem>
+                <SelectItem value="48">48</SelectItem>
+                <SelectItem value="96">96</SelectItem>
+                <SelectItem value="192">192</SelectItem>
+                <SelectItem value="all">All</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+        )}
       </div>
     </div>
 
     <PeopleGrid
-      contributors={filteredPeople}
+      contributors={paginatedPeople}
       onContributorClick={handleContributorClick}
       viewMode="grid"
       loading={false}
     />
+
+    {filteredPeople.length > 0 && pageSize !== Infinity && totalPages > 1 && (
+      <div className="flex items-center justify-center gap-2 mt-8">
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => updatePage(Math.max(1, currentPage - 1))}
+          disabled={currentPage === 1}
+          className="h-9 border border-[#42B883]/30 hover:bg-[#42B883]/20 disabled:opacity-50 disabled:cursor-not-allowed"
+          aria-label="Previous page"
+        >
+          <ChevronLeft className="h-4 w-4" />
+          <span className="sr-only">Previous</span>
+        </Button>
+        <div className="flex items-center gap-1">
+          {(() => {
+            const pages: number[] = [];
+            if (totalPages <= 7) {
+              for (let i = 1; i <= totalPages; i++) pages.push(i);
+            } else {
+              pages.push(1);
+              if (currentPage <= 4) {
+                for (let i = 2; i <= 5; i++) pages.push(i);
+                pages.push(-1);
+                pages.push(totalPages);
+              } else if (currentPage >= totalPages - 3) {
+                pages.push(-1);
+                for (let i = totalPages - 4; i <= totalPages; i++) pages.push(i);
+              } else {
+                pages.push(-1);
+                pages.push(currentPage - 1, currentPage, currentPage + 1);
+                pages.push(-1);
+                pages.push(totalPages);
+              }
+            }
+            return pages.map((pageNum, idx) =>
+              pageNum === -1 ? (
+                <span key={`ellipsis-${idx}`} className="px-2 text-muted-foreground">…</span>
+              ) : (
+                <Button
+                  key={pageNum}
+                  variant={currentPage === pageNum ? "default" : "ghost"}
+                  size="sm"
+                  onClick={() => updatePage(pageNum)}
+                  className={cn(
+                    "h-9 w-9 p-0",
+                    currentPage === pageNum
+                      ? "bg-[#42B883] text-white hover:bg-[#42B883]/90"
+                      : "hover:bg-[#42B883]/20 hover:text-[#42B883]"
+                  )}
+                  aria-label={`Page ${pageNum}`}
+                  aria-current={currentPage === pageNum ? "page" : undefined}
+                >
+                  {pageNum}
+                </Button>
+              )
+            );
+          })()}
+        </div>
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => updatePage(Math.min(totalPages, currentPage + 1))}
+          disabled={currentPage === totalPages}
+          className="h-9 border border-[#42B883]/30 hover:bg-[#42B883]/20 disabled:opacity-50 disabled:cursor-not-allowed"
+          aria-label="Next page"
+        >
+          <ChevronRight className="h-4 w-4" />
+          <span className="sr-only">Next</span>
+        </Button>
+      </div>
+    )}
   </div>
 </section>
 
