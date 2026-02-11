@@ -14,11 +14,25 @@ const HEADERS = {
 // ---------- GitHub API helpers ----------
 
 async function fetchReleases(repo: string) {
-  const res = await fetch(
-    `https://api.github.com/repos/${repo}/releases`,
-    { headers: HEADERS }
-  );
-  return res.json();
+  const allReleases: any[] = [];
+  let page = 1;
+
+  while (true) {
+    const res = await fetch(
+      `https://api.github.com/repos/${repo}/releases?per_page=100&page=${page}`,
+      { headers: HEADERS }
+    );
+
+    if (!res.ok) break;
+
+    const data = await res.json();
+    if (!Array.isArray(data) || data.length === 0) break;
+
+    allReleases.push(...data);
+    page++;
+  }
+
+  return allReleases;
 }
 
 async function fetchCommitsBetween(
@@ -83,7 +97,18 @@ async function run() {
 
     for (let i = 0; i < releases.length; i++) {
       const current = releases[i];
-      const previous = releases[i + 1];
+
+      // Skip draft releases (important for Vue Simulator)
+      if (current.draft) continue;
+
+      // Find previous non-draft release
+      let previous = null;
+      for (let j = i + 1; j < releases.length; j++) {
+        if (!releases[j].draft) {
+          previous = releases[j];
+          break;
+        }
+      }
 
       let contributors: any[] = [];
 
@@ -94,7 +119,7 @@ async function run() {
           current.tag_name
         );
 
-        contributors = extractContributors(compare.commits || []);
+        contributors = extractContributors(compare?.commits || []);
       }
 
       allReleases.push({
@@ -107,7 +132,7 @@ async function run() {
         githubUrl: current.html_url,
       });
     }
-  }
+  } // ✅ CLOSES repo loop
 
   const outputPath = path.join(
     process.cwd(),
