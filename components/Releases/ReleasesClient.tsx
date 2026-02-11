@@ -29,11 +29,11 @@ export default function ReleasesClient({
     aria-selected={activeRepo === "Mobile App"}
     aria-controls="mobile-panel"
     onClick={() => setActiveRepo("Mobile App")}
-    className={
-      activeRepo === "Mobile App"
-        ? "font-semibold text-[#50B78B]"
-        : "text-zinc-500"
-    }
+    className={`px-4 py-1.5 rounded-md transition-all duration-200 font-semibold cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#50B78B]/40
+      ${activeRepo === "Mobile App"
+        ? "text-[#50B78B] bg-[#50B78B]/10 shadow-sm"
+        : "text-zinc-500 hover:bg-[#50B78B]/10 hover:text-[#50B78B] active:bg-[#50B78B]/20"}
+    `}
   >
     Mobile App
   </button>
@@ -43,11 +43,11 @@ export default function ReleasesClient({
     aria-selected={activeRepo === "Vue Simulator"}
     aria-controls="vue-panel"
     onClick={() => setActiveRepo("Vue Simulator")}
-    className={
-      activeRepo === "Vue Simulator"
-        ? "font-semibold text-[#50B78B]"
-        : "text-zinc-500"
-    }
+    className={`px-4 py-1.5 rounded-md transition-all duration-200 font-semibold cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#50B78B]/40
+      ${activeRepo === "Vue Simulator"
+        ? "text-[#50B78B] bg-[#50B78B]/10 shadow-sm"
+        : "text-zinc-500 hover:bg-[#50B78B]/10 hover:text-[#50B78B] active:bg-[#50B78B]/20"}
+    `}
   >
     Vue Simulator
   </button>
@@ -70,3 +70,7 @@ export default function ReleasesClient({
     </div>
   );
 }
+function setActiveRepo(arg0: string): void {
+  throw new Error("Function not implemented.");
+}
+

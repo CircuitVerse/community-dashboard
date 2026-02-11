@@ -62,11 +62,15 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="min-h-screen flex flex-col bg-zinc-50 dark:bg-black transition-colors">
+          <div className="min-h-screen flex flex-col transition-colors relative overflow-hidden">
+             {/* Background layer for glass blur */}
+            <div className="absolute inset-0 -z-10 bg-gradient-to-b from-zinc-50 via-white to-zinc-100 dark:from-zinc-950 dark:via-zinc-950 dark:to-black" />
+
             <Navbar config={config} />
-            <main className="flex-1">{children}</main>
+            <main className="flex-1 pt-24">{children}</main>
             <Footer config={config} />
           </div>
+
           <ScrollToTop />
         </ThemeProvider>
       </body>

@@ -109,7 +109,7 @@ export function ActivityTypes({ entries, totalActivities }: ActivityTypesProps) 
   }
 
   return (
-    <Card className="flex flex-col h-full rounded-[20px] border border-zinc-200 bg-white shadow-xl shadow-[#edfff7] dark:border-white/10 dark:bg-zinc-950 dark:bg-linear-to-b dark:from-zinc-900 dark:via-zinc-900 dark:to-black dark:shadow-black/50">
+    <Card className="flex flex-col h-full rounded-[20px] border border-zinc-200 bg-white shadow-xl shadow-[#edfff7] dark:border-white/10 dark:bg-zinc-900/40 dark:shadow-black/50">
       <CardHeader className="flex flex-row items-center justify-between pb-2 px-6">
         <CardTitle className="text-xs font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
           Distribution

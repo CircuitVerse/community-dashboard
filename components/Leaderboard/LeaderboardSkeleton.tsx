@@ -12,7 +12,9 @@ function SkeletonPulse({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "animate-pulse rounded-md bg-muted/60",
+        // Use a more visible skeleton color in both themes
+        "animate-pulse rounded-md",
+        "bg-zinc-200 dark:bg-zinc-700",
         className
       )}
     />
@@ -134,6 +136,20 @@ function LeaderboardCardSkeleton({ variant = "list" }: { variant?: "grid" | "lis
   );
 }
 
+export function LeaderboardCardsSkeleton({ count = 10, variant = "list" }: LeaderboardSkeletonProps) {
+  return (
+    <div className={cn(
+      variant === "grid"
+        ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6"
+        : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 lg:gap-0 lg:space-y-4 lg:block"
+    )}>
+      {Array.from({ length: count }).map((_, i) => (
+        <LeaderboardCardSkeleton key={i} variant={variant} />
+      ))}
+    </div>
+  );
+};
+
 export function LeaderboardSkeleton({ count = 10, variant = "list" }: LeaderboardSkeletonProps) {
   return (
     <div className="container mx-auto px-4 py-8">
@@ -171,15 +187,7 @@ export function LeaderboardSkeleton({ count = 10, variant = "list" }: Leaderboar
           </div>
 
           {/* Cards */}
-          <div className={cn(
-            variant === "grid"
-              ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6"
-              : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 lg:gap-0 lg:space-y-4 lg:block"
-          )}>
-            {Array.from({ length: count }).map((_, i) => (
-              <LeaderboardCardSkeleton key={i} variant={variant} />
-            ))}
-          </div>
+          <LeaderboardCardsSkeleton count={count} variant={variant} />
         </div>
       </div>
     </div>

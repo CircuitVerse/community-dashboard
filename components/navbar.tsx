@@ -5,7 +5,7 @@ import { Config } from "@/types/config";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Trophy, Users, Tag } from "lucide-react";
+import { Home, Trophy, Users, Tag, BarChart3 } from "lucide-react";
 import { useScrollDirection } from "@/lib/hooks/useScrollDirection";
 import { Button } from "./ui/button";
 
@@ -18,8 +18,8 @@ const navItems = [
   { name: "Leaderboard", href: "/leaderboard", icon: Trophy },
   { name: "People", href: "/people", icon: Users },
   { name: "Releases", href: "/releases", icon: Tag },
+  { name: "Analytics", href: "/analytics", icon: BarChart3 },
 ];
-
 
 const Navbar = ({ config }: NavbarProps) => {
   const pathname = usePathname();
@@ -30,16 +30,16 @@ const Navbar = ({ config }: NavbarProps) => {
     return pathname.startsWith(href);
   };
 
+  const actionBtnClass =
+    "rounded-xl border border-zinc-200/60 dark:border-white/10 bg-background/40 backdrop-blur-md shadow-sm hover:bg-background/60 transition";
+
   return (
     <>
       {/* Desktop Navbar */}
-      <header className="sticky top-0 z-40 border-b border-zinc-200/60 dark:border-white/10 bg-background/80 backdrop-blur-md">
-        <div className="relative mx-auto px-4 h-16 flex items-center justify-between">
+      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-5xl rounded-full border border-zinc-200/60 dark:border-white/10 bg-white/40 dark:bg-zinc-950/40 backdrop-blur-md shadow-md">
+        <div className="px-4 h-14 flex items-center justify-between">          
           {/* Logo */}
-          <Link
-            href="/"
-            className="flex items-center gap-3"
-          >
+          <Link href="/" className="flex items-center gap-3">
             <Image
               src={config.org.logo_url}
               alt={config.org.name}
@@ -47,13 +47,11 @@ const Navbar = ({ config }: NavbarProps) => {
               height={32}
               className="rounded-md"
             />
-            <span className="font-semibold text-lg">
-              {config.org.name}
-            </span>
+            <span className="font-semibold text-lg">{config.org.name}</span>
           </Link>
 
           {/* Nav Links */}
-          <nav className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-1 rounded-full border bg-background/90 backdrop-blur shadow-sm">
+          <nav className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-1 rounded-full border bg-white/30 dark:bg-zinc-950/30 backdrop-blur-md shadow-sm">
             {navItems.map((item) => {
               const active = isActive(item.href);
 
@@ -75,32 +73,42 @@ const Navbar = ({ config }: NavbarProps) => {
               );
             })}
           </nav>
-          <div className="flex items-center gap-4">
-            <Link
-              href="https://github.com/CircuitVerse/community-dashboard"
-              target="_blank"
+
+          <div className="flex items-center gap-3">
+            <Button
+              asChild
+              size="icon"
+              variant="ghost"
+              className={`${actionBtnClass} h-10 w-10 p-0`}
             >
-              <Button variant={"outline"} size={"icon"}>
+              <a
+                href="https://github.com/CircuitVerse/community-dashboard"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Image
                   src="/github.svg"
                   alt="GitHub"
                   width={17}
                   height={17}
-                  className="dark:invert cursor-pointer hover:opacity-80 transition-opacity"
+                  className="dark:invert"
                 />
-              </Button>
-            </Link>
-            <ThemeSelector />
+              </a>
+            </Button>
+
+            <div
+              className={`${actionBtnClass} h-10 w-10 flex items-center justify-center`}
+            >
+              <ThemeSelector />
+            </div>
           </div>
         </div>
       </header>
 
       {/* Mobile Navbar */}
       <nav
-        className={`md:hidden fixed bottom-4 left-1/2 transition-transform duration-400 ease-in-out -translate-x-1/2 z-50 ${
-          scrollDirection === "down"
-            ? "translate-y-50"
-            : "translate-y-0"
+        className={`lg:hidden fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ease-in-out ${
+        scrollDirection === "down" ? "-bottom-40 opacity-0 pointer-events-none" : "bottom-4 opacity-100"
         }`}
       >
         <div className="flex items-center gap-1 rounded-full border border-zinc-200 dark:border-white/10 bg-background/90 backdrop-blur-xl shadow-xl p-1">

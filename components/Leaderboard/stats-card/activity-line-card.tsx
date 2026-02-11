@@ -181,7 +181,7 @@ export function ActivityLineCard({
   }
 
   return (
-    <Card className="rounded-[20px] border-zinc-200 dark:border-white/10 bg-white dark:bg-linear-to-b dark:from-zinc-900 dark:via-zinc-900 dark:to-black shadow-xl shadow-[#edfff7] dark:shadow-black/50 overflow-hidden">
+    <Card className="rounded-[20px] border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-900/40 shadow-xl shadow-[#edfff7] dark:shadow-black/50 overflow-hidden">
       <CardHeader className="pb-0">
         <div className="flex items-start justify-between">
           <div>
