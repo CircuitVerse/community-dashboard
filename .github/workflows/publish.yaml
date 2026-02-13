@@ -30,7 +30,7 @@ jobs:
       - run: npm ci
 
       - name: Build Package
-        run: npm run build:packages
+        run: npm run build
 
       - name: Create Release Pull Request or Publish to GitHub Packages
         id: changesets
