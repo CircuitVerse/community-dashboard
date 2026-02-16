@@ -61,12 +61,63 @@ export default async function Page({
     `${period}.json`
   );
 
+  // graceful fallback for missing data files
   if (!fs.existsSync(filePath)) {
-    throw new Error(`Leaderboard data not found for ${period}`);
+    const fallbackData: LeaderboardJSON = {
+      period,
+      updatedAt: Date.now(),
+      startDate: new Date().toISOString(),
+      endDate: new Date().toISOString(),
+      entries: [],
+      topByActivity: {},
+      hiddenRoles: []
+    };
+
+    return (
+      <Suspense fallback={<LeaderboardSkeleton count={10} variant={isGridView ? "grid" : "list"} />}>
+        <LeaderboardView
+          entries={fallbackData.entries}
+          period={period}
+          startDate={new Date(fallbackData.startDate)}
+          endDate={new Date(fallbackData.endDate)}
+          topByActivity={fallbackData.topByActivity}
+          hiddenRoles={fallbackData.hiddenRoles}
+        />
+      </Suspense>
+    );
   }
 
-  const file = fs.readFileSync(filePath, "utf-8");
-  const data: LeaderboardJSON = JSON.parse(file);
+  let data: LeaderboardJSON;
+  try {
+    const file = fs.readFileSync(filePath, "utf-8");
+    data = JSON.parse(file);
+  } catch (error) {
+    console.error(`Failed to parse leaderboard data for ${period}:`, error);
+    
+    // fallback for corrupted JSON files
+    const fallbackData: LeaderboardJSON = {
+      period,
+      updatedAt: Date.now(),
+      startDate: new Date().toISOString(),
+      endDate: new Date().toISOString(),
+      entries: [],
+      topByActivity: {},
+      hiddenRoles: []
+    };
+
+    return (
+      <Suspense fallback={<LeaderboardSkeleton count={10} variant={isGridView ? "grid" : "list"} />}>
+        <LeaderboardView
+          entries={fallbackData.entries}
+          period={period}
+          startDate={new Date(fallbackData.startDate)}
+          endDate={new Date(fallbackData.endDate)}
+          topByActivity={fallbackData.topByActivity}
+          hiddenRoles={fallbackData.hiddenRoles}
+        />
+      </Suspense>
+    );
+  }
 
   return (
     <Suspense fallback={<LeaderboardSkeleton count={10} variant={isGridView ? "grid" : "list"} />}>
