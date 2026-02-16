@@ -5,6 +5,7 @@ import LeaderboardView from "@/components/Leaderboard/LeaderboardView";
 import { LeaderboardSkeleton } from "@/components/Leaderboard/LeaderboardSkeleton";
 import { type LeaderboardEntry } from "@/components/Leaderboard/LeaderboardCard";
 import { notFound } from "next/navigation";
+import { logger } from "@/lib/logger";
 
 export function generateStaticParams() {
   return [
@@ -50,11 +51,24 @@ function isValidPeriod(period: string): period is "week" | "month" | "year" {
  * @returns Empty leaderboard data structure
  */
 function createFallbackData(period: "week" | "month" | "year"): LeaderboardJSON {
+  const now = new Date();
+  const startDate = new Date(now);
+  const endDate = new Date(now);
+  
+  // Set meaningful date ranges based on period
+  if (period === "week") {
+    startDate.setDate(now.getDate() - 7);
+  } else if (period === "month") {
+    startDate.setMonth(now.getMonth() - 1);
+  } else if (period === "year") {
+    startDate.setFullYear(now.getFullYear() - 1);
+  }
+  
   return {
     period,
     updatedAt: Date.now(),
-    startDate: new Date().toISOString(),
-    endDate: new Date().toISOString(),
+    startDate: startDate.toISOString(),
+    endDate: endDate.toISOString(),
     entries: [],
     topByActivity: {},
     hiddenRoles: [],
@@ -90,15 +104,23 @@ function renderLeaderboard(
  * @param data - The parsed JSON data to validate
  * @returns True if data structure is valid, false otherwise
  */
-function isValidLeaderboardData(data: any): data is LeaderboardJSON {
+function isValidLeaderboardData(data: unknown): data is LeaderboardJSON {
+  if (!data || typeof data !== "object") {
+    return false;
+  }
+  
+  const obj = data as Record<string, unknown>;
+  
   return (
-    data &&
-    typeof data === "object" &&
-    Array.isArray(data.entries) &&
-    typeof data.topByActivity === "object" &&
-    Array.isArray(data.hiddenRoles) &&
-    typeof data.period === "string" &&
-    VALID_PERIODS.includes(data.period)
+    Array.isArray(obj.entries) &&
+    typeof obj.topByActivity === "object" &&
+    obj.topByActivity !== null &&
+    Array.isArray(obj.hiddenRoles) &&
+    typeof obj.period === "string" &&
+    VALID_PERIODS.includes(obj.period as "week" | "month" | "year") &&
+    typeof obj.startDate === "string" &&
+    typeof obj.endDate === "string" &&
+    typeof obj.updatedAt === "number"
   );
 }
 
@@ -150,16 +172,15 @@ export default async function Page({
     data = parsedData;
   } catch (error) {
     // Use structured logging for better debugging
-    if (error instanceof Error) {
-      console.error(`Failed to parse leaderboard data for ${period}:`, {
-        message: error.message,
+    logger.error(
+      `Failed to parse leaderboard data for ${period}`,
+      error,
+      {
         period,
         filePath,
-        timestamp: new Date().toISOString()
-      });
-    } else {
-      console.error(`Unknown error parsing leaderboard data for ${period}:`, error);
-    }
+        operation: "leaderboard_data_parsing"
+      }
+    );
     
     // fallback for corrupted or invalid JSON files
     return renderLeaderboard(createFallbackData(period), isGridView);
