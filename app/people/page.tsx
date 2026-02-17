@@ -8,6 +8,7 @@ import { PeopleStats } from "@/components/people/PeopleStats";
 import { PeopleGrid } from "@/components/people/PeopleGrid";
 import { ContributorDetail } from "@/components/people/ContributorDetail";
 import { TeamSection } from "@/components/people/TeamSection";
+import { PeopleHero } from "@/components/people/PeopleHero";
 import { type TeamMember } from "@/lib/team-data";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
@@ -57,7 +58,6 @@ export default function PeoplePage() {
   const [people, setPeople] = useState<ContributorEntry[]>([]);
   const [coreTeam, setCoreTeam] = useState<TeamMember[]>([]);
   const [alumni, setAlumni] = useState<TeamMember[]>([]);
-  const [updatedAt, setUpdatedAt] = useState<number | null>(null);
   const [selectedContributor, setSelectedContributor] = useState<ContributorEntry | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -90,7 +90,6 @@ export default function PeoplePage() {
         setPeople(data.people);
         setCoreTeam(data.coreTeam || []);
         setAlumni(data.alumni || []);
-        setUpdatedAt(data.updatedAt);
       } catch (error) {
         console.error('Failed to load contributors:', error);
         setError('Failed to load contributors. Please try again.');
@@ -102,17 +101,17 @@ export default function PeoplePage() {
     loadData();
   }, []);
 
-const filteredPeople = useMemo(() => {
-  if (!searchQuery.trim()) return people;
+  const filteredPeople = useMemo(() => {
+    if (!searchQuery.trim()) return people;
 
-  const query = searchQuery.toLowerCase();
+    const query = searchQuery.toLowerCase();
 
-  return people.filter((person) => {
-    const name = person.name?.toLowerCase() || "";
-    const username = person.username.toLowerCase();
-    return name.includes(query) || username.includes(query);
-  });
-}, [people, searchQuery]);
+    return people.filter((person) => {
+      const name = person.name?.toLowerCase() || "";
+      const username = person.username.toLowerCase();
+      return name.includes(query) || username.includes(query);
+    });
+  }, [people, searchQuery]);
 
 
   const handleContributorClick = (contributor: ContributorEntry) => {
@@ -123,9 +122,9 @@ const filteredPeople = useMemo(() => {
 
   if (selectedContributor) {
     return (
-      <ContributorDetail 
-        contributor={selectedContributor} 
-        onBack={() => setSelectedContributor(null)} 
+      <ContributorDetail
+        contributor={selectedContributor}
+        onBack={() => setSelectedContributor(null)}
       />
     );
   }
@@ -136,8 +135,8 @@ const filteredPeople = useMemo(() => {
         <div className="p-8 bg-destructive/5 border border-destructive/20 rounded-lg">
           <h2 className="text-xl font-semibold text-destructive mb-2">Something went wrong</h2>
           <p className="text-muted-foreground mb-4">{error}</p>
-          <Button 
-            onClick={() => window.location.reload()} 
+          <Button
+            onClick={() => window.location.reload()}
             variant="outline"
             className="hover:bg-destructive hover:text-destructive-foreground"
           >
@@ -148,23 +147,11 @@ const filteredPeople = useMemo(() => {
     );
   }
 
+  const totalPeopleCount = coreTeam.length + alumni.length + people.length;
+
   return (
     <div className="mx-auto px-4 py-8 max-w-7xl">
-      <div className="mb-8 text-center">
-        <h1 className="text-4xl font-bold">
-          <span className="text-black dark:text-white">Our </span>
-          <span className="text-emerald-600 dark:text-emerald-400">People</span>
-        </h1>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-4 mt-4">
-          Meet the team who made CircuitVerse possible.
-        </p>
-        {updatedAt && (
-          <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-            <Activity className="w-4 h-4" />
-            <span>Updated {new Date(updatedAt).toLocaleString()}</span>
-          </div>
-        )}
-      </div>
+      <PeopleHero coreTeam={coreTeam} totalCount={totalPeopleCount} />
 
       {loading ? (
         <div className="space-y-16">
@@ -274,62 +261,62 @@ const filteredPeople = useMemo(() => {
             members={alumni}
             teamType="alumni"
           />
-<section id="contributors" className="mb-8 scroll-mt-28">
-  <div className="mb-8">
-    <div className="mb-4">
-      <h2 className="text-3xl font-bold">
-        <span className="text-black dark:text-white">Community </span>
-        <span className="text-[#42B883]">Contributors</span>
-      </h2>
-    </div>
+          <section id="contributors" className="mb-8 scroll-mt-28">
+            <div className="mb-8 text-center">
+              <div className="mb-4">
+                <h2 className="text-3xl font-bold">
+                  <span className="text-black dark:text-white">Community </span>
+                  <span className="text-[#42B883]">Contributors</span>
+                </h2>
+              </div>
 
-    <p className="text-lg text-muted-foreground max-w-3xl mb-6">
-      Amazing community members who contribute to CircuitVerse through
-      code, documentation, and more.
-    </p>
-  </div>
+              <p className="text-lg text-muted-foreground max-w-3xl mb-6 mx-auto">
+                Amazing community members who contribute to CircuitVerse through
+                code, documentation, and more.
+              </p>
+            </div>
 
-  <div className="flex flex-col gap-4">
-    <PeopleStats 
-      contributors={filteredPeople} 
-      allContributors={people}
-      onContributorClick={handleContributorClick}
-    />
+            <div className="flex flex-col gap-4">
+              <PeopleStats
+                contributors={filteredPeople}
+                allContributors={people}
+                onContributorClick={handleContributorClick}
+              />
 
-    <div className="flex items-center justify-between gap-4 py-8">
-      <div className="flex items-center gap-2">
-        <Users className="w-5 h-5 text-muted-foreground" />
-        <span className="text-2xl font-bold text-foreground">
-          {filteredPeople.length}{' '}
-          <span className="text-[#42B883]">
-            {filteredPeople.length === 1 ? 'Contributor' : 'Contributors'}
-          </span>
-          {searchQuery && <span className="text-foreground"> found</span>}
-        </span>
-      </div>
+              <div className="flex items-center justify-between gap-4 py-8">
+                <div className="flex items-center gap-2">
+                  <Users className="w-5 h-5 text-muted-foreground" />
+                  <span className="text-2xl font-bold text-foreground">
+                    {filteredPeople.length}{' '}
+                    <span className="text-[#42B883]">
+                      {filteredPeople.length === 1 ? 'Contributor' : 'Contributors'}
+                    </span>
+                    {searchQuery && <span className="text-foreground"> found</span>}
+                  </span>
+                </div>
 
-      <div className="relative w-full sm:w-72">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-        <Input
-          type="text"
-          placeholder="Search contributors..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="pl-9 h-10"
-        />
-      </div>
-    </div>
+                <div className="relative w-full sm:w-72">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Input
+                    type="text"
+                    placeholder="Search contributors..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="pl-9 h-10"
+                  />
+                </div>
+              </div>
 
-    <PeopleGrid
-      contributors={filteredPeople}
-      onContributorClick={handleContributorClick}
-      viewMode="grid"
-      loading={false}
-    />
-  </div>
-</section>
+              <PeopleGrid
+                contributors={filteredPeople}
+                onContributorClick={handleContributorClick}
+                viewMode="grid"
+                loading={false}
+              />
+            </div>
+          </section>
 
-            
+
         </>
       )}
     </div>
