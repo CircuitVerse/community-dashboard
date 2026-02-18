@@ -1,9 +1,9 @@
 {
   "period": "year",
-  "updatedAt": 1771322776486,
-  "lastFetchedAt": 1771322776486,
-  "startDate": "2025-02-17",
-  "endDate": "2026-02-17",
+  "updatedAt": 1771377557451,
+  "lastFetchedAt": 1771377557451,
+  "startDate": "2025-02-18",
+  "endDate": "2026-02-18",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -8827,26 +8827,31 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/143987856?v=4",
       "role": "Contributor",
-      "total_points": 196,
+      "total_points": 201,
       "activity_breakdown": {
+        "PR opened": {
+          "count": 34,
+          "points": 68
+        },
+        "Issue opened": {
+          "count": 24,
+          "points": 24
+        },
+        "Issue labeled": {
+          "count": 12,
+          "points": 24
+        },
         "PR merged": {
           "count": 17,
           "points": 85
-        },
-        "PR opened": {
-          "count": 33,
-          "points": 66
-        },
-        "Issue opened": {
-          "count": 23,
-          "points": 23
-        },
-        "Issue labeled": {
-          "count": 11,
-          "points": 22
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-02-17",
+          "count": 3,
+          "points": 5
+        },
         {
           "date": "2026-02-16",
           "count": 1,
@@ -9004,6 +9009,27 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T19:41:55Z",
+          "title": "fix - replace broken plugin-http with custom Rust HTTP command for all API requests",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/969",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T19:08:20Z",
+          "title": "🐞 Bug - Tauri All HTTP API requests fail silently due to @tauri-apps/plugin-http streaming incompatibility",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/968",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-17T19:08:22Z",
+          "title": "Labeled issue #968 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/968",
+          "points": 2
+        },
         {
           "type": "PR merged",
           "occured_at": "2026-02-16T20:25:25Z",
@@ -13356,6 +13382,615 @@
       ]
     },
     {
+      "username": "magic-peach",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
+      "role": "Contributor",
+      "total_points": 123,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 40,
+          "points": 80
+        },
+        "Issue opened": {
+          "count": 41,
+          "points": 41
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-02-17",
+          "count": 80,
+          "points": 120
+        },
+        {
+          "date": "2026-02-16",
+          "count": 2,
+          "points": 3
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T17:14:51Z",
+          "title": "docs - fix shortcuts typo in quick button assets",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/966",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T17:10:52Z",
+          "title": "docs - fix explicitly typo in friendly_id comment",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6978",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T10:16:19Z",
+          "title": "fix - remove duplicate assignment update call",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6976",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T10:10:38Z",
+          "title": "docs - fix implement typo in auth store comment",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/965",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T10:03:58Z",
+          "title": "docs - fix simulator typos in production dockerfile",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6973",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T09:56:00Z",
+          "title": "docs - fix simulator typos in production dockerfile",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6972",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T09:55:08Z",
+          "title": "docs - fix transparent typo in save function comments",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/963",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T09:22:12Z",
+          "title": "docs - fix committing typo in tasks list",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/265",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T09:21:03Z",
+          "title": "docs - fix information wording in lms integration guide",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/524",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T09:20:13Z",
+          "title": "docs - fix typos in test circuits chapter text",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/522",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T09:18:53Z",
+          "title": "docs - fix keyboard shortcut spelling in chapter docs",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/520",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T09:13:31Z",
+          "title": "docs - improve repetitive wording in readme intro",
+          "link": "https://github.com/CircuitVerse/upptime/pull/174",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T09:03:06Z",
+          "title": "docs - fix preferred typo in hotkey panel comment",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/959",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T09:02:17Z",
+          "title": "docs - fix shortcut spelling in hotkey documentation",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/957",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T09:01:37Z",
+          "title": "docs - fix information typo in simulator handler comment",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/955",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T09:00:29Z",
+          "title": "docs - fix toggle typo in simulator stylesheet comment",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/953",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T08:58:53Z",
+          "title": "test - fix simulator context wording typo in spec",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6970",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T08:57:59Z",
+          "title": "test - fix signed-in wording typo in projects spec",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6968",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T08:57:12Z",
+          "title": "test - fix signed-in wording typo in grades spec",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6966",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T08:56:18Z",
+          "title": "test - fix callback description typo in pending invitation spec",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6964",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T08:55:16Z",
+          "title": "docs - fix announcement heading typo in locale",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6962",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T08:43:12Z",
+          "title": "test - fix typo strings in search controller spec",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6959",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T08:42:24Z",
+          "title": "test - fix response typo in simulator post issue spec",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6957",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T08:41:33Z",
+          "title": "test - fix addition typo in projects index spec",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6955",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T08:40:43Z",
+          "title": "docs - fix typo text in simulator mobile and quick menu",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6953",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T08:39:59Z",
+          "title": "fix - correct separator typo in api pagination helper",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6951",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T08:20:20Z",
+          "title": "docs - fix restart instruction grammar in remote guide",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6949",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T08:19:23Z",
+          "title": "docs - fix restart instruction grammar in docker guide",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6947",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T08:18:18Z",
+          "title": "docs - update ruby version in docs setup guide",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6945",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T08:17:14Z",
+          "title": "docs - fix deadline description in assignments api table",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6943",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T08:13:16Z",
+          "title": "docs - replace atleast typo in installation guides",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6941",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T08:10:12Z",
+          "title": "docs - fix troubleshooting guide solution grammar",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6939",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T08:08:17Z",
+          "title": "docs - fix delete group exception text in api docs",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6937",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T08:04:14Z",
+          "title": "docs - fix typo in groups api response note",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6935",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T08:01:13Z",
+          "title": "docs - fix grammar in assignment start endpoint docs",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6933",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T07:57:58Z",
+          "title": "docs - fix query parameters heading typo in assignments docs",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6931",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T07:54:07Z",
+          "title": "fix - correct grammar in featured circuit email copy",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6929",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T07:51:09Z",
+          "title": "fix - render mentor name in assignment update email",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6927",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T07:44:43Z",
+          "title": "fix - standardize url capitalization in group invite notices",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6925",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T05:16:25Z",
+          "title": "feat - add domain-based access restriction for group invitations",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6922",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T10:14:49Z",
+          "title": "bug - assignments API update performs duplicate update calls",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6975",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T10:09:39Z",
+          "title": "docs - fix implement typo in auth store TODO comment",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/964",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T10:07:35Z",
+          "title": "docs - fix explicity typo in friendly_id initializer comment",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6974",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T09:54:25Z",
+          "title": "docs - fix transparent typo in save function comments",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/962",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T09:53:45Z",
+          "title": "docs - fix shortcuts typo in quick button labels",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/961",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T09:53:32Z",
+          "title": "docs - fix simulator/dependencies typos in Dockerfile.production",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6971",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T09:21:48Z",
+          "title": "docs - fix committing typo in tasks list",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/264",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T09:20:33Z",
+          "title": "docs - fix information wording in lms integration guide",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/523",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T09:19:38Z",
+          "title": "docs - fix separation and attach typos in test circuits pages",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/521",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T09:18:31Z",
+          "title": "docs - fix keyboard shortcut spelling in chapter 8 and chapter 9 docs",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/519",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T09:12:59Z",
+          "title": "docs - improve repetitive wording in readme intro",
+          "link": "https://github.com/CircuitVerse/upptime/issues/173",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T09:02:37Z",
+          "title": "docs - fix preferred typo in hotkey panel comment",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/958",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T09:01:54Z",
+          "title": "docs - fix shortcut spelling in hotkey binder documentation",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/956",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T09:01:18Z",
+          "title": "docs - fix information typo in simulator handler comment",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/954",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T08:59:42Z",
+          "title": "docs - fix toggle typo in simulator stylesheet comment",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/952",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T08:58:20Z",
+          "title": "test - fix simulator context wording typo in controller spec",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6969",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T08:57:31Z",
+          "title": "test - fix signed-in wording typo in projects controller spec",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6967",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T08:56:35Z",
+          "title": "test - fix signed-in wording typo in grades controller spec",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6965",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T08:55:40Z",
+          "title": "test - fix callback description typo in pending invitation spec",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6963",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T08:54:38Z",
+          "title": "docs - fix announcement heading typo in locale",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6961",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T08:42:44Z",
+          "title": "test - fix typo strings in search controller spec",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6958",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T08:41:55Z",
+          "title": "test - fix reponse typo in simulator post issue spec",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6956",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T08:40:58Z",
+          "title": "test - fix additon typo in projects index request spec",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6954",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T08:40:18Z",
+          "title": "docs - fix typo text in simulator mobile and quick menu labels",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6952",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T08:39:33Z",
+          "title": "fix - correct separator typo in api pagination helper",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6950",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T08:19:48Z",
+          "title": "docs - fix restart instruction grammar in remote development guide",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6948",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T08:18:41Z",
+          "title": "docs - fix restart instruction grammar in docker guide",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6946",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T08:17:37Z",
+          "title": "docs - update outdated ruby version in docs setup guide",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6944",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T08:16:34Z",
+          "title": "docs - fix incorrect deadline description in assignments api table",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6942",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T08:12:01Z",
+          "title": "docs - replace atleast with at least in installation guides",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6940",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T08:09:17Z",
+          "title": "docs - fix grammar in troubleshooting guide solution text",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6938",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T08:06:57Z",
+          "title": "docs - fix delete group exception description in groups api docs",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6936",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T08:03:23Z",
+          "title": "docs - fix typo in groups api response note",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6934",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T08:00:18Z",
+          "title": "docs - fix grammar in assignments start endpoint description",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6932",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T07:57:03Z",
+          "title": "docs - fix url query parameters heading typo in assignments api docs",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6930",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T07:52:34Z",
+          "title": "bug - featured circuit email uses incorrect grammar",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6928",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T07:49:46Z",
+          "title": "bug - assignment update email does not render mentor name",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6926",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T07:42:30Z",
+          "title": "bug - group invite errors use inconsistent url capitalization",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6924",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T05:15:07Z",
+          "title": "feat - Add domain-based access restriction for group invitations",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6921",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T04:56:51Z",
+          "title": "feat - Add domain-based access restriction for group invitations",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6920",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-16T15:15:18Z",
+          "title": "Feature Add dark mode support for simulator canvas and UI",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6916",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-16T15:15:19Z",
+          "title": "Labeled issue #6916 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6916",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "Yana-do-code",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/173885830?v=4",
@@ -13812,566 +14447,6 @@
           "title": "fix the search bar with a black border to make it more visible",
           "link": "https://github.com/CircuitVerse/Blog/issues/259",
           "points": 1
-        }
-      ]
-    },
-    {
-      "username": "magic-peach",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
-      "role": "Contributor",
-      "total_points": 112,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 36,
-          "points": 72
-        },
-        "Issue opened": {
-          "count": 38,
-          "points": 38
-        },
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-02-17",
-          "count": 73,
-          "points": 109
-        },
-        {
-          "date": "2026-02-16",
-          "count": 2,
-          "points": 3
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T10:03:58Z",
-          "title": "docs - fix simulator typos in production dockerfile",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6973",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T09:56:00Z",
-          "title": "docs - fix simulator typos in production dockerfile",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6972",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T09:55:08Z",
-          "title": "docs - fix transparent typo in save function comments",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/963",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T09:22:12Z",
-          "title": "docs - fix committing typo in tasks list",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/265",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T09:21:03Z",
-          "title": "docs - fix information wording in lms integration guide",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/524",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T09:20:13Z",
-          "title": "docs - fix typos in test circuits chapter text",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/522",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T09:18:53Z",
-          "title": "docs - fix keyboard shortcut spelling in chapter docs",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/520",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T09:13:31Z",
-          "title": "docs - improve repetitive wording in readme intro",
-          "link": "https://github.com/CircuitVerse/upptime/pull/174",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T09:03:06Z",
-          "title": "docs - fix preferred typo in hotkey panel comment",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/959",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T09:02:17Z",
-          "title": "docs - fix shortcut spelling in hotkey documentation",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/957",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T09:01:37Z",
-          "title": "docs - fix information typo in simulator handler comment",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/955",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T09:00:29Z",
-          "title": "docs - fix toggle typo in simulator stylesheet comment",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/953",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T08:58:53Z",
-          "title": "test - fix simulator context wording typo in spec",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6970",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T08:57:59Z",
-          "title": "test - fix signed-in wording typo in projects spec",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6968",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T08:57:12Z",
-          "title": "test - fix signed-in wording typo in grades spec",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6966",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T08:56:18Z",
-          "title": "test - fix callback description typo in pending invitation spec",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6964",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T08:55:16Z",
-          "title": "docs - fix announcement heading typo in locale",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6962",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T08:43:12Z",
-          "title": "test - fix typo strings in search controller spec",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6959",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T08:42:24Z",
-          "title": "test - fix response typo in simulator post issue spec",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6957",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T08:41:33Z",
-          "title": "test - fix addition typo in projects index spec",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6955",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T08:40:43Z",
-          "title": "docs - fix typo text in simulator mobile and quick menu",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6953",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T08:39:59Z",
-          "title": "fix - correct separator typo in api pagination helper",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6951",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T08:20:20Z",
-          "title": "docs - fix restart instruction grammar in remote guide",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6949",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T08:19:23Z",
-          "title": "docs - fix restart instruction grammar in docker guide",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6947",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T08:18:18Z",
-          "title": "docs - update ruby version in docs setup guide",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6945",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T08:17:14Z",
-          "title": "docs - fix deadline description in assignments api table",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6943",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T08:13:16Z",
-          "title": "docs - replace atleast typo in installation guides",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6941",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T08:10:12Z",
-          "title": "docs - fix troubleshooting guide solution grammar",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6939",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T08:08:17Z",
-          "title": "docs - fix delete group exception text in api docs",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6937",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T08:04:14Z",
-          "title": "docs - fix typo in groups api response note",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6935",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T08:01:13Z",
-          "title": "docs - fix grammar in assignment start endpoint docs",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6933",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T07:57:58Z",
-          "title": "docs - fix query parameters heading typo in assignments docs",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6931",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T07:54:07Z",
-          "title": "fix - correct grammar in featured circuit email copy",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6929",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T07:51:09Z",
-          "title": "fix - render mentor name in assignment update email",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6927",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T07:44:43Z",
-          "title": "fix - standardize url capitalization in group invite notices",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6925",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T05:16:25Z",
-          "title": "feat - add domain-based access restriction for group invitations",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6922",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T09:54:25Z",
-          "title": "docs - fix transparent typo in save function comments",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/962",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T09:53:45Z",
-          "title": "docs - fix shortcuts typo in quick button labels",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/961",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T09:53:32Z",
-          "title": "docs - fix simulator/dependencies typos in Dockerfile.production",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6971",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T09:21:48Z",
-          "title": "docs - fix committing typo in tasks list",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/264",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T09:20:33Z",
-          "title": "docs - fix information wording in lms integration guide",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/523",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T09:19:38Z",
-          "title": "docs - fix separation and attach typos in test circuits pages",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/521",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T09:18:31Z",
-          "title": "docs - fix keyboard shortcut spelling in chapter 8 and chapter 9 docs",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/519",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T09:12:59Z",
-          "title": "docs - improve repetitive wording in readme intro",
-          "link": "https://github.com/CircuitVerse/upptime/issues/173",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T09:02:37Z",
-          "title": "docs - fix preferred typo in hotkey panel comment",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/958",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T09:01:54Z",
-          "title": "docs - fix shortcut spelling in hotkey binder documentation",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/956",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T09:01:18Z",
-          "title": "docs - fix information typo in simulator handler comment",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/954",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T08:59:42Z",
-          "title": "docs - fix toggle typo in simulator stylesheet comment",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/952",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T08:58:20Z",
-          "title": "test - fix simulator context wording typo in controller spec",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6969",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T08:57:31Z",
-          "title": "test - fix signed-in wording typo in projects controller spec",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6967",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T08:56:35Z",
-          "title": "test - fix signed-in wording typo in grades controller spec",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6965",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T08:55:40Z",
-          "title": "test - fix callback description typo in pending invitation spec",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6963",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T08:54:38Z",
-          "title": "docs - fix announcement heading typo in locale",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6961",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T08:42:44Z",
-          "title": "test - fix typo strings in search controller spec",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6958",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T08:41:55Z",
-          "title": "test - fix reponse typo in simulator post issue spec",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6956",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T08:40:58Z",
-          "title": "test - fix additon typo in projects index request spec",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6954",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T08:40:18Z",
-          "title": "docs - fix typo text in simulator mobile and quick menu labels",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6952",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T08:39:33Z",
-          "title": "fix - correct separator typo in api pagination helper",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6950",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T08:19:48Z",
-          "title": "docs - fix restart instruction grammar in remote development guide",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6948",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T08:18:41Z",
-          "title": "docs - fix restart instruction grammar in docker guide",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6946",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T08:17:37Z",
-          "title": "docs - update outdated ruby version in docs setup guide",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6944",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T08:16:34Z",
-          "title": "docs - fix incorrect deadline description in assignments api table",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6942",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T08:12:01Z",
-          "title": "docs - replace atleast with at least in installation guides",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6940",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T08:09:17Z",
-          "title": "docs - fix grammar in troubleshooting guide solution text",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6938",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T08:06:57Z",
-          "title": "docs - fix delete group exception description in groups api docs",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6936",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T08:03:23Z",
-          "title": "docs - fix typo in groups api response note",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6934",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T08:00:18Z",
-          "title": "docs - fix grammar in assignments start endpoint description",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6932",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T07:57:03Z",
-          "title": "docs - fix url query parameters heading typo in assignments api docs",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6930",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T07:52:34Z",
-          "title": "bug - featured circuit email uses incorrect grammar",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6928",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T07:49:46Z",
-          "title": "bug - assignment update email does not render mentor name",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6926",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T07:42:30Z",
-          "title": "bug - group invite errors use inconsistent url capitalization",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6924",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T05:15:07Z",
-          "title": "feat - Add domain-based access restriction for group invitations",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6921",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-17T04:56:51Z",
-          "title": "feat - Add domain-based access restriction for group invitations",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6920",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-16T15:15:18Z",
-          "title": "Feature Add dark mode support for simulator canvas and UI",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6916",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-16T15:15:19Z",
-          "title": "Labeled issue #6916 - 🌟 feature",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6916",
-          "points": 2
         }
       ]
     },
@@ -18009,6 +18084,317 @@
       ]
     },
     {
+      "username": "Radhikaa-chauhan",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/148184013?v=4",
+      "role": "Contributor",
+      "total_points": 58,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 11,
+          "points": 22
+        },
+        "Issue opened": {
+          "count": 10,
+          "points": 10
+        },
+        "Issue labeled": {
+          "count": 8,
+          "points": 16
+        },
+        "PR merged": {
+          "count": 2,
+          "points": 10
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-02-17",
+          "count": 6,
+          "points": 11
+        },
+        {
+          "date": "2026-02-15",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2026-02-10",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-01-31",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-01-21",
+          "count": 4,
+          "points": 7
+        },
+        {
+          "date": "2026-01-20",
+          "count": 3,
+          "points": 5
+        },
+        {
+          "date": "2026-01-18",
+          "count": 4,
+          "points": 6
+        },
+        {
+          "date": "2026-01-17",
+          "count": 3,
+          "points": 5
+        },
+        {
+          "date": "2025-12-27",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2025-12-25",
+          "count": 2,
+          "points": 7
+        },
+        {
+          "date": "2025-12-16",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2025-12-11",
+          "count": 3,
+          "points": 4
+        },
+        {
+          "date": "2025-12-07",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T19:42:19Z",
+          "title": "docs - clarify resetting VITE_SIM_VERSION to return to v0",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/970",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-17T18:23:33Z",
+          "title": "docs - clarify how to switch back to v0 after setting v1",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/967",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-17T18:23:35Z",
+          "title": "Labeled issue #967 - documentation",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/967",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-17T16:33:16Z",
+          "title": "Labeled issue #964 - documentation",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/964",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-17T16:39:04Z",
+          "title": "Labeled issue #962 - good first issue",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/962",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-17T16:38:27Z",
+          "title": "Labeled issue #961 - good first issue",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/961",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-02-15T14:09:16Z",
+          "title": "docs(wsl) - fix Redis and PostgreSQL commands for WSL setup",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6476",
+          "points": 5
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-10T08:52:27Z",
+          "title": "Labeled issue #890 - pending triage",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/890",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-31T18:17:10Z",
+          "title": "Introduce Kamal 2.0 based deployment for CircuitVerse",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6794",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-21T18:58:13Z",
+          "title": "fix - allow deleting test groups in creator",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/840",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-21T12:25:19Z",
+          "title": "fix(verilog-terminal) - add a hide button in the verilog terminal.",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/837",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-21T17:39:08Z",
+          "title": "🐞 Bug - Unable to delete test groups in Testbench Creator",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/839",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-01-21T17:39:09Z",
+          "title": "Labeled issue #839 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/839",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-20T16:54:35Z",
+          "title": "Fix(verilog-terminal) - terminal overlaps side labels and does not fully hide.",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/836",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-20T11:42:05Z",
+          "title": "🐞 Bug - Verilog terminal affects layout and overlaps side labels when switching views in both desktop and website",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/835",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-01-20T11:42:06Z",
+          "title": "Labeled issue #835 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/835",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-18T22:03:24Z",
+          "title": "feat(ui) - improve Color Blind theme accessibility in CircuitVerse’s desktop (Tauri) app",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/825",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-18T20:29:20Z",
+          "title": "chore - add helplink to Two’s Complement component",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/823",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-18T21:31:51Z",
+          "title": "Color Blind theme still uses red/brown semantic colors, making signals indistinguishable.",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/824",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-18T19:51:09Z",
+          "title": "Missing help link for Two’s Complement component",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/822",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-17T23:09:35Z",
+          "title": "fix(verilogDivider) - handle divide-by-zero and correct tooltip",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/819",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-17T22:43:50Z",
+          "title": "🐞 Bug - Improvements needed in verilogDivider module (edge-case handling, documentation, and node positioning)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/818",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-01-17T22:43:51Z",
+          "title": "Labeled issue #818 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/818",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-27T20:53:39Z",
+          "title": "chore - bump aws-sdk-s3 to fix security advisory",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6511",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-25T15:28:38Z",
+          "title": "Fix - leaderboard responsive layout",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/7",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-16T16:46:12Z",
+          "title": "docs(wsl) - fix Redis and PostgreSQL commands for WSL setup",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6476",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-11T16:22:07Z",
+          "title": "Fix responsiveness issue on small screens (#449)",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/450",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2025-12-25T15:32:55Z",
+          "title": "Fix - leaderboard responsive layout",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/7",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2025-12-11T14:42:12Z",
+          "title": "WSL documentation shows incorrect Redis setup commands",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6461",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2025-12-11T00:51:11Z",
+          "title": "Docs UI - Content not responsive on mobile view .",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/449",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2025-12-07T09:00:09Z",
+          "title": "🐞 Bug - Docs UI - Content not responsive on mobile view (large empty margins).",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6442",
+          "points": 1
+        }
+      ]
+    },
+    {
       "username": "Audatic07",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/167913271?v=4",
@@ -19681,270 +20067,6 @@
           "occured_at": "2025-12-06T17:42:02Z",
           "title": "UI Bug - Button color transition failure on hover (Green to Red)",
           "link": "https://github.com/CircuitVerse/Blog/issues/255",
-          "points": 1
-        }
-      ]
-    },
-    {
-      "username": "Radhikaa-chauhan",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/148184013?v=4",
-      "role": "Contributor",
-      "total_points": 47,
-      "activity_breakdown": {
-        "PR merged": {
-          "count": 2,
-          "points": 10
-        },
-        "Issue labeled": {
-          "count": 4,
-          "points": 8
-        },
-        "Issue opened": {
-          "count": 9,
-          "points": 9
-        },
-        "PR opened": {
-          "count": 10,
-          "points": 20
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-02-15",
-          "count": 1,
-          "points": 5
-        },
-        {
-          "date": "2026-02-10",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-01-31",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-01-21",
-          "count": 4,
-          "points": 7
-        },
-        {
-          "date": "2026-01-20",
-          "count": 3,
-          "points": 5
-        },
-        {
-          "date": "2026-01-18",
-          "count": 4,
-          "points": 6
-        },
-        {
-          "date": "2026-01-17",
-          "count": 3,
-          "points": 5
-        },
-        {
-          "date": "2025-12-27",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2025-12-25",
-          "count": 2,
-          "points": 7
-        },
-        {
-          "date": "2025-12-16",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2025-12-11",
-          "count": 3,
-          "points": 4
-        },
-        {
-          "date": "2025-12-07",
-          "count": 1,
-          "points": 1
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "PR merged",
-          "occured_at": "2026-02-15T14:09:16Z",
-          "title": "docs(wsl) - fix Redis and PostgreSQL commands for WSL setup",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6476",
-          "points": 5
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-10T08:52:27Z",
-          "title": "Labeled issue #890 - pending triage",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/890",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-31T18:17:10Z",
-          "title": "Introduce Kamal 2.0 based deployment for CircuitVerse",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6794",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-21T18:58:13Z",
-          "title": "fix - allow deleting test groups in creator",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/840",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-21T12:25:19Z",
-          "title": "fix(verilog-terminal) - add a hide button in the verilog terminal.",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/837",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-21T17:39:08Z",
-          "title": "🐞 Bug - Unable to delete test groups in Testbench Creator",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/839",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-01-21T17:39:09Z",
-          "title": "Labeled issue #839 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/839",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-20T16:54:35Z",
-          "title": "Fix(verilog-terminal) - terminal overlaps side labels and does not fully hide.",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/836",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-20T11:42:05Z",
-          "title": "🐞 Bug - Verilog terminal affects layout and overlaps side labels when switching views in both desktop and website",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/835",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-01-20T11:42:06Z",
-          "title": "Labeled issue #835 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/835",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-18T22:03:24Z",
-          "title": "feat(ui) - improve Color Blind theme accessibility in CircuitVerse’s desktop (Tauri) app",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/825",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-18T20:29:20Z",
-          "title": "chore - add helplink to Two’s Complement component",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/823",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-18T21:31:51Z",
-          "title": "Color Blind theme still uses red/brown semantic colors, making signals indistinguishable.",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/824",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-18T19:51:09Z",
-          "title": "Missing help link for Two’s Complement component",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/822",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-17T23:09:35Z",
-          "title": "fix(verilogDivider) - handle divide-by-zero and correct tooltip",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/819",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-17T22:43:50Z",
-          "title": "🐞 Bug - Improvements needed in verilogDivider module (edge-case handling, documentation, and node positioning)",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/818",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-01-17T22:43:51Z",
-          "title": "Labeled issue #818 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/818",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-27T20:53:39Z",
-          "title": "chore - bump aws-sdk-s3 to fix security advisory",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6511",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-25T15:28:38Z",
-          "title": "Fix - leaderboard responsive layout",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/7",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-16T16:46:12Z",
-          "title": "docs(wsl) - fix Redis and PostgreSQL commands for WSL setup",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6476",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-11T16:22:07Z",
-          "title": "Fix responsiveness issue on small screens (#449)",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/450",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2025-12-25T15:32:55Z",
-          "title": "Fix - leaderboard responsive layout",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/7",
-          "points": 5
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2025-12-11T14:42:12Z",
-          "title": "WSL documentation shows incorrect Redis setup commands",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6461",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2025-12-11T00:51:11Z",
-          "title": "Docs UI - Content not responsive on mobile view .",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/449",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2025-12-07T09:00:09Z",
-          "title": "🐞 Bug - Docs UI - Content not responsive on mobile view (large empty margins).",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6442",
           "points": 1
         }
       ]
@@ -22476,6 +22598,194 @@
       ]
     },
     {
+      "username": "Vaishnavi-star-ai",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/182395161?v=4",
+      "role": "Contributor",
+      "total_points": 27,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 12,
+          "points": 24
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-02-17",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-02-15",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-02-13",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-02-11",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-02-09",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-02-07",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-02-03",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-02-02",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-01-30",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-01-25",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-01-22",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-01-20",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-01-18",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T15:07:12Z",
+          "title": "Add Dark Mode Support to Simulator Canvas and UI",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6977",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-15T16:50:43Z",
+          "title": "🐞 Bug - Homepage - Incorrect <label for> association in search filter (Accessibility issue)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6905",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-15T16:50:44Z",
+          "title": "Labeled issue #6905 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6905",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-13T02:51:59Z",
+          "title": "Add backend validation for ProjectDatum payload (size and structure checks)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6886",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-11T02:50:33Z",
+          "title": "Fix missing Vue Simulator releases on Community Dashboard",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/257",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-09T17:44:44Z",
+          "title": "Fix N+1 database queries causing Sentry issue CIRCUITVERSE-CORE-YG",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6863",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-07T16:23:02Z",
+          "title": "Fix API documentation sidebar and content panel desynchronization",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6851",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-03T15:17:50Z",
+          "title": "Add alt text to all About page and contributor images for accessibility",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6826",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-02T06:07:22Z",
+          "title": "Fix Help button to open correct documentation URLs for components",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6810",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-30T02:43:56Z",
+          "title": "Fix typo in support email address",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/894",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-25T18:29:21Z",
+          "title": "Fix typo in support email address across frontend versions",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/869",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-22T17:06:44Z",
+          "title": "Safely sanitize invalid UTF-8 strings to prevent PostgreSQL encoding errors",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6714",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-20T11:19:58Z",
+          "title": "Add unique index on tags.name to optimize tag lookups",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6671",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-18T13:36:11Z",
+          "title": "Remove outdated CircuitVerse Firefox extension link",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/506",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "nisshchayarathi",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/197673239?v=4",
@@ -23268,182 +23578,6 @@
           "title": "Mobile Update Profile Screen Missing Fields and Features",
           "link": "https://github.com/CircuitVerse/mobile-app/issues/342",
           "points": 1
-        }
-      ]
-    },
-    {
-      "username": "Vaishnavi-star-ai",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/182395161?v=4",
-      "role": "Contributor",
-      "total_points": 25,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
-        },
-        "PR opened": {
-          "count": 11,
-          "points": 22
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-02-15",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-02-13",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-02-11",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-02-09",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-02-07",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-02-03",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-02-02",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-01-30",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-01-25",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-01-22",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-01-20",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-01-18",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-15T16:50:43Z",
-          "title": "🐞 Bug - Homepage - Incorrect <label for> association in search filter (Accessibility issue)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6905",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-15T16:50:44Z",
-          "title": "Labeled issue #6905 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6905",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-13T02:51:59Z",
-          "title": "Add backend validation for ProjectDatum payload (size and structure checks)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6886",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-11T02:50:33Z",
-          "title": "Fix missing Vue Simulator releases on Community Dashboard",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/257",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-09T17:44:44Z",
-          "title": "Fix N+1 database queries causing Sentry issue CIRCUITVERSE-CORE-YG",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6863",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-07T16:23:02Z",
-          "title": "Fix API documentation sidebar and content panel desynchronization",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6851",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-03T15:17:50Z",
-          "title": "Add alt text to all About page and contributor images for accessibility",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6826",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-02T06:07:22Z",
-          "title": "Fix Help button to open correct documentation URLs for components",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6810",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-30T02:43:56Z",
-          "title": "Fix typo in support email address",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/894",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-25T18:29:21Z",
-          "title": "Fix typo in support email address across frontend versions",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/869",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-22T17:06:44Z",
-          "title": "Safely sanitize invalid UTF-8 strings to prevent PostgreSQL encoding errors",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6714",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-20T11:19:58Z",
-          "title": "Add unique index on tags.name to optimize tag lookups",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6671",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-18T13:36:11Z",
-          "title": "Remove outdated CircuitVerse Firefox extension link",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/506",
-          "points": 2
         }
       ]
     },
@@ -30573,6 +30707,63 @@
       ]
     },
     {
+      "username": "AmitStredz",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/129516189?v=4",
+      "role": "Contributor",
+      "total_points": 4,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
+        "Issue opened": {
+          "count": 2,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2025-03-21",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2025-03-20",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2025-03-08",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2025-03-21T09:11:58Z",
+          "title": "Fixes #544 - Dropdown Menu Hidden Behind Navbar & Hover Animation Issues",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/545",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2025-03-20T19:24:16Z",
+          "title": "🐞 Bug - Dropdown Menu Hidden Behind Navbar & Hover Animation Issues",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/544",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2025-03-08T05:42:15Z",
+          "title": "🐞 Bug - Sidebar alignment issue in learn.circuitverse.org page",
+          "link": "https://github.com/CircuitVerse/Interactive-Book/issues/709",
+          "points": 1
+        }
+      ]
+    },
+    {
       "username": "kiransatdive",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/98806225?v=4",
@@ -30846,63 +31037,6 @@
           "title": "Update Navbar.css",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/403",
           "points": 2
-        }
-      ]
-    },
-    {
-      "username": "AmitStredz",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/129516189?v=4",
-      "role": "Contributor",
-      "total_points": 4,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        },
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2025-03-21",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2025-03-20",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2025-03-08",
-          "count": 1,
-          "points": 1
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2025-03-21T09:11:58Z",
-          "title": "Fixes #544 - Dropdown Menu Hidden Behind Navbar & Hover Animation Issues",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/545",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2025-03-20T19:24:16Z",
-          "title": "🐞 Bug - Dropdown Menu Hidden Behind Navbar & Hover Animation Issues",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/544",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2025-03-08T05:42:15Z",
-          "title": "🐞 Bug - Sidebar alignment issue in learn.circuitverse.org page",
-          "link": "https://github.com/CircuitVerse/Interactive-Book/issues/709",
-          "points": 1
         }
       ]
     },
