@@ -1,8 +1,8 @@
 {
   "period": "week",
-  "updatedAt": 1771463904989,
-  "startDate": "2026-02-12",
-  "endDate": "2026-02-19",
+  "updatedAt": 1771550052616,
+  "startDate": "2026-02-13",
+  "endDate": "2026-02-20",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -11,8 +11,12 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
       "role": "Contributor",
-      "total_points": 132,
+      "total_points": 137,
       "activity_breakdown": {
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        },
         "PR opened": {
           "count": 41,
           "points": 82
@@ -27,6 +31,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-02-19",
+          "count": 1,
+          "points": 5
+        },
         {
           "date": "2026-02-18",
           "count": 8,
@@ -44,6 +53,13 @@
         }
       ],
       "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-02-19T18:00:39Z",
+          "title": "docs - fix committing typo in tasks list",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/265",
+          "points": 5
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-02-18T14:27:28Z",
@@ -679,17 +695,25 @@
     {
       "username": "naman79820",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/159947791?u=c48301089f863779d54d2227553923ff284ac6a4&v=4",
       "role": "Contributor",
-      "total_points": 46,
+      "total_points": 48,
       "activity_breakdown": {
-        "Issue opened": {
-          "count": 4,
+        "Review submitted": {
+          "count": 1,
           "points": 4
         },
+        "Issue closed": {
+          "count": 1,
+          "points": 1
+        },
+        "Issue opened": {
+          "count": 3,
+          "points": 3
+        },
         "Issue labeled": {
-          "count": 4,
-          "points": 8
+          "count": 3,
+          "points": 6
         },
         "PR merged": {
           "count": 4,
@@ -701,6 +725,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-02-19",
+          "count": 2,
+          "points": 5
+        },
         {
           "date": "2026-02-16",
           "count": 2,
@@ -715,14 +744,23 @@
           "date": "2026-02-13",
           "count": 10,
           "points": 29
-        },
-        {
-          "date": "2026-02-12",
-          "count": 2,
-          "points": 3
         }
       ],
       "activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-02-19T18:00:29Z",
+          "title": "Review on PR #265",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/265",
+          "points": 4
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-02-19T18:00:40Z",
+          "title": "Closed issue #264 - docs - fix committing typo in tasks list",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/264",
+          "points": 1
+        },
         {
           "type": "Issue opened",
           "occured_at": "2026-02-16T18:10:48Z",
@@ -841,20 +879,6 @@
           "title": "Fix/specify pnpm version",
           "link": "https://github.com/CircuitVerse/community-dashboard/pull/259",
           "points": 5
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-12T16:07:46Z",
-          "title": "Feature - Avo Admin - Add Tags & Featured Circuits resources",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6882",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-12T16:07:47Z",
-          "title": "Labeled issue #6882 - 🌟 feature",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6882",
-          "points": 2
         }
       ]
     },
@@ -1223,113 +1247,6 @@
       ]
     },
     {
-      "username": "himanshujays29",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/158487820?v=4",
-      "role": "Contributor",
-      "total_points": 22,
-      "activity_breakdown": {
-        "PR merged": {
-          "count": 2,
-          "points": 10
-        },
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        },
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        },
-        "Issue labeled": {
-          "count": 3,
-          "points": 6
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-02-15",
-          "count": 1,
-          "points": 5
-        },
-        {
-          "date": "2026-02-13",
-          "count": 4,
-          "points": 10
-        },
-        {
-          "date": "2026-02-12",
-          "count": 4,
-          "points": 7
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR merged",
-          "occured_at": "2026-02-15T13:48:53Z",
-          "title": "Fix broken LMS integration documentation link on New Assignment page",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6890",
-          "points": 5
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-13T16:44:41Z",
-          "title": "Fix broken LMS integration documentation link on New Assignment page",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6890",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-02-13T05:19:37Z",
-          "title": "Fix broken documentation link on New Group page",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6884",
-          "points": 5
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-13T16:43:42Z",
-          "title": "🐞 Bug - Broken LMS Integration Documentation Link on New Assignment Page",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6889",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-13T16:43:43Z",
-          "title": "Labeled issue #6889 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6889",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-12T17:19:03Z",
-          "title": "Fix broken documentation link on New Group page",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6884",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-12T17:17:32Z",
-          "title": "🐞 Bug - Broken Link on New Group Page",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6883",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-12T17:17:33Z",
-          "title": "Labeled issue #6883 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6883",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-12T17:17:34Z",
-          "title": "Labeled issue #6883 - pending triage",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6883",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "Audatic07",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/167913271?v=4",
@@ -1446,11 +1363,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/181594189?v=4",
       "role": "Contributor",
-      "total_points": 17,
+      "total_points": 19,
       "activity_breakdown": {
         "PR opened": {
-          "count": 1,
-          "points": 2
+          "count": 2,
+          "points": 4
         },
         "PR merged": {
           "count": 2,
@@ -1467,12 +1384,24 @@
       },
       "daily_activity": [
         {
+          "date": "2026-02-19",
+          "count": 1,
+          "points": 2
+        },
+        {
           "date": "2026-02-15",
           "count": 6,
           "points": 17
         }
       ],
       "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-19T16:39:47Z",
+          "title": "feat - Enhance contest card UI and update related test",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6994",
+          "points": 2
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-02-15T16:30:59Z",
@@ -1684,82 +1613,75 @@
       ]
     },
     {
-      "username": "fasiho7",
+      "username": "himanshujays29",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/181547265?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/158487820?v=4",
       "role": "Contributor",
-      "total_points": 14,
+      "total_points": 15,
       "activity_breakdown": {
+        "PR merged": {
+          "count": 2,
+          "points": 10
+        },
         "PR opened": {
-          "count": 7,
-          "points": 14
+          "count": 1,
+          "points": 2
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
         }
       },
       "daily_activity": [
         {
           "date": "2026-02-15",
-          "count": 2,
-          "points": 4
+          "count": 1,
+          "points": 5
         },
         {
-          "date": "2026-02-14",
-          "count": 3,
-          "points": 6
-        },
-        {
-          "date": "2026-02-12",
-          "count": 2,
-          "points": 4
+          "date": "2026-02-13",
+          "count": 4,
+          "points": 10
         }
       ],
       "activities": [
         {
-          "type": "PR opened",
-          "occured_at": "2026-02-15T20:20:57Z",
-          "title": "Feature/hide panels view options",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6912",
-          "points": 2
+          "type": "PR merged",
+          "occured_at": "2026-02-15T13:48:53Z",
+          "title": "Fix broken LMS integration documentation link on New Assignment page",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6890",
+          "points": 5
         },
         {
           "type": "PR opened",
-          "occured_at": "2026-02-15T19:18:57Z",
-          "title": "Feature/comprehensive circuit documentation",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6911",
+          "occured_at": "2026-02-13T16:44:41Z",
+          "title": "Fix broken LMS integration documentation link on New Assignment page",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6890",
           "points": 2
         },
         {
-          "type": "PR opened",
-          "occured_at": "2026-02-14T19:13:09Z",
-          "title": "Feature/circuit elements documentation",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6895",
-          "points": 2
+          "type": "PR merged",
+          "occured_at": "2026-02-13T05:19:37Z",
+          "title": "Fix broken documentation link on New Group page",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6884",
+          "points": 5
         },
         {
-          "type": "PR opened",
-          "occured_at": "2026-02-14T18:46:00Z",
-          "title": "Fix/footer position notifications",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6894",
-          "points": 2
+          "type": "Issue opened",
+          "occured_at": "2026-02-13T16:43:42Z",
+          "title": "🐞 Bug - Broken LMS Integration Documentation Link on New Assignment Page",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6889",
+          "points": 1
         },
         {
-          "type": "PR opened",
-          "occured_at": "2026-02-14T18:39:44Z",
-          "title": "Feat/modern contributors page",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6893",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-12T10:18:50Z",
-          "title": "Feat/notifications pagination",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6880",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-12T10:09:20Z",
-          "title": "Feat/footer revamp",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6879",
+          "type": "Issue labeled",
+          "occured_at": "2026-02-13T16:43:43Z",
+          "title": "Labeled issue #6889 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6889",
           "points": 2
         }
       ]
@@ -1945,6 +1867,93 @@
       ]
     },
     {
+      "username": "Prince-ES",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/173123079?v=4",
+      "role": "Contributor",
+      "total_points": 11,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 3,
+          "points": 6
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "Issue labeled": {
+          "count": 2,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-02-19",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-02-18",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-02-17",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-02-16",
+          "count": 3,
+          "points": 5
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-19T06:59:06Z",
+          "title": "Add controller specs for ExploreController feature flag enforcement",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6991",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-18T05:46:40Z",
+          "title": "test - correct typos in search_controller_spec",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6981",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-17T08:49:58Z",
+          "title": "Fix color contrast and keyboard accessibility for dropdown items",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6960",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-16T17:05:12Z",
+          "title": "🐞 Bug - Inconsistent keyboard navigation behavior in top navigation menus",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6917",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-16T17:05:13Z",
+          "title": "Labeled issue #6917 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6917",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-16T17:05:14Z",
+          "title": "Labeled issue #6917 - pending triage",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6917",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "ShinichiShi",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
@@ -1977,6 +1986,68 @@
           "title": "fix - add popup text if user not logged in",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6296",
           "points": 5
+        }
+      ]
+    },
+    {
+      "username": "fasiho7",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/181547265?v=4",
+      "role": "Contributor",
+      "total_points": 10,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 5,
+          "points": 10
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-02-15",
+          "count": 2,
+          "points": 4
+        },
+        {
+          "date": "2026-02-14",
+          "count": 3,
+          "points": 6
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-15T20:20:57Z",
+          "title": "Feature/hide panels view options",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6912",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-15T19:18:57Z",
+          "title": "Feature/comprehensive circuit documentation",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6911",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-14T19:13:09Z",
+          "title": "Feature/circuit elements documentation",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6895",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-14T18:46:00Z",
+          "title": "Fix/footer position notifications",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6894",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-14T18:39:44Z",
+          "title": "Feat/modern contributors page",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6893",
+          "points": 2
         }
       ]
     },
@@ -2046,19 +2117,19 @@
       ]
     },
     {
-      "username": "Prince-ES",
+      "username": "Harkeerat24",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/173123079?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/225462441?v=4",
       "role": "Contributor",
-      "total_points": 9,
+      "total_points": 8,
       "activity_breakdown": {
         "PR opened": {
-          "count": 2,
-          "points": 4
+          "count": 1,
+          "points": 2
         },
         "Issue opened": {
-          "count": 1,
-          "points": 1
+          "count": 2,
+          "points": 2
         },
         "Issue labeled": {
           "count": 2,
@@ -2067,55 +2138,103 @@
       },
       "daily_activity": [
         {
-          "date": "2026-02-18",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-02-17",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-02-16",
-          "count": 3,
-          "points": 5
+          "date": "2026-02-19",
+          "count": 5,
+          "points": 8
         }
       ],
       "activities": [
         {
           "type": "PR opened",
-          "occured_at": "2026-02-18T05:46:40Z",
-          "title": "test - correct typos in search_controller_spec",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6981",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-17T08:49:58Z",
-          "title": "Fix color contrast and keyboard accessibility for dropdown items",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6960",
+          "occured_at": "2026-02-19T19:37:59Z",
+          "title": "fix - make search icon keyboard accessible and auto-focus input on activation",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6996",
           "points": 2
         },
         {
           "type": "Issue opened",
-          "occured_at": "2026-02-16T17:05:12Z",
-          "title": "🐞 Bug - Inconsistent keyboard navigation behavior in top navigation menus",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6917",
+          "occured_at": "2026-02-19T13:19:39Z",
+          "title": "🐞 Bug - Enter Key Not Working in Header Dropdown Menus",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6993",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-19T12:59:29Z",
+          "title": "🐞 Bug - Search icon not focusable with Tab and focus not moving to search input",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6992",
           "points": 1
         },
         {
           "type": "Issue labeled",
-          "occured_at": "2026-02-16T17:05:13Z",
-          "title": "Labeled issue #6917 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6917",
+          "occured_at": "2026-02-19T12:59:31Z",
+          "title": "Labeled issue #6992 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6992",
           "points": 2
         },
         {
           "type": "Issue labeled",
-          "occured_at": "2026-02-16T17:05:14Z",
-          "title": "Labeled issue #6917 - pending triage",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6917",
+          "occured_at": "2026-02-19T13:19:40Z",
+          "title": "Labeled issue #6993 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6993",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "hanzalahwaheed",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/101456741?v=4",
+      "role": "Contributor",
+      "total_points": 6,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
+        "Issue opened": {
+          "count": 2,
+          "points": 2
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-02-19",
+          "count": 4,
+          "points": 6
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-19T04:59:50Z",
+          "title": "Update CircuitVerse YouTube Channel link",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/527",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-19T21:06:07Z",
+          "title": "Feature - Auto select input sections for modal popups",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/971",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-19T04:58:30Z",
+          "title": "docs - update youtube channel link",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/526",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-19T21:06:08Z",
+          "title": "Labeled issue #971 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/971",
           "points": 2
         }
       ]
@@ -2248,35 +2367,6 @@
       ]
     },
     {
-      "username": "JatsuAkaYashvant",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/146776812?v=4",
-      "role": "Maintainer",
-      "total_points": 2,
-      "activity_breakdown": {
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-02-12",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-12T07:20:02Z",
-          "title": "Labeled issue #489 - documentation",
-          "link": "https://github.com/CircuitVerse/mobile-app/issues/489",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "s1dhu98",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/239673730?v=4",
@@ -2342,35 +2432,6 @@
       ]
     },
     {
-      "username": "vivekyadav-3",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/210567772?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-02-12",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-12T15:23:34Z",
-          "title": "fix - ensure complete text highlighting on dropdown item hover",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6881",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "Mahaboobunnisa123",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/179287447?v=4",
@@ -2424,6 +2485,35 @@
           "occured_at": "2026-02-14T07:38:31Z",
           "title": "feat - add encrypted token storage and proper logout handling",
           "link": "https://github.com/CircuitVerse/mobile-app/pull/492",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "harshit-ht22",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/197410420?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-02-19",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-19T19:35:55Z",
+          "title": "Fix notification message for deleted user/project (#4904)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6995",
           "points": 2
         }
       ]
