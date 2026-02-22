@@ -657,7 +657,7 @@ export default function LeaderboardView({
                         variant="ghost"
                         size="sm"
                         onClick={clearFilters}
-                        className="h-9 hover:bg-[#50B78B]/20 cursor-pointer"
+                        className="h-9 hover:bg-[#50B78B]/20 hover:text-[#50B78B] hover:shadow-[0_0_8px_rgba(80,183,139,0.3)] active:bg-[#50B78B]/30 active:text-[#50B78B] active:shadow-[0_0_12px_rgba(80,183,139,0.5)] transition-all duration-200 cursor-pointer"
                       >
                         <X className="h-4 w-4 mr-1" />
                         Clear
@@ -873,7 +873,7 @@ export default function LeaderboardView({
                   <Button
                     variant="outline"
                     onClick={clearFilters}
-                    className="border-[#50B78B]/30 hover:bg-[#50B78B]/20 hover:text-[#50B78B]"
+                    className="border-[#50B78B]/30 hover:bg-[#50B78B]/20 hover:text-[#50B78B] hover:shadow-[0_0_8px_rgba(80,183,139,0.3)] active:bg-[#50B78B]/30 active:text-[#50B78B] active:border-[#50B78B]/50 active:shadow-[0_0_12px_rgba(80,183,139,0.5)] transition-all duration-200"
                   >
                     <X className="h-4 w-4 mr-2" />
                     Clear Filters
