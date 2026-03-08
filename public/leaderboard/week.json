@@ -1,855 +1,29 @@
 {
   "period": "week",
-  "updatedAt": 1772845822125,
-  "startDate": "2026-02-28",
-  "endDate": "2026-03-07",
+  "updatedAt": 1772932558597,
+  "startDate": "2026-03-01",
+  "endDate": "2026-03-08",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
-    {
-      "username": "tachyons",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
-      "role": "Maintainer",
-      "total_points": 114,
-      "activity_breakdown": {
-        "Issue closed": {
-          "count": 114,
-          "points": 114
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-03-06",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-03-02",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-02-28",
-          "count": 112,
-          "points": 112
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-03-06T16:57:08Z",
-          "title": "Closed issue #748 - Update TestBench Page",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/748",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-03-02T16:30:57Z",
-          "title": "Closed issue #839 - 🐞 Bug - Unable to delete test groups in Testbench Creator",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/839",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:47Z",
-          "title": "Closed issue #7067 - Errno - - EPIPE - Broken pipe @ io_writev - <STDERR> (Errno - - EPIPE)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7067",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:46Z",
-          "title": "Closed issue #7065 - RedisClient - - CommandError - MISCONF Redis is configured to save RDB snapshots, but it's currently unable to persist to disk. Commands that may modify the data set are disabled, because this instance is configured to report errors during writes if RDB snapshotting fails (stop-write...",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7065",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:47Z",
-          "title": "Closed issue #7068 - ActionView - - Template - - Error - connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - could not write init file - No space left on device (ActionView - - Template - - Error)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7068",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:47Z",
-          "title": "Closed issue #7066 - ActiveRecord - - StatementInvalid - PG - - DiskFull - ERROR - could not extend file \"base/16887/16894\" - No space left on device (ActiveRecord - - StatementInvalid)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7066",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:46Z",
-          "title": "Closed issue #7064 - ActiveRecord - - StatementInvalid - safely PG - - DiskFull - ERROR - could not extend file \"base/16887/16912.3\" - No space left on device (ActiveRecord - - StatementInvalid)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7064",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:48Z",
-          "title": "Closed issue #7069 - ActionView - - Template - - Error - PG - - DiskFull - ERROR - could not write init file - No space left on device (ActionView - - Template - - Error)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7069",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:43Z",
-          "title": "Closed issue #7050 - ActiveRecord - - ConnectionNotEstablished - connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - could not write init file - No space left on device (ActiveRecord - - ConnectionNotEstablished)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7050",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:46Z",
-          "title": "Closed issue #7063 - Errno - - ENOSPC - No space left on device @ dir_s_mkdir - /home/ubuntu/main/CircuitVerse/tmp/1771995456-447212002435837-0490-3151 (Errno - - ENOSPC)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7063",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:45Z",
-          "title": "Closed issue #7062 - RedisClient - - CommandError - MISCONF Redis is configured to save RDB snapshots, but it's currently unable to persist to disk. Commands that may modify the data set are disabled, because this instance is configured to report errors during writes if RDB snapshotting fails (stop-write...",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7062",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:43Z",
-          "title": "Closed issue #7056 - Errno - - ENOSPC - No space left on device - copy_file_range (Errno - - ENOSPC)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7056",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:44Z",
-          "title": "Closed issue #7059 - Errno - - ENOSPC - No space left on device @ io_write - /tmp/ActiveStorage-2645825-20260225-1478963-df09ba.jpeg (Errno - - ENOSPC)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7059",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:43Z",
-          "title": "Closed issue #7051 - ActiveRecord - - ConnectionNotEstablished - connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - could not write init file - No space left on device (ActiveRecord - - ConnectionNotEstablished)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7051",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:44Z",
-          "title": "Closed issue #7058 - Errno - - ENOSPC - No space left on device @ io_write - tmp/preview_17719954245198252.jpeg (Errno - - ENOSPC)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7058",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:45Z",
-          "title": "Closed issue #7061 - RedisClient - - CommandError - MISCONF Redis is configured to save RDB snapshots, but it's currently unable to persist to disk. Commands that may modify the data set are disabled, because this instance is configured to report errors during writes if RDB snapshotting fails (stop-write...",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7061",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:45Z",
-          "title": "Closed issue #7060 - Errno - - ENOSPC - No space left on device @ io_write - /tmp/puma20260225-1478961-pr6ebc (Errno - - ENOSPC)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7060",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:44Z",
-          "title": "Closed issue #7057 - ActiveRecord - - StatementInvalid - safely PG - - DiskFull - ERROR - could not extend file \"base/16887/16912.3\" - No space left on device (ActiveRecord - - StatementInvalid)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7057",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:03Z",
-          "title": "Closed issue #7041 - ActiveRecord - - ConnectionNotEstablished - connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - could not write init file - No space left on device (ActiveRecord - - ConnectionNotEstablished)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7041",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:42Z",
-          "title": "Closed issue #7048 - ActiveRecord - - ConnectionNotEstablished - safely connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - could not write init file - No space left on device (ActiveRecord - - ConnectionNotEstablished)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7048",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:39Z",
-          "title": "Closed issue #7040 - ActiveRecord - - ConnectionNotEstablished - connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - could not write init file - No space left on device (ActiveRecord - - ConnectionNotEstablished)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7040",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:40Z",
-          "title": "Closed issue #7044 - ActiveRecord - - ConnectionNotEstablished - connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - could not write init file - No space left on device (ActiveRecord - - ConnectionNotEstablished)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7044",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:41Z",
-          "title": "Closed issue #7045 - ActionView - - Template - - Error - connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - could not write init file - No space left on device (ActionView - - Template - - Error)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7045",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:40Z",
-          "title": "Closed issue #7042 - ActiveRecord - - ConnectionNotEstablished - safely connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - could not write init file - No space left on device (ActiveRecord - - ConnectionNotEstablished)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7042",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:42Z",
-          "title": "Closed issue #7049 - ActiveRecord - - ConnectionNotEstablished - connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - could not write init file - No space left on device (ActiveRecord - - ConnectionNotEstablished)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7049",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:40Z",
-          "title": "Closed issue #7043 - ActiveRecord - - ConnectionNotEstablished - safely connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - could not write init file - No space left on device (ActiveRecord - - ConnectionNotEstablished)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7043",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:41Z",
-          "title": "Closed issue #7046 - ActiveRecord - - ConnectionNotEstablished - safely connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - could not write init file - No space left on device (ActiveRecord - - ConnectionNotEstablished)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7046",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:42Z",
-          "title": "Closed issue #7047 - ActiveRecord - - ConnectionNotEstablished - connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - could not write init file - No space left on device (ActiveRecord - - ConnectionNotEstablished)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7047",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:01Z",
-          "title": "Closed issue #7035 - Errno - - EPIPE - Broken pipe @ io_writev - <STDERR> (Errno - - EPIPE)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7035",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:00Z",
-          "title": "Closed issue #7032 - RedisClient - - CommandError - MISCONF Redis is configured to save RDB snapshots, but it's currently unable to persist to disk. Commands that may modify the data set are disabled, because this instance is configured to report errors during writes if RDB snapshotting fails (stop-write...",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7032",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:01Z",
-          "title": "Closed issue #7034 - ActiveRecord - - StatementInvalid - safely PG - - DiskFull - ERROR - could not extend file \"base/16887/16912.3\" - No space left on device (ActiveRecord - - StatementInvalid)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7034",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:00Z",
-          "title": "Closed issue #7033 - ActiveRecord - - StatementInvalid - safely PG - - DiskFull - ERROR - could not extend file \"base/16887/16912.3\" - No space left on device (ActiveRecord - - StatementInvalid)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7033",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:00Z",
-          "title": "Closed issue #7031 - ActiveRecord - - StatementInvalid - safely PG - - DiskFull - ERROR - could not extend file \"base/16887/16912.3\" - No space left on device (ActiveRecord - - StatementInvalid)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7031",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:01Z",
-          "title": "Closed issue #7036 - ActiveRecord - - ConnectionNotEstablished - connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - could not write init file - No space left on device (ActiveRecord - - ConnectionNotEstablished)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7036",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:02Z",
-          "title": "Closed issue #7039 - Errno - - EPIPE - Broken pipe @ io_writev - <STDERR> (Errno - - EPIPE)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7039",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:59Z",
-          "title": "Closed issue #7030 - Errno - - ENOSPC - No space left on device @ io_write - /tmp/puma20260224-3671458-2jdcrx (Errno - - ENOSPC)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7030",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:02Z",
-          "title": "Closed issue #7038 - ActiveRecord - - ConnectionNotEstablished - connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - could not write init file - No space left on device (ActiveRecord - - ConnectionNotEstablished)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7038",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:02Z",
-          "title": "Closed issue #7037 - ActiveRecord - - ConnectionNotEstablished - safely connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - could not write init file - No space left on device (ActiveRecord - - ConnectionNotEstablished)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7037",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:57Z",
-          "title": "Closed issue #6784 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6784",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:58Z",
-          "title": "Closed issue #6800 - Pundit - - NotDefinedError - unable to find policy `NilClassPolicy` for `nil` (Pundit - - NotDefinedError)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6800",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:58Z",
-          "title": "Closed issue #6801 - NoMethodError - undefined method `id' for nil (NoMethodError)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6801",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:59Z",
-          "title": "Closed issue #6817 - Pundit - - NotDefinedError - unable to find policy `NilClassPolicy` for `nil` (Pundit - - NotDefinedError)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6817",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:59Z",
-          "title": "Closed issue #6809 - ActionView - - MissingTemplate - Missing template simulator/edit, application/edit with { - locale=> - en, - formats=> - json, - variants=>, - handlers=> - raw, - erb, - html, - builder, - ruby, - coffee, - jbuilder}. (ActionView - - MissingTemplate)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6809",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:57Z",
-          "title": "Closed issue #6739 - Aws - - SESV2 - - Errors - - BadRequestException - Missing final '@domain' (Aws - - SESV2 - - Errors - - BadRequestException)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6739",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:58Z",
-          "title": "Closed issue #6802 - NoMethodError - undefined method `name' for nil (NoMethodError)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6802",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:37:00Z",
-          "title": "Closed issue #7016 - Feature Add Email Domain Restriction for Group Invite Links",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7016",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:16Z",
-          "title": "Closed issue #6723 - Slow DB Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6723",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:15Z",
-          "title": "Closed issue #6719 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6719",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:57Z",
-          "title": "Closed issue #6727 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6727",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:56Z",
-          "title": "Closed issue #6726 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6726",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:31:56Z",
-          "title": "Closed issue #6725 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6725",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:15Z",
-          "title": "Closed issue #6716 - ActiveRecord - - QueryCanceled - PG - - QueryCanceled - ERROR - canceling statement due to statement timeout (ActiveRecord - - QueryCanceled)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6716",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:16Z",
-          "title": "Closed issue #6724 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6724",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:15Z",
-          "title": "Closed issue #6715 - ActiveRecord - - QueryCanceled - PG - - QueryCanceled - ERROR - canceling statement due to statement timeout (ActiveRecord - - QueryCanceled)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6715",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:14Z",
-          "title": "Closed issue #6712 - ActiveRecord - - QueryCanceled - PG - - QueryCanceled - ERROR - canceling statement due to statement timeout (ActiveRecord - - QueryCanceled)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6712",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:15Z",
-          "title": "Closed issue #6722 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6722",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:35Z",
-          "title": "Closed issue #6706 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6706",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:36Z",
-          "title": "Closed issue #6708 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6708",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:34Z",
-          "title": "Closed issue #6700 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6700",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:34Z",
-          "title": "Closed issue #6702 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6702",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:35Z",
-          "title": "Closed issue #6704 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6704",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:14Z",
-          "title": "Closed issue #6710 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6710",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:14Z",
-          "title": "Closed issue #6711 - Slow DB Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6711",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:34Z",
-          "title": "Closed issue #6701 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6701",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:13Z",
-          "title": "Closed issue #6709 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6709",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:35Z",
-          "title": "Closed issue #6707 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6707",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:32Z",
-          "title": "Closed issue #6694 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6694",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:30Z",
-          "title": "Closed issue #6689 - Endpoint Regression",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6689",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:31Z",
-          "title": "Closed issue #6692 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6692",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:33Z",
-          "title": "Closed issue #6696 - Slow DB Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6696",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:33Z",
-          "title": "Closed issue #6697 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6697",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:30Z",
-          "title": "Closed issue #6688 - Endpoint Regression",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6688",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:31Z",
-          "title": "Closed issue #6690 - Endpoint Regression",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6690",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:33Z",
-          "title": "Closed issue #6695 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6695",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:31Z",
-          "title": "Closed issue #6691 - Endpoint Regression",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6691",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:32Z",
-          "title": "Closed issue #6693 - ActionView - - Template - - Error - regexp match timeout (ActionView - - Template - - Error)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6693",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:28Z",
-          "title": "Closed issue #6682 - ActiveRecord - - QueryCanceled - PG - - QueryCanceled - ERROR - canceling statement due to statement timeout (ActiveRecord - - QueryCanceled)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6682",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:29Z",
-          "title": "Closed issue #6685 - Slow DB Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6685",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:27Z",
-          "title": "Closed issue #6679 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6679",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:29Z",
-          "title": "Closed issue #6683 - ActiveRecord - - QueryCanceled - PG - - QueryCanceled - ERROR - canceling statement due to statement timeout (ActiveRecord - - QueryCanceled)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6683",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:57Z",
-          "title": "Closed issue #6678 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6678",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:57Z",
-          "title": "Closed issue #6677 - ActiveRecord - - QueryCanceled - PG - - QueryCanceled - ERROR - canceling statement due to statement timeout (ActiveRecord - - QueryCanceled)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6677",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:28Z",
-          "title": "Closed issue #6680 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6680",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:28Z",
-          "title": "Closed issue #6681 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6681",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:30Z",
-          "title": "Closed issue #6687 - Endpoint Regression",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6687",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:29Z",
-          "title": "Closed issue #6684 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6684",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:55Z",
-          "title": "Closed issue #6632 - ActionView - - Template - - Error - PG - - QueryCanceled - ERROR - canceling statement due to statement timeout (ActionView - - Template - - Error)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6632",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:55Z",
-          "title": "Closed issue #6630 - HTTP - - ConnectionError - failed to connect - Connection refused - connect(2) for \"127.0.0.1\" port 3040 (HTTP - - ConnectionError)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6630",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:53Z",
-          "title": "Closed issue #6594 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6594",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:54Z",
-          "title": "Closed issue #6605 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6605",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:56Z",
-          "title": "Closed issue #6676 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6676",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:56Z",
-          "title": "Closed issue #6665 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6665",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:54Z",
-          "title": "Closed issue #6612 - ArgumentError - string contains null byte (ArgumentError)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6612",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:54Z",
-          "title": "Closed issue #6596 - ActionView - - Template - - Error - No route matches { - action=>\"show\", - controller=>\"tags\", - tag=>\"\"}, missing required keys - - tag (ActionView - - Template - - Error)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6596",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:55Z",
-          "title": "Closed issue #6629 - HTTP - - ConnectionError - error reading from socket - Connection reset by peer (HTTP - - ConnectionError)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6629",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:56Z",
-          "title": "Closed issue #6637 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6637",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:50Z",
-          "title": "Closed issue #6581 - ActiveRecord - - StatementInvalid - PG - - ProgramLimitExceeded - ERROR - index row size 2800 exceeds btree version 4 maximum 2704 for index \"index_projects_on_slug_and_author\" (ActiveRecord - - StatementInvalid)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6581",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:51Z",
-          "title": "Closed issue #6584 - ActiveRecord - - StatementInvalid - safely PG - - CharacterNotInRepertoire - ERROR - invalid byte sequence for encoding \"UTF8\" - 0xc0 0xa7 (ActiveRecord - - StatementInvalid)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6584",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:52Z",
-          "title": "Closed issue #6588 - ActiveRecord - - StatementInvalid - safely PG - - CharacterNotInRepertoire - ERROR - invalid byte sequence for encoding \"UTF8\" - 0xc0 0xa7 (ActiveRecord - - StatementInvalid)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6588",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:50Z",
-          "title": "Closed issue #6568 - ArgumentError - expected params - destination - to_addresses to be an Array, got class String instead. (ArgumentError)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6568",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:53Z",
-          "title": "Closed issue #6591 - ActiveRecord - - StatementInvalid - safely PG - - CharacterNotInRepertoire - ERROR - invalid byte sequence for encoding \"UTF8\" - 0xc0 0xa7 (ActiveRecord - - StatementInvalid)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6591",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:53Z",
-          "title": "Closed issue #6590 - ActiveRecord - - StatementInvalid - safely PG - - CharacterNotInRepertoire - ERROR - invalid byte sequence for encoding \"UTF8\" - 0xc0 0xa7 (ActiveRecord - - StatementInvalid)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6590",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:52Z",
-          "title": "Closed issue #6587 - ActiveRecord - - StatementInvalid - safely PG - - CharacterNotInRepertoire - ERROR - invalid byte sequence for encoding \"UTF8\" - 0xc0 0xa7 (ActiveRecord - - StatementInvalid)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6587",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:51Z",
-          "title": "Closed issue #6583 - ArgumentError - invalid value for Integer() - \"JJJ2QQQ\" (ArgumentError)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6583",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:51Z",
-          "title": "Closed issue #6585 - ActiveRecord - - StatementInvalid - safely PG - - CharacterNotInRepertoire - ERROR - invalid byte sequence for encoding \"UTF8\" - 0xc0 0xa7 (ActiveRecord - - StatementInvalid)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6585",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:52Z",
-          "title": "Closed issue #6586 - ActiveRecord - - StatementInvalid - safely PG - - CharacterNotInRepertoire - ERROR - invalid byte sequence for encoding \"UTF8\" - 0xc0 0xa7 (ActiveRecord - - StatementInvalid)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6586",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:33:06Z",
-          "title": "Closed issue #6513 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6513",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:33:04Z",
-          "title": "Closed issue #6477 - ActionView - - Template - - Error - PG - - QueryCanceled - ERROR - canceling statement due to statement timeout (ActionView - - Template - - Error)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6477",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:49Z",
-          "title": "Closed issue #6526 - ActiveRecord - - QueryCanceled - PG - - QueryCanceled - ERROR - canceling statement due to statement timeout (ActiveRecord - - QueryCanceled)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6526",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:33:05Z",
-          "title": "Closed issue #6488 - NoMethodError - undefined method `author' for nil (NoMethodError)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6488",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:32:50Z",
-          "title": "Closed issue #6529 - NoMethodError - undefined method `' for nil (NoMethodError)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6529",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:33:06Z",
-          "title": "Closed issue #6514 - N+1 Query",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6514",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:33:05Z",
-          "title": "Closed issue #6503 - Encoding - - CompatibilityError - incompatible character encodings - UTF-16LE and UTF-8 (Encoding - - CompatibilityError)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6503",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-28T01:33:05Z",
-          "title": "Closed issue #6512 - ArgumentError - invalid value for Integer() - \"2*if(now()=sysdate(),sleep(15),0)\" (ArgumentError)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6512",
-          "points": 1
-        }
-      ]
-    },
     {
       "username": "Radhikaa-chauhan",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/148184013?v=4",
       "role": "Contributor",
-      "total_points": 21,
+      "total_points": 25,
       "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
+        "Issue labeled": {
+          "count": 6,
+          "points": 12
+        },
         "Issue opened": {
           "count": 1,
           "points": 1
-        },
-        "Issue labeled": {
-          "count": 5,
-          "points": 10
         },
         "PR merged": {
           "count": 2,
@@ -857,6 +31,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-03-07",
+          "count": 2,
+          "points": 4
+        },
         {
           "date": "2026-03-06",
           "count": 5,
@@ -874,6 +53,20 @@
         }
       ],
       "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-07T15:34:33Z",
+          "title": "feat(verilog) - Add Verilog output terminal in v1 and improve visibility with close button",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1004",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-03-07T15:55:42Z",
+          "title": "Labeled issue #1003 - issue-metadata-needs-fix",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1003",
+          "points": 2
+        },
         {
           "type": "Issue opened",
           "occured_at": "2026-03-06T21:26:32Z",
@@ -1202,6 +395,95 @@
       ]
     },
     {
+      "username": "Harkeerat24",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/225462441?v=4",
+      "role": "Contributor",
+      "total_points": 11,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 3,
+          "points": 3
+        },
+        "Issue labeled": {
+          "count": 2,
+          "points": 4
+        },
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-03-07",
+          "count": 4,
+          "points": 6
+        },
+        {
+          "date": "2026-03-06",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-03-05",
+          "count": 2,
+          "points": 3
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-07T17:05:45Z",
+          "title": "fix - consolidate typo fixes",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1007",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-07T16:25:33Z",
+          "title": "Feature - Add JSON preview and copy to clipboard in Export as .cv File dialog",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1005",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-03-07T16:25:34Z",
+          "title": "Labeled issue #1005 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1005",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-03-07T16:25:35Z",
+          "title": "Labeled issue #1005 - pending triage",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1005",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-06T13:48:56Z",
+          "title": "Fix/consolidate typo fixes",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1000",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-05T15:25:21Z",
+          "title": "Feat - add preview in export dialog + fix clipboard",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/999",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-05T15:09:07Z",
+          "title": "feat - add a preview and copy to clipboard in export as file",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/998",
+          "points": 1
+        }
+      ]
+    },
+    {
       "username": "Me-Priyank",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/143987856?v=4",
@@ -1234,6 +516,95 @@
           "title": "fix(security) - prevent IDOR in StarsController",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6860",
           "points": 5
+        }
+      ]
+    },
+    {
+      "username": "s1dhu98",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/239673730?v=4",
+      "role": "Contributor",
+      "total_points": 10,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        },
+        "Issue opened": {
+          "count": 4,
+          "points": 4
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-03-08",
+          "count": 3,
+          "points": 5
+        },
+        {
+          "date": "2026-03-07",
+          "count": 3,
+          "points": 4
+        },
+        {
+          "date": "2026-03-02",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-08T00:20:06Z",
+          "title": "ci - skip tauri macos aarch64 build on pull requests",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1010",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-07T23:29:45Z",
+          "title": "Add condition to skip build on specific PRs",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1008",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-08T00:41:30Z",
+          "title": "Feature - Live Theme Editor with Real-time Customization",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1011",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-07T23:34:32Z",
+          "title": "Fix - Tauri DMG Build Failure on macOS aarch64 (Apple Silicon)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1009",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-07T10:04:19Z",
+          "title": "PR #900 - Ensure template compliance and resolve conflicts",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1003",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-03-08T00:41:31Z",
+          "title": "Labeled issue #1011 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1011",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-02T09:05:18Z",
+          "title": "feat - add Sunset Glow aesthetic theme",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/988",
+          "points": 1
         }
       ]
     },
@@ -1295,6 +666,81 @@
           "occured_at": "2026-03-02T21:07:38Z",
           "title": "fix(api) - correct circuit_data unavailable error message",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7110",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "naman79820",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
+      "role": "Contributor",
+      "total_points": 9,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        },
+        "Issue labeled": {
+          "count": 2,
+          "points": 4
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-03-07",
+          "count": 2,
+          "points": 4
+        },
+        {
+          "date": "2026-03-06",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-03-01",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-07T16:56:34Z",
+          "title": "Resolve v1 drag-and-drop functionality by fixing module initialization",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1006",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-03-07T21:29:57Z",
+          "title": "Labeled issue #1007 - issue-metadata-needs-fix",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1007",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-06T10:57:57Z",
+          "title": "Feature - Add file storage management resources to the Avo admin dashboard.",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7132",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-03-06T10:57:58Z",
+          "title": "Labeled issue #7132 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7132",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-01T16:24:50Z",
+          "title": "feat(avo) - Add Contests & Submissions resources (Submission, SubmissionVote, ContestWinner)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7105",
           "points": 2
         }
       ]
@@ -1375,81 +821,6 @@
           "occured_at": "2026-03-02T08:07:45Z",
           "title": "fix - resolve ParameterMissing in promote/demote member modals (#6913)",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7109",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "naman79820",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
-      "role": "Contributor",
-      "total_points": 8,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        },
-        "Issue labeled": {
-          "count": 2,
-          "points": 4
-        },
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-03-06",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-03-01",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-02-28",
-          "count": 2,
-          "points": 3
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-03-06T10:57:57Z",
-          "title": "Feature - Add file storage management resources to the Avo admin dashboard.",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7132",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-03-06T10:57:58Z",
-          "title": "Labeled issue #7132 - 🌟 feature",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7132",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-01T16:24:50Z",
-          "title": "feat(avo) - Add Contests & Submissions resources (Submission, SubmissionVote, ContestWinner)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7105",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-28T15:18:43Z",
-          "title": "Feature Avo Admin - Add Contest Submissions and Voting System Resources",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7099",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-28T15:18:44Z",
-          "title": "Labeled issue #7099 - 🌟 feature",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7099",
           "points": 2
         }
       ]
@@ -1665,109 +1036,6 @@
       ]
     },
     {
-      "username": "himanshujays29",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/158487820?v=4",
-      "role": "Contributor",
-      "total_points": 5,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-02-28",
-          "count": 3,
-          "points": 5
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-28T17:11:58Z",
-          "title": "Add documentation for Force Gate component",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/532",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-28T16:54:48Z",
-          "title": "Add documentation for Force Gate component",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/530",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-28T16:55:12Z",
-          "title": "Labeled issue #530 - enhancement",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/530",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "Harkeerat24",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/225462441?v=4",
-      "role": "Contributor",
-      "total_points": 5,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-03-06",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-03-05",
-          "count": 2,
-          "points": 3
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-06T13:48:56Z",
-          "title": "Fix/consolidate typo fixes",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1000",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-05T15:25:21Z",
-          "title": "Feat - add preview in export dialog + fix clipboard",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/999",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-03-05T15:09:07Z",
-          "title": "feat - add a preview and copy to clipboard in export as file",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/998",
-          "points": 1
-        }
-      ]
-    },
-    {
       "username": "Saniya-r-Shaikh",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/194808393?v=4",
@@ -1920,35 +1188,6 @@
       ]
     },
     {
-      "username": "Asrani-Aman",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/96644946?u=0a63041bdb02009db73142160eb13f4fcd0a4209&v=4",
-      "role": "Maintainer",
-      "total_points": 4,
-      "activity_breakdown": {
-        "Review submitted": {
-          "count": 1,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-02-28",
-          "count": 1,
-          "points": 4
-        }
-      ],
-      "activities": [
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-02-28T08:02:55Z",
-          "title": "Review on PR #6466",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6466",
-          "points": 4
-        }
-      ]
-    },
-    {
       "username": "sahu-virendra-1908",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/177405578?v=4",
@@ -1996,82 +1235,6 @@
           "occured_at": "2026-03-01T14:42:39Z",
           "title": "High Priority - Potential memory leak due to undisposed StreamController in IbInteractionBuilder",
           "link": "https://github.com/CircuitVerse/mobile-app/issues/516",
-          "points": 1
-        }
-      ]
-    },
-    {
-      "username": "vishnusairam654",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/154720335?v=4",
-      "role": "Contributor",
-      "total_points": 4,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-02-28",
-          "count": 2,
-          "points": 4
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-28T07:59:57Z",
-          "title": "feat - add active state to navbar links for current page indication",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7096",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-28T06:50:30Z",
-          "title": "fix - describe your change closes #6331",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7095",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "SouparnaChatterjee",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/115988950?v=4",
-      "role": "Contributor",
-      "total_points": 3,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-02-28",
-          "count": 2,
-          "points": 3
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-28T17:17:06Z",
-          "title": "Docs/updates - Improve technical accuracy and clarity of Verilog documentation",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/533",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-28T17:10:15Z",
-          "title": "Improve technical accuracy and clarity of Verilog documentation",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/531",
           "points": 1
         }
       ]
@@ -2202,60 +1365,84 @@
       ]
     },
     {
-      "username": "vivekyadav-3",
+      "username": "tachyons",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/210567772?v=4",
-      "role": "Contributor",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
+      "role": "Maintainer",
       "total_points": 2,
       "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
+        "Issue closed": {
+          "count": 2,
           "points": 2
         }
       },
       "daily_activity": [
         {
-          "date": "2026-02-28",
+          "date": "2026-03-06",
           "count": 1,
-          "points": 2
+          "points": 1
+        },
+        {
+          "date": "2026-03-02",
+          "count": 1,
+          "points": 1
         }
       ],
       "activities": [
         {
-          "type": "PR opened",
-          "occured_at": "2026-02-28T12:59:14Z",
-          "title": "fix(ci) - correct input names for actions/first-interaction in greet.yml",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7097",
-          "points": 2
+          "type": "Issue closed",
+          "occured_at": "2026-03-06T16:57:08Z",
+          "title": "Closed issue #748 - Update TestBench Page",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/748",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-03-02T16:30:57Z",
+          "title": "Closed issue #839 - 🐞 Bug - Unable to delete test groups in Testbench Creator",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/839",
+          "points": 1
         }
       ]
     },
     {
-      "username": "harshitasingh108",
+      "username": "Nihal4777",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/218473176?v=4",
-      "role": "Contributor",
+      "avatar_url": "https://avatars.githubusercontent.com/u/65150640?v=4",
+      "role": "Maintainer",
       "total_points": 2,
       "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
+        "Issue closed": {
+          "count": 2,
           "points": 2
         }
       },
       "daily_activity": [
         {
-          "date": "2026-02-28",
+          "date": "2026-03-07",
           "count": 1,
-          "points": 2
+          "points": 1
+        },
+        {
+          "date": "2026-03-04",
+          "count": 1,
+          "points": 1
         }
       ],
       "activities": [
         {
-          "type": "PR opened",
-          "occured_at": "2026-02-28T05:00:19Z",
-          "title": "fix-homepage-lazy-loading",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7094",
-          "points": 2
+          "type": "Issue closed",
+          "occured_at": "2026-03-07T07:36:14Z",
+          "title": "Closed issue #886 - Remove debug console.log statements from production code",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/886",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-03-04T18:01:05Z",
+          "title": "Closed issue #822 - Missing help link for Two’s Complement component",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/822",
+          "points": 1
         }
       ]
     },
@@ -2313,64 +1500,6 @@
           "occured_at": "2026-03-04T10:51:42Z",
           "title": "Improve clarity and correctness in Chapter 4 (Muxandplex) documentation",
           "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/535",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "SantamRC",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/52635773?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-02-28",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-28T21:00:53Z",
-          "title": "Proof of Concept - Interactive Book Improvement",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/514",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "VineethChethula",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/151843956?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-02-28",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-28T15:05:44Z",
-          "title": "fix - align view button with project title by adding max-height (#4107)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7098",
           "points": 2
         }
       ]
@@ -2492,96 +1621,9 @@
       ]
     },
     {
-      "username": "rishi0864",
+      "username": "misscode323",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/146614889?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-02-28",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-28T17:00:45Z",
-          "title": "docs - improve README spacing for better readability",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7101",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "jyothiswaroopch",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/120001815?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-02-28",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-28T15:48:50Z",
-          "title": "style - fix indentation inconsistency in webpush.js.erb",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7100",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "Nihal4777",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/65150640?v=4",
-      "role": "Maintainer",
-      "total_points": 1,
-      "activity_breakdown": {
-        "Issue closed": {
-          "count": 1,
-          "points": 1
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-03-04",
-          "count": 1,
-          "points": 1
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-03-04T18:01:05Z",
-          "title": "Closed issue #822 - Missing help link for Two’s Complement component",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/822",
-          "points": 1
-        }
-      ]
-    },
-    {
-      "username": "s1dhu98",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/239673730?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/266264142?v=4",
       "role": "Contributor",
       "total_points": 1,
       "activity_breakdown": {
@@ -2592,7 +1634,7 @@
       },
       "daily_activity": [
         {
-          "date": "2026-03-02",
+          "date": "2026-03-07",
           "count": 1,
           "points": 1
         }
@@ -2600,9 +1642,9 @@
       "activities": [
         {
           "type": "Issue opened",
-          "occured_at": "2026-03-02T09:05:18Z",
-          "title": "feat - add Sunset Glow aesthetic theme",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/988",
+          "occured_at": "2026-03-07T09:58:05Z",
+          "title": ",",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1002",
           "points": 1
         }
       ]
