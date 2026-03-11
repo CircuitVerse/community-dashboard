@@ -189,7 +189,7 @@ export async function getLeaderboard(): Promise<UserEntry[]> {
   
   if (!data?.entries) return [];
 
-  return data.entries.sort((a: any, b: any) => b.total_points - a.total_points);
+  return (data.entries as UserEntry[]).sort((a, b) => b.total_points - a.total_points);
 }
 
 export async function getAllContributorsWithAvatars() {
@@ -219,12 +219,12 @@ import { calculateStreaks, DailyActivity } from "./streak-utils";
 export async function getContributorProfile(username: string) {
   const filePath = path.join(process.cwd(), "public", "leaderboard", "year.json");
   const defaultReturn = { 
-    contributor: null, 
-    activities: [], 
+    contributor: null as UserEntry | null, 
+    activities: [] as any[], 
     totalPoints: 0, 
-    activityByDate: {}, 
-    dailyActivity: [], 
-    stats: { currentStreak: 0, longestStreak: 0 } 
+    activityByDate: new Map<string, { count: number, points: number }>(), 
+    dailyActivity: [] as DailyActivity[], 
+    stats: { currentStreak: 0, longestStreak: 0, avgTurnAroundMs: 0 } 
   };
 
   if (!fs.existsSync(filePath)) return defaultReturn;
@@ -236,22 +236,22 @@ export async function getContributorProfile(username: string) {
     return defaultReturn;
   }
 
-  const contributor = data.entries.find((entry: any) => entry.username.toLowerCase() === username.toLowerCase());
+  const contributor = (data.entries as UserEntry[]).find((entry) => entry.username.toLowerCase() === username.toLowerCase());
 
   if (!contributor) return defaultReturn;
 
-  const activities = (contributor.activities || []).map((a: any) => ({
+  const activities = (contributor.activities || []).map((a) => ({
     ...a,
     occured_at: new Date(a.occured_at),
   }));
 
-  const dailyActivityMap = new Map();
-  activities.forEach((activity: any) => {
+  const dailyActivityMap = new Map<string, { count: number, points: number }>();
+  activities.forEach((activity) => {
     const date = new Date(activity.occured_at).toISOString().split("T")[0];
     if (!dailyActivityMap.has(date)) {
       dailyActivityMap.set(date, { count: 0, points: 0 });
     }
-    const dayData = dailyActivityMap.get(date);
+    const dayData = dailyActivityMap.get(date)!;
     dayData.count += 1;
     dayData.points += (activity.points || 0);
   });
@@ -268,12 +268,12 @@ export async function getContributorProfile(username: string) {
   const turnAroundTimes: number[] = [];
 
   // Sort activities chronologically to match opened before merged
-  const sortedActivities = [...activities].sort((a, b) => a.occured_at.getTime() - b.occured_at.getTime());
+  const sortedActivitiesTAT = [...activities].sort((a, b) => a.occured_at.getTime() - b.occured_at.getTime());
 
-  sortedActivities.forEach(activity => {
-    if (activity.type === "PR opened") {
+  sortedActivitiesTAT.forEach(activity => {
+    if (activity.type === "PR opened" && activity.link) {
       prOpenedMap.set(activity.link, activity.occured_at);
-    } else if (activity.type === "PR merged") {
+    } else if (activity.type === "PR merged" && activity.link) {
       const openedAt = prOpenedMap.get(activity.link);
       if (openedAt) {
         const diff = activity.occured_at.getTime() - openedAt.getTime();

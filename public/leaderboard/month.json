@@ -1,6 +1,6 @@
 {
   "period": "month",
-  "updatedAt": 1773191430374,
+  "updatedAt": 1773240440254,
   "startDate": "2026-02-09",
   "endDate": "2026-03-11",
   "hiddenRoles": [],
@@ -4647,18 +4647,23 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/212759472?v=4",
       "role": "Contributor",
-      "total_points": 25,
+      "total_points": 26,
       "activity_breakdown": {
+        "Issue opened": {
+          "count": 10,
+          "points": 10
+        },
         "PR opened": {
           "count": 8,
           "points": 16
-        },
-        "Issue opened": {
-          "count": 9,
-          "points": 9
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-03-11",
+          "count": 1,
+          "points": 1
+        },
         {
           "date": "2026-03-04",
           "count": 1,
@@ -4691,6 +4696,13 @@
         }
       ],
       "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-11T14:06:05Z",
+          "title": "Add Offline Reading Support for Interactive Books",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/528",
+          "points": 1
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-03-04T18:16:23Z",
@@ -5438,6 +5450,109 @@
       ]
     },
     {
+      "username": "mundele2004",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/183314359?v=4",
+      "role": "Contributor",
+      "total_points": 15,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 3,
+          "points": 6
+        },
+        "Issue opened": {
+          "count": 3,
+          "points": 3
+        },
+        "Issue labeled": {
+          "count": 3,
+          "points": 6
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-03-11",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-03-10",
+          "count": 5,
+          "points": 8
+        },
+        {
+          "date": "2026-03-09",
+          "count": 3,
+          "points": 5
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-11T03:17:32Z",
+          "title": "Fix windows lint script",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1024",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-10T11:51:51Z",
+          "title": "Fix v1 simulator base redirects",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1019",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-10T18:59:50Z",
+          "title": "🐞 Bug - Windows - npm run lint fails in PowerShell due to xargs usage",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1020",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-10T00:54:43Z",
+          "title": "🐞 Bug - Custom mount path breaks v1 redirect logic",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1017",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-03-10T18:59:52Z",
+          "title": "Labeled issue #1020 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1020",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-09T18:24:57Z",
+          "title": "Make simulator API base configurable",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1016",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-09T17:36:45Z",
+          "title": "🐞 Bug - Route-agnostic mounting breaks API requests (hard-coded /api/...)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1015",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-03-10T00:54:44Z",
+          "title": "Labeled issue #1017 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1017",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-03-09T17:36:46Z",
+          "title": "Labeled issue #1015 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1015",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "AkshitBitsian356u",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/223644928?v=4",
@@ -6012,97 +6127,6 @@
       ]
     },
     {
-      "username": "mundele2004",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/183314359?v=4",
-      "role": "Contributor",
-      "total_points": 13,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        },
-        "Issue opened": {
-          "count": 3,
-          "points": 3
-        },
-        "Issue labeled": {
-          "count": 3,
-          "points": 6
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-03-10",
-          "count": 5,
-          "points": 8
-        },
-        {
-          "date": "2026-03-09",
-          "count": 3,
-          "points": 5
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-10T11:51:51Z",
-          "title": "Fix v1 simulator base redirects",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1019",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-03-10T18:59:50Z",
-          "title": "🐞 Bug - Windows - npm run lint fails in PowerShell due to xargs usage",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1020",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-03-10T00:54:43Z",
-          "title": "🐞 Bug - Custom mount path breaks v1 redirect logic",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1017",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-03-10T18:59:52Z",
-          "title": "Labeled issue #1020 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1020",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-09T18:24:57Z",
-          "title": "Make simulator API base configurable",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1016",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-03-09T17:36:45Z",
-          "title": "🐞 Bug - Route-agnostic mounting breaks API requests (hard-coded /api/...)",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1015",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-03-10T00:54:44Z",
-          "title": "Labeled issue #1017 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1017",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-03-09T17:36:46Z",
-          "title": "Labeled issue #1015 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1015",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "Pradyuman-aviator",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/181509014?v=4",
@@ -6185,106 +6209,6 @@
           "occured_at": "2026-03-05T12:54:48Z",
           "title": "Labeled issue #7126 - 🐞 bug",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7126",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "h30s",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/183348352?v=4",
-      "role": "Contributor",
-      "total_points": 12,
-      "activity_breakdown": {
-        "Issue closed": {
-          "count": 2,
-          "points": 2
-        },
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        },
-        "Issue labeled": {
-          "count": 3,
-          "points": 6
-        },
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-02-18",
-          "count": 2,
-          "points": 2
-        },
-        {
-          "date": "2026-02-11",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-02-09",
-          "count": 4,
-          "points": 7
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-18T19:56:07Z",
-          "title": "Closed issue #6987 - 🐞 Bug - IDOR in notifications mark_as_read",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6987",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-18T20:01:12Z",
-          "title": "Closed issue #6987 - 🐞 Bug - IDOR in notifications mark_as_read",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6987",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-11T18:49:13Z",
-          "title": "Feature Implement backend validation and size limits for circuit data",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6876",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-11T18:49:14Z",
-          "title": "Labeled issue #6876 - 🌟 feature",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6876",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-09T14:38:32Z",
-          "title": "feat - Unify profanity filtering and strengthen model validations",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6859",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-09T14:15:19Z",
-          "title": "Feature Unify profanity filtering and strengthen model-level validations",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6858",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-09T14:15:20Z",
-          "title": "Labeled issue #6858 - 🌟 feature",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6858",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-09T14:00:56Z",
-          "title": "Labeled issue #6844 - ui",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6844",
           "points": 2
         }
       ]
@@ -7411,6 +7335,69 @@
       ]
     },
     {
+      "username": "h30s",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/183348352?v=4",
+      "role": "Contributor",
+      "total_points": 5,
+      "activity_breakdown": {
+        "Issue closed": {
+          "count": 2,
+          "points": 2
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-02-18",
+          "count": 2,
+          "points": 2
+        },
+        {
+          "date": "2026-02-11",
+          "count": 2,
+          "points": 3
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-02-18T19:56:07Z",
+          "title": "Closed issue #6987 - 🐞 Bug - IDOR in notifications mark_as_read",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6987",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-02-18T20:01:12Z",
+          "title": "Closed issue #6987 - 🐞 Bug - IDOR in notifications mark_as_read",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6987",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-11T18:49:13Z",
+          "title": "Feature Implement backend validation and size limits for circuit data",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6876",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-11T18:49:14Z",
+          "title": "Labeled issue #6876 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6876",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "aindree-2005",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/68018372?v=4",
@@ -8169,6 +8156,35 @@
           "occured_at": "2026-02-11T11:09:16Z",
           "title": "fix Add Responsive Pagination to People Page Contributors List",
           "link": "https://github.com/CircuitVerse/community-dashboard/pull/258",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "lahari936",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/183959424?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-03-11",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-11T09:07:46Z",
+          "title": "fix - change display of subscribed to mails from true/false to yes/no",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/527",
           "points": 2
         }
       ]

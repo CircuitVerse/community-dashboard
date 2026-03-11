@@ -11,7 +11,6 @@ interface ContributorEntry {
   role: string;
   total_points: number;
   activity_breakdown: Record<string, { count: number; points: number }>;
-<<<<<<< HEAD
   daily_activity: DailyActivity[];
   current_streak?: number;
   longest_streak?: number;
