@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import path from "path";
 import fs from "fs";
 import { coreTeamMembers, alumniMembers } from "@/lib/team-data";
+import { calculateStreaks, DailyActivity } from "@/lib/streak-utils";
 
 interface ContributorEntry {
   username: string;
@@ -10,7 +11,9 @@ interface ContributorEntry {
   role: string;
   total_points: number;
   activity_breakdown: Record<string, { count: number; points: number }>;
-  daily_activity: Array<{ date: string; count: number; points: number }>;
+  daily_activity: DailyActivity[];
+  current_streak?: number;
+  longest_streak?: number;
   activities?: Array<{
     type: string;
     title: string;
@@ -45,7 +48,6 @@ export async function GET() {
         }
 
         for (const entry of data.entries || []) {
-          // More precise bot filtering to avoid filtering legitimate users
           const username = entry.username.toLowerCase();
           const isBot =
             username.endsWith("[bot]") ||
@@ -56,19 +58,17 @@ export async function GET() {
             username === "github-actions" ||
             username.startsWith("renovate[") ||
             username.startsWith("dependabot[");
-          if (isBot) {
-            continue;
-          }
+          
+          if (isBot) continue;
 
           const existing = allContributors.get(entry.username);
-            if (!existing) {
-              allContributors.set(entry.username, {
-                ...entry,
-                activities: entry.activities ?? [],
-              });
-              continue;
-            }
-
+          if (!existing) {
+            allContributors.set(entry.username, {
+              ...entry,
+              activities: entry.activities ?? [],
+            });
+          } else {
+            // Merge activities
             const existingActivities = existing.activities ?? [];
             const newActivities = entry.activities ?? [];
 
@@ -93,32 +93,43 @@ export async function GET() {
             const expectedCount = Object.values(entry.activity_breakdown || {}).reduce((sum, v) => sum + v.count, 0);
 
             if(combined.length < expectedCount){
-            for(const [type, info] of Object.entries(entry.activity_breakdown)){
-              const existingCount = combined.filter(a => a.type === type).length;
-              const missing = info.count - existingCount;
+              for(const [type, info] of Object.entries(entry.activity_breakdown)){
+                const existingCount = combined.filter(a => a.type === type).length;
+                const missing = info.count - existingCount;
 
-              for(let i = 0; i < missing; i++){
-                combined.push({
-                  type,
-                  title: `${type} contribution`,
-                  occured_at: new Date(0).toISOString(),
-                  link: "",
-                  points: info.count > 0 ? Math.round(info.points / info.count) : 0,
-                });
+                for(let i = 0; i < missing; i++){
+                  combined.push({
+                    type,
+                    title: `${type} contribution`,
+                    occured_at: new Date(0).toISOString(),
+                    link: "",
+                    points: info.count > 0 ? Math.round(info.points / info.count) : 0,
+                  });
+                }
               }
             }
-            }
 
-            allContributors.set(entry.username, {
-              ...existing,
-              ...entry,
-              activities: combined.slice(0, 15),
-            });
+            // Update with more points if applicable, but keep merged activities
+            if (entry.total_points > existing.total_points) {
+               Object.assign(existing, entry);
+            }
+            existing.activities = combined.slice(0, 15);
+          }
         }
       } catch (error) {
         console.error(`Error reading ${file}:`, error);
       }
     }
+
+    // Now calculate streaks for each contributor
+    for (const contributor of allContributors.values()) {
+      if (contributor.daily_activity) {
+        const streaks = calculateStreaks(contributor.daily_activity);
+        contributor.current_streak = streaks.current;
+        contributor.longest_streak = streaks.longest;
+      }
+    }
+
 
     const people = Array.from(allContributors.values())
       .sort((a, b) => b.total_points - a.total_points);

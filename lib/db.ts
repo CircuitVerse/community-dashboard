@@ -157,10 +157,6 @@ export async function getRecentActivitiesGroupedByType(
   return [...groups.values()];
 }
 
-
-
-// (Optional) stubs for other imports; add as you see “module not found” errors:
-
 export async function getUpdatedTime() {
   const publicPath = path.join(process.cwd(), "public", "leaderboard");
   if(!fs.existsSync(publicPath)) return null;
@@ -184,41 +180,156 @@ export async function getUpdatedTime() {
   return latestUpdatedAt > 0 ? new Date(latestUpdatedAt) : null;
 }
 
+export async function getLeaderboard(): Promise<UserEntry[]> {
+  const filePath = path.join(process.cwd(), "public", "leaderboard", "year.json");
+  if (!fs.existsSync(filePath)) return [];
+
+  const file = fs.readFileSync(filePath, "utf-8");
+  const data = JSON.parse(file);
+  
+  if (!data?.entries) return [];
+
+  return (data.entries as UserEntry[]).sort((a, b) => b.total_points - a.total_points);
+}
+
+export async function getAllContributorsWithAvatars() {
+  const leaderboard = await getLeaderboard();
+  return leaderboard.map(entry => ({
+    username: entry.username,
+    avatar_url: entry.avatar_url,
+    name: entry.name
+  }));
+}
+
+export async function getAllContributorUsernames() {
+  const leaderboard = await getLeaderboard();
+  return leaderboard.map(entry => entry.username);
+}
+
+export async function getContributor(username: string) {
+  const leaderboard = await getLeaderboard();
+  return leaderboard.find(entry => entry.username.toLowerCase() === username.toLowerCase()) || null;
+}
+
+import { calculateStreaks, DailyActivity } from "./streak-utils";
+
+/**
+ * Calculates contributor profile and stats
+ */
+export async function getContributorProfile(username: string) {
+  const filePath = path.join(process.cwd(), "public", "leaderboard", "year.json");
+  const defaultReturn = { 
+    contributor: null as UserEntry | null, 
+    activities: [] as any[], 
+    totalPoints: 0, 
+    activityByDate: new Map<string, { count: number, points: number }>(), 
+    dailyActivity: [] as DailyActivity[], 
+    stats: { currentStreak: 0, longestStreak: 0, avgTurnAroundMs: 0 } 
+  };
+
+  if (!fs.existsSync(filePath)) return defaultReturn;
+
+  const file = fs.readFileSync(filePath, "utf-8");
+  const data = JSON.parse(file);
+
+  if (!data?.entries || !Array.isArray(data.entries)) {
+    return defaultReturn;
+  }
+
+  const contributor = (data.entries as UserEntry[]).find((entry) => entry.username.toLowerCase() === username.toLowerCase());
+
+  if (!contributor) return defaultReturn;
+
+  const activities = (contributor.activities || []).map((a) => ({
+    ...a,
+    occured_at: new Date(a.occured_at),
+  }));
+
+  const dailyActivityMap = new Map<string, { count: number, points: number }>();
+  activities.forEach((activity) => {
+    const date = new Date(activity.occured_at).toISOString().split("T")[0];
+    if (!dailyActivityMap.has(date)) {
+      dailyActivityMap.set(date, { count: 0, points: 0 });
+    }
+    const dayData = dailyActivityMap.get(date)!;
+    dayData.count += 1;
+    dayData.points += (activity.points || 0);
+  });
+
+  const dailyActivity: DailyActivity[] = Array.from(dailyActivityMap.entries()).map(([date, stats]: [string, any]) => ({
+    date,
+    ...stats
+  }));
+
+  const streaks = calculateStreaks(dailyActivity);
+
+  // Calculate PR Turn-around Time
+  const prOpenedMap = new Map<string, Date>();
+  const turnAroundTimes: number[] = [];
+
+  // Sort activities chronologically to match opened before merged
+  const sortedActivitiesTAT = [...activities].sort((a, b) => a.occured_at.getTime() - b.occured_at.getTime());
+
+  sortedActivitiesTAT.forEach(activity => {
+    if (activity.type === "PR opened" && activity.link) {
+      prOpenedMap.set(activity.link, activity.occured_at);
+    } else if (activity.type === "PR merged" && activity.link) {
+      const openedAt = prOpenedMap.get(activity.link);
+      if (openedAt) {
+        const diff = activity.occured_at.getTime() - openedAt.getTime();
+        turnAroundTimes.push(diff);
+      }
+    }
+  });
+
+  const avgTurnAroundMs = turnAroundTimes.length > 0 
+    ? turnAroundTimes.reduce((a, b) => a + b, 0) / turnAroundTimes.length 
+    : 0;
+
+  return {
+    contributor,
+    activities,
+    totalPoints: contributor.total_points,
+    activityByDate: dailyActivityMap,
+    dailyActivity,
+    stats: {
+      currentStreak: streaks.current,
+      longestStreak: streaks.longest,
+      avgTurnAroundMs
+    }
+  };
+}
+
 export async function getMonthlyActivityBuckets(): Promise<MonthBuckets> {
   const month = await getRecentActivitiesGroupedByType("month");
   const activities = month.flatMap(g => g.activities);
   const now = new Date();
-
-  const buckets: MonthBuckets = {
-    w1: 0,
-    w2: 0,
-    w3: 0,
-    w4: 0,
-  };
-
+  
+  const buckets: MonthBuckets = { w1: 0, w2: 0, w3: 0, w4: 0 };
+  
   for (const activity of activities) {
     const activityDate = new Date(activity.occured_at);
     const daysAgo = differenceInDays(now, activityDate);
-
-    if (daysAgo < 0) continue;
-
-    if (daysAgo < 7) {
-      buckets.w1++;
-    } else if (daysAgo < 14) {
-      buckets.w2++;
-    } else if (daysAgo < 21) {
-      buckets.w3++;
-    } else if (daysAgo < 30) {
-      buckets.w4++;
-    }
+    
+    if (daysAgo < 7) buckets.w1++;
+    else if (daysAgo < 14) buckets.w2++;
+    else if (daysAgo < 21) buckets.w3++;
+    else if (daysAgo < 28) buckets.w4++;
   }
-
+  
   return buckets;
 }
 
 export async function getPreviousMonthActivityCount(): Promise<number> {
-  const month = await getRecentActivitiesGroupedByType("2month");
-  const activities = month.flatMap(g => g.activities);
+  const filePath = path.join(process.cwd(), "public", "leaderboard", "month.json");
+  if (!fs.existsSync(filePath)) return 0;
+
+  const file = fs.readFileSync(filePath, "utf-8");
+  const data = JSON.parse(file);
+  
+  if (!data?.entries?.length) return 0;
+  
+  const activities = data.entries.flatMap((entry: any) => entry.activities || []);
   const now = new Date();
 
   let count = 0;
@@ -259,18 +370,3 @@ export async function getTopContributorsByActivity() {
   return {};
 }
 
-export async function getAllContributorsWithAvatars() {
-  return [];
-}
-
-export async function getAllContributorUsernames() {
-  return [];
-}
-
-export async function getContributor(_username: string) {
-  return null;
-}
-
-export async function getContributorProfile(_username: string) {
-  return { contributor: null, activities: [], totalPoints: 0, activityByDate: {} };
-}

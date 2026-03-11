@@ -59,6 +59,13 @@ export type Contributor = {
   activity_breakdown: Record<string, { count: number; points: number }>;
   daily_activity: DailyActivity[];
   raw_activities: RawActivity[];
+  active_prs?: Array<{ title: string; link: string; updatedAt: string }>;
+  stale_prs?: Array<{ title: string; link: string; updatedAt: string }>;
+  streak?: {
+    current: number;
+    longest: number;
+    lastActivityDate: string | null;
+  };
 };
 
 /**
@@ -141,6 +148,37 @@ function daysAgo(n: number) {
   return d;
 }
 
+/* -------------------------------------------------------
+   REPO STATS AGGREGATION (SHARED)
+------------------------------------------------------- */
+
+const repoStatsMap = new Map<string, { pr_opened: number, pr_merged: number, pr_merged_prev: number, issue_created: number, top_contributors: Map<string, number> }>();
+const CURRENT_START_DATE = daysAgo(30);
+const PREVIOUS_START_DATE = daysAgo(60);
+
+function getRepoStats(repoName: string) {
+  if (!repoStatsMap.has(repoName)) {
+    repoStatsMap.set(repoName, { pr_opened: 0, pr_merged: 0, pr_merged_prev: 0, issue_created: 0, top_contributors: new Map() });
+  }
+  return repoStatsMap.get(repoName)!;
+}
+
+function addRepoContributor(repoName: string, username: string, points: number) {
+  const stats = getRepoStats(repoName);
+  stats.top_contributors.set(username, (stats.top_contributors.get(username) || 0) + points);
+}
+
+function extractRepoName(html_url?: string | null) {
+  if (!html_url) return null;
+  // https://github.com/CircuitVerse/CircuitVerse/pull/123 -> CircuitVerse
+  try {
+    const parts = new URL(html_url).pathname.split('/');
+    return parts[2]; // [empty, org, repo, ...]
+  } catch {
+    return null;
+  }
+}
+
 function sanitizeTitle(title?: string | null) {
   if (!title) return null;
   return title
@@ -208,11 +246,11 @@ async function searchByDateChunks(
 
     let page = 1;
     while (true) {
-      const res = await ghSearch(
+      const res = (await ghSearch(
         `${GITHUB_API}/search/issues?q=${baseQuery}+${dateField}:${from}..${iso(
           to
         )}&per_page=100&page=${page}`
-      );
+      )) as { items: GitHubSearchItem[] };
 
       all.push(...(res.items ?? []));
       if (!res.items || res.items.length < 100) break;
@@ -341,7 +379,7 @@ async function fetchOrgRepos(): Promise<string[]> {
     }
 
     await smartSleep(res, 500);
-    const data: GitHubRepo[] = await res.json();
+    const data = (await res.json()) as GitHubRepo[];
     if (!data.length) break;
 
     for (const r of data) {
@@ -369,7 +407,7 @@ async function fetchRepoPRs(repo: string, since: Date): Promise<GitHubPR[]> {
       console.error(`   ⚠️ Failed to fetch PRs for ${repo}: ${res.status}`);
       break;
     }
-    const data = await res.json();
+    const data = (await res.json()) as GitHubPR[];
     if (!data.length) break;
     
     // Filter PRs updated since the cutoff date
@@ -404,7 +442,7 @@ async function fetchPRReviews(repo: string, prNumber: number): Promise<GitHubRev
     return [];
   }
   await smartSleep(res, 500);
-  return res.json();
+  return res.json() as Promise<GitHubReview[]>;
 }
 
 async function fetchAllReviews(
@@ -467,6 +505,13 @@ async function fetchAllReviews(
             POINTS["Review submitted"],
             { title: `Review on PR #${pr.number}`, link: `https://github.com/${ORG}/${repoName}/pull/${pr.number}` }
           );
+
+          // Aggregate for overview
+          const reviewDateRaw = review.submitted_at;
+          const rDate = new Date(reviewDateRaw);
+          if (rDate >= CURRENT_START_DATE) {
+            addRepoContributor(repoName, review.user.login, POINTS["Review submitted"]);
+          }
         }
       }
       
@@ -488,6 +533,7 @@ export type RepoStats = {
   html_url: string;
   stars: number;
   forks: number;
+  open_issues: number;
   current: {
     pr_opened: number;
     pr_merged: number;
@@ -500,12 +546,17 @@ export type RepoStats = {
   growth: {
     pr_merged: number;
   };
+  top_contributors: Array<{
+    username: string;
+    avatar_url: string | null;
+    points: number;
+  }>;
 };
 
 // ------ Helpers ------
 
-async function fetchRepoMeta(repo:string) {
-   const res = await fetch(`${GITHUB_API}/repos/${ORG}/${repo}`, {
+async function fetchRepoMeta(repo: string) {
+  const res = await fetch(`${GITHUB_API}/repos/${ORG}/${repo}`, {
     headers: {
       Authorization: `Bearer ${TOKEN}`,
       Accept: "application/vnd.github+json",
@@ -514,168 +565,123 @@ async function fetchRepoMeta(repo:string) {
 
   if (!res.ok) return null;
   await smartSleep(res, 300)
-  return res.json()
+  return res.json() as Promise<{
+    description: string | null;
+    language: string | null;
+    owner: { avatar_url: string };
+    html_url: string;
+    stargazers_count: number;
+    forks: number;
+    open_issues_count: number;
+  }>;
 }
 
 async function fetchAll<T = any>(url: string): Promise<T[]> {
-   let page = 1;
-   const results: T[] = [];
-   while (true) {
+  let page = 1;
+  const results: T[] = [];
+  while (true) {
     const join = url.includes("?") ? "&" : "?";
-    const res = await fetch(`${url}${join}per_page=100&page=${page}`, {
-       headers: {
-         Authorization: `Bearer ${TOKEN}`,
-         Accept: "application/vnd.github+json",
-       },
-     });
+    const fullUrl = `${url}${join}per_page=100&page=${page}`;
+    const res = await fetch(fullUrl, {
+      headers: {
+        Authorization: `Bearer ${TOKEN}`,
+        Accept: "application/vnd.github+json",
+      },
+    });
 
     if (!res.ok) {
       const text = await res.text().catch(() => "");
+      console.error(`❌ Failed to fetch ${fullUrl}: ${res.status} ${text}`);
       throw new Error(`GitHub API ${res.status}: ${text}`);
     }
     await smartSleep(res, 500);
-    const data: T[] = await res.json();
-    results.push(...data);
-
-     if (data.length < 100) break;
-     page++;
-   }
-
-   return results;
- }
-
-// ------ Metric fetchers ------
-
-async function fetchIssuesCreated(repo: string, current_start: Date) {
-  console.log("      🔎 Fetching current issues...");
-  const issues = await fetchAll(
-    `${GITHUB_API}/repos/${ORG}/${repo}/issues?state=all&since=${iso(current_start)}`
-  );
-
-  return issues.filter(
-    i =>
-      !i.pull_request &&
-      new Date(i.created_at) >= current_start &&
-      !isBotUser(i.user)
-  ).length;
-}
-
-async function fetchPRsOpened(repo: string, current_start: Date) {
-  console.log("      🔎 Fetching current PRs opened...");
-
-  let count = 0;
-  let page = 1;
-
-  while (true) {
-    const res = await fetch(
-      `${GITHUB_API}/repos/${ORG}/${repo}/pulls?state=all&sort=created&direction=desc&per_page=100&page=${page}`,
-      { headers: { Authorization: `Bearer ${TOKEN}`, Accept: "application/vnd.github+json" } }
-    );
-
-    if (!res.ok) break;
-
-    await smartSleep(res, 500);
-
-    const prs = await res.json();
-    if (!prs.length) break;
+    const data = (await res.json()) as any;
     
-    for (const pr of prs) {
-      if (new Date(pr.created_at) < current_start) return count; // Early exit
-     if (!isBotUser(pr.user)) count++;
+    if (!data) {
+      console.warn(`⚠️ No data received from ${fullUrl}`);
+      break;
     }
 
-    if (prs.length < 100) break;
+    // Handle both direct array and search result object { items: [] }
+    const items = Array.isArray(data) ? data : (data.items || []);
+    if (!Array.isArray(items)) {
+      console.warn(`⚠️ Received non-array items from ${fullUrl}:`, items);
+      break;
+    }
+
+    results.push(...items);
+
+    if (items.length < 100) break;
     page++;
+    
+    // Safety break for search API limits
+    if (page > 10) break; // Search API only returns first 1000 results
   }
 
-  return count;
+  return results;
 }
 
-async function fetchPRsMerge(repo:string, current_start: Date, previous_start: Date, now: Date) {
-  console.log("      🔎 Fetching PRs merged...");
-  const prs = await fetchAll(
-    `${GITHUB_API}/repos/${ORG}/${repo}/pulls?state=closed&sort=updated&direction=desc`
-  );
-
-  let current = 0;
-  let previous = 0;
-
-  for (const pr of prs) {
-    if (!pr.merged_at) continue;
-    if (isBotUser(pr.user)) continue;
-    const mergedAt = new Date(pr.merged_at);
-    if (mergedAt >= current_start && mergedAt <= now) current++;
-    if (mergedAt >= previous_start && mergedAt < current_start) previous++;
-  }
-
-  return { current, previous };
-}
-
-function writeRepoOverview(repo:RepoStats[]) {
+function writeRepoOverview(repo: RepoStats[]) {
   fs.writeFileSync(
-      path.join(process.cwd(), "public", "leaderboard", "overview.json"),
-      JSON.stringify({
-        updatedAt: Date.now(),
-        period: "Last_30days",
-        repos: repo
-      }, null, 2)
-    );
-    console.log(`✅ Generated overview.json (${repo.length} repos)`);
+    path.join(process.cwd(), "public", "leaderboard", "overview.json"),
+    JSON.stringify({
+      updatedAt: Date.now(),
+      period: "Last_30days",
+      repos: repo
+    }, null, 2)
+  );
+  console.log(`✅ Generated overview.json (${repo.length} repos)`);
 }
 
-async function generateRepoOverview() {
+async function generateRepoOverview(aggregatedStats: Map<string, { pr_opened: number, pr_merged: number, pr_merged_prev: number, issue_created: number, top_contributors: Map<string, number> }>) {
   console.log("📊 Generating repo overview");
   
-  const NOW = new Date();
-  const CURRENT_START = daysAgo(30);
-  const PREVIOUS_START = daysAgo(60);
-
   const repos = await fetchOrgRepos();
-
   const res: RepoStats[] = [];
 
-  console.log(`📦 ${repos.length} repositories found`);
-
-  for (const repo of repos) {
+  for (const repoName of repos) {
     try {
-      console.log(`   📁 Fetching repo ${ORG}/${repo}...`);
-      const meta = await fetchRepoMeta(repo);
-      if (!meta) {
-        console.log(`      ⚠️ Skipped (meta fetch failed)`);
-        continue;
-      }
-      console.log(`      📈 Fetching CURRENT stats`);
-      const issue_created = await fetchIssuesCreated(repo, CURRENT_START);
-      const pr_opened = await fetchPRsOpened(repo, CURRENT_START);
-      const { current: pr_merged, previous: pr_merged_prev } = await fetchPRsMerge(repo, CURRENT_START, PREVIOUS_START, NOW);
+      console.log(`   📁 Processing repo ${ORG}/${repoName}...`);
+      const meta = await fetchRepoMeta(repoName);
+      if (!meta) continue;
+
+      const stats = aggregatedStats.get(repoName) || { pr_opened: 0, pr_merged: 0, pr_merged_prev: 0, issue_created: 0, top_contributors: new Map() };
       
-      const currentTotal = issue_created + pr_opened + pr_merged;
+      // Sort top contributors and take top 5
+      const topContributors = [...stats.top_contributors.entries()]
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 5)
+        .map(([username, points]) => ({
+          username,
+          avatar_url: `https://github.com/${username}.png`,
+          points
+        }));
+
       res.push({
-        name: repo,
+        name: repoName,
         description: meta.description,
         language: meta.language,
         avatar_url: meta.owner?.avatar_url ?? '',
         html_url: meta.html_url,
         stars: meta.stargazers_count,
         forks: meta.forks,
+        open_issues: meta.open_issues_count,
         current: {
-          pr_opened,
-          pr_merged,
-          issue_created,
-          currentTotalContribution: currentTotal
+          pr_opened: stats.pr_opened,
+          pr_merged: stats.pr_merged,
+          issue_created: stats.issue_created,
+          currentTotalContribution: stats.pr_opened + stats.pr_merged + stats.issue_created
         },
         previous: {
-          pr_merged: pr_merged_prev,
+          pr_merged: stats.pr_merged_prev,
         },
         growth: {
-          pr_merged: pr_merged - pr_merged_prev,
+          pr_merged: stats.pr_merged - stats.pr_merged_prev,
         },
+        top_contributors: topContributors
       });
-      console.log(`      ✅ Done`);
     } catch (error) {
-      console.error(`      ❌ Error processing ${repo}:`, error);
-      // Continue with next repo
-      continue;
+      console.error(`      ❌ Error processing ${repoName}:`, error);
     }
   }
   writeRepoOverview(res);
@@ -759,7 +765,7 @@ async function processIssueTriagingEvents(
       return;
     }
     
-    const events: GitHubIssueEvent[] = await eventsRes.json();
+    const events = (await eventsRes.json()) as GitHubIssueEvent[];
     await smartSleep(eventsRes, 500);
     
     // Process events for triaging activities
@@ -785,6 +791,12 @@ async function processIssueTriagingEvents(
                 link: issue.html_url 
               }
             );
+
+            // Aggregate for overview
+            const evDate = new Date(event.created_at);
+            if (evDate >= CURRENT_START_DATE) {
+              addRepoContributor(repoName, event.actor.login, POINTS["Issue labeled"]);
+            }
           }
           break;
           
@@ -797,10 +809,16 @@ async function processIssueTriagingEvents(
               event.created_at,
               POINTS["Issue assigned"],
               { 
-                title: `Assigned issue #${issueNumber} to ${event.assignee.login}`, 
+                title: `Assigned issue #${issueNumber} to ${event.assignee?.login}`, 
                 link: issue.html_url 
               }
             );
+
+            // Aggregate for overview
+            const evDate = new Date(event.created_at);
+            if (evDate >= CURRENT_START_DATE) {
+              addRepoContributor(repoName, event.actor.login, POINTS["Issue assigned"]);
+            }
           }
           break;
           
@@ -817,6 +835,12 @@ async function processIssueTriagingEvents(
                 link: issue.html_url 
               }
             );
+
+            // Aggregate for overview
+            const evDate = new Date(event.created_at);
+            if (evDate >= CURRENT_START_DATE) {
+              addRepoContributor(repoName, event.actor.login, POINTS["Issue closed"]);
+            }
           }
           break;
       }
@@ -909,6 +933,58 @@ function mergeExistingActivities(
   }
 }
 
+function calculateStreaks(user: Contributor) {
+  if (user.daily_activity.length === 0) {
+    user.streak = { current: 0, longest: 0, lastActivityDate: null };
+    return;
+  }
+
+  // Sort by date ascending to calculate streaks
+  const sortedDays = [...user.daily_activity].sort((a, b) => a.date.localeCompare(b.date));
+  
+  let longest = 0;
+  let current = 0;
+  let lastDate: Date | null = null;
+
+  for (const day of sortedDays) {
+    const currentDate = new Date(day.date);
+    
+    if (lastDate) {
+      const diffDays = Math.floor((currentDate.getTime() - lastDate.getTime()) / (1000 * 60 * 60 * 24));
+      if (diffDays === 1) {
+        current++;
+      } else if (diffDays > 1) {
+        current = 1;
+      }
+    } else {
+      current = 1;
+    }
+    
+    longest = Math.max(longest, current);
+    lastDate = currentDate;
+  }
+
+  // Check if current streak is still active (last activity today or yesterday)
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const lastActDate = lastDate ? new Date(lastDate) : null;
+  if (lastActDate) {
+    lastActDate.setHours(0, 0, 0, 0);
+    const diffFromToday = Math.floor((today.getTime() - lastActDate.getTime()) / (1000 * 60 * 60 * 24));
+    if (diffFromToday > 1) {
+      current = 0; // Streak broken
+    }
+  } else {
+    current = 0;
+  }
+
+  user.streak = {
+    current,
+    longest,
+    lastActivityDate: lastDate ? iso(lastDate) : null
+  };
+}
+
 function deduplicateAndRecalculate(users: Map<string, Contributor>) {
   for (const user of users.values()) {
     // Deduplicate raw_activities by unique key
@@ -953,6 +1029,9 @@ function deduplicateAndRecalculate(users: Map<string, Contributor>) {
     user.daily_activity = [...dailyMap.entries()]
       .map(([date, d]) => ({ date, count: d.count, points: d.points }))
       .sort((a, b) => b.date.localeCompare(a.date));
+
+    // Calculate streaks
+    calculateStreaks(user);
   }
 }
 
@@ -966,6 +1045,8 @@ async function generateYear() {
   const now = new Date();
   const users = new Map<string, Contributor>();
   
+
+
   // Load existing data for incremental update
   const existing = loadExistingYearData();
   const isIncremental = existing?.lastFetchedAt != null;
@@ -973,11 +1054,9 @@ async function generateYear() {
   // Determine fetch start date
   let since: Date;
   if (isIncremental && existing?.lastFetchedAt) {
-    // Incremental: fetch only since last run
     since = new Date(existing.lastFetchedAt);
     console.log(`📦 Incremental update since ${iso(since)}`);
   } else {
-    // Full fetch: last 365 days
     since = daysAgo(365);
     console.log(`📦 Full fetch from ${iso(since)}`);
   }
@@ -985,6 +1064,18 @@ async function generateYear() {
   console.log("🔍 PRs opened");
   for (const pr of await searchByDateChunks(`org:${ORG}+is:pr`, since, now)) {
     if (isBotUser(pr.user)) continue;
+    
+    // Aggregate for overview
+    const repoName = extractRepoName(pr.html_url);
+    if (repoName) {
+      const prDate = new Date(pr.created_at);
+      if (prDate >= CURRENT_START_DATE) {
+        const rStats = getRepoStats(repoName);
+        rStats.pr_opened++;
+        addRepoContributor(repoName, pr.user.login, POINTS["PR opened"]);
+      }
+    }
+
     addActivity(
       ensureUser(users, pr.user),
       "PR opened",
@@ -1003,6 +1094,20 @@ async function generateYear() {
     "merged"
   )) {
     if (isBotUser(pr.user)) continue;
+    
+    // Aggregate for overview
+    const repoName = extractRepoName(pr.html_url);
+    if (repoName && pr.closed_at) {
+      const mergedAt = new Date(pr.closed_at);
+      const rStats = getRepoStats(repoName);
+      if (mergedAt >= CURRENT_START_DATE && mergedAt <= now) {
+        rStats.pr_merged++;
+        addRepoContributor(repoName, pr.user.login, POINTS["PR merged"]);
+      } else if (mergedAt >= PREVIOUS_START_DATE && mergedAt < CURRENT_START_DATE) {
+        rStats.pr_merged_prev++;
+      }
+    }
+
     addActivity(
       ensureUser(users, pr.user),
       "PR merged",
@@ -1019,6 +1124,18 @@ async function generateYear() {
     now
   )) {
     if (isBotUser(issue.user)) continue;
+    
+    // Aggregate for overview
+    const repoName = extractRepoName(issue.html_url);
+    if (repoName) {
+      const issueDate = new Date(issue.created_at);
+      if (issueDate >= CURRENT_START_DATE) {
+        const rStats = getRepoStats(repoName);
+        rStats.issue_created++;
+        addRepoContributor(repoName, issue.user.login, POINTS["Issue opened"]);
+      }
+    }
+
     addActivity(
       ensureUser(users, issue.user),
       "Issue opened",
@@ -1043,6 +1160,33 @@ async function generateYear() {
   // Deduplicate and recalculate all totals
   console.log("🧹 Deduplicating activities...");
   deduplicateAndRecalculate(users);
+
+  // Fetch currently active and stale PRs (open, non-draft)
+  console.log("🔍 Fetching open PRs for active/stale tracking...");
+  const openPRs = await fetchAll<{ title: string; html_url: string; updated_at: string; user: { login: string } }>(`${GITHUB_API}/search/issues?q=org:${ORG}+is:pr+is:open+-is:draft`);
+  
+  const staleThreshold = daysAgo(14);
+
+  for (const pr of openPRs) {
+    if (!pr.user?.login || isBotUser(pr.user)) continue;
+    const user = users.get(pr.user.login);
+    if (user) {
+      const updatedAt = new Date(pr.updated_at);
+      const prData = {
+        title: pr.title,
+        link: pr.html_url,
+        updatedAt: pr.updated_at
+      };
+
+      if (updatedAt < staleThreshold) {
+        user.stale_prs ??= [];
+        user.stale_prs.push(prData);
+      } else {
+        user.active_prs ??= [];
+        user.active_prs.push(prData);
+      }
+    }
+  }
 
   const entries = [...users.values()]
     .filter((u) => u.total_points > 0)
@@ -1076,7 +1220,7 @@ async function generateYear() {
   derivePeriod(yearData, 7, "week");
   derivePeriod(yearData, 30, "month");
   generateRecentActivities(yearData);
-  await generateRepoOverview()
+  await generateRepoOverview(repoStatsMap)
 }
 
 /* -------------------------------------------------------
@@ -1103,12 +1247,8 @@ function derivePeriod(source: YearData, days: number, period: string) {
         total += a.points;
 
         breakdown[a.type] ??= { count: 0, points: 0 };
-
-        const bucket =
-          breakdown[a.type] ?? (breakdown[a.type] = { count: 0, points: 0 });
-
-        bucket.count += 1;
-        bucket.points += a.points;
+        breakdown[a.type].count += 1;
+        breakdown[a.type].points += a.points;
 
         daily[day] ??= { date: day, count: 0, points: 0 };
         daily[day].count += 1;

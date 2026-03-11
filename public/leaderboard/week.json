@@ -1,6 +1,6 @@
 {
   "period": "week",
-  "updatedAt": 1773191430371,
+  "updatedAt": 1773240440247,
   "startDate": "2026-03-04",
   "endDate": "2026-03-11",
   "hiddenRoles": [],
@@ -321,11 +321,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/183314359?v=4",
       "role": "Contributor",
-      "total_points": 13,
+      "total_points": 15,
       "activity_breakdown": {
         "PR opened": {
-          "count": 2,
-          "points": 4
+          "count": 3,
+          "points": 6
         },
         "Issue opened": {
           "count": 3,
@@ -338,6 +338,11 @@
       },
       "daily_activity": [
         {
+          "date": "2026-03-11",
+          "count": 1,
+          "points": 2
+        },
+        {
           "date": "2026-03-10",
           "count": 5,
           "points": 8
@@ -349,6 +354,13 @@
         }
       ],
       "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-11T03:17:32Z",
+          "title": "Fix windows lint script",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1024",
+          "points": 2
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-03-10T11:51:51Z",
@@ -867,49 +879,6 @@
       ]
     },
     {
-      "username": "nusRying",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/116121504?v=4",
-      "role": "Contributor",
-      "total_points": 6,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 3,
-          "points": 6
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-03-04",
-          "count": 3,
-          "points": 6
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-04T10:47:23Z",
-          "title": "Feat/fsm synthesizer phase2",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7120",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-04T10:38:24Z",
-          "title": "feat/fsm-synthesizer-phase2",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7119",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-04T10:09:59Z",
-          "title": "fix(ci) - correct GitHub Actions workflow syntax in percy.yml",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7118",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "Shweta-Singh30",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/150477892?v=4",
@@ -1063,62 +1032,6 @@
           "occured_at": "2026-03-08T10:13:59Z",
           "title": "Labeled issue #7138 - 🌟 feature",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7138",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "Uday9909",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/178378295?v=4",
-      "role": "Contributor",
-      "total_points": 5,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
-        },
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-03-06",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-03-04",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-03-06T03:38:01Z",
-          "title": "🐞 Bug - Grades are deleted when an assignment is reopened due to submission fork destruction",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7128",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-03-06T03:38:02Z",
-          "title": "Labeled issue #7128 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7128",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-04T07:33:43Z",
-          "title": "fix - add model-level uniqueness validation for PendingInvitation email scoped to group (#6638)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7117",
           "points": 2
         }
       ]
@@ -1315,6 +1228,91 @@
       ]
     },
     {
+      "username": "hiraljj05",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/212759472?v=4",
+      "role": "Contributor",
+      "total_points": 3,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-03-11",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-03-04",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-11T14:06:05Z",
+          "title": "Add Offline Reading Support for Interactive Books",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/528",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-04T18:16:23Z",
+          "title": "Fix/forgot password error handling",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/525",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "Uday9909",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/178378295?v=4",
+      "role": "Contributor",
+      "total_points": 3,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-03-06",
+          "count": 2,
+          "points": 3
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-06T03:38:01Z",
+          "title": "🐞 Bug - Grades are deleted when an assignment is reopened due to submission fork destruction",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7128",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-03-06T03:38:02Z",
+          "title": "Labeled issue #7128 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7128",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "lamechtenny",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/69479491?v=4",
@@ -1396,9 +1394,9 @@
       ]
     },
     {
-      "username": "hiraljj05",
+      "username": "lahari936",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/212759472?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/183959424?v=4",
       "role": "Contributor",
       "total_points": 2,
       "activity_breakdown": {
@@ -1409,7 +1407,7 @@
       },
       "daily_activity": [
         {
-          "date": "2026-03-04",
+          "date": "2026-03-11",
           "count": 1,
           "points": 2
         }
@@ -1417,38 +1415,9 @@
       "activities": [
         {
           "type": "PR opened",
-          "occured_at": "2026-03-04T18:16:23Z",
-          "title": "Fix/forgot password error handling",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/525",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "MYMISERABLEMIND17",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/211515906?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-03-04",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-04T10:51:42Z",
-          "title": "Improve clarity and correctness in Chapter 4 (Muxandplex) documentation",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/535",
+          "occured_at": "2026-03-11T09:07:46Z",
+          "title": "fix - change display of subscribed to mails from true/false to yes/no",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/527",
           "points": 2
         }
       ]
@@ -1478,35 +1447,6 @@
           "occured_at": "2026-03-06T15:11:00Z",
           "title": "Add basic FSM diagram editor (#5291)",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7134",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "kartikaeyy",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/114746821?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-03-04",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-04T13:16:50Z",
-          "title": "added a snackbar for github oauth error handle for contributors",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/524",
           "points": 2
         }
       ]
