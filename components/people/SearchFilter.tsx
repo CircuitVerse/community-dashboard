@@ -17,16 +17,16 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { 
-  Search, 
-  Filter, 
-  X, 
+import {
+  Search,
+  Filter,
+  X,
   Trophy,
   Users,
   Calendar,
   Grid3X3,
   List,
-  Activity
+  Activity,
 } from "lucide-react";
 
 interface ContributorEntry {
@@ -41,52 +41,58 @@ interface ContributorEntry {
 
 export interface FilterState {
   search: string;
-  sortBy: 'name' | 'points' | 'recent' | 'activity';
-  sortOrder: 'asc' | 'desc';
+  sortBy: "name" | "points" | "recent" | "activity";
+  sortOrder: "asc" | "desc";
   minPoints: number;
-  viewMode: 'grid' | 'list';
+  viewMode: "grid" | "list";
 }
 
 interface SearchFilterProps {
   contributors: ContributorEntry[];
   filters: FilterState;
   onFiltersChange: (filters: FilterState) => void;
-  onViewModeChange: (viewMode: 'grid' | 'list') => void;
+  onViewModeChange: (viewMode: "grid" | "list") => void;
 }
 
-export function SearchFilter({ 
-  contributors, 
-  filters, 
-  onFiltersChange, 
-  onViewModeChange 
+export function SearchFilter({
+  contributors,
+  filters,
+  onFiltersChange,
+  onViewModeChange,
 }: SearchFilterProps) {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   const activeFiltersCount = [
     filters.search,
     filters.minPoints > 0,
-    filters.sortBy !== 'points' || filters.sortOrder !== 'desc'
+    filters.sortBy !== "points" || filters.sortOrder !== "desc",
   ].filter(Boolean).length;
 
-  const handleFilterChange = (key: keyof FilterState, value: any) => {
+  /* ---------------------------------------------------------------------- */
+  /* FIX 1: remove `any`                                                     */
+  /* ---------------------------------------------------------------------- */
+  const handleFilterChange = <K extends keyof FilterState>(
+    key: K,
+    value: FilterState[K]
+  ) => {
     onFiltersChange({
       ...filters,
-      [key]: value
+      [key]: value,
     });
   };
 
   const clearFilters = () => {
     onFiltersChange({
-      search: '',
-      sortBy: 'points',
-      sortOrder: 'desc',
+      search: "",
+      sortBy: "points",
+      sortOrder: "desc",
       minPoints: 0,
-      viewMode: filters.viewMode
+      viewMode: filters.viewMode,
     });
   };
 
   const clearSearch = () => {
-    handleFilterChange('search', '');
+    handleFilterChange("search", "");
   };
 
   return (
@@ -95,11 +101,13 @@ export function SearchFilter({
         <CardContent className="px-4 py-3">
           <div className="flex flex-col sm:flex-row gap-4">
             <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <Input
                 placeholder="Search contributors by name or username..."
                 value={filters.search}
-                onChange={(e) => handleFilterChange('search', e.target.value)}
+                onChange={(e) =>
+                  handleFilterChange("search", e.target.value)
+                }
                 className="pl-10 pr-10"
               />
               {filters.search && (
@@ -107,7 +115,7 @@ export function SearchFilter({
                   variant="ghost"
                   size="sm"
                   onClick={clearSearch}
-                  className="absolute right-1 top-1/2 transform -translate-y-1/2 h-6 w-6 p-0 hover:bg-destructive hover:text-destructive-foreground"
+                  className="absolute right-1 top-1/2 -translate-y-1/2 h-6 w-6 p-0 hover:bg-destructive hover:text-destructive-foreground"
                 >
                   <X className="w-3 h-3" />
                 </Button>
@@ -117,11 +125,14 @@ export function SearchFilter({
             <Select
               value={`${filters.sortBy}-${filters.sortOrder}`}
               onValueChange={(value) => {
-                const [sortBy, sortOrder] = value.split('-') as [FilterState['sortBy'], FilterState['sortOrder']];
+                const [sortBy, sortOrder] = value.split("-") as [
+                  FilterState["sortBy"],
+                  FilterState["sortOrder"]
+                ];
                 onFiltersChange({
                   ...filters,
                   sortBy,
-                  sortOrder
+                  sortOrder,
                 });
               }}
             >
@@ -174,9 +185,9 @@ export function SearchFilter({
                   <Filter className="w-4 h-4 mr-2" />
                   Filters
                   {activeFiltersCount > 0 && (
-                    <Badge 
-                      variant="secondary" 
-                      className="absolute -top-2 -right-2 h-5 w-5 p-0 flex items-center justify-center text-xs bg-green-600 dark:bg-green-500 text-white border-green-700 dark:border-green-400"
+                    <Badge
+                      variant="secondary"
+                      className="absolute -top-2 -right-2 h-5 w-5 p-0 flex items-center justify-center text-xs bg-green-600 dark:bg-green-500 text-white"
                     >
                       {activeFiltersCount}
                     </Badge>
@@ -188,30 +199,42 @@ export function SearchFilter({
                   <div className="flex items-center justify-between">
                     <h4 className="font-medium">Advanced Filters</h4>
                     {activeFiltersCount > 0 && (
-                      <Button 
-                        variant="ghost" 
-                        size="sm" 
+                      <Button
+                        variant="ghost"
+                        size="sm"
                         onClick={clearFilters}
-                        className="h-auto p-1 text-xs text-destructive hover:text-destructive-foreground hover:bg-destructive"
+                        className="h-auto p-1 text-xs text-destructive hover:bg-destructive hover:text-destructive-foreground"
                       >
                         Clear All
                       </Button>
                     )}
                   </div>
 
-
-
                   <div className="space-y-2">
-                    <label className="text-sm font-medium">Minimum Points</label>
+                    <label className="text-sm font-medium">
+                      Minimum Points
+                    </label>
                     <Input
                       type="number"
                       placeholder="0"
-                      value={filters.minPoints || ''} 
-                      onChange={(e) => handleFilterChange('minPoints', parseInt(e.target.value) || 0)}
+                      value={filters.minPoints || ""}
+                      onChange={(e) =>
+                        handleFilterChange(
+                          "minPoints",
+                          parseInt(e.target.value, 10) || 0
+                        )
+                      }
                       min="0"
                     />
                     <p className="text-xs text-muted-foreground">
-                      Showing {contributors.filter(c => c.total_points >= filters.minPoints).length} contributors
+                      Showing{" "}
+                      {
+                        contributors.filter(
+                          (c) =>
+                            c.total_points >= filters.minPoints
+                        ).length
+                      }{" "}
+                      contributors
                     </p>
                   </div>
                 </div>
@@ -220,22 +243,30 @@ export function SearchFilter({
 
             <div className="flex border rounded-lg p-1 bg-muted/20">
               <Button
-                variant={filters.viewMode === 'grid' ? 'default' : 'ghost'}
+                variant={
+                  filters.viewMode === "grid"
+                    ? "default"
+                    : "ghost"
+                }
                 size="sm"
                 onClick={() => {
-                  handleFilterChange('viewMode', 'grid');
-                  onViewModeChange('grid');
+                  handleFilterChange("viewMode", "grid");
+                  onViewModeChange("grid");
                 }}
                 className="px-3"
               >
                 <Grid3X3 className="w-4 h-4" />
               </Button>
               <Button
-                variant={filters.viewMode === 'list' ? 'default' : 'ghost'}
+                variant={
+                  filters.viewMode === "list"
+                    ? "default"
+                    : "ghost"
+                }
                 size="sm"
                 onClick={() => {
-                  handleFilterChange('viewMode', 'list');
-                  onViewModeChange('list');
+                  handleFilterChange("viewMode", "list");
+                  onViewModeChange("list");
                 }}
                 className="px-3"
               >
@@ -248,11 +279,14 @@ export function SearchFilter({
             <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t">
               {filters.search && (
                 <Badge variant="secondary" className="gap-1">
-                  Search: "{filters.search}"
+                  Search:&nbsp;
+                  {`"${filters.search}"`}
                   <Button
                     variant="ghost"
                     size="sm"
-                    onClick={() => handleFilterChange('search', '')}
+                    onClick={() =>
+                      handleFilterChange("search", "")
+                    }
                     className="h-auto w-auto p-0 ml-1 hover:bg-destructive hover:text-destructive-foreground rounded-full"
                   >
                     <X className="w-3 h-3" />
@@ -266,7 +300,9 @@ export function SearchFilter({
                   <Button
                     variant="ghost"
                     size="sm"
-                    onClick={() => handleFilterChange('minPoints', 0)}
+                    onClick={() =>
+                      handleFilterChange("minPoints", 0)
+                    }
                     className="h-auto w-auto p-0 ml-1 hover:bg-destructive hover:text-destructive-foreground rounded-full"
                   >
                     <X className="w-3 h-3" />

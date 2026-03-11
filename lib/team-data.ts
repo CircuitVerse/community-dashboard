@@ -24,7 +24,8 @@ export const coreTeamMembers: TeamMember[] = [
   { username: "nihal4777", name: "Nihal Rajpal", avatar_url: "https://avatars.githubusercontent.com/u/65150640?v=4", github_url: "https://github.com/nihal4777", role: "Core Team", team_type: "core" },
   { username: "JatsuAkaYashvant", name: "Yashvant Singh", avatar_url: "https://avatars.githubusercontent.com/u/146776812?v=4", github_url: "https://github.com/JatsuAkaYashvant", role: "Core Team", team_type: "core" },
   { username: "senbo1", name: "Harsh Bhadu", avatar_url: "https://avatars.githubusercontent.com/u/102225113?v=4", github_url: "https://github.com/senbo1", role: "Core Team", team_type: "core" },
-  { username: "Asrani-Aman", name: "Aman Asrani", avatar_url: "https://avatars.githubusercontent.com/u/96644946?v=4", github_url: "https://github.com/Asrani-Aman", role: "Core Team", team_type: "core" }
+  { username: "Asrani-Aman", name: "Aman Asrani", avatar_url: "https://avatars.githubusercontent.com/u/96644946?v=4", github_url: "https://github.com/Asrani-Aman", role: "Core Team", team_type: "core" },
+  { username: "hardik17771", name: "Hardik Sachdeva", avatar_url: "https://avatars.githubusercontent.com/u/85028179?v=4", github_url: "https://github.com/hardik17771", role: "Core Team", team_type: "core" }
 ];
 
 // Alumni data from CircuitVerse about page

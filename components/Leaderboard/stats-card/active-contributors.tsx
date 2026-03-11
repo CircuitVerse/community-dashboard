@@ -40,7 +40,7 @@ const ActiveContributors = ({
     count > displayCount ? count - displayCount : 0;
 
   return (
-    <Card className="flex flex-col gap-0 rounded-[20px] border border-zinc-200 dark:border-white/10 bg-white dark:bg-linear-to-b dark:from-zinc-900 dark:via-zinc-900 dark:to-black shadow-xl shadow-[#edfff7] dark:shadow-black/50 h-full">
+    <Card className="flex flex-col gap-0 rounded-[20px] border border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-900/40 shadow-xl shadow-[#edfff7] dark:shadow-black/50 h-full">
       <CardHeader className="flex flex-row items-center justify-between pb-2 px-6">
         <CardTitle className="text-xs uppercase tracking-wider font-medium text-zinc-500 dark:text-zinc-400">
           Contributors
@@ -88,10 +88,10 @@ const ActiveContributors = ({
         {/* Action */}
         <div className="mt-auto">
           <Link
-            href="/people"
+            href="/people#contributors"
             className="block w-full rounded-xl border border-zinc-200 dark:border-white/5 bg-zinc-50 dark:bg-zinc-800/50 px-4 py-3 text-center text-sm font-medium text-zinc-900 dark:text-white transition hover:bg-zinc-100 dark:hover:bg-zinc-800"
           >
-            View All Members
+            View Contributors
           </Link>
         </div>
       </CardContent>

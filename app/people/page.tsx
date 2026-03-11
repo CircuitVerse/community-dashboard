@@ -1,14 +1,20 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Loader2, Activity } from "lucide-react";
+import { Loader2, Activity, Users } from "lucide-react";
 import { PeopleStats } from "@/components/people/PeopleStats";
 import { PeopleGrid } from "@/components/people/PeopleGrid";
 import { ContributorDetail } from "@/components/people/ContributorDetail";
 import { TeamSection } from "@/components/people/TeamSection";
 import { type TeamMember } from "@/lib/team-data";
+import { Input } from "@/components/ui/input";
+import { Search } from "lucide-react";
+import { useScrollRestoration } from "@/lib/hooks/useScrollRestoration";
+
+
+
 
 interface ContributorEntry {
   username: string;
@@ -46,14 +52,33 @@ async function fetchPeople(): Promise<PeopleResponse> {
     return { updatedAt: 0, people: [], coreTeam: [], alumni: [] };
   }
 }
+
 export default function PeoplePage() {
   const [people, setPeople] = useState<ContributorEntry[]>([]);
   const [coreTeam, setCoreTeam] = useState<TeamMember[]>([]);
   const [alumni, setAlumni] = useState<TeamMember[]>([]);
-  const [updatedAt, setUpdatedAt] = useState<number>(Date.now());
+  const [updatedAt, setUpdatedAt] = useState<number | null>(null);
   const [selectedContributor, setSelectedContributor] = useState<ContributorEntry | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  useEffect(() => {
+    if (!loading && window.location.hash === "#contributors") {
+      const el = document.getElementById("contributors");
+      if (el) {
+        const timer = setTimeout(() => {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 50);
+
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [loading]);
+
+
+
+  // Use scroll restoration hook - active when no contributor is selected (list view)
+  const { saveScrollPosition } = useScrollRestoration({ isActive: !selectedContributor });
 
 
   useEffect(() => {
@@ -77,9 +102,21 @@ export default function PeoplePage() {
     loadData();
   }, []);
 
+const filteredPeople = useMemo(() => {
+  if (!searchQuery.trim()) return people;
+
+  const query = searchQuery.toLowerCase();
+
+  return people.filter((person) => {
+    const name = person.name?.toLowerCase() || "";
+    const username = person.username.toLowerCase();
+    return name.includes(query) || username.includes(query);
+  });
+}, [people, searchQuery]);
 
 
   const handleContributorClick = (contributor: ContributorEntry) => {
+    saveScrollPosition();
     setSelectedContributor(contributor);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -114,11 +151,11 @@ export default function PeoplePage() {
   return (
     <div className="mx-auto px-4 py-8 max-w-7xl">
       <div className="mb-8 text-center">
-        <h1 className="text-4xl font-bold mb-4">
+        <h1 className="text-4xl font-bold">
           <span className="text-black dark:text-white">Our </span>
-          <span className="text-[#42B883]">People</span>
+          <span className="text-emerald-600 dark:text-emerald-400">People</span>
         </h1>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-4">
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-4 mt-4">
           Meet the team who made CircuitVerse possible.
         </p>
         {updatedAt && (
@@ -181,7 +218,7 @@ export default function PeoplePage() {
               <div className="h-8 bg-muted rounded w-72 mx-auto mb-4" />
               <div className="h-4 bg-muted rounded w-96 mx-auto" />
             </div>
-            
+
             <div className="space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {Array.from({ length: 4 }).map((_, i) => (
@@ -212,8 +249,12 @@ export default function PeoplePage() {
 
               <div className="text-center py-16">
                 <Loader2 className="w-12 h-12 animate-spin mx-auto mb-4 text-green-600 dark:text-green-400" />
-                <h3 className="text-lg font-semibold mb-2">Loading Community Data</h3>
-                <p className="text-muted-foreground">Fetching team members and contributors...</p>
+                <h3 className="text-lg font-semibold mb-2">
+                  Loading Community Data
+                </h3>
+                <p className="text-muted-foreground">
+                  Fetching team members and contributors...
+                </p>
               </div>
             </div>
           </div>
@@ -233,31 +274,61 @@ export default function PeoplePage() {
             members={alumni}
             teamType="alumni"
           />
+<section id="contributors" className="mb-8 scroll-mt-28">
+  <div className="mb-8">
+    <div className="mb-4">
+      <h2 className="text-3xl font-bold">
+        <span className="text-black dark:text-white">Community </span>
+        <span className="text-[#42B883]">Contributors</span>
+      </h2>
+    </div>
 
-          <div className="mb-8">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold mb-4">
-                <span className="text-black dark:text-white">Community </span>
-                <span className="text-[#42B883]">Contributors</span>
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Amazing community members who contribute to CircuitVerse through code, documentation, and more.
-              </p>
-            </div>
-            <div className="flex flex-col gap-4">
-            <PeopleStats 
-              contributors={people} 
-              onContributorClick={handleContributorClick}
-            />
+    <p className="text-lg text-muted-foreground max-w-3xl mb-6">
+      Amazing community members who contribute to CircuitVerse through
+      code, documentation, and more.
+    </p>
+  </div>
 
-            <PeopleGrid
-              contributors={people}
-              onContributorClick={handleContributorClick}
-              viewMode="grid"
-              loading={false}
-            />
-          </div>
-          </div>
+  <div className="flex flex-col gap-4">
+    <PeopleStats 
+      contributors={filteredPeople} 
+      allContributors={people}
+      onContributorClick={handleContributorClick}
+    />
+
+    <div className="flex items-center justify-between gap-4 py-8">
+      <div className="flex items-center gap-2">
+        <Users className="w-5 h-5 text-muted-foreground" />
+        <span className="text-2xl font-bold text-foreground">
+          {filteredPeople.length}{' '}
+          <span className="text-[#42B883]">
+            {filteredPeople.length === 1 ? 'Contributor' : 'Contributors'}
+          </span>
+          {searchQuery && <span className="text-foreground"> found</span>}
+        </span>
+      </div>
+
+      <div className="relative w-full sm:w-72">
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+        <Input
+          type="text"
+          placeholder="Search contributors..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="pl-9 h-10"
+        />
+      </div>
+    </div>
+
+    <PeopleGrid
+      contributors={filteredPeople}
+      onContributorClick={handleContributorClick}
+      viewMode="grid"
+      loading={false}
+    />
+  </div>
+</section>
+
             
         </>
       )}
