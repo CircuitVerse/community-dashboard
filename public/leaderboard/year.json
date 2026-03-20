@@ -1,9 +1,9 @@
 {
   "period": "year",
-  "updatedAt": 1773883200409,
-  "lastFetchedAt": 1773883200409,
-  "startDate": "2025-03-19",
-  "endDate": "2026-03-19",
+  "updatedAt": 1773969332906,
+  "lastFetchedAt": 1773969332906,
+  "startDate": "2025-03-20",
+  "endDate": "2026-03-20",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -18529,11 +18529,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/180000253?v=4",
       "role": "Contributor",
-      "total_points": 92,
+      "total_points": 93,
       "activity_breakdown": {
         "Issue opened": {
-          "count": 14,
-          "points": 14
+          "count": 15,
+          "points": 15
         },
         "Issue labeled": {
           "count": 1,
@@ -18549,6 +18549,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-03-19",
+          "count": 1,
+          "points": 1
+        },
         {
           "date": "2026-01-26",
           "count": 2,
@@ -18606,6 +18611,13 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-19T09:22:16Z",
+          "title": "Enhancement - Footer redesign with UX improvements",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7175",
+          "points": 1
+        },
         {
           "type": "Issue opened",
           "occured_at": "2026-01-26T13:20:09Z",
@@ -30815,6 +30827,167 @@
       ]
     },
     {
+      "username": "may-tas",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/135056339?v=4",
+      "role": "Contributor",
+      "total_points": 12,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 4,
+          "points": 8
+        },
+        "Issue opened": {
+          "count": 4,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-03-19",
+          "count": 6,
+          "points": 9
+        },
+        {
+          "date": "2026-02-26",
+          "count": 2,
+          "points": 3
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-19T10:26:03Z",
+          "title": "test(auth) - add unit testing suite for LocalStorageService",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/541",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-19T09:46:21Z",
+          "title": "fix(auth) - prevent partial authentication state on fetch user failure",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/539",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-19T09:45:53Z",
+          "title": "fix(auth) - clear token from SharedPreferences on logout",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/538",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-19T10:23:27Z",
+          "title": "chore(tests) - introduce test suite for LocalStorageService",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/540",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-19T09:41:14Z",
+          "title": "fix(auth) - fatal UI crashes due to partial authentication state during login failures",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/537",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-19T09:38:21Z",
+          "title": "fix(auth) - persistent token vulnerability on logout due to unhandled null fields",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/536",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-26T16:39:06Z",
+          "title": "chore(l10n) - remove deprecated synthetic-package option from l10n.yaml",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/511",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-26T15:47:46Z",
+          "title": "Deprecation warning - synthetic-package option in `l10n.yaml` has no effect",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/510",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "username": "palakvishwakarma44",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/192522358?v=4",
+      "role": "Contributor",
+      "total_points": 12,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 6,
+          "points": 12
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-03-19",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-03-18",
+          "count": 2,
+          "points": 4
+        },
+        {
+          "date": "2026-03-17",
+          "count": 3,
+          "points": 6
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-19T07:44:22Z",
+          "title": "Fix percy clean",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7174",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-18T16:54:07Z",
+          "title": "fix(ci) - correct OR/AND syntax in Percy workflow",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7171",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-18T15:46:55Z",
+          "title": "fix(ci) - correct OR/AND syntax in Percy workflow",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7170",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-17T12:12:43Z",
+          "title": "fix - improve UI alignment in assignment edit page (#5541)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7167",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-17T11:52:58Z",
+          "title": "fix - align project title and stats properly (#4107)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7166",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-17T11:26:25Z",
+          "title": "First contribution docs - add VAPID keys documentation (#4040)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7165",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "laky241",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/181271472?v=4",
@@ -32021,68 +32194,6 @@
       ]
     },
     {
-      "username": "palakvishwakarma44",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/192522358?v=4",
-      "role": "Contributor",
-      "total_points": 10,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 5,
-          "points": 10
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-03-18",
-          "count": 2,
-          "points": 4
-        },
-        {
-          "date": "2026-03-17",
-          "count": 3,
-          "points": 6
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-18T16:54:07Z",
-          "title": "fix(ci) - correct OR/AND syntax in Percy workflow",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7171",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-18T15:46:55Z",
-          "title": "fix(ci) - correct OR/AND syntax in Percy workflow",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7170",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-17T12:12:43Z",
-          "title": "fix - improve UI alignment in assignment edit page (#5541)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7167",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-17T11:52:58Z",
-          "title": "fix - align project title and stats properly (#4107)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7166",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-17T11:26:25Z",
-          "title": "First contribution docs - add VAPID keys documentation (#4040)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7165",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "nusRying",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/116121504?v=4",
@@ -32757,6 +32868,99 @@
           "title": "Update brewfile node 24",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6413",
           "points": 2
+        }
+      ]
+    },
+    {
+      "username": "spc-28",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/139547705?v=4",
+      "role": "Contributor",
+      "total_points": 9,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 3,
+          "points": 6
+        },
+        "Issue opened": {
+          "count": 3,
+          "points": 3
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-03-19",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-03-03",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-03-02",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-02-21",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-02-14",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-02-02",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-19T05:38:47Z",
+          "title": "Introduce view/edit modes for circuits and fix navigation and fork functionality",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/535",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-03T23:11:55Z",
+          "title": "Open a circuit in Simulator web-view within the app",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/523",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-02T08:08:56Z",
+          "title": "fix - Interactive book and improvements",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/517",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-21T13:21:17Z",
+          "title": "Interactive-Book not getting rendered",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/496",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-14T07:38:31Z",
+          "title": "feat - add encrypted token storage and proper logout handling",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/492",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-02T22:18:25Z",
+          "title": "Authentication related security vulnerabilities",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/488",
+          "points": 1
         }
       ]
     },
@@ -33691,87 +33895,6 @@
           "title": "Review on PR #5337",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/5337",
           "points": 4
-        }
-      ]
-    },
-    {
-      "username": "spc-28",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/139547705?v=4",
-      "role": "Contributor",
-      "total_points": 7,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 3,
-          "points": 3
-        },
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-03-03",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-03-02",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-02-21",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-02-14",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-02-02",
-          "count": 1,
-          "points": 1
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-03-03T23:11:55Z",
-          "title": "Open a circuit in Simulator web-view within the app",
-          "link": "https://github.com/CircuitVerse/mobile-app/issues/523",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-02T08:08:56Z",
-          "title": "fix - Interactive book and improvements",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/517",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-21T13:21:17Z",
-          "title": "Interactive-Book not getting rendered",
-          "link": "https://github.com/CircuitVerse/mobile-app/issues/496",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-14T07:38:31Z",
-          "title": "feat - add encrypted token storage and proper logout handling",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/492",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-02T22:18:25Z",
-          "title": "Authentication related security vulnerabilities",
-          "link": "https://github.com/CircuitVerse/mobile-app/issues/488",
-          "points": 1
         }
       ]
     },
@@ -35936,6 +36059,47 @@
       ]
     },
     {
+      "username": "NARAYAN790",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/227332428?v=4",
+      "role": "Contributor",
+      "total_points": 4,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-03-19",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-03-15",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-19T17:46:17Z",
+          "title": "Fix - align view button with project title using flexbox",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7177",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-15T19:07:37Z",
+          "title": "Improve README setup descriptionImprove setup description in README",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7159",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "samarth-swami",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/235930796?v=4",
@@ -37178,46 +37342,6 @@
       ]
     },
     {
-      "username": "may-tas",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/135056339?v=4",
-      "role": "Contributor",
-      "total_points": 3,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-02-26",
-          "count": 2,
-          "points": 3
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-26T16:39:06Z",
-          "title": "chore(l10n) - remove deprecated synthetic-package option from l10n.yaml",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/511",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-26T15:47:46Z",
-          "title": "Deprecation warning - synthetic-package option in `l10n.yaml` has no effect",
-          "link": "https://github.com/CircuitVerse/mobile-app/issues/510",
-          "points": 1
-        }
-      ]
-    },
-    {
       "username": "shoryabansalgithub",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/171927483?v=4",
@@ -38007,35 +38131,6 @@
           "title": "Feature Improve Login Page UI and Password Visibility Toggle",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/5387",
           "points": 1
-        }
-      ]
-    },
-    {
-      "username": "NARAYAN790",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/227332428?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-03-15",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-15T19:07:37Z",
-          "title": "Improve README setup descriptionImprove setup description in README",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7159",
-          "points": 2
         }
       ]
     },
