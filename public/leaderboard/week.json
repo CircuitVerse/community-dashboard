@@ -1,11 +1,135 @@
 {
   "period": "week",
-  "updatedAt": 1773969332920,
-  "startDate": "2026-03-13",
-  "endDate": "2026-03-20",
+  "updatedAt": 1774055440235,
+  "startDate": "2026-03-14",
+  "endDate": "2026-03-21",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
+    {
+      "username": "magic-peach",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
+      "role": "Contributor",
+      "total_points": 21,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 7,
+          "points": 14
+        },
+        "Issue opened": {
+          "count": 7,
+          "points": 7
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-03-20",
+          "count": 14,
+          "points": 21
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-20T06:56:35Z",
+          "title": "fix - rescue per-project fork errors in AssignmentDeadlineSubmissionJob to prevent partial batch failure",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7192",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-20T06:55:57Z",
+          "title": "fix - use find_by in AssignmentDeadlineVerificationJob to avoid RecordNotFound on deleted assignments",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7191",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-20T06:54:46Z",
+          "title": "fix - add partial unique index on assignments.lti_consumer_key for LTI 1.1 lookups",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7190",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-20T06:54:06Z",
+          "title": "fix - block grade writes when assignment grades_finalized is true",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7189",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-20T06:53:36Z",
+          "title": "fix - add includes( - user) to Assignment notification callbacks to avoid N+1 queries",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7188",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-20T06:52:46Z",
+          "title": "fix - scope AssignmentsController#index to current user's groups",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7187",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-20T06:51:44Z",
+          "title": "fix - remove duplicate update! call in Api - - V1 - - AssignmentsController#update",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7186",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-20T06:50:04Z",
+          "title": "Bug - AssignmentDeadlineSubmissionJob aborts entire batch if a single project fork fails, leaving assignment partially submitted and unclosed",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7185",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-20T06:49:44Z",
+          "title": "Bug - AssignmentDeadlineVerificationJob raises ActiveRecord - - RecordNotFound when assignment is deleted while queued",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7184",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-20T06:49:09Z",
+          "title": "Performance - Missing database index on assignments.lti_consumer_key causes full table scan during LTI 1.1 auth",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7183",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-20T06:48:50Z",
+          "title": "Bug - GradePolicy does not enforce grades_finalized flag — mentors can overwrite grades after finalization",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7182",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-20T06:48:23Z",
+          "title": "Performance - N+1 queries in Assignment notification callbacks (notify_recipient, send_new_assignment_mail, send_update_mail)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7181",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-20T06:47:55Z",
+          "title": "Security - AssignmentsController#index leaks all assignments to any authenticated user",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7180",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-20T06:47:40Z",
+          "title": "Bug - Api - - V1 - - AssignmentsController#update calls update! and update twice with identical params",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7179",
+          "points": 1
+        }
+      ]
+    },
     {
       "username": "Omkar-Wagholikar",
       "name": null,
@@ -257,6 +381,57 @@
       ]
     },
     {
+      "username": "Teesta-Mukherjee",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/168867474?v=4",
+      "role": "Contributor",
+      "total_points": 5,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-03-20",
+          "count": 3,
+          "points": 5
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-20T13:49:43Z",
+          "title": "feat - introduce organization model and link groups to organizations",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7194",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-20T11:59:43Z",
+          "title": "Feature - Add organization entity to support institutional group management",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7193",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-03-20T11:59:44Z",
+          "title": "Labeled issue #7193 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7193",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "SouparnaChatterjee",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/115988950?v=4",
@@ -333,58 +508,6 @@
           "title": "Review on PR #7147",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7147",
           "points": 4
-        }
-      ]
-    },
-    {
-      "username": "hiraljj05",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/212759472?v=4",
-      "role": "Contributor",
-      "total_points": 4,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        },
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-03-14",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-03-13",
-          "count": 2,
-          "points": 3
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-03-14T08:17:37Z",
-          "title": "Add full-text search for Interactive Books",
-          "link": "https://github.com/CircuitVerse/mobile-app/issues/533",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-13T18:02:32Z",
-          "title": "Add reading progress tracking for Interactive Books",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/532",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-03-13T17:56:25Z",
-          "title": "Reading position is not preserved in Interactive Books",
-          "link": "https://github.com/CircuitVerse/mobile-app/issues/531",
-          "points": 1
         }
       ]
     },
@@ -553,35 +676,6 @@
       ]
     },
     {
-      "username": "gayatri728",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/214634310?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-03-13",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-13T10:09:58Z",
-          "title": "fix - replace deprecated action_cable.js with actioncable.js",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7155",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "haaasini01",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/180000253?v=4",
@@ -606,6 +700,35 @@
           "occured_at": "2026-03-19T09:22:16Z",
           "title": "Enhancement - Footer redesign with UX improvements",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7175",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "username": "hiraljj05",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/212759472?v=4",
+      "role": "Contributor",
+      "total_points": 1,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-03-14",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-14T08:17:37Z",
+          "title": "Add full-text search for Interactive Books",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/533",
           "points": 1
         }
       ]
