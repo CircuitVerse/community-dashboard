@@ -1,8 +1,8 @@
 {
   "period": "week",
-  "updatedAt": 1774401527863,
-  "startDate": "2026-03-18",
-  "endDate": "2026-03-25",
+  "updatedAt": 1774488243095,
+  "startDate": "2026-03-19",
+  "endDate": "2026-03-26",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -135,11 +135,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/52635773?v=4",
       "role": "Contributor",
-      "total_points": 21,
+      "total_points": 19,
       "activity_breakdown": {
         "PR opened": {
-          "count": 10,
-          "points": 20
+          "count": 9,
+          "points": 18
         },
         "Issue opened": {
           "count": 1,
@@ -161,11 +161,6 @@
           "date": "2026-03-22",
           "count": 3,
           "points": 6
-        },
-        {
-          "date": "2026-03-18",
-          "count": 1,
-          "points": 2
         }
       ],
       "activities": [
@@ -238,13 +233,6 @@
           "title": "Added Mobile Native Notifications and Deep Link",
           "link": "https://github.com/CircuitVerse/mobile-app/pull/542",
           "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-18T21:30:32Z",
-          "title": "Improved Drawer UI Design",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/534",
-          "points": 2
         }
       ]
     },
@@ -253,18 +241,23 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/180764866?v=4",
       "role": "Contributor",
-      "total_points": 12,
+      "total_points": 15,
       "activity_breakdown": {
         "PR opened": {
-          "count": 3,
-          "points": 6
+          "count": 4,
+          "points": 8
         },
         "Issue opened": {
-          "count": 6,
-          "points": 6
+          "count": 7,
+          "points": 7
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-03-25",
+          "count": 2,
+          "points": 3
+        },
         {
           "date": "2026-03-24",
           "count": 7,
@@ -277,6 +270,20 @@
         }
       ],
       "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-25T08:05:18Z",
+          "title": "docs - add Chrome CORS workaround for local web development",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/562",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-25T07:58:17Z",
+          "title": "Bug - CORS policy blocks all API requests when running app via flutter run -d chrome",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/561",
+          "points": 1
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-03-24T20:17:38Z",
@@ -411,61 +418,64 @@
       ]
     },
     {
-      "username": "palakvishwakarma44",
+      "username": "Gouri-Pawar",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/192522358?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/186403831?v=4",
       "role": "Contributor",
-      "total_points": 8,
+      "total_points": 7,
       "activity_breakdown": {
         "PR opened": {
-          "count": 4,
-          "points": 8
+          "count": 1,
+          "points": 2
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "Issue labeled": {
+          "count": 2,
+          "points": 4
         }
       },
       "daily_activity": [
         {
-          "date": "2026-03-22",
+          "date": "2026-03-25",
           "count": 1,
           "points": 2
         },
         {
-          "date": "2026-03-19",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-03-18",
-          "count": 2,
-          "points": 4
+          "date": "2026-03-21",
+          "count": 3,
+          "points": 5
         }
       ],
       "activities": [
         {
           "type": "PR opened",
-          "occured_at": "2026-03-22T11:51:52Z",
-          "title": "Fix percy clean",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7201",
+          "occured_at": "2026-03-25T14:24:24Z",
+          "title": "Fix ArgumentError in rack_attack due to invalid email encoding",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7215",
           "points": 2
         },
         {
-          "type": "PR opened",
-          "occured_at": "2026-03-19T07:44:22Z",
-          "title": "Fix percy clean",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7174",
+          "type": "Issue opened",
+          "occured_at": "2026-03-21T09:31:21Z",
+          "title": "UI/UX Bug - Search shows blank page instead of “No circuits found” message",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7197",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-03-21T09:31:22Z",
+          "title": "Labeled issue #7197 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7197",
           "points": 2
         },
         {
-          "type": "PR opened",
-          "occured_at": "2026-03-18T16:54:07Z",
-          "title": "fix(ci) - correct OR/AND syntax in Percy workflow",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7171",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-18T15:46:55Z",
-          "title": "fix(ci) - correct OR/AND syntax in Percy workflow",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7170",
+          "type": "Issue labeled",
+          "occured_at": "2026-03-21T09:31:23Z",
+          "title": "Labeled issue #7197 - pending triage",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7197",
           "points": 2
         }
       ]
@@ -583,48 +593,83 @@
       ]
     },
     {
-      "username": "Gouri-Pawar",
+      "username": "palakvishwakarma44",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/186403831?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/192522358?v=4",
       "role": "Contributor",
-      "total_points": 5,
+      "total_points": 4,
       "activity_breakdown": {
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue labeled": {
+        "PR opened": {
           "count": 2,
           "points": 4
         }
       },
       "daily_activity": [
         {
-          "date": "2026-03-21",
-          "count": 3,
-          "points": 5
+          "date": "2026-03-22",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-03-19",
+          "count": 1,
+          "points": 2
         }
       ],
       "activities": [
         {
-          "type": "Issue opened",
-          "occured_at": "2026-03-21T09:31:21Z",
-          "title": "UI/UX Bug - Search shows blank page instead of “No circuits found” message",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7197",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-03-21T09:31:22Z",
-          "title": "Labeled issue #7197 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7197",
+          "type": "PR opened",
+          "occured_at": "2026-03-22T11:51:52Z",
+          "title": "Fix percy clean",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7201",
           "points": 2
         },
         {
-          "type": "Issue labeled",
-          "occured_at": "2026-03-21T09:31:23Z",
-          "title": "Labeled issue #7197 - pending triage",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7197",
+          "type": "PR opened",
+          "occured_at": "2026-03-19T07:44:22Z",
+          "title": "Fix percy clean",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7174",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "Shashikumar-ezhilarasu",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/152071778?v=4",
+      "role": "Contributor",
+      "total_points": 4,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-03-25",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-03-21",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-25T03:30:48Z",
+          "title": "Fix/increase simulator navbar height",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7213",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-21T20:36:05Z",
+          "title": "fix - show 'No circuits found' message when search returns no results",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7198",
           "points": 2
         }
       ]
@@ -786,6 +831,35 @@
       ]
     },
     {
+      "username": "jay2006-dev",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/208452115?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-03-25",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-25T08:14:12Z",
+          "title": "feat(#3618) - Migrate delete buttons to reusable ViewComponent",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7214",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "rishabh1230",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/184091462?v=4",
@@ -926,35 +1000,6 @@
           "occured_at": "2026-03-23T11:11:13Z",
           "title": "fix - resolve N+1 query on stars table (#7200)",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7204",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "Shashikumar-ezhilarasu",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/152071778?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-03-21",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-21T20:36:05Z",
-          "title": "fix - show 'No circuits found' message when search returns no results",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7198",
           "points": 2
         }
       ]
