@@ -1,135 +1,11 @@
 {
   "period": "week",
-  "updatedAt": 1774574601714,
-  "startDate": "2026-03-20",
-  "endDate": "2026-03-27",
+  "updatedAt": 1774660685237,
+  "startDate": "2026-03-21",
+  "endDate": "2026-03-28",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
-    {
-      "username": "magic-peach",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
-      "role": "Contributor",
-      "total_points": 21,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 7,
-          "points": 14
-        },
-        "Issue opened": {
-          "count": 7,
-          "points": 7
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-03-20",
-          "count": 14,
-          "points": 21
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-20T06:56:35Z",
-          "title": "fix - rescue per-project fork errors in AssignmentDeadlineSubmissionJob to prevent partial batch failure",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7192",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-20T06:55:57Z",
-          "title": "fix - use find_by in AssignmentDeadlineVerificationJob to avoid RecordNotFound on deleted assignments",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7191",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-20T06:54:46Z",
-          "title": "fix - add partial unique index on assignments.lti_consumer_key for LTI 1.1 lookups",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7190",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-20T06:54:06Z",
-          "title": "fix - block grade writes when assignment grades_finalized is true",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7189",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-20T06:53:36Z",
-          "title": "fix - add includes( - user) to Assignment notification callbacks to avoid N+1 queries",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7188",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-20T06:52:46Z",
-          "title": "fix - scope AssignmentsController#index to current user's groups",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7187",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-20T06:51:44Z",
-          "title": "fix - remove duplicate update! call in Api - - V1 - - AssignmentsController#update",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7186",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-03-20T06:50:04Z",
-          "title": "Bug - AssignmentDeadlineSubmissionJob aborts entire batch if a single project fork fails, leaving assignment partially submitted and unclosed",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7185",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-03-20T06:49:44Z",
-          "title": "Bug - AssignmentDeadlineVerificationJob raises ActiveRecord - - RecordNotFound when assignment is deleted while queued",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7184",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-03-20T06:49:09Z",
-          "title": "Performance - Missing database index on assignments.lti_consumer_key causes full table scan during LTI 1.1 auth",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7183",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-03-20T06:48:50Z",
-          "title": "Bug - GradePolicy does not enforce grades_finalized flag — mentors can overwrite grades after finalization",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7182",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-03-20T06:48:23Z",
-          "title": "Performance - N+1 queries in Assignment notification callbacks (notify_recipient, send_new_assignment_mail, send_update_mail)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7181",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-03-20T06:47:55Z",
-          "title": "Security - AssignmentsController#index leaks all assignments to any authenticated user",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7180",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-03-20T06:47:40Z",
-          "title": "Bug - Api - - V1 - - AssignmentsController#update calls update! and update twice with identical params",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7179",
-          "points": 1
-        }
-      ]
-    },
     {
       "username": "SantamRC",
       "name": null,
@@ -500,53 +376,54 @@
       ]
     },
     {
-      "username": "Teesta-Mukherjee",
+      "username": "Ram-sah19",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/168867474?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/208265520?v=4",
       "role": "Contributor",
       "total_points": 5,
       "activity_breakdown": {
         "PR opened": {
-          "count": 1,
-          "points": 2
+          "count": 2,
+          "points": 4
         },
         "Issue opened": {
           "count": 1,
           "points": 1
-        },
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
         }
       },
       "daily_activity": [
         {
-          "date": "2026-03-20",
-          "count": 3,
-          "points": 5
+          "date": "2026-03-27",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-03-23",
+          "count": 2,
+          "points": 3
         }
       ],
       "activities": [
         {
           "type": "PR opened",
-          "occured_at": "2026-03-20T13:49:43Z",
-          "title": "feat - introduce organization model and link groups to organizations",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7194",
+          "occured_at": "2026-03-27T08:09:35Z",
+          "title": "Add interactive circuit visualizations using GIFs and video embeds",
+          "link": "https://github.com/CircuitVerse/Interactive-Book/pull/775",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-23T06:37:18Z",
+          "title": "Fix - Shuffle Bias, jQuery Check, Global Scope Issues, Scroll Handling, and Outdated Configurations",
+          "link": "https://github.com/CircuitVerse/Interactive-Book/pull/773",
           "points": 2
         },
         {
           "type": "Issue opened",
-          "occured_at": "2026-03-20T11:59:43Z",
-          "title": "Feature - Add organization entity to support institutional group management",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7193",
+          "occured_at": "2026-03-23T06:28:53Z",
+          "title": "Fix - Multiple Code Quality, Performance, and Maintenance Issues",
+          "link": "https://github.com/CircuitVerse/Interactive-Book/issues/772",
           "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-03-20T11:59:44Z",
-          "title": "Labeled issue #7193 - 🌟 feature",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7193",
-          "points": 2
         }
       ]
     },
@@ -588,46 +465,6 @@
           "title": "fix - show 'No circuits found' message when search returns no results",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7198",
           "points": 2
-        }
-      ]
-    },
-    {
-      "username": "Ram-sah19",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/208265520?v=4",
-      "role": "Contributor",
-      "total_points": 3,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-03-23",
-          "count": 2,
-          "points": 3
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-23T06:37:18Z",
-          "title": "Fix - Shuffle Bias, jQuery Check, Global Scope Issues, Scroll Handling, and Outdated Configurations",
-          "link": "https://github.com/CircuitVerse/Interactive-Book/pull/773",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-03-23T06:28:53Z",
-          "title": "Fix - Multiple Code Quality, Performance, and Maintenance Issues",
-          "link": "https://github.com/CircuitVerse/Interactive-Book/issues/772",
-          "points": 1
         }
       ]
     },
@@ -743,6 +580,35 @@
           "occured_at": "2026-03-22T16:00:57Z",
           "title": "feat - enhance footer layout and responsiveness",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7202",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "indiadolf",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/218401589?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-03-27",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-27T13:34:37Z",
+          "title": "Validate assignment deadline to prevent past dates",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7221",
           "points": 2
         }
       ]
