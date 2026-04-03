@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1775092913134,
+  "updatedAt": 1775179447437,
   "groups": [
     [
       "2026-03-29",
@@ -58,147 +58,6 @@
           "title": "Improve README formatting and grammar",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7224",
           "avatar_url": "https://avatars.githubusercontent.com/u/178088707?v=4",
-          "points": 2
-        }
-      ]
-    ],
-    [
-      "2026-03-20",
-      [
-        {
-          "username": "magic-peach",
-          "name": null,
-          "title": "fix - rescue per-project fork errors in AssignmentDeadlineSubmissionJob to prevent partial batch failure",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7192",
-          "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
-          "points": 2
-        },
-        {
-          "username": "magic-peach",
-          "name": null,
-          "title": "fix - use find_by in AssignmentDeadlineVerificationJob to avoid RecordNotFound on deleted assignments",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7191",
-          "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
-          "points": 2
-        },
-        {
-          "username": "magic-peach",
-          "name": null,
-          "title": "fix - add partial unique index on assignments.lti_consumer_key for LTI 1.1 lookups",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7190",
-          "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
-          "points": 2
-        },
-        {
-          "username": "magic-peach",
-          "name": null,
-          "title": "fix - block grade writes when assignment grades_finalized is true",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7189",
-          "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
-          "points": 2
-        },
-        {
-          "username": "magic-peach",
-          "name": null,
-          "title": "fix - add includes( - user) to Assignment notification callbacks to avoid N+1 queries",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7188",
-          "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
-          "points": 2
-        },
-        {
-          "username": "magic-peach",
-          "name": null,
-          "title": "fix - scope AssignmentsController#index to current user's groups",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7187",
-          "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
-          "points": 2
-        },
-        {
-          "username": "magic-peach",
-          "name": null,
-          "title": "fix - remove duplicate update! call in Api - - V1 - - AssignmentsController#update",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7186",
-          "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
-          "points": 2
-        },
-        {
-          "username": "magic-peach",
-          "name": null,
-          "title": "Bug - AssignmentDeadlineSubmissionJob aborts entire batch if a single project fork fails, leaving assignment partially submitted and unclosed",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7185",
-          "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
-          "points": 1
-        },
-        {
-          "username": "magic-peach",
-          "name": null,
-          "title": "Bug - AssignmentDeadlineVerificationJob raises ActiveRecord - - RecordNotFound when assignment is deleted while queued",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7184",
-          "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
-          "points": 1
-        },
-        {
-          "username": "magic-peach",
-          "name": null,
-          "title": "Performance - Missing database index on assignments.lti_consumer_key causes full table scan during LTI 1.1 auth",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7183",
-          "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
-          "points": 1
-        },
-        {
-          "username": "magic-peach",
-          "name": null,
-          "title": "Bug - GradePolicy does not enforce grades_finalized flag — mentors can overwrite grades after finalization",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7182",
-          "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
-          "points": 1
-        },
-        {
-          "username": "magic-peach",
-          "name": null,
-          "title": "Performance - N+1 queries in Assignment notification callbacks (notify_recipient, send_new_assignment_mail, send_update_mail)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7181",
-          "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
-          "points": 1
-        },
-        {
-          "username": "magic-peach",
-          "name": null,
-          "title": "Security - AssignmentsController#index leaks all assignments to any authenticated user",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7180",
-          "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
-          "points": 1
-        },
-        {
-          "username": "magic-peach",
-          "name": null,
-          "title": "Bug - Api - - V1 - - AssignmentsController#update calls update! and update twice with identical params",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7179",
-          "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
-          "points": 1
-        },
-        {
-          "username": "Teesta-Mukherjee",
-          "name": null,
-          "title": "feat - introduce organization model and link groups to organizations",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7194",
-          "avatar_url": "https://avatars.githubusercontent.com/u/168867474?v=4",
-          "points": 2
-        },
-        {
-          "username": "Teesta-Mukherjee",
-          "name": null,
-          "title": "Feature - Add organization entity to support institutional group management",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7193",
-          "avatar_url": "https://avatars.githubusercontent.com/u/168867474?v=4",
-          "points": 1
-        },
-        {
-          "username": "Teesta-Mukherjee",
-          "name": null,
-          "title": "Labeled issue #7193 - 🌟 feature",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7193",
-          "avatar_url": "https://avatars.githubusercontent.com/u/168867474?v=4",
           "points": 2
         }
       ]
@@ -671,6 +530,88 @@
       ]
     ],
     [
+      "2026-04-02",
+      [
+        {
+          "username": "LalitNarayanYadav",
+          "name": null,
+          "title": "fix(flip-flops) - resolve inconsistent latch vs flip-flop concepts",
+          "link": "https://github.com/CircuitVerse/Interactive-Book/pull/777",
+          "avatar_url": "https://avatars.githubusercontent.com/u/162928571?v=4",
+          "points": 2
+        },
+        {
+          "username": "mounika63020-blip",
+          "name": null,
+          "title": "Fix Windows sync error handling using robust syscall.Errno unwrapping",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7240",
+          "avatar_url": "https://avatars.githubusercontent.com/u/267663802?v=4",
+          "points": 2
+        },
+        {
+          "username": "subikshajegadish",
+          "name": null,
+          "title": "Fix TypeError when page param is not a hash in paginate",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7238",
+          "avatar_url": "https://avatars.githubusercontent.com/u/87119985?v=4",
+          "points": 2
+        }
+      ]
+    ],
+    [
+      "2026-03-28",
+      [
+        {
+          "username": "LalitNarayanYadav",
+          "name": null,
+          "title": "Feature - Add One-Hot Encoding option to FSM Synthesizer",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1035",
+          "avatar_url": "https://avatars.githubusercontent.com/u/162928571?v=4",
+          "points": 1
+        },
+        {
+          "username": "LalitNarayanYadav",
+          "name": null,
+          "title": "🐞 Bug - Bug Report - D Flip-Flop `enable` pin floats to 0 when unconnected, permanently disabling FF output in exported Verilog",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1034",
+          "avatar_url": "https://avatars.githubusercontent.com/u/162928571?v=4",
+          "points": 1
+        },
+        {
+          "username": "LalitNarayanYadav",
+          "name": null,
+          "title": "Labeled issue #1034 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1034",
+          "avatar_url": "https://avatars.githubusercontent.com/u/162928571?v=4",
+          "points": 2
+        },
+        {
+          "username": "LalitNarayanYadav",
+          "name": null,
+          "title": "Labeled issue #1035 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1035",
+          "avatar_url": "https://avatars.githubusercontent.com/u/162928571?v=4",
+          "points": 2
+        },
+        {
+          "username": "Ojas2095",
+          "name": null,
+          "title": "refactor - migrate AndGate and NotGate from JS to TypeScript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1033",
+          "avatar_url": "https://avatars.githubusercontent.com/u/175488346?v=4",
+          "points": 2
+        },
+        {
+          "username": "JyotishmitaBorah",
+          "name": null,
+          "title": "Fix - add missing Arabic translation for member_since_html",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7223",
+          "avatar_url": "https://avatars.githubusercontent.com/u/196335034?v=4",
+          "points": 2
+        }
+      ]
+    ],
+    [
       "2026-03-31",
       [
         {
@@ -748,59 +689,6 @@
           "title": "Add interactive circuit visualizations using GIFs and video embeds",
           "link": "https://github.com/CircuitVerse/Interactive-Book/pull/775",
           "avatar_url": "https://avatars.githubusercontent.com/u/208265520?v=4",
-          "points": 2
-        }
-      ]
-    ],
-    [
-      "2026-03-28",
-      [
-        {
-          "username": "LalitNarayanYadav",
-          "name": null,
-          "title": "Feature - Add One-Hot Encoding option to FSM Synthesizer",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1035",
-          "avatar_url": "https://avatars.githubusercontent.com/u/162928571?v=4",
-          "points": 1
-        },
-        {
-          "username": "LalitNarayanYadav",
-          "name": null,
-          "title": "🐞 Bug - Bug Report - D Flip-Flop `enable` pin floats to 0 when unconnected, permanently disabling FF output in exported Verilog",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1034",
-          "avatar_url": "https://avatars.githubusercontent.com/u/162928571?v=4",
-          "points": 1
-        },
-        {
-          "username": "LalitNarayanYadav",
-          "name": null,
-          "title": "Labeled issue #1034 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1034",
-          "avatar_url": "https://avatars.githubusercontent.com/u/162928571?v=4",
-          "points": 2
-        },
-        {
-          "username": "LalitNarayanYadav",
-          "name": null,
-          "title": "Labeled issue #1035 - 🌟 feature",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1035",
-          "avatar_url": "https://avatars.githubusercontent.com/u/162928571?v=4",
-          "points": 2
-        },
-        {
-          "username": "Ojas2095",
-          "name": null,
-          "title": "refactor - migrate AndGate and NotGate from JS to TypeScript",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1033",
-          "avatar_url": "https://avatars.githubusercontent.com/u/175488346?v=4",
-          "points": 2
-        },
-        {
-          "username": "JyotishmitaBorah",
-          "name": null,
-          "title": "Fix - add missing Arabic translation for member_since_html",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7223",
-          "avatar_url": "https://avatars.githubusercontent.com/u/196335034?v=4",
           "points": 2
         }
       ]
