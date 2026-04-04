@@ -1,9 +1,9 @@
 {
   "period": "year",
-  "updatedAt": 1775179447416,
-  "lastFetchedAt": 1775179447416,
-  "startDate": "2025-04-03",
-  "endDate": "2026-04-03",
+  "updatedAt": 1775265501231,
+  "lastFetchedAt": 1775265501231,
+  "startDate": "2025-04-04",
+  "endDate": "2026-04-04",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -20992,11 +20992,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/115988950?v=4",
       "role": "Contributor",
-      "total_points": 68,
+      "total_points": 70,
       "activity_breakdown": {
         "PR opened": {
-          "count": 14,
-          "points": 28
+          "count": 15,
+          "points": 30
         },
         "Issue opened": {
           "count": 14,
@@ -21012,6 +21012,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-04-03",
+          "count": 1,
+          "points": 2
+        },
         {
           "date": "2026-03-14",
           "count": 3,
@@ -21094,6 +21099,13 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-04-03T14:14:24Z",
+          "title": "fix - replace jQuery DOM manipulation in TimingDiagramPanel with Pinia…",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1038",
+          "points": 2
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-03-14T08:45:20Z",
@@ -41936,6 +41948,35 @@
           "occured_at": "2025-12-03T17:59:36Z",
           "title": "Dark Mode Bug - Disqus Sign-Up Input Background Stays Light",
           "link": "https://github.com/CircuitVerse/Interactive-Book/issues/737",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "username": "vedant21-oss",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/210591514?v=4",
+      "role": "Contributor",
+      "total_points": 1,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-04-03",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-04-03T03:41:07Z",
+          "title": "Temporary File Leaks During Project Creation `SimulatorController#create`",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7242",
           "points": 1
         }
       ]
