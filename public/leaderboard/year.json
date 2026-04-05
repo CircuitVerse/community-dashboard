@@ -1,9 +1,9 @@
 {
   "period": "year",
-  "updatedAt": 1775265501231,
-  "lastFetchedAt": 1775265501231,
-  "startDate": "2025-04-04",
-  "endDate": "2026-04-04",
+  "updatedAt": 1775352492020,
+  "lastFetchedAt": 1775352492020,
+  "startDate": "2025-04-05",
+  "endDate": "2026-04-05",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -2067,8 +2067,16 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
       "role": "Maintainer",
-      "total_points": 511,
+      "total_points": 518,
       "activity_breakdown": {
+        "PR opened": {
+          "count": 23,
+          "points": 46
+        },
+        "PR merged": {
+          "count": 22,
+          "points": 110
+        },
         "Issue closed": {
           "count": 201,
           "points": 201
@@ -2081,20 +2089,17 @@
           "count": 1,
           "points": 2
         },
-        "PR opened": {
-          "count": 22,
-          "points": 44
-        },
-        "PR merged": {
-          "count": 21,
-          "points": 105
-        },
         "Issue opened": {
           "count": 23,
           "points": 23
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-04-04",
+          "count": 2,
+          "points": 7
+        },
         {
           "date": "2026-03-17",
           "count": 2,
@@ -2442,6 +2447,20 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-04-04T17:11:06Z",
+          "title": "Revert \"build(deps) - bump avo from 3.28.0 to 3.30.3\"",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7246",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-04-04T17:11:15Z",
+          "title": "Revert \"build(deps) - bump avo from 3.28.0 to 3.30.3\"",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7246",
+          "points": 5
+        },
         {
           "type": "Issue closed",
           "occured_at": "2026-03-17T06:09:26Z",
@@ -28809,6 +28828,163 @@
       ]
     },
     {
+      "username": "sahu-virendra-1908",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/177405578?v=4",
+      "role": "Contributor",
+      "total_points": 20,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 6,
+          "points": 6
+        },
+        "PR opened": {
+          "count": 7,
+          "points": 14
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-04-04",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-03-06",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-03-01",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-02-21",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-02-20",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-01-09",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2025-06-07",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2025-05-25",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2025-03-18",
+          "count": 2,
+          "points": 4
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-04-04T07:48:42Z",
+          "title": "Handle missing/invalid project images with fallback UI",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/570",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-06T12:58:26Z",
+          "title": "Add Simplified Chinese (zh) localization support to improve accessibility",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/526",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-01T14:35:04Z",
+          "title": "fix - resolve login state issue preventing navigation (#504)",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/515",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-01T14:42:39Z",
+          "title": "High Priority - Potential memory leak due to undisposed StreamController in IbInteractionBuilder",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/516",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-21T17:34:17Z",
+          "title": "Login succeeds but app does not navigate to landing screen",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/504",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-20T21:58:48Z",
+          "title": "Fix Android build configuration and align with dependency requirements (Resolves #493)",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/494",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-20T21:49:27Z",
+          "title": "Android build fails due to Gradle, Kotlin, and SDK configuration mismatch",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/493",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-09T13:01:50Z",
+          "title": "feat - improve theme toggle component",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/463",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-09T11:20:05Z",
+          "title": "The theme toggle is currently implemented as a simple icon button (sun/moon). The button does not visually represent the current theme state clearly and lacks an intuitive toggle behavior, which leads to a poor user experience.",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/462",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-03-18T22:25:46Z",
+          "title": "Email us feature #258",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/283",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-03-18T19:19:25Z",
+          "title": "Update to latest version of flutter #277",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/282",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-05-25T18:30:45Z",
+          "title": "improve text contrast for inactive tabs in dark mode",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/366",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-06-07T19:22:27Z",
+          "title": "improve text contrast for inactive tabs in dark mode",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/374",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "nickhil-verma",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/137506342?v=4",
@@ -29089,151 +29265,6 @@
           "title": "Bug build_runner code generation fails silently on fresh clone - generated files missing",
           "link": "https://github.com/CircuitVerse/mobile-app/issues/546",
           "points": 1
-        }
-      ]
-    },
-    {
-      "username": "sahu-virendra-1908",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/177405578?v=4",
-      "role": "Contributor",
-      "total_points": 19,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 5,
-          "points": 5
-        },
-        "PR opened": {
-          "count": 7,
-          "points": 14
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-03-06",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-03-01",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-02-21",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-02-20",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-01-09",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2025-06-07",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2025-05-25",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2025-03-18",
-          "count": 2,
-          "points": 4
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-03-06T12:58:26Z",
-          "title": "Add Simplified Chinese (zh) localization support to improve accessibility",
-          "link": "https://github.com/CircuitVerse/mobile-app/issues/526",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-01T14:35:04Z",
-          "title": "fix - resolve login state issue preventing navigation (#504)",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/515",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-03-01T14:42:39Z",
-          "title": "High Priority - Potential memory leak due to undisposed StreamController in IbInteractionBuilder",
-          "link": "https://github.com/CircuitVerse/mobile-app/issues/516",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-21T17:34:17Z",
-          "title": "Login succeeds but app does not navigate to landing screen",
-          "link": "https://github.com/CircuitVerse/mobile-app/issues/504",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-20T21:58:48Z",
-          "title": "Fix Android build configuration and align with dependency requirements (Resolves #493)",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/494",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-20T21:49:27Z",
-          "title": "Android build fails due to Gradle, Kotlin, and SDK configuration mismatch",
-          "link": "https://github.com/CircuitVerse/mobile-app/issues/493",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-09T13:01:50Z",
-          "title": "feat - improve theme toggle component",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/463",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-09T11:20:05Z",
-          "title": "The theme toggle is currently implemented as a simple icon button (sun/moon). The button does not visually represent the current theme state clearly and lacks an intuitive toggle behavior, which leads to a poor user experience.",
-          "link": "https://github.com/CircuitVerse/mobile-app/issues/462",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-03-18T22:25:46Z",
-          "title": "Email us feature #258",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/283",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-03-18T19:19:25Z",
-          "title": "Update to latest version of flutter #277",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/282",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-05-25T18:30:45Z",
-          "title": "improve text contrast for inactive tabs in dark mode",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/366",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-06-07T19:22:27Z",
-          "title": "improve text contrast for inactive tabs in dark mode",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/374",
-          "points": 2
         }
       ]
     },
@@ -34463,6 +34494,70 @@
       ]
     },
     {
+      "username": "Ram-sah19",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/208265520?v=4",
+      "role": "Contributor",
+      "total_points": 7,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 3,
+          "points": 6
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-04-04",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-03-27",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-03-23",
+          "count": 2,
+          "points": 3
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-04-04T05:52:07Z",
+          "title": "Fix - Blue color glitch on \"Learn Logic Design\" page (dark mode rendering issue)",
+          "link": "https://github.com/CircuitVerse/Interactive-Book/pull/778",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-27T08:09:35Z",
+          "title": "Add interactive circuit visualizations using GIFs and video embeds",
+          "link": "https://github.com/CircuitVerse/Interactive-Book/pull/775",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-23T06:37:18Z",
+          "title": "Fix - Shuffle Bias, jQuery Check, Global Scope Issues, Scroll Handling, and Outdated Configurations",
+          "link": "https://github.com/CircuitVerse/Interactive-Book/pull/773",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-23T06:28:53Z",
+          "title": "Fix - Multiple Code Quality, Performance, and Maintenance Issues",
+          "link": "https://github.com/CircuitVerse/Interactive-Book/issues/772",
+          "points": 1
+        }
+      ]
+    },
+    {
       "username": "VaibhavJindal7",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/250916516?v=4",
@@ -36233,58 +36328,6 @@
           "occured_at": "2026-01-03T11:49:32Z",
           "title": "UX/Enhancement - Improve Project Name input - add maxlength and update label",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/712",
-          "points": 1
-        }
-      ]
-    },
-    {
-      "username": "Ram-sah19",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/208265520?v=4",
-      "role": "Contributor",
-      "total_points": 5,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-03-27",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-03-23",
-          "count": 2,
-          "points": 3
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-27T08:09:35Z",
-          "title": "Add interactive circuit visualizations using GIFs and video embeds",
-          "link": "https://github.com/CircuitVerse/Interactive-Book/pull/775",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-23T06:37:18Z",
-          "title": "Fix - Shuffle Bias, jQuery Check, Global Scope Issues, Scroll Handling, and Outdated Configurations",
-          "link": "https://github.com/CircuitVerse/Interactive-Book/pull/773",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-03-23T06:28:53Z",
-          "title": "Fix - Multiple Code Quality, Performance, and Maintenance Issues",
-          "link": "https://github.com/CircuitVerse/Interactive-Book/issues/772",
           "points": 1
         }
       ]
