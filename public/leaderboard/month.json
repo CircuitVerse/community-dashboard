@@ -1,8 +1,8 @@
 {
   "period": "month",
-  "updatedAt": 1776131120813,
-  "startDate": "2026-03-15",
-  "endDate": "2026-04-14",
+  "updatedAt": 1776216444727,
+  "startDate": "2026-03-16",
+  "endDate": "2026-04-15",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -253,11 +253,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/180764866?v=4",
       "role": "Contributor",
-      "total_points": 19,
+      "total_points": 21,
       "activity_breakdown": {
         "PR opened": {
-          "count": 5,
-          "points": 10
+          "count": 6,
+          "points": 12
         },
         "Issue opened": {
           "count": 9,
@@ -265,6 +265,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-04-14",
+          "count": 1,
+          "points": 2
+        },
         {
           "date": "2026-03-26",
           "count": 3,
@@ -287,6 +292,13 @@
         }
       ],
       "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-04-14T10:34:31Z",
+          "title": "fix - resolve framework assertion crash in Interactive Books caused by…",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/574",
+          "points": 2
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-03-26T14:18:17Z",
@@ -469,69 +481,6 @@
           "occured_at": "2026-03-17T11:26:25Z",
           "title": "First contribution docs - add VAPID keys documentation (#4040)",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7165",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "Omkar-Wagholikar",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/104051137?v=4",
-      "role": "Contributor",
-      "total_points": 13,
-      "activity_breakdown": {
-        "PR merged": {
-          "count": 2,
-          "points": 10
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-03-17",
-          "count": 1,
-          "points": 5
-        },
-        {
-          "date": "2026-03-15",
-          "count": 3,
-          "points": 8
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR merged",
-          "occured_at": "2026-03-17T06:09:25Z",
-          "title": "fix - update manifest.js",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7156",
-          "points": 5
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-03-15T06:58:35Z",
-          "title": "refactor - use guard clause style for redirect",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7147",
-          "points": 5
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-03-15T02:32:10Z",
-          "title": "Bug - Missing favicon.ico in manifest.js causing testcases to fail",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7158",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-03-15T02:32:11Z",
-          "title": "Labeled issue #7158 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7158",
           "points": 2
         }
       ]
@@ -818,6 +767,62 @@
           "title": "fix(auth) - persistent token vulnerability on logout due to unhandled null fields",
           "link": "https://github.com/CircuitVerse/mobile-app/issues/536",
           "points": 1
+        }
+      ]
+    },
+    {
+      "username": "naman79820",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
+      "role": "Contributor",
+      "total_points": 8,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        },
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-04-14",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-03-17",
+          "count": 1,
+          "points": 5
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-04-14T18:36:52Z",
+          "title": "🐞 Bug - bundle exec rspec tests failing",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7265",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-04-14T18:36:54Z",
+          "title": "Labeled issue #7265 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7265",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-03-17T06:16:39Z",
+          "title": "feat(avo) - Add Contests & Submissions resources (Submission, SubmissionVote, ContestWinner)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7105",
+          "points": 5
         }
       ]
     },
@@ -1182,35 +1187,6 @@
       ]
     },
     {
-      "username": "naman79820",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
-      "role": "Contributor",
-      "total_points": 5,
-      "activity_breakdown": {
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-03-17",
-          "count": 1,
-          "points": 5
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR merged",
-          "occured_at": "2026-03-17T06:16:39Z",
-          "title": "feat(avo) - Add Contests & Submissions resources (Submission, SubmissionVote, ContestWinner)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7105",
-          "points": 5
-        }
-      ]
-    },
-    {
       "username": "Teesta-Mukherjee",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/168867474?v=4",
@@ -1262,31 +1238,78 @@
       ]
     },
     {
-      "username": "vedant-jain03",
+      "username": "satu0king",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/76901313?u=5494d1c2d4646bf1ce4df09c0951f0b6dc47c33a&v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2092958?v=4",
       "role": "Maintainer",
-      "total_points": 4,
+      "total_points": 5,
       "activity_breakdown": {
-        "Review submitted": {
+        "Issue opened": {
           "count": 1,
+          "points": 1
+        },
+        "Issue labeled": {
+          "count": 2,
           "points": 4
         }
       },
       "daily_activity": [
         {
-          "date": "2026-03-15",
-          "count": 1,
-          "points": 4
+          "date": "2026-04-14",
+          "count": 3,
+          "points": 5
         }
       ],
       "activities": [
         {
-          "type": "Review submitted",
-          "occured_at": "2026-03-15T06:58:14Z",
-          "title": "Review on PR #7147",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7147",
-          "points": 4
+          "type": "Issue opened",
+          "occured_at": "2026-04-14T20:35:57Z",
+          "title": "🛑 Main Platform is down",
+          "link": "https://github.com/CircuitVerse/upptime/issues/178",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-04-14T20:35:58Z",
+          "title": "Labeled issue #178 - status",
+          "link": "https://github.com/CircuitVerse/upptime/issues/178",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-04-14T20:35:59Z",
+          "title": "Labeled issue #178 - main-platform",
+          "link": "https://github.com/CircuitVerse/upptime/issues/178",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "Omkar-Wagholikar",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/104051137?v=4",
+      "role": "Contributor",
+      "total_points": 5,
+      "activity_breakdown": {
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-03-17",
+          "count": 1,
+          "points": 5
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-03-17T06:09:25Z",
+          "title": "fix - update manifest.js",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7156",
+          "points": 5
         }
       ]
     },
@@ -1557,47 +1580,6 @@
           "occured_at": "2026-03-21T20:36:05Z",
           "title": "fix - show 'No circuits found' message when search returns no results",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7198",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "NARAYAN790",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/227332428?v=4",
-      "role": "Contributor",
-      "total_points": 4,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-03-19",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-03-15",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-19T17:46:17Z",
-          "title": "Fix - align view button with project title using flexbox",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7177",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-15T19:07:37Z",
-          "title": "Improve README setup descriptionImprove setup description in README",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7159",
           "points": 2
         }
       ]
@@ -1940,6 +1922,35 @@
           "occured_at": "2026-03-22T16:00:57Z",
           "title": "feat - enhance footer layout and responsiveness",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7202",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "NARAYAN790",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/227332428?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-03-19",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-19T17:46:17Z",
+          "title": "Fix - align view button with project title using flexbox",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7177",
           "points": 2
         }
       ]
