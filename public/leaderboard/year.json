@@ -1,9 +1,9 @@
 {
   "period": "year",
-  "updatedAt": 1776304131512,
-  "lastFetchedAt": 1776304131512,
-  "startDate": "2025-04-16",
-  "endDate": "2026-04-16",
+  "updatedAt": 1776390286696,
+  "lastFetchedAt": 1776390286696,
+  "startDate": "2025-04-17",
+  "endDate": "2026-04-17",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -12,23 +12,23 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 546,
+      "total_points": 563,
       "activity_breakdown": {
-        "Issue opened": {
-          "count": 50,
-          "points": 50
-        },
-        "Issue labeled": {
-          "count": 30,
-          "points": 60
+        "PR opened": {
+          "count": 56,
+          "points": 112
         },
         "PR merged": {
-          "count": 19,
-          "points": 95
+          "count": 21,
+          "points": 105
         },
-        "PR opened": {
-          "count": 54,
-          "points": 108
+        "Issue opened": {
+          "count": 51,
+          "points": 51
+        },
+        "Issue labeled": {
+          "count": 31,
+          "points": 62
         },
         "Issue closed": {
           "count": 33,
@@ -40,6 +40,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-04-16",
+          "count": 6,
+          "points": 17
+        },
         {
           "date": "2026-04-14",
           "count": 2,
@@ -427,6 +432,48 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-04-16T14:34:37Z",
+          "title": "fix(security) - upgrade dependencies and resolve bundler-audit vulnerabilities",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7311",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-04-16T13:06:10Z",
+          "title": "fix(tests) - restore test suite after Devise confirmable tightening (CVE-2026-32700)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7308",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-04-16T15:49:34Z",
+          "title": "fix(security) - upgrade dependencies and resolve bundler-audit vulnerabilities",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7311",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-04-16T14:49:22Z",
+          "title": "fix(tests) - restore test suite after Devise confirmable tightening (CVE-2026-32700)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7308",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-04-16T13:24:09Z",
+          "title": "🐞 Bug - bundler-audit failing due to multiple vulnerable dependencies",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7309",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-04-16T13:24:11Z",
+          "title": "Labeled issue #7309 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7309",
+          "points": 2
+        },
         {
           "type": "Issue opened",
           "occured_at": "2026-04-14T18:36:52Z",
@@ -2086,8 +2133,12 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
       "role": "Maintainer",
-      "total_points": 518,
+      "total_points": 520,
       "activity_breakdown": {
+        "Issue closed": {
+          "count": 203,
+          "points": 203
+        },
         "PR opened": {
           "count": 23,
           "points": 46
@@ -2095,10 +2146,6 @@
         "PR merged": {
           "count": 22,
           "points": 110
-        },
-        "Issue closed": {
-          "count": 201,
-          "points": 201
         },
         "Review submitted": {
           "count": 34,
@@ -2114,6 +2161,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-04-16",
+          "count": 2,
+          "points": 2
+        },
         {
           "date": "2026-04-04",
           "count": 2,
@@ -2466,6 +2518,20 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-16T15:49:36Z",
+          "title": "Closed issue #7309 - 🐞 Bug - bundler-audit failing due to multiple vulnerable dependencies",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7309",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-16T14:49:24Z",
+          "title": "Closed issue #7265 - 🐞 Bug - bundle exec rspec tests failing",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7265",
+          "points": 1
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-04-04T17:11:06Z",
@@ -9923,6 +9989,978 @@
       ]
     },
     {
+      "username": "ShinichiShi",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
+      "role": "Contributor",
+      "total_points": 232,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 35,
+          "points": 70
+        },
+        "Issue opened": {
+          "count": 25,
+          "points": 25
+        },
+        "Issue labeled": {
+          "count": 30,
+          "points": 60
+        },
+        "PR merged": {
+          "count": 15,
+          "points": 75
+        },
+        "Issue closed": {
+          "count": 2,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-04-16",
+          "count": 6,
+          "points": 10
+        },
+        {
+          "date": "2026-04-09",
+          "count": 4,
+          "points": 7
+        },
+        {
+          "date": "2026-03-02",
+          "count": 2,
+          "points": 4
+        },
+        {
+          "date": "2026-02-26",
+          "count": 6,
+          "points": 12
+        },
+        {
+          "date": "2026-02-25",
+          "count": 9,
+          "points": 15
+        },
+        {
+          "date": "2026-02-22",
+          "count": 8,
+          "points": 17
+        },
+        {
+          "date": "2026-02-15",
+          "count": 2,
+          "points": 10
+        },
+        {
+          "date": "2026-02-10",
+          "count": 5,
+          "points": 12
+        },
+        {
+          "date": "2026-02-05",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-02-02",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-02-01",
+          "count": 7,
+          "points": 15
+        },
+        {
+          "date": "2026-01-30",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-01-29",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-01-25",
+          "count": 4,
+          "points": 6
+        },
+        {
+          "date": "2026-01-24",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-01-23",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-01-19",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2026-01-18",
+          "count": 3,
+          "points": 5
+        },
+        {
+          "date": "2026-01-14",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-01-11",
+          "count": 6,
+          "points": 16
+        },
+        {
+          "date": "2026-01-10",
+          "count": 7,
+          "points": 18
+        },
+        {
+          "date": "2026-01-08",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-01-05",
+          "count": 2,
+          "points": 6
+        },
+        {
+          "date": "2026-01-04",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2025-12-30",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2025-12-29",
+          "count": 2,
+          "points": 6
+        },
+        {
+          "date": "2025-12-26",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2025-12-25",
+          "count": 3,
+          "points": 8
+        },
+        {
+          "date": "2025-10-30",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2025-10-24",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2025-10-21",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2025-10-20",
+          "count": 5,
+          "points": 10
+        },
+        {
+          "date": "2025-10-18",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2025-03-11",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2025-01-13",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2025-01-11",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2025-01-10",
+          "count": 2,
+          "points": 2
+        },
+        {
+          "date": "2025-01-06",
+          "count": 2,
+          "points": 3
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-04-16T20:38:48Z",
+          "title": "Feat - Add misc resources - announcements, issue-circuit and task runs to Avo",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7316",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-04-16T20:28:25Z",
+          "title": "feat - add assigment related resources into Avo dashboard",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7315",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-04-16T20:22:19Z",
+          "title": "Feature Add announcement resources to Avo",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7314",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-04-16T20:20:24Z",
+          "title": "Feature Add Assignment related resource to Avo",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7313",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-04-16T20:20:25Z",
+          "title": "Labeled issue #7313 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7313",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-04-16T20:22:20Z",
+          "title": "Labeled issue #7314 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7314",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-04-09T14:55:15Z",
+          "title": "Add commentator related resources to Avo",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7260",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-04-09T14:50:22Z",
+          "title": "Feature Add Commentator related resources to Avo",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7259",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-04-09T14:50:24Z",
+          "title": "Labeled issue #7259 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7259",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-04-09T14:50:25Z",
+          "title": "Labeled issue #7259 - pending triage",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7259",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-03-02T05:44:29Z",
+          "title": "Labeled issue #987 - issue-metadata-needs-fix",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/987",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-03-02T05:45:21Z",
+          "title": "Labeled issue #987 - ux-review",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/987",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-26T13:15:16Z",
+          "title": "Labeled issue #943 - issue-metadata-needs-fix",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/943",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-26T13:17:01Z",
+          "title": "Labeled issue #878 - issue-metadata-needs-fix",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/878",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-26T13:17:23Z",
+          "title": "Labeled issue #878 - ux-review",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/878",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-26T13:16:04Z",
+          "title": "Labeled issue #890 - issue-metadata-needs-fix",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/890",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-26T13:15:43Z",
+          "title": "Labeled issue #886 - issue-metadata-needs-fix",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/886",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-26T13:18:11Z",
+          "title": "Labeled issue #824 - issue-metadata-needs-fix",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/824",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-25T22:14:39Z",
+          "title": "docs - fix the bold wordings",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/529",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-25T21:41:24Z",
+          "title": "Feat - Add Forum related resources to Avo Dashboard",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7082",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-25T20:31:46Z",
+          "title": "Feat - Add analytics resources to Avo",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7080",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-25T22:11:58Z",
+          "title": "Bold styling of words missing",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/528",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-25T21:30:37Z",
+          "title": "Feature Add Forum related resources to Avo",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7081",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-25T20:25:24Z",
+          "title": "Feature Add anlaytics details to Avo dashboard",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7079",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-25T20:25:25Z",
+          "title": "Labeled issue #7079 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7079",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-25T21:30:37Z",
+          "title": "Labeled issue #7081 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7081",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-25T21:30:38Z",
+          "title": "Labeled issue #7081 - pending triage",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7081",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-02-22T14:18:35Z",
+          "title": "Feat - Add users-related resources to avo",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6873",
+          "points": 5
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-22T08:56:43Z",
+          "title": "Labeled issue #753 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/753",
+          "points": 2
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-02-22T11:38:27Z",
+          "title": "Closed issue #701 - Feature - Add confirmation dialog before clearing Vue simulator canvas",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/701",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-22T12:30:42Z",
+          "title": "Labeled issue #735 - ux-review",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/735",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-22T13:12:07Z",
+          "title": "Labeled issue #712 - ux-review",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/712",
+          "points": 2
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-02-22T11:06:55Z",
+          "title": "Closed issue #679 - 🐞 Bug - Signup Page UI/UX Issue – Misaligned reCAPTCHA, Poor Spacing, Visual Inconsistency",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/679",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-22T09:15:47Z",
+          "title": "Labeled issue #634 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/634",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-22T11:03:15Z",
+          "title": "Labeled issue #613 - pending triage",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/613",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-02-15T14:22:10Z",
+          "title": "Fix - Yosys2digitaljs server script failure",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6663",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-02-15T18:39:38Z",
+          "title": "fix - add popup text if user not logged in",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6296",
+          "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-10T22:21:08Z",
+          "title": "Feat - Add users-related resources to avo",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6873",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-02-10T17:48:59Z",
+          "title": "Feat - Migrate the Logix admin dashboard to Avo",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6838",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-10T20:22:53Z",
+          "title": "Feature Add Users-related Resources to Avo Dashboard",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6871",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-10T20:22:54Z",
+          "title": "Labeled issue #6871 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6871",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-10T07:42:52Z",
+          "title": "Labeled issue #912 - documentation",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/912",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-05T19:44:06Z",
+          "title": "Feat - Migrate the Logix admin dashboard to Avo",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6838",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-02T15:26:24Z",
+          "title": "feat - docs Add issue triaging file explaining all labels used",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/915",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-01T21:58:06Z",
+          "title": "Docs - Addition of issue triaging file",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/913",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-02-01T08:32:38Z",
+          "title": "Docs - Addition of issue labels file for easier understanding",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/251",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-02-01T08:48:51Z",
+          "title": "Docs - Addition of issue labels file for easier understanding",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/251",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-01T21:52:04Z",
+          "title": "Feature Docs Addition of issue label file",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/912",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-02-01T08:30:07Z",
+          "title": "Docs - Adding issue label file",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/250",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-01T21:52:05Z",
+          "title": "Labeled issue #912 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/912",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-02-01T21:52:06Z",
+          "title": "Labeled issue #912 - pending triage",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/912",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-30T14:09:43Z",
+          "title": "Fix Psych YAML loading and prevent null ActiveStorage blob fields",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6789",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-29T20:17:15Z",
+          "title": "Fix RailsAdmin notifications associations",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6783",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-25T21:09:28Z",
+          "title": "🐞 Bug - Psych - - DisallowedClass error when creating ActiveStorage Blob",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6748",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-25T20:43:42Z",
+          "title": "🐞 Bug RailsAdmin Error on viewing Projects Panel",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6747",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-01-25T21:09:29Z",
+          "title": "Labeled issue #6748 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6748",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-01-25T20:43:43Z",
+          "title": "Labeled issue #6747 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6747",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-24T06:59:12Z",
+          "title": "Feat - Migrate the Logix admin dashboard to Avo",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6734",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-23T22:23:42Z",
+          "title": "Migration of Admin Dashboard to use Avo",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6733",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-01-23T22:23:43Z",
+          "title": "Labeled issue #6733 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6733",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-01-19T17:38:24Z",
+          "title": "Feat - Add analytics page",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/211",
+          "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-18T22:07:48Z",
+          "title": "Fix - Yosys2digitaljs server script failure",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6663",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-18T21:57:14Z",
+          "title": "🐞 Bug - Yosys script fails to start the server",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6662",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-01-18T21:57:15Z",
+          "title": "Labeled issue #6662 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6662",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-14T11:46:50Z",
+          "title": "Feat - Add analytics page",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/211",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-01-11T21:49:18Z",
+          "title": "Add repo label tags in the recent activities",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/184",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-01-11T13:20:43Z",
+          "title": "Tauri Simulator - Add menu options for File tab in desktop version",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/740",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-11T22:59:07Z",
+          "title": "🐞 Bug - Tauri The verilog code is stuck in compile phase",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/785",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-11T22:42:29Z",
+          "title": "🐞 Bug - Tauri The themes do not apply to verilog module",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/784",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-01-11T22:42:31Z",
+          "title": "Labeled issue #784 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/784",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-01-11T22:59:08Z",
+          "title": "Labeled issue #785 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/785",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-10T07:22:00Z",
+          "title": "Reorienting the recent activity graph to left to right",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/187",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-10T06:16:27Z",
+          "title": "Add repo label tags in the recent activities",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/184",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-10T05:16:42Z",
+          "title": "Feat - Add issue triage labels into the leaderboard",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/182",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-01-10T10:33:13Z",
+          "title": "Reorienting the recent activity graph to left to right",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/187",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-01-10T10:22:12Z",
+          "title": "Feat - Add issue triage labels into the leaderboard",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/182",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-10T06:21:10Z",
+          "title": "the graph in the recent activities appears to be moving downwards",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/185",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-10T05:54:10Z",
+          "title": "Adding repo names in the recent activities",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/183",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-08T11:28:05Z",
+          "title": "Tauri Simulator - Add menu options for File tab in desktop version",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/740",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-01-05T20:48:38Z",
+          "title": "Leaderboard - UI change and mobile responsiveness",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/107",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-01-05T21:13:25Z",
+          "title": "🐞 Bug - Missing 'File' Menu options in Tauri Simulator",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/721",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-01-13T16:01:06Z",
+          "title": "fix(setup) - add mise installation setup",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/5317",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-01-06T13:49:58Z",
+          "title": "Fix - Commontator - fixed changes after BS5 upgrade and api method",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/5283",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-10-30T20:28:26Z",
+          "title": "fix - Prevent duplicate user creation during OAuth authentication",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6320",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-10-24T06:37:37Z",
+          "title": "Re - AndGate.js to ts",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/670",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-10-21T21:34:33Z",
+          "title": "Re - basic gates - AndGate.js, OrGate.js ,NandGate.js, NotGate.js",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/669",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-10-20T15:05:37Z",
+          "title": "Re - backupCircuit.js to ts",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/667",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-10-20T14:50:30Z",
+          "title": "refactor setup.js to ts",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/666",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-10-20T14:09:52Z",
+          "title": "refactor - tutorial.js and sequential.js to typescript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/665",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-10-20T13:45:28Z",
+          "title": "refactor - minimap.js to ts",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/664",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-10-20T13:13:32Z",
+          "title": "Refactor - canvas migration from js to ts",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/662",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-10-18T11:40:14Z",
+          "title": "fix - add popup text if user not logged in",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6296",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-30T22:02:58Z",
+          "title": "modify the ui of leaderboard cards",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/53",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-26T20:53:57Z",
+          "title": "Add contributor details to People page",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/26",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2025-12-25T14:37:46Z",
+          "title": "fix - add try-catch in fetch url",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/6",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-01-04T15:37:14Z",
+          "title": "Leaderboard - UI change and mobile responsiveness",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/107",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2025-01-11T01:11:59Z",
+          "title": "Fix - Commontator - fixed changes after BS5 upgrade and api method",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/5283",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2025-03-11T00:55:15Z",
+          "title": "Fix - Commentator - hovering action of edit/delete icons of comments",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/5273",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2025-12-29T21:27:59Z",
+          "title": "Add contributor details to People page",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/26",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2025-12-25T14:46:56Z",
+          "title": "fix - add try-catch in fetch url",
+          "link": "https://github.com/CircuitVerse/community-dashboard/pull/6",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2025-01-10T14:43:06Z",
+          "title": "🎯Proposal - Recommendation System in Simulator",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/5302",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2025-01-10T13:41:04Z",
+          "title": "💭 Feature Request - Add icons to quick access panel for copy, multi-select and drag",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/5301",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2025-01-06T13:33:24Z",
+          "title": "🐞 Bug - Comments under projects are not getting deleted",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/5282",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2025-10-18T11:21:47Z",
+          "title": "🐞 Bug - comments Inappropriate message when user not logged in",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6295",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2025-12-30T21:57:52Z",
+          "title": "Adding the Analytics Page of Circuitverse",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/52",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2025-12-29T20:52:48Z",
+          "title": "Refactor leaderboard card ui",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/46",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2025-12-25T13:07:49Z",
+          "title": "Feat - add people's page",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/2",
+          "points": 1
+        }
+      ]
+    },
+    {
       "username": "Me-Priyank",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/143987856?v=4",
@@ -10773,931 +11811,6 @@
           "occured_at": "2026-01-01T12:23:24Z",
           "title": "Broken navigation when opening contributor profile from /people",
           "link": "https://github.com/CircuitVerse/community-dashboard/issues/59",
-          "points": 1
-        }
-      ]
-    },
-    {
-      "username": "ShinichiShi",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
-      "role": "Contributor",
-      "total_points": 222,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 33,
-          "points": 66
-        },
-        "Issue opened": {
-          "count": 23,
-          "points": 23
-        },
-        "Issue labeled": {
-          "count": 28,
-          "points": 56
-        },
-        "PR merged": {
-          "count": 15,
-          "points": 75
-        },
-        "Issue closed": {
-          "count": 2,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-04-09",
-          "count": 4,
-          "points": 7
-        },
-        {
-          "date": "2026-03-02",
-          "count": 2,
-          "points": 4
-        },
-        {
-          "date": "2026-02-26",
-          "count": 6,
-          "points": 12
-        },
-        {
-          "date": "2026-02-25",
-          "count": 9,
-          "points": 15
-        },
-        {
-          "date": "2026-02-22",
-          "count": 8,
-          "points": 17
-        },
-        {
-          "date": "2026-02-15",
-          "count": 2,
-          "points": 10
-        },
-        {
-          "date": "2026-02-10",
-          "count": 5,
-          "points": 12
-        },
-        {
-          "date": "2026-02-05",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-02-02",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-02-01",
-          "count": 7,
-          "points": 15
-        },
-        {
-          "date": "2026-01-30",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-01-29",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-01-25",
-          "count": 4,
-          "points": 6
-        },
-        {
-          "date": "2026-01-24",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-01-23",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-01-19",
-          "count": 1,
-          "points": 5
-        },
-        {
-          "date": "2026-01-18",
-          "count": 3,
-          "points": 5
-        },
-        {
-          "date": "2026-01-14",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-01-11",
-          "count": 6,
-          "points": 16
-        },
-        {
-          "date": "2026-01-10",
-          "count": 7,
-          "points": 18
-        },
-        {
-          "date": "2026-01-08",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-01-05",
-          "count": 2,
-          "points": 6
-        },
-        {
-          "date": "2026-01-04",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2025-12-30",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2025-12-29",
-          "count": 2,
-          "points": 6
-        },
-        {
-          "date": "2025-12-26",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2025-12-25",
-          "count": 3,
-          "points": 8
-        },
-        {
-          "date": "2025-10-30",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2025-10-24",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2025-10-21",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2025-10-20",
-          "count": 5,
-          "points": 10
-        },
-        {
-          "date": "2025-10-18",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2025-03-11",
-          "count": 1,
-          "points": 5
-        },
-        {
-          "date": "2025-01-13",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2025-01-11",
-          "count": 1,
-          "points": 5
-        },
-        {
-          "date": "2025-01-10",
-          "count": 2,
-          "points": 2
-        },
-        {
-          "date": "2025-01-06",
-          "count": 2,
-          "points": 3
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-04-09T14:55:15Z",
-          "title": "Add commentator related resources to Avo",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7260",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-04-09T14:50:22Z",
-          "title": "Feature Add Commentator related resources to Avo",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7259",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-04-09T14:50:24Z",
-          "title": "Labeled issue #7259 - 🌟 feature",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7259",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-04-09T14:50:25Z",
-          "title": "Labeled issue #7259 - pending triage",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7259",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-03-02T05:44:29Z",
-          "title": "Labeled issue #987 - issue-metadata-needs-fix",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/987",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-03-02T05:45:21Z",
-          "title": "Labeled issue #987 - ux-review",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/987",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-26T13:15:16Z",
-          "title": "Labeled issue #943 - issue-metadata-needs-fix",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/943",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-26T13:17:01Z",
-          "title": "Labeled issue #878 - issue-metadata-needs-fix",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/878",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-26T13:17:23Z",
-          "title": "Labeled issue #878 - ux-review",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/878",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-26T13:16:04Z",
-          "title": "Labeled issue #890 - issue-metadata-needs-fix",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/890",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-26T13:15:43Z",
-          "title": "Labeled issue #886 - issue-metadata-needs-fix",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/886",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-26T13:18:11Z",
-          "title": "Labeled issue #824 - issue-metadata-needs-fix",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/824",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-25T22:14:39Z",
-          "title": "docs - fix the bold wordings",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/529",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-25T21:41:24Z",
-          "title": "Feat - Add Forum related resources to Avo Dashboard",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7082",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-25T20:31:46Z",
-          "title": "Feat - Add analytics resources to Avo",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7080",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-25T22:11:58Z",
-          "title": "Bold styling of words missing",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/528",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-25T21:30:37Z",
-          "title": "Feature Add Forum related resources to Avo",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7081",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-25T20:25:24Z",
-          "title": "Feature Add anlaytics details to Avo dashboard",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7079",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-25T20:25:25Z",
-          "title": "Labeled issue #7079 - 🌟 feature",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7079",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-25T21:30:37Z",
-          "title": "Labeled issue #7081 - 🌟 feature",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7081",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-25T21:30:38Z",
-          "title": "Labeled issue #7081 - pending triage",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7081",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-02-22T14:18:35Z",
-          "title": "Feat - Add users-related resources to avo",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6873",
-          "points": 5
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-22T08:56:43Z",
-          "title": "Labeled issue #753 - 🌟 feature",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/753",
-          "points": 2
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-22T11:38:27Z",
-          "title": "Closed issue #701 - Feature - Add confirmation dialog before clearing Vue simulator canvas",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/701",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-22T12:30:42Z",
-          "title": "Labeled issue #735 - ux-review",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/735",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-22T13:12:07Z",
-          "title": "Labeled issue #712 - ux-review",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/712",
-          "points": 2
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-02-22T11:06:55Z",
-          "title": "Closed issue #679 - 🐞 Bug - Signup Page UI/UX Issue – Misaligned reCAPTCHA, Poor Spacing, Visual Inconsistency",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/679",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-22T09:15:47Z",
-          "title": "Labeled issue #634 - 🌟 feature",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/634",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-22T11:03:15Z",
-          "title": "Labeled issue #613 - pending triage",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/613",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-02-15T14:22:10Z",
-          "title": "Fix - Yosys2digitaljs server script failure",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6663",
-          "points": 5
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-02-15T18:39:38Z",
-          "title": "fix - add popup text if user not logged in",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6296",
-          "points": 5
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-10T22:21:08Z",
-          "title": "Feat - Add users-related resources to avo",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6873",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-02-10T17:48:59Z",
-          "title": "Feat - Migrate the Logix admin dashboard to Avo",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6838",
-          "points": 5
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-10T20:22:53Z",
-          "title": "Feature Add Users-related Resources to Avo Dashboard",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6871",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-10T20:22:54Z",
-          "title": "Labeled issue #6871 - 🌟 feature",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6871",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-10T07:42:52Z",
-          "title": "Labeled issue #912 - documentation",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/912",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-05T19:44:06Z",
-          "title": "Feat - Migrate the Logix admin dashboard to Avo",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6838",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-02T15:26:24Z",
-          "title": "feat - docs Add issue triaging file explaining all labels used",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/915",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-01T21:58:06Z",
-          "title": "Docs - Addition of issue triaging file",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/913",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-02-01T08:32:38Z",
-          "title": "Docs - Addition of issue labels file for easier understanding",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/251",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-02-01T08:48:51Z",
-          "title": "Docs - Addition of issue labels file for easier understanding",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/251",
-          "points": 5
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-01T21:52:04Z",
-          "title": "Feature Docs Addition of issue label file",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/912",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-02-01T08:30:07Z",
-          "title": "Docs - Adding issue label file",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/250",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-01T21:52:05Z",
-          "title": "Labeled issue #912 - 🌟 feature",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/912",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-02-01T21:52:06Z",
-          "title": "Labeled issue #912 - pending triage",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/912",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-30T14:09:43Z",
-          "title": "Fix Psych YAML loading and prevent null ActiveStorage blob fields",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6789",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-29T20:17:15Z",
-          "title": "Fix RailsAdmin notifications associations",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6783",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-25T21:09:28Z",
-          "title": "🐞 Bug - Psych - - DisallowedClass error when creating ActiveStorage Blob",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6748",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-25T20:43:42Z",
-          "title": "🐞 Bug RailsAdmin Error on viewing Projects Panel",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6747",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-01-25T21:09:29Z",
-          "title": "Labeled issue #6748 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6748",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-01-25T20:43:43Z",
-          "title": "Labeled issue #6747 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6747",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-24T06:59:12Z",
-          "title": "Feat - Migrate the Logix admin dashboard to Avo",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6734",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-23T22:23:42Z",
-          "title": "Migration of Admin Dashboard to use Avo",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6733",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-01-23T22:23:43Z",
-          "title": "Labeled issue #6733 - 🌟 feature",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6733",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-01-19T17:38:24Z",
-          "title": "Feat - Add analytics page",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/211",
-          "points": 5
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-18T22:07:48Z",
-          "title": "Fix - Yosys2digitaljs server script failure",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6663",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-18T21:57:14Z",
-          "title": "🐞 Bug - Yosys script fails to start the server",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6662",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-01-18T21:57:15Z",
-          "title": "Labeled issue #6662 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6662",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-14T11:46:50Z",
-          "title": "Feat - Add analytics page",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/211",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-01-11T21:49:18Z",
-          "title": "Add repo label tags in the recent activities",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/184",
-          "points": 5
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-01-11T13:20:43Z",
-          "title": "Tauri Simulator - Add menu options for File tab in desktop version",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/740",
-          "points": 5
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-11T22:59:07Z",
-          "title": "🐞 Bug - Tauri The verilog code is stuck in compile phase",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/785",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-11T22:42:29Z",
-          "title": "🐞 Bug - Tauri The themes do not apply to verilog module",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/784",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-01-11T22:42:31Z",
-          "title": "Labeled issue #784 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/784",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-01-11T22:59:08Z",
-          "title": "Labeled issue #785 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/785",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-10T07:22:00Z",
-          "title": "Reorienting the recent activity graph to left to right",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/187",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-10T06:16:27Z",
-          "title": "Add repo label tags in the recent activities",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/184",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-10T05:16:42Z",
-          "title": "Feat - Add issue triage labels into the leaderboard",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/182",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-01-10T10:33:13Z",
-          "title": "Reorienting the recent activity graph to left to right",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/187",
-          "points": 5
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-01-10T10:22:12Z",
-          "title": "Feat - Add issue triage labels into the leaderboard",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/182",
-          "points": 5
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-10T06:21:10Z",
-          "title": "the graph in the recent activities appears to be moving downwards",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/185",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-10T05:54:10Z",
-          "title": "Adding repo names in the recent activities",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/183",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-08T11:28:05Z",
-          "title": "Tauri Simulator - Add menu options for File tab in desktop version",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/740",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-01-05T20:48:38Z",
-          "title": "Leaderboard - UI change and mobile responsiveness",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/107",
-          "points": 5
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-01-05T21:13:25Z",
-          "title": "🐞 Bug - Missing 'File' Menu options in Tauri Simulator",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/721",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-01-13T16:01:06Z",
-          "title": "fix(setup) - add mise installation setup",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/5317",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-01-06T13:49:58Z",
-          "title": "Fix - Commontator - fixed changes after BS5 upgrade and api method",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/5283",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-10-30T20:28:26Z",
-          "title": "fix - Prevent duplicate user creation during OAuth authentication",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6320",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-10-24T06:37:37Z",
-          "title": "Re - AndGate.js to ts",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/670",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-10-21T21:34:33Z",
-          "title": "Re - basic gates - AndGate.js, OrGate.js ,NandGate.js, NotGate.js",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/669",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-10-20T15:05:37Z",
-          "title": "Re - backupCircuit.js to ts",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/667",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-10-20T14:50:30Z",
-          "title": "refactor setup.js to ts",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/666",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-10-20T14:09:52Z",
-          "title": "refactor - tutorial.js and sequential.js to typescript",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/665",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-10-20T13:45:28Z",
-          "title": "refactor - minimap.js to ts",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/664",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-10-20T13:13:32Z",
-          "title": "Refactor - canvas migration from js to ts",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/662",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-10-18T11:40:14Z",
-          "title": "fix - add popup text if user not logged in",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6296",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-30T22:02:58Z",
-          "title": "modify the ui of leaderboard cards",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/53",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-26T20:53:57Z",
-          "title": "Add contributor details to People page",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/26",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2025-12-25T14:37:46Z",
-          "title": "fix - add try-catch in fetch url",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/6",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-01-04T15:37:14Z",
-          "title": "Leaderboard - UI change and mobile responsiveness",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/107",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2025-01-11T01:11:59Z",
-          "title": "Fix - Commontator - fixed changes after BS5 upgrade and api method",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/5283",
-          "points": 5
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2025-03-11T00:55:15Z",
-          "title": "Fix - Commentator - hovering action of edit/delete icons of comments",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/5273",
-          "points": 5
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2025-12-29T21:27:59Z",
-          "title": "Add contributor details to People page",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/26",
-          "points": 5
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2025-12-25T14:46:56Z",
-          "title": "fix - add try-catch in fetch url",
-          "link": "https://github.com/CircuitVerse/community-dashboard/pull/6",
-          "points": 5
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2025-01-10T14:43:06Z",
-          "title": "🎯Proposal - Recommendation System in Simulator",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/5302",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2025-01-10T13:41:04Z",
-          "title": "💭 Feature Request - Add icons to quick access panel for copy, multi-select and drag",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/5301",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2025-01-06T13:33:24Z",
-          "title": "🐞 Bug - Comments under projects are not getting deleted",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/5282",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2025-10-18T11:21:47Z",
-          "title": "🐞 Bug - comments Inappropriate message when user not logged in",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/6295",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2025-12-30T21:57:52Z",
-          "title": "Adding the Analytics Page of Circuitverse",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/52",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2025-12-29T20:52:48Z",
-          "title": "Refactor leaderboard card ui",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/46",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2025-12-25T13:07:49Z",
-          "title": "Feat - add people's page",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/2",
           "points": 1
         }
       ]
@@ -37180,6 +37293,35 @@
       ]
     },
     {
+      "username": "tachyons-gitlab",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/139858804?v=4",
+      "role": "Contributor",
+      "total_points": 4,
+      "activity_breakdown": {
+        "Review submitted": {
+          "count": 1,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-04-16",
+          "count": 1,
+          "points": 4
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-04-16T14:48:18Z",
+          "title": "Review on PR #7308",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7308",
+          "points": 4
+        }
+      ]
+    },
+    {
       "username": "Deepcode007",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/244596472?u=53d1cef702eee506ea8c70cad4fc16aacd871538&v=4",
@@ -39526,6 +39668,35 @@
           "title": "Feature Improve Login Page UI and Password Visibility Toggle",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/5387",
           "points": 1
+        }
+      ]
+    },
+    {
+      "username": "adinjithj",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/99316452?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-04-16",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-04-16T13:46:40Z",
+          "title": "Fix - Update favicon link to resolve display issue",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7310",
+          "points": 2
         }
       ]
     },

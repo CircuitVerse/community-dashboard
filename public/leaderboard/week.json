@@ -1,25 +1,29 @@
 {
   "period": "week",
-  "updatedAt": 1776304131527,
-  "startDate": "2026-04-09",
-  "endDate": "2026-04-16",
+  "updatedAt": 1776390286705,
+  "startDate": "2026-04-10",
+  "endDate": "2026-04-17",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
     {
-      "username": "ShinichiShi",
+      "username": "naman79820",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 7,
+      "total_points": 20,
       "activity_breakdown": {
         "PR opened": {
-          "count": 1,
-          "points": 2
+          "count": 2,
+          "points": 4
+        },
+        "PR merged": {
+          "count": 2,
+          "points": 10
         },
         "Issue opened": {
-          "count": 1,
-          "points": 1
+          "count": 2,
+          "points": 2
         },
         "Issue labeled": {
           "count": 2,
@@ -28,38 +32,143 @@
       },
       "daily_activity": [
         {
-          "date": "2026-04-09",
-          "count": 4,
-          "points": 7
+          "date": "2026-04-16",
+          "count": 6,
+          "points": 17
+        },
+        {
+          "date": "2026-04-14",
+          "count": 2,
+          "points": 3
         }
       ],
       "activities": [
         {
           "type": "PR opened",
-          "occured_at": "2026-04-09T14:55:15Z",
-          "title": "Add commentator related resources to Avo",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7260",
+          "occured_at": "2026-04-16T14:34:37Z",
+          "title": "fix(security) - upgrade dependencies and resolve bundler-audit vulnerabilities",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7311",
           "points": 2
         },
         {
+          "type": "PR opened",
+          "occured_at": "2026-04-16T13:06:10Z",
+          "title": "fix(tests) - restore test suite after Devise confirmable tightening (CVE-2026-32700)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7308",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-04-16T15:49:34Z",
+          "title": "fix(security) - upgrade dependencies and resolve bundler-audit vulnerabilities",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7311",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-04-16T14:49:22Z",
+          "title": "fix(tests) - restore test suite after Devise confirmable tightening (CVE-2026-32700)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7308",
+          "points": 5
+        },
+        {
           "type": "Issue opened",
-          "occured_at": "2026-04-09T14:50:22Z",
-          "title": "Feature Add Commentator related resources to Avo",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7259",
+          "occured_at": "2026-04-16T13:24:09Z",
+          "title": "🐞 Bug - bundler-audit failing due to multiple vulnerable dependencies",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7309",
           "points": 1
         },
         {
           "type": "Issue labeled",
-          "occured_at": "2026-04-09T14:50:24Z",
-          "title": "Labeled issue #7259 - 🌟 feature",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7259",
+          "occured_at": "2026-04-16T13:24:11Z",
+          "title": "Labeled issue #7309 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7309",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-04-14T18:36:52Z",
+          "title": "🐞 Bug - bundle exec rspec tests failing",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7265",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-04-14T18:36:54Z",
+          "title": "Labeled issue #7265 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7265",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "ShinichiShi",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
+      "role": "Contributor",
+      "total_points": 10,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        },
+        "Issue opened": {
+          "count": 2,
+          "points": 2
+        },
+        "Issue labeled": {
+          "count": 2,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-04-16",
+          "count": 6,
+          "points": 10
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-04-16T20:38:48Z",
+          "title": "Feat - Add misc resources - announcements, issue-circuit and task runs to Avo",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7316",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-04-16T20:28:25Z",
+          "title": "feat - add assigment related resources into Avo dashboard",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7315",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-04-16T20:22:19Z",
+          "title": "Feature Add announcement resources to Avo",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7314",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-04-16T20:20:24Z",
+          "title": "Feature Add Assignment related resource to Avo",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7313",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-04-16T20:20:25Z",
+          "title": "Labeled issue #7313 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7313",
           "points": 2
         },
         {
           "type": "Issue labeled",
-          "occured_at": "2026-04-09T14:50:25Z",
-          "title": "Labeled issue #7259 - pending triage",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7259",
+          "occured_at": "2026-04-16T20:22:20Z",
+          "title": "Labeled issue #7314 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7314",
           "points": 2
         }
       ]
@@ -112,6 +221,35 @@
       ]
     },
     {
+      "username": "tachyons-gitlab",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/139858804?v=4",
+      "role": "Contributor",
+      "total_points": 4,
+      "activity_breakdown": {
+        "Review submitted": {
+          "count": 1,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-04-16",
+          "count": 1,
+          "points": 4
+        }
+      ],
+      "activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-04-16T14:48:18Z",
+          "title": "Review on PR #7308",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7308",
+          "points": 4
+        }
+      ]
+    },
+    {
       "username": "Deepcode007",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/244596472?u=53d1cef702eee506ea8c70cad4fc16aacd871538&v=4",
@@ -141,77 +279,37 @@
       ]
     },
     {
-      "username": "naman79820",
+      "username": "tachyons",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
-      "role": "Contributor",
-      "total_points": 3,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-04-14",
-          "count": 2,
-          "points": 3
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-04-14T18:36:52Z",
-          "title": "🐞 Bug - bundle exec rspec tests failing",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7265",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-04-14T18:36:54Z",
-          "title": "Labeled issue #7265 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7265",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "Git-HimanshuRathi",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/194053810?v=4",
-      "role": "Contributor",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
+      "role": "Maintainer",
       "total_points": 2,
       "activity_breakdown": {
-        "Issue opened": {
+        "Issue closed": {
           "count": 2,
           "points": 2
         }
       },
       "daily_activity": [
         {
-          "date": "2026-04-09",
+          "date": "2026-04-16",
           "count": 2,
           "points": 2
         }
       ],
       "activities": [
         {
-          "type": "Issue opened",
-          "occured_at": "2026-04-09T04:53:19Z",
-          "title": "Feature Request - Auto-label PRs and Issues using GitHub Actions",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7258",
+          "type": "Issue closed",
+          "occured_at": "2026-04-16T15:49:36Z",
+          "title": "Closed issue #7309 - 🐞 Bug - bundler-audit failing due to multiple vulnerable dependencies",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7309",
           "points": 1
         },
         {
-          "type": "Issue opened",
-          "occured_at": "2026-04-09T04:52:23Z",
-          "title": "Feature Request - Auto-merge Dependabot Patch Updates",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7257",
+          "type": "Issue closed",
+          "occured_at": "2026-04-16T14:49:24Z",
+          "title": "Closed issue #7265 - 🐞 Bug - bundle exec rspec tests failing",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7265",
           "points": 1
         }
       ]
@@ -241,6 +339,35 @@
           "occured_at": "2026-04-14T10:34:31Z",
           "title": "fix - resolve framework assertion crash in Interactive Books caused by…",
           "link": "https://github.com/CircuitVerse/mobile-app/pull/574",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "adinjithj",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/99316452?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-04-16",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-04-16T13:46:40Z",
+          "title": "Fix - Update favicon link to resolve display issue",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7310",
           "points": 2
         }
       ]
