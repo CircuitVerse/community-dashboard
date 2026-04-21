@@ -1,9 +1,9 @@
 {
   "period": "year",
-  "updatedAt": 1776649817203,
-  "lastFetchedAt": 1776649817203,
-  "startDate": "2025-04-20",
-  "endDate": "2026-04-20",
+  "updatedAt": 1776735914916,
+  "lastFetchedAt": 1776735914916,
+  "startDate": "2025-04-21",
+  "endDate": "2026-04-21",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -12,15 +12,15 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 563,
+      "total_points": 568,
       "activity_breakdown": {
+        "PR merged": {
+          "count": 22,
+          "points": 110
+        },
         "PR opened": {
           "count": 56,
           "points": 112
-        },
-        "PR merged": {
-          "count": 21,
-          "points": 105
         },
         "Issue opened": {
           "count": 51,
@@ -40,6 +40,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-04-20",
+          "count": 1,
+          "points": 5
+        },
         {
           "date": "2026-04-16",
           "count": 6,
@@ -432,6 +437,13 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-04-20T15:02:27Z",
+          "title": "Groups Add Avo Admin Panel Controllers and Resources for Groups System",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7088",
+          "points": 5
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-04-16T14:34:37Z",
@@ -2131,13 +2143,17 @@
     {
       "username": "tachyons",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?u=a7289671a2d228cf269bc52e064be89f13882e10&v=4",
       "role": "Maintainer",
-      "total_points": 520,
+      "total_points": 564,
       "activity_breakdown": {
+        "Review submitted": {
+          "count": 35,
+          "points": 140
+        },
         "Issue closed": {
-          "count": 203,
-          "points": 203
+          "count": 243,
+          "points": 243
         },
         "PR opened": {
           "count": 23,
@@ -2146,10 +2162,6 @@
         "PR merged": {
           "count": 22,
           "points": 110
-        },
-        "Review submitted": {
-          "count": 34,
-          "points": 136
         },
         "Issue labeled": {
           "count": 1,
@@ -2161,6 +2173,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-04-20",
+          "count": 41,
+          "points": 44
+        },
         {
           "date": "2026-04-16",
           "count": 2,
@@ -2518,6 +2535,293 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-04-20T15:01:46Z",
+          "title": "Review on PR #7088",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7088",
+          "points": 4
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:57Z",
+          "title": "Closed issue #7306 - ActionView - - Template - - Error - connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - could not write init file - No space left on device (ActionView - - Template - - Error)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7306",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:43Z",
+          "title": "Closed issue #7300 - ActiveRecord - - ConnectionNotEstablished - connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - the database system is not yet accepting connections (ActiveRecord - - ConnectionNotEstablished)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7300",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:57Z",
+          "title": "Closed issue #7302 - ActiveRecord - - QueryCanceled - PG - - QueryCanceled - ERROR - canceling statement due to statement timeout (ActiveRecord - - QueryCanceled)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7302",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:43Z",
+          "title": "Closed issue #7299 - ActiveRecord - - ConnectionNotEstablished - safely connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - the database system is not yet accepting connections (ActiveRecord - - ConnectionNotEstablished)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7299",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:43Z",
+          "title": "Closed issue #7307 - ActiveRecord - - ConnectionNotEstablished - safely connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - could not write init file - No space left on device (ActiveRecord - - ConnectionNotEstablished)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7307",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:42Z",
+          "title": "Closed issue #7298 - ActiveRecord - - ConnectionNotEstablished - safely connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - No such file or directory (ActiveRecord - - ConnectionNotEstablished)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7298",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:42Z",
+          "title": "Closed issue #7297 - ActionView - - Template - - Error - connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - No such file or directory (ActionView - - Template - - Error)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7297",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:41Z",
+          "title": "Closed issue #7296 - ActiveRecord - - ConnectionNotEstablished - safely connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - No such file or directory (ActiveRecord - - ConnectionNotEstablished)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7296",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:40Z",
+          "title": "Closed issue #7293 - ActiveRecord - - ConnectionNotEstablished - safely connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - the database system is not yet accepting connections (ActiveRecord - - ConnectionNotEstablished)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7293",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:39Z",
+          "title": "Closed issue #7290 - ActiveRecord - - ConnectionNotEstablished - connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - the database system is not yet accepting connections (ActiveRecord - - ConnectionNotEstablished)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7290",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:39Z",
+          "title": "Closed issue #7291 - ActiveRecord - - ConnectionNotEstablished - safely connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - the database system is in recovery mode (ActiveRecord - - ConnectionNotEstablished)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7291",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:41Z",
+          "title": "Closed issue #7295 - ActiveRecord - - ConnectionNotEstablished - safely connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - No such file or directory (ActiveRecord - - ConnectionNotEstablished)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7295",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:37Z",
+          "title": "Closed issue #7286 - ActiveRecord - - ConnectionNotEstablished - safely connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - the database system is in recovery mode (ActiveRecord - - ConnectionNotEstablished)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7286",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:38Z",
+          "title": "Closed issue #7289 - ActiveRecord - - ConnectionNotEstablished - safely connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - the database system is not yet accepting connections (ActiveRecord - - ConnectionNotEstablished)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7289",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:40Z",
+          "title": "Closed issue #7292 - ActiveRecord - - ConnectionNotEstablished - connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - the database system is in recovery mode (ActiveRecord - - ConnectionNotEstablished)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7292",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:41Z",
+          "title": "Closed issue #7294 - ActiveRecord - - ConnectionNotEstablished - safely connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - No such file or directory (ActiveRecord - - ConnectionNotEstablished)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7294",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:38Z",
+          "title": "Closed issue #7288 - ActiveRecord - - ConnectionNotEstablished - safely connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - the database system is not yet accepting connections (ActiveRecord - - ConnectionNotEstablished)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7288",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:37Z",
+          "title": "Closed issue #7287 - ActiveRecord - - ConnectionNotEstablished - safely connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - the database system is not yet accepting connections (ActiveRecord - - ConnectionNotEstablished)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7287",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:35Z",
+          "title": "Closed issue #7280 - ActiveRecord - - ConnectionNotEstablished - connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - the database system is not yet accepting connections (ActiveRecord - - ConnectionNotEstablished)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7280",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:34Z",
+          "title": "Closed issue #7274 - ActiveRecord - - ConnectionNotEstablished - connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - could not write init file - No space left on device (ActiveRecord - - ConnectionNotEstablished)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7274",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:35Z",
+          "title": "Closed issue #7282 - ActiveRecord - - ConnectionNotEstablished - safely connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - the database system is not yet accepting connections (ActiveRecord - - ConnectionNotEstablished)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7282",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:35Z",
+          "title": "Closed issue #7281 - Errno - - EPIPE - Broken pipe @ io_writev - <STDERR> (Errno - - EPIPE)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7281",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:56Z",
+          "title": "Closed issue #7279 - ActiveRecord - - StatementInvalid - PG - - DiskFull - ERROR - could not write init file - No space left on device (ActiveRecord - - StatementInvalid)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7279",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:54:25Z",
+          "title": "Closed issue #7278 - ActiveRecord - - StatementInvalid - safely PG - - DiskFull - ERROR - could not extend file \"base/16887/16912.4\" - No space left on device (ActiveRecord - - StatementInvalid)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7278",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:37Z",
+          "title": "Closed issue #7285 - ActionView - - Template - - Error - connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - the database system is in recovery mode (ActionView - - Template - - Error)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7285",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:36Z",
+          "title": "Closed issue #7284 - ActiveRecord - - ConnectionNotEstablished - safely connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - the database system is not yet accepting connections (ActiveRecord - - ConnectionNotEstablished)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7284",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:36Z",
+          "title": "Closed issue #7283 - ActiveRecord - - ConnectionNotEstablished - safely connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - the database system is not yet accepting connections (ActiveRecord - - ConnectionNotEstablished)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7283",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:54:24Z",
+          "title": "Closed issue #7277 - ActiveRecord - - StatementInvalid - safely PG - - DiskFull - ERROR - could not extend file \"base/16887/16912.4\" - No space left on device (ActiveRecord - - StatementInvalid)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7277",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:55Z",
+          "title": "Closed issue #7266 - ActiveRecord - - ConnectionFailed - PQconsumeInput() server closed the connection unexpectedly (ActiveRecord - - ConnectionFailed)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7266",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:54:23Z",
+          "title": "Closed issue #7271 - ActiveRecord - - StatementInvalid - safely PG - - DiskFull - ERROR - could not extend file \"base/16887/16912.4\" - No space left on device (ActiveRecord - - StatementInvalid)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7271",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:54:23Z",
+          "title": "Closed issue #7269 - ActiveRecord - - StatementInvalid - safely PG - - DiskFull - ERROR - could not extend file \"base/16887/16912.4\" - No space left on device (ActiveRecord - - StatementInvalid)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7269",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T15:38:12Z",
+          "title": "Closed issue #7259 - Feature Add Commentator related resources to Avo",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7259",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:54:24Z",
+          "title": "Closed issue #7272 - ActiveRecord - - StatementInvalid - safely PG - - DiskFull - ERROR - could not extend file \"base/16887/16912.4\" - No space left on device (ActiveRecord - - StatementInvalid)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7272",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:34Z",
+          "title": "Closed issue #7275 - ActiveRecord - - ConnectionNotEstablished - safely connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - could not write init file - No space left on device (ActiveRecord - - ConnectionNotEstablished)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7275",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:33Z",
+          "title": "Closed issue #7273 - ActiveRecord - - ConnectionNotEstablished - safely connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - could not write init file - No space left on device (ActiveRecord - - ConnectionNotEstablished)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7273",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:56Z",
+          "title": "Closed issue #7267 - ActionView - - Template - - Error - connection to server on socket \"/var/run/postgresql/.s.PGSQL.5433\" failed - FATAL - could not write init file - No space left on device (ActionView - - Template - - Error)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7267",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:54:22Z",
+          "title": "Closed issue #7124 - ActiveRecord - - InvalidForeignKey - PG - - ForeignKeyViolation - ERROR - update or delete on table \"users\" violates foreign key constraint \"fk_rails_e5414705d0\" on table \"submission_votes\" (ActiveRecord - - InvalidForeignKey)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7124",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:55Z",
+          "title": "Closed issue #7151 - ActiveRecord - - QueryCanceled - PG - - QueryCanceled - ERROR - canceling statement due to statement timeout (ActiveRecord - - QueryCanceled)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7151",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T06:53:55Z",
+          "title": "Closed issue #7163 - ActiveRecord - - QueryCanceled - PG - - QueryCanceled - ERROR - canceling statement due to statement timeout (ActiveRecord - - QueryCanceled)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7163",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T15:02:29Z",
+          "title": "Closed issue #7086 - Avo Admin - Add group resources",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7086",
+          "points": 1
+        },
         {
           "type": "Issue closed",
           "occured_at": "2026-04-16T15:49:36Z",
@@ -9993,8 +10297,16 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
       "role": "Contributor",
-      "total_points": 232,
+      "total_points": 239,
       "activity_breakdown": {
+        "PR merged": {
+          "count": 16,
+          "points": 80
+        },
+        "Issue closed": {
+          "count": 4,
+          "points": 4
+        },
         "PR opened": {
           "count": 35,
           "points": 70
@@ -10006,17 +10318,14 @@
         "Issue labeled": {
           "count": 30,
           "points": 60
-        },
-        "PR merged": {
-          "count": 15,
-          "points": 75
-        },
-        "Issue closed": {
-          "count": 2,
-          "points": 2
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-04-20",
+          "count": 3,
+          "points": 7
+        },
         {
           "date": "2026-04-16",
           "count": 6,
@@ -10209,6 +10518,27 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-04-20T15:38:11Z",
+          "title": "Add commentator related resources to Avo",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7260",
+          "points": 5
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T16:19:01Z",
+          "title": "Closed issue #7164 - ActionView - - Template - - Error - Failed to find a resource while rendering the - commontator_thread field. (ActionView - - Template - - Error)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7164",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-20T16:19:40Z",
+          "title": "Closed issue #7162 - Avo - - MissingResourceError - Failed to find a resource while rendering the - group_members field. (Avo - - MissingResourceError)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7162",
+          "points": 1
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-04-16T20:38:48Z",
