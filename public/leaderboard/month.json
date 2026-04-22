@@ -1,25 +1,25 @@
 {
   "period": "month",
-  "updatedAt": 1776735914929,
-  "startDate": "2026-03-22",
-  "endDate": "2026-04-21",
+  "updatedAt": 1776821389998,
+  "startDate": "2026-03-23",
+  "endDate": "2026-04-22",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
     {
       "username": "tachyons",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?u=a7289671a2d228cf269bc52e064be89f13882e10&v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
       "role": "Maintainer",
-      "total_points": 53,
+      "total_points": 55,
       "activity_breakdown": {
+        "Issue closed": {
+          "count": 44,
+          "points": 44
+        },
         "Review submitted": {
           "count": 1,
           "points": 4
-        },
-        "Issue closed": {
-          "count": 42,
-          "points": 42
         },
         "PR opened": {
           "count": 1,
@@ -31,6 +31,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-04-21",
+          "count": 2,
+          "points": 2
+        },
         {
           "date": "2026-04-20",
           "count": 41,
@@ -48,6 +53,20 @@
         }
       ],
       "activities": [
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-21T12:05:33Z",
+          "title": "Closed issue #7313 - Feature Add Assignment related resource to Avo",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7313",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-21T15:12:31Z",
+          "title": "Closed issue #7250 - 🐞 Bug - Docker setup fails with \"Port 3036 is already in use\" due to Vite starting twice",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7250",
+          "points": 1
+        },
         {
           "type": "Review submitted",
           "occured_at": "2026-04-20T15:01:46Z",
@@ -366,122 +385,15 @@
       ]
     },
     {
-      "username": "naman79820",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
-      "role": "Contributor",
-      "total_points": 25,
-      "activity_breakdown": {
-        "PR merged": {
-          "count": 3,
-          "points": 15
-        },
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        },
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        },
-        "Issue labeled": {
-          "count": 2,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-04-20",
-          "count": 1,
-          "points": 5
-        },
-        {
-          "date": "2026-04-16",
-          "count": 6,
-          "points": 17
-        },
-        {
-          "date": "2026-04-14",
-          "count": 2,
-          "points": 3
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR merged",
-          "occured_at": "2026-04-20T15:02:27Z",
-          "title": "Groups Add Avo Admin Panel Controllers and Resources for Groups System",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7088",
-          "points": 5
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-04-16T14:34:37Z",
-          "title": "fix(security) - upgrade dependencies and resolve bundler-audit vulnerabilities",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7311",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-04-16T13:06:10Z",
-          "title": "fix(tests) - restore test suite after Devise confirmable tightening (CVE-2026-32700)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7308",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-04-16T15:49:34Z",
-          "title": "fix(security) - upgrade dependencies and resolve bundler-audit vulnerabilities",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7311",
-          "points": 5
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-04-16T14:49:22Z",
-          "title": "fix(tests) - restore test suite after Devise confirmable tightening (CVE-2026-32700)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7308",
-          "points": 5
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-04-16T13:24:09Z",
-          "title": "🐞 Bug - bundler-audit failing due to multiple vulnerable dependencies",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7309",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-04-16T13:24:11Z",
-          "title": "Labeled issue #7309 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7309",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-04-14T18:36:52Z",
-          "title": "🐞 Bug - bundle exec rspec tests failing",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7265",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-04-14T18:36:54Z",
-          "title": "Labeled issue #7265 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7265",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "ShinichiShi",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
       "role": "Contributor",
-      "total_points": 24,
+      "total_points": 29,
       "activity_breakdown": {
         "PR merged": {
-          "count": 1,
-          "points": 5
+          "count": 2,
+          "points": 10
         },
         "Issue closed": {
           "count": 2,
@@ -502,6 +414,11 @@
       },
       "daily_activity": [
         {
+          "date": "2026-04-21",
+          "count": 1,
+          "points": 5
+        },
+        {
           "date": "2026-04-20",
           "count": 3,
           "points": 7
@@ -518,6 +435,13 @@
         }
       ],
       "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-04-21T12:05:29Z",
+          "title": "feat - add assigment related resources into Avo dashboard",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7315",
+          "points": 5
+        },
         {
           "type": "PR merged",
           "occured_at": "2026-04-20T15:38:11Z",
@@ -607,6 +531,125 @@
           "occured_at": "2026-04-09T14:50:25Z",
           "title": "Labeled issue #7259 - pending triage",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7259",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "naman79820",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
+      "role": "Contributor",
+      "total_points": 27,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 3,
+          "points": 6
+        },
+        "PR merged": {
+          "count": 3,
+          "points": 15
+        },
+        "Issue opened": {
+          "count": 2,
+          "points": 2
+        },
+        "Issue labeled": {
+          "count": 2,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-04-21",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-04-20",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2026-04-16",
+          "count": 6,
+          "points": 17
+        },
+        {
+          "date": "2026-04-14",
+          "count": 2,
+          "points": 3
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-04-21T18:20:09Z",
+          "title": "fix - replace removed devise_error_messages! in confirmation view",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7324",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-04-20T15:02:27Z",
+          "title": "Groups Add Avo Admin Panel Controllers and Resources for Groups System",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7088",
+          "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-04-16T14:34:37Z",
+          "title": "fix(security) - upgrade dependencies and resolve bundler-audit vulnerabilities",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7311",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-04-16T13:06:10Z",
+          "title": "fix(tests) - restore test suite after Devise confirmable tightening (CVE-2026-32700)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7308",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-04-16T15:49:34Z",
+          "title": "fix(security) - upgrade dependencies and resolve bundler-audit vulnerabilities",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7311",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-04-16T14:49:22Z",
+          "title": "fix(tests) - restore test suite after Devise confirmable tightening (CVE-2026-32700)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7308",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-04-16T13:24:09Z",
+          "title": "🐞 Bug - bundler-audit failing due to multiple vulnerable dependencies",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7309",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-04-16T13:24:11Z",
+          "title": "Labeled issue #7309 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7309",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-04-14T18:36:52Z",
+          "title": "🐞 Bug - bundle exec rspec tests failing",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7265",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-04-14T18:36:54Z",
+          "title": "Labeled issue #7265 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7265",
           "points": 2
         }
       ]
@@ -763,15 +806,103 @@
       ]
     },
     {
+      "username": "sum1t-here",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/126807055?v=4",
+      "role": "Contributor",
+      "total_points": 15,
+      "activity_breakdown": {
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        },
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        },
+        "Issue opened": {
+          "count": 2,
+          "points": 2
+        },
+        "Issue labeled": {
+          "count": 2,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-04-21",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2026-04-05",
+          "count": 6,
+          "points": 10
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-04-21T15:12:30Z",
+          "title": "fix - remove duplicate vite process start from bin/docker/boot",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7251",
+          "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-04-05T19:30:59Z",
+          "title": "fix - remove duplicate vite process start from bin/docker/boot",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7251",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-04-05T18:05:53Z",
+          "title": "fix - install bundler ~> 2.5 in Dockerfile to match Gemfile.lock requi…",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7249",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-04-05T19:08:32Z",
+          "title": "🐞 Bug - Docker setup fails with \"Port 3036 is already in use\" due to Vite starting twice",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7250",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-04-05T17:55:14Z",
+          "title": "🐞 Bug - Docker setup fails on macOS - Dockerfile does not install bundler ~> 2.5 required by Gemfile.lock",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7248",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-04-05T19:08:34Z",
+          "title": "Labeled issue #7250 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7250",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-04-05T17:55:19Z",
+          "title": "Labeled issue #7248 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7248",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "SantamRC",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/52635773?v=4",
       "role": "Contributor",
-      "total_points": 19,
+      "total_points": 13,
       "activity_breakdown": {
         "PR opened": {
-          "count": 9,
-          "points": 18
+          "count": 6,
+          "points": 12
         },
         "Issue opened": {
           "count": 1,
@@ -788,11 +919,6 @@
           "date": "2026-03-23",
           "count": 6,
           "points": 11
-        },
-        {
-          "date": "2026-03-22",
-          "count": 3,
-          "points": 6
         }
       ],
       "activities": [
@@ -844,99 +970,6 @@
           "title": "Bug - FlutterError Overlay Not Found during Authentication",
           "link": "https://github.com/CircuitVerse/mobile-app/issues/545",
           "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-22T23:55:48Z",
-          "title": "Added isolates to API calls",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/544",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-22T22:53:24Z",
-          "title": "Authentication Improvements",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/543",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-22T12:12:49Z",
-          "title": "Added Mobile Native Notifications and Deep Link",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/542",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "sum1t-here",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/126807055?v=4",
-      "role": "Contributor",
-      "total_points": 10,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        },
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        },
-        "Issue labeled": {
-          "count": 2,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-04-05",
-          "count": 6,
-          "points": 10
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-04-05T19:30:59Z",
-          "title": "fix - remove duplicate vite process start from bin/docker/boot",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7251",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-04-05T18:05:53Z",
-          "title": "fix - install bundler ~> 2.5 in Dockerfile to match Gemfile.lock requi…",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7249",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-04-05T19:08:32Z",
-          "title": "🐞 Bug - Docker setup fails with \"Port 3036 is already in use\" due to Vite starting twice",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7250",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-04-05T17:55:14Z",
-          "title": "🐞 Bug - Docker setup fails on macOS - Dockerfile does not install bundler ~> 2.5 required by Gemfile.lock",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7248",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-04-05T19:08:34Z",
-          "title": "Labeled issue #7250 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7250",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-04-05T17:55:19Z",
-          "title": "Labeled issue #7248 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7248",
-          "points": 2
         }
       ]
     },
@@ -1070,67 +1103,6 @@
           "occured_at": "2026-03-23T06:28:53Z",
           "title": "Fix - Multiple Code Quality, Performance, and Maintenance Issues",
           "link": "https://github.com/CircuitVerse/Interactive-Book/issues/772",
-          "points": 1
-        }
-      ]
-    },
-    {
-      "username": "VaibhavJindal7",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/250916516?v=4",
-      "role": "Contributor",
-      "total_points": 7,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        },
-        "Issue opened": {
-          "count": 3,
-          "points": 3
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-03-22",
-          "count": 5,
-          "points": 7
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-22T21:15:59Z",
-          "title": "docs - enhance FSM page with state transition table, state labels, Moore vs Mealy comparison and quiz",
-          "link": "https://github.com/CircuitVerse/Interactive-Book/pull/771",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-22T16:20:37Z",
-          "title": "docs - update copyright year from 2025 to 2026 in about.md",
-          "link": "https://github.com/CircuitVerse/Interactive-Book/pull/768",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-03-22T20:12:42Z",
-          "title": "bug - FSM vending machine buttons re-enable during wait states causing incorrect change calculation",
-          "link": "https://github.com/CircuitVerse/Interactive-Book/issues/770",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-03-22T19:53:55Z",
-          "title": "docs - Enhance FSM page with state transition table, symbol explanation and Moore vs Mealy comparison",
-          "link": "https://github.com/CircuitVerse/Interactive-Book/issues/769",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-03-22T16:18:10Z",
-          "title": "docs - Copyright year outdated in about.md",
-          "link": "https://github.com/CircuitVerse/Interactive-Book/issues/767",
           "points": 1
         }
       ]
@@ -1831,35 +1803,6 @@
       ]
     },
     {
-      "username": "palakvishwakarma44",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/192522358?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-03-22",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-22T11:51:52Z",
-          "title": "Fix percy clean",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7201",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "Uday9909",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/178378295?v=4",
@@ -1913,35 +1856,6 @@
           "occured_at": "2026-03-23T12:54:17Z",
           "title": "Replace alert with inline validation message for better UX",
           "link": "https://github.com/CircuitVerse/Interactive-Book/pull/774",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "shubhamnar93",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/73391583?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-03-22",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-22T16:00:57Z",
-          "title": "feat - enhance footer layout and responsiveness",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7202",
           "points": 2
         }
       ]

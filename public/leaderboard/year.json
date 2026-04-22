@@ -1,9 +1,9 @@
 {
   "period": "year",
-  "updatedAt": 1776735914916,
-  "lastFetchedAt": 1776735914916,
-  "startDate": "2025-04-21",
-  "endDate": "2026-04-21",
+  "updatedAt": 1776821389986,
+  "lastFetchedAt": 1776821389986,
+  "startDate": "2025-04-22",
+  "endDate": "2026-04-22",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -12,15 +12,15 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 568,
+      "total_points": 570,
       "activity_breakdown": {
+        "PR opened": {
+          "count": 57,
+          "points": 114
+        },
         "PR merged": {
           "count": 22,
           "points": 110
-        },
-        "PR opened": {
-          "count": 56,
-          "points": 112
         },
         "Issue opened": {
           "count": 51,
@@ -40,6 +40,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-04-21",
+          "count": 1,
+          "points": 2
+        },
         {
           "date": "2026-04-20",
           "count": 1,
@@ -437,6 +442,13 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-04-21T18:20:09Z",
+          "title": "fix - replace removed devise_error_messages! in confirmation view",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7324",
+          "points": 2
+        },
         {
           "type": "PR merged",
           "occured_at": "2026-04-20T15:02:27Z",
@@ -2143,17 +2155,17 @@
     {
       "username": "tachyons",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?u=a7289671a2d228cf269bc52e064be89f13882e10&v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
       "role": "Maintainer",
-      "total_points": 564,
+      "total_points": 566,
       "activity_breakdown": {
+        "Issue closed": {
+          "count": 245,
+          "points": 245
+        },
         "Review submitted": {
           "count": 35,
           "points": 140
-        },
-        "Issue closed": {
-          "count": 243,
-          "points": 243
         },
         "PR opened": {
           "count": 23,
@@ -2173,6 +2185,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-04-21",
+          "count": 2,
+          "points": 2
+        },
         {
           "date": "2026-04-20",
           "count": 41,
@@ -2535,6 +2552,20 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-21T12:05:33Z",
+          "title": "Closed issue #7313 - Feature Add Assignment related resource to Avo",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7313",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-21T15:12:31Z",
+          "title": "Closed issue #7250 - 🐞 Bug - Docker setup fails with \"Port 3036 is already in use\" due to Vite starting twice",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7250",
+          "points": 1
+        },
         {
           "type": "Review submitted",
           "occured_at": "2026-04-20T15:01:46Z",
@@ -10297,11 +10328,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
       "role": "Contributor",
-      "total_points": 239,
+      "total_points": 244,
       "activity_breakdown": {
         "PR merged": {
-          "count": 16,
-          "points": 80
+          "count": 17,
+          "points": 85
         },
         "Issue closed": {
           "count": 4,
@@ -10321,6 +10352,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-04-21",
+          "count": 1,
+          "points": 5
+        },
         {
           "date": "2026-04-20",
           "count": 3,
@@ -10518,6 +10554,13 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-04-21T12:05:29Z",
+          "title": "feat - add assigment related resources into Avo dashboard",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7315",
+          "points": 5
+        },
         {
           "type": "PR merged",
           "occured_at": "2026-04-20T15:38:11Z",
@@ -30895,6 +30938,94 @@
       ]
     },
     {
+      "username": "sum1t-here",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/126807055?v=4",
+      "role": "Contributor",
+      "total_points": 15,
+      "activity_breakdown": {
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        },
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        },
+        "Issue opened": {
+          "count": 2,
+          "points": 2
+        },
+        "Issue labeled": {
+          "count": 2,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-04-21",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2026-04-05",
+          "count": 6,
+          "points": 10
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-04-21T15:12:30Z",
+          "title": "fix - remove duplicate vite process start from bin/docker/boot",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7251",
+          "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-04-05T19:30:59Z",
+          "title": "fix - remove duplicate vite process start from bin/docker/boot",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7251",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-04-05T18:05:53Z",
+          "title": "fix - install bundler ~> 2.5 in Dockerfile to match Gemfile.lock requi…",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7249",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-04-05T19:08:32Z",
+          "title": "🐞 Bug - Docker setup fails with \"Port 3036 is already in use\" due to Vite starting twice",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7250",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-04-05T17:55:14Z",
+          "title": "🐞 Bug - Docker setup fails on macOS - Dockerfile does not install bundler ~> 2.5 required by Gemfile.lock",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7248",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-04-05T19:08:34Z",
+          "title": "Labeled issue #7250 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7250",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-04-05T17:55:19Z",
+          "title": "Labeled issue #7248 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7248",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "mundele2004",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/183314359?v=4",
@@ -33277,78 +33408,6 @@
           "title": "New - added flutter web target",
           "link": "https://github.com/CircuitVerse/mobile-app/pull/308",
           "points": 5
-        }
-      ]
-    },
-    {
-      "username": "sum1t-here",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/126807055?v=4",
-      "role": "Contributor",
-      "total_points": 10,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        },
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        },
-        "Issue labeled": {
-          "count": 2,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-04-05",
-          "count": 6,
-          "points": 10
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-04-05T19:30:59Z",
-          "title": "fix - remove duplicate vite process start from bin/docker/boot",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7251",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-04-05T18:05:53Z",
-          "title": "fix - install bundler ~> 2.5 in Dockerfile to match Gemfile.lock requi…",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7249",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-04-05T19:08:32Z",
-          "title": "🐞 Bug - Docker setup fails with \"Port 3036 is already in use\" due to Vite starting twice",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7250",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-04-05T17:55:14Z",
-          "title": "🐞 Bug - Docker setup fails on macOS - Dockerfile does not install bundler ~> 2.5 required by Gemfile.lock",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7248",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-04-05T19:08:34Z",
-          "title": "Labeled issue #7250 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7250",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-04-05T17:55:19Z",
-          "title": "Labeled issue #7248 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7248",
-          "points": 2
         }
       ]
     },
