@@ -31,7 +31,7 @@ import ActiveContributors from "@/components/Leaderboard/stats-card/active-contr
 import { PaginatedActivitySection } from "@/components/PaginatedActivitySection";
 import { ActivityGroup, MonthBuckets } from "@/lib/db";
 import { Config } from "@/types/config";
-import { RepoStats } from "@/scripts/generateLeaderboard";
+import { RepoStats } from "@/scripts/types";
 
 // --- Types ---
 type ViewState = "overview" | "repositories";
