@@ -1,8 +1,8 @@
 {
   "period": "week",
-  "updatedAt": 1776821389995,
-  "startDate": "2026-04-15",
-  "endDate": "2026-04-22",
+  "updatedAt": 1776908922027,
+  "startDate": "2026-04-16",
+  "endDate": "2026-04-23",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -11,11 +11,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
       "role": "Maintainer",
-      "total_points": 48,
+      "total_points": 49,
       "activity_breakdown": {
         "Issue closed": {
-          "count": 44,
-          "points": 44
+          "count": 45,
+          "points": 45
         },
         "Review submitted": {
           "count": 1,
@@ -23,6 +23,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-04-22",
+          "count": 1,
+          "points": 1
+        },
         {
           "date": "2026-04-21",
           "count": 2,
@@ -40,6 +45,13 @@
         }
       ],
       "activities": [
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-22T03:30:21Z",
+          "title": "Closed issue #7323 - ActionView - - Template - - Error - undefined method `devise_error_messages!' for #<ActionView - - Base - 0x000000003901c0> (ActionView - - Template - - Error)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7323",
+          "points": 1
+        },
         {
           "type": "Issue closed",
           "occured_at": "2026-04-21T12:05:33Z",
@@ -362,15 +374,15 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 24,
+      "total_points": 29,
       "activity_breakdown": {
+        "PR merged": {
+          "count": 4,
+          "points": 20
+        },
         "PR opened": {
           "count": 3,
           "points": 6
-        },
-        "PR merged": {
-          "count": 3,
-          "points": 15
         },
         "Issue opened": {
           "count": 1,
@@ -382,6 +394,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-04-22",
+          "count": 1,
+          "points": 5
+        },
         {
           "date": "2026-04-21",
           "count": 1,
@@ -399,6 +416,13 @@
         }
       ],
       "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-04-22T03:30:20Z",
+          "title": "fix - replace removed devise_error_messages! in confirmation view",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7324",
+          "points": 5
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-04-21T18:20:09Z",
@@ -658,35 +682,6 @@
           "occured_at": "2026-04-16T13:46:40Z",
           "title": "Fix - Update favicon link to resolve display issue",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7310",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "srimanh",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/115865378?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-04-15",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-04-15T06:01:08Z",
-          "title": "fix - add Hindi localization for Recent Circuits section",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7303",
           "points": 2
         }
       ]

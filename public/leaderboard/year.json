@@ -1,9 +1,9 @@
 {
   "period": "year",
-  "updatedAt": 1776821389986,
-  "lastFetchedAt": 1776821389986,
-  "startDate": "2025-04-22",
-  "endDate": "2026-04-22",
+  "updatedAt": 1776908922015,
+  "lastFetchedAt": 1776908922015,
+  "startDate": "2025-04-23",
+  "endDate": "2026-04-23",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -12,15 +12,15 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 570,
+      "total_points": 575,
       "activity_breakdown": {
+        "PR merged": {
+          "count": 23,
+          "points": 115
+        },
         "PR opened": {
           "count": 57,
           "points": 114
-        },
-        "PR merged": {
-          "count": 22,
-          "points": 110
         },
         "Issue opened": {
           "count": 51,
@@ -40,6 +40,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-04-22",
+          "count": 1,
+          "points": 5
+        },
         {
           "date": "2026-04-21",
           "count": 1,
@@ -442,6 +447,13 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-04-22T03:30:20Z",
+          "title": "fix - replace removed devise_error_messages! in confirmation view",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7324",
+          "points": 5
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-04-21T18:20:09Z",
@@ -2157,11 +2169,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
       "role": "Maintainer",
-      "total_points": 566,
+      "total_points": 567,
       "activity_breakdown": {
         "Issue closed": {
-          "count": 245,
-          "points": 245
+          "count": 246,
+          "points": 246
         },
         "Review submitted": {
           "count": 35,
@@ -2185,6 +2197,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-04-22",
+          "count": 1,
+          "points": 1
+        },
         {
           "date": "2026-04-21",
           "count": 2,
@@ -2552,6 +2569,13 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-22T03:30:21Z",
+          "title": "Closed issue #7323 - ActionView - - Template - - Error - undefined method `devise_error_messages!' for #<ActionView - - Base - 0x000000003901c0> (ActionView - - Template - - Error)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7323",
+          "points": 1
+        },
         {
           "type": "Issue closed",
           "occured_at": "2026-04-21T12:05:33Z",
