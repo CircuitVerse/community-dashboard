@@ -1,8 +1,8 @@
 {
   "period": "month",
-  "updatedAt": 1776995312177,
-  "startDate": "2026-03-25",
-  "endDate": "2026-04-24",
+  "updatedAt": 1777080451508,
+  "startDate": "2026-03-26",
+  "endDate": "2026-04-25",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -11,11 +11,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
       "role": "Maintainer",
-      "total_points": 56,
+      "total_points": 57,
       "activity_breakdown": {
         "Issue closed": {
-          "count": 45,
-          "points": 45
+          "count": 46,
+          "points": 46
         },
         "Review submitted": {
           "count": 1,
@@ -31,6 +31,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-04-24",
+          "count": 1,
+          "points": 1
+        },
         {
           "date": "2026-04-22",
           "count": 1,
@@ -58,6 +63,13 @@
         }
       ],
       "activities": [
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-04-24T15:12:49Z",
+          "title": "Closed issue #756 - Incorrect Pop Quiz Answers",
+          "link": "https://github.com/CircuitVerse/Interactive-Book/issues/756",
+          "points": 1
+        },
         {
           "type": "Issue closed",
           "occured_at": "2026-04-22T03:30:21Z",
@@ -767,84 +779,6 @@
       ]
     },
     {
-      "username": "RAJEEVTIWARI8052",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/180764866?v=4",
-      "role": "Contributor",
-      "total_points": 9,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 3,
-          "points": 6
-        },
-        "Issue opened": {
-          "count": 3,
-          "points": 3
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-04-14",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-03-26",
-          "count": 3,
-          "points": 4
-        },
-        {
-          "date": "2026-03-25",
-          "count": 2,
-          "points": 3
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-04-14T10:34:31Z",
-          "title": "fix - resolve framework assertion crash in Interactive Books caused by…",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/574",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-26T14:18:17Z",
-          "title": "Fix/image cropper web settings",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/565",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-03-26T13:54:49Z",
-          "title": "Bug - Profile image update crashes on Web due to dart - io File usage",
-          "link": "https://github.com/CircuitVerse/mobile-app/issues/564",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-03-26T13:44:48Z",
-          "title": "Bug - ImageCropper crashes on Web (Missing WebUiSettings)",
-          "link": "https://github.com/CircuitVerse/mobile-app/issues/563",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-25T08:05:18Z",
-          "title": "docs - add Chrome CORS workaround for local web development",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/562",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-03-25T07:58:17Z",
-          "title": "Bug - CORS policy blocks all API requests when running app via flutter run -d chrome",
-          "link": "https://github.com/CircuitVerse/mobile-app/issues/561",
-          "points": 1
-        }
-      ]
-    },
-    {
       "username": "LalitNarayanYadav",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/162928571?v=4",
@@ -911,6 +845,65 @@
           "title": "Labeled issue #1035 - 🌟 feature",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1035",
           "points": 2
+        }
+      ]
+    },
+    {
+      "username": "RAJEEVTIWARI8052",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/180764866?v=4",
+      "role": "Contributor",
+      "total_points": 6,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        },
+        "Issue opened": {
+          "count": 2,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-04-14",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-03-26",
+          "count": 3,
+          "points": 4
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-04-14T10:34:31Z",
+          "title": "fix - resolve framework assertion crash in Interactive Books caused by…",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/574",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-03-26T14:18:17Z",
+          "title": "Fix/image cropper web settings",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/565",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-26T13:54:49Z",
+          "title": "Bug - Profile image update crashes on Web due to dart - io File usage",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/564",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-26T13:44:48Z",
+          "title": "Bug - ImageCropper crashes on Web (Missing WebUiSettings)",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/563",
+          "points": 1
         }
       ]
     },
@@ -1069,12 +1062,45 @@
       ]
     },
     {
-      "username": "Gouri-Pawar",
+      "username": "aindree-2005",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/186403831?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/68018372?v=4",
       "role": "Contributor",
       "total_points": 5,
       "activity_breakdown": {
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-04-24",
+          "count": 1,
+          "points": 5
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-04-24T15:12:48Z",
+          "title": "Added binary multiplication and division quiz corrections",
+          "link": "https://github.com/CircuitVerse/Interactive-Book/pull/757",
+          "points": 5
+        }
+      ]
+    },
+    {
+      "username": "GarvSaxena",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/91243091?v=4",
+      "role": "Contributor",
+      "total_points": 5,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
         "Issue opened": {
           "count": 1,
           "points": 1
@@ -1082,44 +1108,35 @@
         "Issue labeled": {
           "count": 1,
           "points": 2
-        },
-        "PR opened": {
-          "count": 1,
-          "points": 2
         }
       },
       "daily_activity": [
         {
-          "date": "2026-03-30",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-03-25",
-          "count": 1,
-          "points": 2
+          "date": "2026-04-24",
+          "count": 3,
+          "points": 5
         }
       ],
       "activities": [
         {
+          "type": "PR opened",
+          "occured_at": "2026-04-24T14:00:18Z",
+          "title": "fix - toggle behavior of Getting Started dropdown (#7332)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7333",
+          "points": 2
+        },
+        {
           "type": "Issue opened",
-          "occured_at": "2026-03-30T14:24:11Z",
-          "title": "Add collaborator notification when assigned to an assignment",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7230",
+          "occured_at": "2026-04-24T13:20:54Z",
+          "title": "🐞 Bug - 'Getting Started' dropdown does not close when clicked again",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7332",
           "points": 1
         },
         {
           "type": "Issue labeled",
-          "occured_at": "2026-03-30T14:24:13Z",
-          "title": "Labeled issue #7230 - 🌟 feature",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7230",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-25T14:24:24Z",
-          "title": "Fix ArgumentError in rack_attack due to invalid email encoding",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7215",
+          "occured_at": "2026-04-24T13:20:56Z",
+          "title": "Labeled issue #7332 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7332",
           "points": 2
         }
       ]
@@ -1465,6 +1482,46 @@
       ]
     },
     {
+      "username": "Gouri-Pawar",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/186403831?v=4",
+      "role": "Contributor",
+      "total_points": 3,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-03-30",
+          "count": 2,
+          "points": 3
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-03-30T14:24:11Z",
+          "title": "Add collaborator notification when assigned to an assignment",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7230",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-03-30T14:24:13Z",
+          "title": "Labeled issue #7230 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7230",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "298A-E9E3",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/166412009?v=4",
@@ -1680,35 +1737,6 @@
       ]
     },
     {
-      "username": "Shashikumar-ezhilarasu",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/152071778?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-03-25",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-25T03:30:48Z",
-          "title": "Fix/increase simulator navbar height",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7213",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "adinjithj",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/99316452?v=4",
@@ -1849,35 +1877,6 @@
           "occured_at": "2026-03-26T19:22:10Z",
           "title": "fix - add missing - key attributes on v-for loops",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1031",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "jay2006-dev",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/208452115?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-03-25",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-03-25T08:14:12Z",
-          "title": "feat(#3618) - Migrate delete buttons to reusable ViewComponent",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7214",
           "points": 2
         }
       ]
