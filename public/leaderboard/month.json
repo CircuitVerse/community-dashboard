@@ -1,8 +1,8 @@
 {
   "period": "month",
-  "updatedAt": 1778897027937,
-  "startDate": "2026-04-16",
-  "endDate": "2026-05-16",
+  "updatedAt": 1778983623693,
+  "startDate": "2026-04-17",
+  "endDate": "2026-05-17",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -11,11 +11,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
       "role": "Maintainer",
-      "total_points": 76,
+      "total_points": 75,
       "activity_breakdown": {
         "Issue closed": {
-          "count": 72,
-          "points": 72
+          "count": 71,
+          "points": 71
         },
         "Review submitted": {
           "count": 1,
@@ -23,6 +23,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-05-16",
+          "count": 1,
+          "points": 1
+        },
         {
           "date": "2026-05-05",
           "count": 26,
@@ -47,14 +52,16 @@
           "date": "2026-04-20",
           "count": 41,
           "points": 44
-        },
-        {
-          "date": "2026-04-16",
-          "count": 2,
-          "points": 2
         }
       ],
       "activities": [
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-05-16T05:56:07Z",
+          "title": "Closed issue #7362 - 🐞 Bug - bundler-audit CI failing on all PRs due to vulnerable dependencies",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7362",
+          "points": 1
+        },
         {
           "type": "Issue closed",
           "occured_at": "2026-05-05T15:34:47Z",
@@ -551,20 +558,6 @@
           "title": "Closed issue #7086 - Avo Admin - Add group resources",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7086",
           "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-04-16T15:49:36Z",
-          "title": "Closed issue #7309 - 🐞 Bug - bundler-audit failing due to multiple vulnerable dependencies",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7309",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-04-16T14:49:24Z",
-          "title": "Closed issue #7265 - 🐞 Bug - bundle exec rspec tests failing",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7265",
-          "points": 1
         }
       ]
     },
@@ -573,30 +566,35 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 49,
+      "total_points": 37,
       "activity_breakdown": {
+        "PR merged": {
+          "count": 3,
+          "points": 15
+        },
         "PR opened": {
-          "count": 7,
-          "points": 14
+          "count": 5,
+          "points": 10
         },
         "Issue opened": {
-          "count": 4,
-          "points": 4
+          "count": 3,
+          "points": 3
         },
         "Issue labeled": {
-          "count": 4,
-          "points": 8
+          "count": 3,
+          "points": 6
         },
         "Issue closed": {
           "count": 3,
           "points": 3
-        },
-        "PR merged": {
-          "count": 4,
-          "points": 20
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-05-16",
+          "count": 1,
+          "points": 5
+        },
         {
           "date": "2026-05-15",
           "count": 7,
@@ -631,14 +629,16 @@
           "date": "2026-04-20",
           "count": 1,
           "points": 5
-        },
-        {
-          "date": "2026-04-16",
-          "count": 6,
-          "points": 17
         }
       ],
       "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-05-16T05:56:06Z",
+          "title": "Fix vulnerable dependencies flagged by bundler-audit",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7363",
+          "points": 5
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-05-15T20:50:31Z",
@@ -750,48 +750,6 @@
           "title": "Groups Add Avo Admin Panel Controllers and Resources for Groups System",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7088",
           "points": 5
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-04-16T14:34:37Z",
-          "title": "fix(security) - upgrade dependencies and resolve bundler-audit vulnerabilities",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7311",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-04-16T13:06:10Z",
-          "title": "fix(tests) - restore test suite after Devise confirmable tightening (CVE-2026-32700)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7308",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-04-16T15:49:34Z",
-          "title": "fix(security) - upgrade dependencies and resolve bundler-audit vulnerabilities",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7311",
-          "points": 5
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-04-16T14:49:22Z",
-          "title": "fix(tests) - restore test suite after Devise confirmable tightening (CVE-2026-32700)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7308",
-          "points": 5
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-04-16T13:24:09Z",
-          "title": "🐞 Bug - bundler-audit failing due to multiple vulnerable dependencies",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7309",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-04-16T13:24:11Z",
-          "title": "Labeled issue #7309 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7309",
-          "points": 2
         }
       ]
     },
@@ -800,15 +758,15 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
       "role": "Contributor",
-      "total_points": 28,
+      "total_points": 18,
       "activity_breakdown": {
         "Issue opened": {
-          "count": 4,
-          "points": 4
+          "count": 2,
+          "points": 2
         },
         "Issue labeled": {
-          "count": 4,
-          "points": 8
+          "count": 2,
+          "points": 4
         },
         "PR merged": {
           "count": 2,
@@ -817,10 +775,6 @@
         "Issue closed": {
           "count": 2,
           "points": 2
-        },
-        "PR opened": {
-          "count": 2,
-          "points": 4
         }
       },
       "daily_activity": [
@@ -838,11 +792,6 @@
           "date": "2026-04-20",
           "count": 3,
           "points": 7
-        },
-        {
-          "date": "2026-04-16",
-          "count": 6,
-          "points": 10
         }
       ],
       "activities": [
@@ -901,48 +850,6 @@
           "title": "Closed issue #7162 - Avo - - MissingResourceError - Failed to find a resource while rendering the - group_members field. (Avo - - MissingResourceError)",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7162",
           "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-04-16T20:38:48Z",
-          "title": "Feat - Add misc resources - announcements, issue-circuit and task runs to Avo",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7316",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-04-16T20:28:25Z",
-          "title": "feat - add assigment related resources into Avo dashboard",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7315",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-04-16T20:22:19Z",
-          "title": "Feature Add announcement resources to Avo",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7314",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-04-16T20:20:24Z",
-          "title": "Feature Add Assignment related resource to Avo",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7313",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-04-16T20:20:25Z",
-          "title": "Labeled issue #7313 - 🌟 feature",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7313",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-04-16T20:22:20Z",
-          "title": "Labeled issue #7314 - 🌟 feature",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7314",
-          "points": 2
         }
       ]
     },
@@ -1651,35 +1558,6 @@
       ]
     },
     {
-      "username": "tachyons-gitlab",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/139858804?v=4",
-      "role": "Contributor",
-      "total_points": 4,
-      "activity_breakdown": {
-        "Review submitted": {
-          "count": 1,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-04-16",
-          "count": 1,
-          "points": 4
-        }
-      ],
-      "activities": [
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-04-16T14:48:18Z",
-          "title": "Review on PR #7308",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7308",
-          "points": 4
-        }
-      ]
-    },
-    {
       "username": "satu0king",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/2092958?v=4",
@@ -1809,35 +1687,6 @@
           "occured_at": "2026-05-03T15:39:10Z",
           "title": "Fix Arabic localization for member_since with proper formatting",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7341",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "adinjithj",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/99316452?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-04-16",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-04-16T13:46:40Z",
-          "title": "Fix - Update favicon link to resolve display issue",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7310",
           "points": 2
         }
       ]

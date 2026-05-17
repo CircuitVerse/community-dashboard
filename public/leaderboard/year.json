@@ -1,9 +1,9 @@
 {
   "period": "year",
-  "updatedAt": 1778897027926,
-  "lastFetchedAt": 1778897027926,
-  "startDate": "2025-05-16",
-  "endDate": "2026-05-16",
+  "updatedAt": 1778983623678,
+  "lastFetchedAt": 1778983623678,
+  "startDate": "2025-05-17",
+  "endDate": "2026-05-17",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -12,8 +12,12 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 595,
+      "total_points": 600,
       "activity_breakdown": {
+        "PR merged": {
+          "count": 24,
+          "points": 120
+        },
         "PR opened": {
           "count": 61,
           "points": 122
@@ -30,16 +34,17 @@
           "count": 36,
           "points": 36
         },
-        "PR merged": {
-          "count": 23,
-          "points": 115
-        },
         "Review submitted": {
           "count": 50,
           "points": 200
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-05-16",
+          "count": 1,
+          "points": 5
+        },
         {
           "date": "2026-05-15",
           "count": 7,
@@ -467,6 +472,13 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-05-16T05:56:06Z",
+          "title": "Fix vulnerable dependencies flagged by bundler-audit",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7363",
+          "points": 5
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-05-15T20:50:31Z",
@@ -2280,11 +2292,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
       "role": "Maintainer",
-      "total_points": 594,
+      "total_points": 595,
       "activity_breakdown": {
         "Issue closed": {
-          "count": 273,
-          "points": 273
+          "count": 274,
+          "points": 274
         },
         "Review submitted": {
           "count": 35,
@@ -2308,6 +2320,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-05-16",
+          "count": 1,
+          "points": 1
+        },
         {
           "date": "2026-05-05",
           "count": 26,
@@ -2690,6 +2707,13 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-05-16T05:56:07Z",
+          "title": "Closed issue #7362 - 🐞 Bug - bundler-audit CI failing on all PRs due to vulnerable dependencies",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7362",
+          "points": 1
+        },
         {
           "type": "Issue closed",
           "occured_at": "2026-05-05T15:34:47Z",
