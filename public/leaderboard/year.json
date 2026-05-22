@@ -1,9 +1,9 @@
 {
   "period": "year",
-  "updatedAt": 1779330530450,
-  "lastFetchedAt": 1779330530450,
-  "startDate": "2025-05-21",
-  "endDate": "2026-05-21",
+  "updatedAt": 1779417007262,
+  "lastFetchedAt": 1779417007262,
+  "startDate": "2025-05-22",
+  "endDate": "2026-05-22",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -12,23 +12,23 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 618,
+      "total_points": 625,
       "activity_breakdown": {
+        "PR opened": {
+          "count": 64,
+          "points": 128
+        },
         "PR merged": {
           "count": 25,
           "points": 125
         },
-        "PR opened": {
-          "count": 63,
-          "points": 126
-        },
         "Issue opened": {
-          "count": 57,
-          "points": 57
+          "count": 58,
+          "points": 58
         },
         "Issue labeled": {
-          "count": 37,
-          "points": 74
+          "count": 39,
+          "points": 78
         },
         "Issue closed": {
           "count": 36,
@@ -42,8 +42,8 @@
       "daily_activity": [
         {
           "date": "2026-05-21",
-          "count": 1,
-          "points": 5
+          "count": 5,
+          "points": 12
         },
         {
           "date": "2026-05-19",
@@ -493,11 +493,39 @@
       ],
       "raw_activities": [
         {
+          "type": "PR opened",
+          "occured_at": "2026-05-21T18:47:14Z",
+          "title": "test pr",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7387",
+          "points": 2
+        },
+        {
           "type": "PR merged",
           "occured_at": "2026-05-21T00:42:06Z",
           "title": "fix - update devise to v5.0.4 to resolve security vulnerability",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7375",
           "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-05-21T13:33:05Z",
+          "title": "🐞 Bug - Tests are failing of master branch",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7385",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-05-21T13:33:07Z",
+          "title": "Labeled issue #7385 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7385",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-05-21T13:33:13Z",
+          "title": "Labeled issue #7385 - good first issue",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7385",
+          "points": 2
         },
         {
           "type": "PR opened",
@@ -2375,11 +2403,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
       "role": "Maintainer",
-      "total_points": 598,
+      "total_points": 604,
       "activity_breakdown": {
         "Issue closed": {
-          "count": 275,
-          "points": 275
+          "count": 281,
+          "points": 281
         },
         "Issue labeled": {
           "count": 2,
@@ -2405,8 +2433,8 @@
       "daily_activity": [
         {
           "date": "2026-05-21",
-          "count": 2,
-          "points": 3
+          "count": 8,
+          "points": 9
         },
         {
           "date": "2026-05-16",
@@ -2795,6 +2823,48 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-05-21T13:30:59Z",
+          "title": "Closed issue #7382 - ActiveRecord - - QueryCanceled - PG - - QueryCanceled - ERROR - canceling statement due to statement timeout (ActiveRecord - - QueryCanceled)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7382",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-05-21T13:31:00Z",
+          "title": "Closed issue #7383 - ActionView - - Template - - Error - Failed to find a resource while rendering the - featured_circuit field. (ActionView - - Template - - Error)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7383",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-05-21T13:31:01Z",
+          "title": "Closed issue #7384 - ActionView - - Template - - Error - Failed to find a resource while rendering the - featured_circuit field. (ActionView - - Template - - Error)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7384",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-05-21T13:30:58Z",
+          "title": "Closed issue #7380 - ArgumentError - wrong number of arguments (given 1, expected 0) (ArgumentError)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7380",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-05-21T13:30:58Z",
+          "title": "Closed issue #7381 - ActionView - - Template - - Error - PG - - QueryCanceled - ERROR - canceling statement due to statement timeout (ActionView - - Template - - Error)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7381",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-05-21T13:30:57Z",
+          "title": "Closed issue #7371 - ActionView - - Template - - Error - no implicit conversion of Symbol into Integer (ActionView - - Template - - Error)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7371",
+          "points": 1
+        },
         {
           "type": "Issue closed",
           "occured_at": "2026-05-21T00:42:07Z",
@@ -24628,11 +24698,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/52635773?v=4",
       "role": "Contributor",
-      "total_points": 50,
+      "total_points": 51,
       "activity_breakdown": {
         "Issue opened": {
-          "count": 4,
-          "points": 4
+          "count": 5,
+          "points": 5
         },
         "PR opened": {
           "count": 18,
@@ -24644,6 +24714,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-05-21",
+          "count": 1,
+          "points": 1
+        },
         {
           "date": "2026-05-17",
           "count": 3,
@@ -24701,6 +24776,13 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-05-21T14:45:07Z",
+          "title": "Fix and Streamline Authentication",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/597",
+          "points": 1
+        },
         {
           "type": "Issue opened",
           "occured_at": "2026-05-17T09:19:14Z",
@@ -33800,6 +33882,62 @@
       ]
     },
     {
+      "username": "tachyons-gitlab",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/139858804?v=4",
+      "role": "Contributor",
+      "total_points": 11,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        },
+        "Review submitted": {
+          "count": 1,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-05-21",
+          "count": 2,
+          "points": 7
+        },
+        {
+          "date": "2026-04-16",
+          "count": 1,
+          "points": 4
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-05-21T06:53:31Z",
+          "title": "Add search query to user, and update dependencies",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7378",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-05-21T07:33:58Z",
+          "title": "Add search query to user, and update dependencies",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7378",
+          "points": 5
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-04-16T14:48:18Z",
+          "title": "Review on PR #7308",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7308",
+          "points": 4
+        }
+      ]
+    },
+    {
       "username": "Uday9909",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/178378295?v=4",
@@ -38817,35 +38955,6 @@
           "title": "Implemented a Language Switch on the Simulator and the I18N for Brazilian Portuguese",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1041",
           "points": 2
-        }
-      ]
-    },
-    {
-      "username": "tachyons-gitlab",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/139858804?v=4",
-      "role": "Contributor",
-      "total_points": 4,
-      "activity_breakdown": {
-        "Review submitted": {
-          "count": 1,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-04-16",
-          "count": 1,
-          "points": 4
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-04-16T14:48:18Z",
-          "title": "Review on PR #7308",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7308",
-          "points": 4
         }
       ]
     },
@@ -44080,35 +44189,6 @@
       ]
     },
     {
-      "username": "vedant21-oss",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/210591514?v=4",
-      "role": "Contributor",
-      "total_points": 1,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-04-03",
-          "count": 1,
-          "points": 1
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-04-03T03:41:07Z",
-          "title": "Temporary File Leaks During Project Creation `SimulatorController#create`",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7242",
-          "points": 1
-        }
-      ]
-    },
-    {
       "username": "Neelagiri65",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/182762357?v=4",
@@ -44133,6 +44213,35 @@
           "occured_at": "2026-04-13T15:15:11Z",
           "title": "Google OAuth - email-only lookup in from_omniauth creates duplicate accounts after Gmail rename",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7262",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "username": "vedant21-oss",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/210591514?v=4",
+      "role": "Contributor",
+      "total_points": 1,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-04-03",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-04-03T03:41:07Z",
+          "title": "Temporary File Leaks During Project Creation `SimulatorController#create`",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7242",
           "points": 1
         }
       ]

@@ -1,8 +1,8 @@
 {
   "period": "month",
-  "updatedAt": 1779330530463,
-  "startDate": "2026-04-21",
-  "endDate": "2026-05-21",
+  "updatedAt": 1779417007277,
+  "startDate": "2026-04-22",
+  "endDate": "2026-05-22",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -11,23 +11,23 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 50,
+      "total_points": 55,
       "activity_breakdown": {
-        "PR merged": {
-          "count": 3,
-          "points": 15
-        },
         "PR opened": {
           "count": 7,
           "points": 14
         },
+        "PR merged": {
+          "count": 3,
+          "points": 15
+        },
         "Issue opened": {
-          "count": 6,
-          "points": 6
+          "count": 7,
+          "points": 7
         },
         "Issue labeled": {
-          "count": 6,
-          "points": 12
+          "count": 8,
+          "points": 16
         },
         "Issue closed": {
           "count": 3,
@@ -37,8 +37,8 @@
       "daily_activity": [
         {
           "date": "2026-05-21",
-          "count": 1,
-          "points": 5
+          "count": 5,
+          "points": 12
         },
         {
           "date": "2026-05-19",
@@ -84,20 +84,43 @@
           "date": "2026-04-22",
           "count": 1,
           "points": 5
-        },
-        {
-          "date": "2026-04-21",
-          "count": 1,
-          "points": 2
         }
       ],
       "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-05-21T18:47:14Z",
+          "title": "test pr",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7387",
+          "points": 2
+        },
         {
           "type": "PR merged",
           "occured_at": "2026-05-21T00:42:06Z",
           "title": "fix - update devise to v5.0.4 to resolve security vulnerability",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7375",
           "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-05-21T13:33:05Z",
+          "title": "🐞 Bug - Tests are failing of master branch",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7385",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-05-21T13:33:07Z",
+          "title": "Labeled issue #7385 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7385",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-05-21T13:33:13Z",
+          "title": "Labeled issue #7385 - good first issue",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7385",
+          "points": 2
         },
         {
           "type": "PR opened",
@@ -259,13 +282,6 @@
           "title": "fix - replace removed devise_error_messages! in confirmation view",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7324",
           "points": 5
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-04-21T18:20:09Z",
-          "title": "fix - replace removed devise_error_messages! in confirmation view",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7324",
-          "points": 2
         }
       ]
     },
@@ -274,11 +290,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
       "role": "Maintainer",
-      "total_points": 34,
+      "total_points": 38,
       "activity_breakdown": {
         "Issue closed": {
-          "count": 32,
-          "points": 32
+          "count": 36,
+          "points": 36
         },
         "Issue labeled": {
           "count": 1,
@@ -288,8 +304,8 @@
       "daily_activity": [
         {
           "date": "2026-05-21",
-          "count": 2,
-          "points": 3
+          "count": 8,
+          "points": 9
         },
         {
           "date": "2026-05-16",
@@ -310,14 +326,51 @@
           "date": "2026-04-22",
           "count": 1,
           "points": 1
-        },
-        {
-          "date": "2026-04-21",
-          "count": 2,
-          "points": 2
         }
       ],
       "activities": [
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-05-21T13:30:59Z",
+          "title": "Closed issue #7382 - ActiveRecord - - QueryCanceled - PG - - QueryCanceled - ERROR - canceling statement due to statement timeout (ActiveRecord - - QueryCanceled)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7382",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-05-21T13:31:00Z",
+          "title": "Closed issue #7383 - ActionView - - Template - - Error - Failed to find a resource while rendering the - featured_circuit field. (ActionView - - Template - - Error)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7383",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-05-21T13:31:01Z",
+          "title": "Closed issue #7384 - ActionView - - Template - - Error - Failed to find a resource while rendering the - featured_circuit field. (ActionView - - Template - - Error)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7384",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-05-21T13:30:58Z",
+          "title": "Closed issue #7380 - ArgumentError - wrong number of arguments (given 1, expected 0) (ArgumentError)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7380",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-05-21T13:30:58Z",
+          "title": "Closed issue #7381 - ActionView - - Template - - Error - PG - - QueryCanceled - ERROR - canceling statement due to statement timeout (ActionView - - Template - - Error)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7381",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-05-21T13:30:57Z",
+          "title": "Closed issue #7371 - ActionView - - Template - - Error - no implicit conversion of Symbol into Integer (ActionView - - Template - - Error)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7371",
+          "points": 1
+        },
         {
           "type": "Issue closed",
           "occured_at": "2026-05-21T00:42:07Z",
@@ -534,20 +587,6 @@
           "title": "Closed issue #7323 - ActionView - - Template - - Error - undefined method `devise_error_messages!' for #<ActionView - - Base - 0x000000003901c0> (ActionView - - Template - - Error)",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7323",
           "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-04-21T12:05:33Z",
-          "title": "Closed issue #7313 - Feature Add Assignment related resource to Avo",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7313",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-04-21T15:12:31Z",
-          "title": "Closed issue #7250 - 🐞 Bug - Docker setup fails with \"Port 3036 is already in use\" due to Vite starting twice",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7250",
-          "points": 1
         }
       ]
     },
@@ -556,11 +595,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/52635773?v=4",
       "role": "Contributor",
-      "total_points": 21,
+      "total_points": 22,
       "activity_breakdown": {
         "Issue opened": {
-          "count": 3,
-          "points": 3
+          "count": 4,
+          "points": 4
         },
         "PR opened": {
           "count": 4,
@@ -572,6 +611,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-05-21",
+          "count": 1,
+          "points": 1
+        },
         {
           "date": "2026-05-17",
           "count": 3,
@@ -594,6 +638,13 @@
         }
       ],
       "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-05-21T14:45:07Z",
+          "title": "Fix and Streamline Authentication",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/597",
+          "points": 1
+        },
         {
           "type": "Issue opened",
           "occured_at": "2026-05-17T09:19:14Z",
@@ -761,76 +812,6 @@
       ]
     },
     {
-      "username": "ShinichiShi",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
-      "role": "Contributor",
-      "total_points": 11,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        },
-        "Issue labeled": {
-          "count": 2,
-          "points": 4
-        },
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-05-15",
-          "count": 4,
-          "points": 6
-        },
-        {
-          "date": "2026-04-21",
-          "count": 1,
-          "points": 5
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-05-15T11:52:58Z",
-          "title": "Feature Introducing the debugger suite in the vue-simulator",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1053",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-05-15T11:37:12Z",
-          "title": "🐞 Bug - Tauri auth Using deep-link authentication for tauri",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1052",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-05-15T11:37:13Z",
-          "title": "Labeled issue #1052 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1052",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-05-15T11:52:59Z",
-          "title": "Labeled issue #1053 - 🌟 feature",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1053",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-04-21T12:05:29Z",
-          "title": "feat - add assigment related resources into Avo dashboard",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7315",
-          "points": 5
-        }
-      ]
-    },
-    {
       "username": "AdityaOP007",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/190319214?v=4",
@@ -943,6 +924,100 @@
           "title": "Review on PR #7336",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7336",
           "points": 4
+        }
+      ]
+    },
+    {
+      "username": "tachyons-gitlab",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/139858804?v=4",
+      "role": "Contributor",
+      "total_points": 7,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-05-21",
+          "count": 2,
+          "points": 7
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-05-21T06:53:31Z",
+          "title": "Add search query to user, and update dependencies",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7378",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-05-21T07:33:58Z",
+          "title": "Add search query to user, and update dependencies",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7378",
+          "points": 5
+        }
+      ]
+    },
+    {
+      "username": "ShinichiShi",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
+      "role": "Contributor",
+      "total_points": 6,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 2,
+          "points": 2
+        },
+        "Issue labeled": {
+          "count": 2,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-05-15",
+          "count": 4,
+          "points": 6
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-05-15T11:52:58Z",
+          "title": "Feature Introducing the debugger suite in the vue-simulator",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1053",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-05-15T11:37:12Z",
+          "title": "🐞 Bug - Tauri auth Using deep-link authentication for tauri",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1052",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-05-15T11:37:13Z",
+          "title": "Labeled issue #1052 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1052",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-05-15T11:52:59Z",
+          "title": "Labeled issue #1053 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1053",
+          "points": 2
         }
       ]
     },
@@ -1227,35 +1302,6 @@
           "occured_at": "2026-05-05T07:12:14Z",
           "title": "docs - add Chrome CORS workaround for local web development",
           "link": "https://github.com/CircuitVerse/mobile-app/pull/562",
-          "points": 5
-        }
-      ]
-    },
-    {
-      "username": "sum1t-here",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/126807055?v=4",
-      "role": "Contributor",
-      "total_points": 5,
-      "activity_breakdown": {
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-04-21",
-          "count": 1,
-          "points": 5
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR merged",
-          "occured_at": "2026-04-21T15:12:30Z",
-          "title": "fix - remove duplicate vite process start from bin/docker/boot",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7251",
           "points": 5
         }
       ]
