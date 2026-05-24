@@ -1,8 +1,8 @@
 {
   "period": "week",
-  "updatedAt": 1779502003180,
-  "startDate": "2026-05-16",
-  "endDate": "2026-05-23",
+  "updatedAt": 1779588920895,
+  "startDate": "2026-05-17",
+  "endDate": "2026-05-24",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -11,26 +11,35 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 37,
+      "total_points": 52,
       "activity_breakdown": {
         "PR opened": {
-          "count": 4,
-          "points": 8
-        },
-        "Issue opened": {
           "count": 5,
-          "points": 5
-        },
-        "Issue labeled": {
-          "count": 7,
-          "points": 14
+          "points": 10
         },
         "PR merged": {
           "count": 2,
           "points": 10
+        },
+        "Issue opened": {
+          "count": 6,
+          "points": 6
+        },
+        "Issue labeled": {
+          "count": 11,
+          "points": 22
+        },
+        "Issue closed": {
+          "count": 4,
+          "points": 4
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-05-23",
+          "count": 11,
+          "points": 20
+        },
         {
           "date": "2026-05-22",
           "count": 4,
@@ -55,14 +64,86 @@
           "date": "2026-05-17",
           "count": 4,
           "points": 6
-        },
-        {
-          "date": "2026-05-16",
-          "count": 1,
-          "points": 5
         }
       ],
       "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-05-23T19:53:42Z",
+          "title": "fix - use user.admin? instead of user.admin in ProjectPolicy (flagged by coderabbit)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7393",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-05-23T15:56:21Z",
+          "title": "Help button not opening docs in desktop app",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/911",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-05-23T20:50:00Z",
+          "title": "🐞 Bug - Users cannot access app in development after registration due to email confirmation requirement",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7394",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-05-23T20:50:01Z",
+          "title": "Labeled issue #7394 - good first issue",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7394",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-05-23T20:50:02Z",
+          "title": "Labeled issue #7394 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7394",
+          "points": 2
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-05-23T20:11:29Z",
+          "title": "Closed issue #7258 - Feature Request - Auto-label PRs and Issues using GitHub Actions",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7258",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-05-23T20:11:06Z",
+          "title": "Closed issue #7257 - Feature Request - Auto-merge Dependabot Patch Updates",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7257",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-05-23T20:02:53Z",
+          "title": "Labeled issue #7342 - good first issue",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7342",
+          "points": 2
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-05-23T20:00:18Z",
+          "title": "Closed issue #7357 - Feature - Interactive Circuit Debugging Tools",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7357",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-05-23T20:17:41Z",
+          "title": "Closed issue #7233 - 🐞 Bug - Creeating a subcircuit from an empty circuit causes errors",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7233",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-05-23T20:08:13Z",
+          "title": "Labeled issue #7332 - good first issue",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7332",
+          "points": 2
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-05-22T23:15:33Z",
@@ -181,13 +262,6 @@
           "title": "Labeled issue #7368 - 🌟 feature",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7368",
           "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-05-16T05:56:06Z",
-          "title": "Fix vulnerable dependencies flagged by bundler-audit",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7363",
-          "points": 5
         }
       ]
     },
@@ -273,17 +347,24 @@
       },
       "daily_activity": [
         {
+          "date": "2026-05-24",
+          "count": 1,
+          "points": 1
+        },
+        {
           "date": "2026-05-21",
           "count": 8,
           "points": 9
-        },
-        {
-          "date": "2026-05-16",
-          "count": 1,
-          "points": 1
         }
       ],
       "activities": [
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-05-24T01:30:07Z",
+          "title": "Closed issue #7394 - 🐞 Bug - Users cannot access app in development after registration due to email confirmation requirement",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7394",
+          "points": 1
+        },
         {
           "type": "Issue closed",
           "occured_at": "2026-05-21T13:30:59Z",
@@ -339,13 +420,6 @@
           "title": "Labeled issue #7262 - good first issue",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7262",
           "points": 2
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-05-16T05:56:07Z",
-          "title": "Closed issue #7362 - 🐞 Bug - bundler-audit CI failing on all PRs due to vulnerable dependencies",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7362",
-          "points": 1
         }
       ]
     },
@@ -354,8 +428,12 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/139858804?v=4",
       "role": "Contributor",
-      "total_points": 7,
+      "total_points": 8,
       "activity_breakdown": {
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
         "PR opened": {
           "count": 1,
           "points": 2
@@ -367,12 +445,24 @@
       },
       "daily_activity": [
         {
+          "date": "2026-05-24",
+          "count": 1,
+          "points": 1
+        },
+        {
           "date": "2026-05-21",
           "count": 2,
           "points": 7
         }
       ],
       "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-05-24T02:04:44Z",
+          "title": "🐞 Bug LTI specs are failing in master with ruby 4.0",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7395",
+          "points": 1
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-05-21T06:53:31Z",
@@ -671,6 +761,35 @@
           "title": "chore - add auto labeler workflow (#7258)",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7376",
           "points": 2
+        }
+      ]
+    },
+    {
+      "username": "Nihal4777",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/65150640?v=4",
+      "role": "Maintainer",
+      "total_points": 1,
+      "activity_breakdown": {
+        "Issue closed": {
+          "count": 1,
+          "points": 1
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-05-23",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-05-23T15:56:22Z",
+          "title": "Closed issue #910 - 🐞Bug - “Help” button does not work for any circuit element in Tauri app",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/910",
+          "points": 1
         }
       ]
     }
