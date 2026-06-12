@@ -1,8 +1,8 @@
 {
   "period": "month",
-  "updatedAt": 1781145781021,
-  "startDate": "2026-05-12",
-  "endDate": "2026-06-11",
+  "updatedAt": 1781231906058,
+  "startDate": "2026-05-13",
+  "endDate": "2026-06-12",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -4141,23 +4141,23 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 212,
+      "total_points": 216,
       "activity_breakdown": {
+        "PR opened": {
+          "count": 14,
+          "points": 28
+        },
         "Issue opened": {
           "count": 15,
           "points": 15
         },
-        "PR opened": {
-          "count": 13,
-          "points": 26
+        "Issue labeled": {
+          "count": 43,
+          "points": 86
         },
         "PR merged": {
           "count": 12,
           "points": 60
-        },
-        "Issue labeled": {
-          "count": 42,
-          "points": 84
         },
         "Issue closed": {
           "count": 27,
@@ -4165,6 +4165,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-06-11",
+          "count": 4,
+          "points": 7
+        },
         {
           "date": "2026-06-10",
           "count": 1,
@@ -4259,14 +4264,37 @@
           "date": "2026-05-15",
           "count": 7,
           "points": 10
-        },
-        {
-          "date": "2026-05-12",
-          "count": 2,
-          "points": 3
         }
       ],
       "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-11T17:02:02Z",
+          "title": "fix - resolve bundler-audit failures caused by vulnerable oauth gems",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7508",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-06-11T17:00:52Z",
+          "title": "🐞 Bug - Bundler Audit Fails Due to Vulnerable oauth and oauth2 Dependencies",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7507",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-06-11T17:00:53Z",
+          "title": "Labeled issue #7507 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7507",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-06-11T11:11:23Z",
+          "title": "Labeled issue #7505 - GSoC'26",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7505",
+          "points": 2
+        },
         {
           "type": "Issue opened",
           "occured_at": "2026-06-10T17:38:15Z",
@@ -5015,20 +5043,6 @@
           "title": "Closed issue #537 - How to Create Your Dream Bedroom with the Right Furniture",
           "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/537",
           "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-05-12T17:33:22Z",
-          "title": "Enterprise & Institutional Organization Features - Figma UI/UX Mockup Design",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7358",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-05-12T17:33:23Z",
-          "title": "Labeled issue #7358 - 🌟 feature",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7358",
-          "points": 2
         }
       ]
     },
@@ -9929,7 +9943,7 @@
     {
       "username": "ThatDeparted2061",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/166894150?u=c22b1c95974076169a9b255294b322e84bf3dbba&v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/166894150?v=4",
       "role": "Maintainer",
       "total_points": 18,
       "activity_breakdown": {
@@ -10567,67 +10581,6 @@
       ]
     },
     {
-      "username": "star-warrior",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/69752445?v=4",
-      "role": "Contributor",
-      "total_points": 8,
-      "activity_breakdown": {
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        },
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-05-24",
-          "count": 1,
-          "points": 5
-        },
-        {
-          "date": "2026-05-17",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-05-12",
-          "count": 1,
-          "points": 1
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR merged",
-          "occured_at": "2026-05-24T17:24:09Z",
-          "title": "fix - resolve sass deprecation and vue html warning issues",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1057",
-          "points": 5
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-05-17T07:41:30Z",
-          "title": "fix - resolve sass deprecation and vue html warning issues",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1057",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-05-12T08:08:56Z",
-          "title": "Fix - Fix deprecated API and Sass related warnings and errors",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1051",
-          "points": 1
-        }
-      ]
-    },
-    {
       "username": "tachyons-gitlab",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/139858804?v=4",
@@ -10766,6 +10719,51 @@
           "title": "Review on PR #6904",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6904",
           "points": 4
+        }
+      ]
+    },
+    {
+      "username": "star-warrior",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/69752445?v=4",
+      "role": "Contributor",
+      "total_points": 7,
+      "activity_breakdown": {
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        },
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-05-24",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2026-05-17",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-05-24T17:24:09Z",
+          "title": "fix - resolve sass deprecation and vue html warning issues",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1057",
+          "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-05-17T07:41:30Z",
+          "title": "fix - resolve sass deprecation and vue html warning issues",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1057",
+          "points": 2
         }
       ]
     },
@@ -11740,46 +11738,6 @@
           "occured_at": "2026-05-27T21:15:29Z",
           "title": "Labeled issue #180 - status",
           "link": "https://github.com/CircuitVerse/upptime/issues/180",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "AdityaOP007",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/190319214?v=4",
-      "role": "Contributor",
-      "total_points": 3,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-05-12",
-          "count": 2,
-          "points": 3
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-05-12T13:23:37Z",
-          "title": "Feature - Interactive Circuit Debugging Tools",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7357",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-05-12T13:23:39Z",
-          "title": "Labeled issue #7357 - 🌟 feature",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7357",
           "points": 2
         }
       ]

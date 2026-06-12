@@ -1,9 +1,9 @@
 {
   "period": "year",
-  "updatedAt": 1781145781001,
-  "lastFetchedAt": 1781145781001,
-  "startDate": "2025-06-11",
-  "endDate": "2026-06-11",
+  "updatedAt": 1781231906037,
+  "lastFetchedAt": 1781231906037,
+  "startDate": "2025-06-12",
+  "endDate": "2026-06-12",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -12,23 +12,23 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 794,
+      "total_points": 801,
       "activity_breakdown": {
-        "Issue opened": {
-          "count": 67,
-          "points": 67
-        },
         "PR opened": {
-          "count": 72,
-          "points": 144
+          "count": 73,
+          "points": 146
+        },
+        "Issue opened": {
+          "count": 68,
+          "points": 68
+        },
+        "Issue labeled": {
+          "count": 76,
+          "points": 152
         },
         "PR merged": {
           "count": 35,
           "points": 175
-        },
-        "Issue labeled": {
-          "count": 74,
-          "points": 148
         },
         "Issue closed": {
           "count": 60,
@@ -40,6 +40,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-06-11",
+          "count": 4,
+          "points": 7
+        },
         {
           "date": "2026-06-10",
           "count": 1,
@@ -557,6 +562,34 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-11T17:02:02Z",
+          "title": "fix - resolve bundler-audit failures caused by vulnerable oauth gems",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7508",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-06-11T17:00:52Z",
+          "title": "🐞 Bug - Bundler Audit Fails Due to Vulnerable oauth and oauth2 Dependencies",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7507",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-06-11T17:00:53Z",
+          "title": "Labeled issue #7507 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7507",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-06-11T11:11:23Z",
+          "title": "Labeled issue #7505 - GSoC'26",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7505",
+          "points": 2
+        },
         {
           "type": "Issue opened",
           "occured_at": "2026-06-10T17:38:15Z",
@@ -12797,7 +12830,7 @@
     {
       "username": "ThatDeparted2061",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/166894150?u=c22b1c95974076169a9b255294b322e84bf3dbba&v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/166894150?v=4",
       "role": "Maintainer",
       "total_points": 391,
       "activity_breakdown": {
