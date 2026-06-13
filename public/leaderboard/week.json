@@ -1,8 +1,8 @@
 {
   "period": "week",
-  "updatedAt": 1781231906051,
-  "startDate": "2026-06-05",
-  "endDate": "2026-06-12",
+  "updatedAt": 1781317870556,
+  "startDate": "2026-06-06",
+  "endDate": "2026-06-13",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -11,8 +11,12 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 22,
+      "total_points": 32,
       "activity_breakdown": {
+        "PR merged": {
+          "count": 3,
+          "points": 15
+        },
         "PR opened": {
           "count": 3,
           "points": 6
@@ -24,13 +28,14 @@
         "Issue labeled": {
           "count": 4,
           "points": 8
-        },
-        "PR merged": {
-          "count": 1,
-          "points": 5
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-06-12",
+          "count": 2,
+          "points": 10
+        },
         {
           "date": "2026-06-11",
           "count": 4,
@@ -48,6 +53,20 @@
         }
       ],
       "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-06-12T05:09:45Z",
+          "title": "fix - resolve bundler-audit failures caused by vulnerable oauth gems",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7508",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-06-12T08:28:40Z",
+          "title": "feat - add organization_members table migration",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7391",
+          "points": 5
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-06-11T17:02:02Z",
@@ -128,106 +147,6 @@
       ]
     },
     {
-      "username": "tachyons",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
-      "role": "Maintainer",
-      "total_points": 14,
-      "activity_breakdown": {
-        "Issue closed": {
-          "count": 2,
-          "points": 2
-        },
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        },
-        "Review submitted": {
-          "count": 1,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-06-10",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-06-09",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-06-08",
-          "count": 2,
-          "points": 6
-        },
-        {
-          "date": "2026-06-07",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-06-05",
-          "count": 1,
-          "points": 4
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-06-10T09:28:05Z",
-          "title": "Closed issue #1078 - 🐞 Bug - vuesim Circuit preview loads full simulator instead of embed version",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1078",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-06-09T15:46:29Z",
-          "title": "Closed issue #7494 - 🐞 Bug - Security Audit Failing on Master Due to Puma Vulnerabilities",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7494",
-          "points": 1
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-06-08T14:17:25Z",
-          "title": "feat - update to material3",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/618",
-          "points": 5
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-06-08T14:16:50Z",
-          "title": "Add widget preview for major compnents",
-          "link": "https://github.com/CircuitVerse/mobile-app/issues/621",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-07T15:42:36Z",
-          "title": "feat - update to material3",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/618",
-          "points": 2
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-06-05T02:48:17Z",
-          "title": "Review on PR #7391",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7391",
-          "points": 4
-        }
-      ]
-    },
-    {
       "username": "ThatDeparted2061",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/166894150?v=4",
@@ -292,11 +211,189 @@
       ]
     },
     {
+      "username": "tachyons",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
+      "role": "Maintainer",
+      "total_points": 11,
+      "activity_breakdown": {
+        "Issue closed": {
+          "count": 3,
+          "points": 3
+        },
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-06-12",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-06-10",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-06-09",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-06-08",
+          "count": 2,
+          "points": 6
+        },
+        {
+          "date": "2026-06-07",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-06-12T05:09:46Z",
+          "title": "Closed issue #7507 - 🐞 Bug - Bundler Audit Fails Due to Vulnerable oauth and oauth2 Dependencies",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7507",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-06-10T09:28:05Z",
+          "title": "Closed issue #1078 - 🐞 Bug - vuesim Circuit preview loads full simulator instead of embed version",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1078",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-06-09T15:46:29Z",
+          "title": "Closed issue #7494 - 🐞 Bug - Security Audit Failing on Master Due to Puma Vulnerabilities",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7494",
+          "points": 1
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-06-08T14:17:25Z",
+          "title": "feat - update to material3",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/618",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-06-08T14:16:50Z",
+          "title": "Add widget preview for major compnents",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/621",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-07T15:42:36Z",
+          "title": "feat - update to material3",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/618",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "magic-peach",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
+      "role": "Contributor",
+      "total_points": 10,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 3,
+          "points": 6
+        },
+        "Issue opened": {
+          "count": 2,
+          "points": 2
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-06-12",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-06-10",
+          "count": 3,
+          "points": 5
+        },
+        {
+          "date": "2026-06-07",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-12T20:39:37Z",
+          "title": "Added the lti-advantage 0.1.0 gem",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7510",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-06-12T18:03:17Z",
+          "title": "Updating the gemfile with the lti-advantage 0.1.0 gem",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7509",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-10T05:37:54Z",
+          "title": "Fixing the NameError in the current LTI 1.1 implementation",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7502",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-06-10T03:55:03Z",
+          "title": "Part 1 of upgrading the LTI version from 1.1 to 1.3 (NameError Fix)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7501",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-06-10T03:55:04Z",
+          "title": "Labeled issue #7501 - GSoC'26",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7501",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-07T08:21:32Z",
+          "title": "Feat/lti 1 3 upgrade",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7488",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "SantamRC",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/52635773?v=4",
       "role": "Contributor",
-      "total_points": 11,
+      "total_points": 9,
       "activity_breakdown": {
         "PR merged": {
           "count": 1,
@@ -307,8 +404,8 @@
           "points": 2
         },
         "PR opened": {
-          "count": 2,
-          "points": 4
+          "count": 1,
+          "points": 2
         }
       },
       "daily_activity": [
@@ -319,11 +416,6 @@
         },
         {
           "date": "2026-06-07",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-06-05",
           "count": 1,
           "points": 2
         }
@@ -348,13 +440,6 @@
           "occured_at": "2026-06-07T20:04:48Z",
           "title": "Modified gitignores for modern Flutter builds",
           "link": "https://github.com/CircuitVerse/mobile-app/pull/619",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-05T18:26:53Z",
-          "title": "New Project Build",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/617",
           "points": 2
         }
       ]
@@ -410,65 +495,47 @@
       ]
     },
     {
-      "username": "magic-peach",
+      "username": "ShinichiShi",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
       "role": "Contributor",
       "total_points": 7,
       "activity_breakdown": {
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
         "Issue labeled": {
           "count": 1,
           "points": 2
+        },
+        "PR merged": {
+          "count": 1,
+          "points": 5
         }
       },
       "daily_activity": [
         {
-          "date": "2026-06-10",
-          "count": 3,
-          "points": 5
-        },
-        {
-          "date": "2026-06-07",
+          "date": "2026-06-12",
           "count": 1,
           "points": 2
+        },
+        {
+          "date": "2026-06-10",
+          "count": 1,
+          "points": 5
         }
       ],
       "activities": [
         {
-          "type": "PR opened",
-          "occured_at": "2026-06-10T05:37:54Z",
-          "title": "Fixing the NameError in the current LTI 1.1 implementation",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7502",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-06-10T03:55:03Z",
-          "title": "Part 1 of upgrading the LTI version from 1.1 to 1.3 (NameError Fix)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7501",
-          "points": 1
-        },
-        {
           "type": "Issue labeled",
-          "occured_at": "2026-06-10T03:55:04Z",
-          "title": "Labeled issue #7501 - GSoC'26",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7501",
+          "occured_at": "2026-06-12T13:15:34Z",
+          "title": "Labeled issue #7444 - GSoC'26",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7444",
           "points": 2
         },
         {
-          "type": "PR opened",
-          "occured_at": "2026-06-07T08:21:32Z",
-          "title": "Feat/lti 1 3 upgrade",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7488",
-          "points": 2
+          "type": "PR merged",
+          "occured_at": "2026-06-10T09:28:04Z",
+          "title": "fix - Vue simulator renders the embed-only interface",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1082",
+          "points": 5
         }
       ]
     },
@@ -497,35 +564,6 @@
           "occured_at": "2026-06-10T19:28:57Z",
           "title": "refactor - migrate verilog terminal from window global + DOM to Pinia synthesisStore",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1055",
-          "points": 5
-        }
-      ]
-    },
-    {
-      "username": "ShinichiShi",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
-      "role": "Contributor",
-      "total_points": 5,
-      "activity_breakdown": {
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-06-10",
-          "count": 1,
-          "points": 5
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR merged",
-          "occured_at": "2026-06-10T09:28:04Z",
-          "title": "fix - Vue simulator renders the embed-only interface",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1082",
           "points": 5
         }
       ]
@@ -690,6 +728,35 @@
           "title": "Fix pinch-to-zoom on tablets (iPad) — zoom anchors to finger midpoint",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7489",
           "points": 2
+        }
+      ]
+    },
+    {
+      "username": "vedant-jain03",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/76901313?v=4",
+      "role": "Maintainer",
+      "total_points": 1,
+      "activity_breakdown": {
+        "Issue closed": {
+          "count": 1,
+          "points": 1
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-06-12",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-06-12T08:28:41Z",
+          "title": "Closed issue #7390 - Feature - Introduce core organization_members database table",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7390",
+          "points": 1
         }
       ]
     }
