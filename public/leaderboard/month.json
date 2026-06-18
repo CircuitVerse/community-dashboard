@@ -1,8 +1,8 @@
 {
   "period": "month",
-  "updatedAt": 1781664364111,
-  "startDate": "2026-05-18",
-  "endDate": "2026-06-17",
+  "updatedAt": 1781750546086,
+  "startDate": "2026-05-19",
+  "endDate": "2026-06-18",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -11,7 +11,7 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/143987856?v=4",
       "role": "Contributor",
-      "total_points": 475,
+      "total_points": 474,
       "activity_breakdown": {
         "PR opened": {
           "count": 4,
@@ -22,8 +22,8 @@
           "points": 20
         },
         "Issue opened": {
-          "count": 4,
-          "points": 4
+          "count": 3,
+          "points": 3
         },
         "Issue labeled": {
           "count": 149,
@@ -35,6 +35,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-06-17",
+          "count": 1,
+          "points": 2
+        },
         {
           "date": "2026-06-15",
           "count": 2,
@@ -89,14 +94,16 @@
           "date": "2026-05-24",
           "count": 2,
           "points": 3
-        },
-        {
-          "date": "2026-05-18",
-          "count": 2,
-          "points": 3
         }
       ],
       "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-17T10:24:46Z",
+          "title": "feat - wrap synthesizeVerilog() with 30s timeout guard",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1105",
+          "points": 2
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-06-15T17:34:18Z",
@@ -2224,20 +2231,6 @@
           "title": "Closed issue #24 - Moving Canvas Objects to Pinia - GSoC'22",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/24",
           "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-05-18T03:42:25Z",
-          "title": "Introduce Client-Side Verilog Synthesis via Web Worker for Tauri Desktop",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1060",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-05-18T03:40:33Z",
-          "title": "refactor - migrate Tauri environment detection from internals to official isTauri API",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1059",
-          "points": 1
         }
       ]
     },
@@ -4141,15 +4134,15 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 205,
+      "total_points": 203,
       "activity_breakdown": {
         "PR merged": {
           "count": 13,
           "points": 65
         },
         "PR opened": {
-          "count": 12,
-          "points": 24
+          "count": 11,
+          "points": 22
         },
         "Issue opened": {
           "count": 12,
@@ -4249,11 +4242,6 @@
           "date": "2026-05-19",
           "count": 3,
           "points": 5
-        },
-        {
-          "date": "2026-05-18",
-          "count": 1,
-          "points": 2
         }
       ],
       "activities": [
@@ -4955,13 +4943,6 @@
           "occured_at": "2026-05-19T09:22:33Z",
           "title": "Labeled issue #7374 - 🐞 bug",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7374",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-05-18T10:06:52Z",
-          "title": "feat - add organization and group database foundation for enterprise classroom management",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7370",
           "points": 2
         }
       ]
