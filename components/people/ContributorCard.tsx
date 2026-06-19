@@ -49,6 +49,33 @@ const getActivityIcon = (activity: string) => {
   return null;
 };
 
+const getGitHubSearchUrl = (activityName: string, username: string) => {
+  if (!username || !/^[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/.test(username)) {
+    return null;
+  }
+
+  const baseUrl = "https://github.com/search";
+  const encodedUsername = encodeURIComponent(username);
+  
+  switch (activityName) {
+    case "PR merged":
+      return `${baseUrl}?q=is%3Apr+author%3A${encodedUsername}+is%3Amerged`;
+    case "PR opened":
+      return `${baseUrl}?q=is%3Apr+author%3A${encodedUsername}+is%3Aopen`;
+    case "Issue opened":
+      return `${baseUrl}?q=is%3Aissue+author%3A${encodedUsername}+is%3Aopen`;
+    default:
+      return null;
+  }
+};
+
+const openGitHubSearch = (activityName: string, username: string) => {
+  const url = getGitHubSearchUrl(activityName, username);
+  if (url) {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  }
+};
+
 export function ContributorCard({
 
   contributor,
@@ -121,7 +148,11 @@ export function ContributorCard({
                 {topActivities.map(([activity, data]) => (
                   <div
                     key={activity}
-                    className="flex items-center gap-1 px-2 py-1 rounded-full bg-muted text-xs"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      openGitHubSearch(activity, contributor.username);
+                    }}
+                    className="flex items-center gap-1 px-2 py-1 rounded-full bg-muted text-xs cursor-pointer hover:bg-muted/80 transition-colors"
                   >
                     {getActivityIcon(activity)}
                     <span className="font-medium">{data.count}</span>
