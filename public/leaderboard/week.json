@@ -1,8 +1,8 @@
 {
   "period": "week",
-  "updatedAt": 1781837940592,
-  "startDate": "2026-06-12",
-  "endDate": "2026-06-19",
+  "updatedAt": 1781922685890,
+  "startDate": "2026-06-13",
+  "endDate": "2026-06-20",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -11,23 +11,23 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
       "role": "Contributor",
-      "total_points": 37,
+      "total_points": 45,
       "activity_breakdown": {
+        "PR opened": {
+          "count": 7,
+          "points": 14
+        },
+        "Issue opened": {
+          "count": 7,
+          "points": 7
+        },
+        "Issue labeled": {
+          "count": 9,
+          "points": 18
+        },
         "PR merged": {
           "count": 1,
           "points": 5
-        },
-        "PR opened": {
-          "count": 5,
-          "points": 10
-        },
-        "Issue opened": {
-          "count": 5,
-          "points": 5
-        },
-        "Issue labeled": {
-          "count": 8,
-          "points": 16
         },
         "Issue closed": {
           "count": 1,
@@ -35,6 +35,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-06-19",
+          "count": 6,
+          "points": 10
+        },
         {
           "date": "2026-06-16",
           "count": 1,
@@ -44,14 +49,51 @@
           "date": "2026-06-15",
           "count": 18,
           "points": 30
-        },
-        {
-          "date": "2026-06-12",
-          "count": 1,
-          "points": 2
         }
       ],
       "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-19T21:20:11Z",
+          "title": "Fix - (vuesim) - save and import of .cv files by parsing the json",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1109",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-19T20:40:10Z",
+          "title": "fix - remove old vue routes",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1107",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-06-19T21:09:22Z",
+          "title": "🐞 Bug - vuesim the saving and importing of .cv files throws error",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1108",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-06-19T15:58:51Z",
+          "title": "🐞 Bug - vuesim remove /simulatorvue routes",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1106",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-06-19T21:09:23Z",
+          "title": "Labeled issue #1108 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1108",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-06-19T15:58:52Z",
+          "title": "Labeled issue #1106 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1106",
+          "points": 2
+        },
         {
           "type": "PR merged",
           "occured_at": "2026-06-16T07:30:16Z",
@@ -184,49 +226,6 @@
           "title": "Labeled issue #1099 - 🐞 bug",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1099",
           "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-06-12T13:15:34Z",
-          "title": "Labeled issue #7444 - GSoC'26",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7444",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "naman79820",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
-      "role": "Contributor",
-      "total_points": 10,
-      "activity_breakdown": {
-        "PR merged": {
-          "count": 2,
-          "points": 10
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-06-12",
-          "count": 2,
-          "points": 10
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR merged",
-          "occured_at": "2026-06-12T05:09:45Z",
-          "title": "fix - resolve bundler-audit failures caused by vulnerable oauth gems",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7508",
-          "points": 5
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-06-12T08:28:40Z",
-          "title": "feat - add organization_members table migration",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7391",
-          "points": 5
         }
       ]
     },
@@ -326,58 +325,6 @@
       ]
     },
     {
-      "username": "tachyons",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
-      "role": "Maintainer",
-      "total_points": 4,
-      "activity_breakdown": {
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
-        },
-        "Issue closed": {
-          "count": 2,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-06-16",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-06-12",
-          "count": 1,
-          "points": 1
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-06-16T15:31:50Z",
-          "title": "Labeled issue #1104 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1104",
-          "points": 2
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-06-16T07:30:17Z",
-          "title": "Closed issue #7518 - 🐞 Bug (vuesim) initial load of the vuesim throws an error",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7518",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-06-12T05:09:46Z",
-          "title": "Closed issue #7507 - 🐞 Bug - Bundler Audit Fails Due to Vulnerable oauth and oauth2 Dependencies",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7507",
-          "points": 1
-        }
-      ]
-    },
-    {
       "username": "Asrani-Aman",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/96644946?u=0a63041bdb02009db73142160eb13f4fcd0a4209&v=4",
@@ -407,41 +354,41 @@
       ]
     },
     {
-      "username": "magic-peach",
+      "username": "tachyons",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
-      "role": "Contributor",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
+      "role": "Maintainer",
       "total_points": 3,
       "activity_breakdown": {
-        "PR opened": {
+        "Issue labeled": {
           "count": 1,
           "points": 2
         },
-        "Issue opened": {
+        "Issue closed": {
           "count": 1,
           "points": 1
         }
       },
       "daily_activity": [
         {
-          "date": "2026-06-12",
+          "date": "2026-06-16",
           "count": 2,
           "points": 3
         }
       ],
       "activities": [
         {
-          "type": "PR opened",
-          "occured_at": "2026-06-12T20:39:37Z",
-          "title": "Added the lti-advantage 0.1.0 gem",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7510",
+          "type": "Issue labeled",
+          "occured_at": "2026-06-16T15:31:50Z",
+          "title": "Labeled issue #1104 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1104",
           "points": 2
         },
         {
-          "type": "Issue opened",
-          "occured_at": "2026-06-12T18:03:17Z",
-          "title": "Updating the gemfile with the lti-advantage 0.1.0 gem",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7509",
+          "type": "Issue closed",
+          "occured_at": "2026-06-16T07:30:17Z",
+          "title": "Closed issue #7518 - 🐞 Bug (vuesim) initial load of the vuesim throws an error",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7518",
           "points": 1
         }
       ]
@@ -686,35 +633,6 @@
           "title": "Improve RTL layout",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7513",
           "points": 2
-        }
-      ]
-    },
-    {
-      "username": "vedant-jain03",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/76901313?v=4",
-      "role": "Maintainer",
-      "total_points": 1,
-      "activity_breakdown": {
-        "Issue closed": {
-          "count": 1,
-          "points": 1
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-06-12",
-          "count": 1,
-          "points": 1
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-06-12T08:28:41Z",
-          "title": "Closed issue #7390 - Feature - Introduce core organization_members database table",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7390",
-          "points": 1
         }
       ]
     }

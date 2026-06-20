@@ -1,9 +1,9 @@
 {
   "period": "year",
-  "updatedAt": 1781837940577,
-  "lastFetchedAt": 1781837940577,
-  "startDate": "2025-06-19",
-  "endDate": "2026-06-19",
+  "updatedAt": 1781922685877,
+  "lastFetchedAt": 1781922685877,
+  "startDate": "2025-06-20",
+  "endDate": "2026-06-20",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -14276,23 +14276,23 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
       "role": "Contributor",
-      "total_points": 370,
+      "total_points": 380,
       "activity_breakdown": {
+        "PR opened": {
+          "count": 45,
+          "points": 90
+        },
+        "Issue opened": {
+          "count": 37,
+          "points": 37
+        },
+        "Issue labeled": {
+          "count": 58,
+          "points": 116
+        },
         "PR merged": {
           "count": 23,
           "points": 115
-        },
-        "PR opened": {
-          "count": 43,
-          "points": 86
-        },
-        "Issue opened": {
-          "count": 35,
-          "points": 35
-        },
-        "Issue labeled": {
-          "count": 56,
-          "points": 112
         },
         "Issue closed": {
           "count": 22,
@@ -14300,6 +14300,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-06-19",
+          "count": 6,
+          "points": 10
+        },
         {
           "date": "2026-06-16",
           "count": 1,
@@ -14557,6 +14562,48 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-19T21:20:11Z",
+          "title": "Fix - (vuesim) - save and import of .cv files by parsing the json",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1109",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-19T20:40:10Z",
+          "title": "fix - remove old vue routes",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1107",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-06-19T21:09:22Z",
+          "title": "🐞 Bug - vuesim the saving and importing of .cv files throws error",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1108",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-06-19T15:58:51Z",
+          "title": "🐞 Bug - vuesim remove /simulatorvue routes",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1106",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-06-19T21:09:23Z",
+          "title": "Labeled issue #1108 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1108",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-06-19T15:58:52Z",
+          "title": "Labeled issue #1106 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1106",
+          "points": 2
+        },
         {
           "type": "PR merged",
           "occured_at": "2026-06-16T07:30:16Z",
