@@ -1,8 +1,8 @@
 {
   "period": "week",
-  "updatedAt": 1781922685890,
-  "startDate": "2026-06-13",
-  "endDate": "2026-06-20",
+  "updatedAt": 1782009983613,
+  "startDate": "2026-06-14",
+  "endDate": "2026-06-21",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -11,23 +11,23 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
       "role": "Contributor",
-      "total_points": 45,
+      "total_points": 53,
       "activity_breakdown": {
+        "PR merged": {
+          "count": 2,
+          "points": 10
+        },
+        "Issue opened": {
+          "count": 8,
+          "points": 8
+        },
+        "Issue labeled": {
+          "count": 10,
+          "points": 20
+        },
         "PR opened": {
           "count": 7,
           "points": 14
-        },
-        "Issue opened": {
-          "count": 7,
-          "points": 7
-        },
-        "Issue labeled": {
-          "count": 9,
-          "points": 18
-        },
-        "PR merged": {
-          "count": 1,
-          "points": 5
         },
         "Issue closed": {
           "count": 1,
@@ -35,6 +35,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-06-20",
+          "count": 3,
+          "points": 8
+        },
         {
           "date": "2026-06-19",
           "count": 6,
@@ -52,6 +57,27 @@
         }
       ],
       "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-06-20T15:19:39Z",
+          "title": "fix - navbar appears behind the menu bar",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1098",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-06-20T16:24:56Z",
+          "title": "🐞 Bug - vuesim auth webview model isn't compatible for omniauth",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1110",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-06-20T16:24:57Z",
+          "title": "Labeled issue #1110 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1110",
+          "points": 2
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-06-19T21:20:11Z",
@@ -282,6 +308,112 @@
       ]
     },
     {
+      "username": "vamshikrishnaramasamy",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/161273586?v=4",
+      "role": "Contributor",
+      "total_points": 8,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 4,
+          "points": 8
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-06-21",
+          "count": 4,
+          "points": 8
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-21T02:36:05Z",
+          "title": "fix - handle invalid contest page params",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7537",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-21T02:34:34Z",
+          "title": "fix - clean up canonical function formatting",
+          "link": "https://github.com/CircuitVerse/Interactive-Book/pull/795",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-21T02:29:45Z",
+          "title": "fix - handle missing project preview image",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7536",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-21T02:01:30Z",
+          "title": "fix - cache contest submission count",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7535",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "Nihal4777",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/65150640?u=25493788d913676f586e5d8c10be801ad634e3c9&v=4",
+      "role": "Maintainer",
+      "total_points": 7,
+      "activity_breakdown": {
+        "Review submitted": {
+          "count": 1,
+          "points": 4
+        },
+        "Issue closed": {
+          "count": 1,
+          "points": 1
+        },
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-06-20",
+          "count": 2,
+          "points": 5
+        },
+        {
+          "date": "2026-06-14",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-06-20T15:19:32Z",
+          "title": "Review on PR #1098",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1098",
+          "points": 4
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-06-20T15:19:40Z",
+          "title": "Closed issue #1097 - 🐞 Bug - vuesim navbar hides the admin menubar",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1097",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-14T17:40:43Z",
+          "title": "fix - support separate index.html per version using Vite root-based setup",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1092",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "Harkeerat24",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/225462441?v=4",
@@ -390,75 +522,6 @@
           "title": "Closed issue #7518 - 🐞 Bug (vuesim) initial load of the vuesim throws an error",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7518",
           "points": 1
-        }
-      ]
-    },
-    {
-      "username": "Santoshpatel112",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/134463761?v=4",
-      "role": "Contributor",
-      "total_points": 3,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-06-13",
-          "count": 2,
-          "points": 3
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-06-13T20:25:22Z",
-          "title": "🌙 Dark Mode / ☀️ Light Mode Toggle Not Working Properly",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7512",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-06-13T20:25:23Z",
-          "title": "Labeled issue #7512 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7512",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "Nihal4777",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/65150640?v=4",
-      "role": "Maintainer",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-06-14",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-14T17:40:43Z",
-          "title": "fix - support separate index.html per version using Vite root-based setup",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1092",
-          "points": 2
         }
       ]
     },
