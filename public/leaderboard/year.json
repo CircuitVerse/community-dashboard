@@ -1,9 +1,9 @@
 {
   "period": "year",
-  "updatedAt": 1782180882636,
-  "lastFetchedAt": 1782180882636,
-  "startDate": "2025-06-23",
-  "endDate": "2026-06-23",
+  "updatedAt": 1782267994783,
+  "lastFetchedAt": 1782267994783,
+  "startDate": "2025-06-24",
+  "endDate": "2026-06-24",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -12,23 +12,23 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 811,
+      "total_points": 816,
       "activity_breakdown": {
+        "PR opened": {
+          "count": 74,
+          "points": 148
+        },
+        "Issue opened": {
+          "count": 69,
+          "points": 69
+        },
+        "Issue labeled": {
+          "count": 77,
+          "points": 154
+        },
         "PR merged": {
           "count": 37,
           "points": 185
-        },
-        "PR opened": {
-          "count": 73,
-          "points": 146
-        },
-        "Issue opened": {
-          "count": 68,
-          "points": 68
-        },
-        "Issue labeled": {
-          "count": 76,
-          "points": 152
         },
         "Issue closed": {
           "count": 60,
@@ -40,6 +40,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-06-23",
+          "count": 3,
+          "points": 5
+        },
         {
           "date": "2026-06-12",
           "count": 2,
@@ -567,6 +572,27 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-23T18:02:11Z",
+          "title": "fix - update concurrent-ruby, faraday, and oj for security advisories",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7553",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-06-23T17:51:59Z",
+          "title": "🐞 Bug - Update vulnerable gems reported by bundler-audit",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7552",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-06-23T17:52:01Z",
+          "title": "Labeled issue #7552 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7552",
+          "points": 2
+        },
         {
           "type": "PR merged",
           "occured_at": "2026-06-12T05:09:45Z",
@@ -9579,11 +9605,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/65150640?u=25493788d913676f586e5d8c10be801ad634e3c9&v=4",
       "role": "Maintainer",
-      "total_points": 474,
+      "total_points": 478,
       "activity_breakdown": {
         "Review submitted": {
-          "count": 76,
-          "points": 304
+          "count": 77,
+          "points": 308
         },
         "Issue closed": {
           "count": 54,
@@ -9607,6 +9633,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-06-23",
+          "count": 1,
+          "points": 4
+        },
         {
           "date": "2026-06-20",
           "count": 2,
@@ -9949,6 +9980,13 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-06-23T17:00:16Z",
+          "title": "Review on PR #1100",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1100",
+          "points": 4
+        },
         {
           "type": "Review submitted",
           "occured_at": "2026-06-20T15:19:32Z",
@@ -51453,6 +51491,51 @@
       ]
     },
     {
+      "username": "deepak0x",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/149673145?v=4",
+      "role": "Contributor",
+      "total_points": 3,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-06-23",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-06-22",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-23T10:23:17Z",
+          "title": "fix - correct invalid MIME type for circuit preview attachment",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7550",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-06-22T12:43:14Z",
+          "title": "bug - Invalid MIME type 'img/jpeg' in circuit preview attachment",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7541",
+          "points": 1
+        }
+      ]
+    },
+    {
       "username": "Santoshpatel112",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/134463761?v=4",
@@ -55437,35 +55520,6 @@
           "occured_at": "2025-12-03T17:59:36Z",
           "title": "Dark Mode Bug - Disqus Sign-Up Input Background Stays Light",
           "link": "https://github.com/CircuitVerse/Interactive-Book/issues/737",
-          "points": 1
-        }
-      ]
-    },
-    {
-      "username": "deepak0x",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/149673145?v=4",
-      "role": "Contributor",
-      "total_points": 1,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-06-22",
-          "count": 1,
-          "points": 1
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-06-22T12:43:14Z",
-          "title": "bug - Invalid MIME type 'img/jpeg' in circuit preview attachment",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7541",
           "points": 1
         }
       ]
