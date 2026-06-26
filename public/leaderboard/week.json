@@ -1,8 +1,8 @@
 {
   "period": "week",
-  "updatedAt": 1782354462941,
-  "startDate": "2026-06-18",
-  "endDate": "2026-06-25",
+  "updatedAt": 1782440971061,
+  "startDate": "2026-06-19",
+  "endDate": "2026-06-26",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -11,26 +11,31 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 20,
+      "total_points": 29,
       "activity_breakdown": {
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        },
+        "Issue opened": {
+          "count": 2,
+          "points": 2
+        },
+        "Issue labeled": {
+          "count": 4,
+          "points": 8
+        },
         "PR merged": {
           "count": 3,
           "points": 15
-        },
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-06-25",
+          "count": 5,
+          "points": 9
+        },
         {
           "date": "2026-06-24",
           "count": 3,
@@ -43,6 +48,41 @@
         }
       ],
       "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-25T10:29:47Z",
+          "title": "feat(organizations) - add location column to database and model valida…",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7563",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-06-25T10:03:46Z",
+          "title": "Feature - Add location field to Organizations",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7562",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-06-25T10:03:47Z",
+          "title": "Labeled issue #7562 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7562",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-06-25T10:03:48Z",
+          "title": "Labeled issue #7562 - pending triage",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7562",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-06-25T10:09:13Z",
+          "title": "Labeled issue #7562 - GSoC'26",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7562",
+          "points": 2
+        },
         {
           "type": "PR merged",
           "occured_at": "2026-06-24T03:32:46Z",
@@ -92,11 +132,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
       "role": "Contributor",
-      "total_points": 18,
+      "total_points": 28,
       "activity_breakdown": {
         "PR merged": {
-          "count": 1,
-          "points": 5
+          "count": 3,
+          "points": 15
         },
         "Issue opened": {
           "count": 3,
@@ -113,6 +153,11 @@
       },
       "daily_activity": [
         {
+          "date": "2026-06-25",
+          "count": 2,
+          "points": 10
+        },
+        {
           "date": "2026-06-20",
           "count": 3,
           "points": 8
@@ -124,6 +169,20 @@
         }
       ],
       "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-06-25T04:20:50Z",
+          "title": "fix - remove old vue routes",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1107",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-06-25T14:25:47Z",
+          "title": "chore - remove unused previous ui link option",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1100",
+          "points": 5
+        },
         {
           "type": "PR merged",
           "occured_at": "2026-06-20T15:19:39Z",
@@ -186,6 +245,110 @@
           "title": "Labeled issue #1106 - 🐞 bug",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1106",
           "points": 2
+        }
+      ]
+    },
+    {
+      "username": "Nihal4777",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/65150640?v=4",
+      "role": "Maintainer",
+      "total_points": 23,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        },
+        "Review submitted": {
+          "count": 3,
+          "points": 12
+        },
+        "Issue closed": {
+          "count": 2,
+          "points": 2
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-06-25",
+          "count": 5,
+          "points": 14
+        },
+        {
+          "date": "2026-06-23",
+          "count": 1,
+          "points": 4
+        },
+        {
+          "date": "2026-06-20",
+          "count": 2,
+          "points": 5
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-25T02:23:40Z",
+          "title": "fix(vue-simulator) - pass VITE_BASE to build for correct asset URLs",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7560",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-06-25T04:18:25Z",
+          "title": "fix(vue-simulator) - pass VITE_BASE to build for correct asset URLs",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7560",
+          "points": 5
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-06-25T14:25:33Z",
+          "title": "Review on PR #1100",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1100",
+          "points": 4
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-06-25T14:25:48Z",
+          "title": "Closed issue #1099 - 🐞 Bug - vuesim Remove the previous ui link option",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1099",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-06-25T03:25:21Z",
+          "title": "Labeled issue #7561 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7561",
+          "points": 2
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-06-23T17:00:16Z",
+          "title": "Review on PR #1100",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1100",
+          "points": 4
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-06-20T15:19:32Z",
+          "title": "Review on PR #1098",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1098",
+          "points": 4
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-06-20T15:19:40Z",
+          "title": "Closed issue #1097 - 🐞 Bug - vuesim navbar hides the admin menubar",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1097",
+          "points": 1
         }
       ]
     },
@@ -262,74 +425,6 @@
           "title": "fix - cache contest submission count",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7535",
           "points": 2
-        }
-      ]
-    },
-    {
-      "username": "Nihal4777",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/65150640?v=4",
-      "role": "Maintainer",
-      "total_points": 11,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        },
-        "Review submitted": {
-          "count": 2,
-          "points": 8
-        },
-        "Issue closed": {
-          "count": 1,
-          "points": 1
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-06-25",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-06-23",
-          "count": 1,
-          "points": 4
-        },
-        {
-          "date": "2026-06-20",
-          "count": 2,
-          "points": 5
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-25T02:23:40Z",
-          "title": "fix(vue-simulator) - pass VITE_BASE to build for correct asset URLs",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7560",
-          "points": 2
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-06-23T17:00:16Z",
-          "title": "Review on PR #1100",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1100",
-          "points": 4
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-06-20T15:19:32Z",
-          "title": "Review on PR #1098",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1098",
-          "points": 4
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-06-20T15:19:40Z",
-          "title": "Closed issue #1097 - 🐞 Bug - vuesim navbar hides the admin menubar",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1097",
-          "points": 1
         }
       ]
     },
@@ -475,8 +570,12 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
       "role": "Maintainer",
-      "total_points": 4,
+      "total_points": 6,
       "activity_breakdown": {
+        "Issue closed": {
+          "count": 2,
+          "points": 2
+        },
         "Review submitted": {
           "count": 1,
           "points": 4
@@ -484,12 +583,31 @@
       },
       "daily_activity": [
         {
+          "date": "2026-06-25",
+          "count": 2,
+          "points": 2
+        },
+        {
           "date": "2026-06-23",
           "count": 1,
           "points": 4
         }
       ],
       "activities": [
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-06-25T04:20:51Z",
+          "title": "Closed issue #1106 - 🐞 Bug - vuesim remove /simulatorvue routes",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1106",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-06-25T04:18:26Z",
+          "title": "Closed issue #7561 - 🐞 Bug - vuesim Build assets not being fetched properly causing missing icons and logo",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7561",
+          "points": 1
+        },
         {
           "type": "Review submitted",
           "occured_at": "2026-06-23T01:36:14Z",
