@@ -1,9 +1,9 @@
 {
   "period": "year",
-  "updatedAt": 1782440971042,
-  "lastFetchedAt": 1782440971042,
-  "startDate": "2025-06-26",
-  "endDate": "2026-06-26",
+  "updatedAt": 1782526436505,
+  "lastFetchedAt": 1782526436505,
+  "startDate": "2025-06-27",
+  "endDate": "2026-06-27",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -3214,19 +3214,19 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/143987856?v=4",
       "role": "Contributor",
-      "total_points": 712,
+      "total_points": 715,
       "activity_breakdown": {
         "PR opened": {
-          "count": 41,
-          "points": 82
+          "count": 42,
+          "points": 84
+        },
+        "Issue opened": {
+          "count": 33,
+          "points": 33
         },
         "PR merged": {
           "count": 25,
           "points": 125
-        },
-        "Issue opened": {
-          "count": 32,
-          "points": 32
         },
         "Issue labeled": {
           "count": 164,
@@ -3238,6 +3238,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-06-26",
+          "count": 2,
+          "points": 3
+        },
         {
           "date": "2026-06-24",
           "count": 1,
@@ -3500,6 +3505,20 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-26T10:30:31Z",
+          "title": "feat - add VFS guard to validate Yosys output before parsing",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1112",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-06-26T11:35:48Z",
+          "title": "Improve error handling in client-side synthesis to show human-readable syntax errors",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1113",
+          "points": 1
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-06-24T07:39:12Z",
@@ -13150,8 +13169,12 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
       "role": "Contributor",
-      "total_points": 398,
+      "total_points": 400,
       "activity_breakdown": {
+        "PR opened": {
+          "count": 46,
+          "points": 92
+        },
         "PR merged": {
           "count": 26,
           "points": 130
@@ -13164,16 +13187,17 @@
           "count": 59,
           "points": 118
         },
-        "PR opened": {
-          "count": 45,
-          "points": 90
-        },
         "Issue closed": {
           "count": 22,
           "points": 22
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-06-26",
+          "count": 1,
+          "points": 2
+        },
         {
           "date": "2026-06-25",
           "count": 2,
@@ -13446,6 +13470,13 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-26T13:16:00Z",
+          "title": "Fix - vuesim Redirect user to rails devise login form for auth in vuesim",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1114",
+          "points": 2
+        },
         {
           "type": "PR merged",
           "occured_at": "2026-06-25T04:20:50Z",
@@ -46537,6 +46568,47 @@
       ]
     },
     {
+      "username": "PRATHAM2002-DS",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/79985042?u=13d56c79e336dbdb30be9f8f07abbb1daa9caee3&v=4",
+      "role": "Contributor",
+      "total_points": 8,
+      "activity_breakdown": {
+        "Review submitted": {
+          "count": 2,
+          "points": 8
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-06-26",
+          "count": 1,
+          "points": 4
+        },
+        {
+          "date": "2026-06-04",
+          "count": 1,
+          "points": 4
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-06-26T17:11:30Z",
+          "title": "Review on PR #7563",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7563",
+          "points": 4
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-06-04T19:19:07Z",
+          "title": "Review on PR #7391",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7391",
+          "points": 4
+        }
+      ]
+    },
+    {
       "username": "KeerthiKumarR",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/93468344?v=4",
@@ -50321,35 +50393,6 @@
           "title": "Fix Vue simulator payload storage and API parsing",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7497",
           "points": 2
-        }
-      ]
-    },
-    {
-      "username": "PRATHAM2002-DS",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/79985042?u=13d56c79e336dbdb30be9f8f07abbb1daa9caee3&v=4",
-      "role": "Contributor",
-      "total_points": 4,
-      "activity_breakdown": {
-        "Review submitted": {
-          "count": 1,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-06-04",
-          "count": 1,
-          "points": 4
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-06-04T19:19:07Z",
-          "title": "Review on PR #7391",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7391",
-          "points": 4
         }
       ]
     },
