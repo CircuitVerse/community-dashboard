@@ -1,8 +1,8 @@
 {
   "period": "week",
-  "updatedAt": 1782526436522,
-  "startDate": "2026-06-20",
-  "endDate": "2026-06-27",
+  "updatedAt": 1782614115968,
+  "startDate": "2026-06-21",
+  "endDate": "2026-06-28",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -132,7 +132,7 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/65150640?v=4",
       "role": "Maintainer",
-      "total_points": 23,
+      "total_points": 18,
       "activity_breakdown": {
         "PR opened": {
           "count": 1,
@@ -143,12 +143,12 @@
           "points": 5
         },
         "Review submitted": {
-          "count": 3,
-          "points": 12
+          "count": 2,
+          "points": 8
         },
         "Issue closed": {
-          "count": 2,
-          "points": 2
+          "count": 1,
+          "points": 1
         },
         "Issue labeled": {
           "count": 1,
@@ -165,11 +165,6 @@
           "date": "2026-06-23",
           "count": 1,
           "points": 4
-        },
-        {
-          "date": "2026-06-20",
-          "count": 2,
-          "points": 5
         }
       ],
       "activities": [
@@ -214,20 +209,6 @@
           "title": "Review on PR #1100",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1100",
           "points": 4
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-06-20T15:19:32Z",
-          "title": "Review on PR #1098",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1098",
-          "points": 4
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-06-20T15:19:40Z",
-          "title": "Closed issue #1097 - 🐞 Bug - vuesim navbar hides the admin menubar",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1097",
-          "points": 1
         }
       ]
     },
@@ -236,23 +217,15 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
       "role": "Contributor",
-      "total_points": 20,
+      "total_points": 12,
       "activity_breakdown": {
         "PR opened": {
           "count": 1,
           "points": 2
         },
         "PR merged": {
-          "count": 3,
-          "points": 15
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
+          "count": 2,
+          "points": 10
         }
       },
       "daily_activity": [
@@ -265,11 +238,6 @@
           "date": "2026-06-25",
           "count": 2,
           "points": 10
-        },
-        {
-          "date": "2026-06-20",
-          "count": 3,
-          "points": 8
         }
       ],
       "activities": [
@@ -293,27 +261,96 @@
           "title": "chore - remove unused previous ui link option",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1100",
           "points": 5
+        }
+      ]
+    },
+    {
+      "username": "deepak0x",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/149673145?v=4",
+      "role": "Contributor",
+      "total_points": 9,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        },
+        "Issue opened": {
+          "count": 5,
+          "points": 5
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-06-27",
+          "count": 1,
+          "points": 2
         },
         {
-          "type": "PR merged",
-          "occured_at": "2026-06-20T15:19:39Z",
-          "title": "fix - navbar appears behind the menu bar",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1098",
-          "points": 5
+          "date": "2026-06-24",
+          "count": 4,
+          "points": 4
+        },
+        {
+          "date": "2026-06-23",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-06-22",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-27T22:47:53Z",
+          "title": "fix - guard nil image param in simulator_helper to prevent NoMethodError (#7558)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7566",
+          "points": 2
         },
         {
           "type": "Issue opened",
-          "occured_at": "2026-06-20T16:24:56Z",
-          "title": "🐞 Bug - vuesim auth webview model isn't compatible for omniauth",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1110",
+          "occured_at": "2026-06-24T10:13:33Z",
+          "title": "bug - sanitize_name before_action does not mutate the correct params key — project names stored unsanitized",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7559",
           "points": 1
         },
         {
-          "type": "Issue labeled",
-          "occured_at": "2026-06-20T16:24:57Z",
-          "title": "Labeled issue #1110 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1110",
+          "type": "Issue opened",
+          "occured_at": "2026-06-24T10:13:13Z",
+          "title": "bug - NoMethodError crash in return_image_file when image param is nil",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7558",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-06-24T10:12:43Z",
+          "title": "bug - JSON.parse(nil) crash in project update",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7557",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-06-24T10:11:13Z",
+          "title": "bug - Project update called twice per request",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7556",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-23T10:23:17Z",
+          "title": "fix - correct invalid MIME type for circuit preview attachment",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7550",
           "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-06-22T12:43:14Z",
+          "title": "bug - Invalid MIME type 'img/jpeg' in circuit preview attachment",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7541",
+          "points": 1
         }
       ]
     },
@@ -322,11 +359,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/161273586?v=4",
       "role": "Contributor",
-      "total_points": 14,
+      "total_points": 8,
       "activity_breakdown": {
         "PR opened": {
-          "count": 7,
-          "points": 14
+          "count": 4,
+          "points": 8
         }
       },
       "daily_activity": [
@@ -337,8 +374,8 @@
         },
         {
           "date": "2026-06-21",
-          "count": 4,
-          "points": 8
+          "count": 1,
+          "points": 2
         }
       ],
       "activities": [
@@ -368,27 +405,6 @@
           "occured_at": "2026-06-21T02:36:05Z",
           "title": "fix - handle invalid contest page params",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7537",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-21T02:34:34Z",
-          "title": "fix - clean up canonical function formatting",
-          "link": "https://github.com/CircuitVerse/Interactive-Book/pull/795",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-21T02:29:45Z",
-          "title": "fix - handle missing project preview image",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7536",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-21T02:01:30Z",
-          "title": "fix - cache contest submission count",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7535",
           "points": 2
         }
       ]
@@ -449,84 +465,6 @@
           "title": "Review on PR #7451",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7451",
           "points": 4
-        }
-      ]
-    },
-    {
-      "username": "deepak0x",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/149673145?v=4",
-      "role": "Contributor",
-      "total_points": 7,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 5,
-          "points": 5
-        },
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-06-24",
-          "count": 4,
-          "points": 4
-        },
-        {
-          "date": "2026-06-23",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-06-22",
-          "count": 1,
-          "points": 1
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-06-24T10:13:33Z",
-          "title": "bug - sanitize_name before_action does not mutate the correct params key — project names stored unsanitized",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7559",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-06-24T10:13:13Z",
-          "title": "bug - NoMethodError crash in return_image_file when image param is nil",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7558",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-06-24T10:12:43Z",
-          "title": "bug - JSON.parse(nil) crash in project update",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7557",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-06-24T10:11:13Z",
-          "title": "bug - Project update called twice per request",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7556",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-23T10:23:17Z",
-          "title": "fix - correct invalid MIME type for circuit preview attachment",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7550",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-06-22T12:43:14Z",
-          "title": "bug - Invalid MIME type 'img/jpeg' in circuit preview attachment",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7541",
-          "points": 1
         }
       ]
     },

@@ -1,9 +1,9 @@
 {
   "period": "year",
-  "updatedAt": 1782526436505,
-  "lastFetchedAt": 1782526436505,
-  "startDate": "2025-06-27",
-  "endDate": "2026-06-27",
+  "updatedAt": 1782614115949,
+  "lastFetchedAt": 1782614115949,
+  "startDate": "2025-06-28",
+  "endDate": "2026-06-28",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -45951,6 +45951,96 @@
       ]
     },
     {
+      "username": "deepak0x",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/149673145?v=4",
+      "role": "Contributor",
+      "total_points": 9,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        },
+        "Issue opened": {
+          "count": 5,
+          "points": 5
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-06-27",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-06-24",
+          "count": 4,
+          "points": 4
+        },
+        {
+          "date": "2026-06-23",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-06-22",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-27T22:47:53Z",
+          "title": "fix - guard nil image param in simulator_helper to prevent NoMethodError (#7558)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7566",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-06-24T10:13:33Z",
+          "title": "bug - sanitize_name before_action does not mutate the correct params key — project names stored unsanitized",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7559",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-06-24T10:13:13Z",
+          "title": "bug - NoMethodError crash in return_image_file when image param is nil",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7558",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-06-24T10:12:43Z",
+          "title": "bug - JSON.parse(nil) crash in project update",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7557",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-06-24T10:11:13Z",
+          "title": "bug - Project update called twice per request",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7556",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-23T10:23:17Z",
+          "title": "fix - correct invalid MIME type for circuit preview attachment",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7550",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-06-22T12:43:14Z",
+          "title": "bug - Invalid MIME type 'img/jpeg' in circuit preview attachment",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7541",
+          "points": 1
+        }
+      ]
+    },
+    {
       "username": "Saksham-2202",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/178088707?v=4",
@@ -47359,84 +47449,6 @@
           "title": "Review on PR #5337",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/5337",
           "points": 4
-        }
-      ]
-    },
-    {
-      "username": "deepak0x",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/149673145?v=4",
-      "role": "Contributor",
-      "total_points": 7,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 5,
-          "points": 5
-        },
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-06-24",
-          "count": 4,
-          "points": 4
-        },
-        {
-          "date": "2026-06-23",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-06-22",
-          "count": 1,
-          "points": 1
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-06-24T10:13:33Z",
-          "title": "bug - sanitize_name before_action does not mutate the correct params key — project names stored unsanitized",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7559",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-06-24T10:13:13Z",
-          "title": "bug - NoMethodError crash in return_image_file when image param is nil",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7558",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-06-24T10:12:43Z",
-          "title": "bug - JSON.parse(nil) crash in project update",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7557",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-06-24T10:11:13Z",
-          "title": "bug - Project update called twice per request",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7556",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-23T10:23:17Z",
-          "title": "fix - correct invalid MIME type for circuit preview attachment",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7550",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-06-22T12:43:14Z",
-          "title": "bug - Invalid MIME type 'img/jpeg' in circuit preview attachment",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7541",
-          "points": 1
         }
       ]
     },
