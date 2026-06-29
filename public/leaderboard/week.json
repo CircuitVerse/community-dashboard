@@ -1,8 +1,8 @@
 {
   "period": "week",
-  "updatedAt": 1782614115968,
-  "startDate": "2026-06-21",
-  "endDate": "2026-06-28",
+  "updatedAt": 1782700529634,
+  "startDate": "2026-06-22",
+  "endDate": "2026-06-29",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -11,19 +11,19 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 29,
+      "total_points": 38,
       "activity_breakdown": {
         "PR opened": {
-          "count": 2,
-          "points": 4
+          "count": 3,
+          "points": 6
         },
         "Issue opened": {
-          "count": 2,
-          "points": 2
+          "count": 3,
+          "points": 3
         },
         "Issue labeled": {
-          "count": 4,
-          "points": 8
+          "count": 7,
+          "points": 14
         },
         "PR merged": {
           "count": 3,
@@ -31,6 +31,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-06-28",
+          "count": 5,
+          "points": 9
+        },
         {
           "date": "2026-06-25",
           "count": 5,
@@ -48,6 +53,41 @@
         }
       ],
       "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-28T10:03:56Z",
+          "title": "feat - Add Organization Dashboard UI and Logic",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7568",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-06-28T09:36:43Z",
+          "title": "feature - Organization Dashboard UI with member search, role filter & pagination",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7567",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-06-28T09:36:44Z",
+          "title": "Labeled issue #7567 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7567",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-06-28T09:36:45Z",
+          "title": "Labeled issue #7567 - pending triage",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7567",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-06-28T09:36:56Z",
+          "title": "Labeled issue #7567 - GSoC'26",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7567",
+          "points": 2
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-06-25T10:29:47Z",
@@ -355,61 +395,6 @@
       ]
     },
     {
-      "username": "vamshikrishnaramasamy",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/161273586?v=4",
-      "role": "Contributor",
-      "total_points": 8,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 4,
-          "points": 8
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-06-22",
-          "count": 3,
-          "points": 6
-        },
-        {
-          "date": "2026-06-21",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-22T21:18:32Z",
-          "title": "fix - eager load contest submission authors",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7544",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-22T21:00:41Z",
-          "title": "fix - use valid circuit preview mime type",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7543",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-22T20:59:09Z",
-          "title": "docs - resize SevenSegDisplay figure",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/538",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-21T02:36:05Z",
-          "title": "fix - handle invalid contest page params",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7537",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "vedant-jain03",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/76901313?v=4",
@@ -521,6 +506,49 @@
       ]
     },
     {
+      "username": "vamshikrishnaramasamy",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/161273586?v=4",
+      "role": "Contributor",
+      "total_points": 6,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 3,
+          "points": 6
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-06-22",
+          "count": 3,
+          "points": 6
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-22T21:18:32Z",
+          "title": "fix - eager load contest submission authors",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7544",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-22T21:00:41Z",
+          "title": "fix - use valid circuit preview mime type",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7543",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-22T20:59:09Z",
+          "title": "docs - resize SevenSegDisplay figure",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/538",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "Me-Priyank",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/143987856?v=4",
@@ -598,6 +626,35 @@
           "title": "Review on PR #7563",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7563",
           "points": 4
+        }
+      ]
+    },
+    {
+      "username": "Satyam",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/47507?v=4",
+      "role": "Contributor",
+      "total_points": 1,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-06-28",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-06-28T07:56:54Z",
+          "title": "Add a `Load Data` input pin to the EEPROM",
+          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/issues/539",
+          "points": 1
         }
       ]
     }
