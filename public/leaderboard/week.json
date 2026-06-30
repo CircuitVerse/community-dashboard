@@ -1,8 +1,8 @@
 {
   "period": "week",
-  "updatedAt": 1782700529634,
-  "startDate": "2026-06-22",
-  "endDate": "2026-06-29",
+  "updatedAt": 1782786595395,
+  "startDate": "2026-06-23",
+  "endDate": "2026-06-30",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -305,19 +305,87 @@
       ]
     },
     {
+      "username": "Me-Priyank",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/143987856?v=4",
+      "role": "Contributor",
+      "total_points": 10,
+      "activity_breakdown": {
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        },
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-06-29",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2026-06-26",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-06-24",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-06-29T09:11:04Z",
+          "title": "feat - add client-side Verilog synthesis via YoWASP WASM for offline Tauri desktop",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1111",
+          "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-26T10:30:31Z",
+          "title": "feat - add VFS guard to validate Yosys output before parsing",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1112",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-06-26T11:35:48Z",
+          "title": "Improve error handling in client-side synthesis to show human-readable syntax errors",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1113",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-24T07:39:12Z",
+          "title": "feat - add client-side Verilog synthesis via YoWASP WASM for offline Tauri desktop",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1111",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "deepak0x",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/149673145?v=4",
       "role": "Contributor",
-      "total_points": 9,
+      "total_points": 8,
       "activity_breakdown": {
         "PR opened": {
           "count": 2,
           "points": 4
         },
         "Issue opened": {
-          "count": 5,
-          "points": 5
+          "count": 4,
+          "points": 4
         }
       },
       "daily_activity": [
@@ -335,11 +403,6 @@
           "date": "2026-06-23",
           "count": 1,
           "points": 2
-        },
-        {
-          "date": "2026-06-22",
-          "count": 1,
-          "points": 1
         }
       ],
       "activities": [
@@ -384,219 +447,6 @@
           "title": "fix - correct invalid MIME type for circuit preview attachment",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7550",
           "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-06-22T12:43:14Z",
-          "title": "bug - Invalid MIME type 'img/jpeg' in circuit preview attachment",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7541",
-          "points": 1
-        }
-      ]
-    },
-    {
-      "username": "vedant-jain03",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/76901313?v=4",
-      "role": "Maintainer",
-      "total_points": 7,
-      "activity_breakdown": {
-        "Issue closed": {
-          "count": 3,
-          "points": 3
-        },
-        "Review submitted": {
-          "count": 1,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-06-24",
-          "count": 3,
-          "points": 3
-        },
-        {
-          "date": "2026-06-22",
-          "count": 1,
-          "points": 4
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-06-24T15:31:00Z",
-          "title": "Closed issue #7483 - Feature - Add Pundit Authorization Policies for Organizations and Organization Member",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7483",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-06-24T03:32:47Z",
-          "title": "Closed issue #7552 - 🐞 Bug - Update vulnerable gems reported by bundler-audit",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7552",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-06-24T14:30:57Z",
-          "title": "Closed issue #7446 - Feature - feat - Add Organization and OrganizationMember models",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7446",
-          "points": 1
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-06-22T17:20:57Z",
-          "title": "Review on PR #7451",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7451",
-          "points": 4
-        }
-      ]
-    },
-    {
-      "username": "tachyons",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
-      "role": "Maintainer",
-      "total_points": 6,
-      "activity_breakdown": {
-        "Issue closed": {
-          "count": 2,
-          "points": 2
-        },
-        "Review submitted": {
-          "count": 1,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-06-25",
-          "count": 2,
-          "points": 2
-        },
-        {
-          "date": "2026-06-23",
-          "count": 1,
-          "points": 4
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-06-25T04:20:51Z",
-          "title": "Closed issue #1106 - 🐞 Bug - vuesim remove /simulatorvue routes",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1106",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-06-25T04:18:26Z",
-          "title": "Closed issue #7561 - 🐞 Bug - vuesim Build assets not being fetched properly causing missing icons and logo",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7561",
-          "points": 1
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-06-23T01:36:14Z",
-          "title": "Review on PR #7530",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7530",
-          "points": 4
-        }
-      ]
-    },
-    {
-      "username": "vamshikrishnaramasamy",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/161273586?v=4",
-      "role": "Contributor",
-      "total_points": 6,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 3,
-          "points": 6
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-06-22",
-          "count": 3,
-          "points": 6
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-22T21:18:32Z",
-          "title": "fix - eager load contest submission authors",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7544",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-22T21:00:41Z",
-          "title": "fix - use valid circuit preview mime type",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7543",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-22T20:59:09Z",
-          "title": "docs - resize SevenSegDisplay figure",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/538",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "Me-Priyank",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/143987856?v=4",
-      "role": "Contributor",
-      "total_points": 5,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-06-26",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-06-24",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-26T10:30:31Z",
-          "title": "feat - add VFS guard to validate Yosys output before parsing",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1112",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-06-26T11:35:48Z",
-          "title": "Improve error handling in client-side synthesis to show human-readable syntax errors",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1113",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-24T07:39:12Z",
-          "title": "feat - add client-side Verilog synthesis via YoWASP WASM for offline Tauri desktop",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1111",
-          "points": 2
         }
       ]
     },
@@ -626,6 +476,161 @@
           "title": "Review on PR #7563",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7563",
           "points": 4
+        }
+      ]
+    },
+    {
+      "username": "vedant-jain03",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/76901313?v=4",
+      "role": "Maintainer",
+      "total_points": 3,
+      "activity_breakdown": {
+        "Issue closed": {
+          "count": 3,
+          "points": 3
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-06-24",
+          "count": 3,
+          "points": 3
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-06-24T15:31:00Z",
+          "title": "Closed issue #7483 - Feature - Add Pundit Authorization Policies for Organizations and Organization Member",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7483",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-06-24T03:32:47Z",
+          "title": "Closed issue #7552 - 🐞 Bug - Update vulnerable gems reported by bundler-audit",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7552",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-06-24T14:30:57Z",
+          "title": "Closed issue #7446 - Feature - feat - Add Organization and OrganizationMember models",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7446",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "username": "eeshsaxena",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/139802361?v=4",
+      "role": "Contributor",
+      "total_points": 3,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-06-29",
+          "count": 2,
+          "points": 3
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-29T12:20:14Z",
+          "title": "test - add unit tests for EventQueue simulator engine",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7571",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-06-29T12:19:39Z",
+          "title": "Add unit tests for EventQueue (simulator engine)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7570",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "username": "tachyons",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
+      "role": "Maintainer",
+      "total_points": 2,
+      "activity_breakdown": {
+        "Issue closed": {
+          "count": 2,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-06-25",
+          "count": 2,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-06-25T04:20:51Z",
+          "title": "Closed issue #1106 - 🐞 Bug - vuesim remove /simulatorvue routes",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1106",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-06-25T04:18:26Z",
+          "title": "Closed issue #7561 - 🐞 Bug - vuesim Build assets not being fetched properly causing missing icons and logo",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7561",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "username": "ThatDeparted2061",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/166894150?v=4",
+      "role": "Maintainer",
+      "total_points": 2,
+      "activity_breakdown": {
+        "Issue closed": {
+          "count": 2,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-06-29",
+          "count": 2,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-06-29T09:11:06Z",
+          "title": "Closed issue #1059 - refactor - migrate Tauri environment detection from internals to official isTauri API",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1059",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-06-29T09:11:06Z",
+          "title": "Closed issue #1058 - Feature - Introduce Client-Side Verilog Synthesis via Web Worker for Tauri Desktop",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1058",
+          "points": 1
         }
       ]
     },

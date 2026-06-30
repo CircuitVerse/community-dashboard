@@ -1,9 +1,9 @@
 {
   "period": "year",
-  "updatedAt": 1782700529617,
-  "lastFetchedAt": 1782700529617,
-  "startDate": "2025-06-29",
-  "endDate": "2026-06-29",
+  "updatedAt": 1782786595380,
+  "lastFetchedAt": 1782786595380,
+  "startDate": "2025-06-30",
+  "endDate": "2026-06-30",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -3254,8 +3254,12 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/143987856?v=4",
       "role": "Contributor",
-      "total_points": 715,
+      "total_points": 720,
       "activity_breakdown": {
+        "PR merged": {
+          "count": 26,
+          "points": 130
+        },
         "PR opened": {
           "count": 42,
           "points": 84
@@ -3263,10 +3267,6 @@
         "Issue opened": {
           "count": 33,
           "points": 33
-        },
-        "PR merged": {
-          "count": 25,
-          "points": 125
         },
         "Issue labeled": {
           "count": 164,
@@ -3278,6 +3278,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-06-29",
+          "count": 1,
+          "points": 5
+        },
         {
           "date": "2026-06-26",
           "count": 2,
@@ -3545,6 +3550,13 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-06-29T09:11:04Z",
+          "title": "feat - add client-side Verilog synthesis via YoWASP WASM for offline Tauri desktop",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1111",
+          "points": 5
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-06-26T10:30:31Z",
@@ -14854,15 +14866,15 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/166894150?v=4",
       "role": "Maintainer",
-      "total_points": 391,
+      "total_points": 393,
       "activity_breakdown": {
+        "Issue closed": {
+          "count": 3,
+          "points": 3
+        },
         "Review submitted": {
           "count": 25,
           "points": 100
-        },
-        "Issue closed": {
-          "count": 1,
-          "points": 1
         },
         "PR merged": {
           "count": 30,
@@ -14882,6 +14894,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-06-29",
+          "count": 2,
+          "points": 2
+        },
         {
           "date": "2026-06-10",
           "count": 2,
@@ -15234,6 +15251,20 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-06-29T09:11:06Z",
+          "title": "Closed issue #1059 - refactor - migrate Tauri environment detection from internals to official isTauri API",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1059",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-06-29T09:11:06Z",
+          "title": "Closed issue #1058 - Feature - Introduce Client-Side Verilog Synthesis via Web Worker for Tauri Desktop",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1058",
+          "points": 1
+        },
         {
           "type": "Review submitted",
           "occured_at": "2026-06-10T19:18:04Z",
@@ -51842,6 +51873,46 @@
           "title": "Review on PR #5367",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/5367",
           "points": 4
+        }
+      ]
+    },
+    {
+      "username": "eeshsaxena",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/139802361?v=4",
+      "role": "Contributor",
+      "total_points": 3,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-06-29",
+          "count": 2,
+          "points": 3
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-29T12:20:14Z",
+          "title": "test - add unit tests for EventQueue simulator engine",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7571",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-06-29T12:19:39Z",
+          "title": "Add unit tests for EventQueue (simulator engine)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7570",
+          "points": 1
         }
       ]
     },
