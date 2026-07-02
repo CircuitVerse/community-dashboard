@@ -443,7 +443,7 @@ function RepoCard({ repo }: { repo: RepoStats }) {
 
           <div className="flex flex-col items-end gap-1.5 shrink-0">
             <div className="flex items-center gap-1 text-xs font-semibold text-zinc-500 dark:text-zinc-400">
-              <GitFork className="h-3.5 w-3.5 text-[#7C3AED]" />
+              <GitFork className="h-3.5 w-3.5" />
               {repo.forks}
             </div>
             <div className="flex items-center gap-1 text-xs font-semibold text-zinc-500 dark:text-zinc-400">
