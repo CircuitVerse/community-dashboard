@@ -1,8 +1,8 @@
 {
   "period": "week",
-  "updatedAt": 1783044040543,
-  "startDate": "2026-06-26",
-  "endDate": "2026-07-03",
+  "updatedAt": 1783130329021,
+  "startDate": "2026-06-27",
+  "endDate": "2026-07-04",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -11,23 +11,19 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/143987856?v=4",
       "role": "Contributor",
-      "total_points": 22,
+      "total_points": 19,
       "activity_breakdown": {
         "Issue labeled": {
           "count": 6,
           "points": 12
         },
         "PR opened": {
-          "count": 2,
-          "points": 4
+          "count": 1,
+          "points": 2
         },
         "PR merged": {
           "count": 1,
           "points": 5
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
         }
       },
       "daily_activity": [
@@ -45,11 +41,6 @@
           "date": "2026-06-29",
           "count": 1,
           "points": 5
-        },
-        {
-          "date": "2026-06-26",
-          "count": 2,
-          "points": 3
         }
       ],
       "activities": [
@@ -108,30 +99,20 @@
           "title": "feat - add client-side Verilog synthesis via YoWASP WASM for offline Tauri desktop",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1111",
           "points": 5
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-26T10:30:31Z",
-          "title": "feat - add VFS guard to validate Yosys output before parsing",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1112",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-06-26T11:35:48Z",
-          "title": "Improve error handling in client-side synthesis to show human-readable syntax errors",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1113",
-          "points": 1
         }
       ]
     },
     {
       "username": "naman79820",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/159947791?u=c48301089f863779d54d2227553923ff284ac6a4&v=4",
       "role": "Contributor",
-      "total_points": 14,
+      "total_points": 18,
       "activity_breakdown": {
+        "Review submitted": {
+          "count": 1,
+          "points": 4
+        },
         "PR merged": {
           "count": 1,
           "points": 5
@@ -151,6 +132,11 @@
       },
       "daily_activity": [
         {
+          "date": "2026-07-03",
+          "count": 1,
+          "points": 4
+        },
+        {
           "date": "2026-07-01",
           "count": 1,
           "points": 5
@@ -162,6 +148,13 @@
         }
       ],
       "activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-07-03T17:12:37Z",
+          "title": "Review on PR #7606",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7606",
+          "points": 4
+        },
         {
           "type": "PR merged",
           "occured_at": "2026-07-01T16:24:08Z",
@@ -207,18 +200,106 @@
       ]
     },
     {
+      "username": "ShinichiShi",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
+      "role": "Contributor",
+      "total_points": 15,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        },
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        },
+        "Issue opened": {
+          "count": 2,
+          "points": 2
+        },
+        "Issue labeled": {
+          "count": 2,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-03",
+          "count": 7,
+          "points": 15
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-03T14:35:59Z",
+          "title": "Fix - the default icon is seen even if the user is logged in/logged out",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1120",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-03T13:42:50Z",
+          "title": "fix - remove the text color=white prop",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1118",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-07-03T14:29:20Z",
+          "title": "fix - remove the text color=white prop",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1118",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-03T14:07:47Z",
+          "title": "🐞 Bug - vuesim The user profile picture is not visible",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1119",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-03T13:39:51Z",
+          "title": "🐞 Bug - vuesim The locale language dropdown has inconsistent ui",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1117",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-07-03T14:07:49Z",
+          "title": "Labeled issue #1119 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1119",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-07-03T13:39:52Z",
+          "title": "Labeled issue #1117 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1117",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "Saksham-Gupta-GH",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/222087587?v=4",
       "role": "Contributor",
-      "total_points": 6,
+      "total_points": 10,
       "activity_breakdown": {
         "PR opened": {
-          "count": 3,
-          "points": 6
+          "count": 5,
+          "points": 10
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-07-03",
+          "count": 2,
+          "points": 4
+        },
         {
           "date": "2026-07-02",
           "count": 3,
@@ -226,6 +307,20 @@
         }
       ],
       "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-03T19:44:08Z",
+          "title": "feat - add eye buttons to password reset form and fix layout (#2951)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7609",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-03T19:02:52Z",
+          "title": "Feat/clear all notifications",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7608",
+          "points": 2
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-07-02T15:03:50Z",
@@ -250,10 +345,97 @@
       ]
     },
     {
-      "username": "PRATHAM2002-DS",
+      "username": "JoshVarga",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/79985042?u=13d56c79e336dbdb30be9f8f07abbb1daa9caee3&v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/400540?u=cde386c5c924fa186d90fcba74a2287230c64243&v=4",
       "role": "Contributor",
+      "total_points": 8,
+      "activity_breakdown": {
+        "Review submitted": {
+          "count": 2,
+          "points": 8
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-03",
+          "count": 2,
+          "points": 8
+        }
+      ],
+      "activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-07-03T20:36:19Z",
+          "title": "Review on PR #1093",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1093",
+          "points": 4
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-07-03T20:35:37Z",
+          "title": "Review on PR #1095",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1095",
+          "points": 4
+        }
+      ]
+    },
+    {
+      "username": "Aakansha-Chavan",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/181594189?v=4",
+      "role": "Contributor",
+      "total_points": 5,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-03",
+          "count": 3,
+          "points": 5
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-03T15:08:36Z",
+          "title": "Update vulnerable gems for bundler-audit",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7606",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-03T17:06:08Z",
+          "title": "🐞 Bug - Update vulnerable gems reported by bundler-audit",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7607",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-07-03T17:06:09Z",
+          "title": "Labeled issue #7607 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7607",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "Nihal4777",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/65150640?u=25493788d913676f586e5d8c10be801ad634e3c9&v=4",
+      "role": "Maintainer",
       "total_points": 4,
       "activity_breakdown": {
         "Review submitted": {
@@ -263,7 +445,7 @@
       },
       "daily_activity": [
         {
-          "date": "2026-06-26",
+          "date": "2026-07-03",
           "count": 1,
           "points": 4
         }
@@ -271,9 +453,9 @@
       "activities": [
         {
           "type": "Review submitted",
-          "occured_at": "2026-06-26T17:11:30Z",
-          "title": "Review on PR #7563",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7563",
+          "occured_at": "2026-07-03T18:22:38Z",
+          "title": "Review on PR #7606",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7606",
           "points": 4
         }
       ]
@@ -319,35 +501,6 @@
       ]
     },
     {
-      "username": "ShinichiShi",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-06-26",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-26T13:16:00Z",
-          "title": "Fix - vuesim Redirect user to rails devise login form for auth in vuesim",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1114",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "ThatDeparted2061",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/166894150?v=4",
@@ -380,6 +533,35 @@
           "title": "Closed issue #1058 - Feature - Introduce Client-Side Verilog Synthesis via Web Worker for Tauri Desktop",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1058",
           "points": 1
+        }
+      ]
+    },
+    {
+      "username": "Harkeerat24",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/225462441?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-03",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-07-03T12:18:46Z",
+          "title": "Labeled issue #1070 - gsoc 2026",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1070",
+          "points": 2
         }
       ]
     },
@@ -438,6 +620,35 @@
           "title": "Fix NoMethodError by safely converting data_url to string",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7577",
           "points": 2
+        }
+      ]
+    },
+    {
+      "username": "tachyons",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
+      "role": "Maintainer",
+      "total_points": 1,
+      "activity_breakdown": {
+        "Issue closed": {
+          "count": 1,
+          "points": 1
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-03",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-07-03T14:29:22Z",
+          "title": "Closed issue #1117 - 🐞 Bug - vuesim The locale language dropdown has inconsistent ui",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1117",
+          "points": 1
         }
       ]
     },
