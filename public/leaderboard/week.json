@@ -1,25 +1,33 @@
 {
   "period": "week",
-  "updatedAt": 1783130329021,
-  "startDate": "2026-06-27",
-  "endDate": "2026-07-04",
+  "updatedAt": 1783217207016,
+  "startDate": "2026-06-28",
+  "endDate": "2026-07-05",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
     {
-      "username": "Me-Priyank",
+      "username": "naman79820",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/143987856?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 19,
+      "total_points": 25,
       "activity_breakdown": {
-        "Issue labeled": {
-          "count": 6,
-          "points": 12
-        },
         "PR opened": {
-          "count": 1,
+          "count": 2,
+          "points": 4
+        },
+        "Issue opened": {
+          "count": 2,
           "points": 2
+        },
+        "Issue labeled": {
+          "count": 5,
+          "points": 10
+        },
+        "Review submitted": {
+          "count": 1,
+          "points": 4
         },
         "PR merged": {
           "count": 1,
@@ -27,6 +35,133 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-07-04",
+          "count": 4,
+          "points": 7
+        },
+        {
+          "date": "2026-07-03",
+          "count": 1,
+          "points": 4
+        },
+        {
+          "date": "2026-07-01",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2026-06-28",
+          "count": 5,
+          "points": 9
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-04T14:26:47Z",
+          "title": "feat(organizations) - add organization settings (edit) page",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7612",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-04T14:20:32Z",
+          "title": "Feature - Add organization settings (edit) page",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7611",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-07-04T14:20:33Z",
+          "title": "Labeled issue #7611 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7611",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-07-04T14:20:41Z",
+          "title": "Labeled issue #7611 - GSoC'26",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7611",
+          "points": 2
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-07-03T17:12:37Z",
+          "title": "Review on PR #7606",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7606",
+          "points": 4
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-07-01T16:24:08Z",
+          "title": "feat(organizations) - add location column to database and model valida…",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7563",
+          "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-28T10:03:56Z",
+          "title": "feat - Add Organization Dashboard UI and Logic",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7568",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-06-28T09:36:43Z",
+          "title": "feature - Organization Dashboard UI with member search, role filter & pagination",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7567",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-06-28T09:36:44Z",
+          "title": "Labeled issue #7567 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7567",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-06-28T09:36:45Z",
+          "title": "Labeled issue #7567 - pending triage",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7567",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-06-28T09:36:56Z",
+          "title": "Labeled issue #7567 - GSoC'26",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7567",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "Me-Priyank",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/143987856?v=4",
+      "role": "Contributor",
+      "total_points": 24,
+      "activity_breakdown": {
+        "PR merged": {
+          "count": 2,
+          "points": 10
+        },
+        "Issue labeled": {
+          "count": 6,
+          "points": 12
+        },
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-04",
+          "count": 1,
+          "points": 5
+        },
         {
           "date": "2026-07-02",
           "count": 6,
@@ -44,6 +179,13 @@
         }
       ],
       "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-07-04T17:56:25Z",
+          "title": "feat - wrap synthesizeVerilog() with 30s timeout guard",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1105",
+          "points": 5
+        },
         {
           "type": "Issue labeled",
           "occured_at": "2026-07-02T14:16:55Z",
@@ -103,116 +245,19 @@
       ]
     },
     {
-      "username": "naman79820",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/159947791?u=c48301089f863779d54d2227553923ff284ac6a4&v=4",
-      "role": "Contributor",
-      "total_points": 18,
-      "activity_breakdown": {
-        "Review submitted": {
-          "count": 1,
-          "points": 4
-        },
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        },
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue labeled": {
-          "count": 3,
-          "points": 6
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-07-03",
-          "count": 1,
-          "points": 4
-        },
-        {
-          "date": "2026-07-01",
-          "count": 1,
-          "points": 5
-        },
-        {
-          "date": "2026-06-28",
-          "count": 5,
-          "points": 9
-        }
-      ],
-      "activities": [
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-07-03T17:12:37Z",
-          "title": "Review on PR #7606",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7606",
-          "points": 4
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-07-01T16:24:08Z",
-          "title": "feat(organizations) - add location column to database and model valida…",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7563",
-          "points": 5
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-28T10:03:56Z",
-          "title": "feat - Add Organization Dashboard UI and Logic",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7568",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-06-28T09:36:43Z",
-          "title": "feature - Organization Dashboard UI with member search, role filter & pagination",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7567",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-06-28T09:36:44Z",
-          "title": "Labeled issue #7567 - 🌟 feature",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7567",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-06-28T09:36:45Z",
-          "title": "Labeled issue #7567 - pending triage",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7567",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-06-28T09:36:56Z",
-          "title": "Labeled issue #7567 - GSoC'26",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7567",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "ShinichiShi",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
       "role": "Contributor",
-      "total_points": 15,
+      "total_points": 20,
       "activity_breakdown": {
+        "PR merged": {
+          "count": 2,
+          "points": 10
+        },
         "PR opened": {
           "count": 2,
           "points": 4
-        },
-        "PR merged": {
-          "count": 1,
-          "points": 5
         },
         "Issue opened": {
           "count": 2,
@@ -224,6 +269,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-07-04",
+          "count": 1,
+          "points": 5
+        },
         {
           "date": "2026-07-03",
           "count": 7,
@@ -231,6 +281,13 @@
         }
       ],
       "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-07-04T16:50:19Z",
+          "title": "Fix - the default icon is seen even if the user is logged in/logged out",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1120",
+          "points": 5
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-07-03T14:35:59Z",
@@ -345,6 +402,58 @@
       ]
     },
     {
+      "username": "Nihal4777",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/65150640?u=25493788d913676f586e5d8c10be801ad634e3c9&v=4",
+      "role": "Maintainer",
+      "total_points": 9,
+      "activity_breakdown": {
+        "Review submitted": {
+          "count": 2,
+          "points": 8
+        },
+        "Issue closed": {
+          "count": 1,
+          "points": 1
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-04",
+          "count": 2,
+          "points": 5
+        },
+        {
+          "date": "2026-07-03",
+          "count": 1,
+          "points": 4
+        }
+      ],
+      "activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-07-04T16:50:09Z",
+          "title": "Review on PR #1120",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1120",
+          "points": 4
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-07-04T16:50:20Z",
+          "title": "Closed issue #1119 - 🐞 Bug - vuesim The user profile picture is not visible",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1119",
+          "points": 1
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-07-03T18:22:38Z",
+          "title": "Review on PR #7606",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7606",
+          "points": 4
+        }
+      ]
+    },
+    {
       "username": "JoshVarga",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/400540?u=cde386c5c924fa186d90fcba74a2287230c64243&v=4",
@@ -432,31 +541,101 @@
       ]
     },
     {
-      "username": "Nihal4777",
+      "username": "DevPatils",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/65150640?u=25493788d913676f586e5d8c10be801ad634e3c9&v=4",
-      "role": "Maintainer",
-      "total_points": 4,
+      "avatar_url": "https://avatars.githubusercontent.com/u/145151790?v=4",
+      "role": "Contributor",
+      "total_points": 5,
       "activity_breakdown": {
-        "Review submitted": {
+        "PR opened": {
           "count": 1,
-          "points": 4
+          "points": 2
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
         }
       },
       "daily_activity": [
         {
-          "date": "2026-07-03",
-          "count": 1,
-          "points": 4
+          "date": "2026-07-04",
+          "count": 3,
+          "points": 5
         }
       ],
       "activities": [
         {
-          "type": "Review submitted",
-          "occured_at": "2026-07-03T18:22:38Z",
-          "title": "Review on PR #7606",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7606",
-          "points": 4
+          "type": "PR opened",
+          "occured_at": "2026-07-04T18:26:50Z",
+          "title": "fix - correct user menu close icon and washed-out hover state",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1122",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-04T18:06:31Z",
+          "title": "🐞 Bug - Close button in the user menu drawer shows a right-arrow icon instead of a close/cross icon.",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1121",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-07-04T18:06:32Z",
+          "title": "Labeled issue #1121 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1121",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "ThatDeparted2061",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/166894150?v=4",
+      "role": "Maintainer",
+      "total_points": 3,
+      "activity_breakdown": {
+        "Issue closed": {
+          "count": 3,
+          "points": 3
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-04",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-06-29",
+          "count": 2,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-07-04T17:56:26Z",
+          "title": "Closed issue #1083 - Feature - Add timeout guard for client-side Verilog synthesis worker",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1083",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-06-29T09:11:06Z",
+          "title": "Closed issue #1059 - refactor - migrate Tauri environment detection from internals to official isTauri API",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1059",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-06-29T09:11:06Z",
+          "title": "Closed issue #1058 - Feature - Introduce Client-Side Verilog Synthesis via Web Worker for Tauri Desktop",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1058",
+          "points": 1
         }
       ]
     },
@@ -501,42 +680,6 @@
       ]
     },
     {
-      "username": "ThatDeparted2061",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/166894150?v=4",
-      "role": "Maintainer",
-      "total_points": 2,
-      "activity_breakdown": {
-        "Issue closed": {
-          "count": 2,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-06-29",
-          "count": 2,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-06-29T09:11:06Z",
-          "title": "Closed issue #1059 - refactor - migrate Tauri environment detection from internals to official isTauri API",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1059",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-06-29T09:11:06Z",
-          "title": "Closed issue #1058 - Feature - Introduce Client-Side Verilog Synthesis via Web Worker for Tauri Desktop",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1058",
-          "points": 1
-        }
-      ]
-    },
-    {
       "username": "Harkeerat24",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/225462441?v=4",
@@ -561,35 +704,6 @@
           "occured_at": "2026-07-03T12:18:46Z",
           "title": "Labeled issue #1070 - gsoc 2026",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1070",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "deepak0x",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/149673145?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-06-27",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-27T22:47:53Z",
-          "title": "fix - guard nil image param in simulator_helper to prevent NoMethodError (#7558)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7566",
           "points": 2
         }
       ]
