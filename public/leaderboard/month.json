@@ -1,8 +1,8 @@
 {
   "period": "month",
-  "updatedAt": 1783390051573,
-  "startDate": "2026-06-07",
-  "endDate": "2026-07-07",
+  "updatedAt": 1783475294814,
+  "startDate": "2026-06-08",
+  "endDate": "2026-07-08",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -1051,8 +1051,16 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
       "role": "Maintainer",
-      "total_points": 53,
+      "total_points": 54,
       "activity_breakdown": {
+        "Issue opened": {
+          "count": 2,
+          "points": 2
+        },
+        "Issue labeled": {
+          "count": 2,
+          "points": 4
+        },
         "Issue closed": {
           "count": 39,
           "points": 39
@@ -1061,24 +1069,17 @@
           "count": 1,
           "points": 4
         },
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
-        },
         "PR merged": {
           "count": 1,
           "points": 5
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "PR opened": {
-          "count": 1,
-          "points": 2
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-07-07",
+          "count": 2,
+          "points": 3
+        },
         {
           "date": "2026-07-06",
           "count": 31,
@@ -1128,14 +1129,23 @@
           "date": "2026-06-08",
           "count": 2,
           "points": 6
-        },
-        {
-          "date": "2026-06-07",
-          "count": 1,
-          "points": 2
         }
       ],
       "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-07T12:01:44Z",
+          "title": "Remove feature flag active_storage_s3",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7627",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-07-07T12:02:36Z",
+          "title": "Labeled issue #7627 - good first issue",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7627",
+          "points": 2
+        },
         {
           "type": "Issue closed",
           "occured_at": "2026-07-06T12:34:28Z",
@@ -1436,13 +1446,6 @@
           "title": "Add widget preview for major compnents",
           "link": "https://github.com/CircuitVerse/mobile-app/issues/621",
           "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-07T15:42:36Z",
-          "title": "feat - update to material3",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/618",
-          "points": 2
         }
       ]
     },
@@ -1618,19 +1621,224 @@
       ]
     },
     {
+      "username": "Harkeerat24",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/225462441?v=4",
+      "role": "Contributor",
+      "total_points": 19,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 5,
+          "points": 10
+        },
+        "Issue closed": {
+          "count": 2,
+          "points": 2
+        },
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-07",
+          "count": 3,
+          "points": 4
+        },
+        {
+          "date": "2026-07-06",
+          "count": 2,
+          "points": 7
+        },
+        {
+          "date": "2026-07-03",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-06-14",
+          "count": 3,
+          "points": 6
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-07T11:33:48Z",
+          "title": "feat - update Export Project dialog and import project for canonical support",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1132",
+          "points": 2
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-07-07T12:35:43Z",
+          "title": "Closed issue #1067 - (GSoC'26) Week 1 - Improve and fix canonical.js and importCanonical.js for all circuitElementList types.",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1067",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-07-07T12:40:08Z",
+          "title": "Closed issue #1069 - (GSoC'26) Week 2 - Implement Multi-Circuit Project Export and Import",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1069",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-06T21:29:12Z",
+          "title": "feat - add canonical JSON import pipeline with round-trip verification",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1131",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-07-06T12:54:13Z",
+          "title": "feat - added subcircuit support in canonical.ts using khans algorithm",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1095",
+          "points": 5
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-07-03T12:18:46Z",
+          "title": "Labeled issue #1070 - gsoc 2026",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1070",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-14T20:21:41Z",
+          "title": "feat - added subcircuit support in canonical.ts using khans algorithm",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1095",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-14T19:22:57Z",
+          "title": "gsoc26 - multi circuit support in canonical.ts",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1094",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-14T18:11:27Z",
+          "title": "gsoc26 - Implementing canonical pipeline for deterministic json",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1093",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "Saksham-Gupta-GH",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/222087587?v=4",
+      "role": "Contributor",
+      "total_points": 16,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 8,
+          "points": 16
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-07",
+          "count": 2,
+          "points": 4
+        },
+        {
+          "date": "2026-07-06",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-07-03",
+          "count": 2,
+          "points": 4
+        },
+        {
+          "date": "2026-07-02",
+          "count": 3,
+          "points": 6
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-07T21:49:58Z",
+          "title": "Fix oauth duplicate account 7262",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7629",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-07T19:32:31Z",
+          "title": "fix - guard against nil data in set_name_project_datum (Fixes #7557)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7628",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-06T13:18:04Z",
+          "title": "Fix dropdown toggle",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7622",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-03T19:44:08Z",
+          "title": "feat - add eye buttons to password reset form and fix layout (#2951)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7609",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-03T19:02:52Z",
+          "title": "Feat/clear all notifications",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7608",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-02T15:03:50Z",
+          "title": "feat(about) - Migrate Team Section Card to View Component (#5801)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7578",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-02T12:01:18Z",
+          "title": "fix(notifications) - resolve abnormal footer movement issue (#4535)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7576",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-02T11:01:28Z",
+          "title": "Fix mac ruby version",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7574",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "ThatDeparted2061",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/166894150?v=4",
       "role": "Maintainer",
-      "total_points": 19,
+      "total_points": 15,
       "activity_breakdown": {
         "Issue closed": {
           "count": 7,
           "points": 7
         },
         "Review submitted": {
-          "count": 3,
-          "points": 12
+          "count": 2,
+          "points": 8
         }
       },
       "daily_activity": [
@@ -1656,11 +1864,6 @@
         },
         {
           "date": "2026-06-09",
-          "count": 1,
-          "points": 4
-        },
-        {
-          "date": "2026-06-07",
           "count": 1,
           "points": 4
         }
@@ -1728,193 +1931,6 @@
           "title": "Review on PR #1060",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1060",
           "points": 4
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-06-07T21:14:25Z",
-          "title": "Review on PR #1055",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1055",
-          "points": 4
-        }
-      ]
-    },
-    {
-      "username": "SantamRC",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/52635773?v=4",
-      "role": "Contributor",
-      "total_points": 16,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 3,
-          "points": 6
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue labeled": {
-          "count": 2,
-          "points": 4
-        },
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-07-05",
-          "count": 3,
-          "points": 5
-        },
-        {
-          "date": "2026-06-16",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-06-08",
-          "count": 2,
-          "points": 7
-        },
-        {
-          "date": "2026-06-07",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-05T20:11:33Z",
-          "title": "Santam Mid Term Blog",
-          "link": "https://github.com/CircuitVerse/Blog/pull/268",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-07-05T08:36:50Z",
-          "title": "Add Better Logging System in the App",
-          "link": "https://github.com/CircuitVerse/mobile-app/issues/630",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-07-05T08:37:25Z",
-          "title": "Labeled issue #630 - enhancement",
-          "link": "https://github.com/CircuitVerse/mobile-app/issues/630",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-16T18:29:06Z",
-          "title": "Interactive Book V2",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/624",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-06-08T14:18:14Z",
-          "title": "Modified gitignores for modern Flutter builds",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/619",
-          "points": 5
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-06-08T17:42:44Z",
-          "title": "Labeled issue #621 - UI",
-          "link": "https://github.com/CircuitVerse/mobile-app/issues/621",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-07T20:04:48Z",
-          "title": "Modified gitignores for modern Flutter builds",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/619",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "Harkeerat24",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/225462441?v=4",
-      "role": "Contributor",
-      "total_points": 15,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 4,
-          "points": 8
-        },
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        },
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-07-06",
-          "count": 2,
-          "points": 7
-        },
-        {
-          "date": "2026-07-03",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-06-14",
-          "count": 3,
-          "points": 6
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-06T21:29:12Z",
-          "title": "feat - add canonical JSON import pipeline with round-trip verification",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1131",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-07-06T12:54:13Z",
-          "title": "feat - added subcircuit support in canonical.ts using khans algorithm",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1095",
-          "points": 5
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-07-03T12:18:46Z",
-          "title": "Labeled issue #1070 - gsoc 2026",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1070",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-14T20:21:41Z",
-          "title": "feat - added subcircuit support in canonical.ts using khans algorithm",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1095",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-14T19:22:57Z",
-          "title": "gsoc26 - multi circuit support in canonical.ts",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1094",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-14T18:11:27Z",
-          "title": "gsoc26 - Implementing canonical pipeline for deterministic json",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1093",
-          "points": 2
         }
       ]
     },
@@ -2136,6 +2152,92 @@
           "title": "bug - Invalid MIME type 'img/jpeg' in circuit preview attachment",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7541",
           "points": 1
+        }
+      ]
+    },
+    {
+      "username": "SantamRC",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/52635773?v=4",
+      "role": "Contributor",
+      "total_points": 14,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "Issue labeled": {
+          "count": 2,
+          "points": 4
+        },
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-05",
+          "count": 3,
+          "points": 5
+        },
+        {
+          "date": "2026-06-16",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-06-08",
+          "count": 2,
+          "points": 7
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-05T20:11:33Z",
+          "title": "Santam Mid Term Blog",
+          "link": "https://github.com/CircuitVerse/Blog/pull/268",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-05T08:36:50Z",
+          "title": "Add Better Logging System in the App",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/630",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-07-05T08:37:25Z",
+          "title": "Labeled issue #630 - enhancement",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/630",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-16T18:29:06Z",
+          "title": "Interactive Book V2",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/624",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-06-08T14:18:14Z",
+          "title": "Modified gitignores for modern Flutter builds",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/619",
+          "points": 5
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-06-08T17:42:44Z",
+          "title": "Labeled issue #621 - UI",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/621",
+          "points": 2
         }
       ]
     },
@@ -2364,162 +2466,6 @@
       ]
     },
     {
-      "username": "Saksham-Gupta-GH",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/222087587?v=4",
-      "role": "Contributor",
-      "total_points": 12,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 6,
-          "points": 12
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-07-06",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-07-03",
-          "count": 2,
-          "points": 4
-        },
-        {
-          "date": "2026-07-02",
-          "count": 3,
-          "points": 6
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-06T13:18:04Z",
-          "title": "Fix dropdown toggle",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7622",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-03T19:44:08Z",
-          "title": "feat - add eye buttons to password reset form and fix layout (#2951)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7609",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-03T19:02:52Z",
-          "title": "Feat/clear all notifications",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7608",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-02T15:03:50Z",
-          "title": "feat(about) - Migrate Team Section Card to View Component (#5801)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7578",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-02T12:01:18Z",
-          "title": "fix(notifications) - resolve abnormal footer movement issue (#4535)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7576",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-02T11:01:28Z",
-          "title": "Fix mac ruby version",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7574",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "magic-peach",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
-      "role": "Contributor",
-      "total_points": 10,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 3,
-          "points": 6
-        },
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        },
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-06-12",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-06-10",
-          "count": 3,
-          "points": 5
-        },
-        {
-          "date": "2026-06-07",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-12T20:39:37Z",
-          "title": "Added the lti-advantage 0.1.0 gem",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7510",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-06-12T18:03:17Z",
-          "title": "Updating the gemfile with the lti-advantage 0.1.0 gem",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7509",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-10T05:37:54Z",
-          "title": "Fixing the NameError in the current LTI 1.1 implementation",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7502",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-06-10T03:55:03Z",
-          "title": "Part 1 of upgrading the LTI version from 1.1 to 1.3 (NameError Fix)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7501",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-06-10T03:55:04Z",
-          "title": "Labeled issue #7501 - GSoC'26",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7501",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-07T08:21:32Z",
-          "title": "Feat/lti 1 3 upgrade",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7488",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "Aakansha-Chavan",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/181594189?v=4",
@@ -2582,6 +2528,76 @@
           "occured_at": "2026-07-03T17:06:09Z",
           "title": "Labeled issue #7607 - 🐞 bug",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7607",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "magic-peach",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
+      "role": "Contributor",
+      "total_points": 8,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        },
+        "Issue opened": {
+          "count": 2,
+          "points": 2
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-06-12",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-06-10",
+          "count": 3,
+          "points": 5
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-12T20:39:37Z",
+          "title": "Added the lti-advantage 0.1.0 gem",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7510",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-06-12T18:03:17Z",
+          "title": "Updating the gemfile with the lti-advantage 0.1.0 gem",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7509",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-06-10T05:37:54Z",
+          "title": "Fixing the NameError in the current LTI 1.1 implementation",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7502",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-06-10T03:55:03Z",
+          "title": "Part 1 of upgrading the LTI version from 1.1 to 1.3 (NameError Fix)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7501",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-06-10T03:55:04Z",
+          "title": "Labeled issue #7501 - GSoC'26",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7501",
           "points": 2
         }
       ]
@@ -2753,6 +2769,35 @@
           "occured_at": "2026-06-14T15:45:44Z",
           "title": "Review on PR #7510",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7510",
+          "points": 4
+        }
+      ]
+    },
+    {
+      "username": "salmoneatenbybear",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/177742943?u=7cbde821ec8efe87fd0cf5e8c53581a12a8e5d3c&v=4",
+      "role": "Maintainer",
+      "total_points": 4,
+      "activity_breakdown": {
+        "Review submitted": {
+          "count": 1,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-07",
+          "count": 1,
+          "points": 4
+        }
+      ],
+      "activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-07-07T17:08:08Z",
+          "title": "Review on PR #1127",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1127",
           "points": 4
         }
       ]
@@ -2975,35 +3020,6 @@
       ]
     },
     {
-      "username": "bhuvan-somisetty",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/226660604?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-07-06",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-06T16:34:59Z",
-          "title": "fix(verilog) - TflipFlop ignores pre input on async reset",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1129",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "Shruti2110-coder",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/184974249?v=4",
@@ -3028,6 +3044,35 @@
           "occured_at": "2026-07-06T13:34:22Z",
           "title": "refactor - clear setInterval on unmount in PropertiesPanelMobile.vue",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1127",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "bhuvan-somisetty",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/226660604?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-06",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-06T16:34:59Z",
+          "title": "fix(verilog) - TflipFlop ignores pre input on async reset",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1129",
           "points": 2
         }
       ]
@@ -3173,64 +3218,6 @@
           "occured_at": "2026-06-10T06:39:05Z",
           "title": "fix(api) - handle malformed filter parameter",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7503",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "Namrah-87",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/250446922?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-06-07",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-07T22:59:45Z",
-          "title": "Add toggle behavior to getting started dropdown menu",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7491",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "BHARATH0153",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/214236921?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-06-07",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-07T10:38:36Z",
-          "title": "Fix pinch-to-zoom on tablets (iPad) — zoom anchors to finger midpoint",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7489",
           "points": 2
         }
       ]
