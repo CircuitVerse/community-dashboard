@@ -3,7 +3,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { Trophy, GitMerge, GitPullRequest, AlertCircle, Eye, Tag, UserPlus, CheckCircle } from "lucide-react";
+import { Trophy, GitMerge, GitPullRequest, AlertCircle, Eye, Tag, UserPlus, CheckCircle, Flame } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ActivityTrendChart from "./ActivityTrendChart";
 import "./LeaderboardCard.css";
@@ -85,6 +85,11 @@ export type LeaderboardEntry = {
     points: number;
     count: number;
   }>;
+  badges?: Array<{
+    slug: string;
+    name: string;
+    variant: "bronze" | "silver" | "gold";
+  }>;
 };
 
 interface LeaderboardCardProps {
@@ -162,6 +167,27 @@ export function LeaderboardCard({
     return "";
   };
 
+  const renderBadges = (badges?: LeaderboardEntry['badges']) => {
+    if (!badges || badges.length === 0) return null;
+    return (
+      <div className="flex gap-1.5 mt-1">
+        {badges.map((badge) => {
+          const colors = {
+            gold: "text-yellow-600 bg-yellow-500/15 border-yellow-500/30 dark:text-yellow-400 dark:bg-yellow-500/20",
+            silver: "text-slate-600 bg-slate-400/15 border-slate-400/30 dark:text-slate-300 dark:bg-slate-400/20",
+            bronze: "text-orange-600 bg-orange-600/10 border-orange-600/20 dark:text-orange-400 dark:bg-orange-500/15",
+          }[badge.variant];
+          return (
+            <div key={badge.slug} className={`flex items-center gap-1 text-[10px] px-1.5 py-0.5 rounded-sm border ${colors}`} title={badge.name}>
+              <Flame className="w-3 h-3" />
+              <span className="font-bold">{badge.name}</span>
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
+
   const styles = getRankStyles(rank);
 
   if (variant === "list") {
@@ -224,10 +250,11 @@ export function LeaderboardCard({
                   @{entry.username}
                 </p>
                 {entry.role && (
-                  <Badge variant="secondary" className="text-xs mb-2 bg-[#42B883]/10 text-[#42B883]">
+                  <Badge variant="secondary" className="text-xs mb-1 bg-[#42B883]/10 text-[#42B883]">
                     {entry.role}
                   </Badge>
                 )}
+                {renderBadges(entry.badges)}
 
                 {/* Points */}
                 <div className="mb-2">
@@ -317,6 +344,7 @@ export function LeaderboardCard({
                       {entry.role}
                     </span>
                   )}
+                  {renderBadges(entry.badges)}
                 </div>
 
                 <span
@@ -455,11 +483,14 @@ export function LeaderboardCard({
 
             <div className="flex flex-col gap-2 w-[60%]">
               <div className="flex items-center justify-between">
-                {entry.role && (
-                  <Badge variant="secondary" className="text-xs bg-[#42B883]/10 text-[#42B883]">
-                    {entry.role}
-                  </Badge>
-                )}
+                <div className="flex flex-col gap-1 items-start">
+                  {entry.role && (
+                    <Badge variant="secondary" className="text-xs bg-[#42B883]/10 text-[#42B883]">
+                      {entry.role}
+                    </Badge>
+                  )}
+                  {renderBadges(entry.badges)}
+                </div>
                 <div className="text-right">
                   <div className="flex items-center justify-center gap-1 text-sm">
                     <Trophy className="w-3 h-3 text-yellow-500" />
@@ -548,10 +579,11 @@ export function LeaderboardCard({
                 @{entry.username}
               </p>
               {entry.role && (
-                <Badge variant="secondary" className="text-xs mb-2 bg-[#42B883]/10 text-[#42B883]">
+                <Badge variant="secondary" className="text-xs mb-1 bg-[#42B883]/10 text-[#42B883]">
                   {entry.role}
                 </Badge>
               )}
+              {renderBadges(entry.badges)}
 
               {/* Points */}
               <div className="mb-2">
