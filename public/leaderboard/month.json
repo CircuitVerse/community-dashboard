@@ -1,8 +1,8 @@
 {
   "period": "month",
-  "updatedAt": 1783907498171,
-  "startDate": "2026-06-13",
-  "endDate": "2026-07-13",
+  "updatedAt": 1783992515148,
+  "startDate": "2026-06-14",
+  "endDate": "2026-07-14",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -1283,8 +1283,12 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
       "role": "Maintainer",
-      "total_points": 45,
+      "total_points": 46,
       "activity_breakdown": {
+        "Issue closed": {
+          "count": 37,
+          "points": 37
+        },
         "Issue opened": {
           "count": 1,
           "points": 1
@@ -1293,16 +1297,17 @@
           "count": 2,
           "points": 4
         },
-        "Issue closed": {
-          "count": 36,
-          "points": 36
-        },
         "Review submitted": {
           "count": 1,
           "points": 4
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-07-13",
+          "count": 1,
+          "points": 1
+        },
         {
           "date": "2026-07-07",
           "count": 2,
@@ -1340,6 +1345,13 @@
         }
       ],
       "activities": [
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-07-13T15:31:09Z",
+          "title": "Closed issue #7636 - 🐞 Bug - Bundler Audit Fails Due to Vulnerable view_component and websocket-driver Dependencies",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7636",
+          "points": 1
+        },
         {
           "type": "Issue opened",
           "occured_at": "2026-07-07T12:01:44Z",
@@ -1765,11 +1777,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/225462441?v=4",
       "role": "Contributor",
-      "total_points": 19,
+      "total_points": 21,
       "activity_breakdown": {
         "PR opened": {
-          "count": 5,
-          "points": 10
+          "count": 6,
+          "points": 12
         },
         "Issue closed": {
           "count": 2,
@@ -1785,6 +1797,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-07-13",
+          "count": 1,
+          "points": 2
+        },
         {
           "date": "2026-07-07",
           "count": 3,
@@ -1807,6 +1824,13 @@
         }
       ],
       "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-13T14:07:05Z",
+          "title": "GSoC26 Phase 1 Report - Structured Format for Saved Circuit Data",
+          "link": "https://github.com/CircuitVerse/Blog/pull/271",
+          "points": 2
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-07-07T11:33:48Z",
@@ -2237,6 +2261,99 @@
           "occured_at": "2026-06-16T18:29:06Z",
           "title": "Interactive Book V2",
           "link": "https://github.com/CircuitVerse/mobile-app/pull/624",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "aryan7071",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/175052103?v=4",
+      "role": "Contributor",
+      "total_points": 15,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        },
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        },
+        "Issue opened": {
+          "count": 2,
+          "points": 2
+        },
+        "Issue labeled": {
+          "count": 2,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-13",
+          "count": 4,
+          "points": 10
+        },
+        {
+          "date": "2026-07-10",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-07-09",
+          "count": 2,
+          "points": 3
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-13T20:24:30Z",
+          "title": "fix - use include instead of match with simple regex in contests_update_deadline_spec",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7652",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-07-13T15:31:08Z",
+          "title": "fix - bump view_component and websocket-driver to resolve known CVEs",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7644",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-13T18:23:50Z",
+          "title": "🐞 Bug CI lint failing on master",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7651",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-07-13T18:23:51Z",
+          "title": "Labeled issue #7651 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7651",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-10T18:29:10Z",
+          "title": "fix - bump view_component and websocket-driver to resolve known CVEs",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7644",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-09T19:59:01Z",
+          "title": "🐞 Bug - Bundler Audit Fails Due to Vulnerable view_component and websocket-driver Dependencies",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7636",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-07-09T19:59:02Z",
+          "title": "Labeled issue #7636 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7636",
           "points": 2
         }
       ]
@@ -2770,9 +2887,9 @@
       ]
     },
     {
-      "username": "aryan7071",
+      "username": "JituRewar",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/175052103?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/229604335?v=4",
       "role": "Contributor",
       "total_points": 5,
       "activity_breakdown": {
@@ -2791,36 +2908,31 @@
       },
       "daily_activity": [
         {
-          "date": "2026-07-10",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-07-09",
-          "count": 2,
-          "points": 3
+          "date": "2026-07-13",
+          "count": 3,
+          "points": 5
         }
       ],
       "activities": [
         {
           "type": "PR opened",
-          "occured_at": "2026-07-10T18:29:10Z",
-          "title": "fix - bump view_component and websocket-driver to resolve known CVEs",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7644",
+          "occured_at": "2026-07-13T05:34:51Z",
+          "title": "fix - resolve SMTP ArgumentError in development environment (#7648)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7649",
           "points": 2
         },
         {
           "type": "Issue opened",
-          "occured_at": "2026-07-09T19:59:01Z",
-          "title": "🐞 Bug - Bundler Audit Fails Due to Vulnerable view_component and websocket-driver Dependencies",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7636",
+          "occured_at": "2026-07-13T05:05:57Z",
+          "title": "🐞 Bug fix - SMTP settings throw ArgumentError due to mutually exclusive ssl and enable_starttls_auto keys in development",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7648",
           "points": 1
         },
         {
           "type": "Issue labeled",
-          "occured_at": "2026-07-09T19:59:02Z",
-          "title": "Labeled issue #7636 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7636",
+          "occured_at": "2026-07-13T05:05:58Z",
+          "title": "Labeled issue #7648 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7648",
           "points": 2
         }
       ]
@@ -3160,46 +3272,6 @@
           "title": "Add unit tests for EventQueue (simulator engine)",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7570",
           "points": 1
-        }
-      ]
-    },
-    {
-      "username": "Santoshpatel112",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/134463761?v=4",
-      "role": "Contributor",
-      "total_points": 3,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-06-13",
-          "count": 2,
-          "points": 3
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-06-13T20:25:22Z",
-          "title": "🌙 Dark Mode / ☀️ Light Mode Toggle Not Working Properly",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7512",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-06-13T20:25:23Z",
-          "title": "Labeled issue #7512 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7512",
-          "points": 2
         }
       ]
     },
