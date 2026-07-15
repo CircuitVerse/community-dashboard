@@ -1,8 +1,8 @@
 {
   "period": "week",
-  "updatedAt": 1783992515145,
-  "startDate": "2026-07-07",
-  "endDate": "2026-07-14",
+  "updatedAt": 1784078703255,
+  "startDate": "2026-07-08",
+  "endDate": "2026-07-15",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -11,8 +11,12 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 24,
+      "total_points": 26,
       "activity_breakdown": {
+        "PR opened": {
+          "count": 3,
+          "points": 6
+        },
         "Issue opened": {
           "count": 2,
           "points": 2
@@ -20,10 +24,6 @@
         "Issue labeled": {
           "count": 4,
           "points": 8
-        },
-        "PR opened": {
-          "count": 2,
-          "points": 4
         },
         "Review submitted": {
           "count": 1,
@@ -39,6 +39,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-07-14",
+          "count": 1,
+          "points": 2
+        },
         {
           "date": "2026-07-12",
           "count": 2,
@@ -61,6 +66,13 @@
         }
       ],
       "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-14T10:05:38Z",
+          "title": "feat(organizations) - add settings tab to dashboard",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7653",
+          "points": 2
+        },
         {
           "type": "Issue opened",
           "occured_at": "2026-07-12T10:22:17Z",
@@ -383,8 +395,12 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/52635773?v=4",
       "role": "Contributor",
-      "total_points": 10,
+      "total_points": 12,
       "activity_breakdown": {
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        },
         "PR merged": {
           "count": 1,
           "points": 5
@@ -396,13 +412,14 @@
         "Issue labeled": {
           "count": 1,
           "points": 2
-        },
-        "PR opened": {
-          "count": 1,
-          "points": 2
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-07-14",
+          "count": 1,
+          "points": 2
+        },
         {
           "date": "2026-07-10",
           "count": 3,
@@ -415,6 +432,13 @@
         }
       ],
       "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-14T15:38:48Z",
+          "title": "Fix black screen issue",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/636",
+          "points": 2
+        },
         {
           "type": "PR merged",
           "occured_at": "2026-07-10T17:45:49Z",
@@ -549,6 +573,51 @@
       ]
     },
     {
+      "username": "Harkeerat24",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/225462441?v=4",
+      "role": "Contributor",
+      "total_points": 7,
+      "activity_breakdown": {
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        },
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-14",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2026-07-13",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-07-14T17:14:41Z",
+          "title": "feat - update Export Project dialog and import project for canonical support",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1132",
+          "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-13T14:07:05Z",
+          "title": "GSoC26 Phase 1 Report - Structured Format for Saved Circuit Data",
+          "link": "https://github.com/CircuitVerse/Blog/pull/271",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "bhuvan-somisetty",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/226660604?v=4",
@@ -629,68 +698,9 @@
       ]
     },
     {
-      "username": "Harkeerat24",
+      "username": "magic-peach",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/225462441?v=4",
-      "role": "Contributor",
-      "total_points": 6,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        },
-        "Issue closed": {
-          "count": 2,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-07-13",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-07-07",
-          "count": 3,
-          "points": 4
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-13T14:07:05Z",
-          "title": "GSoC26 Phase 1 Report - Structured Format for Saved Circuit Data",
-          "link": "https://github.com/CircuitVerse/Blog/pull/271",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-07T11:33:48Z",
-          "title": "feat - update Export Project dialog and import project for canonical support",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1132",
-          "points": 2
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-07-07T12:35:43Z",
-          "title": "Closed issue #1067 - (GSoC'26) Week 1 - Improve and fix canonical.js and importCanonical.js for all circuitElementList types.",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1067",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-07-07T12:40:08Z",
-          "title": "Closed issue #1069 - (GSoC'26) Week 2 - Implement Multi-Circuit Project Export and Import",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1069",
-          "points": 1
-        }
-      ]
-    },
-    {
-      "username": "Saksham-Gupta-GH",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/222087587?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
       "role": "Contributor",
       "total_points": 6,
       "activity_breakdown": {
@@ -701,36 +711,41 @@
       },
       "daily_activity": [
         {
-          "date": "2026-07-11",
+          "date": "2026-07-14",
           "count": 1,
           "points": 2
         },
         {
-          "date": "2026-07-07",
-          "count": 2,
-          "points": 4
+          "date": "2026-07-12",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-07-08",
+          "count": 1,
+          "points": 2
         }
       ],
       "activities": [
         {
           "type": "PR opened",
-          "occured_at": "2026-07-11T21:50:14Z",
-          "title": "Perf/testbench find optimization",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7645",
+          "occured_at": "2026-07-14T13:31:22Z",
+          "title": "feat(lti) - add LtiDeployment model for LTI 1.3 platform registrations",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7654",
           "points": 2
         },
         {
           "type": "PR opened",
-          "occured_at": "2026-07-07T21:49:58Z",
-          "title": "Fix oauth duplicate account 7262",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7629",
+          "occured_at": "2026-07-12T14:49:39Z",
+          "title": "fix(lti) - persist grades before LMS passback",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7647",
           "points": 2
         },
         {
           "type": "PR opened",
-          "occured_at": "2026-07-07T19:32:31Z",
-          "title": "fix - guard against nil data in set_name_project_datum (Fixes #7557)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7628",
+          "occured_at": "2026-07-08T16:03:31Z",
+          "title": "feat(groups) - subgroups (teams) within a group",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7632",
           "points": 2
         }
       ]
@@ -827,103 +842,6 @@
       ]
     },
     {
-      "username": "tachyons",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
-      "role": "Maintainer",
-      "total_points": 4,
-      "activity_breakdown": {
-        "Issue closed": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-07-13",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-07-07",
-          "count": 2,
-          "points": 3
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-07-13T15:31:09Z",
-          "title": "Closed issue #7636 - 🐞 Bug - Bundler Audit Fails Due to Vulnerable view_component and websocket-driver Dependencies",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7636",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-07-07T12:01:44Z",
-          "title": "Remove feature flag active_storage_s3",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7627",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-07-07T12:02:36Z",
-          "title": "Labeled issue #7627 - good first issue",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7627",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "magic-peach",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
-      "role": "Contributor",
-      "total_points": 4,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-07-12",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-07-08",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-12T14:49:39Z",
-          "title": "fix(lti) - persist grades before LMS passback",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7647",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-08T16:03:31Z",
-          "title": "feat(groups) - subgroups (teams) within a group",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7632",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "JatsuAkaYashvant",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/146776812?u=cc4172c883c25226bcae3cfe615e81f336f8e4cf&v=4",
@@ -948,35 +866,6 @@
           "occured_at": "2026-07-10T17:40:31Z",
           "title": "Review on PR #268",
           "link": "https://github.com/CircuitVerse/Blog/pull/268",
-          "points": 4
-        }
-      ]
-    },
-    {
-      "username": "salmoneatenbybear",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/177742943?u=7cbde821ec8efe87fd0cf5e8c53581a12a8e5d3c&v=4",
-      "role": "Maintainer",
-      "total_points": 4,
-      "activity_breakdown": {
-        "Review submitted": {
-          "count": 1,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-07-07",
-          "count": 1,
-          "points": 4
-        }
-      ],
-      "activities": [
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-07-07T17:08:08Z",
-          "title": "Review on PR #1127",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1127",
           "points": 4
         }
       ]
@@ -1040,18 +929,52 @@
       ]
     },
     {
+      "username": "anxkhn",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/83116240?u=ef7df7c3ea2b8378a6cbffff335808f7d5c49b37&v=4",
+      "role": "Contributor",
+      "total_points": 4,
+      "activity_breakdown": {
+        "Review submitted": {
+          "count": 1,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-14",
+          "count": 1,
+          "points": 4
+        }
+      ],
+      "activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-07-14T19:03:13Z",
+          "title": "Review on PR #7654",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7654",
+          "points": 4
+        }
+      ]
+    },
+    {
       "username": "deepak0x",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/149673145?v=4",
       "role": "Contributor",
-      "total_points": 3,
+      "total_points": 4,
       "activity_breakdown": {
         "Issue opened": {
-          "count": 3,
-          "points": 3
+          "count": 4,
+          "points": 4
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-07-14",
+          "count": 1,
+          "points": 1
+        },
         {
           "date": "2026-07-10",
           "count": 2,
@@ -1064,6 +987,13 @@
         }
       ],
       "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-14T14:33:43Z",
+          "title": "bug - Project owner silently added as own collaborator despite warning",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7655",
+          "points": 1
+        },
         {
           "type": "Issue opened",
           "occured_at": "2026-07-10T15:21:30Z",
@@ -1123,6 +1053,105 @@
           "occured_at": "2026-07-10T18:07:33Z",
           "title": "Labeled issue #7643 - 🐞 bug",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7643",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "tachyons",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
+      "role": "Maintainer",
+      "total_points": 2,
+      "activity_breakdown": {
+        "Issue closed": {
+          "count": 2,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-14",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-07-13",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-07-14T17:14:43Z",
+          "title": "Closed issue #1072 - (GSoC'26) Week 5 - Build the Export UI - CodeMirror JSON preview panel, download button, and clipboard copy.",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1072",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-07-13T15:31:09Z",
+          "title": "Closed issue #7636 - 🐞 Bug - Bundler Audit Fails Due to Vulnerable view_component and websocket-driver Dependencies",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7636",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "username": "Radhikaa-chauhan",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/148184013?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-14",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-14T16:56:51Z",
+          "title": "Adding the the mergathon experience",
+          "link": "https://github.com/CircuitVerse/Blog/pull/272",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "Saksham-Gupta-GH",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/222087587?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-11",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-11T21:50:14Z",
+          "title": "Perf/testbench find optimization",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7645",
           "points": 2
         }
       ]
