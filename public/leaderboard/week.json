@@ -1,8 +1,8 @@
 {
   "period": "week",
-  "updatedAt": 1784166333860,
-  "startDate": "2026-07-09",
-  "endDate": "2026-07-16",
+  "updatedAt": 1784252940220,
+  "startDate": "2026-07-10",
+  "endDate": "2026-07-17",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -11,7 +11,7 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 21,
+      "total_points": 20,
       "activity_breakdown": {
         "PR opened": {
           "count": 3,
@@ -28,10 +28,6 @@
         "Review submitted": {
           "count": 1,
           "points": 4
-        },
-        "Issue closed": {
-          "count": 1,
-          "points": 1
         }
       },
       "daily_activity": [
@@ -49,11 +45,6 @@
           "date": "2026-07-10",
           "count": 7,
           "points": 15
-        },
-        {
-          "date": "2026-07-09",
-          "count": 1,
-          "points": 1
         }
       ],
       "activities": [
@@ -126,13 +117,6 @@
           "title": "Labeled issue #7638 - GSoC'26",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7638",
           "points": 2
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-07-09T06:29:17Z",
-          "title": "Closed issue #7635 - bug - Primary mentor can bypass leave restriction via destroy endpoint",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7635",
-          "points": 1
         }
       ]
     },
@@ -141,26 +125,31 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/175052103?v=4",
       "role": "Contributor",
-      "total_points": 15,
+      "total_points": 17,
       "activity_breakdown": {
+        "PR merged": {
+          "count": 2,
+          "points": 10
+        },
         "PR opened": {
           "count": 2,
           "points": 4
         },
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        },
         "Issue opened": {
-          "count": 2,
-          "points": 2
+          "count": 1,
+          "points": 1
         },
         "Issue labeled": {
-          "count": 2,
-          "points": 4
+          "count": 1,
+          "points": 2
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-07-17",
+          "count": 1,
+          "points": 5
+        },
         {
           "date": "2026-07-13",
           "count": 4,
@@ -170,14 +159,16 @@
           "date": "2026-07-10",
           "count": 1,
           "points": 2
-        },
-        {
-          "date": "2026-07-09",
-          "count": 2,
-          "points": 3
         }
       ],
       "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-07-17T01:34:33Z",
+          "title": "Dependabot fix",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7652",
+          "points": 5
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-07-13T20:24:30Z",
@@ -212,19 +203,84 @@
           "title": "fix - bump view_component and websocket-driver to resolve known CVEs",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7644",
           "points": 2
+        }
+      ]
+    },
+    {
+      "username": "SantamRC",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/52635773?v=4",
+      "role": "Contributor",
+      "total_points": 15,
+      "activity_breakdown": {
+        "PR merged": {
+          "count": 2,
+          "points": 10
+        },
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-16",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2026-07-14",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-07-10",
+          "count": 3,
+          "points": 8
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-07-16T16:01:35Z",
+          "title": "Fix black screen issue",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/636",
+          "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-14T15:38:48Z",
+          "title": "Fix black screen issue",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/636",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-07-10T17:45:49Z",
+          "title": "Santam GSoC 2026 Phase 1 Report",
+          "link": "https://github.com/CircuitVerse/Blog/pull/268",
+          "points": 5
         },
         {
           "type": "Issue opened",
-          "occured_at": "2026-07-09T19:59:01Z",
-          "title": "🐞 Bug - Bundler Audit Fails Due to Vulnerable view_component and websocket-driver Dependencies",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7636",
+          "occured_at": "2026-07-10T22:16:13Z",
+          "title": "Add Tests Workflow in the CI Pipeline",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/633",
           "points": 1
         },
         {
           "type": "Issue labeled",
-          "occured_at": "2026-07-09T19:59:02Z",
-          "title": "Labeled issue #7636 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7636",
+          "occured_at": "2026-07-10T22:16:14Z",
+          "title": "Labeled issue #633 - GSoC'26",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/633",
           "points": 2
         }
       ]
@@ -318,81 +374,55 @@
       ]
     },
     {
-      "username": "SantamRC",
+      "username": "JatsuAkaYashvant",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/52635773?v=4",
-      "role": "Contributor",
+      "avatar_url": "https://avatars.githubusercontent.com/u/146776812?u=cc4172c883c25226bcae3cfe615e81f336f8e4cf&v=4",
+      "role": "Maintainer",
       "total_points": 12,
       "activity_breakdown": {
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        },
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
+        "Review submitted": {
+          "count": 3,
+          "points": 12
         }
       },
       "daily_activity": [
         {
-          "date": "2026-07-14",
+          "date": "2026-07-16",
           "count": 1,
-          "points": 2
+          "points": 4
+        },
+        {
+          "date": "2026-07-15",
+          "count": 1,
+          "points": 4
         },
         {
           "date": "2026-07-10",
-          "count": 3,
-          "points": 8
-        },
-        {
-          "date": "2026-07-09",
           "count": 1,
-          "points": 2
+          "points": 4
         }
       ],
       "activities": [
         {
-          "type": "PR opened",
-          "occured_at": "2026-07-14T15:38:48Z",
-          "title": "Fix black screen issue",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/636",
-          "points": 2
+          "type": "Review submitted",
+          "occured_at": "2026-07-16T14:43:36Z",
+          "title": "Review on PR #272",
+          "link": "https://github.com/CircuitVerse/Blog/pull/272",
+          "points": 4
         },
         {
-          "type": "PR merged",
-          "occured_at": "2026-07-10T17:45:49Z",
-          "title": "Santam GSoC 2026 Phase 1 Report",
+          "type": "Review submitted",
+          "occured_at": "2026-07-15T07:56:11Z",
+          "title": "Review on PR #272",
+          "link": "https://github.com/CircuitVerse/Blog/pull/272",
+          "points": 4
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-07-10T17:40:31Z",
+          "title": "Review on PR #268",
           "link": "https://github.com/CircuitVerse/Blog/pull/268",
-          "points": 5
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-07-10T22:16:13Z",
-          "title": "Add Tests Workflow in the CI Pipeline",
-          "link": "https://github.com/CircuitVerse/mobile-app/issues/633",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-07-10T22:16:14Z",
-          "title": "Labeled issue #633 - GSoC'26",
-          "link": "https://github.com/CircuitVerse/mobile-app/issues/633",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-09T15:30:12Z",
-          "title": "Divided CI to Android, IOS and Web",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/632",
-          "points": 2
+          "points": 4
         }
       ]
     },
@@ -459,58 +489,6 @@
       ]
     },
     {
-      "username": "Nihal4777",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/65150640?u=25493788d913676f586e5d8c10be801ad634e3c9&v=4",
-      "role": "Maintainer",
-      "total_points": 9,
-      "activity_breakdown": {
-        "Review submitted": {
-          "count": 2,
-          "points": 8
-        },
-        "Issue closed": {
-          "count": 1,
-          "points": 1
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-07-10",
-          "count": 2,
-          "points": 5
-        },
-        {
-          "date": "2026-07-09",
-          "count": 1,
-          "points": 4
-        }
-      ],
-      "activities": [
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-07-10T14:00:24Z",
-          "title": "Review on PR #1137",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1137",
-          "points": 4
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-07-10T14:52:13Z",
-          "title": "Closed issue #1136 - 🐞 Bug - Flag element's Help button links to Tunnel documentation instead of Flag's",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1136",
-          "points": 1
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-07-09T11:49:58Z",
-          "title": "Review on PR #270",
-          "link": "https://github.com/CircuitVerse/Blog/pull/270",
-          "points": 4
-        }
-      ]
-    },
-    {
       "username": "Me-Priyank",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/143987856?v=4",
@@ -562,87 +540,6 @@
       ]
     },
     {
-      "username": "JatsuAkaYashvant",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/146776812?u=cc4172c883c25226bcae3cfe615e81f336f8e4cf&v=4",
-      "role": "Maintainer",
-      "total_points": 8,
-      "activity_breakdown": {
-        "Review submitted": {
-          "count": 2,
-          "points": 8
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-07-15",
-          "count": 1,
-          "points": 4
-        },
-        {
-          "date": "2026-07-10",
-          "count": 1,
-          "points": 4
-        }
-      ],
-      "activities": [
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-07-15T07:56:11Z",
-          "title": "Review on PR #272",
-          "link": "https://github.com/CircuitVerse/Blog/pull/272",
-          "points": 4
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-07-10T17:40:31Z",
-          "title": "Review on PR #268",
-          "link": "https://github.com/CircuitVerse/Blog/pull/268",
-          "points": 4
-        }
-      ]
-    },
-    {
-      "username": "ShinichiShi",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
-      "role": "Contributor",
-      "total_points": 7,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        },
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-07-09",
-          "count": 2,
-          "points": 7
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-09T18:13:22Z",
-          "title": "Fix(vuesim) - Import/Export of circuits in .cv format",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1134",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-07-09T16:33:21Z",
-          "title": "Supreeth GSoC 2026 Phase 1 Report",
-          "link": "https://github.com/CircuitVerse/Blog/pull/270",
-          "points": 5
-        }
-      ]
-    },
-    {
       "username": "Harkeerat24",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/225462441?v=4",
@@ -683,6 +580,51 @@
           "occured_at": "2026-07-13T14:07:05Z",
           "title": "GSoC26 Phase 1 Report - Structured Format for Saved Circuit Data",
           "link": "https://github.com/CircuitVerse/Blog/pull/271",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "Radhikaa-chauhan",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/148184013?v=4",
+      "role": "Contributor",
+      "total_points": 7,
+      "activity_breakdown": {
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        },
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-16",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2026-07-14",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-07-16T14:44:11Z",
+          "title": "Adding the the mergathon experience",
+          "link": "https://github.com/CircuitVerse/Blog/pull/272",
+          "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-14T16:56:51Z",
+          "title": "Adding the the mergathon experience",
+          "link": "https://github.com/CircuitVerse/Blog/pull/272",
           "points": 2
         }
       ]
@@ -741,6 +683,46 @@
       ]
     },
     {
+      "username": "Nihal4777",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/65150640?u=25493788d913676f586e5d8c10be801ad634e3c9&v=4",
+      "role": "Maintainer",
+      "total_points": 5,
+      "activity_breakdown": {
+        "Review submitted": {
+          "count": 1,
+          "points": 4
+        },
+        "Issue closed": {
+          "count": 1,
+          "points": 1
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-10",
+          "count": 2,
+          "points": 5
+        }
+      ],
+      "activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-07-10T14:00:24Z",
+          "title": "Review on PR #1137",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1137",
+          "points": 4
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-07-10T14:52:13Z",
+          "title": "Closed issue #1136 - 🐞 Bug - Flag element's Help button links to Tunnel documentation instead of Flag's",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1136",
+          "points": 1
+        }
+      ]
+    },
+    {
       "username": "deepak0x",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/149673145?v=4",
@@ -753,6 +735,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-07-16",
+          "count": 1,
+          "points": 1
+        },
         {
           "date": "2026-07-15",
           "count": 1,
@@ -767,14 +754,16 @@
           "date": "2026-07-10",
           "count": 2,
           "points": 2
-        },
-        {
-          "date": "2026-07-09",
-          "count": 1,
-          "points": 1
         }
       ],
       "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-16T07:51:23Z",
+          "title": "bug - Double DB write in groups controller — save! then save on same record",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7660",
+          "points": 1
+        },
         {
           "type": "Issue opened",
           "occured_at": "2026-07-15T04:45:23Z",
@@ -801,13 +790,6 @@
           "occured_at": "2026-07-10T14:25:48Z",
           "title": "Bug - API create_fork skips authorization — any user can fork Private & assignment projects (IDOR)",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7640",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-07-09T05:59:23Z",
-          "title": "bug - Primary mentor can bypass leave restriction via destroy endpoint",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7635",
           "points": 1
         }
       ]
@@ -869,35 +851,6 @@
           "title": "Closed issue #7636 - 🐞 Bug - Bundler Audit Fails Due to Vulnerable view_component and websocket-driver Dependencies",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7636",
           "points": 1
-        }
-      ]
-    },
-    {
-      "username": "niladrix719",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/91966855?u=734b23860794fec3826690023fa1a07b73159d5c&v=4",
-      "role": "Contributor",
-      "total_points": 4,
-      "activity_breakdown": {
-        "Review submitted": {
-          "count": 1,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-07-09",
-          "count": 1,
-          "points": 4
-        }
-      ],
-      "activities": [
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-07-09T06:40:22Z",
-          "title": "Review on PR #270",
-          "link": "https://github.com/CircuitVerse/Blog/pull/270",
-          "points": 4
         }
       ]
     },
@@ -995,35 +948,6 @@
           "occured_at": "2026-07-10T18:07:33Z",
           "title": "Labeled issue #7643 - 🐞 bug",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7643",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "Radhikaa-chauhan",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/148184013?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-07-14",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-14T16:56:51Z",
-          "title": "Adding the the mergathon experience",
-          "link": "https://github.com/CircuitVerse/Blog/pull/272",
           "points": 2
         }
       ]
