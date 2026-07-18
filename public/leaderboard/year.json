@@ -1,9 +1,9 @@
 {
   "period": "year",
-  "updatedAt": 1784252940205,
-  "lastFetchedAt": 1784252940205,
-  "startDate": "2025-07-17",
-  "endDate": "2026-07-17",
+  "updatedAt": 1784338167645,
+  "lastFetchedAt": 1784338167645,
+  "startDate": "2025-07-18",
+  "endDate": "2026-07-18",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -6827,13 +6827,17 @@
     {
       "username": "tachyons",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?u=a7289671a2d228cf269bc52e064be89f13882e10&v=4",
       "role": "Maintainer",
-      "total_points": 680,
+      "total_points": 685,
       "activity_breakdown": {
+        "Review submitted": {
+          "count": 39,
+          "points": 156
+        },
         "Issue closed": {
-          "count": 332,
-          "points": 332
+          "count": 333,
+          "points": 333
         },
         "Issue opened": {
           "count": 25,
@@ -6842,10 +6846,6 @@
         "Issue labeled": {
           "count": 4,
           "points": 8
-        },
-        "Review submitted": {
-          "count": 38,
-          "points": 152
         },
         "PR merged": {
           "count": 23,
@@ -6857,6 +6857,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-07-17",
+          "count": 2,
+          "points": 5
+        },
         {
           "date": "2026-07-15",
           "count": 2,
@@ -7354,6 +7359,20 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-07-17T13:19:20Z",
+          "title": "Review on PR #1126",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1126",
+          "points": 4
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-07-17T09:22:25Z",
+          "title": "Closed issue #1071 - (GSoC'26) Week 4 - Write canonicalSchema.json. Integrate validation in importCanonical.js.",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1071",
+          "points": 1
+        },
         {
           "type": "Issue closed",
           "occured_at": "2026-07-15T05:44:53Z",
@@ -14084,23 +14103,23 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
       "role": "Contributor",
-      "total_points": 431,
+      "total_points": 444,
       "activity_breakdown": {
         "PR opened": {
-          "count": 51,
-          "points": 102
+          "count": 53,
+          "points": 106
+        },
+        "Issue opened": {
+          "count": 43,
+          "points": 43
+        },
+        "Issue labeled": {
+          "count": 64,
+          "points": 128
         },
         "PR merged": {
           "count": 29,
           "points": 145
-        },
-        "Issue opened": {
-          "count": 40,
-          "points": 40
-        },
-        "Issue labeled": {
-          "count": 61,
-          "points": 122
         },
         "Issue closed": {
           "count": 22,
@@ -14108,6 +14127,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-07-17",
+          "count": 8,
+          "points": 13
+        },
         {
           "date": "2026-07-09",
           "count": 2,
@@ -14410,6 +14434,62 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-17T16:54:27Z",
+          "title": "fix(vuesim) - add bengali locale to vuesim",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1145",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-17T15:49:21Z",
+          "title": "Fix(vuesim) - use vue card text field instead of text input",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1142",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-17T16:40:39Z",
+          "title": "🐞 Bug - vuesim Add bengali language support in vuesim",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1144",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-17T16:00:11Z",
+          "title": "Feature Seperate build file for embed vue",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1143",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-17T15:46:22Z",
+          "title": "🐞 Bug - vuesim (ui) text field present while importing files",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1141",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-07-17T16:00:12Z",
+          "title": "Labeled issue #1143 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1143",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-07-17T16:40:40Z",
+          "title": "Labeled issue #1144 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1144",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-07-17T15:46:24Z",
+          "title": "Labeled issue #1141 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1141",
+          "points": 2
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-07-09T18:13:22Z",
@@ -20420,11 +20500,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/225462441?v=4",
       "role": "Contributor",
-      "total_points": 267,
+      "total_points": 277,
       "activity_breakdown": {
         "PR merged": {
-          "count": 10,
-          "points": 50
+          "count": 12,
+          "points": 60
         },
         "PR opened": {
           "count": 16,
@@ -20444,6 +20524,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-07-17",
+          "count": 2,
+          "points": 10
+        },
         {
           "date": "2026-07-14",
           "count": 1,
@@ -20556,6 +20641,20 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-07-17T14:04:46Z",
+          "title": "GSoC26 Phase 1 Report - Structured Format for Saved Circuit Data",
+          "link": "https://github.com/CircuitVerse/Blog/pull/271",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-07-17T09:22:23Z",
+          "title": "feat - add canonical JSON import pipeline with round-trip verification",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1131",
+          "points": 5
+        },
         {
           "type": "PR merged",
           "occured_at": "2026-07-14T17:14:41Z",
