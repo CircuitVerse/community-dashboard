@@ -1,9 +1,9 @@
 {
   "period": "year",
-  "updatedAt": 1785030735080,
-  "lastFetchedAt": 1785030735080,
-  "startDate": "2025-07-26",
-  "endDate": "2026-07-26",
+  "updatedAt": 1785117606652,
+  "lastFetchedAt": 1785117606652,
+  "startDate": "2025-07-27",
+  "endDate": "2026-07-27",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -3550,11 +3550,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/143987856?v=4",
       "role": "Contributor",
-      "total_points": 781,
+      "total_points": 783,
       "activity_breakdown": {
         "PR opened": {
-          "count": 47,
-          "points": 94
+          "count": 48,
+          "points": 96
         },
         "PR merged": {
           "count": 32,
@@ -3574,6 +3574,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-07-26",
+          "count": 1,
+          "points": 2
+        },
         {
           "date": "2026-07-20",
           "count": 1,
@@ -3886,6 +3891,13 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-26T14:34:52Z",
+          "title": "fix(verilog) - terminal visibility bug, i18n cleanup, and theme select refactor",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1167",
+          "points": 2
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-07-20T08:19:14Z",
@@ -14503,8 +14515,12 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
       "role": "Contributor",
-      "total_points": 464,
+      "total_points": 469,
       "activity_breakdown": {
+        "PR merged": {
+          "count": 5,
+          "points": 25
+        },
         "PR opened": {
           "count": 59,
           "points": 118
@@ -14517,10 +14533,6 @@
           "count": 78,
           "points": 156
         },
-        "PR merged": {
-          "count": 4,
-          "points": 20
-        },
         "Review submitted": {
           "count": 24,
           "points": 96
@@ -14531,6 +14543,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-07-26",
+          "count": 1,
+          "points": 5
+        },
         {
           "date": "2026-07-15",
           "count": 1,
@@ -14623,6 +14640,13 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-07-26T10:11:39Z",
+          "title": "fix(lti) - persist grades before LMS passback",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7647",
+          "points": 5
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-07-15T10:17:46Z",
@@ -19976,11 +20000,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/96644946?u=0a63041bdb02009db73142160eb13f4fcd0a4209&v=4",
       "role": "Maintainer",
-      "total_points": 285,
+      "total_points": 289,
       "activity_breakdown": {
         "Review submitted": {
-          "count": 50,
-          "points": 200
+          "count": 51,
+          "points": 204
         },
         "Issue opened": {
           "count": 4,
@@ -20000,6 +20024,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-07-26",
+          "count": 1,
+          "points": 4
+        },
         {
           "date": "2026-06-14",
           "count": 1,
@@ -20122,6 +20151,13 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-07-26T09:36:32Z",
+          "title": "Review on PR #7647",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7647",
+          "points": 4
+        },
         {
           "type": "Review submitted",
           "occured_at": "2026-06-14T15:45:44Z",
@@ -47570,6 +47606,70 @@
       ]
     },
     {
+      "username": "Shruti2110-coder",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/184974249?v=4",
+      "role": "Contributor",
+      "total_points": 11,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 3,
+          "points": 6
+        },
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-26",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-07-08",
+          "count": 2,
+          "points": 7
+        },
+        {
+          "date": "2026-07-06",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-26T16:39:57Z",
+          "title": "fix - guard Tauri-only event listeners with isTauri() check",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1168",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-08T08:39:10Z",
+          "title": "chore - remove active_storage_s3 feature flag (#7627)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7630",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-07-08T12:57:11Z",
+          "title": "refactor - clear setInterval on unmount in PropertiesPanelMobile.vue",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1127",
+          "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-06T13:34:22Z",
+          "title": "refactor - clear setInterval on unmount in PropertiesPanelMobile.vue",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1127",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "Uday9909",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/178378295?v=4",
@@ -48880,58 +48980,6 @@
           "occured_at": "2025-12-02T14:46:25Z",
           "title": "Update brewfile node 24",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6413",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "Shruti2110-coder",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/184974249?v=4",
-      "role": "Contributor",
-      "total_points": 9,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        },
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-07-08",
-          "count": 2,
-          "points": 7
-        },
-        {
-          "date": "2026-07-06",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-08T08:39:10Z",
-          "title": "chore - remove active_storage_s3 feature flag (#7627)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7630",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-07-08T12:57:11Z",
-          "title": "refactor - clear setInterval on unmount in PropertiesPanelMobile.vue",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1127",
-          "points": 5
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-06T13:34:22Z",
-          "title": "refactor - clear setInterval on unmount in PropertiesPanelMobile.vue",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1127",
           "points": 2
         }
       ]
@@ -53347,6 +53395,47 @@
       ]
     },
     {
+      "username": "UwaisBaig",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/223514962?v=4",
+      "role": "Contributor",
+      "total_points": 4,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-26",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-07-24",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-26T07:57:30Z",
+          "title": "fix(controller) - remove redundant description assignment and param shadowing in AssignmentsController (#7700)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7705",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-24T20:58:51Z",
+          "title": "fix - toggle behavior of Getting Started and User dropdowns (#7332)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7703",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "SankeerthNara",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/215511671?v=4",
@@ -55921,35 +56010,6 @@
           "title": "Feature Improve Login Page UI and Password Visibility Toggle",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/5387",
           "points": 1
-        }
-      ]
-    },
-    {
-      "username": "UwaisBaig",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/223514962?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-07-24",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-24T20:58:51Z",
-          "title": "fix - toggle behavior of Getting Started and User dropdowns (#7332)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7703",
-          "points": 2
         }
       ]
     },
