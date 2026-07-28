@@ -1,9 +1,9 @@
 {
   "period": "year",
-  "updatedAt": 1785117606652,
-  "lastFetchedAt": 1785117606652,
-  "startDate": "2025-07-27",
-  "endDate": "2026-07-27",
+  "updatedAt": 1785202984548,
+  "lastFetchedAt": 1785202984548,
+  "startDate": "2025-07-28",
+  "endDate": "2026-07-28",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -10692,15 +10692,15 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/65150640?u=25493788d913676f586e5d8c10be801ad634e3c9&v=4",
       "role": "Maintainer",
-      "total_points": 532,
+      "total_points": 537,
       "activity_breakdown": {
         "Review submitted": {
-          "count": 86,
-          "points": 344
+          "count": 87,
+          "points": 348
         },
         "Issue closed": {
-          "count": 58,
-          "points": 58
+          "count": 59,
+          "points": 59
         },
         "PR merged": {
           "count": 12,
@@ -10720,6 +10720,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-07-27",
+          "count": 2,
+          "points": 5
+        },
         {
           "date": "2026-07-18",
           "count": 2,
@@ -11112,6 +11117,20 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-07-27T14:29:46Z",
+          "title": "Review on PR #1163",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1163",
+          "points": 4
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-07-27T14:31:00Z",
+          "title": "Closed issue #1159 - 🐞 Bug - vuesim Left padding present in text annotation",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1159",
+          "points": 1
+        },
         {
           "type": "Review submitted",
           "occured_at": "2026-07-18T17:04:06Z",
@@ -12512,8 +12531,12 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
       "role": "Contributor",
-      "total_points": 497,
+      "total_points": 502,
       "activity_breakdown": {
+        "PR merged": {
+          "count": 34,
+          "points": 170
+        },
         "PR opened": {
           "count": 57,
           "points": 114
@@ -12526,16 +12549,17 @@
           "count": 73,
           "points": 146
         },
-        "PR merged": {
-          "count": 33,
-          "points": 165
-        },
         "Issue closed": {
           "count": 22,
           "points": 22
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-07-27",
+          "count": 1,
+          "points": 5
+        },
         {
           "date": "2026-07-24",
           "count": 4,
@@ -12863,6 +12887,13 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-07-27T14:30:58Z",
+          "title": "Remove unnecessary padding in text annotation",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1163",
+          "points": 5
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-07-24T15:57:49Z",
@@ -47606,6 +47637,90 @@
       ]
     },
     {
+      "username": "akshatsinghai6682-sketch",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/235907625?v=4",
+      "role": "Contributor",
+      "total_points": 11,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 3,
+          "points": 3
+        },
+        "Issue labeled": {
+          "count": 3,
+          "points": 6
+        },
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-27",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-07-21",
+          "count": 5,
+          "points": 8
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-27T21:23:20Z",
+          "title": "🐞Bug - Clock/Fullscreen panel (.clockPropertyHeader) overlaps circuit elements in embedded simulator",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1170",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-07-27T21:23:21Z",
+          "title": "Labeled issue #1170 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1170",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-21T20:13:19Z",
+          "title": "style() - reposition testbench panel and report issue button in v0",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1155",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-21T19:06:32Z",
+          "title": "🐞 Bug - TESTBENCH panel overlaps report-issue button in v0",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1154",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-21T06:43:24Z",
+          "title": "TESTBENCH panel overlaps Circuit Elements icons/labels when a category is expanded",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7690",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-07-21T19:06:33Z",
+          "title": "Labeled issue #1154 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1154",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-07-21T06:43:26Z",
+          "title": "Labeled issue #7690 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7690",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "Shruti2110-coder",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/184974249?v=4",
@@ -49598,71 +49713,6 @@
           "title": "fix - differentiate team section headings by color hierarchy",
           "link": "https://github.com/CircuitVerse/community-dashboard/pull/76",
           "points": 5
-        }
-      ]
-    },
-    {
-      "username": "akshatsinghai6682-sketch",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/235907625?v=4",
-      "role": "Contributor",
-      "total_points": 8,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        },
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        },
-        "Issue labeled": {
-          "count": 2,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-07-21",
-          "count": 5,
-          "points": 8
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-21T20:13:19Z",
-          "title": "style() - reposition testbench panel and report issue button in v0",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1155",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-07-21T19:06:32Z",
-          "title": "🐞 Bug - TESTBENCH panel overlaps report-issue button in v0",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1154",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-07-21T06:43:24Z",
-          "title": "TESTBENCH panel overlaps Circuit Elements icons/labels when a category is expanded",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7690",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-07-21T19:06:33Z",
-          "title": "Labeled issue #1154 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1154",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-07-21T06:43:26Z",
-          "title": "Labeled issue #7690 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7690",
-          "points": 2
         }
       ]
     },

@@ -1,8 +1,8 @@
 {
   "period": "week",
-  "updatedAt": 1785117606670,
-  "startDate": "2026-07-20",
-  "endDate": "2026-07-27",
+  "updatedAt": 1785202984567,
+  "startDate": "2026-07-21",
+  "endDate": "2026-07-28",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -13,6 +13,10 @@
       "role": "Contributor",
       "total_points": 38,
       "activity_breakdown": {
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        },
         "PR opened": {
           "count": 4,
           "points": 8
@@ -24,13 +28,14 @@
         "Issue labeled": {
           "count": 9,
           "points": 18
-        },
-        "PR merged": {
-          "count": 1,
-          "points": 5
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-07-27",
+          "count": 1,
+          "points": 5
+        },
         {
           "date": "2026-07-24",
           "count": 4,
@@ -40,14 +45,16 @@
           "date": "2026-07-21",
           "count": 16,
           "points": 25
-        },
-        {
-          "date": "2026-07-20",
-          "count": 1,
-          "points": 5
         }
       ],
       "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-07-27T14:30:58Z",
+          "title": "Remove unnecessary padding in text annotation",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1163",
+          "points": 5
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-07-24T15:57:49Z",
@@ -187,83 +194,6 @@
           "title": "Labeled issue #1158 - 🐞 bug",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1158",
           "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-07-20T16:03:36Z",
-          "title": "Convert data to JSON if its a parameter object",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7631",
-          "points": 5
-        }
-      ]
-    },
-    {
-      "username": "JituRewar",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/229604335?v=4",
-      "role": "Contributor",
-      "total_points": 8,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        },
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        },
-        "Issue labeled": {
-          "count": 2,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-07-21",
-          "count": 3,
-          "points": 5
-        },
-        {
-          "date": "2026-07-20",
-          "count": 2,
-          "points": 3
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-21T13:57:14Z",
-          "title": "fix(v1) - adjust top position of panels dynamically on tabs bar height…",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1151",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-07-21T14:12:19Z",
-          "title": "🐞 Bug - Prompt dialog input not focused automatically and Enter key does not submit in v1",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1152",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-07-21T14:12:20Z",
-          "title": "Labeled issue #1152 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1152",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-07-20T05:29:52Z",
-          "title": "🐞 Bug - Panels and toolbar overlap with tabs bar when expanded in v1/v0",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1149",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-07-20T05:29:53Z",
-          "title": "Labeled issue #1149 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1149",
-          "points": 2
         }
       ]
     },
@@ -272,22 +202,27 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/235907625?v=4",
       "role": "Contributor",
-      "total_points": 8,
+      "total_points": 11,
       "activity_breakdown": {
+        "Issue opened": {
+          "count": 3,
+          "points": 3
+        },
+        "Issue labeled": {
+          "count": 3,
+          "points": 6
+        },
         "PR opened": {
           "count": 1,
           "points": 2
-        },
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        },
-        "Issue labeled": {
-          "count": 2,
-          "points": 4
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-07-27",
+          "count": 2,
+          "points": 3
+        },
         {
           "date": "2026-07-21",
           "count": 5,
@@ -295,6 +230,20 @@
         }
       ],
       "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-27T21:23:20Z",
+          "title": "🐞Bug - Clock/Fullscreen panel (.clockPropertyHeader) overlaps circuit elements in embedded simulator",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1170",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-07-27T21:23:21Z",
+          "title": "Labeled issue #1170 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1170",
+          "points": 2
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-07-21T20:13:19Z",
@@ -329,46 +278,6 @@
           "title": "Labeled issue #7690 - 🐞 bug",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7690",
           "points": 2
-        }
-      ]
-    },
-    {
-      "username": "Yana-do-code",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/173885830?v=4",
-      "role": "Contributor",
-      "total_points": 7,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        },
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-07-20",
-          "count": 2,
-          "points": 7
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-20T07:17:55Z",
-          "title": "update(forum) - redirecting /forum to the correct destination",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7686",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-07-20T14:15:01Z",
-          "title": "update(forum) - redirecting /forum to the correct destination",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7686",
-          "points": 5
         }
       ]
     },
@@ -427,9 +336,9 @@
       ]
     },
     {
-      "username": "tachyons",
+      "username": "Nihal4777",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?u=a7289671a2d228cf269bc52e064be89f13882e10&v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/65150640?u=25493788d913676f586e5d8c10be801ad634e3c9&v=4",
       "role": "Maintainer",
       "total_points": 5,
       "activity_breakdown": {
@@ -444,29 +353,24 @@
       },
       "daily_activity": [
         {
-          "date": "2026-07-24",
-          "count": 1,
-          "points": 4
-        },
-        {
-          "date": "2026-07-20",
-          "count": 1,
-          "points": 1
+          "date": "2026-07-27",
+          "count": 2,
+          "points": 5
         }
       ],
       "activities": [
         {
           "type": "Review submitted",
-          "occured_at": "2026-07-24T15:36:14Z",
-          "title": "Review on PR #7630",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7630",
+          "occured_at": "2026-07-27T14:29:46Z",
+          "title": "Review on PR #1163",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1163",
           "points": 4
         },
         {
           "type": "Issue closed",
-          "occured_at": "2026-07-20T16:03:38Z",
-          "title": "Closed issue #7444 - 🐞 Bug(vuesim) - Circuit data API returns invalid payload when created from Vue simulator",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7444",
+          "occured_at": "2026-07-27T14:31:00Z",
+          "title": "Closed issue #1159 - 🐞 Bug - vuesim Left padding present in text annotation",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1159",
           "points": 1
         }
       ]
@@ -501,43 +405,82 @@
       ]
     },
     {
-      "username": "Me-Priyank",
+      "username": "JituRewar",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/143987856?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/229604335?v=4",
       "role": "Contributor",
-      "total_points": 4,
+      "total_points": 5,
       "activity_breakdown": {
         "PR opened": {
-          "count": 2,
-          "points": 4
+          "count": 1,
+          "points": 2
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
         }
       },
       "daily_activity": [
         {
-          "date": "2026-07-26",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-07-20",
-          "count": 1,
-          "points": 2
+          "date": "2026-07-21",
+          "count": 3,
+          "points": 5
         }
       ],
       "activities": [
         {
           "type": "PR opened",
-          "occured_at": "2026-07-26T14:34:52Z",
-          "title": "fix(verilog) - terminal visibility bug, i18n cleanup, and theme select refactor",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1167",
+          "occured_at": "2026-07-21T13:57:14Z",
+          "title": "fix(v1) - adjust top position of panels dynamically on tabs bar height…",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1151",
           "points": 2
         },
         {
-          "type": "PR opened",
-          "occured_at": "2026-07-20T08:19:14Z",
-          "title": "chore(synthesis) - add parity tests for Yosys WASM pipeline output",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1150",
+          "type": "Issue opened",
+          "occured_at": "2026-07-21T14:12:19Z",
+          "title": "🐞 Bug - Prompt dialog input not focused automatically and Enter key does not submit in v1",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1152",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-07-21T14:12:20Z",
+          "title": "Labeled issue #1152 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1152",
           "points": 2
+        }
+      ]
+    },
+    {
+      "username": "tachyons",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?u=a7289671a2d228cf269bc52e064be89f13882e10&v=4",
+      "role": "Maintainer",
+      "total_points": 4,
+      "activity_breakdown": {
+        "Review submitted": {
+          "count": 1,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-24",
+          "count": 1,
+          "points": 4
+        }
+      ],
+      "activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-07-24T15:36:14Z",
+          "title": "Review on PR #7630",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7630",
+          "points": 4
         }
       ]
     },
@@ -567,47 +510,6 @@
           "title": "Review on PR #7647",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7647",
           "points": 4
-        }
-      ]
-    },
-    {
-      "username": "aryan7071",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/175052103?v=4",
-      "role": "Contributor",
-      "total_points": 4,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-07-22",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-07-20",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-22T19:35:52Z",
-          "title": "fix - update forum link to circuitverse.discourse.group",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1161",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-20T15:11:38Z",
-          "title": "fix - bump loofah and rails-html-sanitizer to patch known vulnerabilities",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7687",
-          "points": 2
         }
       ]
     },
@@ -723,6 +625,64 @@
           "title": "Closed issue #7690 - TESTBENCH panel overlaps Circuit Elements icons/labels when a category is expanded",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7690",
           "points": 1
+        }
+      ]
+    },
+    {
+      "username": "Me-Priyank",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/143987856?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-26",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-26T14:34:52Z",
+          "title": "fix(verilog) - terminal visibility bug, i18n cleanup, and theme select refactor",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1167",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "aryan7071",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/175052103?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-22",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-22T19:35:52Z",
+          "title": "fix - update forum link to circuitverse.discourse.group",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1161",
+          "points": 2
         }
       ]
     },

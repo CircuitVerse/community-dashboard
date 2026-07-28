@@ -1,8 +1,8 @@
 {
   "period": "month",
-  "updatedAt": 1785117606674,
-  "startDate": "2026-06-27",
-  "endDate": "2026-07-27",
+  "updatedAt": 1785202984571,
+  "startDate": "2026-06-28",
+  "endDate": "2026-07-28",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -11,8 +11,12 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
       "role": "Contributor",
-      "total_points": 97,
+      "total_points": 102,
       "activity_breakdown": {
+        "PR merged": {
+          "count": 8,
+          "points": 40
+        },
         "PR opened": {
           "count": 11,
           "points": 22
@@ -24,13 +28,14 @@
         "Issue labeled": {
           "count": 14,
           "points": 28
-        },
-        "PR merged": {
-          "count": 7,
-          "points": 35
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-07-27",
+          "count": 1,
+          "points": 5
+        },
         {
           "date": "2026-07-24",
           "count": 4,
@@ -83,6 +88,13 @@
         }
       ],
       "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-07-27T14:30:58Z",
+          "title": "Remove unnecessary padding in text annotation",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1163",
+          "points": 5
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-07-24T15:57:49Z",
@@ -1472,15 +1484,15 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/65150640?u=25493788d913676f586e5d8c10be801ad634e3c9&v=4",
       "role": "Maintainer",
-      "total_points": 40,
+      "total_points": 45,
       "activity_breakdown": {
         "Review submitted": {
-          "count": 8,
-          "points": 32
+          "count": 9,
+          "points": 36
         },
         "Issue closed": {
-          "count": 3,
-          "points": 3
+          "count": 4,
+          "points": 4
         },
         "PR merged": {
           "count": 1,
@@ -1488,6 +1500,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-07-27",
+          "count": 2,
+          "points": 5
+        },
         {
           "date": "2026-07-18",
           "count": 2,
@@ -1530,6 +1547,20 @@
         }
       ],
       "activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-07-27T14:29:46Z",
+          "title": "Review on PR #1163",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1163",
+          "points": 4
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-07-27T14:31:00Z",
+          "title": "Closed issue #1159 - 🐞 Bug - vuesim Left padding present in text annotation",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1159",
+          "points": 1
+        },
         {
           "type": "Review submitted",
           "occured_at": "2026-07-18T17:04:06Z",
@@ -2431,156 +2462,6 @@
       ]
     },
     {
-      "username": "deepak0x",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/149673145?v=4",
-      "role": "Contributor",
-      "total_points": 15,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 9,
-          "points": 9
-        },
-        "PR opened": {
-          "count": 3,
-          "points": 6
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-07-23",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-07-16",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-07-15",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-07-14",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-07-10",
-          "count": 2,
-          "points": 2
-        },
-        {
-          "date": "2026-07-09",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-07-06",
-          "count": 3,
-          "points": 5
-        },
-        {
-          "date": "2026-07-05",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-06-27",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-07-23T05:45:47Z",
-          "title": "bug - Double DB write in AssignmentsController#update — error branch is dead code",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7700",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-07-16T07:51:23Z",
-          "title": "bug - Double DB write in groups controller — save! then save on same record",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7660",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-07-15T04:45:23Z",
-          "title": "bug - Unchecked save in start action redirects to nil-id project path",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7658",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-07-14T14:33:43Z",
-          "title": "bug - Project owner silently added as own collaborator despite warning",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7655",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-07-10T15:21:30Z",
-          "title": "Bug - group update permits primary_mentor_id via mass assignment (unintended ownership transfer)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7641",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-07-10T14:25:48Z",
-          "title": "Bug - API create_fork skips authorization — any user can fork Private & assignment projects (IDOR)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7640",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-07-09T05:59:23Z",
-          "title": "bug - Primary mentor can bypass leave restriction via destroy endpoint",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7635",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-06T10:29:52Z",
-          "title": "fix - sanitize project name inside project_params so it is persisted (#7559)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7620",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-06T08:31:38Z",
-          "title": "fix - block removing an org member who is a group's primary mentor (#7615)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7618",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-07-06T12:24:03Z",
-          "title": "bug - Site admin blocked from updating sole admin membership but can still destroy it",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7621",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-07-05T15:23:15Z",
-          "title": "bug - destroy? allows primary mentor to remove own org membership",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7615",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-06-27T22:47:53Z",
-          "title": "fix - guard nil image param in simulator_helper to prevent NoMethodError (#7558)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7566",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "bhuvan-somisetty",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/226660604?v=4",
@@ -2745,6 +2626,144 @@
           "title": "feat(groups) - subgroups (teams) within a group",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7632",
           "points": 2
+        }
+      ]
+    },
+    {
+      "username": "deepak0x",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/149673145?v=4",
+      "role": "Contributor",
+      "total_points": 13,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 9,
+          "points": 9
+        },
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-23",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-07-16",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-07-15",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-07-14",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-07-10",
+          "count": 2,
+          "points": 2
+        },
+        {
+          "date": "2026-07-09",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-07-06",
+          "count": 3,
+          "points": 5
+        },
+        {
+          "date": "2026-07-05",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-23T05:45:47Z",
+          "title": "bug - Double DB write in AssignmentsController#update — error branch is dead code",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7700",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-16T07:51:23Z",
+          "title": "bug - Double DB write in groups controller — save! then save on same record",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7660",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-15T04:45:23Z",
+          "title": "bug - Unchecked save in start action redirects to nil-id project path",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7658",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-14T14:33:43Z",
+          "title": "bug - Project owner silently added as own collaborator despite warning",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7655",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-10T15:21:30Z",
+          "title": "Bug - group update permits primary_mentor_id via mass assignment (unintended ownership transfer)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7641",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-10T14:25:48Z",
+          "title": "Bug - API create_fork skips authorization — any user can fork Private & assignment projects (IDOR)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7640",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-09T05:59:23Z",
+          "title": "bug - Primary mentor can bypass leave restriction via destroy endpoint",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7635",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-06T10:29:52Z",
+          "title": "fix - sanitize project name inside project_params so it is persisted (#7559)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7620",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-06T08:31:38Z",
+          "title": "fix - block removing an org member who is a group's primary mentor (#7615)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7618",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-06T12:24:03Z",
+          "title": "bug - Site admin blocked from updating sole admin membership but can still destroy it",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7621",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-05T15:23:15Z",
+          "title": "bug - destroy? allows primary mentor to remove own org membership",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7615",
+          "points": 1
         }
       ]
     },
@@ -2948,6 +2967,90 @@
           "title": "Closed issue #1058 - Feature - Introduce Client-Side Verilog Synthesis via Web Worker for Tauri Desktop",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1058",
           "points": 1
+        }
+      ]
+    },
+    {
+      "username": "akshatsinghai6682-sketch",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/235907625?v=4",
+      "role": "Contributor",
+      "total_points": 11,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 3,
+          "points": 3
+        },
+        "Issue labeled": {
+          "count": 3,
+          "points": 6
+        },
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-27",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-07-21",
+          "count": 5,
+          "points": 8
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-27T21:23:20Z",
+          "title": "🐞Bug - Clock/Fullscreen panel (.clockPropertyHeader) overlaps circuit elements in embedded simulator",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1170",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-07-27T21:23:21Z",
+          "title": "Labeled issue #1170 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1170",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-21T20:13:19Z",
+          "title": "style() - reposition testbench panel and report issue button in v0",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1155",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-21T19:06:32Z",
+          "title": "🐞 Bug - TESTBENCH panel overlaps report-issue button in v0",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1154",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-21T06:43:24Z",
+          "title": "TESTBENCH panel overlaps Circuit Elements icons/labels when a category is expanded",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7690",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-07-21T19:06:33Z",
+          "title": "Labeled issue #1154 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1154",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-07-21T06:43:26Z",
+          "title": "Labeled issue #7690 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7690",
+          "points": 2
         }
       ]
     },
@@ -3167,71 +3270,6 @@
           "title": "Review on PR #1095",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1095",
           "points": 4
-        }
-      ]
-    },
-    {
-      "username": "akshatsinghai6682-sketch",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/235907625?v=4",
-      "role": "Contributor",
-      "total_points": 8,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        },
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        },
-        "Issue labeled": {
-          "count": 2,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-07-21",
-          "count": 5,
-          "points": 8
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-21T20:13:19Z",
-          "title": "style() - reposition testbench panel and report issue button in v0",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1155",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-07-21T19:06:32Z",
-          "title": "🐞 Bug - TESTBENCH panel overlaps report-issue button in v0",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1154",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-07-21T06:43:24Z",
-          "title": "TESTBENCH panel overlaps Circuit Elements icons/labels when a category is expanded",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7690",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-07-21T19:06:33Z",
-          "title": "Labeled issue #1154 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1154",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-07-21T06:43:26Z",
-          "title": "Labeled issue #7690 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7690",
-          "points": 2
         }
       ]
     },
