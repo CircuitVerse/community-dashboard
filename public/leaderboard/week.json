@@ -1,8 +1,8 @@
 {
   "period": "week",
-  "updatedAt": 1785549307041,
-  "startDate": "2026-07-25",
-  "endDate": "2026-08-01",
+  "updatedAt": 1785635487009,
+  "startDate": "2026-07-26",
+  "endDate": "2026-08-02",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -11,15 +11,15 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 18,
+      "total_points": 20,
       "activity_breakdown": {
+        "PR opened": {
+          "count": 3,
+          "points": 6
+        },
         "PR merged": {
           "count": 1,
           "points": 5
-        },
-        "PR opened": {
-          "count": 2,
-          "points": 4
         },
         "Issue opened": {
           "count": 1,
@@ -36,6 +36,11 @@
       },
       "daily_activity": [
         {
+          "date": "2026-08-01",
+          "count": 1,
+          "points": 2
+        },
+        {
           "date": "2026-07-31",
           "count": 1,
           "points": 5
@@ -47,6 +52,13 @@
         }
       ],
       "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-01T03:50:32Z",
+          "title": "feat(organizations) - org-scoped group URLs, membership on join, and role-based visibility",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7720",
+          "points": 2
+        },
         {
           "type": "PR merged",
           "occured_at": "2026-07-31T04:58:49Z",
@@ -95,6 +107,134 @@
           "title": "Labeled issue #7710 - pending triage",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7710",
           "points": 2
+        }
+      ]
+    },
+    {
+      "username": "Nihal4777",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/65150640?u=25493788d913676f586e5d8c10be801ad634e3c9&v=4",
+      "role": "Maintainer",
+      "total_points": 14,
+      "activity_breakdown": {
+        "Review submitted": {
+          "count": 3,
+          "points": 12
+        },
+        "Issue closed": {
+          "count": 2,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-01",
+          "count": 2,
+          "points": 5
+        },
+        {
+          "date": "2026-07-30",
+          "count": 1,
+          "points": 4
+        },
+        {
+          "date": "2026-07-27",
+          "count": 2,
+          "points": 5
+        }
+      ],
+      "activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-08-01T15:48:00Z",
+          "title": "Review on PR #1164",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1164",
+          "points": 4
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-08-01T15:51:42Z",
+          "title": "Closed issue #1156 - 🐞 Bug - vuesim shortcut keys reset after saving",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1156",
+          "points": 1
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-07-30T12:49:58Z",
+          "title": "Review on PR #1167",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1167",
+          "points": 4
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-07-27T14:29:46Z",
+          "title": "Review on PR #1163",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1163",
+          "points": 4
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-07-27T14:31:00Z",
+          "title": "Closed issue #1159 - 🐞 Bug - vuesim Left padding present in text annotation",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1159",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "username": "ShinichiShi",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
+      "role": "Contributor",
+      "total_points": 12,
+      "activity_breakdown": {
+        "PR merged": {
+          "count": 2,
+          "points": 10
+        },
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-01",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2026-07-31",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-07-27",
+          "count": 1,
+          "points": 5
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-08-01T15:51:41Z",
+          "title": "Prevent overwrite of user custom shortcuts",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1164",
+          "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-31T14:13:17Z",
+          "title": "fix - handle expired token",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7719",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-07-27T14:30:58Z",
+          "title": "Remove unnecessary padding in text annotation",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1163",
+          "points": 5
         }
       ]
     },
@@ -295,58 +435,6 @@
       ]
     },
     {
-      "username": "Nihal4777",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/65150640?u=25493788d913676f586e5d8c10be801ad634e3c9&v=4",
-      "role": "Maintainer",
-      "total_points": 9,
-      "activity_breakdown": {
-        "Review submitted": {
-          "count": 2,
-          "points": 8
-        },
-        "Issue closed": {
-          "count": 1,
-          "points": 1
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-07-30",
-          "count": 1,
-          "points": 4
-        },
-        {
-          "date": "2026-07-27",
-          "count": 2,
-          "points": 5
-        }
-      ],
-      "activities": [
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-07-30T12:49:58Z",
-          "title": "Review on PR #1167",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1167",
-          "points": 4
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-07-27T14:29:46Z",
-          "title": "Review on PR #1163",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1163",
-          "points": 4
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-07-27T14:31:00Z",
-          "title": "Closed issue #1159 - 🐞 Bug - vuesim Left padding present in text annotation",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1159",
-          "points": 1
-        }
-      ]
-    },
-    {
       "username": "Me-Priyank",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/143987856?v=4",
@@ -388,51 +476,6 @@
           "title": "fix(verilog) - terminal visibility bug, i18n cleanup, and theme select refactor",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1167",
           "points": 2
-        }
-      ]
-    },
-    {
-      "username": "ShinichiShi",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
-      "role": "Contributor",
-      "total_points": 7,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        },
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-07-31",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-07-27",
-          "count": 1,
-          "points": 5
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-31T14:13:17Z",
-          "title": "fix - handle expired token",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7719",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-07-27T14:30:58Z",
-          "title": "Remove unnecessary padding in text annotation",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1163",
-          "points": 5
         }
       ]
     },
@@ -618,6 +661,51 @@
       ]
     },
     {
+      "username": "Shruti2110-coder",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/184974249?v=4",
+      "role": "Contributor",
+      "total_points": 3,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-01",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-07-26",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-01T16:10:36Z",
+          "title": "Progress bar script throws \"Cannot read properties of null\" on every page (invalid selector in general_scripts.html)",
+          "link": "https://github.com/CircuitVerse/Interactive-Book/issues/800",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-26T16:39:57Z",
+          "title": "fix - guard Tauri-only event listeners with isTauri() check",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1168",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "Mariyaboy03",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/93508506?v=4",
@@ -682,35 +770,6 @@
           "occured_at": "2026-07-30T05:56:21Z",
           "title": "feat - add auto-focus functionality to MessageBox component in V1",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1175",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "Shruti2110-coder",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/184974249?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-07-26",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-26T16:39:57Z",
-          "title": "fix - guard Tauri-only event listeners with isTauri() check",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1168",
           "points": 2
         }
       ]
