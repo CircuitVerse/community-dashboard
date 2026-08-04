@@ -1,8 +1,8 @@
 {
   "period": "week",
-  "updatedAt": 1785722028673,
-  "startDate": "2026-07-27",
-  "endDate": "2026-08-03",
+  "updatedAt": 1785806934844,
+  "startDate": "2026-07-28",
+  "endDate": "2026-08-04",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -144,77 +144,6 @@
       ]
     },
     {
-      "username": "Nihal4777",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/65150640?v=4",
-      "role": "Maintainer",
-      "total_points": 14,
-      "activity_breakdown": {
-        "Review submitted": {
-          "count": 3,
-          "points": 12
-        },
-        "Issue closed": {
-          "count": 2,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-01",
-          "count": 2,
-          "points": 5
-        },
-        {
-          "date": "2026-07-30",
-          "count": 1,
-          "points": 4
-        },
-        {
-          "date": "2026-07-27",
-          "count": 2,
-          "points": 5
-        }
-      ],
-      "activities": [
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-08-01T15:48:00Z",
-          "title": "Review on PR #1164",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1164",
-          "points": 4
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-08-01T15:51:42Z",
-          "title": "Closed issue #1156 - 🐞 Bug - vuesim shortcut keys reset after saving",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1156",
-          "points": 1
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-07-30T12:49:58Z",
-          "title": "Review on PR #1167",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1167",
-          "points": 4
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-07-27T14:29:46Z",
-          "title": "Review on PR #1163",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1163",
-          "points": 4
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-07-27T14:31:00Z",
-          "title": "Closed issue #1159 - 🐞 Bug - vuesim Left padding present in text annotation",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1159",
-          "points": 1
-        }
-      ]
-    },
-    {
       "username": "ShinichiShi",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
@@ -232,6 +161,11 @@
       },
       "daily_activity": [
         {
+          "date": "2026-08-03",
+          "count": 1,
+          "points": 5
+        },
+        {
           "date": "2026-08-01",
           "count": 1,
           "points": 5
@@ -240,14 +174,16 @@
           "date": "2026-07-31",
           "count": 1,
           "points": 2
-        },
-        {
-          "date": "2026-07-27",
-          "count": 1,
-          "points": 5
         }
       ],
       "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-08-03T09:47:07Z",
+          "title": "fix - handle expired token",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7719",
+          "points": 5
+        },
         {
           "type": "PR merged",
           "occured_at": "2026-08-01T15:51:41Z",
@@ -261,13 +197,6 @@
           "title": "fix - handle expired token",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7719",
           "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-07-27T14:30:58Z",
-          "title": "Remove unnecessary padding in text annotation",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1163",
-          "points": 5
         }
       ]
     },
@@ -335,6 +264,58 @@
           "title": "Labeled issue #1172 - gsoc 2026",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1172",
           "points": 2
+        }
+      ]
+    },
+    {
+      "username": "Nihal4777",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/65150640?v=4",
+      "role": "Maintainer",
+      "total_points": 9,
+      "activity_breakdown": {
+        "Review submitted": {
+          "count": 2,
+          "points": 8
+        },
+        "Issue closed": {
+          "count": 1,
+          "points": 1
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-01",
+          "count": 2,
+          "points": 5
+        },
+        {
+          "date": "2026-07-30",
+          "count": 1,
+          "points": 4
+        }
+      ],
+      "activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-08-01T15:48:00Z",
+          "title": "Review on PR #1164",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1164",
+          "points": 4
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-08-01T15:51:42Z",
+          "title": "Closed issue #1156 - 🐞 Bug - vuesim shortcut keys reset after saving",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1156",
+          "points": 1
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-07-30T12:49:58Z",
+          "title": "Review on PR #1167",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1167",
+          "points": 4
         }
       ]
     },
@@ -496,65 +477,6 @@
       ]
     },
     {
-      "username": "akshatsinghai6682-sketch",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/235907625?v=4",
-      "role": "Contributor",
-      "total_points": 6,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        },
-        "Issue labeled": {
-          "count": 2,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-07-28",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-07-27",
-          "count": 2,
-          "points": 3
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-07-28T05:43:01Z",
-          "title": "🐞 Bug - Clock/Fullscreen panel (.clockPropertyHeader) overlaps circuit elements in embedded simulator",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7707",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-07-28T05:43:02Z",
-          "title": "Labeled issue #7707 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7707",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-07-27T21:23:20Z",
-          "title": "🐞Bug - Clock/Fullscreen panel (.clockPropertyHeader) overlaps circuit elements in embedded simulator",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1170",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-07-27T21:23:21Z",
-          "title": "Labeled issue #1170 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1170",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "Me-Priyank",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/143987856?v=4",
@@ -580,6 +502,57 @@
           "title": "fix(verilog) - terminal visibility bug, i18n cleanup, and theme select refactor",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1167",
           "points": 5
+        }
+      ]
+    },
+    {
+      "username": "aryan7071",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/175052103?v=4",
+      "role": "Contributor",
+      "total_points": 5,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-03",
+          "count": 3,
+          "points": 5
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-03T20:10:47Z",
+          "title": "fix - resolve rubocop lint offenses in spec files",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7724",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-03T07:59:49Z",
+          "title": "🐞 Bug Bug CI lint failing on master",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7723",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-08-03T07:59:50Z",
+          "title": "Labeled issue #7723 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7723",
+          "points": 2
         }
       ]
     },
@@ -620,6 +593,46 @@
           "occured_at": "2026-07-29T17:00:06Z",
           "title": "fix - clear setInterval on unmount in PropertiesPanel.vue (#469)",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1174",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "akshatsinghai6682-sketch",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/235907625?v=4",
+      "role": "Contributor",
+      "total_points": 3,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-07-28",
+          "count": 2,
+          "points": 3
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-28T05:43:01Z",
+          "title": "🐞 Bug - Clock/Fullscreen panel (.clockPropertyHeader) overlaps circuit elements in embedded simulator",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7707",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-07-28T05:43:02Z",
+          "title": "Labeled issue #7707 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7707",
           "points": 2
         }
       ]
@@ -731,6 +744,35 @@
           "title": "Progress bar script throws \"Cannot read properties of null\" on every page (invalid selector in general_scripts.html)",
           "link": "https://github.com/CircuitVerse/Interactive-Book/issues/800",
           "points": 1
+        }
+      ]
+    },
+    {
+      "username": "lakshaydevoo-arch",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/229351168?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-03",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-03T18:09:41Z",
+          "title": "Fixed Progress bar script throws",
+          "link": "https://github.com/CircuitVerse/Interactive-Book/pull/801",
+          "points": 2
         }
       ]
     }
