@@ -1,36 +1,45 @@
 {
   "period": "week",
-  "updatedAt": 1786237090826,
-  "startDate": "2026-08-02",
-  "endDate": "2026-08-09",
+  "updatedAt": 1786323600095,
+  "startDate": "2026-08-03",
+  "endDate": "2026-08-10",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
     {
       "username": "naman79820",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/159947791?u=c48301089f863779d54d2227553923ff284ac6a4&v=4",
       "role": "Contributor",
-      "total_points": 52,
+      "total_points": 49,
       "activity_breakdown": {
+        "Review submitted": {
+          "count": 1,
+          "points": 4
+        },
         "PR opened": {
-          "count": 7,
-          "points": 14
+          "count": 6,
+          "points": 12
         },
         "PR merged": {
           "count": 4,
           "points": 20
         },
         "Issue opened": {
-          "count": 4,
-          "points": 4
+          "count": 3,
+          "points": 3
         },
         "Issue labeled": {
-          "count": 7,
-          "points": 14
+          "count": 5,
+          "points": 10
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-08-09",
+          "count": 1,
+          "points": 4
+        },
         {
           "date": "2026-08-08",
           "count": 2,
@@ -55,14 +64,16 @@
           "date": "2026-08-04",
           "count": 1,
           "points": 5
-        },
-        {
-          "date": "2026-08-02",
-          "count": 4,
-          "points": 7
         }
       ],
       "activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-08-09T17:15:38Z",
+          "title": "Review on PR #7730",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7730",
+          "points": 4
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-08-08T03:06:55Z",
@@ -188,34 +199,6 @@
           "title": "Labeled issue #7738 - 🌟 feature",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7738",
           "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-02T04:25:46Z",
-          "title": "feat(organizations) - scope assignments under organization group URLs",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7722",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-08-02T04:19:39Z",
-          "title": "Feature - Scope assignments under organization-owned group URLs",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7721",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-08-02T04:19:39Z",
-          "title": "Labeled issue #7721 - 🌟 feature",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7721",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-08-02T04:19:47Z",
-          "title": "Labeled issue #7721 - GSoC'26",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7721",
-          "points": 2
         }
       ]
     },
@@ -224,26 +207,31 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
       "role": "Contributor",
-      "total_points": 17,
+      "total_points": 27,
       "activity_breakdown": {
         "PR opened": {
-          "count": 2,
-          "points": 4
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
+          "count": 3,
+          "points": 6
         },
         "PR merged": {
+          "count": 3,
+          "points": 15
+        },
+        "Issue opened": {
           "count": 2,
-          "points": 10
+          "points": 2
+        },
+        "Issue labeled": {
+          "count": 2,
+          "points": 4
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-08-09",
+          "count": 4,
+          "points": 10
+        },
         {
           "date": "2026-08-08",
           "count": 3,
@@ -266,6 +254,34 @@
         }
       ],
       "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-09T11:42:23Z",
+          "title": "Switch tabsbar toggle to show all circuit components",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1188",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-08-09T06:14:19Z",
+          "title": "Add the csrf token into vuesim",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7761",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-09T11:39:01Z",
+          "title": "🐞 Bug - vuesim The tabsbar shows collapsed height by default",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1187",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-08-09T11:39:02Z",
+          "title": "Labeled issue #1187 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1187",
+          "points": 2
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-08-08T16:09:54Z",
@@ -401,6 +417,79 @@
       ]
     },
     {
+      "username": "magic-peach",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
+      "role": "Contributor",
+      "total_points": 15,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 5,
+          "points": 10
+        },
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-09",
+          "count": 5,
+          "points": 13
+        },
+        {
+          "date": "2026-08-06",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-09T16:20:15Z",
+          "title": "feat(lti) - add Lti - - Score to publish grades to the platform",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7767",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-09T11:55:41Z",
+          "title": "feat(lti) - add Lti - - LineItem for gradebook columns",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7765",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-09T09:01:37Z",
+          "title": "feat(lti) - add Lti - - AccessToken for platform service calls",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7764",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-09T07:14:00Z",
+          "title": "feat(lti) - add LtiResourceLink for launch service endpoints",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7763",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-08-09T13:40:06Z",
+          "title": "feat(lti) - add JWKS and tool configuration endpoints",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7659",
+          "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-06T09:58:13Z",
+          "title": "feat(lti) - add OIDC login initiation with signed state and nonce",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7746",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "aryan7071",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/175052103?v=4",
@@ -468,67 +557,6 @@
       ]
     },
     {
-      "username": "Shruti2110-coder",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/184974249?v=4",
-      "role": "Contributor",
-      "total_points": 8,
-      "activity_breakdown": {
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        },
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-08",
-          "count": 1,
-          "points": 5
-        },
-        {
-          "date": "2026-08-07",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-08-02",
-          "count": 1,
-          "points": 1
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR merged",
-          "occured_at": "2026-08-08T15:11:13Z",
-          "title": "chore - remove active_storage_s3 feature flag (#7627)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7630",
-          "points": 5
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-07T17:44:16Z",
-          "title": "chore - fix remaining oxlint warnings",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1182",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-08-02T15:50:07Z",
-          "title": "🧹 Chore - Clean up lint warnings across src/ (v0) and v1/ simulator source",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1177",
-          "points": 1
-        }
-      ]
-    },
-    {
       "username": "UwaisBaig",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/223514962?v=4",
@@ -584,6 +612,51 @@
           "occured_at": "2026-08-04T22:26:24Z",
           "title": "fix(controller) - respond with JSON error for non-member leave requests (#7729)",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7737",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "Shruti2110-coder",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/184974249?v=4",
+      "role": "Contributor",
+      "total_points": 7,
+      "activity_breakdown": {
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        },
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-08",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2026-08-07",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-08-08T15:11:13Z",
+          "title": "chore - remove active_storage_s3 feature flag (#7627)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7630",
+          "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-07T17:44:16Z",
+          "title": "chore - fix remaining oxlint warnings",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1182",
           "points": 2
         }
       ]
@@ -720,6 +793,121 @@
       ]
     },
     {
+      "username": "Harkeerat24",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/225462441?v=4",
+      "role": "Contributor",
+      "total_points": 4,
+      "activity_breakdown": {
+        "Issue labeled": {
+          "count": 2,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-09",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-08-08",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-08-09T06:30:44Z",
+          "title": "Labeled issue #1184 - JS to TS migration",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1184",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-08-08T07:48:20Z",
+          "title": "Labeled issue #1183 - JS to TS migration",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1183",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "Asrani-Aman",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/96644946?u=0a63041bdb02009db73142160eb13f4fcd0a4209&v=4",
+      "role": "Maintainer",
+      "total_points": 4,
+      "activity_breakdown": {
+        "Review submitted": {
+          "count": 1,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-09",
+          "count": 1,
+          "points": 4
+        }
+      ],
+      "activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-08-09T13:39:20Z",
+          "title": "Review on PR #7659",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7659",
+          "points": 4
+        }
+      ]
+    },
+    {
+      "username": "ujjwalv01",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/219022963?v=4",
+      "role": "Contributor",
+      "total_points": 3,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-09",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-08-08",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-09T16:25:54Z",
+          "title": "refactor - convert canvasApi and engine to strict TypeScript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1190",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-08T18:38:44Z",
+          "title": "refactor - Convert core simulation files (canvasApi, engine, ux, listeners) to TypeScript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1184",
+          "points": 1
+        }
+      ]
+    },
+    {
       "username": "amankv1234",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/186990161?v=4",
@@ -765,9 +953,50 @@
       ]
     },
     {
-      "username": "magic-peach",
+      "username": "tachyons",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
+      "role": "Maintainer",
+      "total_points": 2,
+      "activity_breakdown": {
+        "Issue closed": {
+          "count": 2,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-09",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-08-04",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-08-09T06:14:20Z",
+          "title": "Closed issue #7760 - 🐞 Bug CSRF token missing in vuesim",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7760",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-08-04T02:12:50Z",
+          "title": "Closed issue #7723 - 🐞 Bug Bug CI lint failing on master",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7723",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "username": "JituRewar",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/229604335?v=4",
       "role": "Contributor",
       "total_points": 2,
       "activity_breakdown": {
@@ -778,7 +1007,7 @@
       },
       "daily_activity": [
         {
-          "date": "2026-08-06",
+          "date": "2026-08-09",
           "count": 1,
           "points": 2
         }
@@ -786,38 +1015,9 @@
       "activities": [
         {
           "type": "PR opened",
-          "occured_at": "2026-08-06T09:58:13Z",
-          "title": "feat(lti) - add OIDC login initiation with signed state and nonce",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7746",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "Harkeerat24",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/225462441?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-08",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-08-08T07:48:20Z",
-          "title": "Labeled issue #1183 - JS to TS migration",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1183",
+          "occured_at": "2026-08-09T14:21:42Z",
+          "title": "feat(desktop) - add snapcraft package and integrate snap into release …",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1189",
           "points": 2
         }
       ]
@@ -859,6 +1059,47 @@
           "occured_at": "2026-08-04T12:13:48Z",
           "title": "bug - leave action sends HTML redirect for JSON clients when user is not a member",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7729",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "username": "shivam-G05",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/180256066?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 2,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-09",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-08-08",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-09T04:53:17Z",
+          "title": "Add a dev container and Codespaces setup for the Vue simulator",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1186",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-08T18:10:51Z",
+          "title": "Modernize the dev container / Codespaces setup",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7762",
           "points": 1
         }
       ]
@@ -951,35 +1192,6 @@
       ]
     },
     {
-      "username": "tachyons",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
-      "role": "Maintainer",
-      "total_points": 1,
-      "activity_breakdown": {
-        "Issue closed": {
-          "count": 1,
-          "points": 1
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-04",
-          "count": 1,
-          "points": 1
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-08-04T02:12:50Z",
-          "title": "Closed issue #7723 - 🐞 Bug Bug CI lint failing on master",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7723",
-          "points": 1
-        }
-      ]
-    },
-    {
       "username": "Nihal4777",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/65150640?v=4",
@@ -1004,64 +1216,6 @@
           "occured_at": "2026-08-04T03:51:33Z",
           "title": "Closed issue #1157 - 🐞 Bug - vuesim missing bengali translations for testbench and others",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1157",
-          "points": 1
-        }
-      ]
-    },
-    {
-      "username": "ujjwalv01",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/219022963?v=4",
-      "role": "Contributor",
-      "total_points": 1,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-08",
-          "count": 1,
-          "points": 1
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-08-08T18:38:44Z",
-          "title": "refactor - Convert core simulation files (canvasApi, engine, ux, listeners) to TypeScript",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1184",
-          "points": 1
-        }
-      ]
-    },
-    {
-      "username": "shivam-G05",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/180256066?v=4",
-      "role": "Contributor",
-      "total_points": 1,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-08",
-          "count": 1,
-          "points": 1
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-08-08T18:10:51Z",
-          "title": "Modernize the dev container / Codespaces setup",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7762",
           "points": 1
         }
       ]
