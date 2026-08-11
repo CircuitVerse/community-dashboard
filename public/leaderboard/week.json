@@ -1,40 +1,45 @@
 {
   "period": "week",
-  "updatedAt": 1786323600095,
-  "startDate": "2026-08-03",
-  "endDate": "2026-08-10",
+  "updatedAt": 1786409959209,
+  "startDate": "2026-08-04",
+  "endDate": "2026-08-11",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
     {
       "username": "naman79820",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/159947791?u=c48301089f863779d54d2227553923ff284ac6a4&v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 49,
+      "total_points": 58,
       "activity_breakdown": {
+        "PR opened": {
+          "count": 9,
+          "points": 18
+        },
+        "Issue opened": {
+          "count": 4,
+          "points": 4
+        },
+        "Issue labeled": {
+          "count": 6,
+          "points": 12
+        },
         "Review submitted": {
           "count": 1,
           "points": 4
         },
-        "PR opened": {
-          "count": 6,
-          "points": 12
-        },
         "PR merged": {
           "count": 4,
           "points": 20
-        },
-        "Issue opened": {
-          "count": 3,
-          "points": 3
-        },
-        "Issue labeled": {
-          "count": 5,
-          "points": 10
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-08-10",
+          "count": 5,
+          "points": 9
+        },
         {
           "date": "2026-08-09",
           "count": 1,
@@ -67,6 +72,41 @@
         }
       ],
       "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-10T15:17:00Z",
+          "title": "Fix - bundler vulnerability json",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7774",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-10T10:05:47Z",
+          "title": "feat(organizations) - add members page with role-based invite links",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7771",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-10T02:48:38Z",
+          "title": "feat(organizations) - scope assignments under organization group URLs",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7768",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-10T15:13:30Z",
+          "title": "🐞 Bug - Update json gem to address CVE-2026-71847",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7773",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-08-10T15:13:31Z",
+          "title": "Labeled issue #7773 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7773",
+          "points": 2
+        },
         {
           "type": "Review submitted",
           "occured_at": "2026-08-09T17:15:38Z",
@@ -207,15 +247,15 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
       "role": "Contributor",
-      "total_points": 27,
+      "total_points": 22,
       "activity_breakdown": {
         "PR opened": {
           "count": 3,
           "points": 6
         },
         "PR merged": {
-          "count": 3,
-          "points": 15
+          "count": 2,
+          "points": 10
         },
         "Issue opened": {
           "count": 2,
@@ -244,11 +284,6 @@
         },
         {
           "date": "2026-08-04",
-          "count": 1,
-          "points": 5
-        },
-        {
-          "date": "2026-08-03",
           "count": 1,
           "points": 5
         }
@@ -316,13 +351,91 @@
           "title": "Add translations for testbench and missing texts",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1162",
           "points": 5
+        }
+      ]
+    },
+    {
+      "username": "magic-peach",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
+      "role": "Contributor",
+      "total_points": 17,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 6,
+          "points": 12
+        },
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-10",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-08-09",
+          "count": 5,
+          "points": 13
+        },
+        {
+          "date": "2026-08-06",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-10T14:17:57Z",
+          "title": "feat(lti) - add Deep Linking",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7772",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-09T16:20:15Z",
+          "title": "feat(lti) - add Lti - - Score to publish grades to the platform",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7767",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-09T11:55:41Z",
+          "title": "feat(lti) - add Lti - - LineItem for gradebook columns",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7765",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-09T09:01:37Z",
+          "title": "feat(lti) - add Lti - - AccessToken for platform service calls",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7764",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-09T07:14:00Z",
+          "title": "feat(lti) - add LtiResourceLink for launch service endpoints",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7763",
+          "points": 2
         },
         {
           "type": "PR merged",
-          "occured_at": "2026-08-03T09:47:07Z",
-          "title": "fix - handle expired token",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7719",
+          "occured_at": "2026-08-09T13:40:06Z",
+          "title": "feat(lti) - add JWKS and tool configuration endpoints",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7659",
           "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-06T09:58:13Z",
+          "title": "feat(lti) - add OIDC login initiation with signed state and nonce",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7746",
+          "points": 2
         }
       ]
     },
@@ -417,89 +530,12 @@
       ]
     },
     {
-      "username": "magic-peach",
+      "username": "Harkeerat24",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/225462441?v=4",
       "role": "Contributor",
-      "total_points": 15,
+      "total_points": 9,
       "activity_breakdown": {
-        "PR opened": {
-          "count": 5,
-          "points": 10
-        },
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-09",
-          "count": 5,
-          "points": 13
-        },
-        {
-          "date": "2026-08-06",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-09T16:20:15Z",
-          "title": "feat(lti) - add Lti - - Score to publish grades to the platform",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7767",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-09T11:55:41Z",
-          "title": "feat(lti) - add Lti - - LineItem for gradebook columns",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7765",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-09T09:01:37Z",
-          "title": "feat(lti) - add Lti - - AccessToken for platform service calls",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7764",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-09T07:14:00Z",
-          "title": "feat(lti) - add LtiResourceLink for launch service endpoints",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7763",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-08-09T13:40:06Z",
-          "title": "feat(lti) - add JWKS and tool configuration endpoints",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7659",
-          "points": 5
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-06T09:58:13Z",
-          "title": "feat(lti) - add OIDC login initiation with signed state and nonce",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7746",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "aryan7071",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/175052103?v=4",
-      "role": "Contributor",
-      "total_points": 10,
-      "activity_breakdown": {
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        },
         "PR opened": {
           "count": 1,
           "points": 2
@@ -509,49 +545,61 @@
           "points": 1
         },
         "Issue labeled": {
-          "count": 1,
-          "points": 2
+          "count": 3,
+          "points": 6
         }
       },
       "daily_activity": [
         {
-          "date": "2026-08-04",
-          "count": 1,
+          "date": "2026-08-10",
+          "count": 3,
           "points": 5
         },
         {
-          "date": "2026-08-03",
-          "count": 3,
-          "points": 5
+          "date": "2026-08-09",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-08-08",
+          "count": 1,
+          "points": 2
         }
       ],
       "activities": [
         {
-          "type": "PR merged",
-          "occured_at": "2026-08-04T02:12:49Z",
-          "title": "fix - resolve rubocop lint offenses in spec files",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7724",
-          "points": 5
-        },
-        {
           "type": "PR opened",
-          "occured_at": "2026-08-03T20:10:47Z",
-          "title": "fix - resolve rubocop lint offenses in spec files",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7724",
+          "occured_at": "2026-08-10T21:07:32Z",
+          "title": "refactor(v1) - verify Editor's Picks and improve canonical round trips",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1194",
           "points": 2
         },
         {
           "type": "Issue opened",
-          "occured_at": "2026-08-03T07:59:49Z",
-          "title": "🐞 Bug Bug CI lint failing on master",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7723",
+          "occured_at": "2026-08-10T20:25:06Z",
+          "title": "Refactor(v1) - Write tests for Editor's Picks circuits and optimize canonical pipeline",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1193",
           "points": 1
         },
         {
           "type": "Issue labeled",
-          "occured_at": "2026-08-03T07:59:50Z",
-          "title": "Labeled issue #7723 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7723",
+          "occured_at": "2026-08-10T20:25:07Z",
+          "title": "Labeled issue #1193 - gsoc 2026",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1193",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-08-09T06:30:44Z",
+          "title": "Labeled issue #1184 - JS to TS migration",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1184",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-08-08T07:48:20Z",
+          "title": "Labeled issue #1183 - JS to TS migration",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1183",
           "points": 2
         }
       ]
@@ -662,6 +710,74 @@
       ]
     },
     {
+      "username": "amankv1234",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/186990161?v=4",
+      "role": "Contributor",
+      "total_points": 6,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 2,
+          "points": 2
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        },
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-10",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-08-09",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-08-08",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-10T06:50:15Z",
+          "title": "🐞 Bug - Testbench Creator modal shows raw i18n key instead of translated text",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1191",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-08-10T06:50:17Z",
+          "title": "Labeled issue #1191 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1191",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-09T00:29:58Z",
+          "title": "refactor - convert basic logic gates to TypeScript in v1",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1185",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-08T05:44:25Z",
+          "title": "refactor - convert basic logic gates (And, Not, Nand, Nor) to TypeScript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1183",
+          "points": 1
+        }
+      ]
+    },
+    {
       "username": "Me-Priyank",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/143987856?v=4",
@@ -709,6 +825,92 @@
           "title": "Labeled issue #1179 - documentation",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1179",
           "points": 2
+        }
+      ]
+    },
+    {
+      "username": "aryan7071",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/175052103?v=4",
+      "role": "Contributor",
+      "total_points": 5,
+      "activity_breakdown": {
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-04",
+          "count": 1,
+          "points": 5
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-08-04T02:12:49Z",
+          "title": "fix - resolve rubocop lint offenses in spec files",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7724",
+          "points": 5
+        }
+      ]
+    },
+    {
+      "username": "ujjwalv01",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/219022963?v=4",
+      "role": "Contributor",
+      "total_points": 5,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-10",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-08-09",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-08-08",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-10T17:25:51Z",
+          "title": "refactor - convert `ux.js` and `listeners.js` to strict TypeScript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1192",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-09T16:25:54Z",
+          "title": "refactor - convert canvasApi and engine to strict TypeScript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1190",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-08T18:38:44Z",
+          "title": "refactor - Convert core simulation files (canvasApi, engine, ux, listeners) to TypeScript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1184",
+          "points": 1
         }
       ]
     },
@@ -793,47 +995,6 @@
       ]
     },
     {
-      "username": "Harkeerat24",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/225462441?v=4",
-      "role": "Contributor",
-      "total_points": 4,
-      "activity_breakdown": {
-        "Issue labeled": {
-          "count": 2,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-09",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-08-08",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-08-09T06:30:44Z",
-          "title": "Labeled issue #1184 - JS to TS migration",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1184",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-08-08T07:48:20Z",
-          "title": "Labeled issue #1183 - JS to TS migration",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1183",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "Asrani-Aman",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/96644946?u=0a63041bdb02009db73142160eb13f4fcd0a4209&v=4",
@@ -863,26 +1024,31 @@
       ]
     },
     {
-      "username": "ujjwalv01",
+      "username": "shivam-G05",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/219022963?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/180256066?v=4",
       "role": "Contributor",
-      "total_points": 3,
+      "total_points": 4,
       "activity_breakdown": {
         "PR opened": {
           "count": 1,
           "points": 2
         },
         "Issue opened": {
-          "count": 1,
-          "points": 1
+          "count": 2,
+          "points": 2
         }
       },
       "daily_activity": [
         {
-          "date": "2026-08-09",
+          "date": "2026-08-10",
           "count": 1,
           "points": 2
+        },
+        {
+          "date": "2026-08-09",
+          "count": 1,
+          "points": 1
         },
         {
           "date": "2026-08-08",
@@ -893,62 +1059,64 @@
       "activities": [
         {
           "type": "PR opened",
-          "occured_at": "2026-08-09T16:25:54Z",
-          "title": "refactor - convert canvasApi and engine to strict TypeScript",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1190",
+          "occured_at": "2026-08-10T18:40:17Z",
+          "title": "Modernize the dev container / codespaces setup #7762",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7776",
           "points": 2
         },
         {
           "type": "Issue opened",
-          "occured_at": "2026-08-08T18:38:44Z",
-          "title": "refactor - Convert core simulation files (canvasApi, engine, ux, listeners) to TypeScript",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1184",
+          "occured_at": "2026-08-09T04:53:17Z",
+          "title": "Add a dev container and Codespaces setup for the Vue simulator",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1186",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-08T18:10:51Z",
+          "title": "Modernize the dev container / Codespaces setup",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7762",
           "points": 1
         }
       ]
     },
     {
-      "username": "amankv1234",
+      "username": "Swastik-Yadav",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/186990161?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/208365404?v=4",
       "role": "Contributor",
       "total_points": 3,
       "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        },
         "Issue opened": {
           "count": 1,
           "points": 1
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
         }
       },
       "daily_activity": [
         {
-          "date": "2026-08-09",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-08-08",
-          "count": 1,
-          "points": 1
+          "date": "2026-08-10",
+          "count": 2,
+          "points": 3
         }
       ],
       "activities": [
         {
-          "type": "PR opened",
-          "occured_at": "2026-08-09T00:29:58Z",
-          "title": "refactor - convert basic logic gates to TypeScript in v1",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1185",
-          "points": 2
+          "type": "Issue opened",
+          "occured_at": "2026-08-10T17:33:34Z",
+          "title": "Feature improve tags under filter navigation",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7775",
+          "points": 1
         },
         {
-          "type": "Issue opened",
-          "occured_at": "2026-08-08T05:44:25Z",
-          "title": "refactor - convert basic logic gates (And, Not, Nand, Nor) to TypeScript",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1183",
-          "points": 1
+          "type": "Issue labeled",
+          "occured_at": "2026-08-10T17:33:35Z",
+          "title": "Labeled issue #7775 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7775",
+          "points": 2
         }
       ]
     },
@@ -1064,47 +1232,6 @@
       ]
     },
     {
-      "username": "shivam-G05",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/180256066?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-09",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-08-08",
-          "count": 1,
-          "points": 1
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-08-09T04:53:17Z",
-          "title": "Add a dev container and Codespaces setup for the Vue simulator",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1186",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-08-08T18:10:51Z",
-          "title": "Modernize the dev container / Codespaces setup",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7762",
-          "points": 1
-        }
-      ]
-    },
-    {
       "username": "SurajSingh563",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/228955891?v=4",
@@ -1158,35 +1285,6 @@
           "occured_at": "2026-08-05T19:17:58Z",
           "title": "fix - remove data-bs-auto-close from navbar dropdowns to fix toggle on re-click",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7740",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "lakshaydevoo-arch",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/229351168?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-03",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-03T18:09:41Z",
-          "title": "Fixed Progress bar script throws",
-          "link": "https://github.com/CircuitVerse/Interactive-Book/pull/801",
           "points": 2
         }
       ]
