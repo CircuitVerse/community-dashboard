@@ -1,8 +1,8 @@
 {
   "period": "week",
-  "updatedAt": 1786496750505,
-  "startDate": "2026-08-05",
-  "endDate": "2026-08-12",
+  "updatedAt": 1786583263701,
+  "startDate": "2026-08-06",
+  "endDate": "2026-08-13",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -11,11 +11,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 58,
+      "total_points": 53,
       "activity_breakdown": {
         "PR merged": {
-          "count": 5,
-          "points": 25
+          "count": 4,
+          "points": 20
         },
         "PR opened": {
           "count": 8,
@@ -64,11 +64,6 @@
           "date": "2026-08-06",
           "count": 10,
           "points": 21
-        },
-        {
-          "date": "2026-08-05",
-          "count": 1,
-          "points": 5
         }
       ],
       "activities": [
@@ -218,13 +213,6 @@
           "title": "Labeled issue #7741 - GSoC'26",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7741",
           "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-08-05T17:28:54Z",
-          "title": "feat(organizations) - add organization creation page",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7739",
-          "points": 5
         }
       ]
     },
@@ -233,18 +221,23 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
       "role": "Contributor",
-      "total_points": 26,
+      "total_points": 33,
       "activity_breakdown": {
         "PR opened": {
-          "count": 8,
-          "points": 16
+          "count": 9,
+          "points": 18
         },
         "PR merged": {
-          "count": 2,
-          "points": 10
+          "count": 3,
+          "points": 15
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-08-12",
+          "count": 2,
+          "points": 7
+        },
         {
           "date": "2026-08-11",
           "count": 3,
@@ -267,6 +260,20 @@
         }
       ],
       "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-12T10:56:02Z",
+          "title": "feat(lti) - sync an LMS roster into a group",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7781",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-08-12T13:54:22Z",
+          "title": "feat(lti) - add LtiResourceLink for launch service endpoints",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7763",
+          "points": 5
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-08-11T17:12:18Z",
@@ -344,15 +351,15 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/76901313?u=5494d1c2d4646bf1ce4df09c0951f0b6dc47c33a&v=4",
       "role": "Maintainer",
-      "total_points": 25,
+      "total_points": 20,
       "activity_breakdown": {
         "Review submitted": {
-          "count": 5,
-          "points": 20
+          "count": 4,
+          "points": 16
         },
         "Issue closed": {
-          "count": 5,
-          "points": 5
+          "count": 4,
+          "points": 4
         }
       },
       "daily_activity": [
@@ -368,11 +375,6 @@
         },
         {
           "date": "2026-08-06",
-          "count": 2,
-          "points": 5
-        },
-        {
-          "date": "2026-08-05",
           "count": 2,
           "points": 5
         }
@@ -432,20 +434,6 @@
           "occured_at": "2026-08-06T16:32:00Z",
           "title": "Closed issue #7741 - 🐞 Bug - Org admins cannot open groups in their own organization",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7741",
-          "points": 1
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-08-05T17:17:42Z",
-          "title": "Review on PR #7739",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7739",
-          "points": 4
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-08-05T17:28:55Z",
-          "title": "Closed issue #7738 - Feature - Add organization creation page",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7738",
           "points": 1
         }
       ]
@@ -551,6 +539,78 @@
       ]
     },
     {
+      "username": "UwaisBaig",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/223514962?v=4",
+      "role": "Contributor",
+      "total_points": 10,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 5,
+          "points": 10
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-12",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-08-11",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-08-07",
+          "count": 2,
+          "points": 4
+        },
+        {
+          "date": "2026-08-06",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-12T20:52:51Z",
+          "title": "fix(adapter) - strip null bytes from search queries to prevent ArgumentError (#7782)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7783",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-11T16:51:31Z",
+          "title": "fix(api) - rescue ActiveRecord - - RecordNotUnique on thread subscriptions (#7770)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7778",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-07T20:43:22Z",
+          "title": "fix(controller) - restrict LTI score passback to percent grading scale assignments (#7749)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7753",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-07T18:37:32Z",
+          "title": "fix(simulator) - route Report an Issue link to public Slack invite URL (#7750)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7752",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-06T09:57:25Z",
+          "title": "fix(policy) - permit org admins to view and manage groups in their organization (#7741)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7745",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "Harkeerat24",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/225462441?v=4",
@@ -626,6 +686,87 @@
       ]
     },
     {
+      "username": "ujjwalv01",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/219022963?v=4",
+      "role": "Contributor",
+      "total_points": 9,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 4,
+          "points": 8
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-12",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-08-11",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-08-10",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-08-09",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-08-08",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-12T17:04:38Z",
+          "title": "refactor - convert `ux.js` and `listners.js` to strict TypeScript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1200",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-11T18:25:42Z",
+          "title": "refactor - removed JQuery dependency in plotArea.js file",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1199",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-10T17:25:51Z",
+          "title": "refactor - convert `ux.js` and `listeners.js` to strict TypeScript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1192",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-09T16:25:54Z",
+          "title": "refactor - convert canvasApi and engine to strict TypeScript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1190",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-08T18:38:44Z",
+          "title": "refactor - Convert core simulation files (canvasApi, engine, ux, listeners) to TypeScript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1184",
+          "points": 1
+        }
+      ]
+    },
+    {
       "username": "Asrani-Aman",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/96644946?u=0a63041bdb02009db73142160eb13f4fcd0a4209&v=4",
@@ -663,66 +804,6 @@
           "title": "Review on PR #7659",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7659",
           "points": 4
-        }
-      ]
-    },
-    {
-      "username": "UwaisBaig",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/223514962?v=4",
-      "role": "Contributor",
-      "total_points": 8,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 4,
-          "points": 8
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-11",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-08-07",
-          "count": 2,
-          "points": 4
-        },
-        {
-          "date": "2026-08-06",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-11T16:51:31Z",
-          "title": "fix(api) - rescue ActiveRecord - - RecordNotUnique on thread subscriptions (#7770)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7778",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-07T20:43:22Z",
-          "title": "fix(controller) - restrict LTI score passback to percent grading scale assignments (#7749)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7753",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-07T18:37:32Z",
-          "title": "fix(simulator) - route Report an Issue link to public Slack invite URL (#7750)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7752",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-06T09:57:25Z",
-          "title": "fix(policy) - permit org admins to view and manage groups in their organization (#7741)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7745",
-          "points": 2
         }
       ]
     },
@@ -768,75 +849,6 @@
           "title": "chore - fix remaining oxlint warnings",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1182",
           "points": 2
-        }
-      ]
-    },
-    {
-      "username": "ujjwalv01",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/219022963?v=4",
-      "role": "Contributor",
-      "total_points": 7,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 3,
-          "points": 6
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-11",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-08-10",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-08-09",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-08-08",
-          "count": 1,
-          "points": 1
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-11T18:25:42Z",
-          "title": "refactor - removed JQuery dependency in plotArea.js file",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1199",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-10T17:25:51Z",
-          "title": "refactor - convert `ux.js` and `listeners.js` to strict TypeScript",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1192",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-09T16:25:54Z",
-          "title": "refactor - convert canvasApi and engine to strict TypeScript",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1190",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-08-08T18:38:44Z",
-          "title": "refactor - Convert core simulation files (canvasApi, engine, ux, listeners) to TypeScript",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1184",
-          "points": 1
         }
       ]
     },
@@ -1335,35 +1347,6 @@
           "occured_at": "2026-08-06T20:51:58Z",
           "title": "fix - resolve Popper.js conflict causing dropdown click failures (#7332)",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7748",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "Ar1es-XD",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/247913128?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-05",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-05T19:17:58Z",
-          "title": "fix - remove data-bs-auto-close from navbar dropdowns to fix toggle on re-click",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7740",
           "points": 2
         }
       ]
