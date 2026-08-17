@@ -1,8 +1,8 @@
 {
   "period": "week",
-  "updatedAt": 1786840940012,
-  "startDate": "2026-08-09",
-  "endDate": "2026-08-16",
+  "updatedAt": 1786927223561,
+  "startDate": "2026-08-10",
+  "endDate": "2026-08-17",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -11,11 +11,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 35,
+      "total_points": 36,
       "activity_breakdown": {
         "PR merged": {
-          "count": 3,
-          "points": 15
+          "count": 4,
+          "points": 20
         },
         "PR opened": {
           "count": 5,
@@ -28,13 +28,14 @@
         "Issue labeled": {
           "count": 2,
           "points": 4
-        },
-        "Review submitted": {
-          "count": 1,
-          "points": 4
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-08-16",
+          "count": 1,
+          "points": 5
+        },
         {
           "date": "2026-08-14",
           "count": 1,
@@ -54,14 +55,16 @@
           "date": "2026-08-10",
           "count": 5,
           "points": 9
-        },
-        {
-          "date": "2026-08-09",
-          "count": 1,
-          "points": 4
         }
       ],
       "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-08-16T18:03:05Z",
+          "title": "feat(organizations) - scope assignments under organization group URLs",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7768",
+          "points": 5
+        },
         {
           "type": "PR merged",
           "occured_at": "2026-08-14T06:28:34Z",
@@ -145,131 +148,112 @@
           "title": "Labeled issue #7773 - 🐞 bug",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7773",
           "points": 2
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-08-09T17:15:38Z",
-          "title": "Review on PR #7730",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7730",
-          "points": 4
         }
       ]
     },
     {
-      "username": "magic-peach",
+      "username": "vedant-jain03",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
-      "role": "Contributor",
-      "total_points": 31,
+      "avatar_url": "https://avatars.githubusercontent.com/u/76901313?u=5494d1c2d4646bf1ce4df09c0951f0b6dc47c33a&v=4",
+      "role": "Maintainer",
+      "total_points": 28,
       "activity_breakdown": {
-        "PR opened": {
-          "count": 8,
-          "points": 16
+        "Review submitted": {
+          "count": 6,
+          "points": 24
         },
-        "PR merged": {
-          "count": 3,
-          "points": 15
+        "Issue closed": {
+          "count": 4,
+          "points": 4
         }
       },
       "daily_activity": [
         {
-          "date": "2026-08-12",
-          "count": 2,
-          "points": 7
-        },
-        {
-          "date": "2026-08-11",
+          "date": "2026-08-16",
           "count": 3,
           "points": 9
         },
         {
-          "date": "2026-08-10",
-          "count": 1,
-          "points": 2
+          "date": "2026-08-14",
+          "count": 2,
+          "points": 5
         },
         {
-          "date": "2026-08-09",
+          "date": "2026-08-11",
           "count": 5,
-          "points": 13
+          "points": 14
         }
       ],
       "activities": [
         {
-          "type": "PR opened",
-          "occured_at": "2026-08-12T10:56:02Z",
-          "title": "feat(lti) - sync an LMS roster into a group",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7781",
-          "points": 2
+          "type": "Review submitted",
+          "occured_at": "2026-08-16T16:43:22Z",
+          "title": "Review on PR #7768",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7768",
+          "points": 4
         },
         {
-          "type": "PR merged",
-          "occured_at": "2026-08-12T13:54:22Z",
-          "title": "feat(lti) - add LtiResourceLink for launch service endpoints",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7763",
-          "points": 5
+          "type": "Review submitted",
+          "occured_at": "2026-08-16T16:46:04Z",
+          "title": "Review on PR #7786",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7786",
+          "points": 4
         },
         {
-          "type": "PR opened",
-          "occured_at": "2026-08-11T17:12:18Z",
-          "title": "feat(lti) - add Lti - - Membership to read a course roster",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7779",
-          "points": 2
+          "type": "Issue closed",
+          "occured_at": "2026-08-16T18:03:06Z",
+          "title": "Closed issue #7721 - Feature - Scope assignments under organization-owned group URLs",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7721",
+          "points": 1
         },
         {
-          "type": "PR opened",
-          "occured_at": "2026-08-11T06:02:27Z",
-          "title": "feat(lti) - add the deep linking content picker",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7777",
-          "points": 2
+          "type": "Review submitted",
+          "occured_at": "2026-08-14T06:26:35Z",
+          "title": "Review on PR #7756",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7756",
+          "points": 4
         },
         {
-          "type": "PR merged",
-          "occured_at": "2026-08-11T14:00:51Z",
-          "title": "feat(lti) - add Lti - - JwtValidator for LTI 1.3 id_token verification",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7715",
-          "points": 5
+          "type": "Issue closed",
+          "occured_at": "2026-08-14T06:28:36Z",
+          "title": "Closed issue #7646 - Feature - Addition of nested group URLs in Organization",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7646",
+          "points": 1
         },
         {
-          "type": "PR opened",
-          "occured_at": "2026-08-10T14:17:57Z",
-          "title": "feat(lti) - add Deep Linking",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7772",
-          "points": 2
+          "type": "Review submitted",
+          "occured_at": "2026-08-11T17:30:24Z",
+          "title": "Review on PR #7756",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7756",
+          "points": 4
         },
         {
-          "type": "PR opened",
-          "occured_at": "2026-08-09T16:20:15Z",
-          "title": "feat(lti) - add Lti - - Score to publish grades to the platform",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7767",
-          "points": 2
+          "type": "Review submitted",
+          "occured_at": "2026-08-11T16:52:26Z",
+          "title": "Review on PR #7744",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7744",
+          "points": 4
         },
         {
-          "type": "PR opened",
-          "occured_at": "2026-08-09T11:55:41Z",
-          "title": "feat(lti) - add Lti - - LineItem for gradebook columns",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7765",
-          "points": 2
+          "type": "Review submitted",
+          "occured_at": "2026-08-11T16:38:32Z",
+          "title": "Review on PR #7774",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7774",
+          "points": 4
         },
         {
-          "type": "PR opened",
-          "occured_at": "2026-08-09T09:01:37Z",
-          "title": "feat(lti) - add Lti - - AccessToken for platform service calls",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7764",
-          "points": 2
+          "type": "Issue closed",
+          "occured_at": "2026-08-11T16:44:51Z",
+          "title": "Closed issue #7773 - 🐞 Bug - Update json gem to address CVE-2026-71847",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7773",
+          "points": 1
         },
         {
-          "type": "PR opened",
-          "occured_at": "2026-08-09T07:14:00Z",
-          "title": "feat(lti) - add LtiResourceLink for launch service endpoints",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7763",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-08-09T13:40:06Z",
-          "title": "feat(lti) - add JWKS and tool configuration endpoints",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7659",
-          "points": 5
+          "type": "Issue closed",
+          "occured_at": "2026-08-11T17:17:29Z",
+          "title": "Closed issue #7743 - Feature - Add organizations index page with navbar access",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7743",
+          "points": 1
         }
       ]
     },
@@ -366,180 +350,80 @@
       ]
     },
     {
-      "username": "ShinichiShi",
+      "username": "magic-peach",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
       "role": "Contributor",
-      "total_points": 22,
+      "total_points": 18,
       "activity_breakdown": {
         "PR opened": {
-          "count": 2,
-          "points": 4
+          "count": 4,
+          "points": 8
         },
         "PR merged": {
-          "count": 3,
-          "points": 15
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-15",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-08-14",
-          "count": 1,
-          "points": 5
-        },
-        {
-          "date": "2026-08-13",
-          "count": 1,
-          "points": 5
-        },
-        {
-          "date": "2026-08-09",
-          "count": 4,
+          "count": 2,
           "points": 10
         }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-15T15:45:54Z",
-          "title": "Fix vuesim - Use Tempfile for preview of circuits",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7789",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-08-14T17:27:46Z",
-          "title": "Switch tabsbar toggle to show all circuit components",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1188",
-          "points": 5
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-08-13T19:15:06Z",
-          "title": "Fix - vuesim Redirect user to rails devise login form for auth in vuesim",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1114",
-          "points": 5
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-09T11:42:23Z",
-          "title": "Switch tabsbar toggle to show all circuit components",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1188",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-08-09T06:14:19Z",
-          "title": "Add the csrf token into vuesim",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7761",
-          "points": 5
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-08-09T11:39:01Z",
-          "title": "🐞 Bug - vuesim The tabsbar shows collapsed height by default",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1187",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-08-09T11:39:02Z",
-          "title": "Labeled issue #1187 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1187",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "vedant-jain03",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/76901313?u=5494d1c2d4646bf1ce4df09c0951f0b6dc47c33a&v=4",
-      "role": "Maintainer",
-      "total_points": 19,
-      "activity_breakdown": {
-        "Review submitted": {
-          "count": 4,
-          "points": 16
-        },
-        "Issue closed": {
-          "count": 3,
-          "points": 3
-        }
       },
       "daily_activity": [
         {
-          "date": "2026-08-14",
+          "date": "2026-08-12",
           "count": 2,
-          "points": 5
+          "points": 7
         },
         {
           "date": "2026-08-11",
-          "count": 5,
-          "points": 14
+          "count": 3,
+          "points": 9
+        },
+        {
+          "date": "2026-08-10",
+          "count": 1,
+          "points": 2
         }
       ],
       "activities": [
         {
-          "type": "Review submitted",
-          "occured_at": "2026-08-14T06:26:35Z",
-          "title": "Review on PR #7756",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7756",
-          "points": 4
+          "type": "PR opened",
+          "occured_at": "2026-08-12T10:56:02Z",
+          "title": "feat(lti) - sync an LMS roster into a group",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7781",
+          "points": 2
         },
         {
-          "type": "Issue closed",
-          "occured_at": "2026-08-14T06:28:36Z",
-          "title": "Closed issue #7646 - Feature - Addition of nested group URLs in Organization",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7646",
-          "points": 1
+          "type": "PR merged",
+          "occured_at": "2026-08-12T13:54:22Z",
+          "title": "feat(lti) - add LtiResourceLink for launch service endpoints",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7763",
+          "points": 5
         },
         {
-          "type": "Review submitted",
-          "occured_at": "2026-08-11T17:30:24Z",
-          "title": "Review on PR #7756",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7756",
-          "points": 4
+          "type": "PR opened",
+          "occured_at": "2026-08-11T17:12:18Z",
+          "title": "feat(lti) - add Lti - - Membership to read a course roster",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7779",
+          "points": 2
         },
         {
-          "type": "Review submitted",
-          "occured_at": "2026-08-11T16:52:26Z",
-          "title": "Review on PR #7744",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7744",
-          "points": 4
+          "type": "PR opened",
+          "occured_at": "2026-08-11T06:02:27Z",
+          "title": "feat(lti) - add the deep linking content picker",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7777",
+          "points": 2
         },
         {
-          "type": "Review submitted",
-          "occured_at": "2026-08-11T16:38:32Z",
-          "title": "Review on PR #7774",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7774",
-          "points": 4
+          "type": "PR merged",
+          "occured_at": "2026-08-11T14:00:51Z",
+          "title": "feat(lti) - add Lti - - JwtValidator for LTI 1.3 id_token verification",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7715",
+          "points": 5
         },
         {
-          "type": "Issue closed",
-          "occured_at": "2026-08-11T16:44:51Z",
-          "title": "Closed issue #7773 - 🐞 Bug - Update json gem to address CVE-2026-71847",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7773",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-08-11T17:17:29Z",
-          "title": "Closed issue #7743 - Feature - Add organizations index page with navbar access",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7743",
-          "points": 1
+          "type": "PR opened",
+          "occured_at": "2026-08-10T14:17:57Z",
+          "title": "feat(lti) - add Deep Linking",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7772",
+          "points": 2
         }
       ]
     },
@@ -628,19 +512,76 @@
       ]
     },
     {
+      "username": "ShinichiShi",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
+      "role": "Contributor",
+      "total_points": 12,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
+        "PR merged": {
+          "count": 2,
+          "points": 10
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-15",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-08-14",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2026-08-13",
+          "count": 1,
+          "points": 5
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-15T15:45:54Z",
+          "title": "Fix vuesim - Use Tempfile for preview of circuits",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7789",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-08-14T17:27:46Z",
+          "title": "Switch tabsbar toggle to show all circuit components",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1188",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-08-13T19:15:06Z",
+          "title": "Fix - vuesim Redirect user to rails devise login form for auth in vuesim",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1114",
+          "points": 5
+        }
+      ]
+    },
+    {
       "username": "Harkeerat24",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/225462441?v=4",
       "role": "Contributor",
-      "total_points": 10,
+      "total_points": 8,
       "activity_breakdown": {
         "Issue opened": {
           "count": 2,
           "points": 2
         },
         "Issue labeled": {
-          "count": 3,
-          "points": 6
+          "count": 2,
+          "points": 4
         },
         "PR opened": {
           "count": 1,
@@ -657,11 +598,6 @@
           "date": "2026-08-10",
           "count": 3,
           "points": 5
-        },
-        {
-          "date": "2026-08-09",
-          "count": 1,
-          "points": 2
         }
       ],
       "activities": [
@@ -699,61 +635,13 @@
           "title": "Labeled issue #1193 - gsoc 2026",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1193",
           "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-08-09T06:30:44Z",
-          "title": "Labeled issue #1184 - JS to TS migration",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1184",
-          "points": 2
         }
       ]
     },
     {
-      "username": "Asrani-Aman",
+      "username": "UwaisBaig",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/96644946?u=0a63041bdb02009db73142160eb13f4fcd0a4209&v=4",
-      "role": "Maintainer",
-      "total_points": 8,
-      "activity_breakdown": {
-        "Review submitted": {
-          "count": 2,
-          "points": 8
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-11",
-          "count": 1,
-          "points": 4
-        },
-        {
-          "date": "2026-08-09",
-          "count": 1,
-          "points": 4
-        }
-      ],
-      "activities": [
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-08-11T16:31:59Z",
-          "title": "Review on PR #7763",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7763",
-          "points": 4
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-08-09T13:39:20Z",
-          "title": "Review on PR #7659",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7659",
-          "points": 4
-        }
-      ]
-    },
-    {
-      "username": "ujjwalv01",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/219022963?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/223514962?v=4",
       "role": "Contributor",
       "total_points": 8,
       "activity_breakdown": {
@@ -764,6 +652,16 @@
       },
       "daily_activity": [
         {
+          "date": "2026-08-16",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-08-14",
+          "count": 1,
+          "points": 2
+        },
+        {
           "date": "2026-08-12",
           "count": 1,
           "points": 2
@@ -772,45 +670,35 @@
           "date": "2026-08-11",
           "count": 1,
           "points": 2
-        },
-        {
-          "date": "2026-08-10",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-08-09",
-          "count": 1,
-          "points": 2
         }
       ],
       "activities": [
         {
           "type": "PR opened",
-          "occured_at": "2026-08-12T17:04:38Z",
-          "title": "refactor - convert `ux.js` and `listners.js` to strict TypeScript",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1200",
+          "occured_at": "2026-08-16T16:26:50Z",
+          "title": "fix(simulator) - correct tunnel identifier property name and extend length limit (#7788)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7790",
           "points": 2
         },
         {
           "type": "PR opened",
-          "occured_at": "2026-08-11T18:25:42Z",
-          "title": "refactor - removed JQuery dependency in plotArea.js file",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1199",
+          "occured_at": "2026-08-14T19:11:05Z",
+          "title": "feat(search) - add preloaded popular tags quick selection under search filter navigation (#7775)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7787",
           "points": 2
         },
         {
           "type": "PR opened",
-          "occured_at": "2026-08-10T17:25:51Z",
-          "title": "refactor - convert `ux.js` and `listeners.js` to strict TypeScript",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1192",
+          "occured_at": "2026-08-12T20:52:51Z",
+          "title": "fix(adapter) - strip null bytes from search queries to prevent ArgumentError (#7782)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7783",
           "points": 2
         },
         {
           "type": "PR opened",
-          "occured_at": "2026-08-09T16:25:54Z",
-          "title": "refactor - convert canvasApi and engine to strict TypeScript",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1190",
+          "occured_at": "2026-08-11T16:51:31Z",
+          "title": "fix(api) - rescue ActiveRecord - - RecordNotUnique on thread subscriptions (#7770)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7778",
           "points": 2
         }
       ]
@@ -874,9 +762,9 @@
       ]
     },
     {
-      "username": "UwaisBaig",
+      "username": "ujjwalv01",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/223514962?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/219022963?v=4",
       "role": "Contributor",
       "total_points": 6,
       "activity_breakdown": {
@@ -887,11 +775,6 @@
       },
       "daily_activity": [
         {
-          "date": "2026-08-14",
-          "count": 1,
-          "points": 2
-        },
-        {
           "date": "2026-08-12",
           "count": 1,
           "points": 2
@@ -900,86 +783,63 @@
           "date": "2026-08-11",
           "count": 1,
           "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-14T19:11:05Z",
-          "title": "feat(search) - add preloaded popular tags quick selection under search filter navigation (#7775)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7787",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-12T20:52:51Z",
-          "title": "fix(adapter) - strip null bytes from search queries to prevent ArgumentError (#7782)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7783",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-11T16:51:31Z",
-          "title": "fix(api) - rescue ActiveRecord - - RecordNotUnique on thread subscriptions (#7770)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7778",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "shivam-G05",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/180256066?v=4",
-      "role": "Contributor",
-      "total_points": 5,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-15",
-          "count": 1,
-          "points": 2
         },
         {
           "date": "2026-08-10",
           "count": 1,
           "points": 2
-        },
-        {
-          "date": "2026-08-09",
-          "count": 1,
-          "points": 1
         }
       ],
       "activities": [
         {
           "type": "PR opened",
-          "occured_at": "2026-08-15T10:31:52Z",
-          "title": "#1186 dev container and codespaces setup",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1207",
+          "occured_at": "2026-08-12T17:04:38Z",
+          "title": "refactor - convert `ux.js` and `listners.js` to strict TypeScript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1200",
           "points": 2
         },
         {
           "type": "PR opened",
-          "occured_at": "2026-08-10T18:40:17Z",
-          "title": "Modernize the dev container / codespaces setup #7762",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7776",
+          "occured_at": "2026-08-11T18:25:42Z",
+          "title": "refactor - removed JQuery dependency in plotArea.js file",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1199",
           "points": 2
         },
         {
-          "type": "Issue opened",
-          "occured_at": "2026-08-09T04:53:17Z",
-          "title": "Add a dev container and Codespaces setup for the Vue simulator",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1186",
-          "points": 1
+          "type": "PR opened",
+          "occured_at": "2026-08-10T17:25:51Z",
+          "title": "refactor - convert `ux.js` and `listeners.js` to strict TypeScript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1192",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "Asrani-Aman",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/96644946?u=0a63041bdb02009db73142160eb13f4fcd0a4209&v=4",
+      "role": "Maintainer",
+      "total_points": 4,
+      "activity_breakdown": {
+        "Review submitted": {
+          "count": 1,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-11",
+          "count": 1,
+          "points": 4
+        }
+      ],
+      "activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-08-11T16:31:59Z",
+          "title": "Review on PR #7763",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7763",
+          "points": 4
         }
       ]
     },
@@ -1042,6 +902,47 @@
       ]
     },
     {
+      "username": "shivam-G05",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/180256066?v=4",
+      "role": "Contributor",
+      "total_points": 4,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-15",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-08-10",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-15T10:31:52Z",
+          "title": "#1186 dev container and codespaces setup",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1207",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-10T18:40:17Z",
+          "title": "Modernize the dev container / codespaces setup #7762",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7776",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "amankv1234",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/186990161?v=4",
@@ -1077,6 +978,46 @@
           "occured_at": "2026-08-10T06:50:17Z",
           "title": "Labeled issue #1191 - 🐞 bug",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1191",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "JyantiM",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/193621144?v=4",
+      "role": "Contributor",
+      "total_points": 3,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-16",
+          "count": 2,
+          "points": 3
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-16T08:01:39Z",
+          "title": "Add Enhanced Circuit Export Modal with live preview and customization options",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1212",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-08-16T08:01:41Z",
+          "title": "Labeled issue #1212 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1212",
           "points": 2
         }
       ]
@@ -1151,35 +1092,6 @@
       ]
     },
     {
-      "username": "JituRewar",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/229604335?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-09",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-09T14:21:42Z",
-          "title": "feat(desktop) - add snapcraft package and integrate snap into release …",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1189",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "akshatsinghai6682-sketch",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/235907625?v=4",
@@ -1204,6 +1116,35 @@
           "occured_at": "2026-08-11T06:12:28Z",
           "title": "refactor(drag) - convert jQuery to native DOM methods in drag.ts",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1198",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "Ar1es-XD",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/247913128?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-16",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-16T18:53:07Z",
+          "title": "fix - ensure clean test database before running rspec suite (#5863)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7791",
           "points": 2
         }
       ]
@@ -1234,35 +1175,6 @@
           "title": "Fix broken hero image rendering in welcome email template",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7780",
           "points": 2
-        }
-      ]
-    },
-    {
-      "username": "tachyons",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
-      "role": "Maintainer",
-      "total_points": 1,
-      "activity_breakdown": {
-        "Issue closed": {
-          "count": 1,
-          "points": 1
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-09",
-          "count": 1,
-          "points": 1
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-08-09T06:14:20Z",
-          "title": "Closed issue #7760 - 🐞 Bug CSRF token missing in vuesim",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7760",
-          "points": 1
         }
       ]
     },
