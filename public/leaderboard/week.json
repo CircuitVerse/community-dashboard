@@ -1,8 +1,8 @@
 {
   "period": "week",
-  "updatedAt": 1787445812393,
-  "startDate": "2026-08-16",
-  "endDate": "2026-08-23",
+  "updatedAt": 1787532194679,
+  "startDate": "2026-08-17",
+  "endDate": "2026-08-24",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -13,24 +13,29 @@
       "role": "Contributor",
       "total_points": 29,
       "activity_breakdown": {
+        "Issue opened": {
+          "count": 3,
+          "points": 3
+        },
+        "Issue labeled": {
+          "count": 5,
+          "points": 10
+        },
         "PR opened": {
           "count": 3,
           "points": 6
         },
         "PR merged": {
-          "count": 3,
-          "points": 15
-        },
-        "Issue opened": {
           "count": 2,
-          "points": 2
-        },
-        "Issue labeled": {
-          "count": 3,
-          "points": 6
+          "points": 10
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-08-23",
+          "count": 3,
+          "points": 5
+        },
         {
           "date": "2026-08-21",
           "count": 1,
@@ -45,14 +50,30 @@
           "date": "2026-08-19",
           "count": 4,
           "points": 7
-        },
-        {
-          "date": "2026-08-16",
-          "count": 1,
-          "points": 5
         }
       ],
       "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-23T16:45:15Z",
+          "title": "Feature - Use UUIDs instead of FriendlyId slugs for organization URLs",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7808",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-08-23T16:45:17Z",
+          "title": "Labeled issue #7808 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7808",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-08-23T16:45:38Z",
+          "title": "Labeled issue #7808 - GSoC'26",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7808",
+          "points": 2
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-08-21T21:44:51Z",
@@ -122,13 +143,81 @@
           "title": "Labeled issue #7798 - GSoC'26",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7798",
           "points": 2
+        }
+      ]
+    },
+    {
+      "username": "Harkeerat24",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/225462441?v=4",
+      "role": "Contributor",
+      "total_points": 18,
+      "activity_breakdown": {
+        "PR merged": {
+          "count": 2,
+          "points": 10
+        },
+        "Review submitted": {
+          "count": 1,
+          "points": 4
+        },
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-23",
+          "count": 2,
+          "points": 10
+        },
+        {
+          "date": "2026-08-21",
+          "count": 1,
+          "points": 4
+        },
+        {
+          "date": "2026-08-20",
+          "count": 2,
+          "points": 4
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-08-23T16:00:35Z",
+          "title": "feat(v1) - add ELK auto-layout for canonical imports",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1222",
+          "points": 5
         },
         {
           "type": "PR merged",
-          "occured_at": "2026-08-16T18:03:05Z",
-          "title": "feat(organizations) - scope assignments under organization group URLs",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7768",
+          "occured_at": "2026-08-23T16:00:33Z",
+          "title": "refactor(v1) - verify Editor's Picks and improve canonical round trips",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1221",
           "points": 5
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-08-21T14:10:35Z",
+          "title": "Review on PR #1199",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1199",
+          "points": 4
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-20T11:58:19Z",
+          "title": "feat(v1) - add ELK auto-layout for canonical imports",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1222",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-20T05:57:11Z",
+          "title": "refactor(v1) - verify Editor's Picks and improve canonical round trips",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1221",
+          "points": 2
         }
       ]
     },
@@ -245,93 +334,15 @@
       ]
     },
     {
-      "username": "vedant-jain03",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/76901313?v=4",
-      "role": "Maintainer",
-      "total_points": 15,
-      "activity_breakdown": {
-        "Issue closed": {
-          "count": 3,
-          "points": 3
-        },
-        "Review submitted": {
-          "count": 3,
-          "points": 12
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-20",
-          "count": 2,
-          "points": 2
-        },
-        {
-          "date": "2026-08-19",
-          "count": 1,
-          "points": 4
-        },
-        {
-          "date": "2026-08-16",
-          "count": 3,
-          "points": 9
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-08-20T15:52:53Z",
-          "title": "Closed issue #7803 - 🐞 Bug - mail gem 2.9.0 is vulnerable to email address spoofing (GHSA-mvxr-6m87-mv2q)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7803",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-08-20T16:13:14Z",
-          "title": "Closed issue #7784 - Feature - Organization form and index UI refinements",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7784",
-          "points": 1
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-08-19T16:41:57Z",
-          "title": "Review on PR #7785",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7785",
-          "points": 4
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-08-16T16:43:22Z",
-          "title": "Review on PR #7768",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7768",
-          "points": 4
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-08-16T16:46:04Z",
-          "title": "Review on PR #7786",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7786",
-          "points": 4
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-08-16T18:03:06Z",
-          "title": "Closed issue #7721 - Feature - Scope assignments under organization-owned group URLs",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7721",
-          "points": 1
-        }
-      ]
-    },
-    {
       "username": "UwaisBaig",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/223514962?v=4",
       "role": "Contributor",
-      "total_points": 10,
+      "total_points": 8,
       "activity_breakdown": {
         "PR opened": {
-          "count": 5,
-          "points": 10
+          "count": 4,
+          "points": 8
         }
       },
       "daily_activity": [
@@ -349,11 +360,6 @@
           "date": "2026-08-17",
           "count": 2,
           "points": 4
-        },
-        {
-          "date": "2026-08-16",
-          "count": 1,
-          "points": 2
         }
       ],
       "activities": [
@@ -384,65 +390,6 @@
           "title": "fix(api) - increase verilog compilation MAX_CODE_SIZE limit to 100KB (#7788)",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7792",
           "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-16T16:26:50Z",
-          "title": "fix(simulator) - correct tunnel identifier property name and extend length limit (#7788)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7790",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "Harkeerat24",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/225462441?v=4",
-      "role": "Contributor",
-      "total_points": 8,
-      "activity_breakdown": {
-        "Review submitted": {
-          "count": 1,
-          "points": 4
-        },
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-21",
-          "count": 1,
-          "points": 4
-        },
-        {
-          "date": "2026-08-20",
-          "count": 2,
-          "points": 4
-        }
-      ],
-      "activities": [
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-08-21T14:10:35Z",
-          "title": "Review on PR #1199",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1199",
-          "points": 4
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-20T11:58:19Z",
-          "title": "feat(v1) - add ELK auto-layout for canonical imports",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1222",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-20T05:57:11Z",
-          "title": "refactor(v1) - verify Editor's Picks and improve canonical round trips",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1221",
-          "points": 2
         }
       ]
     },
@@ -451,18 +398,23 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/226660604?v=4",
       "role": "Contributor",
-      "total_points": 7,
+      "total_points": 8,
       "activity_breakdown": {
+        "Issue opened": {
+          "count": 4,
+          "points": 4
+        },
         "PR opened": {
           "count": 2,
           "points": 4
-        },
-        "Issue opened": {
-          "count": 3,
-          "points": 3
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-08-23",
+          "count": 1,
+          "points": 1
+        },
         {
           "date": "2026-08-20",
           "count": 5,
@@ -470,6 +422,13 @@
         }
       ],
       "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-23T22:01:27Z",
+          "title": "fix(simulator) - TypeError in TestbenchData.isCaseValid() and unhandled empty group navigation in Testbench engine",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7809",
+          "points": 1
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-08-20T13:40:02Z",
@@ -503,6 +462,169 @@
           "occured_at": "2026-08-20T01:48:28Z",
           "title": "🐞 Bug - Login/Signup hardcoded to http - //localhost - 4000 (frontend's own dev-server port) — auth completely non-functional",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1218",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "username": "vedant-jain03",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/76901313?v=4",
+      "role": "Maintainer",
+      "total_points": 7,
+      "activity_breakdown": {
+        "Issue closed": {
+          "count": 3,
+          "points": 3
+        },
+        "Review submitted": {
+          "count": 1,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-23",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-08-20",
+          "count": 2,
+          "points": 2
+        },
+        {
+          "date": "2026-08-19",
+          "count": 1,
+          "points": 4
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-08-23T18:30:10Z",
+          "title": "Closed issue #1154 - 🐞 Bug - TESTBENCH panel overlaps report-issue button in v0",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1154",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-08-20T15:52:53Z",
+          "title": "Closed issue #7803 - 🐞 Bug - mail gem 2.9.0 is vulnerable to email address spoofing (GHSA-mvxr-6m87-mv2q)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7803",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-08-20T16:13:14Z",
+          "title": "Closed issue #7784 - Feature - Organization form and index UI refinements",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7784",
+          "points": 1
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-08-19T16:41:57Z",
+          "title": "Review on PR #7785",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7785",
+          "points": 4
+        }
+      ]
+    },
+    {
+      "username": "YashKumar-404",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/192852439?v=4",
+      "role": "Contributor",
+      "total_points": 7,
+      "activity_breakdown": {
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        },
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-23",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2026-08-22",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-08-23T15:52:39Z",
+          "title": "fix - remove stray Zone.Identifier blocking Windows checkout",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7807",
+          "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-22T06:25:04Z",
+          "title": "fix - remove stray Zone.Identifier blocking Windows checkout",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7807",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "rajanpanth",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/189964965?v=4",
+      "role": "Contributor",
+      "total_points": 6,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        },
+        "Issue opened": {
+          "count": 2,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-23",
+          "count": 4,
+          "points": 6
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-23T14:59:42Z",
+          "title": "fix(bit-converter) - pass the decoded BCD value to setBaseValues",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1229",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-23T14:51:50Z",
+          "title": "fix(combinational-analysis) - drop redundant terms from minimized output",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1227",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-23T14:58:25Z",
+          "title": "🐞 Bug - BCD field in the bit converter throws ReferenceError and never updates the other fields",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1228",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-23T14:50:40Z",
+          "title": "🐞 Bug - Combinational Analysis returns a non-minimal expression with a redundant term",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1226",
           "points": 1
         }
       ]
@@ -551,6 +673,35 @@
           "title": "Labeled issue #1224 - pending triage",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1224",
           "points": 2
+        }
+      ]
+    },
+    {
+      "username": "akshatsinghai6682-sketch",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/235907625?v=4",
+      "role": "Contributor",
+      "total_points": 5,
+      "activity_breakdown": {
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-23",
+          "count": 1,
+          "points": 5
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-08-23T18:30:09Z",
+          "title": "style() - reposition testbench panel and report issue button in v0",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1155",
+          "points": 5
         }
       ]
     },
@@ -613,47 +764,6 @@
       ]
     },
     {
-      "username": "Ar1es-XD",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/247913128?v=4",
-      "role": "Contributor",
-      "total_points": 4,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-19",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-08-16",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-19T04:47:57Z",
-          "title": "fix(verilog) - resolve Verilog import defects and multi-module synthesis limits",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7797",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-16T18:53:07Z",
-          "title": "fix - ensure clean test database before running rspec suite (#5863)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7791",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "satu0king",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/2092958?v=4",
@@ -694,49 +804,45 @@
       ]
     },
     {
-      "username": "JyantiM",
+      "username": "tachyons",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/193621144?v=4",
-      "role": "Contributor",
-      "total_points": 3,
+      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
+      "role": "Maintainer",
+      "total_points": 2,
       "activity_breakdown": {
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue labeled": {
-          "count": 1,
+        "Issue closed": {
+          "count": 2,
           "points": 2
         }
       },
       "daily_activity": [
         {
-          "date": "2026-08-16",
+          "date": "2026-08-23",
           "count": 2,
-          "points": 3
+          "points": 2
         }
       ],
       "activities": [
         {
-          "type": "Issue opened",
-          "occured_at": "2026-08-16T08:01:39Z",
-          "title": "Add Enhanced Circuit Export Modal with live preview and customization options",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1212",
+          "type": "Issue closed",
+          "occured_at": "2026-08-23T16:00:35Z",
+          "title": "Closed issue #1193 - Refactor(v1) - Write tests for Editor's Picks circuits and optimize canonical pipeline",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1193",
           "points": 1
         },
         {
-          "type": "Issue labeled",
-          "occured_at": "2026-08-16T08:01:41Z",
-          "title": "Labeled issue #1212 - 🌟 feature",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1212",
-          "points": 2
+          "type": "Issue closed",
+          "occured_at": "2026-08-23T16:00:36Z",
+          "title": "Closed issue #1211 - (GSoC'26) Feature - Auto-layout circuits without a layout format using ELK.js",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1211",
+          "points": 1
         }
       ]
     },
     {
-      "username": "YashKumar-404",
+      "username": "ShinichiShi",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/192852439?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
       "role": "Contributor",
       "total_points": 2,
       "activity_breakdown": {
@@ -747,7 +853,7 @@
       },
       "daily_activity": [
         {
-          "date": "2026-08-22",
+          "date": "2026-08-23",
           "count": 1,
           "points": 2
         }
@@ -755,9 +861,38 @@
       "activities": [
         {
           "type": "PR opened",
-          "occured_at": "2026-08-22T06:25:04Z",
-          "title": "fix - remove stray Zone.Identifier blocking Windows checkout",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7807",
+          "occured_at": "2026-08-23T08:57:40Z",
+          "title": "Supreeth GSoC 2026 Project 4 Final Report",
+          "link": "https://github.com/CircuitVerse/Blog/pull/275",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "Ar1es-XD",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/247913128?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-19",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-19T04:47:57Z",
+          "title": "fix(verilog) - resolve Verilog import defects and multi-module synthesis limits",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7797",
           "points": 2
         }
       ]
