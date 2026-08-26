@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1787618485741,
+  "updatedAt": 1787704938474,
   "groups": [
     [
       "2026-08-24",
@@ -146,14 +146,6 @@
           "points": 1
         },
         {
-          "username": "bhuvan-somisetty",
-          "name": null,
-          "title": "fix(simulator) - TypeError in TestbenchData.isCaseValid() and unhandled empty group navigation in Testbench engine",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7809",
-          "avatar_url": "https://avatars.githubusercontent.com/u/226660604?v=4",
-          "points": 1
-        },
-        {
           "username": "rajanpanth",
           "name": null,
           "title": "fix(bit-converter) - pass the decoded BCD value to setBaseValues",
@@ -183,6 +175,14 @@
           "title": "🐞 Bug - Combinational Analysis returns a non-minimal expression with a redundant term",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1226",
           "avatar_url": "https://avatars.githubusercontent.com/u/189964965?v=4",
+          "points": 1
+        },
+        {
+          "username": "bhuvan-somisetty",
+          "name": null,
+          "title": "fix(simulator) - TypeError in TestbenchData.isCaseValid() and unhandled empty group navigation in Testbench engine",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7809",
+          "avatar_url": "https://avatars.githubusercontent.com/u/226660604?v=4",
           "points": 1
         },
         {
@@ -810,6 +810,51 @@
       ]
     ],
     [
+      "2026-08-25",
+      [
+        {
+          "username": "Me-Priyank",
+          "name": null,
+          "title": "chore(synthesis) - add parity tests for Yosys WASM pipeline output",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1150",
+          "avatar_url": "https://avatars.githubusercontent.com/u/143987856?v=4",
+          "points": 5
+        },
+        {
+          "username": "092vk",
+          "name": null,
+          "title": "Closed issue #1135 - chore(synthesis) - Add parity tests for Yosys WASM pipeline output",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1135",
+          "avatar_url": "https://avatars.githubusercontent.com/u/123629919?v=4",
+          "points": 1
+        },
+        {
+          "username": "rajanpanth",
+          "name": null,
+          "title": "No typecheck in CI, so undefined identifiers reach main",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1232",
+          "avatar_url": "https://avatars.githubusercontent.com/u/189964965?v=4",
+          "points": 1
+        },
+        {
+          "username": "bhuvan-somisetty",
+          "name": null,
+          "title": "v1 TestBench - groupNext/groupPrev can throw TypeError on groups with empty inputs",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1231",
+          "avatar_url": "https://avatars.githubusercontent.com/u/226660604?v=4",
+          "points": 1
+        },
+        {
+          "username": "SAY-5",
+          "name": null,
+          "title": "fix - use testData in TestbenchData isCaseValid and goToFirstValidGroup",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7811",
+          "avatar_url": "https://avatars.githubusercontent.com/u/240962040?v=4",
+          "points": 2
+        }
+      ]
+    ],
+    [
       "2026-08-18",
       [
         {
@@ -928,43 +973,6 @@
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7788",
           "avatar_url": "https://avatars.githubusercontent.com/u/154096662?v=4",
           "points": 1
-        }
-      ]
-    ],
-    [
-      "2026-08-12",
-      [
-        {
-          "username": "magic-peach",
-          "name": null,
-          "title": "feat(lti) - sync an LMS roster into a group",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7781",
-          "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
-          "points": 2
-        },
-        {
-          "username": "magic-peach",
-          "name": null,
-          "title": "feat(lti) - add LtiResourceLink for launch service endpoints",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7763",
-          "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
-          "points": 5
-        },
-        {
-          "username": "UwaisBaig",
-          "name": null,
-          "title": "fix(adapter) - strip null bytes from search queries to prevent ArgumentError (#7782)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7783",
-          "avatar_url": "https://avatars.githubusercontent.com/u/223514962?v=4",
-          "points": 2
-        },
-        {
-          "username": "ujjwalv01",
-          "name": null,
-          "title": "refactor - convert `ux.js` and `listners.js` to strict TypeScript",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1200",
-          "avatar_url": "https://avatars.githubusercontent.com/u/219022963?v=4",
-          "points": 2
         }
       ]
     ],
