@@ -1,8 +1,8 @@
 {
   "period": "month",
-  "updatedAt": 1787704938469,
-  "startDate": "2026-07-27",
-  "endDate": "2026-08-26",
+  "updatedAt": 1787809715685,
+  "startDate": "2026-07-28",
+  "endDate": "2026-08-27",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -11,11 +11,15 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 148,
+      "total_points": 155,
       "activity_breakdown": {
+        "PR opened": {
+          "count": 19,
+          "points": 38
+        },
         "PR merged": {
-          "count": 12,
-          "points": 60
+          "count": 13,
+          "points": 65
         },
         "Issue closed": {
           "count": 2,
@@ -29,16 +33,17 @@
           "count": 16,
           "points": 32
         },
-        "PR opened": {
-          "count": 18,
-          "points": 36
-        },
         "Review submitted": {
           "count": 2,
           "points": 8
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-08-26",
+          "count": 2,
+          "points": 7
+        },
         {
           "date": "2026-08-24",
           "count": 3,
@@ -141,6 +146,20 @@
         }
       ],
       "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-26T10:41:20Z",
+          "title": "refactor(organizations) - replace slugs with uuids",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7812",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-08-26T17:03:28Z",
+          "title": "Feature - add email-based member invitations (backend)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7799",
+          "points": 5
+        },
         {
           "type": "PR merged",
           "occured_at": "2026-08-24T17:24:28Z",
@@ -568,18 +587,23 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/76901313?u=5494d1c2d4646bf1ce4df09c0951f0b6dc47c33a&v=4",
       "role": "Maintainer",
-      "total_points": 55,
+      "total_points": 60,
       "activity_breakdown": {
         "Review submitted": {
-          "count": 11,
-          "points": 44
+          "count": 12,
+          "points": 48
         },
         "Issue closed": {
-          "count": 11,
-          "points": 11
+          "count": 12,
+          "points": 12
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-08-26",
+          "count": 2,
+          "points": 5
+        },
         {
           "date": "2026-08-24",
           "count": 1,
@@ -637,6 +661,20 @@
         }
       ],
       "activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-08-26T17:02:02Z",
+          "title": "Review on PR #7799",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7799",
+          "points": 4
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-08-26T17:03:29Z",
+          "title": "Closed issue #7798 - Feature - Add email-based member invitations for organizations (backend)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7798",
+          "points": 1
+        },
         {
           "type": "Review submitted",
           "occured_at": "2026-08-24T17:24:18Z",
@@ -798,15 +836,15 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
       "role": "Contributor",
-      "total_points": 53,
+      "total_points": 48,
       "activity_breakdown": {
         "PR opened": {
           "count": 6,
           "points": 12
         },
         "PR merged": {
-          "count": 7,
-          "points": 35
+          "count": 6,
+          "points": 30
         },
         "Issue opened": {
           "count": 2,
@@ -872,11 +910,6 @@
           "date": "2026-07-31",
           "count": 1,
           "points": 2
-        },
-        {
-          "date": "2026-07-27",
-          "count": 1,
-          "points": 5
         }
       ],
       "activities": [
@@ -991,179 +1024,6 @@
           "title": "fix - handle expired token",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7719",
           "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-07-27T14:30:58Z",
-          "title": "Remove unnecessary padding in text annotation",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1163",
-          "points": 5
-        }
-      ]
-    },
-    {
-      "username": "Nihal4777",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/65150640?u=25493788d913676f586e5d8c10be801ad634e3c9&v=4",
-      "role": "Maintainer",
-      "total_points": 42,
-      "activity_breakdown": {
-        "Review submitted": {
-          "count": 9,
-          "points": 36
-        },
-        "Issue closed": {
-          "count": 6,
-          "points": 6
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-18",
-          "count": 1,
-          "points": 4
-        },
-        {
-          "date": "2026-08-15",
-          "count": 2,
-          "points": 5
-        },
-        {
-          "date": "2026-08-14",
-          "count": 5,
-          "points": 17
-        },
-        {
-          "date": "2026-08-13",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-08-04",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-08-01",
-          "count": 2,
-          "points": 5
-        },
-        {
-          "date": "2026-07-30",
-          "count": 1,
-          "points": 4
-        },
-        {
-          "date": "2026-07-27",
-          "count": 2,
-          "points": 5
-        }
-      ],
-      "activities": [
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-08-18T04:58:20Z",
-          "title": "Review on PR #7794",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7794",
-          "points": 4
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-08-15T05:03:46Z",
-          "title": "Review on PR #1201",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1201",
-          "points": 4
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-08-15T05:04:08Z",
-          "title": "Closed issue #1206 - Fix apostrophes in simulator source comments",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1206",
-          "points": 1
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-08-14T06:10:18Z",
-          "title": "Review on PR #7754",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7754",
-          "points": 4
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-08-14T17:29:03Z",
-          "title": "Review on PR #1178",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1178",
-          "points": 4
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-08-14T17:25:38Z",
-          "title": "Review on PR #1195",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1195",
-          "points": 4
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-08-14T17:23:52Z",
-          "title": "Review on PR #1196",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1196",
-          "points": 4
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-08-14T17:27:47Z",
-          "title": "Closed issue #1187 - 🐞 Bug - vuesim The tabsbar shows collapsed height by default",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1187",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-08-13T19:15:08Z",
-          "title": "Closed issue #1110 - 🐞 Bug - vuesim auth webview model isn't compatible for omniauth",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1110",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-08-04T03:51:33Z",
-          "title": "Closed issue #1157 - 🐞 Bug - vuesim missing bengali translations for testbench and others",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1157",
-          "points": 1
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-08-01T15:48:00Z",
-          "title": "Review on PR #1164",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1164",
-          "points": 4
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-08-01T15:51:42Z",
-          "title": "Closed issue #1156 - 🐞 Bug - vuesim shortcut keys reset after saving",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1156",
-          "points": 1
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-07-30T12:49:58Z",
-          "title": "Review on PR #1167",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1167",
-          "points": 4
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-07-27T14:29:46Z",
-          "title": "Review on PR #1163",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1163",
-          "points": 4
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-07-27T14:31:00Z",
-          "title": "Closed issue #1159 - 🐞 Bug - vuesim Left padding present in text annotation",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1159",
-          "points": 1
         }
       ]
     },
@@ -1508,6 +1368,153 @@
           "title": "Labeled issue #1172 - gsoc 2026",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1172",
           "points": 2
+        }
+      ]
+    },
+    {
+      "username": "Nihal4777",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/65150640?u=25493788d913676f586e5d8c10be801ad634e3c9&v=4",
+      "role": "Maintainer",
+      "total_points": 37,
+      "activity_breakdown": {
+        "Review submitted": {
+          "count": 8,
+          "points": 32
+        },
+        "Issue closed": {
+          "count": 5,
+          "points": 5
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-18",
+          "count": 1,
+          "points": 4
+        },
+        {
+          "date": "2026-08-15",
+          "count": 2,
+          "points": 5
+        },
+        {
+          "date": "2026-08-14",
+          "count": 5,
+          "points": 17
+        },
+        {
+          "date": "2026-08-13",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-08-04",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-08-01",
+          "count": 2,
+          "points": 5
+        },
+        {
+          "date": "2026-07-30",
+          "count": 1,
+          "points": 4
+        }
+      ],
+      "activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-08-18T04:58:20Z",
+          "title": "Review on PR #7794",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7794",
+          "points": 4
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-08-15T05:03:46Z",
+          "title": "Review on PR #1201",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1201",
+          "points": 4
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-08-15T05:04:08Z",
+          "title": "Closed issue #1206 - Fix apostrophes in simulator source comments",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1206",
+          "points": 1
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-08-14T06:10:18Z",
+          "title": "Review on PR #7754",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7754",
+          "points": 4
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-08-14T17:29:03Z",
+          "title": "Review on PR #1178",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1178",
+          "points": 4
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-08-14T17:25:38Z",
+          "title": "Review on PR #1195",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1195",
+          "points": 4
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-08-14T17:23:52Z",
+          "title": "Review on PR #1196",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1196",
+          "points": 4
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-08-14T17:27:47Z",
+          "title": "Closed issue #1187 - 🐞 Bug - vuesim The tabsbar shows collapsed height by default",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1187",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-08-13T19:15:08Z",
+          "title": "Closed issue #1110 - 🐞 Bug - vuesim auth webview model isn't compatible for omniauth",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1110",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-08-04T03:51:33Z",
+          "title": "Closed issue #1157 - 🐞 Bug - vuesim missing bengali translations for testbench and others",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1157",
+          "points": 1
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-08-01T15:48:00Z",
+          "title": "Review on PR #1164",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1164",
+          "points": 4
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-08-01T15:51:42Z",
+          "title": "Closed issue #1156 - 🐞 Bug - vuesim shortcut keys reset after saving",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1156",
+          "points": 1
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-07-30T12:49:58Z",
+          "title": "Review on PR #1167",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1167",
+          "points": 4
         }
       ]
     },
@@ -2001,109 +2008,23 @@
       ]
     },
     {
-      "username": "akshatsinghai6682-sketch",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/235907625?v=4",
-      "role": "Contributor",
-      "total_points": 13,
-      "activity_breakdown": {
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        },
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        },
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        },
-        "Issue labeled": {
-          "count": 2,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-23",
-          "count": 1,
-          "points": 5
-        },
-        {
-          "date": "2026-08-11",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-07-28",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-07-27",
-          "count": 2,
-          "points": 3
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR merged",
-          "occured_at": "2026-08-23T18:30:09Z",
-          "title": "style() - reposition testbench panel and report issue button in v0",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1155",
-          "points": 5
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-11T06:12:28Z",
-          "title": "refactor(drag) - convert jQuery to native DOM methods in drag.ts",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1198",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-07-28T05:43:01Z",
-          "title": "🐞 Bug - Clock/Fullscreen panel (.clockPropertyHeader) overlaps circuit elements in embedded simulator",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7707",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-07-28T05:43:02Z",
-          "title": "Labeled issue #7707 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7707",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-07-27T21:23:20Z",
-          "title": "🐞Bug - Clock/Fullscreen panel (.clockPropertyHeader) overlaps circuit elements in embedded simulator",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1170",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-07-27T21:23:21Z",
-          "title": "Labeled issue #1170 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1170",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "PRATHAM2002-DS",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/79985042?u=13d56c79e336dbdb30be9f8f07abbb1daa9caee3&v=4",
       "role": "Contributor",
-      "total_points": 12,
+      "total_points": 16,
       "activity_breakdown": {
         "Review submitted": {
-          "count": 3,
-          "points": 12
+          "count": 4,
+          "points": 16
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-08-26",
+          "count": 1,
+          "points": 4
+        },
         {
           "date": "2026-08-24",
           "count": 1,
@@ -2121,6 +2042,13 @@
         }
       ],
       "activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-08-26T16:58:12Z",
+          "title": "Review on PR #7799",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7799",
+          "points": 4
+        },
         {
           "type": "Review submitted",
           "occured_at": "2026-08-24T19:01:24Z",
@@ -2587,6 +2515,51 @@
       ]
     },
     {
+      "username": "akshatsinghai6682-sketch",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/235907625?v=4",
+      "role": "Contributor",
+      "total_points": 7,
+      "activity_breakdown": {
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        },
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-23",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2026-08-11",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-08-23T18:30:09Z",
+          "title": "style() - reposition testbench panel and report issue button in v0",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1155",
+          "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-11T06:12:28Z",
+          "title": "refactor(drag) - convert jQuery to native DOM methods in drag.ts",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1198",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "tirth-patel06",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/185243371?v=4",
@@ -2753,6 +2726,74 @@
       ]
     },
     {
+      "username": "amankv1234",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/186990161?v=4",
+      "role": "Contributor",
+      "total_points": 6,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 2,
+          "points": 2
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        },
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-10",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-08-09",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-08-08",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-10T06:50:15Z",
+          "title": "🐞 Bug - Testbench Creator modal shows raw i18n key instead of translated text",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1191",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-08-10T06:50:17Z",
+          "title": "Labeled issue #1191 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1191",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-09T00:29:58Z",
+          "title": "refactor - convert basic logic gates to TypeScript in v1",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1185",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-08T05:44:25Z",
+          "title": "refactor - convert basic logic gates (And, Not, Nand, Nor) to TypeScript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1183",
+          "points": 1
+        }
+      ]
+    },
+    {
       "username": "Ar1es-XD",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/247913128?v=4",
@@ -2870,74 +2911,6 @@
           "occured_at": "2026-08-08T18:10:51Z",
           "title": "Modernize the dev container / Codespaces setup",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7762",
-          "points": 1
-        }
-      ]
-    },
-    {
-      "username": "amankv1234",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/186990161?v=4",
-      "role": "Contributor",
-      "total_points": 6,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        },
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
-        },
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-10",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-08-09",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-08-08",
-          "count": 1,
-          "points": 1
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-08-10T06:50:15Z",
-          "title": "🐞 Bug - Testbench Creator modal shows raw i18n key instead of translated text",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1191",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-08-10T06:50:17Z",
-          "title": "Labeled issue #1191 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1191",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-09T00:29:58Z",
-          "title": "refactor - convert basic logic gates to TypeScript in v1",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1185",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-08-08T05:44:25Z",
-          "title": "refactor - convert basic logic gates (And, Not, Nand, Nor) to TypeScript",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1183",
           "points": 1
         }
       ]
@@ -3066,6 +3039,47 @@
           "title": "Review on PR #1176",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1176",
           "points": 4
+        }
+      ]
+    },
+    {
+      "username": "SantamRC",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/52635773?v=4",
+      "role": "Contributor",
+      "total_points": 4,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-26",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-08-11",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-26T21:23:27Z",
+          "title": "Embedded Vue Simulator",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/646",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-11T23:03:22Z",
+          "title": "Improve homescreen UI",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/641",
+          "points": 2
         }
       ]
     },
@@ -3336,35 +3350,6 @@
           "occured_at": "2026-07-30T19:45:09Z",
           "title": "Labeled issue #7713 - 🐞 bug",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7713",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "SantamRC",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/52635773?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-11",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-11T23:03:22Z",
-          "title": "Improve homescreen UI",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/641",
           "points": 2
         }
       ]
