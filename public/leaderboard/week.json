@@ -1,8 +1,8 @@
 {
   "period": "week",
-  "updatedAt": 1787809715681,
-  "startDate": "2026-08-20",
-  "endDate": "2026-08-27",
+  "updatedAt": 1787903954569,
+  "startDate": "2026-08-21",
+  "endDate": "2026-08-28",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -11,27 +11,27 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 36,
+      "total_points": 21,
       "activity_breakdown": {
         "PR opened": {
-          "count": 3,
-          "points": 6
+          "count": 2,
+          "points": 4
         },
         "PR merged": {
-          "count": 4,
-          "points": 20
+          "count": 2,
+          "points": 10
         },
         "Issue closed": {
           "count": 2,
           "points": 2
         },
         "Issue opened": {
-          "count": 2,
-          "points": 2
+          "count": 1,
+          "points": 1
         },
         "Issue labeled": {
-          "count": 3,
-          "points": 6
+          "count": 2,
+          "points": 4
         }
       },
       "daily_activity": [
@@ -54,11 +54,6 @@
           "date": "2026-08-21",
           "count": 1,
           "points": 2
-        },
-        {
-          "date": "2026-08-20",
-          "count": 5,
-          "points": 15
         }
       ],
       "activities": [
@@ -124,41 +119,6 @@
           "title": "GSoC 2026 Project-6 final report",
           "link": "https://github.com/CircuitVerse/Blog/pull/274",
           "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-20T13:12:26Z",
-          "title": "fix(security) - bump mail gem to 2.9.1 to patch GHSA-mvxr-6m87-mv2q",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7804",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-08-20T15:52:51Z",
-          "title": "fix(security) - bump mail gem to 2.9.1 to patch GHSA-mvxr-6m87-mv2q",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7804",
-          "points": 5
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-08-20T16:13:12Z",
-          "title": "feat(organizations) - Organization form and index UI refinements",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7785",
-          "points": 5
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-08-20T13:10:52Z",
-          "title": "🐞 Bug - mail gem 2.9.0 is vulnerable to email address spoofing (GHSA-mvxr-6m87-mv2q)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7803",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-08-20T13:10:54Z",
-          "title": "Labeled issue #7803 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7803",
-          "points": 2
         }
       ]
     },
@@ -167,8 +127,20 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/225462441?v=4",
       "role": "Contributor",
-      "total_points": 18,
+      "total_points": 21,
       "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "Issue labeled": {
+          "count": 2,
+          "points": 4
+        },
         "PR merged": {
           "count": 2,
           "points": 10
@@ -176,13 +148,14 @@
         "Review submitted": {
           "count": 1,
           "points": 4
-        },
-        "PR opened": {
-          "count": 2,
-          "points": 4
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-08-27",
+          "count": 4,
+          "points": 7
+        },
         {
           "date": "2026-08-23",
           "count": 2,
@@ -192,14 +165,37 @@
           "date": "2026-08-21",
           "count": 1,
           "points": 4
-        },
-        {
-          "date": "2026-08-20",
-          "count": 2,
-          "points": 4
         }
       ],
       "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-27T16:44:09Z",
+          "title": "feat(v1) - add JSON Schema for Canonical pipeline",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1236",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-27T16:20:03Z",
+          "title": "(GSoC'26) Add JSON Schema for Canonical format",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1235",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-08-27T16:20:04Z",
+          "title": "Labeled issue #1235 - gsoc 2026",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1235",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-08-27T12:53:03Z",
+          "title": "Labeled issue #1234 - JS to TS migration",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1234",
+          "points": 2
+        },
         {
           "type": "PR merged",
           "occured_at": "2026-08-23T16:00:35Z",
@@ -220,37 +216,23 @@
           "title": "Review on PR #1199",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1199",
           "points": 4
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-20T11:58:19Z",
-          "title": "feat(v1) - add ELK auto-layout for canonical imports",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1222",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-20T05:57:11Z",
-          "title": "refactor(v1) - verify Editor's Picks and improve canonical round trips",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1221",
-          "points": 2
         }
       ]
     },
     {
       "username": "vedant-jain03",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/76901313?u=5494d1c2d4646bf1ce4df09c0951f0b6dc47c33a&v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/76901313?v=4",
       "role": "Maintainer",
-      "total_points": 12,
+      "total_points": 10,
       "activity_breakdown": {
         "Review submitted": {
           "count": 2,
           "points": 8
         },
         "Issue closed": {
-          "count": 4,
-          "points": 4
+          "count": 2,
+          "points": 2
         }
       },
       "daily_activity": [
@@ -268,11 +250,6 @@
           "date": "2026-08-23",
           "count": 1,
           "points": 1
-        },
-        {
-          "date": "2026-08-20",
-          "count": 2,
-          "points": 2
         }
       ],
       "activities": [
@@ -302,20 +279,6 @@
           "occured_at": "2026-08-23T18:30:10Z",
           "title": "Closed issue #1154 - 🐞 Bug - TESTBENCH panel overlaps report-issue button in v0",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1154",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-08-20T15:52:53Z",
-          "title": "Closed issue #7803 - 🐞 Bug - mail gem 2.9.0 is vulnerable to email address spoofing (GHSA-mvxr-6m87-mv2q)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7803",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-08-20T16:13:14Z",
-          "title": "Closed issue #7784 - Feature - Organization form and index UI refinements",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7784",
           "points": 1
         }
       ]
@@ -518,133 +481,6 @@
       ]
     },
     {
-      "username": "092vk",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/123629919?v=4",
-      "role": "Contributor",
-      "total_points": 6,
-      "activity_breakdown": {
-        "Issue closed": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue labeled": {
-          "count": 2,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-25",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-08-21",
-          "count": 3,
-          "points": 5
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-08-25T05:10:55Z",
-          "title": "Closed issue #1135 - chore(synthesis) - Add parity tests for Yosys WASM pipeline output",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1135",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-08-21T05:45:32Z",
-          "title": "🐞 Bug - Update verilogDff to support srst wiring",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1224",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-08-21T05:45:33Z",
-          "title": "Labeled issue #1224 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1224",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-08-21T05:45:34Z",
-          "title": "Labeled issue #1224 - pending triage",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1224",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "bhuvan-somisetty",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/226660604?v=4",
-      "role": "Contributor",
-      "total_points": 5,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 3,
-          "points": 3
-        },
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-25",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-08-23",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-08-20",
-          "count": 2,
-          "points": 3
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-08-25T10:37:45Z",
-          "title": "v1 TestBench - groupNext/groupPrev can throw TypeError on groups with empty inputs",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1231",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-08-23T22:01:27Z",
-          "title": "fix(simulator) - TypeError in TestbenchData.isCaseValid() and unhandled empty group navigation in Testbench engine",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7809",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-20T13:40:02Z",
-          "title": "fix(simulator) - schedule explicit delay=0 events immediately in EventQueue",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7805",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-08-20T12:51:56Z",
-          "title": "bug - EventQueue.add() drops explicit delay=0, mis-scheduling flip-flops/Buffer/Counter/Random in the Timing Diagram",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7802",
-          "points": 1
-        }
-      ]
-    },
-    {
       "username": "akshatsinghai6682-sketch",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/235907625?v=4",
@@ -721,42 +557,42 @@
       ]
     },
     {
-      "username": "satu0king",
+      "username": "amankv1234",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/2092958?v=4",
-      "role": "Maintainer",
+      "avatar_url": "https://avatars.githubusercontent.com/u/186990161?v=4",
+      "role": "Contributor",
       "total_points": 3,
       "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
         "Issue opened": {
           "count": 1,
           "points": 1
-        },
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
         }
       },
       "daily_activity": [
         {
-          "date": "2026-08-21",
+          "date": "2026-08-27",
           "count": 2,
           "points": 3
         }
       ],
       "activities": [
         {
-          "type": "Issue opened",
-          "occured_at": "2026-08-21T07:02:55Z",
-          "title": "🛑 Main Platform is down",
-          "link": "https://github.com/CircuitVerse/upptime/issues/182",
-          "points": 1
+          "type": "PR opened",
+          "occured_at": "2026-08-27T10:03:23Z",
+          "title": "fix(i18n) - add missing untitled key to testbench_creator in locale files",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1233",
+          "points": 2
         },
         {
-          "type": "Issue labeled",
-          "occured_at": "2026-08-21T07:02:56Z",
-          "title": "Labeled issue #182 - status",
-          "link": "https://github.com/CircuitVerse/upptime/issues/182",
-          "points": 2
+          "type": "Issue opened",
+          "occured_at": "2026-08-27T10:26:39Z",
+          "title": "refactor - convert XOR, XNOR, Buffer, and ControlledInverter modules to TypeScript in v1",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1234",
+          "points": 1
         }
       ]
     },
@@ -855,31 +691,79 @@
       ]
     },
     {
-      "username": "UwaisBaig",
+      "username": "deepak0x",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/223514962?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/149673145?v=4",
       "role": "Contributor",
       "total_points": 2,
       "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
+        "Issue opened": {
+          "count": 2,
           "points": 2
         }
       },
       "daily_activity": [
         {
-          "date": "2026-08-20",
-          "count": 1,
+          "date": "2026-08-27",
+          "count": 2,
           "points": 2
         }
       ],
       "activities": [
         {
-          "type": "PR opened",
-          "occured_at": "2026-08-20T20:32:32Z",
-          "title": "fix(simulator) - honor explicit delay=0 in EventQueue.add (#7802)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7806",
+          "type": "Issue opened",
+          "occured_at": "2026-08-27T21:33:35Z",
+          "title": "bug - Record lookup before authorization in SimulatorController#view_issue_circuit_data leaks existence",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7817",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-27T21:31:38Z",
+          "title": "bug - GroupMembersController runs authorization before authentication for update/destroy",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7816",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "username": "bhuvan-somisetty",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/226660604?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 2,
           "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-25",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-08-23",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-25T10:37:45Z",
+          "title": "v1 TestBench - groupNext/groupPrev can throw TypeError on groups with empty inputs",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1231",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-23T22:01:27Z",
+          "title": "fix(simulator) - TypeError in TestbenchData.isCaseValid() and unhandled empty group navigation in Testbench engine",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7809",
+          "points": 1
         }
       ]
     },
@@ -938,6 +822,35 @@
           "title": "Add clock demo circuit for issue #332",
           "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/541",
           "points": 2
+        }
+      ]
+    },
+    {
+      "username": "092vk",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/123629919?v=4",
+      "role": "Contributor",
+      "total_points": 1,
+      "activity_breakdown": {
+        "Issue closed": {
+          "count": 1,
+          "points": 1
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-25",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-08-25T05:10:55Z",
+          "title": "Closed issue #1135 - chore(synthesis) - Add parity tests for Yosys WASM pipeline output",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1135",
+          "points": 1
         }
       ]
     }
