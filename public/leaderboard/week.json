@@ -1,8 +1,8 @@
 {
   "period": "week",
-  "updatedAt": 1787978974198,
-  "startDate": "2026-08-22",
-  "endDate": "2026-08-29",
+  "updatedAt": 1788056951034,
+  "startDate": "2026-08-23",
+  "endDate": "2026-08-30",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -196,22 +196,27 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/224918778?v=4",
       "role": "Contributor",
-      "total_points": 12,
+      "total_points": 15,
       "activity_breakdown": {
+        "Issue opened": {
+          "count": 3,
+          "points": 3
+        },
+        "Issue labeled": {
+          "count": 5,
+          "points": 10
+        },
         "PR opened": {
           "count": 1,
           "points": 2
-        },
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        },
-        "Issue labeled": {
-          "count": 4,
-          "points": 8
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-08-29",
+          "count": 2,
+          "points": 3
+        },
         {
           "date": "2026-08-28",
           "count": 4,
@@ -224,6 +229,20 @@
         }
       ],
       "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-29T11:18:51Z",
+          "title": "🐞 Bug - Adding an existing group member as a mentor via \"+ Add Mentors\" silently fails and Primary Mentor missing from Mentors list",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7822",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-08-29T11:18:52Z",
+          "title": "Labeled issue #7822 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7822",
+          "points": 2
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-08-28T12:55:29Z",
@@ -459,63 +478,6 @@
       ]
     },
     {
-      "username": "YashKumar-404",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/192852439?v=4",
-      "role": "Contributor",
-      "total_points": 9,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        },
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-28",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-08-23",
-          "count": 1,
-          "points": 5
-        },
-        {
-          "date": "2026-08-22",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-28T23:12:15Z",
-          "title": "Fix footer link cursor extending into empty space beside the text",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7821",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-08-23T15:52:39Z",
-          "title": "fix - remove stray Zone.Identifier blocking Windows checkout",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7807",
-          "points": 5
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-22T06:25:04Z",
-          "title": "fix - remove stray Zone.Identifier blocking Windows checkout",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7807",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "PRATHAM2002-DS",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/79985042?u=13d56c79e336dbdb30be9f8f07abbb1daa9caee3&v=4",
@@ -557,6 +519,51 @@
       ]
     },
     {
+      "username": "YashKumar-404",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/192852439?v=4",
+      "role": "Contributor",
+      "total_points": 7,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-28",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-08-23",
+          "count": 1,
+          "points": 5
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-28T23:12:15Z",
+          "title": "Fix footer link cursor extending into empty space beside the text",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7821",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-08-23T15:52:39Z",
+          "title": "fix - remove stray Zone.Identifier blocking Windows checkout",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7807",
+          "points": 5
+        }
+      ]
+    },
+    {
       "username": "akshatsinghai6682-sketch",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/235907625?v=4",
@@ -582,6 +589,58 @@
           "title": "style() - reposition testbench panel and report issue button in v0",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1155",
           "points": 5
+        }
+      ]
+    },
+    {
+      "username": "amankv1234",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/186990161?v=4",
+      "role": "Contributor",
+      "total_points": 5,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-29",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-08-27",
+          "count": 2,
+          "points": 3
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-29T10:23:56Z",
+          "title": "fix(simulator) - resolve TypeScript compilation errors in core gates (XorGate, XnorGate, Buffer, ControlledInverter)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1239",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-27T10:03:23Z",
+          "title": "fix(i18n) - add missing untitled key to testbench_creator in locale files",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1233",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-27T10:26:39Z",
+          "title": "refactor - convert XOR, XNOR, Buffer, and ControlledInverter modules to TypeScript in v1",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1234",
+          "points": 1
         }
       ]
     },
@@ -623,46 +682,6 @@
           "title": "Embedded Vue Simulator",
           "link": "https://github.com/CircuitVerse/mobile-app/pull/646",
           "points": 2
-        }
-      ]
-    },
-    {
-      "username": "amankv1234",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/186990161?v=4",
-      "role": "Contributor",
-      "total_points": 3,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-27",
-          "count": 2,
-          "points": 3
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-27T10:03:23Z",
-          "title": "fix(i18n) - add missing untitled key to testbench_creator in locale files",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1233",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-08-27T10:26:39Z",
-          "title": "refactor - convert XOR, XNOR, Buffer, and ControlledInverter modules to TypeScript in v1",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1234",
-          "points": 1
         }
       ]
     },
@@ -846,6 +865,35 @@
           "title": "fix(simulator) - TypeError in TestbenchData.isCaseValid() and unhandled empty group navigation in Testbench engine",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7809",
           "points": 1
+        }
+      ]
+    },
+    {
+      "username": "guptadi0406-alt",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/228046734?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-29",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-29T16:34:00Z",
+          "title": "fix - handle Oj - - ParseError from invalid escape sequences in sanitize_…",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7823",
+          "points": 2
         }
       ]
     },
