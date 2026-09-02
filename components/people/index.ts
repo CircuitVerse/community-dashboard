@@ -4,4 +4,5 @@ export { PeopleGrid } from './PeopleGrid';
 export { PeopleStats } from './PeopleStats';
 export { SearchFilter } from './SearchFilter';
 export { TeamSection } from './TeamSection';
+export { PeopleHero } from './PeopleHero';
 export type { FilterState } from './SearchFilter';
