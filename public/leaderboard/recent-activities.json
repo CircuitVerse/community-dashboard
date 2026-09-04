@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1788401150801,
+  "updatedAt": 1788487543726,
   "groups": [
     [
       "2026-09-02",
@@ -141,6 +141,14 @@
           "points": 2
         },
         {
+          "username": "ujjwalv01",
+          "name": null,
+          "title": "refactor - removed JQuery dependency in plotArea.js file",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1199",
+          "avatar_url": "https://avatars.githubusercontent.com/u/219022963?v=4",
+          "points": 5
+        },
+        {
           "username": "rajanpanth",
           "name": null,
           "title": "fix(bit-converter) - pad each BCD digit to a full 4 bit group",
@@ -170,14 +178,6 @@
           "title": "fix(i18n) - add missing untitled key to testbench_creator in locale files",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1233",
           "avatar_url": "https://avatars.githubusercontent.com/u/186990161?v=4",
-          "points": 5
-        },
-        {
-          "username": "ujjwalv01",
-          "name": null,
-          "title": "refactor - removed JQuery dependency in plotArea.js file",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1199",
-          "avatar_url": "https://avatars.githubusercontent.com/u/219022963?v=4",
           "points": 5
         },
         {
@@ -271,6 +271,14 @@
           "points": 5
         },
         {
+          "username": "SantamRC",
+          "name": null,
+          "title": "Embedded Vue Simulator",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/646",
+          "avatar_url": "https://avatars.githubusercontent.com/u/52635773?v=4",
+          "points": 2
+        },
+        {
           "username": "vedant-jain03",
           "name": null,
           "title": "Review on PR #7799",
@@ -285,14 +293,6 @@
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7798",
           "avatar_url": "https://avatars.githubusercontent.com/u/76901313?v=4",
           "points": 1
-        },
-        {
-          "username": "SantamRC",
-          "name": null,
-          "title": "Embedded Vue Simulator",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/646",
-          "avatar_url": "https://avatars.githubusercontent.com/u/52635773?v=4",
-          "points": 2
         },
         {
           "username": "PRATHAM2002-DS",
@@ -507,78 +507,110 @@
       ]
     ],
     [
-      "2026-08-21",
+      "2026-09-03",
       [
-        {
-          "username": "naman79820",
-          "name": null,
-          "title": "GSoC 2026 Project-6 final report",
-          "link": "https://github.com/CircuitVerse/Blog/pull/274",
-          "avatar_url": "https://avatars.githubusercontent.com/u/159947791?u=c48301089f863779d54d2227553923ff284ac6a4&v=4",
-          "points": 2
-        },
         {
           "username": "Me-Priyank",
           "name": null,
-          "title": "Priyank GSoC 2026 Project 7 Final Report",
-          "link": "https://github.com/CircuitVerse/Blog/pull/273",
+          "title": "Review on PR #1247",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1247",
           "avatar_url": "https://avatars.githubusercontent.com/u/143987856?u=6426025e5ffabefa05db4baf8b0fd3d71d7bb4e2&v=4",
-          "points": 2
-        },
-        {
-          "username": "Harkeerat24",
-          "name": null,
-          "title": "Review on PR #1199",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1199",
-          "avatar_url": "https://avatars.githubusercontent.com/u/225462441?v=4",
           "points": 4
         },
         {
-          "username": "092vk",
+          "username": "SantamRC",
           "name": null,
-          "title": "🐞 Bug - Update verilogDff to support srst wiring",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1224",
-          "avatar_url": "https://avatars.githubusercontent.com/u/123629919?v=4",
-          "points": 1
-        },
-        {
-          "username": "092vk",
-          "name": null,
-          "title": "Labeled issue #1224 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1224",
-          "avatar_url": "https://avatars.githubusercontent.com/u/123629919?v=4",
+          "title": "ci - require the CI run to pass before dependabot auto-merge",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/655",
+          "avatar_url": "https://avatars.githubusercontent.com/u/52635773?v=4",
           "points": 2
         },
         {
-          "username": "092vk",
+          "username": "SantamRC",
           "name": null,
-          "title": "Labeled issue #1224 - pending triage",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1224",
-          "avatar_url": "https://avatars.githubusercontent.com/u/123629919?v=4",
+          "title": "fix - correct crowdin trigger branch and arb paths so the sync can run",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/654",
+          "avatar_url": "https://avatars.githubusercontent.com/u/52635773?v=4",
           "points": 2
         },
         {
-          "username": "satu0king",
+          "username": "SantamRC",
           "name": null,
-          "title": "🛑 Main Platform is down",
-          "link": "https://github.com/CircuitVerse/upptime/issues/182",
-          "avatar_url": "https://avatars.githubusercontent.com/u/2092958?v=4",
-          "points": 1
-        },
-        {
-          "username": "satu0king",
-          "name": null,
-          "title": "Labeled issue #182 - status",
-          "link": "https://github.com/CircuitVerse/upptime/issues/182",
-          "avatar_url": "https://avatars.githubusercontent.com/u/2092958?v=4",
+          "title": "fix - silence MSVC experimental coroutine error breaking the Windows build",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/653",
+          "avatar_url": "https://avatars.githubusercontent.com/u/52635773?v=4",
           "points": 2
         },
         {
-          "username": "Vaishali171",
+          "username": "SantamRC",
           "name": null,
-          "title": "Add clock demo circuit for issue #332",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/541",
-          "avatar_url": "https://avatars.githubusercontent.com/u/180753436?v=4",
+          "title": "fix - constrain intl and html so pub resolves a working set for the pinned Flutter SDK",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/652",
+          "avatar_url": "https://avatars.githubusercontent.com/u/52635773?v=4",
+          "points": 2
+        },
+        {
+          "username": "SantamRC",
+          "name": null,
+          "title": "fix - correct crowdin trigger branch and arb paths so the sync can run",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/654",
+          "avatar_url": "https://avatars.githubusercontent.com/u/52635773?v=4",
+          "points": 5
+        },
+        {
+          "username": "SantamRC",
+          "name": null,
+          "title": "fix - silence MSVC experimental coroutine error breaking the Windows build",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/653",
+          "avatar_url": "https://avatars.githubusercontent.com/u/52635773?v=4",
+          "points": 5
+        },
+        {
+          "username": "SantamRC",
+          "name": null,
+          "title": "fix - constrain intl and html so pub resolves a working set for the pinned Flutter SDK",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/652",
+          "avatar_url": "https://avatars.githubusercontent.com/u/52635773?v=4",
+          "points": 5
+        },
+        {
+          "username": "UwaisBaig",
+          "name": null,
+          "title": "fix(groups) - promote existing group members when adding mentors (#7822)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7838",
+          "avatar_url": "https://avatars.githubusercontent.com/u/223514962?v=4",
+          "points": 2
+        },
+        {
+          "username": "ujjwalv01",
+          "name": null,
+          "title": "refactor - drop jQuery dependencies in `ux.js`",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1253",
+          "avatar_url": "https://avatars.githubusercontent.com/u/219022963?v=4",
+          "points": 2
+        },
+        {
+          "username": "ujjwalv01",
+          "name": null,
+          "title": "refactor - drop jQuery dependencies in `listeners.js`",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1252",
+          "avatar_url": "https://avatars.githubusercontent.com/u/219022963?v=4",
+          "points": 2
+        },
+        {
+          "username": "ujjwalv01",
+          "name": null,
+          "title": "refactor - convert `canvasApi.js` and `engine.js` to strict TypeScript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1190",
+          "avatar_url": "https://avatars.githubusercontent.com/u/219022963?v=4",
+          "points": 5
+        },
+        {
+          "username": "ManyaJain111",
+          "name": null,
+          "title": "fix(organizations) - increase email input limit to 254 characters",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7839",
+          "avatar_url": "https://avatars.githubusercontent.com/u/224918778?v=4",
           "points": 2
         }
       ]
@@ -865,14 +897,30 @@
       ]
     ],
     [
-      "2026-09-03",
+      "2026-09-04",
       [
         {
-          "username": "UwaisBaig",
+          "username": "ujjwalv01",
           "name": null,
-          "title": "fix(groups) - promote existing group members when adding mentors (#7822)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7838",
-          "avatar_url": "https://avatars.githubusercontent.com/u/223514962?v=4",
+          "title": "chore - fix `OrGate.ts` formatting to pass CI format check",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1255",
+          "avatar_url": "https://avatars.githubusercontent.com/u/219022963?v=4",
+          "points": 2
+        },
+        {
+          "username": "ujjwalv01",
+          "name": null,
+          "title": "🐞 Bug - CI `fmt - check` fails globally due to unformatted `OrGate.ts` in `main`",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1254",
+          "avatar_url": "https://avatars.githubusercontent.com/u/219022963?v=4",
+          "points": 1
+        },
+        {
+          "username": "ujjwalv01",
+          "name": null,
+          "title": "Labeled issue #1254 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1254",
+          "avatar_url": "https://avatars.githubusercontent.com/u/219022963?v=4",
           "points": 2
         }
       ]
