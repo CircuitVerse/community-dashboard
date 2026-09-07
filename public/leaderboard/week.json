@@ -1,8 +1,8 @@
 {
   "period": "week",
-  "updatedAt": 1788659890713,
-  "startDate": "2026-08-30",
-  "endDate": "2026-09-06",
+  "updatedAt": 1788746124526,
+  "startDate": "2026-08-31",
+  "endDate": "2026-09-07",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -110,15 +110,15 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/225462441?v=4",
       "role": "Contributor",
-      "total_points": 25,
+      "total_points": 27,
       "activity_breakdown": {
-        "PR merged": {
-          "count": 2,
-          "points": 10
-        },
         "PR opened": {
           "count": 2,
           "points": 4
+        },
+        "PR merged": {
+          "count": 3,
+          "points": 15
         },
         "Review submitted": {
           "count": 1,
@@ -127,17 +127,14 @@
         "Issue closed": {
           "count": 4,
           "points": 4
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-09-06",
+          "count": 2,
+          "points": 7
+        },
         {
           "date": "2026-09-05",
           "count": 2,
@@ -152,14 +149,23 @@
           "date": "2026-09-02",
           "count": 5,
           "points": 8
-        },
-        {
-          "date": "2026-08-30",
-          "count": 3,
-          "points": 5
         }
       ],
       "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-06T17:12:04Z",
+          "title": "Future Improvements for GSoC26 Project 1",
+          "link": "https://github.com/CircuitVerse/Blog/pull/278",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-09-06T15:38:25Z",
+          "title": "Harkeerat GSoC 2026 Final Report for Project 1",
+          "link": "https://github.com/CircuitVerse/Blog/pull/277",
+          "points": 5
+        },
         {
           "type": "PR merged",
           "occured_at": "2026-09-05T06:11:39Z",
@@ -215,26 +221,273 @@
           "title": "Closed issue #1075 - (GSoC'26) Week 8 - Write migration tests - check that legacy .cv to canonical to re-import produces the exact same circuit using hashes.",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1075",
           "points": 1
+        }
+      ]
+    },
+    {
+      "username": "Amrit-raj50",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/225853043?v=4",
+      "role": "Contributor",
+      "total_points": 27,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 3,
+          "points": 6
+        },
+        "Issue opened": {
+          "count": 5,
+          "points": 5
+        },
+        "Issue labeled": {
+          "count": 8,
+          "points": 16
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-09-06",
+          "count": 16,
+          "points": 27
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-06T07:38:29Z",
+          "title": "docs - document oxfmt formatting, oxlint, and husky commit standards",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1268",
+          "points": 2
         },
         {
           "type": "PR opened",
-          "occured_at": "2026-08-30T16:10:49Z",
-          "title": "feat(v1) - validate canonical JSON payloads",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1242",
+          "occured_at": "2026-09-06T07:25:49Z",
+          "title": "docs - add testing documentation for Vitest suites",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1267",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-06T06:11:09Z",
+          "title": "docs - add desktop application development instructions",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1261",
           "points": 2
         },
         {
           "type": "Issue opened",
-          "occured_at": "2026-08-30T15:32:21Z",
-          "title": "(GSoC'26) - Add JSON Schema validation for Canonical Pipeline",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1241",
+          "occured_at": "2026-09-06T07:19:01Z",
+          "title": "🐞 Bug - Locale dropdown menu in UserMenu has unstyled white background breaking dark theme in v1",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1266",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-06T07:11:57Z",
+          "title": "🐞 Bug - README lacks documentation for oxfmt code formatting and husky hooks",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1265",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-06T07:08:18Z",
+          "title": "🐞 Bug - README lacks documentation on running and writing Vitest test suites",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1264",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-06T06:44:15Z",
+          "title": "🐞 Bug - npm run dev crashes on Windows if cloned without Developer Mode symlinks",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1263",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-06T06:38:22Z",
+          "title": "🐞 Bug - npm run lint fails on Windows due to Unix find/xargs commands",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1262",
           "points": 1
         },
         {
           "type": "Issue labeled",
-          "occured_at": "2026-08-30T15:32:23Z",
-          "title": "Labeled issue #1241 - gsoc 2026",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1241",
+          "occured_at": "2026-09-06T07:11:58Z",
+          "title": "Labeled issue #1265 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1265",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-09-06T06:44:16Z",
+          "title": "Labeled issue #1263 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1263",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-09-06T06:44:17Z",
+          "title": "Labeled issue #1263 - pending triage",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1263",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-09-06T07:08:19Z",
+          "title": "Labeled issue #1264 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1264",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-09-06T07:08:20Z",
+          "title": "Labeled issue #1264 - pending triage",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1264",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-09-06T06:38:24Z",
+          "title": "Labeled issue #1262 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1262",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-09-06T07:19:02Z",
+          "title": "Labeled issue #1266 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1266",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-09-06T07:19:03Z",
+          "title": "Labeled issue #1266 - pending triage",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1266",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "yashveer-1",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/235941943?v=4",
+      "role": "Contributor",
+      "total_points": 22,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 4,
+          "points": 8
+        },
+        "Issue opened": {
+          "count": 3,
+          "points": 3
+        },
+        "Issue labeled": {
+          "count": 3,
+          "points": 6
+        },
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-09-06",
+          "count": 4,
+          "points": 7
+        },
+        {
+          "date": "2026-09-02",
+          "count": 4,
+          "points": 10
+        },
+        {
+          "date": "2026-09-01",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-08-31",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-06T14:35:45Z",
+          "title": "fix - correct mouse event type in Extra component",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1271",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-06T13:16:40Z",
+          "title": "Fix/extra mouse event type",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1270",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-06T13:06:19Z",
+          "title": "🐞 Bug - Incorrect React.MouseEvent type in Vue Extra component",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1269",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-09-06T13:06:21Z",
+          "title": "Labeled issue #1269 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1269",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-02T09:44:44Z",
+          "title": "Fix/testbench panel unsafe access",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1249",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-09-02T06:33:29Z",
+          "title": "Fix simulator resize listener lifecycle",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1244",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-02T09:21:05Z",
+          "title": "🐞 Bug - TestBenchPanel crashes when testbench groups are empty",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1248",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-09-02T09:21:07Z",
+          "title": "Labeled issue #1248 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1248",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-01T10:37:58Z",
+          "title": "🐞 Bug - Properly manage window resize listener in simulatorHandler.vue",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1245",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-09-01T10:38:00Z",
+          "title": "Labeled issue #1245 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1245",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-31T14:47:05Z",
+          "title": "Fix simulator resize listener lifecycle",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1244",
           "points": 2
         }
       ]
@@ -336,99 +589,6 @@
           "title": "refactor - removed JQuery dependency in plotArea.js file",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1199",
           "points": 5
-        }
-      ]
-    },
-    {
-      "username": "yashveer-1",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/235941943?v=4",
-      "role": "Contributor",
-      "total_points": 15,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        },
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        },
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        },
-        "Issue labeled": {
-          "count": 2,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-09-02",
-          "count": 4,
-          "points": 10
-        },
-        {
-          "date": "2026-09-01",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-08-31",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-02T09:44:44Z",
-          "title": "Fix/testbench panel unsafe access",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1249",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-09-02T06:33:29Z",
-          "title": "Fix simulator resize listener lifecycle",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1244",
-          "points": 5
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-02T09:21:05Z",
-          "title": "🐞 Bug - TestBenchPanel crashes when testbench groups are empty",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1248",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-02T09:21:07Z",
-          "title": "Labeled issue #1248 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1248",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-01T10:37:58Z",
-          "title": "🐞 Bug - Properly manage window resize listener in simulatorHandler.vue",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1245",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-01T10:38:00Z",
-          "title": "Labeled issue #1245 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1245",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-31T14:47:05Z",
-          "title": "Fix simulator resize listener lifecycle",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1244",
-          "points": 2
         }
       ]
     },
@@ -1020,35 +1180,6 @@
       ]
     },
     {
-      "username": "Asrani-Aman",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/96644946?u=0a63041bdb02009db73142160eb13f4fcd0a4209&v=4",
-      "role": "Maintainer",
-      "total_points": 4,
-      "activity_breakdown": {
-        "Review submitted": {
-          "count": 1,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-30",
-          "count": 1,
-          "points": 4
-        }
-      ],
-      "activities": [
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-08-30T14:45:25Z",
-          "title": "Review on PR #7764",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7764",
-          "points": 4
-        }
-      ]
-    },
-    {
       "username": "magic-peach",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
@@ -1136,35 +1267,6 @@
       ]
     },
     {
-      "username": "Vaishali171",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/180753436?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-30",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-30T08:07:42Z",
-          "title": "Add TB Input/Output documentation for issue #356",
-          "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/542",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "AzazelSensei",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/89297042?v=4",
@@ -1194,31 +1296,31 @@
       ]
     },
     {
-      "username": "Ramcharan-40",
+      "username": "deepak0x",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/149292561?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/149673145?v=4",
       "role": "Contributor",
-      "total_points": 2,
+      "total_points": 1,
       "activity_breakdown": {
-        "PR opened": {
+        "Issue opened": {
           "count": 1,
-          "points": 2
+          "points": 1
         }
       },
       "daily_activity": [
         {
-          "date": "2026-08-30",
+          "date": "2026-09-06",
           "count": 1,
-          "points": 2
+          "points": 1
         }
       ],
       "activities": [
         {
-          "type": "PR opened",
-          "occured_at": "2026-08-30T12:56:00Z",
-          "title": "feat - implement ImageAnnotation module for canvas image embedding and…",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1240",
-          "points": 2
+          "type": "Issue opened",
+          "occured_at": "2026-09-06T09:19:48Z",
+          "title": "bug - GroupMembersController#create crashes with NoMethodError when emails param is absent",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7846",
+          "points": 1
         }
       ]
     }
