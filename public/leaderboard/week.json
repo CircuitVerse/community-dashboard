@@ -1,8 +1,8 @@
 {
   "period": "week",
-  "updatedAt": 1789179053702,
-  "startDate": "2026-09-05",
-  "endDate": "2026-09-12",
+  "updatedAt": 1789265230754,
+  "startDate": "2026-09-06",
+  "endDate": "2026-09-13",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -11,23 +11,23 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
       "role": "Contributor",
-      "total_points": 62,
+      "total_points": 55,
       "activity_breakdown": {
         "PR merged": {
           "count": 6,
           "points": 30
         },
         "PR opened": {
-          "count": 6,
-          "points": 12
+          "count": 5,
+          "points": 10
         },
         "Issue opened": {
-          "count": 6,
-          "points": 6
+          "count": 5,
+          "points": 5
         },
         "Issue labeled": {
-          "count": 7,
-          "points": 14
+          "count": 5,
+          "points": 10
         }
       },
       "daily_activity": [
@@ -45,11 +45,6 @@
           "date": "2026-09-07",
           "count": 1,
           "points": 5
-        },
-        {
-          "date": "2026-09-05",
-          "count": 4,
-          "points": 7
         }
       ],
       "activities": [
@@ -199,33 +194,152 @@
           "title": "Fix(vuesim) - add conditional check for propagationDelay when its set for 0",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1260",
           "points": 5
+        }
+      ]
+    },
+    {
+      "username": "yashveer-1",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/235941943?v=4",
+      "role": "Contributor",
+      "total_points": 27,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 5,
+          "points": 10
+        },
+        "Issue opened": {
+          "count": 4,
+          "points": 4
+        },
+        "Issue labeled": {
+          "count": 4,
+          "points": 8
+        },
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-09-12",
+          "count": 6,
+          "points": 10
+        },
+        {
+          "date": "2026-09-10",
+          "count": 3,
+          "points": 5
+        },
+        {
+          "date": "2026-09-08",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2026-09-06",
+          "count": 4,
+          "points": 7
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-12T22:33:13Z",
+          "title": "fix - correct pinch zoom distance calculation",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1298",
+          "points": 2
         },
         {
           "type": "PR opened",
-          "occured_at": "2026-09-05T19:02:43Z",
-          "title": "Fix(vuesim) - add conditional check for propagationDelay when its set for 0",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1260",
+          "occured_at": "2026-09-12T08:34:44Z",
+          "title": "fix - correct BCD converter value handling",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1296",
           "points": 2
         },
         {
           "type": "Issue opened",
-          "occured_at": "2026-09-05T18:39:13Z",
-          "title": "🐞 Bug - vuesim Propagation delay in large circuits",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1259",
+          "occured_at": "2026-09-12T22:20:58Z",
+          "title": "Bug - Pinch zoom distance calculation is incorrect",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1297",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-12T08:30:20Z",
+          "title": "🐞 Bug - BCD converter uses undefined variable",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1295",
           "points": 1
         },
         {
           "type": "Issue labeled",
-          "occured_at": "2026-09-05T18:39:14Z",
-          "title": "Labeled issue #1259 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1259",
+          "occured_at": "2026-09-12T08:30:21Z",
+          "title": "Labeled issue #1295 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1295",
           "points": 2
         },
         {
           "type": "Issue labeled",
-          "occured_at": "2026-09-05T18:39:15Z",
-          "title": "Labeled issue #1259 - gsoc 2026",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1259",
+          "occured_at": "2026-09-12T22:20:59Z",
+          "title": "Labeled issue #1297 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1297",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-10T17:30:10Z",
+          "title": "fix - guard testbench navigation against invalid data",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1290",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-10T14:00:25Z",
+          "title": "🐞 Bug - Prevent testbench runtime errors with empty or invalid test data",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1283",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-09-10T14:00:27Z",
+          "title": "Labeled issue #1283 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1283",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-09-08T16:27:24Z",
+          "title": "fix - correct mouse event type in Extra component",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1271",
+          "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-06T14:35:45Z",
+          "title": "fix - correct mouse event type in Extra component",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1271",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-06T13:16:40Z",
+          "title": "Fix/extra mouse event type",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1270",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-06T13:06:19Z",
+          "title": "🐞 Bug - Incorrect React.MouseEvent type in Vue Extra component",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1269",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-09-06T13:06:21Z",
+          "title": "Labeled issue #1269 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1269",
           "points": 2
         }
       ]
@@ -377,15 +491,15 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/225462441?v=4",
       "role": "Contributor",
-      "total_points": 26,
+      "total_points": 16,
       "activity_breakdown": {
         "Review submitted": {
           "count": 1,
           "points": 4
         },
         "PR merged": {
-          "count": 4,
-          "points": 20
+          "count": 2,
+          "points": 10
         },
         "PR opened": {
           "count": 1,
@@ -407,11 +521,6 @@
           "date": "2026-09-06",
           "count": 2,
           "points": 7
-        },
-        {
-          "date": "2026-09-05",
-          "count": 2,
-          "points": 10
         }
       ],
       "activities": [
@@ -442,119 +551,86 @@
           "title": "Harkeerat GSoC 2026 Final Report for Project 1",
           "link": "https://github.com/CircuitVerse/Blog/pull/277",
           "points": 5
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-09-05T06:11:39Z",
-          "title": "feat(v1) - validate canonical JSON payloads",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1242",
-          "points": 5
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-09-05T06:11:38Z",
-          "title": "feat(v1) - add JSON Schema for Canonical pipeline",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1236",
-          "points": 5
         }
       ]
     },
     {
-      "username": "yashveer-1",
+      "username": "UwaisBaig",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/235941943?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/223514962?v=4",
       "role": "Contributor",
-      "total_points": 17,
+      "total_points": 14,
       "activity_breakdown": {
         "PR opened": {
-          "count": 3,
-          "points": 6
-        },
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        },
-        "Issue labeled": {
-          "count": 2,
-          "points": 4
-        },
-        "PR merged": {
-          "count": 1,
-          "points": 5
+          "count": 7,
+          "points": 14
         }
       },
       "daily_activity": [
         {
-          "date": "2026-09-10",
-          "count": 3,
-          "points": 5
-        },
-        {
-          "date": "2026-09-08",
+          "date": "2026-09-12",
           "count": 1,
-          "points": 5
+          "points": 2
         },
         {
-          "date": "2026-09-06",
-          "count": 4,
-          "points": 7
+          "date": "2026-09-11",
+          "count": 3,
+          "points": 6
+        },
+        {
+          "date": "2026-09-09",
+          "count": 3,
+          "points": 6
         }
       ],
       "activities": [
         {
           "type": "PR opened",
-          "occured_at": "2026-09-10T17:30:10Z",
-          "title": "fix - guard testbench navigation against invalid data",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1290",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-10T14:00:25Z",
-          "title": "🐞 Bug - Prevent testbench runtime errors with empty or invalid test data",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1283",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-10T14:00:27Z",
-          "title": "Labeled issue #1283 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1283",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-09-08T16:27:24Z",
-          "title": "fix - correct mouse event type in Extra component",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1271",
-          "points": 5
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-06T14:35:45Z",
-          "title": "fix - correct mouse event type in Extra component",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1271",
+          "occured_at": "2026-09-12T19:11:05Z",
+          "title": "fix(middleware) - handle incompatible character encodings in requests (#7866)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7868",
           "points": 2
         },
         {
           "type": "PR opened",
-          "occured_at": "2026-09-06T13:16:40Z",
-          "title": "Fix/extra mouse event type",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1270",
+          "occured_at": "2026-09-11T17:25:18Z",
+          "title": "fix(simulator) - prevent navbar dropdown menus from overflowing off-screen on small viewports (#7861)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7865",
           "points": 2
         },
         {
-          "type": "Issue opened",
-          "occured_at": "2026-09-06T13:06:19Z",
-          "title": "🐞 Bug - Incorrect React.MouseEvent type in Vue Extra component",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1269",
-          "points": 1
+          "type": "PR opened",
+          "occured_at": "2026-09-11T17:09:01Z",
+          "title": "fix(lti) - rescue URI - - Error on malformed launch_presentation_return_url (#7860)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7864",
+          "points": 2
         },
         {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-06T13:06:21Z",
-          "title": "Labeled issue #1269 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1269",
+          "type": "PR opened",
+          "occured_at": "2026-09-11T16:58:50Z",
+          "title": "fix(api) - remove duplicate save! and update! in groups controller (#7857)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7863",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-09T11:26:31Z",
+          "title": "fix(collaborations) - allow collaborators to remove themselves from a project (#7842)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7855",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-09T11:04:18Z",
+          "title": "fix(footer) - resolve missing translation error for API link (#7843)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7854",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-09T11:02:28Z",
+          "title": "fix(api) - validate emails presence in group members create (#7846, #7852)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7853",
           "points": 2
         }
       ]
@@ -678,75 +754,6 @@
       ]
     },
     {
-      "username": "UwaisBaig",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/223514962?v=4",
-      "role": "Contributor",
-      "total_points": 12,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 6,
-          "points": 12
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-09-11",
-          "count": 3,
-          "points": 6
-        },
-        {
-          "date": "2026-09-09",
-          "count": 3,
-          "points": 6
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-11T17:25:18Z",
-          "title": "fix(simulator) - prevent navbar dropdown menus from overflowing off-screen on small viewports (#7861)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7865",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-11T17:09:01Z",
-          "title": "fix(lti) - rescue URI - - Error on malformed launch_presentation_return_url (#7860)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7864",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-11T16:58:50Z",
-          "title": "fix(api) - remove duplicate save! and update! in groups controller (#7857)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7863",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-09T11:26:31Z",
-          "title": "fix(collaborations) - allow collaborators to remove themselves from a project (#7842)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7855",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-09T11:04:18Z",
-          "title": "fix(footer) - resolve missing translation error for API link (#7843)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7854",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-09T11:02:28Z",
-          "title": "fix(api) - validate emails presence in group members create (#7846, #7852)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7853",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "Asrani-Aman",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/96644946?u=0a63041bdb02009db73142160eb13f4fcd0a4209&v=4",
@@ -787,11 +794,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
       "role": "Maintainer",
-      "total_points": 7,
+      "total_points": 5,
       "activity_breakdown": {
         "Issue closed": {
-          "count": 7,
-          "points": 7
+          "count": 5,
+          "points": 5
         }
       },
       "daily_activity": [
@@ -809,11 +816,6 @@
           "date": "2026-09-08",
           "count": 1,
           "points": 1
-        },
-        {
-          "date": "2026-09-05",
-          "count": 2,
-          "points": 2
         }
       ],
       "activities": [
@@ -851,78 +853,6 @@
           "title": "Closed issue #1269 - 🐞 Bug - Incorrect React.MouseEvent type in Vue Extra component",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1269",
           "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-09-05T06:11:40Z",
-          "title": "Closed issue #1241 - (GSoC'26) - Add JSON Schema validation for Canonical Pipeline",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1241",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-09-05T06:11:39Z",
-          "title": "Closed issue #1235 - (GSoC'26) Add JSON Schema for Canonical format",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1235",
-          "points": 1
-        }
-      ]
-    },
-    {
-      "username": "shubhtrek",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/135618936?v=4",
-      "role": "Contributor",
-      "total_points": 7,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue labeled": {
-          "count": 2,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-09-05",
-          "count": 4,
-          "points": 7
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-05T17:22:45Z",
-          "title": "fix(i18n) - fix missing footer API link translation key (#7843)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7844",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-05T17:13:36Z",
-          "title": "🐞 Bug Footer \"API\" link displays a missing translation error (translation missing - en.API)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7843",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-05T17:13:36Z",
-          "title": "Labeled issue #7843 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7843",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-05T17:13:37Z",
-          "title": "Labeled issue #7843 - pending triage",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7843",
-          "points": 2
         }
       ]
     },
@@ -1378,6 +1308,35 @@
           "occured_at": "2026-09-08T11:27:02Z",
           "title": "fix(simulator) - guard TestbenchData against undefined/empty groups",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7849",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "cynicalmindset",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/166590584?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-09-12",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-12T21:21:33Z",
+          "title": "ci - add Indus Appstore deployment",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/664",
           "points": 2
         }
       ]
