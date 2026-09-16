@@ -1,8 +1,8 @@
 {
   "period": "week",
-  "updatedAt": 1789439406417,
-  "startDate": "2026-09-08",
-  "endDate": "2026-09-15",
+  "updatedAt": 1789525450434,
+  "startDate": "2026-09-09",
+  "endDate": "2026-09-16",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -190,7 +190,7 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/235941943?v=4",
       "role": "Contributor",
-      "total_points": 25,
+      "total_points": 20,
       "activity_breakdown": {
         "PR opened": {
           "count": 4,
@@ -203,10 +203,6 @@
         "Issue labeled": {
           "count": 4,
           "points": 8
-        },
-        "PR merged": {
-          "count": 1,
-          "points": 5
         }
       },
       "daily_activity": [
@@ -223,11 +219,6 @@
         {
           "date": "2026-09-10",
           "count": 3,
-          "points": 5
-        },
-        {
-          "date": "2026-09-08",
-          "count": 1,
           "points": 5
         }
       ],
@@ -315,13 +306,6 @@
           "title": "Labeled issue #1283 - 🐞 bug",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1283",
           "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-09-08T16:27:24Z",
-          "title": "fix - correct mouse event type in Extra component",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1271",
-          "points": 5
         }
       ]
     },
@@ -407,58 +391,6 @@
       ]
     },
     {
-      "username": "ujjwalv01",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/219022963?v=4",
-      "role": "Contributor",
-      "total_points": 9,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        },
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-09-11",
-          "count": 2,
-          "points": 4
-        },
-        {
-          "date": "2026-09-08",
-          "count": 1,
-          "points": 5
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-11T13:29:51Z",
-          "title": "feat(simulator) - Move subcircuit dragend logic from `listeners.js` into `LayoutElementsPanel.vue`",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1294",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-11T10:24:38Z",
-          "title": "feat(simulator) - Move restricted elements UI into Vue reactive state",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1293",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-09-08T16:25:10Z",
-          "title": "refactor - replace zoom slider with `ZoomControls.vue` component",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1273",
-          "points": 5
-        }
-      ]
-    },
-    {
       "username": "Asrani-Aman",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/96644946?u=0a63041bdb02009db73142160eb13f4fcd0a4209&v=4",
@@ -495,68 +427,60 @@
       ]
     },
     {
-      "username": "tachyons",
+      "username": "iamtanishqjain",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
-      "role": "Maintainer",
-      "total_points": 5,
+      "avatar_url": "https://avatars.githubusercontent.com/u/71930864?v=4",
+      "role": "Contributor",
+      "total_points": 6,
       "activity_breakdown": {
-        "Issue closed": {
-          "count": 5,
-          "points": 5
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        },
+        "Issue opened": {
+          "count": 2,
+          "points": 2
         }
       },
       "daily_activity": [
         {
-          "date": "2026-09-11",
-          "count": 3,
+          "date": "2026-09-15",
+          "count": 2,
           "points": 3
         },
         {
-          "date": "2026-09-10",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-09-08",
-          "count": 1,
-          "points": 1
+          "date": "2026-09-14",
+          "count": 2,
+          "points": 3
         }
       ],
       "activities": [
         {
-          "type": "Issue closed",
-          "occured_at": "2026-09-11T03:19:08Z",
-          "title": "Closed issue #1279 - 🐞 Bug - vuesim The testbench panel shows empty for circuits having testbenchData",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1279",
+          "type": "PR opened",
+          "occured_at": "2026-09-15T10:15:39Z",
+          "title": "fix(vuesim) - remove BMP, GIF and TIFF from render image dialog",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1306",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-15T10:14:47Z",
+          "title": "🐞 Bug - Render Image dialog offers BMP, GIF and TIFF but always saves a PNG",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1305",
           "points": 1
         },
         {
-          "type": "Issue closed",
-          "occured_at": "2026-09-11T03:21:06Z",
-          "title": "Closed issue #1288 - 🐞 Bug - vuesim Orthogonal wiring when any component is moved",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1288",
-          "points": 1
+          "type": "PR opened",
+          "occured_at": "2026-09-14T11:39:21Z",
+          "title": "fix(vuesim) - keep element label text unescaped in the properties panel",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1303",
+          "points": 2
         },
         {
-          "type": "Issue closed",
-          "occured_at": "2026-09-11T09:57:26Z",
-          "title": "Closed issue #1282 - 🐞 Bug - vuesim failure of identifying the inputs in testbench",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1282",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-09-10T11:58:53Z",
-          "title": "Closed issue #1278 - 🐞 Bug - vuesim Circuit names do not appear in the properties panel",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1278",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-09-08T16:27:25Z",
-          "title": "Closed issue #1269 - 🐞 Bug - Incorrect React.MouseEvent type in Vue Extra component",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1269",
+          "type": "Issue opened",
+          "occured_at": "2026-09-14T11:36:17Z",
+          "title": "🐞 Bug - Element label with & or ' gets mangled by the Properties panel",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1302",
           "points": 1
         }
       ]
@@ -843,6 +767,61 @@
       ]
     },
     {
+      "username": "tachyons",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
+      "role": "Maintainer",
+      "total_points": 4,
+      "activity_breakdown": {
+        "Issue closed": {
+          "count": 4,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-09-11",
+          "count": 3,
+          "points": 3
+        },
+        {
+          "date": "2026-09-10",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-09-11T03:19:08Z",
+          "title": "Closed issue #1279 - 🐞 Bug - vuesim The testbench panel shows empty for circuits having testbenchData",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1279",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-09-11T03:21:06Z",
+          "title": "Closed issue #1288 - 🐞 Bug - vuesim Orthogonal wiring when any component is moved",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1288",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-09-11T09:57:26Z",
+          "title": "Closed issue #1282 - 🐞 Bug - vuesim failure of identifying the inputs in testbench",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1282",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-09-10T11:58:53Z",
+          "title": "Closed issue #1278 - 🐞 Bug - vuesim Circuit names do not appear in the properties panel",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1278",
+          "points": 1
+        }
+      ]
+    },
+    {
       "username": "Harkeerat24",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/225462441?v=4",
@@ -868,6 +847,42 @@
           "title": "Review on PR #1175",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1175",
           "points": 4
+        }
+      ]
+    },
+    {
+      "username": "ujjwalv01",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/219022963?v=4",
+      "role": "Contributor",
+      "total_points": 4,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-09-11",
+          "count": 2,
+          "points": 4
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-11T13:29:51Z",
+          "title": "feat(simulator) - Move subcircuit dragend logic from `listeners.js` into `LayoutElementsPanel.vue`",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1294",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-11T10:24:38Z",
+          "title": "feat(simulator) - Move restricted elements UI into Vue reactive state",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1293",
+          "points": 2
         }
       ]
     },
@@ -966,70 +981,41 @@
       ]
     },
     {
-      "username": "iamtanishqjain",
+      "username": "Shruti2110-coder",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/71930864?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/184974249?v=4",
       "role": "Contributor",
       "total_points": 3,
       "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        },
         "Issue opened": {
           "count": 1,
           "points": 1
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
         }
       },
       "daily_activity": [
         {
-          "date": "2026-09-14",
+          "date": "2026-09-15",
           "count": 2,
           "points": 3
         }
       ],
       "activities": [
         {
-          "type": "PR opened",
-          "occured_at": "2026-09-14T11:39:21Z",
-          "title": "fix(vuesim) - keep element label text unescaped in the properties panel",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1303",
-          "points": 2
+          "type": "Issue opened",
+          "occured_at": "2026-09-15T13:13:20Z",
+          "title": "🐞 Replace deprecated - unprocessable_entity with - unprocessable_content",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7870",
+          "points": 1
         },
         {
-          "type": "Issue opened",
-          "occured_at": "2026-09-14T11:36:17Z",
-          "title": "🐞 Bug - Element label with & or ' gets mangled by the Properties panel",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1302",
-          "points": 1
-        }
-      ]
-    },
-    {
-      "username": "bhuvan-somisetty",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/226660604?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-09-08",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-08T11:27:02Z",
-          "title": "fix(simulator) - guard TestbenchData against undefined/empty groups",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7849",
+          "type": "Issue labeled",
+          "occured_at": "2026-09-15T13:13:22Z",
+          "title": "Labeled issue #7870 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7870",
           "points": 2
         }
       ]
