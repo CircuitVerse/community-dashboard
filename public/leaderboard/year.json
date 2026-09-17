@@ -1,9 +1,9 @@
 {
   "period": "year",
-  "updatedAt": 1789525450419,
-  "lastFetchedAt": 1789525450419,
-  "startDate": "2025-09-16",
-  "endDate": "2026-09-16",
+  "updatedAt": 1789612094804,
+  "lastFetchedAt": 1789612094804,
+  "startDate": "2025-09-17",
+  "endDate": "2026-09-17",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -11606,23 +11606,23 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
       "role": "Contributor",
-      "total_points": 612,
+      "total_points": 617,
       "activity_breakdown": {
+        "PR opened": {
+          "count": 70,
+          "points": 140
+        },
+        "Issue opened": {
+          "count": 59,
+          "points": 59
+        },
+        "Issue labeled": {
+          "count": 83,
+          "points": 166
+        },
         "PR merged": {
           "count": 46,
           "points": 230
-        },
-        "PR opened": {
-          "count": 69,
-          "points": 138
-        },
-        "Issue opened": {
-          "count": 58,
-          "points": 58
-        },
-        "Issue labeled": {
-          "count": 82,
-          "points": 164
         },
         "Issue closed": {
           "count": 22,
@@ -11630,6 +11630,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-09-16",
+          "count": 3,
+          "points": 5
+        },
         {
           "date": "2026-09-11",
           "count": 4,
@@ -12037,6 +12042,27 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-16T16:29:34Z",
+          "title": "fix(vuesim) - Combinational Analysis tool reads the input from table",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1309",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-16T16:08:16Z",
+          "title": "🐞 Bug - vuesim The combinational analysis fails to generate circuit",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1307",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-09-16T16:08:18Z",
+          "title": "Labeled issue #1307 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1307",
+          "points": 2
+        },
         {
           "type": "PR merged",
           "occured_at": "2026-09-11T03:21:04Z",
@@ -41364,6 +41390,228 @@
       ]
     },
     {
+      "username": "ujjwalv01",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/219022963?v=4",
+      "role": "Contributor",
+      "total_points": 44,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 12,
+          "points": 24
+        },
+        "PR merged": {
+          "count": 3,
+          "points": 15
+        },
+        "Issue opened": {
+          "count": 3,
+          "points": 3
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-09-16",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-09-11",
+          "count": 2,
+          "points": 4
+        },
+        {
+          "date": "2026-09-08",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2026-09-07",
+          "count": 2,
+          "points": 4
+        },
+        {
+          "date": "2026-09-04",
+          "count": 4,
+          "points": 6
+        },
+        {
+          "date": "2026-09-03",
+          "count": 3,
+          "points": 9
+        },
+        {
+          "date": "2026-09-02",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2026-08-12",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-08-11",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-08-10",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-08-09",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-08-08",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-16T16:19:07Z",
+          "title": "feat(simulator) - Move canvas pointer input from `listeners.js` into `SimulatorCanvas.vue`",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1308",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-11T13:29:51Z",
+          "title": "feat(simulator) - Move subcircuit dragend logic from `listeners.js` into `LayoutElementsPanel.vue`",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1294",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-11T10:24:38Z",
+          "title": "feat(simulator) - Move restricted elements UI into Vue reactive state",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1293",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-09-08T16:25:10Z",
+          "title": "refactor - replace zoom slider with `ZoomControls.vue` component",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1273",
+          "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-07T16:00:49Z",
+          "title": "refactor - replace zoom slider with `ZoomControls.vue` component",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1273",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-07T14:52:47Z",
+          "title": "refactor - extract `zoom`, `clipboard`, and `selection` commands from `listeners.js`",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1272",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-04T01:02:08Z",
+          "title": "chore - fix `OrGate.ts` formatting to pass CI format check",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1255",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-04T04:52:51Z",
+          "title": "Tracking Issue - Migrate `listeners.js` UI manipulations to Vue Components",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1256",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-04T00:58:02Z",
+          "title": "🐞 Bug - CI `fmt - check` fails globally due to unformatted `OrGate.ts` in `main`",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1254",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-03T23:50:15Z",
+          "title": "refactor - drop jQuery dependencies in `ux.js`",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1253",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-03T12:28:11Z",
+          "title": "refactor - drop jQuery dependencies in `listeners.js`",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1252",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-09-03T11:30:35Z",
+          "title": "refactor - convert `canvasApi.js` and `engine.js` to strict TypeScript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1190",
+          "points": 5
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-09-04T00:58:03Z",
+          "title": "Labeled issue #1254 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1254",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-09-02T06:31:48Z",
+          "title": "refactor - removed JQuery dependency in plotArea.js file",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1199",
+          "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-12T17:04:38Z",
+          "title": "refactor - convert `ux.js` and `listners.js` to strict TypeScript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1200",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-11T18:25:42Z",
+          "title": "refactor - removed JQuery dependency in plotArea.js file",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1199",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-10T17:25:51Z",
+          "title": "refactor - convert `ux.js` and `listeners.js` to strict TypeScript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1192",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-09T16:25:54Z",
+          "title": "refactor - convert canvasApi and engine to strict TypeScript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1190",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-08T18:38:44Z",
+          "title": "refactor - Convert core simulation files (canvasApi, engine, ux, listeners) to TypeScript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1184",
+          "points": 1
+        }
+      ]
+    },
+    {
       "username": "kunal-10-cloud",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/187593306?v=4",
@@ -41582,216 +41830,6 @@
           "occured_at": "2025-03-14T22:51:06Z",
           "title": "🐞 Bug - Broken UI when Alert pops up for unregistered email",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/5577",
-          "points": 1
-        }
-      ]
-    },
-    {
-      "username": "ujjwalv01",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/219022963?v=4",
-      "role": "Contributor",
-      "total_points": 42,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 11,
-          "points": 22
-        },
-        "PR merged": {
-          "count": 3,
-          "points": 15
-        },
-        "Issue opened": {
-          "count": 3,
-          "points": 3
-        },
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-09-11",
-          "count": 2,
-          "points": 4
-        },
-        {
-          "date": "2026-09-08",
-          "count": 1,
-          "points": 5
-        },
-        {
-          "date": "2026-09-07",
-          "count": 2,
-          "points": 4
-        },
-        {
-          "date": "2026-09-04",
-          "count": 4,
-          "points": 6
-        },
-        {
-          "date": "2026-09-03",
-          "count": 3,
-          "points": 9
-        },
-        {
-          "date": "2026-09-02",
-          "count": 1,
-          "points": 5
-        },
-        {
-          "date": "2026-08-12",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-08-11",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-08-10",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-08-09",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-08-08",
-          "count": 1,
-          "points": 1
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-11T13:29:51Z",
-          "title": "feat(simulator) - Move subcircuit dragend logic from `listeners.js` into `LayoutElementsPanel.vue`",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1294",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-11T10:24:38Z",
-          "title": "feat(simulator) - Move restricted elements UI into Vue reactive state",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1293",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-09-08T16:25:10Z",
-          "title": "refactor - replace zoom slider with `ZoomControls.vue` component",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1273",
-          "points": 5
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-07T16:00:49Z",
-          "title": "refactor - replace zoom slider with `ZoomControls.vue` component",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1273",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-07T14:52:47Z",
-          "title": "refactor - extract `zoom`, `clipboard`, and `selection` commands from `listeners.js`",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1272",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-04T01:02:08Z",
-          "title": "chore - fix `OrGate.ts` formatting to pass CI format check",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1255",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-04T04:52:51Z",
-          "title": "Tracking Issue - Migrate `listeners.js` UI manipulations to Vue Components",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1256",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-04T00:58:02Z",
-          "title": "🐞 Bug - CI `fmt - check` fails globally due to unformatted `OrGate.ts` in `main`",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1254",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-03T23:50:15Z",
-          "title": "refactor - drop jQuery dependencies in `ux.js`",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1253",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-03T12:28:11Z",
-          "title": "refactor - drop jQuery dependencies in `listeners.js`",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1252",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-09-03T11:30:35Z",
-          "title": "refactor - convert `canvasApi.js` and `engine.js` to strict TypeScript",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1190",
-          "points": 5
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-04T00:58:03Z",
-          "title": "Labeled issue #1254 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1254",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-09-02T06:31:48Z",
-          "title": "refactor - removed JQuery dependency in plotArea.js file",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1199",
-          "points": 5
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-12T17:04:38Z",
-          "title": "refactor - convert `ux.js` and `listners.js` to strict TypeScript",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1200",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-11T18:25:42Z",
-          "title": "refactor - removed JQuery dependency in plotArea.js file",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1199",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-10T17:25:51Z",
-          "title": "refactor - convert `ux.js` and `listeners.js` to strict TypeScript",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1192",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-09T16:25:54Z",
-          "title": "refactor - convert canvasApi and engine to strict TypeScript",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1190",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-08-08T18:38:44Z",
-          "title": "refactor - Convert core simulation files (canvasApi, engine, ux, listeners) to TypeScript",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1184",
           "points": 1
         }
       ]
@@ -50695,6 +50733,100 @@
       ]
     },
     {
+      "username": "Khwa678",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/148669282?v=4",
+      "role": "Contributor",
+      "total_points": 14,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 4,
+          "points": 4
+        },
+        "Issue labeled": {
+          "count": 5,
+          "points": 10
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-09-16",
+          "count": 6,
+          "points": 9
+        },
+        {
+          "date": "2026-09-10",
+          "count": 3,
+          "points": 5
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-16T18:47:00Z",
+          "title": "🐞 Bug - Incorrect Comparison Precedence — utils.ts",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7874",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-16T18:45:03Z",
+          "title": "🐞 BugHigh-Severity Issues 1. Incorrect Nullish Coalescing Precedence — DeleteCircuit.vue",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7873",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-16T18:23:03Z",
+          "title": "🐞 Bug Oxlint - 211 warnings across cv-frontend-vue",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7872",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-09-16T18:47:02Z",
+          "title": "Labeled issue #7874 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7874",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-09-16T18:45:04Z",
+          "title": "Labeled issue #7873 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7873",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-09-16T18:23:05Z",
+          "title": "Labeled issue #7872 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7872",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-10T16:17:56Z",
+          "title": "🐞 BugWhite profile icon is displayed incorrectly.",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7858",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-09-10T16:17:57Z",
+          "title": "Labeled issue #7858 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7858",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-09-10T16:17:58Z",
+          "title": "Labeled issue #7858 - pending triage",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7858",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "aniketchawardol",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/142898217?v=4",
@@ -57322,6 +57454,58 @@
       ]
     },
     {
+      "username": "cynicalmindset",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/166590584?v=4",
+      "role": "Contributor",
+      "total_points": 5,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-09-17",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-09-12",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-17T01:47:35Z",
+          "title": "fix(notifications) - replace incorrect GROUP_NOT_FOUND with NOTIFICATION_NOT_FOUND",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/666",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-17T01:39:03Z",
+          "title": "Bug/Tests - Fix incorrect 404 error constant in NotificationsService",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/665",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-12T21:21:33Z",
+          "title": "ci - add Indus Appstore deployment",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/664",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "amnkarn",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/201350067?v=4",
@@ -57364,53 +57548,6 @@
           "occured_at": "2026-09-11T11:45:15Z",
           "title": "Labeled issue #7861 - pending triage",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7861",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "Khwa678",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/148669282?v=4",
-      "role": "Contributor",
-      "total_points": 5,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue labeled": {
-          "count": 2,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-09-10",
-          "count": 3,
-          "points": 5
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-10T16:17:56Z",
-          "title": "🐞 BugWhite profile icon is displayed incorrectly.",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7858",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-10T16:17:57Z",
-          "title": "Labeled issue #7858 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7858",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-10T16:17:58Z",
-          "title": "Labeled issue #7858 - pending triage",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7858",
           "points": 2
         }
       ]
@@ -61120,35 +61257,6 @@
           "occured_at": "2026-09-14T15:26:27Z",
           "title": "fix(vuesim) - distinguish flip-flop types on canvas",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1304",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "cynicalmindset",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/166590584?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-09-12",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-12T21:21:33Z",
-          "title": "ci - add Indus Appstore deployment",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/664",
           "points": 2
         }
       ]
