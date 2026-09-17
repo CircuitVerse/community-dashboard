@@ -3,7 +3,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Trophy, GitPullRequest, GitMerge, Calendar, TrendingUp, AlertCircle } from "lucide-react";
+import { Trophy, GitPullRequest, GitMerge, Calendar, TrendingUp, AlertCircle, Flame } from "lucide-react";
 
 interface ContributorEntry {
   username: string;
@@ -13,6 +13,11 @@ interface ContributorEntry {
   total_points: number;
   activity_breakdown: Record<string, { count: number; points: number }>;
   daily_activity: Array<{ date: string; count: number; points: number }>;
+  badges?: Array<{
+    slug: string;
+    name: string;
+    variant: "bronze" | "silver" | "gold";
+  }>;
 }
 
 interface ContributorCardProps {
@@ -96,7 +101,25 @@ export function ContributorCard({
           @{contributor.username}
         </p>
 
-        <Badge variant="secondary">{contributor.role}</Badge>
+        <Badge variant="secondary" className="mb-2">{contributor.role}</Badge>
+        
+        {contributor.badges && contributor.badges.length > 0 && (
+          <div className="flex justify-center gap-1.5 mb-2">
+            {contributor.badges.map((badge) => {
+              const colors = {
+                gold: "text-yellow-600 bg-yellow-500/15 border-yellow-500/30 dark:text-yellow-400 dark:bg-yellow-500/20",
+                silver: "text-slate-600 bg-slate-400/15 border-slate-400/30 dark:text-slate-300 dark:bg-slate-400/20",
+                bronze: "text-orange-600 bg-orange-600/10 border-orange-600/20 dark:text-orange-400 dark:bg-orange-500/15",
+              }[badge.variant];
+              return (
+                <div key={badge.slug} className={`flex items-center gap-1 text-[10px] px-1.5 py-0.5 rounded-sm border ${colors}`} title={badge.name}>
+                  <Flame className="w-3 h-3" />
+                  <span className="font-bold">{badge.name}</span>
+                </div>
+              );
+            })}
+          </div>
+        )}
 
         {showStats && (
           <>
