@@ -1,8 +1,8 @@
 {
   "period": "week",
-  "updatedAt": 1789612094821,
-  "startDate": "2026-09-10",
-  "endDate": "2026-09-17",
+  "updatedAt": 1789697636701,
+  "startDate": "2026-09-11",
+  "endDate": "2026-09-18",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -11,26 +11,31 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
       "role": "Contributor",
-      "total_points": 55,
+      "total_points": 30,
       "activity_breakdown": {
-        "PR opened": {
-          "count": 6,
-          "points": 12
-        },
-        "Issue opened": {
-          "count": 6,
-          "points": 6
-        },
-        "Issue labeled": {
-          "count": 6,
-          "points": 12
-        },
         "PR merged": {
           "count": 5,
           "points": 25
+        },
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-09-17",
+          "count": 1,
+          "points": 5
+        },
         {
           "date": "2026-09-16",
           "count": 3,
@@ -40,14 +45,16 @@
           "date": "2026-09-11",
           "count": 4,
           "points": 20
-        },
-        {
-          "date": "2026-09-10",
-          "count": 16,
-          "points": 30
         }
       ],
       "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-09-17T08:42:47Z",
+          "title": "fix(vuesim) - Combinational Analysis tool reads the input from table",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1309",
+          "points": 5
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-09-16T16:29:34Z",
@@ -96,118 +103,6 @@
           "title": "Supreeth GSoC 2026 Project 4 Final Report",
           "link": "https://github.com/CircuitVerse/Blog/pull/275",
           "points": 5
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-10T16:23:42Z",
-          "title": "Fix(vuesim) - keep connected wires orthogonal when a component is moved",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1289",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-10T15:27:13Z",
-          "title": "fix(vuesim) - trim I/O labels when matching testbench data to circuit",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1287",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-10T14:51:33Z",
-          "title": "Fix(vuesim) - testbench title and type not loading when editing",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1286",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-10T13:34:20Z",
-          "title": "Fix(vuesim) - restore saved testbenchData of circuits",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1281",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-10T10:41:13Z",
-          "title": "Fix(vuesim) - show circuit name in Properties panel on load and tab switch",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1280",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-09-10T11:58:52Z",
-          "title": "Fix(vuesim) - show circuit name in Properties panel on load and tab switch",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1280",
-          "points": 5
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-10T16:05:58Z",
-          "title": "🐞 Bug - vuesim Orthogonal wiring when any component is moved",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1288",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-10T14:05:45Z",
-          "title": "🐞 Bug - vuesim missing test names in testbench's test edit panel",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1284",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-10T13:39:27Z",
-          "title": "🐞 Bug - vuesim failure of identifying the inputs in testbench",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1282",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-10T10:00:23Z",
-          "title": "🐞 Bug - vuesim The testbench panel shows empty for circuits having testbenchData",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1279",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-10T09:56:39Z",
-          "title": "🐞 Bug - vuesim Circuit names do not appear in the properties panel",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1278",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-10T16:06:00Z",
-          "title": "Labeled issue #1288 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1288",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-10T14:05:46Z",
-          "title": "Labeled issue #1284 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1284",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-10T13:39:29Z",
-          "title": "Labeled issue #1282 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1282",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-10T09:56:41Z",
-          "title": "Labeled issue #1278 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1278",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-10T10:00:25Z",
-          "title": "Labeled issue #1279 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1279",
-          "points": 2
         }
       ]
     },
@@ -216,19 +111,19 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/235941943?v=4",
       "role": "Contributor",
-      "total_points": 20,
+      "total_points": 15,
       "activity_breakdown": {
         "PR opened": {
-          "count": 4,
-          "points": 8
+          "count": 3,
+          "points": 6
         },
         "Issue opened": {
-          "count": 4,
-          "points": 4
+          "count": 3,
+          "points": 3
         },
         "Issue labeled": {
-          "count": 4,
-          "points": 8
+          "count": 3,
+          "points": 6
         }
       },
       "daily_activity": [
@@ -241,11 +136,6 @@
           "date": "2026-09-12",
           "count": 6,
           "points": 10
-        },
-        {
-          "date": "2026-09-10",
-          "count": 3,
-          "points": 5
         }
       ],
       "activities": [
@@ -311,27 +201,217 @@
           "title": "Labeled issue #1297 - 🐞 bug",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1297",
           "points": 2
+        }
+      ]
+    },
+    {
+      "username": "ujjwalv01",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/219022963?v=4",
+      "role": "Contributor",
+      "total_points": 13,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 4,
+          "points": 8
+        },
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-09-17",
+          "count": 2,
+          "points": 7
+        },
+        {
+          "date": "2026-09-16",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-09-11",
+          "count": 2,
+          "points": 4
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-17T10:19:24Z",
+          "title": "feat(simulator) - Move keyboard, clipboard and Tauri bindings from `listeners.js` into composables",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1310",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-09-17T08:46:41Z",
+          "title": "feat(simulator) - Move canvas pointer input from `listeners.js` into `SimulatorCanvas.vue`",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1308",
+          "points": 5
         },
         {
           "type": "PR opened",
-          "occured_at": "2026-09-10T17:30:10Z",
-          "title": "fix - guard testbench navigation against invalid data",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1290",
+          "occured_at": "2026-09-16T16:19:07Z",
+          "title": "feat(simulator) - Move canvas pointer input from `listeners.js` into `SimulatorCanvas.vue`",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1308",
           "points": 2
         },
         {
-          "type": "Issue opened",
-          "occured_at": "2026-09-10T14:00:25Z",
-          "title": "🐞 Bug - Prevent testbench runtime errors with empty or invalid test data",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1283",
+          "type": "PR opened",
+          "occured_at": "2026-09-11T13:29:51Z",
+          "title": "feat(simulator) - Move subcircuit dragend logic from `listeners.js` into `LayoutElementsPanel.vue`",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1294",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-11T10:24:38Z",
+          "title": "feat(simulator) - Move restricted elements UI into Vue reactive state",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1293",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "UwaisBaig",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/223514962?v=4",
+      "role": "Contributor",
+      "total_points": 10,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 5,
+          "points": 10
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-09-17",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-09-12",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-09-11",
+          "count": 3,
+          "points": 6
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-17T20:42:07Z",
+          "title": "refactor(specs) - replace deprecated - unprocessable_entity with - unprocessable_content (#7870)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7877",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-12T19:11:05Z",
+          "title": "fix(middleware) - handle incompatible character encodings in requests (#7866)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7868",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-11T17:25:18Z",
+          "title": "fix(simulator) - prevent navbar dropdown menus from overflowing off-screen on small viewports (#7861)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7865",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-11T17:09:01Z",
+          "title": "fix(lti) - rescue URI - - Error on malformed launch_presentation_return_url (#7860)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7864",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-11T16:58:50Z",
+          "title": "fix(api) - remove duplicate save! and update! in groups controller (#7857)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7863",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "tachyons",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?u=a7289671a2d228cf269bc52e064be89f13882e10&v=4",
+      "role": "Maintainer",
+      "total_points": 9,
+      "activity_breakdown": {
+        "Review submitted": {
+          "count": 1,
+          "points": 4
+        },
+        "Issue closed": {
+          "count": 5,
+          "points": 5
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-09-17",
+          "count": 3,
+          "points": 6
+        },
+        {
+          "date": "2026-09-11",
+          "count": 3,
+          "points": 3
+        }
+      ],
+      "activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-09-17T08:42:03Z",
+          "title": "Review on PR #1309",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1309",
+          "points": 4
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-09-17T15:22:16Z",
+          "title": "Closed issue #1311 - 🐞 Bug Oxlint - 211 warnings across cv-frontend-vue",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1311",
           "points": 1
         },
         {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-10T14:00:27Z",
-          "title": "Labeled issue #1283 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1283",
-          "points": 2
+          "type": "Issue closed",
+          "occured_at": "2026-09-17T08:42:49Z",
+          "title": "Closed issue #1307 - 🐞 Bug - vuesim The combinational analysis fails to generate circuit",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1307",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-09-11T03:19:08Z",
+          "title": "Closed issue #1279 - 🐞 Bug - vuesim The testbench panel shows empty for circuits having testbenchData",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1279",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-09-11T03:21:06Z",
+          "title": "Closed issue #1288 - 🐞 Bug - vuesim Orthogonal wiring when any component is moved",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1288",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-09-11T09:57:26Z",
+          "title": "Closed issue #1282 - 🐞 Bug - vuesim failure of identifying the inputs in testbench",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1282",
+          "points": 1
         }
       ]
     },
@@ -340,15 +420,15 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/148669282?v=4",
       "role": "Contributor",
-      "total_points": 14,
+      "total_points": 9,
       "activity_breakdown": {
         "Issue opened": {
-          "count": 4,
-          "points": 4
+          "count": 3,
+          "points": 3
         },
         "Issue labeled": {
-          "count": 5,
-          "points": 10
+          "count": 3,
+          "points": 6
         }
       },
       "daily_activity": [
@@ -356,11 +436,6 @@
           "date": "2026-09-16",
           "count": 6,
           "points": 9
-        },
-        {
-          "date": "2026-09-10",
-          "count": 3,
-          "points": 5
         }
       ],
       "activities": [
@@ -404,166 +479,6 @@
           "occured_at": "2026-09-16T18:23:05Z",
           "title": "Labeled issue #7872 - 🐞 bug",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7872",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-10T16:17:56Z",
-          "title": "🐞 BugWhite profile icon is displayed incorrectly.",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7858",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-10T16:17:57Z",
-          "title": "Labeled issue #7858 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7858",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-10T16:17:58Z",
-          "title": "Labeled issue #7858 - pending triage",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7858",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "Asrani-Aman",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/96644946?u=0a63041bdb02009db73142160eb13f4fcd0a4209&v=4",
-      "role": "Maintainer",
-      "total_points": 8,
-      "activity_breakdown": {
-        "Review submitted": {
-          "count": 2,
-          "points": 8
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-09-10",
-          "count": 2,
-          "points": 8
-        }
-      ],
-      "activities": [
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-09-10T07:34:49Z",
-          "title": "Review on PR #7767",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7767",
-          "points": 4
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-09-10T07:32:40Z",
-          "title": "Review on PR #7764",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7764",
-          "points": 4
-        }
-      ]
-    },
-    {
-      "username": "UwaisBaig",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/223514962?v=4",
-      "role": "Contributor",
-      "total_points": 8,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 4,
-          "points": 8
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-09-12",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-09-11",
-          "count": 3,
-          "points": 6
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-12T19:11:05Z",
-          "title": "fix(middleware) - handle incompatible character encodings in requests (#7866)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7868",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-11T17:25:18Z",
-          "title": "fix(simulator) - prevent navbar dropdown menus from overflowing off-screen on small viewports (#7861)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7865",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-11T17:09:01Z",
-          "title": "fix(lti) - rescue URI - - Error on malformed launch_presentation_return_url (#7860)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7864",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-11T16:58:50Z",
-          "title": "fix(api) - remove duplicate save! and update! in groups controller (#7857)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7863",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "ujjwalv01",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/219022963?v=4",
-      "role": "Contributor",
-      "total_points": 6,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 3,
-          "points": 6
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-09-16",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-09-11",
-          "count": 2,
-          "points": 4
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-16T16:19:07Z",
-          "title": "feat(simulator) - Move canvas pointer input from `listeners.js` into `SimulatorCanvas.vue`",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1308",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-11T13:29:51Z",
-          "title": "feat(simulator) - Move subcircuit dragend logic from `listeners.js` into `LayoutElementsPanel.vue`",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1294",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-11T10:24:38Z",
-          "title": "feat(simulator) - Move restricted elements UI into Vue reactive state",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1293",
           "points": 2
         }
       ]
@@ -624,86 +539,6 @@
           "title": "🐞 Bug - Element label with & or ' gets mangled by the Properties panel",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1302",
           "points": 1
-        }
-      ]
-    },
-    {
-      "username": "magic-peach",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
-      "role": "Contributor",
-      "total_points": 5,
-      "activity_breakdown": {
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-09-10",
-          "count": 1,
-          "points": 5
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR merged",
-          "occured_at": "2026-09-10T07:32:55Z",
-          "title": "feat(lti) - add Lti - - AccessToken for platform service calls",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7764",
-          "points": 5
-        }
-      ]
-    },
-    {
-      "username": "aryan7071",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/175052103?v=4",
-      "role": "Contributor",
-      "total_points": 5,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-09-10",
-          "count": 3,
-          "points": 5
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-10T21:10:10Z",
-          "title": "fix - EventQueue.add() discards an explicit delay of 0",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1291",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-10T14:49:13Z",
-          "title": "🐞 Bug - eventQueue.ts discards explicit delay=0, causing 10-tick startup delay for 9 element types",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1285",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-10T14:49:15Z",
-          "title": "Labeled issue #1285 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1285",
-          "points": 2
         }
       ]
     },
@@ -807,57 +642,43 @@
       ]
     },
     {
-      "username": "tachyons",
+      "username": "VishalSirimalla",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
-      "role": "Maintainer",
+      "avatar_url": "https://avatars.githubusercontent.com/u/221854121?v=4",
+      "role": "Contributor",
       "total_points": 4,
       "activity_breakdown": {
-        "Issue closed": {
-          "count": 4,
+        "PR opened": {
+          "count": 2,
           "points": 4
         }
       },
       "daily_activity": [
         {
-          "date": "2026-09-11",
-          "count": 3,
-          "points": 3
+          "date": "2026-09-17",
+          "count": 1,
+          "points": 2
         },
         {
-          "date": "2026-09-10",
+          "date": "2026-09-11",
           "count": 1,
-          "points": 1
+          "points": 2
         }
       ],
       "activities": [
         {
-          "type": "Issue closed",
-          "occured_at": "2026-09-11T03:19:08Z",
-          "title": "Closed issue #1279 - 🐞 Bug - vuesim The testbench panel shows empty for circuits having testbenchData",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1279",
-          "points": 1
+          "type": "PR opened",
+          "occured_at": "2026-09-17T08:59:23Z",
+          "title": "Fix JSON response when leaving non-member organization",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7876",
+          "points": 2
         },
         {
-          "type": "Issue closed",
-          "occured_at": "2026-09-11T03:21:06Z",
-          "title": "Closed issue #1288 - 🐞 Bug - vuesim Orthogonal wiring when any component is moved",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1288",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-09-11T09:57:26Z",
-          "title": "Closed issue #1282 - 🐞 Bug - vuesim failure of identifying the inputs in testbench",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1282",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-09-10T11:58:53Z",
-          "title": "Closed issue #1278 - 🐞 Bug - vuesim Circuit names do not appear in the properties panel",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1278",
-          "points": 1
+          "type": "PR opened",
+          "occured_at": "2026-09-11T16:43:14Z",
+          "title": "Fix 5242 message position",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7862",
+          "points": 2
         }
       ]
     },
@@ -942,50 +763,9 @@
       ]
     },
     {
-      "username": "deepak0x",
+      "username": "SantamRC",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/149673145?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-09-11",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-09-10",
-          "count": 1,
-          "points": 1
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-11T06:32:55Z",
-          "title": "bug - LtiController#set_lti_params raises URI - - InvalidURIError on malformed launch_presentation_return_url",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7860",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-10T05:48:41Z",
-          "title": "bug - Unreachable invalid_resource! branch in API groups#create",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7857",
-          "points": 1
-        }
-      ]
-    },
-    {
-      "username": "VishalSirimalla",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/221854121?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/52635773?v=4",
       "role": "Contributor",
       "total_points": 2,
       "activity_breakdown": {
@@ -996,7 +776,7 @@
       },
       "daily_activity": [
         {
-          "date": "2026-09-11",
+          "date": "2026-09-17",
           "count": 1,
           "points": 2
         }
@@ -1004,9 +784,9 @@
       "activities": [
         {
           "type": "PR opened",
-          "occured_at": "2026-09-11T16:43:14Z",
-          "title": "Fix 5242 message position",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7862",
+          "occured_at": "2026-09-17T19:26:05Z",
+          "title": "fix - pin intl and html to versions the app builds with",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/667",
           "points": 2
         }
       ]
@@ -1037,6 +817,35 @@
           "title": "fix(vuesim) - distinguish flip-flop types on canvas",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1304",
           "points": 2
+        }
+      ]
+    },
+    {
+      "username": "deepak0x",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/149673145?v=4",
+      "role": "Contributor",
+      "total_points": 1,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-09-11",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-11T06:32:55Z",
+          "title": "bug - LtiController#set_lti_params raises URI - - InvalidURIError on malformed launch_presentation_return_url",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7860",
+          "points": 1
         }
       ]
     },
