@@ -1,9 +1,9 @@
 {
   "period": "year",
-  "updatedAt": 1789784197584,
-  "lastFetchedAt": 1789784197584,
-  "startDate": "2025-09-19",
-  "endDate": "2026-09-19",
+  "updatedAt": 1789871119291,
+  "lastFetchedAt": 1789871119291,
+  "startDate": "2025-09-20",
+  "endDate": "2026-09-20",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -11632,23 +11632,23 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
       "role": "Contributor",
-      "total_points": 631,
+      "total_points": 636,
       "activity_breakdown": {
         "PR opened": {
-          "count": 71,
-          "points": 142
+          "count": 72,
+          "points": 144
         },
         "Issue opened": {
-          "count": 60,
-          "points": 60
+          "count": 61,
+          "points": 61
+        },
+        "Issue labeled": {
+          "count": 85,
+          "points": 170
         },
         "Review submitted": {
           "count": 1,
           "points": 4
-        },
-        "Issue labeled": {
-          "count": 84,
-          "points": 168
         },
         "PR merged": {
           "count": 47,
@@ -11660,6 +11660,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-09-19",
+          "count": 3,
+          "points": 5
+        },
         {
           "date": "2026-09-18",
           "count": 4,
@@ -12082,6 +12087,27 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-19T16:25:03Z",
+          "title": "fix - add report issue modal to redirect to forums",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1318",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-19T13:38:19Z",
+          "title": "🐞 Bug - vuesim The bug reporting modal doesnt function as expected",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1315",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-09-19T13:38:21Z",
+          "title": "Labeled issue #1315 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1315",
+          "points": 2
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-09-18T14:01:58Z",
@@ -38175,19 +38201,19 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/175052103?v=4",
       "role": "Contributor",
-      "total_points": 72,
+      "total_points": 75,
       "activity_breakdown": {
+        "Issue opened": {
+          "count": 7,
+          "points": 7
+        },
+        "Issue labeled": {
+          "count": 8,
+          "points": 16
+        },
         "PR opened": {
           "count": 11,
           "points": 22
-        },
-        "Issue opened": {
-          "count": 6,
-          "points": 6
-        },
-        "Issue labeled": {
-          "count": 7,
-          "points": 14
         },
         "PR merged": {
           "count": 6,
@@ -38195,6 +38221,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-09-19",
+          "count": 2,
+          "points": 3
+        },
         {
           "date": "2026-09-10",
           "count": 3,
@@ -38267,6 +38298,20 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-19T20:57:34Z",
+          "title": "Title - 🐞 Bug - Three bugs found while sweeping undo/redo keyboard shortcut conflict, element duplication, and Button bit-width reset",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1319",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-09-19T20:57:36Z",
+          "title": "Labeled issue #1319 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1319",
+          "points": 2
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-09-10T21:10:10Z",
@@ -53738,6 +53783,162 @@
       ]
     },
     {
+      "username": "iamtanishqjain",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/71930864?v=4",
+      "role": "Contributor",
+      "total_points": 9,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 3,
+          "points": 6
+        },
+        "Issue opened": {
+          "count": 3,
+          "points": 3
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-09-19",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-09-15",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-09-14",
+          "count": 2,
+          "points": 3
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-19T15:13:07Z",
+          "title": "fix(vuesim) - resize TTY in place so its wires and text survive",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1317",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-19T15:12:05Z",
+          "title": "🐞 Bug - Changing TTY rows or columns deletes every wire attached to it",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1316",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-15T10:15:39Z",
+          "title": "fix(vuesim) - remove BMP, GIF and TIFF from render image dialog",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1306",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-15T10:14:47Z",
+          "title": "🐞 Bug - Render Image dialog offers BMP, GIF and TIFF but always saves a PNG",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1305",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-14T11:39:21Z",
+          "title": "fix(vuesim) - keep element label text unescaped in the properties panel",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1303",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-14T11:36:17Z",
+          "title": "🐞 Bug - Element label with & or ' gets mangled by the Properties panel",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1302",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "username": "cynicalmindset",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/166590584?v=4",
+      "role": "Contributor",
+      "total_points": 9,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 3,
+          "points": 6
+        },
+        "Issue opened": {
+          "count": 3,
+          "points": 3
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-09-19",
+          "count": 3,
+          "points": 4
+        },
+        {
+          "date": "2026-09-17",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-09-12",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-19T04:03:44Z",
+          "title": "feat(i18n) - extract hardcoded strings into localization arb files",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/670",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-19T03:48:14Z",
+          "title": "feat(i18n) - extract hardcoded strings into localization arb files",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/669",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-19T03:21:13Z",
+          "title": "unhandled UnauthorizedException in NotificationsService and missing unit tests",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/668",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-17T01:47:35Z",
+          "title": "fix(notifications) - replace incorrect GROUP_NOT_FOUND with NOTIFICATION_NOT_FOUND",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/666",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-17T01:39:03Z",
+          "title": "Bug/Tests - Fix incorrect 404 error constant in NotificationsService",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/665",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-12T21:21:33Z",
+          "title": "ci - add Indus Appstore deployment",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/664",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "Saksham-2202",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/178088707?v=4",
@@ -56298,65 +56499,6 @@
       ]
     },
     {
-      "username": "iamtanishqjain",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/71930864?v=4",
-      "role": "Contributor",
-      "total_points": 6,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        },
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-09-15",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-09-14",
-          "count": 2,
-          "points": 3
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-15T10:15:39Z",
-          "title": "fix(vuesim) - remove BMP, GIF and TIFF from render image dialog",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1306",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-15T10:14:47Z",
-          "title": "🐞 Bug - Render Image dialog offers BMP, GIF and TIFF but always saves a PNG",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1305",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-14T11:39:21Z",
-          "title": "fix(vuesim) - keep element label text unescaped in the properties panel",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1303",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-14T11:36:17Z",
-          "title": "🐞 Bug - Element label with & or ' gets mangled by the Properties panel",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1302",
-          "points": 1
-        }
-      ]
-    },
-    {
       "username": "YashSikarwar28",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/193323729?v=4",
@@ -57633,58 +57775,6 @@
           "title": "UX/Enhancement - Improve Project Name input - add maxlength and update label",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/712",
           "points": 1
-        }
-      ]
-    },
-    {
-      "username": "cynicalmindset",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/166590584?v=4",
-      "role": "Contributor",
-      "total_points": 5,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-09-17",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-09-12",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-17T01:47:35Z",
-          "title": "fix(notifications) - replace incorrect GROUP_NOT_FOUND with NOTIFICATION_NOT_FOUND",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/666",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-17T01:39:03Z",
-          "title": "Bug/Tests - Fix incorrect 404 error constant in NotificationsService",
-          "link": "https://github.com/CircuitVerse/mobile-app/issues/665",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-12T21:21:33Z",
-          "title": "ci - add Indus Appstore deployment",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/664",
-          "points": 2
         }
       ]
     },

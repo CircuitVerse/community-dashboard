@@ -1,8 +1,8 @@
 {
   "period": "month",
-  "updatedAt": 1789784197607,
-  "startDate": "2026-08-20",
-  "endDate": "2026-09-19",
+  "updatedAt": 1789871119312,
+  "startDate": "2026-08-21",
+  "endDate": "2026-09-20",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -11,23 +11,23 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
       "role": "Contributor",
-      "total_points": 83,
+      "total_points": 88,
       "activity_breakdown": {
         "PR opened": {
-          "count": 9,
-          "points": 18
+          "count": 10,
+          "points": 20
         },
         "Issue opened": {
-          "count": 8,
-          "points": 8
+          "count": 9,
+          "points": 9
+        },
+        "Issue labeled": {
+          "count": 10,
+          "points": 20
         },
         "Review submitted": {
           "count": 1,
           "points": 4
-        },
-        "Issue labeled": {
-          "count": 9,
-          "points": 18
         },
         "PR merged": {
           "count": 7,
@@ -35,6 +35,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-09-19",
+          "count": 3,
+          "points": 5
+        },
         {
           "date": "2026-09-18",
           "count": 4,
@@ -77,6 +82,27 @@
         }
       ],
       "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-19T16:25:03Z",
+          "title": "fix - add report issue modal to redirect to forums",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1318",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-19T13:38:19Z",
+          "title": "🐞 Bug - vuesim The bug reporting modal doesnt function as expected",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1315",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-09-19T13:38:21Z",
+          "title": "Labeled issue #1315 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1315",
+          "points": 2
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-09-18T14:01:58Z",
@@ -322,11 +348,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/225462441?v=4",
       "role": "Contributor",
-      "total_points": 68,
+      "total_points": 64,
       "activity_breakdown": {
         "PR opened": {
-          "count": 7,
-          "points": 14
+          "count": 5,
+          "points": 10
         },
         "Review submitted": {
           "count": 3,
@@ -403,11 +429,6 @@
         {
           "date": "2026-08-21",
           "count": 1,
-          "points": 4
-        },
-        {
-          "date": "2026-08-20",
-          "count": 2,
           "points": 4
         }
       ],
@@ -572,20 +593,6 @@
           "title": "Review on PR #1199",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1199",
           "points": 4
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-20T11:58:19Z",
-          "title": "feat(v1) - add ELK auto-layout for canonical imports",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1222",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-20T05:57:11Z",
-          "title": "refactor(v1) - verify Editor's Picks and improve canonical round trips",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1221",
-          "points": 2
         }
       ]
     },
@@ -988,190 +995,6 @@
       ]
     },
     {
-      "username": "naman79820",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
-      "role": "Contributor",
-      "total_points": 42,
-      "activity_breakdown": {
-        "Review submitted": {
-          "count": 1,
-          "points": 4
-        },
-        "PR opened": {
-          "count": 4,
-          "points": 8
-        },
-        "PR merged": {
-          "count": 4,
-          "points": 20
-        },
-        "Issue closed": {
-          "count": 2,
-          "points": 2
-        },
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        },
-        "Issue labeled": {
-          "count": 3,
-          "points": 6
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-09-02",
-          "count": 1,
-          "points": 4
-        },
-        {
-          "date": "2026-08-31",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-08-26",
-          "count": 2,
-          "points": 7
-        },
-        {
-          "date": "2026-08-24",
-          "count": 3,
-          "points": 7
-        },
-        {
-          "date": "2026-08-23",
-          "count": 3,
-          "points": 5
-        },
-        {
-          "date": "2026-08-21",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-08-20",
-          "count": 5,
-          "points": 15
-        }
-      ],
-      "activities": [
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-09-02T18:24:21Z",
-          "title": "Review on PR #7814",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7814",
-          "points": 4
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-31T13:18:21Z",
-          "title": "refactor(organizations) - identify organizations by uuid instead of slug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7826",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-26T10:41:20Z",
-          "title": "refactor(organizations) - replace slugs with uuids",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7812",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-08-26T17:03:28Z",
-          "title": "Feature - add email-based member invitations (backend)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7799",
-          "points": 5
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-08-24T17:24:28Z",
-          "title": "Naman GSoC 2026 Project-6 final report",
-          "link": "https://github.com/CircuitVerse/Blog/pull/274",
-          "points": 5
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-08-24T19:12:21Z",
-          "title": "Closed issue #7707 - 🐞 Bug - Clock/Fullscreen panel (.clockPropertyHeader) overlaps circuit elements in embedded simulator",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7707",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-08-24T20:24:29Z",
-          "title": "Closed issue #5863 - Local RSpec failures not reproducible on GitHub CI/CD",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/5863",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-08-23T16:45:15Z",
-          "title": "Feature - Use UUIDs instead of FriendlyId slugs for organization URLs",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7808",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-08-23T16:45:17Z",
-          "title": "Labeled issue #7808 - 🌟 feature",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7808",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-08-23T16:45:38Z",
-          "title": "Labeled issue #7808 - GSoC'26",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7808",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-21T21:44:51Z",
-          "title": "GSoC 2026 Project-6 final report",
-          "link": "https://github.com/CircuitVerse/Blog/pull/274",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-20T13:12:26Z",
-          "title": "fix(security) - bump mail gem to 2.9.1 to patch GHSA-mvxr-6m87-mv2q",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7804",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-08-20T15:52:51Z",
-          "title": "fix(security) - bump mail gem to 2.9.1 to patch GHSA-mvxr-6m87-mv2q",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7804",
-          "points": 5
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-08-20T16:13:12Z",
-          "title": "feat(organizations) - Organization form and index UI refinements",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7785",
-          "points": 5
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-08-20T13:10:52Z",
-          "title": "🐞 Bug - mail gem 2.9.0 is vulnerable to email address spoofing (GHSA-mvxr-6m87-mv2q)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7803",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-08-20T13:10:54Z",
-          "title": "Labeled issue #7803 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7803",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "ujjwalv01",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/219022963?v=4",
@@ -1353,156 +1176,145 @@
       ]
     },
     {
-      "username": "UwaisBaig",
+      "username": "naman79820",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/223514962?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
-      "total_points": 28,
+      "total_points": 27,
       "activity_breakdown": {
+        "Review submitted": {
+          "count": 1,
+          "points": 4
+        },
         "PR opened": {
-          "count": 14,
-          "points": 28
+          "count": 3,
+          "points": 6
+        },
+        "PR merged": {
+          "count": 2,
+          "points": 10
+        },
+        "Issue closed": {
+          "count": 2,
+          "points": 2
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "Issue labeled": {
+          "count": 2,
+          "points": 4
         }
       },
       "daily_activity": [
         {
-          "date": "2026-09-17",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-09-12",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-09-11",
-          "count": 3,
-          "points": 6
-        },
-        {
-          "date": "2026-09-09",
-          "count": 3,
-          "points": 6
-        },
-        {
-          "date": "2026-09-03",
-          "count": 1,
-          "points": 2
-        },
-        {
           "date": "2026-09-02",
           "count": 1,
-          "points": 2
+          "points": 4
         },
         {
           "date": "2026-08-31",
-          "count": 3,
-          "points": 6
+          "count": 1,
+          "points": 2
         },
         {
-          "date": "2026-08-20",
+          "date": "2026-08-26",
+          "count": 2,
+          "points": 7
+        },
+        {
+          "date": "2026-08-24",
+          "count": 3,
+          "points": 7
+        },
+        {
+          "date": "2026-08-23",
+          "count": 3,
+          "points": 5
+        },
+        {
+          "date": "2026-08-21",
           "count": 1,
           "points": 2
         }
       ],
       "activities": [
         {
+          "type": "Review submitted",
+          "occured_at": "2026-09-02T18:24:21Z",
+          "title": "Review on PR #7814",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7814",
+          "points": 4
+        },
+        {
           "type": "PR opened",
-          "occured_at": "2026-09-17T20:42:07Z",
-          "title": "refactor(specs) - replace deprecated - unprocessable_entity with - unprocessable_content (#7870)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7877",
+          "occured_at": "2026-08-31T13:18:21Z",
+          "title": "refactor(organizations) - identify organizations by uuid instead of slug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7826",
           "points": 2
         },
         {
           "type": "PR opened",
-          "occured_at": "2026-09-12T19:11:05Z",
-          "title": "fix(middleware) - handle incompatible character encodings in requests (#7866)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7868",
+          "occured_at": "2026-08-26T10:41:20Z",
+          "title": "refactor(organizations) - replace slugs with uuids",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7812",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-08-26T17:03:28Z",
+          "title": "Feature - add email-based member invitations (backend)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7799",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-08-24T17:24:28Z",
+          "title": "Naman GSoC 2026 Project-6 final report",
+          "link": "https://github.com/CircuitVerse/Blog/pull/274",
+          "points": 5
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-08-24T19:12:21Z",
+          "title": "Closed issue #7707 - 🐞 Bug - Clock/Fullscreen panel (.clockPropertyHeader) overlaps circuit elements in embedded simulator",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7707",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-08-24T20:24:29Z",
+          "title": "Closed issue #5863 - Local RSpec failures not reproducible on GitHub CI/CD",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/5863",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-23T16:45:15Z",
+          "title": "Feature - Use UUIDs instead of FriendlyId slugs for organization URLs",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7808",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-08-23T16:45:17Z",
+          "title": "Labeled issue #7808 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7808",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-08-23T16:45:38Z",
+          "title": "Labeled issue #7808 - GSoC'26",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7808",
           "points": 2
         },
         {
           "type": "PR opened",
-          "occured_at": "2026-09-11T17:25:18Z",
-          "title": "fix(simulator) - prevent navbar dropdown menus from overflowing off-screen on small viewports (#7861)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7865",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-11T17:09:01Z",
-          "title": "fix(lti) - rescue URI - - Error on malformed launch_presentation_return_url (#7860)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7864",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-11T16:58:50Z",
-          "title": "fix(api) - remove duplicate save! and update! in groups controller (#7857)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7863",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-09T11:26:31Z",
-          "title": "fix(collaborations) - allow collaborators to remove themselves from a project (#7842)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7855",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-09T11:04:18Z",
-          "title": "fix(footer) - resolve missing translation error for API link (#7843)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7854",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-09T11:02:28Z",
-          "title": "fix(api) - validate emails presence in group members create (#7846, #7852)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7853",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-03T00:40:41Z",
-          "title": "fix(groups) - promote existing group members when adding mentors (#7822)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7838",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-02T00:00:15Z",
-          "title": "fix(adapter) - sanitize page parameter to prevent ArgumentError (#7830)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7832",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-31T19:23:48Z",
-          "title": "fix(controller) - authenticate and authorize before database lookup in view_issue_circuit_data (#7817)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7829",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-31T19:21:39Z",
-          "title": "fix(groups) - increase member and mentor email input maxlength to 50 (#7819)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7828",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-31T19:20:44Z",
-          "title": "fix(controller) - enforce authentication before group member lookup and authorization (#7816)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7827",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-20T20:32:32Z",
-          "title": "fix(simulator) - honor explicit delay=0 in EventQueue.add (#7802)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7806",
+          "occured_at": "2026-08-21T21:44:51Z",
+          "title": "GSoC 2026 Project-6 final report",
+          "link": "https://github.com/CircuitVerse/Blog/pull/274",
           "points": 2
         }
       ]
@@ -1645,6 +1457,149 @@
           "occured_at": "2026-09-06T07:19:03Z",
           "title": "Labeled issue #1266 - pending triage",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1266",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "UwaisBaig",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/223514962?v=4",
+      "role": "Contributor",
+      "total_points": 26,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 13,
+          "points": 26
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-09-17",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-09-12",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-09-11",
+          "count": 3,
+          "points": 6
+        },
+        {
+          "date": "2026-09-09",
+          "count": 3,
+          "points": 6
+        },
+        {
+          "date": "2026-09-03",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-09-02",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-08-31",
+          "count": 3,
+          "points": 6
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-17T20:42:07Z",
+          "title": "refactor(specs) - replace deprecated - unprocessable_entity with - unprocessable_content (#7870)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7877",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-12T19:11:05Z",
+          "title": "fix(middleware) - handle incompatible character encodings in requests (#7866)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7868",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-11T17:25:18Z",
+          "title": "fix(simulator) - prevent navbar dropdown menus from overflowing off-screen on small viewports (#7861)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7865",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-11T17:09:01Z",
+          "title": "fix(lti) - rescue URI - - Error on malformed launch_presentation_return_url (#7860)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7864",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-11T16:58:50Z",
+          "title": "fix(api) - remove duplicate save! and update! in groups controller (#7857)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7863",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-09T11:26:31Z",
+          "title": "fix(collaborations) - allow collaborators to remove themselves from a project (#7842)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7855",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-09T11:04:18Z",
+          "title": "fix(footer) - resolve missing translation error for API link (#7843)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7854",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-09T11:02:28Z",
+          "title": "fix(api) - validate emails presence in group members create (#7846, #7852)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7853",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-03T00:40:41Z",
+          "title": "fix(groups) - promote existing group members when adding mentors (#7822)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7838",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-02T00:00:15Z",
+          "title": "fix(adapter) - sanitize page parameter to prevent ArgumentError (#7830)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7832",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-31T19:23:48Z",
+          "title": "fix(controller) - authenticate and authorize before database lookup in view_issue_circuit_data (#7817)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7829",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-31T19:21:39Z",
+          "title": "fix(groups) - increase member and mentor email input maxlength to 50 (#7819)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7828",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-31T19:20:44Z",
+          "title": "fix(controller) - enforce authentication before group member lookup and authorization (#7816)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7827",
           "points": 2
         }
       ]
@@ -2294,89 +2249,6 @@
       ]
     },
     {
-      "username": "vedant-jain03",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/76901313?v=4",
-      "role": "Maintainer",
-      "total_points": 12,
-      "activity_breakdown": {
-        "Review submitted": {
-          "count": 2,
-          "points": 8
-        },
-        "Issue closed": {
-          "count": 4,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-08-26",
-          "count": 2,
-          "points": 5
-        },
-        {
-          "date": "2026-08-24",
-          "count": 1,
-          "points": 4
-        },
-        {
-          "date": "2026-08-23",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-08-20",
-          "count": 2,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-08-26T17:02:02Z",
-          "title": "Review on PR #7799",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7799",
-          "points": 4
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-08-26T17:03:29Z",
-          "title": "Closed issue #7798 - Feature - Add email-based member invitations for organizations (backend)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7798",
-          "points": 1
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-08-24T17:24:18Z",
-          "title": "Review on PR #274",
-          "link": "https://github.com/CircuitVerse/Blog/pull/274",
-          "points": 4
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-08-23T18:30:10Z",
-          "title": "Closed issue #1154 - 🐞 Bug - TESTBENCH panel overlaps report-issue button in v0",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1154",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-08-20T15:52:53Z",
-          "title": "Closed issue #7803 - 🐞 Bug - mail gem 2.9.0 is vulnerable to email address spoofing (GHSA-mvxr-6m87-mv2q)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7803",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-08-20T16:13:14Z",
-          "title": "Closed issue #7784 - Feature - Organization form and index UI refinements",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7784",
-          "points": 1
-        }
-      ]
-    },
-    {
       "username": "JituRewar",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/229604335?v=4",
@@ -2620,9 +2492,73 @@
       ]
     },
     {
-      "username": "bhuvan-somisetty",
+      "username": "vedant-jain03",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/226660604?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/76901313?v=4",
+      "role": "Maintainer",
+      "total_points": 10,
+      "activity_breakdown": {
+        "Review submitted": {
+          "count": 2,
+          "points": 8
+        },
+        "Issue closed": {
+          "count": 2,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-08-26",
+          "count": 2,
+          "points": 5
+        },
+        {
+          "date": "2026-08-24",
+          "count": 1,
+          "points": 4
+        },
+        {
+          "date": "2026-08-23",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-08-26T17:02:02Z",
+          "title": "Review on PR #7799",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7799",
+          "points": 4
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-08-26T17:03:29Z",
+          "title": "Closed issue #7798 - Feature - Add email-based member invitations for organizations (backend)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7798",
+          "points": 1
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-08-24T17:24:18Z",
+          "title": "Review on PR #274",
+          "link": "https://github.com/CircuitVerse/Blog/pull/274",
+          "points": 4
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-08-23T18:30:10Z",
+          "title": "Closed issue #1154 - 🐞 Bug - TESTBENCH panel overlaps report-issue button in v0",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1154",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "username": "iamtanishqjain",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/71930864?v=4",
       "role": "Contributor",
       "total_points": 9,
       "activity_breakdown": {
@@ -2637,68 +2573,211 @@
       },
       "daily_activity": [
         {
-          "date": "2026-09-08",
-          "count": 1,
+          "date": "2026-09-19",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-09-15",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-09-14",
+          "count": 2,
+          "points": 3
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-19T15:13:07Z",
+          "title": "fix(vuesim) - resize TTY in place so its wires and text survive",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1317",
           "points": 2
         },
         {
-          "date": "2026-08-25",
-          "count": 1,
+          "type": "Issue opened",
+          "occured_at": "2026-09-19T15:12:05Z",
+          "title": "🐞 Bug - Changing TTY rows or columns deletes every wire attached to it",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1316",
           "points": 1
         },
         {
-          "date": "2026-08-23",
-          "count": 1,
+          "type": "PR opened",
+          "occured_at": "2026-09-15T10:15:39Z",
+          "title": "fix(vuesim) - remove BMP, GIF and TIFF from render image dialog",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1306",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-15T10:14:47Z",
+          "title": "🐞 Bug - Render Image dialog offers BMP, GIF and TIFF but always saves a PNG",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1305",
           "points": 1
         },
         {
-          "date": "2026-08-20",
+          "type": "PR opened",
+          "occured_at": "2026-09-14T11:39:21Z",
+          "title": "fix(vuesim) - keep element label text unescaped in the properties panel",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1303",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-14T11:36:17Z",
+          "title": "🐞 Bug - Element label with & or ' gets mangled by the Properties panel",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1302",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "username": "cynicalmindset",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/166590584?v=4",
+      "role": "Contributor",
+      "total_points": 9,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 3,
+          "points": 6
+        },
+        "Issue opened": {
+          "count": 3,
+          "points": 3
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-09-19",
+          "count": 3,
+          "points": 4
+        },
+        {
+          "date": "2026-09-17",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-09-12",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-19T04:03:44Z",
+          "title": "feat(i18n) - extract hardcoded strings into localization arb files",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/670",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-19T03:48:14Z",
+          "title": "feat(i18n) - extract hardcoded strings into localization arb files",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/669",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-19T03:21:13Z",
+          "title": "unhandled UnauthorizedException in NotificationsService and missing unit tests",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/668",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-17T01:47:35Z",
+          "title": "fix(notifications) - replace incorrect GROUP_NOT_FOUND with NOTIFICATION_NOT_FOUND",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/666",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-17T01:39:03Z",
+          "title": "Bug/Tests - Fix incorrect 404 error constant in NotificationsService",
+          "link": "https://github.com/CircuitVerse/mobile-app/issues/665",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-12T21:21:33Z",
+          "title": "ci - add Indus Appstore deployment",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/664",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "aryan7071",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/175052103?v=4",
+      "role": "Contributor",
+      "total_points": 8,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 2,
+          "points": 2
+        },
+        "Issue labeled": {
+          "count": 2,
+          "points": 4
+        },
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-09-19",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-09-10",
           "count": 3,
           "points": 5
         }
       ],
       "activities": [
         {
-          "type": "PR opened",
-          "occured_at": "2026-09-08T11:27:02Z",
-          "title": "fix(simulator) - guard TestbenchData against undefined/empty groups",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7849",
-          "points": 2
-        },
-        {
           "type": "Issue opened",
-          "occured_at": "2026-08-25T10:37:45Z",
-          "title": "v1 TestBench - groupNext/groupPrev can throw TypeError on groups with empty inputs",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1231",
+          "occured_at": "2026-09-19T20:57:34Z",
+          "title": "Title - 🐞 Bug - Three bugs found while sweeping undo/redo keyboard shortcut conflict, element duplication, and Button bit-width reset",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1319",
           "points": 1
         },
         {
-          "type": "Issue opened",
-          "occured_at": "2026-08-23T22:01:27Z",
-          "title": "fix(simulator) - TypeError in TestbenchData.isCaseValid() and unhandled empty group navigation in Testbench engine",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7809",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-20T13:40:02Z",
-          "title": "fix(simulator) - schedule explicit delay=0 events immediately in EventQueue",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7805",
+          "type": "Issue labeled",
+          "occured_at": "2026-09-19T20:57:36Z",
+          "title": "Labeled issue #1319 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1319",
           "points": 2
         },
         {
           "type": "PR opened",
-          "occured_at": "2026-08-20T02:26:04Z",
-          "title": "fix(testbench) - resolve ReferenceError in v1 TestBench group navigation",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1220",
+          "occured_at": "2026-09-10T21:10:10Z",
+          "title": "fix - EventQueue.add() discards an explicit delay of 0",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1291",
           "points": 2
         },
         {
           "type": "Issue opened",
-          "occured_at": "2026-08-20T12:51:56Z",
-          "title": "bug - EventQueue.add() drops explicit delay=0, mis-scheduling flip-flops/Buffer/Counter/Random in the Timing Diagram",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7802",
+          "occured_at": "2026-09-10T14:49:13Z",
+          "title": "🐞 Bug - eventQueue.ts discards explicit delay=0, causing 10-tick startup delay for 9 element types",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1285",
           "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-09-10T14:49:15Z",
+          "title": "Labeled issue #1285 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1285",
+          "points": 2
         }
       ]
     },
@@ -3139,65 +3218,6 @@
       ]
     },
     {
-      "username": "iamtanishqjain",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/71930864?v=4",
-      "role": "Contributor",
-      "total_points": 6,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        },
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-09-15",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-09-14",
-          "count": 2,
-          "points": 3
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-15T10:15:39Z",
-          "title": "fix(vuesim) - remove BMP, GIF and TIFF from render image dialog",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1306",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-15T10:14:47Z",
-          "title": "🐞 Bug - Render Image dialog offers BMP, GIF and TIFF but always saves a PNG",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1305",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-14T11:39:21Z",
-          "title": "fix(vuesim) - keep element label text unescaped in the properties panel",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1303",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-14T11:36:17Z",
-          "title": "🐞 Bug - Element label with & or ' gets mangled by the Properties panel",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1302",
-          "points": 1
-        }
-      ]
-    },
-    {
       "username": "Nihal4777",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/65150640?u=25493788d913676f586e5d8c10be801ad634e3c9&v=4",
@@ -3238,57 +3258,6 @@
       ]
     },
     {
-      "username": "aryan7071",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/175052103?v=4",
-      "role": "Contributor",
-      "total_points": 5,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-09-10",
-          "count": 3,
-          "points": 5
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-10T21:10:10Z",
-          "title": "fix - EventQueue.add() discards an explicit delay of 0",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1291",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-10T14:49:13Z",
-          "title": "🐞 Bug - eventQueue.ts discards explicit delay=0, causing 10-tick startup delay for 9 element types",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1285",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-10T14:49:15Z",
-          "title": "Labeled issue #1285 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1285",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "akshatsinghai6682-sketch",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/235907625?v=4",
@@ -3314,58 +3283,6 @@
           "title": "style() - reposition testbench panel and report issue button in v0",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1155",
           "points": 5
-        }
-      ]
-    },
-    {
-      "username": "cynicalmindset",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/166590584?v=4",
-      "role": "Contributor",
-      "total_points": 5,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-09-17",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-09-12",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-17T01:47:35Z",
-          "title": "fix(notifications) - replace incorrect GROUP_NOT_FOUND with NOTIFICATION_NOT_FOUND",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/666",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-17T01:39:03Z",
-          "title": "Bug/Tests - Fix incorrect 404 error constant in NotificationsService",
-          "link": "https://github.com/CircuitVerse/mobile-app/issues/665",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-12T21:21:33Z",
-          "title": "ci - add Indus Appstore deployment",
-          "link": "https://github.com/CircuitVerse/mobile-app/pull/664",
-          "points": 2
         }
       ]
     },
@@ -3442,6 +3359,63 @@
           "title": "Review on PR #802",
           "link": "https://github.com/CircuitVerse/Interactive-Book/pull/802",
           "points": 4
+        }
+      ]
+    },
+    {
+      "username": "bhuvan-somisetty",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/226660604?v=4",
+      "role": "Contributor",
+      "total_points": 4,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
+        "Issue opened": {
+          "count": 2,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-09-08",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-08-25",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-08-23",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-08T11:27:02Z",
+          "title": "fix(simulator) - guard TestbenchData against undefined/empty groups",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7849",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-25T10:37:45Z",
+          "title": "v1 TestBench - groupNext/groupPrev can throw TypeError on groups with empty inputs",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1231",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-23T22:01:27Z",
+          "title": "fix(simulator) - TypeError in TestbenchData.isCaseValid() and unhandled empty group navigation in Testbench engine",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7809",
+          "points": 1
         }
       ]
     },
