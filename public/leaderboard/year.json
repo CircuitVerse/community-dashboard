@@ -1,9 +1,9 @@
 {
   "period": "year",
-  "updatedAt": 1789957438164,
-  "lastFetchedAt": 1789957438164,
-  "startDate": "2025-09-21",
-  "endDate": "2026-09-21",
+  "updatedAt": 1790044036724,
+  "lastFetchedAt": 1790044036724,
+  "startDate": "2025-09-22",
+  "endDate": "2026-09-22",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -7676,15 +7676,19 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
       "role": "Maintainer",
-      "total_points": 766,
+      "total_points": 788,
       "activity_breakdown": {
+        "PR merged": {
+          "count": 31,
+          "points": 155
+        },
+        "Issue opened": {
+          "count": 32,
+          "points": 32
+        },
         "PR opened": {
           "count": 33,
           "points": 66
-        },
-        "PR merged": {
-          "count": 28,
-          "points": 140
         },
         "Review submitted": {
           "count": 43,
@@ -7694,16 +7698,17 @@
           "count": 355,
           "points": 355
         },
-        "Issue opened": {
-          "count": 25,
-          "points": 25
-        },
         "Issue labeled": {
           "count": 4,
           "points": 8
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-09-21",
+          "count": 10,
+          "points": 22
+        },
         {
           "date": "2026-09-20",
           "count": 11,
@@ -8291,6 +8296,76 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-09-21T07:30:26Z",
+          "title": "Remove simple_discussion (forum moved to Discourse)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7890",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-09-21T07:24:52Z",
+          "title": "Remove commontator and switch the asset backend to Propshaft",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7888",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-09-21T07:24:11Z",
+          "title": "Cut the JSON API over to homegrown comments",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7887",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-21T15:54:21Z",
+          "title": "Modernize - uploads / API / pagination consolidation",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7902",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-21T15:54:21Z",
+          "title": "Modernize - toolchain / Docker / CI (single package manager)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7901",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-21T15:54:20Z",
+          "title": "Modernize - Sidekiq/Redis/Cable tuning (keep Sidekiq)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7900",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-21T15:54:20Z",
+          "title": "Modernize - Postgres 14 -> 17/18 + DB config tuning",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7899",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-21T15:54:20Z",
+          "title": "Modernize - production logging / security / observability",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7898",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-21T15:54:20Z",
+          "title": "Modernize - Rails frontend legacy cleanup (Turbolinks/UJS/jQuery)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7897",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-21T15:54:01Z",
+          "title": "Modernize - complete Rails 8.1 adoption (keep Sidekiq)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7896",
+          "points": 1
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-09-20T07:51:19Z",
@@ -60369,6 +60444,46 @@
           "title": "Review on PR #5367",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/5367",
           "points": 4
+        }
+      ]
+    },
+    {
+      "username": "kartikey24prakash",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/146826917?v=4",
+      "role": "Contributor",
+      "total_points": 3,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-09-21",
+          "count": 2,
+          "points": 3
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-21T21:49:34Z",
+          "title": "🐞 Bug - Circuit Elements panel overflows viewport when expanding categories and snaps behind navbar",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1320",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-09-21T21:49:35Z",
+          "title": "Labeled issue #1320 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1320",
+          "points": 2
         }
       ]
     },

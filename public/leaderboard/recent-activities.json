@@ -1,6 +1,107 @@
 {
-  "updatedAt": 1789957438193,
+  "updatedAt": 1790044036745,
   "groups": [
+    [
+      "2026-09-21",
+      [
+        {
+          "username": "tachyons",
+          "name": null,
+          "title": "Remove simple_discussion (forum moved to Discourse)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7890",
+          "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
+          "points": 5
+        },
+        {
+          "username": "tachyons",
+          "name": null,
+          "title": "Remove commontator and switch the asset backend to Propshaft",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7888",
+          "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
+          "points": 5
+        },
+        {
+          "username": "tachyons",
+          "name": null,
+          "title": "Cut the JSON API over to homegrown comments",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7887",
+          "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
+          "points": 5
+        },
+        {
+          "username": "tachyons",
+          "name": null,
+          "title": "Modernize - uploads / API / pagination consolidation",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7902",
+          "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
+          "points": 1
+        },
+        {
+          "username": "tachyons",
+          "name": null,
+          "title": "Modernize - toolchain / Docker / CI (single package manager)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7901",
+          "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
+          "points": 1
+        },
+        {
+          "username": "tachyons",
+          "name": null,
+          "title": "Modernize - Sidekiq/Redis/Cable tuning (keep Sidekiq)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7900",
+          "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
+          "points": 1
+        },
+        {
+          "username": "tachyons",
+          "name": null,
+          "title": "Modernize - Postgres 14 -> 17/18 + DB config tuning",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7899",
+          "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
+          "points": 1
+        },
+        {
+          "username": "tachyons",
+          "name": null,
+          "title": "Modernize - production logging / security / observability",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7898",
+          "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
+          "points": 1
+        },
+        {
+          "username": "tachyons",
+          "name": null,
+          "title": "Modernize - Rails frontend legacy cleanup (Turbolinks/UJS/jQuery)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7897",
+          "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
+          "points": 1
+        },
+        {
+          "username": "tachyons",
+          "name": null,
+          "title": "Modernize - complete Rails 8.1 adoption (keep Sidekiq)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7896",
+          "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
+          "points": 1
+        },
+        {
+          "username": "kartikey24prakash",
+          "name": null,
+          "title": "🐞 Bug - Circuit Elements panel overflows viewport when expanding categories and snaps behind navbar",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1320",
+          "avatar_url": "https://avatars.githubusercontent.com/u/146826917?v=4",
+          "points": 1
+        },
+        {
+          "username": "kartikey24prakash",
+          "name": null,
+          "title": "Labeled issue #1320 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1320",
+          "avatar_url": "https://avatars.githubusercontent.com/u/146826917?v=4",
+          "points": 2
+        }
+      ]
+    ],
     [
       "2026-09-20",
       [
@@ -601,43 +702,6 @@
           "title": "Labeled issue #7858 - pending triage",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7858",
           "avatar_url": "https://avatars.githubusercontent.com/u/148669282?v=4",
-          "points": 2
-        }
-      ]
-    ],
-    [
-      "2026-09-08",
-      [
-        {
-          "username": "tachyons",
-          "name": null,
-          "title": "Closed issue #1269 - 🐞 Bug - Incorrect React.MouseEvent type in Vue Extra component",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1269",
-          "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
-          "points": 1
-        },
-        {
-          "username": "yashveer-1",
-          "name": null,
-          "title": "fix - correct mouse event type in Extra component",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1271",
-          "avatar_url": "https://avatars.githubusercontent.com/u/235941943?v=4",
-          "points": 5
-        },
-        {
-          "username": "ujjwalv01",
-          "name": null,
-          "title": "refactor - replace zoom slider with `ZoomControls.vue` component",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1273",
-          "avatar_url": "https://avatars.githubusercontent.com/u/219022963?v=4",
-          "points": 5
-        },
-        {
-          "username": "bhuvan-somisetty",
-          "name": null,
-          "title": "fix(simulator) - guard TestbenchData against undefined/empty groups",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7849",
-          "avatar_url": "https://avatars.githubusercontent.com/u/226660604?v=4",
           "points": 2
         }
       ]

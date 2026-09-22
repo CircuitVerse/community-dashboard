@@ -1,8 +1,8 @@
 {
   "period": "week",
-  "updatedAt": 1789957438183,
-  "startDate": "2026-09-14",
-  "endDate": "2026-09-21",
+  "updatedAt": 1790044036737,
+  "startDate": "2026-09-15",
+  "endDate": "2026-09-22",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -11,15 +11,19 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
       "role": "Maintainer",
-      "total_points": 40,
+      "total_points": 62,
       "activity_breakdown": {
+        "PR merged": {
+          "count": 7,
+          "points": 35
+        },
+        "Issue opened": {
+          "count": 7,
+          "points": 7
+        },
         "PR opened": {
           "count": 7,
           "points": 14
-        },
-        "PR merged": {
-          "count": 4,
-          "points": 20
         },
         "Review submitted": {
           "count": 1,
@@ -32,6 +36,11 @@
       },
       "daily_activity": [
         {
+          "date": "2026-09-21",
+          "count": 10,
+          "points": 22
+        },
+        {
           "date": "2026-09-20",
           "count": 11,
           "points": 34
@@ -43,6 +52,76 @@
         }
       ],
       "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-09-21T07:30:26Z",
+          "title": "Remove simple_discussion (forum moved to Discourse)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7890",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-09-21T07:24:52Z",
+          "title": "Remove commontator and switch the asset backend to Propshaft",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7888",
+          "points": 5
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-09-21T07:24:11Z",
+          "title": "Cut the JSON API over to homegrown comments",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7887",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-21T15:54:21Z",
+          "title": "Modernize - uploads / API / pagination consolidation",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7902",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-21T15:54:21Z",
+          "title": "Modernize - toolchain / Docker / CI (single package manager)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7901",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-21T15:54:20Z",
+          "title": "Modernize - Sidekiq/Redis/Cable tuning (keep Sidekiq)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7900",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-21T15:54:20Z",
+          "title": "Modernize - Postgres 14 -> 17/18 + DB config tuning",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7899",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-21T15:54:20Z",
+          "title": "Modernize - production logging / security / observability",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7898",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-21T15:54:20Z",
+          "title": "Modernize - Rails frontend legacy cleanup (Turbolinks/UJS/jQuery)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7897",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-21T15:54:01Z",
+          "title": "Modernize - complete Rails 8.1 adoption (keep Sidekiq)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7896",
+          "points": 1
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-09-20T07:51:19Z",
@@ -274,103 +353,6 @@
       ]
     },
     {
-      "username": "iamtanishqjain",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/71930864?v=4",
-      "role": "Contributor",
-      "total_points": 12,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 4,
-          "points": 8
-        },
-        "Issue opened": {
-          "count": 4,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-09-20",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-09-19",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-09-15",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-09-14",
-          "count": 2,
-          "points": 3
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-20T16:25:53Z",
-          "title": "fix - keep search dropdown highlight on the selected option",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7894",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-20T16:24:22Z",
-          "title": "🐞 Bug - search resource dropdown keeps the arrow-key highlight after you back out",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7893",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-19T15:13:07Z",
-          "title": "fix(vuesim) - resize TTY in place so its wires and text survive",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1317",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-19T15:12:05Z",
-          "title": "🐞 Bug - Changing TTY rows or columns deletes every wire attached to it",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1316",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-15T10:15:39Z",
-          "title": "fix(vuesim) - remove BMP, GIF and TIFF from render image dialog",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1306",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-15T10:14:47Z",
-          "title": "🐞 Bug - Render Image dialog offers BMP, GIF and TIFF but always saves a PNG",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1305",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-14T11:39:21Z",
-          "title": "fix(vuesim) - keep element label text unescaped in the properties panel",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1303",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-14T11:36:17Z",
-          "title": "🐞 Bug - Element label with & or ' gets mangled by the Properties panel",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1302",
-          "points": 1
-        }
-      ]
-    },
-    {
       "username": "ujjwalv01",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/219022963?v=4",
@@ -487,6 +469,84 @@
           "title": "Labeled issue #7872 - 🐞 bug",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7872",
           "points": 2
+        }
+      ]
+    },
+    {
+      "username": "iamtanishqjain",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/71930864?v=4",
+      "role": "Contributor",
+      "total_points": 9,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 3,
+          "points": 6
+        },
+        "Issue opened": {
+          "count": 3,
+          "points": 3
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-09-20",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-09-19",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-09-15",
+          "count": 2,
+          "points": 3
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-20T16:25:53Z",
+          "title": "fix - keep search dropdown highlight on the selected option",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7894",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-20T16:24:22Z",
+          "title": "🐞 Bug - search resource dropdown keeps the arrow-key highlight after you back out",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7893",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-19T15:13:07Z",
+          "title": "fix(vuesim) - resize TTY in place so its wires and text survive",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1317",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-19T15:12:05Z",
+          "title": "🐞 Bug - Changing TTY rows or columns deletes every wire attached to it",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1316",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-15T10:15:39Z",
+          "title": "fix(vuesim) - remove BMP, GIF and TIFF from render image dialog",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1306",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-15T10:14:47Z",
+          "title": "🐞 Bug - Render Image dialog offers BMP, GIF and TIFF but always saves a PNG",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1305",
+          "points": 1
         }
       ]
     },
@@ -632,6 +692,46 @@
           "occured_at": "2026-09-15T13:13:22Z",
           "title": "Labeled issue #7870 - 🐞 bug",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7870",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "kartikey24prakash",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/146826917?v=4",
+      "role": "Contributor",
+      "total_points": 3,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-09-21",
+          "count": 2,
+          "points": 3
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-21T21:49:34Z",
+          "title": "🐞 Bug - Circuit Elements panel overflows viewport when expanding categories and snaps behind navbar",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1320",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-09-21T21:49:35Z",
+          "title": "Labeled issue #1320 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1320",
           "points": 2
         }
       ]
@@ -897,35 +997,6 @@
           "occured_at": "2026-09-18T06:36:03Z",
           "title": "fix - correct operator precedence in layout pin-label positioning (#7878)",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7880",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "pinankshah8-Aa",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/226854365?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-09-14",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-14T15:26:27Z",
-          "title": "fix(vuesim) - distinguish flip-flop types on canvas",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1304",
           "points": 2
         }
       ]
