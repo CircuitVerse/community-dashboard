@@ -1,16 +1,16 @@
 {
   "period": "year",
-  "updatedAt": 1790303569319,
-  "lastFetchedAt": 1790303569319,
-  "startDate": "2025-09-25",
-  "endDate": "2026-09-25",
+  "updatedAt": 1790390132702,
+  "lastFetchedAt": 1790390132702,
+  "startDate": "2025-09-26",
+  "endDate": "2026-09-26",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
     {
       "username": "naman79820",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/159947791?u=c48301089f863779d54d2227553923ff284ac6a4&v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/159947791?v=4",
       "role": "Contributor",
       "total_points": 1092,
       "activity_breakdown": {
@@ -38505,8 +38505,12 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/175052103?v=4",
       "role": "Contributor",
-      "total_points": 75,
+      "total_points": 77,
       "activity_breakdown": {
+        "PR opened": {
+          "count": 12,
+          "points": 24
+        },
         "Issue opened": {
           "count": 7,
           "points": 7
@@ -38515,16 +38519,17 @@
           "count": 8,
           "points": 16
         },
-        "PR opened": {
-          "count": 11,
-          "points": 22
-        },
         "PR merged": {
           "count": 6,
           "points": 30
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-09-25",
+          "count": 1,
+          "points": 2
+        },
         {
           "date": "2026-09-19",
           "count": 2,
@@ -38602,6 +38607,13 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-25T20:51:54Z",
+          "title": "fix - use linked sourcemaps in production builds (esbuild)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7915",
+          "points": 2
+        },
         {
           "type": "Issue opened",
           "occured_at": "2026-09-19T20:57:34Z",
@@ -44882,6 +44894,199 @@
       ]
     },
     {
+      "username": "bhuvan-somisetty",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/226660604?v=4",
+      "role": "Contributor",
+      "total_points": 30,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 8,
+          "points": 16
+        },
+        "Issue opened": {
+          "count": 7,
+          "points": 7
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        },
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-09-25",
+          "count": 3,
+          "points": 5
+        },
+        {
+          "date": "2026-09-08",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-08-25",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-08-23",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-08-20",
+          "count": 5,
+          "points": 7
+        },
+        {
+          "date": "2026-07-19",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-07-18",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-07-08",
+          "count": 2,
+          "points": 7
+        },
+        {
+          "date": "2026-07-06",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-25T11:03:21Z",
+          "title": "fix(hotkey_binder) - correctly evaluate getOS() and convert restricted keys on macOS (#7913)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7914",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-25T10:49:58Z",
+          "title": "🐞 Bug - checkRestricted() fails to check macOS restricted hotkeys due to uncalled getOS function comparison",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7913",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-09-25T10:49:59Z",
+          "title": "Labeled issue #7913 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7913",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-08T11:27:02Z",
+          "title": "fix(simulator) - guard TestbenchData against undefined/empty groups",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7849",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-25T10:37:45Z",
+          "title": "v1 TestBench - groupNext/groupPrev can throw TypeError on groups with empty inputs",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1231",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-23T22:01:27Z",
+          "title": "fix(simulator) - TypeError in TestbenchData.isCaseValid() and unhandled empty group navigation in Testbench engine",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7809",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-20T13:40:02Z",
+          "title": "fix(simulator) - schedule explicit delay=0 events immediately in EventQueue",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7805",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-20T02:26:04Z",
+          "title": "fix(testbench) - resolve ReferenceError in v1 TestBench group navigation",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1220",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-20T12:51:56Z",
+          "title": "bug - EventQueue.add() drops explicit delay=0, mis-scheduling flip-flops/Buffer/Counter/Random in the Timing Diagram",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7802",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-20T02:09:52Z",
+          "title": "🐞 Bug - TestBench 'Next Group' navigation throws ReferenceError in v1 (undefined groupCount)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1219",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-08-20T01:48:28Z",
+          "title": "🐞 Bug - Login/Signup hardcoded to http - //localhost - 4000 (frontend's own dev-server port) — auth completely non-functional",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1218",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-19T14:22:16Z",
+          "title": "fix - validate circuit JSON schema by key presence, not order",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7669",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-18T08:03:22Z",
+          "title": "fix(simulator) - match D Flip-Flop sidebar icon to placed element",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1146",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-18T09:15:11Z",
+          "title": "🐞 Bug - D/T/JK/SR flip-flops render as visually identical shapes on canvas — no type indicator",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1147",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-08T15:34:25Z",
+          "title": "fix - correct node deletion to clear it from its actual parent's nodeList",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1133",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-07-08T09:47:41Z",
+          "title": "fix(verilog) - TflipFlop ignores pre input on async reset",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1129",
+          "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-06T16:34:59Z",
+          "title": "fix(verilog) - TflipFlop ignores pre input on async reset",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1129",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "deepak0x",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/149673145?v=4",
@@ -47577,169 +47782,6 @@
           "title": "Mobile Update Profile Screen Missing Fields and Features",
           "link": "https://github.com/CircuitVerse/mobile-app/issues/342",
           "points": 1
-        }
-      ]
-    },
-    {
-      "username": "bhuvan-somisetty",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/226660604?v=4",
-      "role": "Contributor",
-      "total_points": 25,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 7,
-          "points": 14
-        },
-        "Issue opened": {
-          "count": 6,
-          "points": 6
-        },
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-09-08",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-08-25",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-08-23",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-08-20",
-          "count": 5,
-          "points": 7
-        },
-        {
-          "date": "2026-07-19",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-07-18",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-07-08",
-          "count": 2,
-          "points": 7
-        },
-        {
-          "date": "2026-07-06",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-08T11:27:02Z",
-          "title": "fix(simulator) - guard TestbenchData against undefined/empty groups",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7849",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-08-25T10:37:45Z",
-          "title": "v1 TestBench - groupNext/groupPrev can throw TypeError on groups with empty inputs",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1231",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-08-23T22:01:27Z",
-          "title": "fix(simulator) - TypeError in TestbenchData.isCaseValid() and unhandled empty group navigation in Testbench engine",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7809",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-20T13:40:02Z",
-          "title": "fix(simulator) - schedule explicit delay=0 events immediately in EventQueue",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7805",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-20T02:26:04Z",
-          "title": "fix(testbench) - resolve ReferenceError in v1 TestBench group navigation",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1220",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-08-20T12:51:56Z",
-          "title": "bug - EventQueue.add() drops explicit delay=0, mis-scheduling flip-flops/Buffer/Counter/Random in the Timing Diagram",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7802",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-08-20T02:09:52Z",
-          "title": "🐞 Bug - TestBench 'Next Group' navigation throws ReferenceError in v1 (undefined groupCount)",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1219",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-08-20T01:48:28Z",
-          "title": "🐞 Bug - Login/Signup hardcoded to http - //localhost - 4000 (frontend's own dev-server port) — auth completely non-functional",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1218",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-19T14:22:16Z",
-          "title": "fix - validate circuit JSON schema by key presence, not order",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7669",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-18T08:03:22Z",
-          "title": "fix(simulator) - match D Flip-Flop sidebar icon to placed element",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1146",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-07-18T09:15:11Z",
-          "title": "🐞 Bug - D/T/JK/SR flip-flops render as visually identical shapes on canvas — no type indicator",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1147",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-08T15:34:25Z",
-          "title": "fix - correct node deletion to clear it from its actual parent's nodeList",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1133",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-07-08T09:47:41Z",
-          "title": "fix(verilog) - TflipFlop ignores pre input on async reset",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1129",
-          "points": 5
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-06T16:34:59Z",
-          "title": "fix(verilog) - TflipFlop ignores pre input on async reset",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1129",
-          "points": 2
         }
       ]
     },
@@ -62078,6 +62120,35 @@
       ]
     },
     {
+      "username": "1steve78",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/143877274?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-09-25",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-25T03:33:41Z",
+          "title": "chore - modernize postgres to 17 and tune db config (#7899)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7911",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "maltheshhh",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/231250895?v=4",
@@ -65417,6 +65488,35 @@
           "occured_at": "2025-12-03T17:59:36Z",
           "title": "Dark Mode Bug - Disqus Sign-Up Input Background Stays Light",
           "link": "https://github.com/CircuitVerse/Interactive-Book/issues/737",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "username": "SajalDevX",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/172371422?v=4",
+      "role": "Contributor",
+      "total_points": 1,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-09-25",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-25T09:36:37Z",
+          "title": "🐞 Bug - Stepper and RAM break at 31 and 32 bit widths (1 << bitWidth overflow)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1329",
           "points": 1
         }
       ]
