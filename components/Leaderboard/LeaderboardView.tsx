@@ -28,7 +28,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useMemo, useState, useEffect, useRef } from "react";
-import { sortEntries, type SortBy } from "@/lib/leaderboard";
+import { sortEntries, isRoleFilterActive, type SortBy } from "@/lib/leaderboard";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import { LeaderboardCard, type LeaderboardEntry } from "./LeaderboardCard";
@@ -271,6 +271,17 @@ export default function LeaderboardView({
     }
   };
 
+  // Every role a visitor can filter by (hidden ones are never shown)
+  const visibleRoles = useMemo(() => {
+    const roles = new Set<string>();
+    entries.forEach((entry) => {
+      if (entry.role && !hiddenRoles.includes(entry.role)) {
+        roles.add(entry.role);
+      }
+    });
+    return roles;
+  }, [entries, hiddenRoles]);
+
   // Get selected roles from query params
   // If no roles are selected, default to all visible roles (excluding hidden ones)
   const selectedRoles = useMemo(() => {
@@ -278,14 +289,17 @@ export default function LeaderboardView({
     if (rolesParam) {
       return new Set(rolesParam.split(","));
     }
-    const allRoles = new Set<string>();
-    entries.forEach((entry) => {
-      if (entry.role && !hiddenRoles.includes(entry.role)) {
-        allRoles.add(entry.role);
-      }
-    });
-    return allRoles;
-  }, [searchParams, entries, hiddenRoles]);
+    return new Set(visibleRoles);
+  }, [searchParams, visibleRoles]);
+
+  // Selecting every visible role is the default, so it does not count as filtering
+  const roleFilterActive = useMemo(
+    () => isRoleFilterActive(searchParams.get("roles"), visibleRoles),
+    [searchParams, visibleRoles]
+  );
+
+  const hasActiveFilters =
+    roleFilterActive || searchQuery !== "" || sortBy !== "points";
 
   const availableRoles = useMemo(() => {
     const roles = new Set<string>();
@@ -568,7 +582,7 @@ export default function LeaderboardView({
                 </h1>
                 <p className="text-muted-foreground">
                   {filteredEntries.length} of {entries.length} contributors
-                  {(selectedRoles.size > 0 || searchQuery) && " (filtered)"}
+                  {(roleFilterActive || searchQuery) && " (filtered)"}
                 </p>
               </div>
 
@@ -597,6 +611,19 @@ export default function LeaderboardView({
                 {/* Controls row - grid/list on left, filter on right */}
                 <div className="flex items-center justify-between w-full lg:w-auto lg:justify-end gap-2">
                   <div className="flex items-center gap-2">
+                    {/* Sits next to the search bar, and only once a filter is on */}
+                    {hasActiveFilters && (
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={clearFilters}
+                        className="h-9 hover:bg-[#50B78B]/20 cursor-pointer"
+                      >
+                        <X className="h-4 w-4 mr-1" />
+                        Clear
+                      </Button>
+                    )}
+
                     {/* Hide grid/list toggle on mobile/tablet, show only on desktop */}
                     <div className="hidden lg:flex w-fit items-center justify-center gap-1 p-1 bg-muted rounded-lg">
                       <Button
@@ -652,18 +679,6 @@ export default function LeaderboardView({
                   </div>
 
                   <div className="flex items-center gap-2">
-                    {(selectedRoles.size > 0 || searchQuery || sortBy !== "points") && (
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={clearFilters}
-                        className="h-9 hover:bg-[#50B78B]/20 cursor-pointer"
-                      >
-                        <X className="h-4 w-4 mr-1" />
-                        Clear
-                      </Button>
-                    )}
-
                     <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
                       <PopoverTrigger asChild>
                         <Button
@@ -673,7 +688,7 @@ export default function LeaderboardView({
                         >
                           <Filter className="h-4 w-4 mr-1.5" />
                           Filter
-                          {selectedRoles.size > 0 && (
+                          {roleFilterActive && (
                             <span className="ml-1 px-1.5 py-0.5 text-xs rounded-full bg-[#50B78B] text-white">
                               {selectedRoles.size}
                             </span>
@@ -869,7 +884,7 @@ export default function LeaderboardView({
                       ? `No contributors matching "${searchQuery}"`
                       : "No contributors match the selected filters"}
                 </p>
-                {(searchQuery || selectedRoles.size > 0 || sortBy !== "points") && (
+                {hasActiveFilters && (
                   <Button
                     variant="outline"
                     onClick={clearFilters}

@@ -34,3 +34,24 @@ export function sortEntries( entries: LeaderboardEntry[], sortBy: SortBy){
   });
   return sorted;
 }
+
+/**
+ * Whether the `roles` query param actually narrows the leaderboard.
+ *
+ * With no param every visible role is selected, which is the default view, so
+ * the role filter is only "active" once at least one visible role is left out.
+ */
+export function isRoleFilterActive(
+  rolesParam: string | null,
+  visibleRoles: Iterable<string>
+): boolean {
+  if (!rolesParam) return false;
+
+  const selected = new Set(rolesParam.split(",").filter(Boolean));
+  if (selected.size === 0) return false;
+
+  for (const role of visibleRoles) {
+    if (!selected.has(role)) return true;
+  }
+  return false;
+}
