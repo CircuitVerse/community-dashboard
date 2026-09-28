@@ -154,8 +154,8 @@ const topContributors = useMemo(() => {
           <CardContent>
             <div className="space-y-4">
               {topContributors.map((contributor, index) => (
-                <Link 
-                  key={contributor.username} 
+                <Link
+                  key={contributor.username}
                   href={`/people/${encodeURIComponent(contributor.username)}`}
                   onClick={() => onContributorClick?.(contributor)}
                   className="flex items-center gap-3 p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"

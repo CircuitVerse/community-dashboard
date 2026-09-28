@@ -25,3 +25,9 @@ export interface PeopleData {
   coreTeam: TeamMember[];
   alumni: TeamMember[];
 }
+
+export interface LeaderboardDataset {
+  period?: string;
+  updatedAt?: number;
+  entries?: ContributorEntry[];
+}
