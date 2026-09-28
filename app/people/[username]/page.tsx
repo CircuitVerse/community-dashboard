@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getContributorByUsername, getAllContributorUsernames } from "@/lib/people";
 import { ContributorDetail } from "@/components/people/ContributorDetail";
+import { getConfig } from "@/lib/config";
 
 interface PageProps {
   params: Promise<{ username: string }>;
@@ -31,7 +32,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     contributor.activity_breakdown || {}
   ).reduce((sum, act) => sum + act.count, 0);
 
+  const config = getConfig();
+  let metadataBase: URL | undefined;
+  try {
+    metadataBase = new URL(config.meta.site_url);
+  } catch {
+    metadataBase = undefined;
+  }
+
   return {
+    ...(metadataBase ? { metadataBase } : {}),
     title: `${displayName} - CircuitVerse Contributor`,
     description: `View ${
       contributor.name || contributor.username

@@ -41,7 +41,12 @@ export function PeopleClientView({ initialData }: PeopleClientViewProps) {
         {updatedAt > 0 && (
           <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
             <Activity className="w-4 h-4" />
-            <span>Updated {new Date(updatedAt).toLocaleString()}</span>
+            <span suppressHydrationWarning>
+              Updated{" "}
+              {new Date(updatedAt).toLocaleString("en-US", {
+                timeZone: "UTC",
+              })}
+            </span>
           </div>
         )}
       </div>
