@@ -16,7 +16,6 @@ import {
   BarChart3,
   Clock,
   GitPullRequest,
-  Bug,
   ArrowLeft,
   Target,
   Github,
@@ -45,26 +44,12 @@ type ActivityKey =
   | "commit"
   | "star";
 
-interface ContributorEntry {
-  username: string;
-  name: string | null;
-  avatar_url: string;
-  role: string;
-  total_points: number;
-  activity_breakdown: Record<string, { count: number; points: number }>;
-  daily_activity: Array<{ date: string; count: number; points: number }>;
-  activities?: Array<{
-    type: string;
-    title: string;
-    occured_at: string;
-    link: string;
-    points: number;
-  }>;
-}
+import type { ContributorEntry } from "@/types/people";
+import Link from "next/link";
 
 interface ContributorDetailProps {
   contributor: ContributorEntry;
-  onBack: () => void;
+  onBack?: () => void;
 }
 
 // Activity type configuration with unique visual identity
@@ -156,13 +141,6 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
     }
 
     return defaultConfig;
-  };
-
-
-
-
-  const getActivityIcon = (activityType: string) => {
-    return getActivityConfig(activityType).icon;
   };
 
   const sortedActivities = Object.entries(contributor.activity_breakdown || {})
@@ -261,10 +239,19 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
 
   return (
     <div className="mx-auto px-4 py-8 max-w-7xl lg:max-w-[1300px]">
-      <Button onClick={onBack} variant="outline" className="mb-6 hover:bg-primary/10 cursor-pointer transition-colors">
-        <ArrowLeft className="w-4 h-4 mr-2" />
-        Back to People
-      </Button>
+      {onBack ? (
+        <Button onClick={onBack} variant="outline" className="mb-6 hover:bg-primary/10 cursor-pointer transition-colors">
+          <ArrowLeft className="w-4 h-4 mr-2" />
+          Back to People
+        </Button>
+      ) : (
+        <Button asChild variant="outline" className="mb-6 hover:bg-primary/10 cursor-pointer transition-colors">
+          <Link href="/people#contributors">
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to People
+          </Link>
+        </Button>
+      )}
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-1">

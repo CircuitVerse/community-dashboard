@@ -2,19 +2,11 @@
 
 import { ContributorCard } from "./ContributorCard";
 
-interface ContributorEntry {
-  username: string;
-  name: string | null;
-  avatar_url: string;
-  role: string;
-  total_points: number;
-  activity_breakdown: Record<string, { count: number; points: number }>;
-  daily_activity: Array<{ date: string; count: number; points: number }>;
-}
+import type { ContributorEntry } from "@/types/people";
 
 interface PeopleGridProps {
   contributors: ContributorEntry[];
-  onContributorClick: (contributor: ContributorEntry) => void;
+  onContributorClick?: (contributor: ContributorEntry) => void;
   viewMode?: 'grid' | 'list';
   loading?: boolean;
 }

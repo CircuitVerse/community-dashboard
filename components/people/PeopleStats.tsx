@@ -14,15 +14,8 @@ import {
   GitPullRequest
 } from "lucide-react";
 
-interface ContributorEntry {
-  username: string;
-  name: string | null;
-  avatar_url: string;
-  role: string;
-  total_points: number;
-  activity_breakdown: Record<string, { count: number; points: number }>;
-  daily_activity: Array<{ date: string; count: number; points: number }>;
-}
+import type { ContributorEntry } from "@/types/people";
+import Link from "next/link";
 
 interface PeopleStatsProps {
   contributors: ContributorEntry[];
@@ -161,10 +154,11 @@ const topContributors = useMemo(() => {
           <CardContent>
             <div className="space-y-4">
               {topContributors.map((contributor, index) => (
-                <div 
+                <Link 
                   key={contributor.username} 
-                  className="flex items-center gap-3 p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors cursor-pointer"
+                  href={`/people/${encodeURIComponent(contributor.username)}`}
                   onClick={() => onContributorClick?.(contributor)}
+                  className="flex items-center gap-3 p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${{
                     0: 'bg-gradient-to-br from-yellow-400 to-yellow-600 text-white shadow-md',
@@ -194,7 +188,7 @@ const topContributors = useMemo(() => {
                       {contributor.daily_activity?.length || 0} active days
                     </p>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </CardContent>

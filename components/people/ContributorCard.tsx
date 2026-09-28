@@ -5,19 +5,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Trophy, GitPullRequest, GitMerge, Calendar, TrendingUp, AlertCircle } from "lucide-react";
 
-interface ContributorEntry {
-  username: string;
-  name: string | null;
-  avatar_url: string;
-  role: string;
-  total_points: number;
-  activity_breakdown: Record<string, { count: number; points: number }>;
-  daily_activity: Array<{ date: string; count: number; points: number }>;
-}
+import type { ContributorEntry } from "@/types/people";
+import Link from "next/link";
 
 interface ContributorCardProps {
   contributor: ContributorEntry;
-  onClick: (contributor: ContributorEntry) => void;
+  onClick?: (contributor: ContributorEntry) => void;
   variant?: "grid" | "list";
   showStats?: boolean;
 }
@@ -26,14 +19,6 @@ interface ContributorCardProps {
 /* ---------------- ORDER + ICON NORMALIZATION ---------------- */
 
 const ACTIVITY_ORDER = ["PR merged", "PR opened", "Issue opened"];
-
-const sortActivities = (
-  entries: [string, { count: number; points: number }][]
-) =>
-  entries.sort(
-    ([a], [b]) =>
-      ACTIVITY_ORDER.indexOf(a) - ACTIVITY_ORDER.indexOf(b)
-  );
 
 const getActivityIcon = (activity: string) => {
   const type = activity.toLowerCase();
@@ -73,11 +58,16 @@ export function ContributorCard({
       : 0;
 
   return (
-    <Card
-      onClick={() => onClick(contributor)}
-      className={`cursor-pointer hover:shadow-lg transition-all ${variant === "list" ? "flex items-center" : ""
-        }`}
+    <Link
+      href={`/people/${encodeURIComponent(contributor.username)}`}
+      onClick={() => onClick?.(contributor)}
+      className="block group focus:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-xl h-full"
     >
+      <Card
+        className={`hover:shadow-lg transition-all h-full ${
+          variant === "list" ? "flex items-center" : ""
+        }`}
+      >
 
       <CardContent className="p-4 text-center">
         <Avatar className="w-20 h-20 mx-auto mb-3">
@@ -133,5 +123,6 @@ export function ContributorCard({
         )}
       </CardContent>
     </Card>
+    </Link>
   );
 }
