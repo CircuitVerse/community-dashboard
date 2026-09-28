@@ -8,6 +8,38 @@ import type {
   LeaderboardDataset,
 } from "@/types/people";
 
+const PERIOD_WEIGHT: Record<string, number> = {
+  year: 365,
+  "2month": 60,
+  month: 30,
+  "3week": 21,
+  "2week": 14,
+  week: 7,
+};
+
+function compareDatasetPrecedence(
+  a: LeaderboardDataset,
+  b: LeaderboardDataset
+): number {
+  const weightA = a.period ? (PERIOD_WEIGHT[a.period] ?? 1) : 0;
+  const weightB = b.period ? (PERIOD_WEIGHT[b.period] ?? 1) : 0;
+
+  // Longer/more cumulative periods take precedence for cumulative metrics
+  if (weightA !== weightB) {
+    return weightA - weightB;
+  }
+
+  // If periods are identical (or both absent), newer dataset takes precedence
+  const timeA = a.updatedAt ?? 0;
+  const timeB = b.updatedAt ?? 0;
+  if (timeA !== timeB) {
+    return timeA - timeB;
+  }
+
+  // Deterministic tie-breaker
+  return (a.period ?? "").localeCompare(b.period ?? "");
+}
+
 export function aggregateLeaderboardData(
   datasets: LeaderboardDataset[]
 ): {
@@ -17,10 +49,17 @@ export function aggregateLeaderboardData(
   const allContributors = new Map<string, ContributorEntry>();
   let latestUpdatedAt = 0;
 
+  // Track the latest updatedAt across all datasets regardless of order
   for (const data of datasets) {
     if (data.updatedAt && data.updatedAt > latestUpdatedAt) {
       latestUpdatedAt = data.updatedAt;
     }
+  }
+
+  // Sort datasets in ascending precedence so that higher-precedence datasets are merged last
+  const sortedDatasets = [...datasets].sort(compareDatasetPrecedence);
+
+  for (const data of sortedDatasets) {
 
     for (const entry of data.entries || []) {
       // More precise bot filtering to avoid filtering legitimate users

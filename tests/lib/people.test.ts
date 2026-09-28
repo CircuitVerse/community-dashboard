@@ -349,6 +349,180 @@ describe("lib/people - aggregateLeaderboardData (unit)", () => {
     expect(placeholders).toHaveLength(2);
     expect(placeholders[0]?.points).toBe(10);
   });
+
+  it("merges datasets deterministically regardless of input ordering (newer updatedAt takes precedence)", () => {
+    const olderDataset: LeaderboardDataset = {
+      updatedAt: 100,
+      entries: [
+        makeContributor({
+          username: "alice",
+          name: "Alice Old",
+          avatar_url: "https://example.com/alice-old.png",
+          role: "Contributor",
+          total_points: 50,
+          activity_breakdown: { "PR opened": { count: 1, points: 10 } },
+          activities: [
+            {
+              type: "PR opened",
+              title: "Old PR",
+              occured_at: "2026-01-01T00:00:00Z",
+              link: "https://github.com/pr/1",
+              points: 10,
+            },
+          ],
+        }),
+      ],
+    };
+
+    const newerDataset: LeaderboardDataset = {
+      updatedAt: 200,
+      entries: [
+        makeContributor({
+          username: "alice",
+          name: "Alice New",
+          avatar_url: "https://example.com/alice-new.png",
+          role: "Top Contributor",
+          total_points: 150,
+          activity_breakdown: {
+            "PR opened": { count: 1, points: 10 },
+            "PR merged": { count: 1, points: 20 },
+          },
+          activities: [
+            {
+              type: "PR merged",
+              title: "New PR",
+              occured_at: "2026-01-05T00:00:00Z",
+              link: "https://github.com/pr/2",
+              points: 20,
+            },
+          ],
+        }),
+      ],
+    };
+
+    const result1 = aggregateLeaderboardData([olderDataset, newerDataset]);
+    const result2 = aggregateLeaderboardData([newerDataset, olderDataset]);
+
+    // Both ordering variations must yield identical results
+    expect(result1).toEqual(result2);
+
+    // Contributor-level data must be from the newer dataset
+    const alice = result1.people[0];
+    expect(alice).toBeDefined();
+    if (!alice) return;
+
+    expect(alice.name).toBe("Alice New");
+    expect(alice.avatar_url).toBe("https://example.com/alice-new.png");
+    expect(alice.role).toBe("Top Contributor");
+    expect(alice.total_points).toBe(150);
+    expect(alice.activity_breakdown).toEqual({
+      "PR opened": { count: 1, points: 10 },
+      "PR merged": { count: 1, points: 20 },
+    });
+
+    // Activities from both are merged, deduplicated, and sorted newest-first
+    expect(alice.activities).toHaveLength(2);
+    expect(alice.activities?.[0]?.title).toBe("New PR");
+    expect(alice.activities?.[1]?.title).toBe("Old PR");
+
+    // latestUpdatedAt must reflect the newest timestamp
+    expect(result1.latestUpdatedAt).toBe(200);
+    expect(result2.latestUpdatedAt).toBe(200);
+  });
+
+  it("preserves cumulative period data (year over shorter periods) deterministically regardless of input ordering", () => {
+    const weekDataset: LeaderboardDataset = {
+      period: "week",
+      updatedAt: 200,
+      entries: [
+        makeContributor({
+          username: "bob",
+          total_points: 5,
+          activities: [
+            {
+              type: "Issue opened",
+              title: "Issue this week",
+              occured_at: "2026-01-10T00:00:00Z",
+              link: "https://github.com/issues/10",
+              points: 5,
+            },
+          ],
+        }),
+      ],
+    };
+
+    const yearDataset: LeaderboardDataset = {
+      period: "year",
+      updatedAt: 190, // generated slightly earlier in the same workflow run
+      entries: [
+        makeContributor({
+          username: "bob",
+          total_points: 1092,
+          activities: [],
+        }),
+      ],
+    };
+
+    const r1 = aggregateLeaderboardData([weekDataset, yearDataset]);
+    const r2 = aggregateLeaderboardData([yearDataset, weekDataset]);
+
+    expect(r1).toEqual(r2);
+    expect(r1.people[0]?.total_points).toBe(1092);
+    expect(r2.people[0]?.total_points).toBe(1092);
+    expect(r1.latestUpdatedAt).toBe(200);
+    expect(r2.latestUpdatedAt).toBe(200);
+    expect(r1.people[0]?.activities).toHaveLength(1);
+    expect(r1.people[0]?.activities?.[0]?.title).toBe("Issue this week");
+  });
+
+  it("deduplicates activities and enforces 15-activity cap identically regardless of dataset ordering", () => {
+    const makeActivities = (prefix: string, count: number, startDay: number) =>
+      Array.from({ length: count }, (_, i) => ({
+        type: "PR opened",
+        title: `${prefix} PR ${i + 1}`,
+        occured_at: new Date(2026, 0, startDay + i).toISOString(),
+        link: `https://github.com/pr/${prefix}-${i + 1}`,
+        points: 10,
+      }));
+
+    const datasetA: LeaderboardDataset = {
+      updatedAt: 100,
+      entries: [
+        makeContributor({
+          username: "dave",
+          activities: makeActivities("A", 10, 1),
+        }),
+      ],
+    };
+
+    const datasetB: LeaderboardDataset = {
+      updatedAt: 200,
+      entries: [
+        makeContributor({
+          username: "dave",
+          activities: [
+            // Duplicate of one from datasetA
+            {
+              type: "PR opened",
+              title: "A PR 10 updated",
+              occured_at: new Date(2026, 0, 10).toISOString(),
+              link: "https://github.com/pr/A-10",
+              points: 10,
+            },
+            ...makeActivities("B", 10, 11),
+          ],
+        }),
+      ],
+    };
+
+    const r1 = aggregateLeaderboardData([datasetA, datasetB]);
+    const r2 = aggregateLeaderboardData([datasetB, datasetA]);
+
+    expect(r1).toEqual(r2);
+    expect(r1.people[0]?.activities).toHaveLength(15);
+    expect(r2.people[0]?.activities).toHaveLength(15);
+    expect(r1.people[0]?.activities?.[0]?.title).toBe("B PR 10");
+  });
 });
 
 describe("lib/people - filesystem integration smoke tests", () => {
