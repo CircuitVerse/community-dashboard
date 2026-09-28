@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { coreTeamMembers, alumniMembers } from "../lib/team-data";
+import { EarnedBadge, STREAK_THRESHOLDS } from "../lib/badges";
 
 // Create sets for fast lookup
 const CORE_TEAM_USERNAMES = new Set(coreTeamMembers.map(m => m.username.toLowerCase()));
@@ -59,6 +60,7 @@ export type Contributor = {
   activity_breakdown: Record<string, { count: number; points: number }>;
   daily_activity: DailyActivity[];
   raw_activities: RawActivity[];
+  badges?: EarnedBadge[];
 };
 
 /**
@@ -73,6 +75,7 @@ export type UserEntry = {
   activity_breakdown: Record<string, { count: number; points: number }>;
   daily_activity: DailyActivity[];
   activities?: RawActivity[];
+  badges?: EarnedBadge[];
 };
 
 interface GitHubSearchItem {
@@ -252,6 +255,7 @@ function ensureUser(
       activity_breakdown: {},
       daily_activity: [],
       raw_activities: [],
+      badges: [],
     });
   }
   return map.get(user.login)!;
@@ -953,7 +957,50 @@ function deduplicateAndRecalculate(users: Map<string, Contributor>) {
     user.daily_activity = [...dailyMap.entries()]
       .map(([date, d]) => ({ date, count: d.count, points: d.points }))
       .sort((a, b) => b.date.localeCompare(a.date));
+      
+    user.badges = calculateBadges(user.daily_activity);
   }
+}
+
+function calculateBadges(daily_activity: DailyActivity[]): EarnedBadge[] {
+  // Sort activities by date ascending for streak calculation
+  const sorted = [...daily_activity].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+  
+  let maxStreak = 0;
+  let currentStreak = 0;
+  let lastDate: Date | null = null;
+  
+  for (const day of sorted) {
+    if (day.points > 0) {
+      const date = new Date(day.date);
+      if (lastDate) {
+        const diffTime = Math.abs(date.getTime() - lastDate.getTime());
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        if (diffDays === 1) {
+          currentStreak++;
+        } else if (diffDays > 1) {
+          currentStreak = 1; // Reset streak if missed a day
+        }
+      } else {
+        currentStreak = 1;
+      }
+      if (currentStreak > maxStreak) {
+        maxStreak = currentStreak;
+      }
+      lastDate = date;
+    }
+  }
+
+  const badges: EarnedBadge[] = [];
+  if (maxStreak >= STREAK_THRESHOLDS.GOLD) {
+    badges.push({ slug: "eod_streak_gold", name: `${STREAK_THRESHOLDS.GOLD}-Day Streak`, variant: "gold" });
+  } else if (maxStreak >= STREAK_THRESHOLDS.SILVER) {
+    badges.push({ slug: "eod_streak_silver", name: `${STREAK_THRESHOLDS.SILVER}-Day Streak`, variant: "silver" });
+  } else if (maxStreak >= STREAK_THRESHOLDS.BRONZE) {
+    badges.push({ slug: "eod_streak_bronze", name: `${STREAK_THRESHOLDS.BRONZE}-Day Streak`, variant: "bronze" });
+  }
+  
+  return badges;
 }
 
 /* -------------------------------------------------------
@@ -1124,6 +1171,7 @@ function derivePeriod(source: YearData, days: number, period: string) {
         activity_breakdown: breakdown,
         daily_activity: Object.values(daily),
         activities: acts,
+        badges: calculateBadges(Object.values(daily)),
       };
     })
     .filter(Boolean)
