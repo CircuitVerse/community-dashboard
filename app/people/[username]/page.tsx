@@ -8,14 +8,14 @@ interface PageProps {
   params: Promise<{ username: string }>;
 }
 
-export async function generateStaticParams() {
-  const usernames = await getAllContributorUsernames();
+export function generateStaticParams() {
+  const usernames = getAllContributorUsernames();
   return usernames.map((username) => ({ username }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { username } = await params;
-  const contributor = await getContributorByUsername(username);
+  const contributor = getContributorByUsername(username);
 
   if (!contributor) {
     return {
@@ -40,6 +40,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     metadataBase = undefined;
   }
 
+  const encodedUsername = encodeURIComponent(contributor.username);
+
   return {
     ...(metadataBase ? { metadataBase } : {}),
     title: `${displayName} - CircuitVerse Contributor`,
@@ -58,14 +60,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         : [],
     },
     alternates: {
-      canonical: `/people/${contributor.username}/`,
+      canonical: `/people/${encodedUsername}/`,
     },
   };
 }
 
 export default async function ContributorPage({ params }: PageProps) {
   const { username } = await params;
-  const contributor = await getContributorByUsername(username);
+  const contributor = getContributorByUsername(username);
 
   if (!contributor) {
     notFound();

@@ -1,11 +1,13 @@
 "use client";
 
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { GitHubHeatmap } from "@/components/people/GitHubHeatmap";
-import { useState } from "react";
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import {
   Activity,
   Calendar,
@@ -21,10 +23,9 @@ import {
   Github,
   ExternalLink,
   GitMerge,
-  AlertCircle
+  AlertCircle,
 } from "lucide-react";
-
-import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
+import type { ContributorEntry } from "@/types/people";
 
 type ActivityUIConfig = {
   icon: React.ReactNode;
@@ -36,16 +37,12 @@ type ActivityUIConfig = {
   accentColor: string;
 };
 
-
 type ActivityKey =
   | "PR merged"
   | "PR opened"
   | "Issue opened"
   | "commit"
   | "star";
-
-import type { ContributorEntry } from "@/types/people";
-import Link from "next/link";
 
 interface ContributorDetailProps {
   contributor: ContributorEntry;
@@ -115,7 +112,18 @@ const defaultConfig: ActivityUIConfig = {
 
 
 export function ContributorDetail({ contributor, onBack }: ContributorDetailProps) {
+  const router = useRouter();
   const [currentTime] = useState(() => Date.now());
+
+  const handleBack = () => {
+    if (onBack) {
+      onBack();
+    } else if (typeof window !== "undefined" && window.history.length > 1) {
+      router.back();
+    } else {
+      router.push("/people#contributors");
+    }
+  };
 
   const getActivityConfig = (activityType: string): ActivityUIConfig => {
     const type = activityType.toLowerCase();
@@ -239,19 +247,14 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
 
   return (
     <div className="mx-auto px-4 py-8 max-w-7xl lg:max-w-[1300px]">
-      {onBack ? (
-        <Button onClick={onBack} variant="outline" className="mb-6 hover:bg-primary/10 cursor-pointer transition-colors">
-          <ArrowLeft className="w-4 h-4 mr-2" />
-          Back to People
-        </Button>
-      ) : (
-        <Button asChild variant="outline" className="mb-6 hover:bg-primary/10 cursor-pointer transition-colors">
-          <Link href="/people#contributors">
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to People
-          </Link>
-        </Button>
-      )}
+      <Button
+        onClick={handleBack}
+        variant="outline"
+        className="mb-6 hover:bg-primary/10 cursor-pointer transition-colors"
+      >
+        <ArrowLeft className="w-4 h-4 mr-2" />
+        Back to People
+      </Button>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-1">
@@ -331,15 +334,19 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
                   </div>
                 </div>
 
-                <a
-                  href={`https://github.com/${contributor.username}`}
-                  target="_blank" rel="noopener noreferrer"
-                  className="w-full flex justify-center mt-4"
+                <Button
+                  asChild
+                  className="w-full mt-4 bg-gradient-to-r cursor-pointer from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-md"
                 >
-                  <Button className="bg-gradient-to-r cursor-pointer from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-md">
+                  <a
+                    href={`https://github.com/${contributor.username}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`View ${displayName}'s GitHub profile`}
+                  >
                     <Github className="w-5 h-5" />
-                  </Button>
-                </a>
+                  </a>
+                </Button>
               </div>
             </CardContent>
           </Card>

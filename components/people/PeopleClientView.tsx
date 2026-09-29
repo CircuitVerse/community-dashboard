@@ -1,20 +1,51 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { Activity, Users, Search } from "lucide-react";
 import { PeopleStats } from "@/components/people/PeopleStats";
 import { PeopleGrid } from "@/components/people/PeopleGrid";
 import { TeamSection } from "@/components/people/TeamSection";
 import { Input } from "@/components/ui/input";
-import type { PeopleData } from "@/types/people";
+import type { PeopleListingData } from "@/types/people";
 
 interface PeopleClientViewProps {
-  initialData: PeopleData;
+  initialData: PeopleListingData;
 }
 
 export function PeopleClientView({ initialData }: PeopleClientViewProps) {
   const { people, coreTeam, alumni, updatedAt } = initialData;
-  const [searchQuery, setSearchQuery] = useState("");
+  const searchParams = useSearchParams();
+  const initialQuery = searchParams.get("q") || "";
+  const [searchQuery, setSearchQuery] = useState(initialQuery);
+
+  // Synchronize URL search params with local search state without refreshing route
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const url = new URL(window.location.href);
+    const currentQ = url.searchParams.get("q") || "";
+    const trimmed = searchQuery.trim();
+
+    if (trimmed !== currentQ) {
+      if (trimmed) {
+        url.searchParams.set("q", trimmed);
+      } else {
+        url.searchParams.delete("q");
+      }
+      window.history.replaceState(null, "", url.toString());
+    }
+  }, [searchQuery]);
+
+  // Synchronize search state on browser back/forward navigation
+  useEffect(() => {
+    const handlePopState = () => {
+      const url = new URL(window.location.href);
+      setSearchQuery(url.searchParams.get("q") || "");
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
 
   const filteredPeople = useMemo(() => {
     if (!searchQuery.trim()) return people;
@@ -28,6 +59,20 @@ export function PeopleClientView({ initialData }: PeopleClientViewProps) {
     });
   }, [people, searchQuery]);
 
+  const formattedDate = useMemo(() => {
+    if (updatedAt <= 0) return null;
+    const d = new Date(updatedAt);
+    const datePart = d.toLocaleString("en-US", {
+      timeZone: "UTC",
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+    });
+    return `Updated ${datePart} UTC`;
+  }, [updatedAt]);
+
   return (
     <div className="mx-auto px-4 py-8 max-w-7xl">
       <div className="mb-8 text-center">
@@ -38,15 +83,10 @@ export function PeopleClientView({ initialData }: PeopleClientViewProps) {
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-4 mt-4">
           Meet the team who made CircuitVerse possible.
         </p>
-        {updatedAt > 0 && (
+        {formattedDate && (
           <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
             <Activity className="w-4 h-4" />
-            <span suppressHydrationWarning>
-              Updated{" "}
-              {new Date(updatedAt).toLocaleString("en-US", {
-                timeZone: "UTC",
-              })}
-            </span>
+            <span>{formattedDate}</span>
           </div>
         )}
       </div>
@@ -103,6 +143,7 @@ export function PeopleClientView({ initialData }: PeopleClientViewProps) {
               <Input
                 type="text"
                 placeholder="Search contributors..."
+                aria-label="Search contributors"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-9 h-10"

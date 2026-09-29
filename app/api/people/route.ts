@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 import { getPeopleData } from "@/lib/people";
 
-export async function GET() {
+export function GET() {
   try {
-    const data = await getPeopleData();
+    const data = getPeopleData();
     return NextResponse.json(data);
   } catch (error) {
     console.error("Error fetching people:", error);

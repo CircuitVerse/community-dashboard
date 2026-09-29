@@ -19,6 +19,23 @@ export interface ContributorEntry {
   activities?: ActivityItem[];
 }
 
+export interface ContributorListingEntry {
+  username: string;
+  name: string | null;
+  avatar_url: string;
+  role: string;
+  total_points: number;
+  activity_breakdown: Record<string, { count: number; points: number }>;
+  daily_activity: Array<{ date: string; count: number; points: number }>;
+}
+
+export interface PeopleListingData {
+  updatedAt: number;
+  people: ContributorListingEntry[];
+  coreTeam: TeamMember[];
+  alumni: TeamMember[];
+}
+
 export interface PeopleData {
   updatedAt: number;
   people: ContributorEntry[];
@@ -29,5 +46,5 @@ export interface PeopleData {
 export interface LeaderboardDataset {
   period?: string;
   updatedAt?: number;
-  entries?: ContributorEntry[];
+  entries?: unknown[];
 }
