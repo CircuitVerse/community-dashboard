@@ -1028,6 +1028,7 @@ describe("lib/people - raw_activities support (year.json)", () => {
     expect(naman.activities).toHaveLength(2);
     expect(naman.activities![0]?.title).toBe("Review on PR #7909");
     expect(naman.activities![1]?.title).toBe("Closed issue #7861");
+    expect("raw_activities" in naman).toBe(false);
   });
 });
 

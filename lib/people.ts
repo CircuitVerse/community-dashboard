@@ -231,7 +231,10 @@ export function aggregateLeaderboardData(
       const existing = allContributors.get(username);
 
       if (!existing) {
-        allContributors.set(username, { ...entry, username });
+        const cleanEntry: Record<string, unknown> = { ...entry, username };
+        delete cleanEntry.raw_activities;
+        delete cleanEntry.activities;
+        allContributors.set(username, cleanEntry);
         contributorActivities.set(username, incomingActivities);
         continue;
       }
@@ -263,6 +266,8 @@ export function aggregateLeaderboardData(
             ? entry.daily_activity
             : existing.daily_activity,
       };
+      delete merged.raw_activities;
+      delete merged.activities;
 
       allContributors.set(username, merged);
 
@@ -330,8 +335,16 @@ export function aggregateLeaderboardData(
       }
     }
 
-    const contributor: ContributorEntry = {
+    // Explicitly delete raw_activities and un-capped activities so large arrays from year.json
+    // are not leaked into the normalized ContributorEntry, reducing RSC and API payload size.
+    const cleanRaw: Record<string, unknown> = {
       ...(raw as Record<string, unknown>),
+    };
+    delete cleanRaw.raw_activities;
+    delete cleanRaw.activities;
+
+    const contributor: ContributorEntry = {
+      ...cleanRaw,
       username,
       name: typeof raw.name === "string" ? raw.name : null,
       avatar_url:
