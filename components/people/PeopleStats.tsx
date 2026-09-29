@@ -75,7 +75,7 @@ export function PeopleStats({
     const lastActivity = contributor.daily_activity?.find(
       (day) => new Date(day.date) >= sevenDaysAgo
     );
-    return !lastActivity;
+    return !!lastActivity;
   }).length;
 
   // Calculate activity type distribution
