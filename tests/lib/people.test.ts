@@ -9,6 +9,8 @@ import {
   getContributorByUsername,
   getAllContributorUsernames,
   toListingContributor,
+  getPeriodWeight,
+  compareDatasetPrecedence,
 } from "@/lib/people";
 import type { ContributorEntry, LeaderboardDataset } from "@/types/people";
 
@@ -852,44 +854,277 @@ describe("lib/people - filesystem integration tests (isolated fixtures)", () => 
   });
 });
 
-describe("lib/people - lookup and listing utilities", () => {
-  it("finds a contributor case-insensitively and handles URL encoding", () => {
-    const usernames = getAllContributorUsernames();
-    if (usernames.length === 0) return;
+describe("lib/people - getPeriodWeight", () => {
+  it("returns correct weights for known periods", () => {
+    expect(getPeriodWeight("week")).toBe(7);
+    expect(getPeriodWeight("2week")).toBe(14);
+    expect(getPeriodWeight("3week")).toBe(21);
+    expect(getPeriodWeight("month")).toBe(30);
+    expect(getPeriodWeight("2month")).toBe(60);
+    expect(getPeriodWeight("year")).toBe(365);
+  });
 
-    const target = usernames[0]!;
-    const exact = getContributorByUsername(target);
-    const lower = getContributorByUsername(target.toLowerCase());
-    const upper = getContributorByUsername(target.toUpperCase());
-    const encoded = getContributorByUsername(encodeURIComponent(target));
+  it("returns null for unknown, empty, or undefined periods", () => {
+    expect(getPeriodWeight(undefined)).toBeNull();
+    expect(getPeriodWeight("")).toBeNull();
+    expect(getPeriodWeight("biweekly")).toBeNull();
+    expect(getPeriodWeight("all-time")).toBeNull();
+  });
+});
+
+describe("lib/people - compareDatasetPrecedence tie-breakers", () => {
+  it("orders known periods by weight regardless of timestamp", () => {
+    const weekDataset: LeaderboardDataset = { period: "week", updatedAt: 999999 };
+    const yearDataset: LeaderboardDataset = { period: "year", updatedAt: 100 };
+    expect(compareDatasetPrecedence(weekDataset, yearDataset)).toBeLessThan(0);
+    expect(compareDatasetPrecedence(yearDataset, weekDataset)).toBeGreaterThan(0);
+  });
+
+  it("prioritizes known period over unknown period", () => {
+    const known: LeaderboardDataset = { period: "week", updatedAt: 100 };
+    const unknown: LeaderboardDataset = { period: "random-period", updatedAt: 999999 };
+    expect(compareDatasetPrecedence(known, unknown)).toBe(1);
+    expect(compareDatasetPrecedence(unknown, known)).toBe(-1);
+  });
+
+  it("breaks ties between same period by timestamp", () => {
+    const older: LeaderboardDataset = { period: "week", updatedAt: 100 };
+    const newer: LeaderboardDataset = { period: "week", updatedAt: 200 };
+    expect(compareDatasetPrecedence(older, newer)).toBeLessThan(0);
+    expect(compareDatasetPrecedence(newer, older)).toBeGreaterThan(0);
+  });
+
+  it("breaks ties between matching period and timestamp by period name", () => {
+    const a: LeaderboardDataset = { period: "custom-a", updatedAt: 100 };
+    const b: LeaderboardDataset = { period: "custom-b", updatedAt: 100 };
+    expect(compareDatasetPrecedence(a, b)).toBeLessThan(0);
+  });
+
+  it("breaks ties between matching period name and timestamp by entries length", () => {
+    const a: LeaderboardDataset = {
+      period: "custom",
+      updatedAt: 100,
+      entries: [makeContributor({ username: "user1" })],
+    };
+    const b: LeaderboardDataset = {
+      period: "custom",
+      updatedAt: 100,
+      entries: [
+        makeContributor({ username: "user1" }),
+        makeContributor({ username: "user2" }),
+      ],
+    };
+    expect(compareDatasetPrecedence(a, b)).toBeLessThan(0);
+  });
+
+  it("breaks ties between matching entries length by first entry username", () => {
+    const a: LeaderboardDataset = {
+      period: "custom",
+      updatedAt: 100,
+      entries: [makeContributor({ username: "alice" })],
+    };
+    const b: LeaderboardDataset = {
+      period: "custom",
+      updatedAt: 100,
+      entries: [makeContributor({ username: "bob" })],
+    };
+    expect(compareDatasetPrecedence(a, b)).toBeLessThan(0);
+  });
+});
+
+describe("lib/people - sanitizer defaults and non-clobbering merge", () => {
+  it("does not overwrite valid name, avatar_url, or role with defaults when higher-precedence dataset omits them", () => {
+    const lowerDataset: LeaderboardDataset = {
+      period: "week",
+      updatedAt: 100,
+      entries: [
+        {
+          username: "alice",
+          name: "Alice Real Name",
+          avatar_url: "https://example.com/alice.png",
+          role: "Core Team",
+          total_points: 50,
+          custom_metadata_flag: "keep-me",
+        },
+      ],
+    };
+
+    const higherDataset: LeaderboardDataset = {
+      period: "year",
+      updatedAt: 200,
+      entries: [
+        {
+          username: "alice",
+          name: null, // missing/null in higher dataset
+          avatar_url: "", // empty in higher dataset
+          total_points: 150,
+        },
+      ],
+    };
+
+    const { people } = aggregateLeaderboardData([lowerDataset, higherDataset]);
+    expect(people).toHaveLength(1);
+    const alice = people[0]!;
+    expect(alice.name).toBe("Alice Real Name");
+    expect(alice.avatar_url).toBe("https://example.com/alice.png");
+    expect(alice.role).toBe("Core Team");
+    expect(alice.total_points).toBe(150);
+    expect((alice as unknown as Record<string, unknown>).custom_metadata_flag).toBe("keep-me");
+  });
+
+  it("applies fallback defaults when fields are absent across all datasets", () => {
+    const dataset: LeaderboardDataset = {
+      period: "month",
+      updatedAt: 100,
+      entries: [
+        {
+          username: "blank-user",
+        },
+      ],
+    };
+
+    const { people } = aggregateLeaderboardData([dataset]);
+    expect(people).toHaveLength(1);
+    const user = people[0]!;
+    expect(user.name).toBeNull();
+    expect(user.avatar_url).toBe("https://avatars.githubusercontent.com/blank-user");
+    expect(user.role).toBe("Contributor");
+    expect(user.total_points).toBe(0);
+  });
+});
+
+describe("lib/people - raw_activities support (year.json)", () => {
+  it("extracts and merges activities from raw_activities field as in year.json", () => {
+    const datasetWithRaw: LeaderboardDataset = {
+      period: "year",
+      updatedAt: 100,
+      entries: [
+        {
+          username: "naman",
+          total_points: 100,
+          raw_activities: [
+            {
+              type: "Review submitted",
+              title: "Review on PR #7909",
+              occured_at: "2026-09-24T17:53:14Z",
+              link: "https://github.com/CircuitVerse/CircuitVerse/pull/7909",
+              points: 4,
+            },
+            {
+              type: "Issue closed",
+              title: "Closed issue #7861",
+              occured_at: "2026-09-24T11:13:15Z",
+              link: "https://github.com/CircuitVerse/CircuitVerse/issues/7861",
+              points: 1,
+            },
+          ],
+        },
+      ],
+    };
+
+    const { people } = aggregateLeaderboardData([datasetWithRaw]);
+    expect(people).toHaveLength(1);
+    const naman = people[0]!;
+    expect(naman.activities).toHaveLength(2);
+    expect(naman.activities![0]?.title).toBe("Review on PR #7909");
+    expect(naman.activities![1]?.title).toBe("Closed issue #7861");
+  });
+});
+
+describe("lib/people - lookup and listing utilities (fixture-backed)", () => {
+  let tempDir: string;
+
+  beforeEach(() => {
+    tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "leaderboard-lookup-test-"));
+    const fixtureData = {
+      period: "year",
+      updatedAt: 1790563032868,
+      entries: [
+        {
+          username: "alice_dev",
+          name: "Alice Developer",
+          avatar_url: "https://example.com/alice.png",
+          role: "Contributor",
+          total_points: 250,
+          activity_breakdown: { "PR merged": { count: 5, points: 250 } },
+          daily_activity: [{ date: "2026-09-24", count: 2, points: 50 }],
+          activities: [
+            {
+              type: "PR merged",
+              title: "Fix #1",
+              occured_at: "2026-09-24T10:00:00Z",
+              link: "https://github.com/pr/1",
+              points: 50,
+            },
+          ],
+        },
+        {
+          username: "bob_coder",
+          name: "Bob Coder",
+          avatar_url: "https://example.com/bob.png",
+          role: "Contributor",
+          total_points: 120,
+          activity_breakdown: { commit: { count: 3, points: 120 } },
+          daily_activity: [],
+          activities: [],
+        },
+      ],
+    };
+    fs.writeFileSync(path.join(tempDir, "year.json"), JSON.stringify(fixtureData));
+  });
+
+  afterEach(() => {
+    if (fs.existsSync(tempDir)) {
+      fs.rmSync(tempDir, { recursive: true, force: true });
+    }
+  });
+
+  it("finds all contributor usernames from fixture", () => {
+    const usernames = getAllContributorUsernames(tempDir);
+    expect(usernames).toEqual(["alice_dev", "bob_coder"]);
+  });
+
+  it("finds a contributor case-insensitively and handles URL encoding", () => {
+    const exact = getContributorByUsername("alice_dev", tempDir);
+    const lower = getContributorByUsername("alice_dev".toLowerCase(), tempDir);
+    const upper = getContributorByUsername("ALICE_DEV", tempDir);
+    const encoded = getContributorByUsername(encodeURIComponent("alice_dev"), tempDir);
 
     expect(exact).not.toBeNull();
     expect(lower).not.toBeNull();
     expect(upper).not.toBeNull();
     expect(encoded).not.toBeNull();
-    expect(lower?.username).toBe(exact?.username);
-    expect(upper?.username).toBe(exact?.username);
-    expect(encoded?.username).toBe(exact?.username);
+    expect(exact?.username).toBe("alice_dev");
+    expect(lower?.username).toBe("alice_dev");
+    expect(upper?.username).toBe("alice_dev");
+    expect(encoded?.username).toBe("alice_dev");
   });
 
   it("returns null for nonexistent or empty username", () => {
-    expect(getContributorByUsername("non-existent-user-xyz-12345")).toBeNull();
-    expect(getContributorByUsername("")).toBeNull();
-    expect(getContributorByUsername("   ")).toBeNull();
-    expect(getContributorByUsername(null as unknown as string)).toBeNull();
-    expect(getContributorByUsername(undefined as unknown as string)).toBeNull();
+    expect(getContributorByUsername("non-existent-user-xyz-12345", tempDir)).toBeNull();
+    expect(getContributorByUsername("", tempDir)).toBeNull();
+    expect(getContributorByUsername("   ", tempDir)).toBeNull();
+    expect(getContributorByUsername(null as unknown as string, tempDir)).toBeNull();
+    expect(getContributorByUsername(undefined as unknown as string, tempDir)).toBeNull();
   });
 
-  it("provides getPeopleListingData without activities array for client payload optimization", () => {
-    const listingData = getPeopleListingData();
+  it("provides getPeopleListingData with precomputed activeDays and without activities array", () => {
+    const listingData = getPeopleListingData(tempDir);
     expect(listingData).toBeDefined();
-    expect(Array.isArray(listingData.people)).toBe(true);
+    expect(listingData.people).toHaveLength(2);
 
-    if (listingData.people.length > 0) {
-      const first = listingData.people[0]!;
-      expect("activities" in first).toBe(false);
-      expect(typeof first.username).toBe("string");
-      expect(typeof first.total_points).toBe("number");
-    }
+    const alice = listingData.people.find((p) => p.username === "alice_dev")!;
+    expect(alice).toBeDefined();
+    expect("activities" in alice).toBe(false);
+    expect("daily_activity" in alice).toBe(false);
+    expect(alice.activeDays).toBe(1);
+    expect(alice.hasRecentActivity).toBe(true);
+    expect(alice.total_points).toBe(250);
+
+    const bob = listingData.people.find((p) => p.username === "bob_coder")!;
+    expect(bob).toBeDefined();
+    expect("activities" in bob).toBe(false);
+    expect(bob.activeDays).toBe(0);
+    expect(bob.hasRecentActivity).toBe(false);
   });
 });

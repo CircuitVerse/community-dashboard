@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { getAllContributorUsernames, getPeopleData } from "@/lib/people";
 import { getConfig } from "@/lib/config";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const config = getConfig();
   const baseUrl = config.meta.site_url.replace(/\/$/, "");

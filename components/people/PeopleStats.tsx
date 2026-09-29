@@ -20,13 +20,11 @@ import type { ContributorListingEntry } from "@/types/people";
 interface PeopleStatsProps {
   contributors: ContributorListingEntry[];
   allContributors: ContributorListingEntry[];
-  onContributorClick?: (contributor: ContributorListingEntry) => void;
 }
 
 export function PeopleStats({
   contributors,
   allContributors,
-  onContributorClick,
 }: PeopleStatsProps) {
   // Calculate stats
   const totalContributors = contributors.length;
@@ -59,24 +57,14 @@ export function PeopleStats({
       }));
   }, [allContributors]);
 
-  // Active days stats
-  const activeDaysData = contributors.map(
-    (c) => c.daily_activity?.length || 0
-  );
+  // Active days stats using precomputed activeDays
+  const activeDaysData = contributors.map((c) => c.activeDays);
   const totalActiveDays = activeDaysData.reduce((sum, days) => sum + days, 0);
   const averageActiveDays =
     totalContributors > 0 ? Math.round(totalActiveDays / totalContributors) : 0;
 
-  // Recent activity (last 7 days)
-  const sevenDaysAgo = new Date();
-  sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
-
-  const recentlyActive = contributors.filter((contributor) => {
-    const lastActivity = contributor.daily_activity?.find(
-      (day) => new Date(day.date) >= sevenDaysAgo
-    );
-    return !!lastActivity;
-  }).length;
+  // Recent activity using precomputed hasRecentActivity
+  const recentlyActive = contributors.filter((c) => c.hasRecentActivity).length;
 
   // Calculate activity type distribution
   const activityTypes = contributors.reduce(
@@ -156,7 +144,7 @@ export function PeopleStats({
                 <TrendingUp className="w-6 h-6 text-white" />
               </div>
               <div>
-                <p className="text-md text-white/80">Active This Year</p>
+                <p className="text-md text-white/80">Active This Week</p>
                 <p className="text-2xl font-bold text-white">
                   {recentlyActive}
                 </p>
@@ -186,8 +174,7 @@ export function PeopleStats({
                 <Link
                   key={contributor.username}
                   href={`/people/${encodeURIComponent(contributor.username)}/`}
-                  onClick={() => onContributorClick?.(contributor)}
-                  className="flex items-center gap-3 p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  className="flex items-center gap-3 p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors group focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
                   <div
                     className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
@@ -225,7 +212,7 @@ export function PeopleStats({
                       {contributor.total_points || 0} pts
                     </Badge>
                     <p className="text-xs text-muted-foreground mt-1">
-                      {contributor.daily_activity?.length || 0} active days
+                      {contributor.activeDays} active days
                     </p>
                   </div>
                 </Link>
@@ -261,7 +248,9 @@ export function PeopleStats({
               </div>
               <div className="text-center p-4 bg-muted/30 rounded-lg">
                 <div className="text-2xl font-bold text-green-600 dark:text-green-400">
-                  {Math.round(totalActivities / totalContributors)}
+                  {totalContributors > 0
+                    ? Math.round(totalActivities / totalContributors)
+                    : 0}
                 </div>
                 <div className="text-sm text-muted-foreground">
                   Avg Activities
@@ -269,7 +258,10 @@ export function PeopleStats({
               </div>
               <div className="text-center p-4 bg-muted/30 rounded-lg">
                 <div className="text-2xl font-bold text-green-600 dark:text-green-400">
-                  {Math.round((recentlyActive / totalContributors) * 100)}%
+                  {totalContributors > 0
+                    ? Math.round((recentlyActive / totalContributors) * 100)
+                    : 0}
+                  %
                 </div>
                 <div className="text-sm text-muted-foreground">
                   Weekly Active Rate

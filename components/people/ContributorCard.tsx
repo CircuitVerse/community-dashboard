@@ -16,7 +16,6 @@ import type { ContributorListingEntry } from "@/types/people";
 
 interface ContributorCardProps {
   contributor: ContributorListingEntry;
-  onClick?: (contributor: ContributorListingEntry) => void;
   variant?: "grid" | "list";
   showStats?: boolean;
 }
@@ -39,7 +38,6 @@ const getActivityIcon = (activity: string) => {
 
 export function ContributorCard({
   contributor,
-  onClick,
   variant = "grid",
   showStats = true,
 }: ContributorCardProps) {
@@ -52,14 +50,13 @@ export function ContributorCard({
     }
   });
 
-  const activeDays = contributor.daily_activity?.length ?? 0;
+  const activeDays = contributor.activeDays;
   const avgPerDay =
     activeDays > 0 ? Math.round(contributor.total_points / activeDays) : 0;
 
   return (
     <Link
       href={`/people/${encodeURIComponent(contributor.username)}/`}
-      onClick={() => onClick?.(contributor)}
       className="block group focus:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-xl h-full"
     >
       <Card

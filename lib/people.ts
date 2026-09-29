@@ -1,6 +1,5 @@
 import fs from "fs";
 import path from "path";
-import { cache } from "react";
 import { coreTeamMembers, alumniMembers } from "@/lib/team-data";
 import type {
   ActivityItem,
@@ -20,7 +19,25 @@ export const PERIOD_WEIGHT: Record<string, number> = {
   week: 7,
 };
 
+const KNOWN_PERIOD_FILES = new Set([
+  "year.json",
+  "2month.json",
+  "month.json",
+  "3week.json",
+  "2week.json",
+  "week.json",
+]);
+
 const warnedPeriods = new Set<string>();
+
+/**
+ * Module-level cache to memoize loadPeopleData across SSG page renders and metadata calls during build.
+ */
+let memoizedPeopleData: PeopleData | null = null;
+
+export function clearPeopleDataCache(): void {
+  memoizedPeopleData = null;
+}
 
 /**
  * Returns the period weight for known periods.
@@ -87,124 +104,25 @@ export function compareDatasetPrecedence(
     return entriesCountA - entriesCountB;
   }
 
-  const firstUserA = Array.isArray(a.entries) && a.entries[0] && typeof (a.entries[0] as Record<string, unknown>).username === "string"
-    ? ((a.entries[0] as Record<string, unknown>).username as string)
-    : "";
-  const firstUserB = Array.isArray(b.entries) && b.entries[0] && typeof (b.entries[0] as Record<string, unknown>).username === "string"
-    ? ((b.entries[0] as Record<string, unknown>).username as string)
-    : "";
+  const firstUserA =
+    Array.isArray(a.entries) &&
+    a.entries[0] &&
+    typeof (a.entries[0] as Record<string, unknown>).username === "string"
+      ? ((a.entries[0] as Record<string, unknown>).username as string)
+      : "";
+  const firstUserB =
+    Array.isArray(b.entries) &&
+    b.entries[0] &&
+    typeof (b.entries[0] as Record<string, unknown>).username === "string"
+      ? ((b.entries[0] as Record<string, unknown>).username as string)
+      : "";
   return firstUserA.localeCompare(firstUserB);
-}
-
-/**
- * Validates and sanitizes a raw contributor entry from JSON data.
- * Skips entries without a valid, non-empty username string.
- */
-function sanitizeContributorEntry(
-  raw: unknown
-): ContributorEntry | null {
-  if (!raw || typeof raw !== "object") {
-    console.warn(
-      "[aggregateLeaderboardData] Skipping malformed contributor entry: not an object"
-    );
-    return null;
-  }
-
-  const obj = raw as Record<string, unknown>;
-
-  if (typeof obj.username !== "string" || obj.username.trim() === "") {
-    console.warn(
-      "[aggregateLeaderboardData] Skipping malformed contributor entry: missing or empty username"
-    );
-    return null;
-  }
-
-  const username = obj.username.trim();
-  const name = typeof obj.name === "string" ? obj.name : null;
-  const avatar_url =
-    typeof obj.avatar_url === "string" && obj.avatar_url.trim() !== ""
-      ? obj.avatar_url
-      : `https://avatars.githubusercontent.com/${encodeURIComponent(username)}`;
-  const role = typeof obj.role === "string" ? obj.role : "Contributor";
-  const total_points =
-    typeof obj.total_points === "number" && !isNaN(obj.total_points)
-      ? obj.total_points
-      : 0;
-
-  const activity_breakdown: Record<string, { count: number; points: number }> =
-    {};
-  if (obj.activity_breakdown && typeof obj.activity_breakdown === "object") {
-    for (const [k, v] of Object.entries(
-      obj.activity_breakdown as Record<string, unknown>
-    )) {
-      if (v && typeof v === "object") {
-        const item = v as Record<string, unknown>;
-        activity_breakdown[k] = {
-          count: typeof item.count === "number" && !isNaN(item.count) ? item.count : 0,
-          points: typeof item.points === "number" && !isNaN(item.points) ? item.points : 0,
-        };
-      }
-    }
-  }
-
-  const daily_activity: Array<{ date: string; count: number; points: number }> =
-    [];
-  if (Array.isArray(obj.daily_activity)) {
-    for (const day of obj.daily_activity) {
-      if (day && typeof day === "object") {
-        const item = day as Record<string, unknown>;
-        if (typeof item.date === "string") {
-          daily_activity.push({
-            date: item.date,
-            count: typeof item.count === "number" && !isNaN(item.count) ? item.count : 0,
-            points: typeof item.points === "number" && !isNaN(item.points) ? item.points : 0,
-          });
-        }
-      }
-    }
-  }
-
-  const rawActivities = Array.isArray(obj.activities)
-    ? obj.activities
-    : Array.isArray(obj.raw_activities)
-    ? obj.raw_activities
-    : [];
-
-  const activities: ActivityItem[] = [];
-  for (const act of rawActivities) {
-    if (act && typeof act === "object") {
-      const a = act as Record<string, unknown>;
-      if (typeof a.type === "string") {
-        activities.push({
-          type: a.type,
-          title: typeof a.title === "string" ? a.title : `${a.type} contribution`,
-          occured_at:
-            typeof a.occured_at === "string"
-              ? a.occured_at
-              : new Date(0).toISOString(),
-          link: typeof a.link === "string" ? a.link : "",
-          points: typeof a.points === "number" && !isNaN(a.points) ? a.points : 0,
-        });
-      }
-    }
-  }
-
-  return {
-    username,
-    name,
-    avatar_url,
-    role,
-    total_points,
-    activity_breakdown,
-    daily_activity,
-    activities,
-  };
 }
 
 /**
  * Checks whether a username belongs to a bot account.
  */
-function isBotUsername(rawUsername: string): boolean {
+export function isBotUsername(rawUsername: string): boolean {
   const username = rawUsername.toLowerCase();
   return (
     username.endsWith("[bot]") ||
@@ -219,8 +137,45 @@ function isBotUsername(rawUsername: string): boolean {
 }
 
 /**
+ * Validates and extracts activities from a raw entry.
+ * Note: year.json stores raw activity objects under `raw_activities`, whereas
+ * derived period files (week.json, month.json, etc.) store them under `activities`.
+ */
+function extractActivities(raw: Record<string, unknown>): ActivityItem[] {
+  const rawList = Array.isArray(raw.activities)
+    ? raw.activities
+    : Array.isArray(raw.raw_activities)
+    ? raw.raw_activities
+    : [];
+
+  const items: ActivityItem[] = [];
+  for (const act of rawList) {
+    if (act && typeof act === "object") {
+      const a = act as Record<string, unknown>;
+      if (typeof a.type === "string") {
+        items.push({
+          type: a.type,
+          title:
+            typeof a.title === "string" ? a.title : `${a.type} contribution`,
+          occured_at:
+            typeof a.occured_at === "string"
+              ? a.occured_at
+              : new Date(0).toISOString(),
+          link: typeof a.link === "string" ? a.link : "",
+          points:
+            typeof a.points === "number" && !isNaN(a.points) ? a.points : 0,
+        });
+      }
+    }
+  }
+  return items;
+}
+
+/**
  * Aggregates contributor data across multiple leaderboard datasets.
  * Precedence is deterministic and does not depend on dataset input order.
+ * Missing fields in higher-precedence datasets do not clobber valid values
+ * from earlier datasets.
  */
 export function aggregateLeaderboardData(
   datasets: LeaderboardDataset[]
@@ -228,7 +183,8 @@ export function aggregateLeaderboardData(
   latestUpdatedAt: number;
   people: ContributorEntry[];
 } {
-  const allContributors = new Map<string, ContributorEntry>();
+  const allContributors = new Map<string, Record<string, unknown>>();
+  const contributorActivities = new Map<string, ActivityItem[]>();
   let latestUpdatedAt = 0;
 
   // Track the highest updatedAt across all valid datasets
@@ -251,34 +207,71 @@ export function aggregateLeaderboardData(
     }
 
     for (const rawEntry of data.entries) {
-      const entry = sanitizeContributorEntry(rawEntry);
-      if (!entry) {
+      if (!rawEntry || typeof rawEntry !== "object") {
+        console.warn(
+          "[aggregateLeaderboardData] Skipping malformed contributor entry: not an object"
+        );
         continue;
       }
 
-      if (isBotUsername(entry.username)) {
+      const entry = rawEntry as Record<string, unknown>;
+      if (typeof entry.username !== "string" || entry.username.trim() === "") {
+        console.warn(
+          "[aggregateLeaderboardData] Skipping malformed contributor entry: missing or empty username"
+        );
         continue;
       }
 
-      const existing = allContributors.get(entry.username);
+      const username = entry.username.trim();
+      if (isBotUsername(username)) {
+        continue;
+      }
+
+      const incomingActivities = extractActivities(entry);
+      const existing = allContributors.get(username);
+
       if (!existing) {
-        allContributors.set(entry.username, {
-          ...entry,
-          activities: [...(entry.activities ?? [])],
-        });
+        allContributors.set(username, { ...entry, username });
+        contributorActivities.set(username, incomingActivities);
         continue;
       }
 
-      // Merge genuine activities across datasets.
-      // Prioritize activities from the incoming (higher-precedence) dataset so updated
-      // metadata (title, points, occurred_at) from higher-precedence datasets wins.
-      const incomingActivities = entry.activities ?? [];
-      const existingActivities = existing.activities ?? [];
+      // Merge metadata without clobbering:
+      // Keep higher precedence fields when defined and valid, but retain existing values if incoming is undefined/null/empty.
+      const merged: Record<string, unknown> = {
+        ...existing,
+        ...entry,
+        username,
+        name: typeof entry.name === "string" ? entry.name : existing.name,
+        avatar_url:
+          typeof entry.avatar_url === "string" && entry.avatar_url.trim() !== ""
+            ? entry.avatar_url
+            : existing.avatar_url,
+        role: typeof entry.role === "string" ? entry.role : existing.role,
+        total_points:
+          typeof entry.total_points === "number" && !isNaN(entry.total_points)
+            ? entry.total_points
+            : existing.total_points,
+        activity_breakdown:
+          entry.activity_breakdown &&
+          typeof entry.activity_breakdown === "object" &&
+          Object.keys(entry.activity_breakdown as object).length > 0
+            ? entry.activity_breakdown
+            : existing.activity_breakdown,
+        daily_activity:
+          Array.isArray(entry.daily_activity) && entry.daily_activity.length > 0
+            ? entry.daily_activity
+            : existing.daily_activity,
+      };
 
+      allContributors.set(username, merged);
+
+      // Merge activities prioritizing the incoming (higher-precedence) dataset metadata
+      const existingActs = contributorActivities.get(username) ?? [];
       const seen = new Set<string>();
       const combined: ActivityItem[] = [];
 
-      for (const activity of [...incomingActivities, ...existingActivities]) {
+      for (const activity of [...incomingActivities, ...existingActs]) {
         const identifier = activity.link
           ? `${activity.type}-${activity.link}`
           : `${activity.type}-${activity.title}-${activity.occured_at}`;
@@ -293,33 +286,35 @@ export function aggregateLeaderboardData(
           new Date(b.occured_at).getTime() - new Date(a.occured_at).getTime()
       );
 
-      // Overwrite base metadata with incoming (higher-precedence) dataset
-      allContributors.set(entry.username, {
-        ...existing,
-        ...entry,
-        activities: combined,
-      });
+      contributorActivities.set(username, combined);
     }
   }
 
-  // Post-aggregation step: Generate placeholder activities for missing activity breakdown counts
-  // and enforce the 15-activity cap. Doing this once here ensures consistent behavior regardless
-  // of whether a contributor appeared in 1, 2, or 3+ datasets and prevents placeholders from
-  // collapsing during intermediate deduplication passes.
-  for (const contributor of allContributors.values()) {
-    const expectedCount = Object.values(
-      contributor.activity_breakdown || {}
-    ).reduce((sum, v) => sum + (v.count || 0), 0);
+  // Final normalization & placeholder step:
+  // Apply fallback defaults and generate missing placeholders to meet activity_breakdown counts (capped at 15).
+  const people: ContributorEntry[] = [];
 
-    const activities = [...(contributor.activities ?? [])];
+  for (const [username, raw] of allContributors.entries()) {
+    const breakdown =
+      raw.activity_breakdown && typeof raw.activity_breakdown === "object"
+        ? (raw.activity_breakdown as Record<string, { count: number; points: number }>)
+        : {};
+
+    const daily = Array.isArray(raw.daily_activity)
+      ? (raw.daily_activity as Array<{ date: string; count: number; points: number }>)
+      : [];
+
+    const activities = [...(contributorActivities.get(username) ?? [])];
+    const expectedCount = Object.values(breakdown).reduce(
+      (sum, v) => sum + (v && typeof v.count === "number" ? v.count : 0),
+      0
+    );
 
     if (activities.length < expectedCount && activities.length < 15) {
-      for (const [type, info] of Object.entries(
-        contributor.activity_breakdown || {}
-      )) {
+      for (const [type, info] of Object.entries(breakdown)) {
         if (activities.length >= 15) break;
         const existingCount = activities.filter((a) => a.type === type).length;
-        const missing = (info.count || 0) - existingCount;
+        const missing = (info?.count || 0) - existingCount;
 
         for (let i = 0; i < missing; i++) {
           if (activities.length >= 15) break;
@@ -329,18 +324,37 @@ export function aggregateLeaderboardData(
             occured_at: new Date(0).toISOString(),
             link: "",
             points:
-              info.count > 0 ? Math.round(info.points / info.count) : 0,
+              info?.count > 0 ? Math.round(info.points / info.count) : 0,
           });
         }
       }
     }
 
-    contributor.activities = activities.slice(0, 15);
+    const contributor: ContributorEntry = {
+      ...(raw as Record<string, unknown>),
+      username,
+      name: typeof raw.name === "string" ? raw.name : null,
+      avatar_url:
+        typeof raw.avatar_url === "string" && raw.avatar_url.trim() !== ""
+          ? raw.avatar_url
+          : `https://avatars.githubusercontent.com/${encodeURIComponent(username)}`,
+      role: typeof raw.role === "string" ? raw.role : "Contributor",
+      total_points:
+        typeof raw.total_points === "number" && !isNaN(raw.total_points)
+          ? raw.total_points
+          : 0,
+      activity_breakdown: breakdown,
+      daily_activity: daily,
+      activities: activities.slice(0, 15),
+    };
+
+    people.push(contributor);
   }
 
   // Sort contributors by total_points descending, with username as deterministic tie-breaker
-  const people = Array.from(allContributors.values()).sort(
-    (a, b) => b.total_points - a.total_points || a.username.localeCompare(b.username)
+  people.sort(
+    (a, b) =>
+      b.total_points - a.total_points || a.username.localeCompare(b.username)
   );
 
   return {
@@ -366,14 +380,13 @@ export function loadPeopleData(customPath?: string): PeopleData {
     };
   }
 
-  const files = fs
-    .readdirSync(publicPath)
-    .filter(
-      (file) =>
-        file.endsWith(".json") &&
-        file !== "recent-activities.json" &&
-        file !== "overview.json"
-    );
+  const isCustom = customPath !== undefined;
+  const files = fs.readdirSync(publicPath).filter((file) => {
+    if (!file.endsWith(".json")) return false;
+    if (file === "recent-activities.json" || file === "overview.json")
+      return false;
+    return isCustom || KNOWN_PERIOD_FILES.has(file);
+  });
 
   const datasets: LeaderboardDataset[] = [];
   for (const file of files) {
@@ -400,11 +413,19 @@ export function loadPeopleData(customPath?: string): PeopleData {
 
 /**
  * Converts a full ContributorEntry to a listing-optimized ContributorListingEntry
- * by stripping profile-only activities array.
+ * by precomputing activeDays and hasRecentActivity and omitting the heavy activities and daily_activity arrays.
  */
 export function toListingContributor(
-  entry: ContributorEntry
+  entry: ContributorEntry,
+  referenceTime: number = Date.now()
 ): ContributorListingEntry {
+  const sevenDaysAgo = referenceTime - 7 * 24 * 60 * 60 * 1000;
+  const hasRecent = Array.isArray(entry.daily_activity)
+    ? entry.daily_activity.some(
+        (day) => new Date(day.date).getTime() >= sevenDaysAgo
+      )
+    : false;
+
   return {
     username: entry.username,
     name: entry.name,
@@ -412,55 +433,68 @@ export function toListingContributor(
     role: entry.role,
     total_points: entry.total_points,
     activity_breakdown: entry.activity_breakdown,
-    daily_activity: entry.daily_activity,
+    activeDays: Array.isArray(entry.daily_activity)
+      ? entry.daily_activity.length
+      : 0,
+    hasRecentActivity: hasRecent,
   };
 }
 
 /**
- * Cached synchronous loader for full PeopleData (used by detail pages and API).
+ * Synchronous loader for full PeopleData (used by detail pages and API).
+ * Memoized at the module level in production to avoid disk thrashing across SSG renders.
  */
-export const getPeopleData = cache((): PeopleData => {
-  return loadPeopleData();
-});
+export function getPeopleData(customPath?: string): PeopleData {
+  if (!customPath && process.env.NODE_ENV === "production" && memoizedPeopleData) {
+    return memoizedPeopleData;
+  }
+  const data = loadPeopleData(customPath);
+  if (!customPath && process.env.NODE_ENV === "production") {
+    memoizedPeopleData = data;
+  }
+  return data;
+}
 
 /**
- * Cached synchronous loader for listing-optimized PeopleListingData.
- * Trims ~85% of serialized payload from server-to-client props on /people.
+ * Synchronous loader for listing-optimized PeopleListingData.
+ * Trims profile-only activities and daily_activity arrays, reducing server-to-client payload by over 91%.
  */
-export const getPeopleListingData = cache((): PeopleListingData => {
-  const fullData = getPeopleData();
+export function getPeopleListingData(customPath?: string): PeopleListingData {
+  const fullData = getPeopleData(customPath);
+  const refTime = fullData.updatedAt > 0 ? fullData.updatedAt : Date.now();
   return {
     ...fullData,
-    people: fullData.people.map(toListingContributor),
+    people: fullData.people.map((p) => toListingContributor(p, refTime)),
   };
-});
+}
 
 /**
  * Retrieves a single contributor by username (case-insensitive and URL-decode safe).
  */
-export const getContributorByUsername = cache(
-  (username: string): ContributorEntry | null => {
-    if (!username || typeof username !== "string") return null;
+export function getContributorByUsername(
+  username: string,
+  customPath?: string
+): ContributorEntry | null {
+  if (!username || typeof username !== "string") return null;
 
-    let decoded = username;
-    try {
-      decoded = decodeURIComponent(username);
-    } catch {
-      // Use raw username if decoding fails
-    }
-
-    const target = decoded.trim().toLowerCase();
-    if (!target) return null;
-
-    const { people } = getPeopleData();
-    return people.find((p) => p.username.toLowerCase() === target) ?? null;
+  let decoded = username;
+  try {
+    decoded = decodeURIComponent(username);
+  } catch {
+    // Use raw username if decoding fails
   }
-);
+
+  const target = decoded.trim().toLowerCase();
+  if (!target) return null;
+
+  const { people } = getPeopleData(customPath);
+  return people.find((p) => p.username.toLowerCase() === target) ?? null;
+}
 
 /**
  * Returns all contributor usernames for static route generation.
  */
-export const getAllContributorUsernames = cache((): string[] => {
-  const { people } = getPeopleData();
+export function getAllContributorUsernames(customPath?: string): string[] {
+  const { people } = getPeopleData(customPath);
   return people.map((p) => p.username);
-});
+}

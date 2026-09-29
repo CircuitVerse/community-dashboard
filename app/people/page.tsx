@@ -1,7 +1,8 @@
-import { Suspense } from "react";
 import type { Metadata } from "next";
 import { getPeopleListingData } from "@/lib/people";
 import { PeopleClientView } from "@/components/people/PeopleClientView";
+
+export const revalidate = 86400;
 
 export const metadata: Metadata = {
   title: "People | CircuitVerse",
@@ -13,9 +14,5 @@ export const metadata: Metadata = {
 
 export default function PeoplePage() {
   const data = getPeopleListingData();
-  return (
-    <Suspense>
-      <PeopleClientView initialData={data} />
-    </Suspense>
-  );
+  return <PeopleClientView initialData={data} />;
 }

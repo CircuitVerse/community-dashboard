@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useState, useMemo, useEffect, useSyncExternalStore } from "react";
 import { Activity, Users, Search } from "lucide-react";
 import { PeopleStats } from "@/components/people/PeopleStats";
 import { PeopleGrid } from "@/components/people/PeopleGrid";
@@ -13,11 +12,21 @@ interface PeopleClientViewProps {
   initialData: PeopleListingData;
 }
 
+const emptySubscribe = () => () => {};
+
 export function PeopleClientView({ initialData }: PeopleClientViewProps) {
   const { people, coreTeam, alumni, updatedAt } = initialData;
-  const searchParams = useSearchParams();
-  const initialQuery = searchParams.get("q") || "";
-  const [searchQuery, setSearchQuery] = useState(initialQuery);
+  const [userQuery, setUserQuery] = useState<string | null>(null);
+
+  // Read URL search parameter on client without bailing out SSG or triggering hydration mismatch
+  const urlQuery = useSyncExternalStore(
+    emptySubscribe,
+    () => (typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("q") ?? "" : ""),
+    () => ""
+  );
+
+  const searchQuery = userQuery ?? urlQuery;
+  const setSearchQuery = setUserQuery;
 
   // Synchronize URL search params with local search state without refreshing route
   useEffect(() => {
@@ -35,17 +44,6 @@ export function PeopleClientView({ initialData }: PeopleClientViewProps) {
       window.history.replaceState(null, "", url.toString());
     }
   }, [searchQuery]);
-
-  // Synchronize search state on browser back/forward navigation
-  useEffect(() => {
-    const handlePopState = () => {
-      const url = new URL(window.location.href);
-      setSearchQuery(url.searchParams.get("q") || "");
-    };
-
-    window.addEventListener("popstate", handlePopState);
-    return () => window.removeEventListener("popstate", handlePopState);
-  }, []);
 
   const filteredPeople = useMemo(() => {
     if (!searchQuery.trim()) return people;

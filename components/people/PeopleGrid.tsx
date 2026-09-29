@@ -5,14 +5,12 @@ import type { ContributorListingEntry } from "@/types/people";
 
 interface PeopleGridProps {
   contributors: ContributorListingEntry[];
-  onContributorClick?: (contributor: ContributorListingEntry) => void;
   viewMode?: "grid" | "list";
   loading?: boolean;
 }
 
 export function PeopleGrid({
   contributors,
-  onContributorClick,
   viewMode = "grid",
   loading = false,
 }: PeopleGridProps) {
@@ -97,7 +95,6 @@ export function PeopleGrid({
         <ContributorCard
           key={contributor.username}
           contributor={contributor}
-          onClick={onContributorClick}
           variant={viewMode}
           showStats={true}
         />
