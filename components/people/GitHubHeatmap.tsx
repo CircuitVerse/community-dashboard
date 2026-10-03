@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Github } from "lucide-react";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useSyncExternalStore } from "react";
 
 interface HeatmapProps {
   dailyActivity: Array<{ date: string; count: number; points: number }>;
@@ -23,8 +23,15 @@ const formatDateLocal = (date: Date): string => {
   return `${year}-${month}-${day}`;
 };
 
+const emptySubscribe = () => () => {};
+
 export function GitHubHeatmap({ dailyActivity, className = "" }: HeatmapProps) {
   const [tooltip, setTooltip] = useState<TooltipData | null>(null);
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
 
   // Helper to extract year from YYYY-MM-DD string without timezone issues
   const getYearFromDateStr = (dateStr: string): number => {
@@ -83,7 +90,7 @@ export function GitHubHeatmap({ dailyActivity, className = "" }: HeatmapProps) {
         count: activity?.count || 0,
         points: activity?.points || 0,
         dayOfWeek: currentDate.getDay(),
-        isToday: isCurrentYear && dateStr === todayStr,
+        isToday: mounted && isCurrentYear && dateStr === todayStr,
         isFuture: isFuture,
       });
 
@@ -329,8 +336,13 @@ export function GitHubHeatmap({ dailyActivity, className = "" }: HeatmapProps) {
                           title={
                             day.date && !isFuture
                               ? `${day.count} contributions on ${new Date(
-                                  day.date + "T00:00:00"
-                                ).toLocaleDateString()}`
+                                  day.date + "T00:00:00Z"
+                                ).toLocaleDateString("en-US", {
+                                  timeZone: "UTC",
+                                  month: "short",
+                                  day: "numeric",
+                                  year: "numeric",
+                                })}`
                               : ""
                           }
                         />
@@ -371,7 +383,8 @@ export function GitHubHeatmap({ dailyActivity, className = "" }: HeatmapProps) {
           }}
         >
           <div className="font-semibold">
-            {new Date(tooltip.date + "T00:00:00").toLocaleDateString("en-US", {
+            {new Date(tooltip.date + "T00:00:00Z").toLocaleDateString("en-US", {
+              timeZone: "UTC",
               weekday: "short",
               month: "short",
               day: "numeric",

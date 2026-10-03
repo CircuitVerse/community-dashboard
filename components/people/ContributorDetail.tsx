@@ -1,11 +1,13 @@
 "use client";
 
+import { useSyncExternalStore } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { GitHubHeatmap } from "@/components/people/GitHubHeatmap";
-import { useState } from "react";
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import {
   Activity,
   Calendar,
@@ -16,16 +18,14 @@ import {
   BarChart3,
   Clock,
   GitPullRequest,
-  Bug,
   ArrowLeft,
   Target,
   Github,
   ExternalLink,
   GitMerge,
-  AlertCircle
+  AlertCircle,
 } from "lucide-react";
-
-import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
+import type { ContributorEntry } from "@/types/people";
 
 type ActivityUIConfig = {
   icon: React.ReactNode;
@@ -37,7 +37,6 @@ type ActivityUIConfig = {
   accentColor: string;
 };
 
-
 type ActivityKey =
   | "PR merged"
   | "PR opened"
@@ -45,26 +44,8 @@ type ActivityKey =
   | "commit"
   | "star";
 
-interface ContributorEntry {
-  username: string;
-  name: string | null;
-  avatar_url: string;
-  role: string;
-  total_points: number;
-  activity_breakdown: Record<string, { count: number; points: number }>;
-  daily_activity: Array<{ date: string; count: number; points: number }>;
-  activities?: Array<{
-    type: string;
-    title: string;
-    occured_at: string;
-    link: string;
-    points: number;
-  }>;
-}
-
 interface ContributorDetailProps {
   contributor: ContributorEntry;
-  onBack: () => void;
 }
 
 // Activity type configuration with unique visual identity
@@ -129,8 +110,16 @@ const defaultConfig: ActivityUIConfig = {
 };
 
 
-export function ContributorDetail({ contributor, onBack }: ContributorDetailProps) {
-  const [currentTime] = useState(() => Date.now());
+const emptySubscribe = () => () => {};
+const getClientTime = () => Date.now();
+const getServerTime = () => null;
+
+export function ContributorDetail({ contributor }: ContributorDetailProps) {
+  const currentTime = useSyncExternalStore(
+    emptySubscribe,
+    getClientTime,
+    getServerTime
+  );
 
   const getActivityConfig = (activityType: string): ActivityUIConfig => {
     const type = activityType.toLowerCase();
@@ -158,13 +147,6 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
     return defaultConfig;
   };
 
-
-
-
-  const getActivityIcon = (activityType: string) => {
-    return getActivityConfig(activityType).icon;
-  };
-
   const sortedActivities = Object.entries(contributor.activity_breakdown || {})
     .sort(([, a], [, b]) => b.points - a.points);
 
@@ -175,14 +157,25 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
     : 0;
 
   // Calculate streak
-  const sortedDates = recentActivity
+  const sortedDates = [...recentActivity]
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
+  // Deterministic baseline timestamp from dataset for SSR; switches to client Date.now() on mount
+  const baselineTimestamp = sortedDates[0]?.date
+    ? new Date(sortedDates[0].date).getTime()
+    : 0;
+  const activeNow =
+    currentTime !== null
+      ? new Date(currentTime)
+      : baselineTimestamp > 0
+      ? new Date(baselineTimestamp)
+      : new Date(0);
+
   let currentStreak = 0;
-  const today = new Date();
+  const today = new Date(activeNow);
   today.setHours(0, 0, 0, 0);
 
-  const uniqueDates = Array.from(new Set(sortedDates.map(d => d.date)));
+  const uniqueDates = Array.from(new Set(sortedDates.map((d) => d.date)));
   
   let expectedDaysDiff = 0; // Start expecting today (0 days ago)
   
@@ -224,28 +217,38 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
       })()
     : [];
 
-  const thirtyDaysAgo = currentTime - 30 * 24 * 60 * 60 * 1000;
+  const effectiveTimeMs = currentTime ?? baselineTimestamp;
+  const thirtyDaysAgo =
+    effectiveTimeMs > 0 ? effectiveTimeMs - 30 * 24 * 60 * 60 * 1000 : 0;
   const recentContributions = uniqueContributions
-    .filter((a) => new Date(a.occured_at).getTime() >= thirtyDaysAgo)
+    .filter((a) => {
+      const t = new Date(a.occured_at).getTime();
+      return !isNaN(t) && t > 86400000 && t >= thirtyDaysAgo;
+    })
     .sort((a, b) => new Date(b.occured_at).getTime() - new Date(a.occured_at).getTime())
     .slice(0, 15);
 
-  const thisMonth = new Date();
-  const monthlyActivity = recentActivity.filter(day => {
+  const thisMonth = new Date(activeNow);
+  const monthlyActivity = recentActivity.filter((day) => {
     const dayDate = new Date(day.date);
-    return dayDate.getMonth() === thisMonth.getMonth() &&
-      dayDate.getFullYear() === thisMonth.getFullYear();
+    return (
+      dayDate.getMonth() === thisMonth.getMonth() &&
+      dayDate.getFullYear() === thisMonth.getFullYear()
+    );
   });
 
   const monthlyPoints = monthlyActivity.reduce((sum, day) => sum + day.points, 0);
   const monthlyDays = monthlyActivity.length;
   const monthlyActivityTypes = new Set<string>();
-  if(contributor.activities){
+  if (contributor.activities) {
     const currentMonth = thisMonth.getMonth();
     const currentYear = thisMonth.getFullYear();
-    for(const activity of contributor.activities){
+    for (const activity of contributor.activities) {
       const activityDate = new Date(activity.occured_at);
-      if(activityDate.getMonth() === currentMonth && activityDate.getFullYear() === currentYear){
+      if (
+        activityDate.getMonth() === currentMonth &&
+        activityDate.getFullYear() === currentYear
+      ) {
         monthlyActivityTypes.add(activity.type);
       }
     }
@@ -261,9 +264,15 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
 
   return (
     <div className="mx-auto px-4 py-8 max-w-7xl lg:max-w-[1300px]">
-      <Button onClick={onBack} variant="outline" className="mb-6 hover:bg-primary/10 cursor-pointer transition-colors">
-        <ArrowLeft className="w-4 h-4 mr-2" />
-        Back to People
+      <Button
+        asChild
+        variant="outline"
+        className="mb-6 hover:bg-primary/10 cursor-pointer transition-colors"
+      >
+        <Link href="/people/#contributors">
+          <ArrowLeft className="w-4 h-4 mr-2" />
+          Back to People
+        </Link>
       </Button>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
@@ -344,15 +353,19 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
                   </div>
                 </div>
 
-                <a
-                  href={`https://github.com/${contributor.username}`}
-                  target="_blank" rel="noopener noreferrer"
-                  className="w-full flex justify-center mt-4"
+                <Button
+                  asChild
+                  className="w-full mt-4 bg-gradient-to-r cursor-pointer from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-md"
                 >
-                  <Button className="bg-gradient-to-r cursor-pointer from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-md">
+                  <a
+                    href={`https://github.com/${contributor.username}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`View ${displayName}'s GitHub profile`}
+                  >
                     <Github className="w-5 h-5" />
-                  </Button>
-                </a>
+                  </a>
+                </Button>
               </div>
             </CardContent>
           </Card>
@@ -467,13 +480,17 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
                 <div className="space-y-3 max-h-80 overflow-y-auto pr-2">
                   {recentContributions.map((activity, index) => {
                     const date = new Date(activity.occured_at);
+                    const isValidDate = !isNaN(date.getTime()) && date.getTime() > 86400000;
                     const isVeryRecent = index < 3;
-                    const daysAgo = Math.floor((currentTime - date.getTime()) / (1000 * 60 * 60 * 24));
+                    const daysAgo =
+                      currentTime !== null && isValidDate
+                        ? Math.floor((currentTime - date.getTime()) / (1000 * 60 * 60 * 24))
+                        : null;
                     const config = getActivityConfig(activity.type);
 
                     return (
                       <div
-                        key={`${activity.link}-${index}`}
+                        key={`${activity.type}-${activity.link || activity.title}-${index}`}
                         className={`group flex items-start gap-4 p-4 rounded-lg border transition-all duration-200 hover:shadow-md ${isVeryRecent
                             ? `${config.borderColor} bg-gradient-to-r ${config.gradient}`
                             : 'bg-muted/20 hover:bg-muted/40 hover:border-primary/20'
@@ -505,7 +522,20 @@ export function ContributorDetail({ contributor, onBack }: ContributorDetailProp
                                 </span>
                                 <span className="flex items-center gap-1 whitespace-nowrap shrink-0">
                                   <Calendar className="w-3 h-3" />
-                                  {daysAgo === 0 ? 'Today' : daysAgo === 1 ? 'Yesterday' : `${daysAgo} days ago`}
+                                  {!isValidDate
+                                    ? "Historical contribution"
+                                    : daysAgo !== null
+                                    ? daysAgo <= 0
+                                      ? "Today"
+                                      : daysAgo === 1
+                                      ? "Yesterday"
+                                      : `${daysAgo} days ago`
+                                    : date.toLocaleDateString("en-US", {
+                                        timeZone: "UTC",
+                                        month: "short",
+                                        day: "numeric",
+                                        year: "numeric",
+                                      })}
                                 </span>
                               </div>
                             </div>
