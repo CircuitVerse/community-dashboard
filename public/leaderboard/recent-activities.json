@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1790996214100,
+  "updatedAt": 1791084455840,
   "groups": [
     [
       "2026-09-29",
@@ -484,6 +484,14 @@
           "points": 2
         },
         {
+          "username": "iamtanishqjain",
+          "name": null,
+          "title": "fix(vuesim) - keep splitter output widths when its bit width changes",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1332",
+          "avatar_url": "https://avatars.githubusercontent.com/u/71930864?v=4",
+          "points": 5
+        },
+        {
           "username": "ManyaJain111",
           "name": null,
           "title": "fix - Enforce 254-character limit on pasted emails for groups and projects",
@@ -497,14 +505,6 @@
           "title": "fix - handle null project data for new assignments",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1335",
           "avatar_url": "https://avatars.githubusercontent.com/u/224918778?v=4",
-          "points": 5
-        },
-        {
-          "username": "iamtanishqjain",
-          "name": null,
-          "title": "fix(vuesim) - keep splitter output widths when its bit width changes",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1332",
-          "avatar_url": "https://avatars.githubusercontent.com/u/71930864?v=4",
           "points": 5
         },
         {
@@ -843,6 +843,22 @@
           "points": 5
         },
         {
+          "username": "iamtanishqjain",
+          "name": null,
+          "title": "fix(vuesim) - stop JK and SR flip flops throwing on the bit width shortcut",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1352",
+          "avatar_url": "https://avatars.githubusercontent.com/u/71930864?v=4",
+          "points": 2
+        },
+        {
+          "username": "iamtanishqjain",
+          "name": null,
+          "title": "🐞 Bug - pressing Q on a JK or SR flip flop throws, bit width ends up out of sync with its nodes",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1353",
+          "avatar_url": "https://avatars.githubusercontent.com/u/71930864?v=4",
+          "points": 1
+        },
+        {
           "username": "ManyaJain111",
           "name": null,
           "title": "WIP - update redis version in docker compose",
@@ -873,22 +889,6 @@
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7959",
           "avatar_url": "https://avatars.githubusercontent.com/u/224918778?v=4",
           "points": 2
-        },
-        {
-          "username": "iamtanishqjain",
-          "name": null,
-          "title": "fix(vuesim) - stop JK and SR flip flops throwing on the bit width shortcut",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1352",
-          "avatar_url": "https://avatars.githubusercontent.com/u/71930864?v=4",
-          "points": 2
-        },
-        {
-          "username": "iamtanishqjain",
-          "name": null,
-          "title": "🐞 Bug - pressing Q on a JK or SR flip flop throws, bit width ends up out of sync with its nodes",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1353",
-          "avatar_url": "https://avatars.githubusercontent.com/u/71930864?v=4",
-          "points": 1
         },
         {
           "username": "YashKumar-404",
@@ -1215,115 +1215,6 @@
       ]
     ],
     [
-      "2026-09-20",
-      [
-        {
-          "username": "tachyons",
-          "name": null,
-          "title": "Remove simple_discussion (forum moved to Discourse)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7890",
-          "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
-          "points": 2
-        },
-        {
-          "username": "tachyons",
-          "name": null,
-          "title": "Remove commontator and switch the asset backend to Propshaft",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7888",
-          "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
-          "points": 2
-        },
-        {
-          "username": "tachyons",
-          "name": null,
-          "title": "Cut the JSON API over to homegrown comments",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7887",
-          "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
-          "points": 2
-        },
-        {
-          "username": "tachyons",
-          "name": null,
-          "title": "Add Stimulus comment thread UI on project pages",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7886",
-          "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
-          "points": 2
-        },
-        {
-          "username": "tachyons",
-          "name": null,
-          "title": "Migrate commontator data into the homegrown comments domain",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7885",
-          "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
-          "points": 2
-        },
-        {
-          "username": "tachyons",
-          "name": null,
-          "title": "Add homegrown comments domain (threads, comments, subscriptions)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7884",
-          "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
-          "points": 2
-        },
-        {
-          "username": "tachyons",
-          "name": null,
-          "title": "Replace Sprockets directives and Vite with esbuild + dart-sass bundling",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7883",
-          "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
-          "points": 2
-        },
-        {
-          "username": "tachyons",
-          "name": null,
-          "title": "Add Stimulus comment thread UI on project pages",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7886",
-          "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
-          "points": 5
-        },
-        {
-          "username": "tachyons",
-          "name": null,
-          "title": "Migrate commontator data into the homegrown comments domain",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7885",
-          "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
-          "points": 5
-        },
-        {
-          "username": "tachyons",
-          "name": null,
-          "title": "Add homegrown comments domain (threads, comments, subscriptions)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7884",
-          "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
-          "points": 5
-        },
-        {
-          "username": "tachyons",
-          "name": null,
-          "title": "Replace Sprockets directives and Vite with esbuild + dart-sass bundling",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7883",
-          "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
-          "points": 5
-        },
-        {
-          "username": "iamtanishqjain",
-          "name": null,
-          "title": "fix - keep search dropdown highlight on the selected option",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7894",
-          "avatar_url": "https://avatars.githubusercontent.com/u/71930864?v=4",
-          "points": 2
-        },
-        {
-          "username": "iamtanishqjain",
-          "name": null,
-          "title": "🐞 Bug - search resource dropdown keeps the arrow-key highlight after you back out",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7893",
-          "avatar_url": "https://avatars.githubusercontent.com/u/71930864?v=4",
-          "points": 1
-        }
-      ]
-    ],
-    [
       "2026-09-23",
       [
         {
@@ -1364,22 +1255,6 @@
           "points": 2
         },
         {
-          "username": "ManyaJain111",
-          "name": null,
-          "title": "🐞 Bug - \"Could not load\" error popup when starting a new assignment",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1330",
-          "avatar_url": "https://avatars.githubusercontent.com/u/224918778?v=4",
-          "points": 1
-        },
-        {
-          "username": "ManyaJain111",
-          "name": null,
-          "title": "Labeled issue #1330 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1330",
-          "avatar_url": "https://avatars.githubusercontent.com/u/224918778?v=4",
-          "points": 2
-        },
-        {
           "username": "iamtanishqjain",
           "name": null,
           "title": "fix(vuesim) - keep splitter output widths when its bit width changes",
@@ -1394,6 +1269,22 @@
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1331",
           "avatar_url": "https://avatars.githubusercontent.com/u/71930864?v=4",
           "points": 1
+        },
+        {
+          "username": "ManyaJain111",
+          "name": null,
+          "title": "🐞 Bug - \"Could not load\" error popup when starting a new assignment",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1330",
+          "avatar_url": "https://avatars.githubusercontent.com/u/224918778?v=4",
+          "points": 1
+        },
+        {
+          "username": "ManyaJain111",
+          "name": null,
+          "title": "Labeled issue #1330 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1330",
+          "avatar_url": "https://avatars.githubusercontent.com/u/224918778?v=4",
+          "points": 2
         },
         {
           "username": "Shruti2110-coder",
@@ -1470,6 +1361,107 @@
           "title": "chore - modernize postgres to 17 and tune db config (#7899)",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7911",
           "avatar_url": "https://avatars.githubusercontent.com/u/143877274?v=4",
+          "points": 2
+        }
+      ]
+    ],
+    [
+      "2026-10-03",
+      [
+        {
+          "username": "iamtanishqjain",
+          "name": null,
+          "title": "fix(vuesim) - keep a Flag's box fitting its name after undo or reload",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1359",
+          "avatar_url": "https://avatars.githubusercontent.com/u/71930864?v=4",
+          "points": 2
+        },
+        {
+          "username": "iamtanishqjain",
+          "name": null,
+          "title": "🐞 Bug - a Flag's box stops fitting its name after undo or reload",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1360",
+          "avatar_url": "https://avatars.githubusercontent.com/u/71930864?v=4",
+          "points": 1
+        },
+        {
+          "username": "YashKumar-404",
+          "name": null,
+          "title": "fix - batch star lookups in project serializer to avoid N+1 (#7968)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7969",
+          "avatar_url": "https://avatars.githubusercontent.com/u/192852439?v=4",
+          "points": 2
+        },
+        {
+          "username": "YashKumar-404",
+          "name": null,
+          "title": "refactor - replace bootstrap-input-spinner with the native number stepper",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7966",
+          "avatar_url": "https://avatars.githubusercontent.com/u/192852439?v=4",
+          "points": 2
+        },
+        {
+          "username": "cynicalmindset",
+          "name": null,
+          "title": "fix(vuesim) - preserve connected wires when resizing TTY rows and columns",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1365",
+          "avatar_url": "https://avatars.githubusercontent.com/u/166590584?v=4",
+          "points": 2
+        },
+        {
+          "username": "cynicalmindset",
+          "name": null,
+          "title": "fix(vuesim) - synchronize outputBitWidth on newBitWidth in Verilog modules (#1362)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1363",
+          "avatar_url": "https://avatars.githubusercontent.com/u/166590584?v=4",
+          "points": 2
+        },
+        {
+          "username": "cynicalmindset",
+          "name": null,
+          "title": "🐞 Bug - Changing TTY rows or columns deletes all connected wires",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1364",
+          "avatar_url": "https://avatars.githubusercontent.com/u/166590584?v=4",
+          "points": 1
+        },
+        {
+          "username": "cynicalmindset",
+          "name": null,
+          "title": "🐞 Bug - outputBitWidth de-synchronization on newBitWidth() in Verilog arithmetic elements",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1362",
+          "avatar_url": "https://avatars.githubusercontent.com/u/166590584?v=4",
+          "points": 1
+        },
+        {
+          "username": "cynicalmindset",
+          "name": null,
+          "title": "Labeled issue #1362 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1362",
+          "avatar_url": "https://avatars.githubusercontent.com/u/166590584?v=4",
+          "points": 2
+        },
+        {
+          "username": "cynicalmindset",
+          "name": null,
+          "title": "Labeled issue #1364 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1364",
+          "avatar_url": "https://avatars.githubusercontent.com/u/166590584?v=4",
+          "points": 2
+        },
+        {
+          "username": "pinankshah8-Aa",
+          "name": null,
+          "title": "fix(vuesim) - use preset in D flip-flop Verilog",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1361",
+          "avatar_url": "https://avatars.githubusercontent.com/u/226854365?v=4",
+          "points": 2
+        },
+        {
+          "username": "Rishabh-377",
+          "name": null,
+          "title": "feat(simulator) - add load data input pin to RAM and EEPROM",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7970",
+          "avatar_url": "https://avatars.githubusercontent.com/u/252416684?v=4",
           "points": 2
         }
       ]
