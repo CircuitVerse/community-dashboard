@@ -1,9 +1,9 @@
 {
   "period": "year",
-  "updatedAt": 1791084455813,
-  "lastFetchedAt": 1791084455813,
-  "startDate": "2025-10-04",
-  "endDate": "2026-10-04",
+  "updatedAt": 1791169462140,
+  "lastFetchedAt": 1791169462140,
+  "startDate": "2025-10-05",
+  "endDate": "2026-10-05",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -7776,11 +7776,15 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
       "role": "Maintainer",
-      "total_points": 797,
+      "total_points": 800,
       "activity_breakdown": {
+        "Issue labeled": {
+          "count": 5,
+          "points": 10
+        },
         "Issue closed": {
-          "count": 364,
-          "points": 364
+          "count": 365,
+          "points": 365
         },
         "PR merged": {
           "count": 31,
@@ -7797,13 +7801,14 @@
         "Review submitted": {
           "count": 43,
           "points": 172
-        },
-        "Issue labeled": {
-          "count": 4,
-          "points": 8
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-10-04",
+          "count": 2,
+          "points": 3
+        },
         {
           "date": "2026-10-02",
           "count": 2,
@@ -8416,6 +8421,20 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-04T10:43:53Z",
+          "title": "Labeled issue #1366 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1366",
+          "points": 2
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-10-04T10:42:14Z",
+          "title": "Closed issue #7973 - 🐞 Bug - Simulator crashes when Custom Theme localStorage contains invalid JSON",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7973",
+          "points": 1
+        },
         {
           "type": "Issue closed",
           "occured_at": "2026-10-02T15:16:18Z",
@@ -41498,6 +41517,293 @@
       ]
     },
     {
+      "username": "JituRewar",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/229604335?v=4",
+      "role": "Contributor",
+      "total_points": 56,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 10,
+          "points": 20
+        },
+        "Issue opened": {
+          "count": 8,
+          "points": 8
+        },
+        "Issue labeled": {
+          "count": 9,
+          "points": 18
+        },
+        "PR merged": {
+          "count": 2,
+          "points": 10
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-10-04",
+          "count": 4,
+          "points": 7
+        },
+        {
+          "date": "2026-10-02",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2026-09-22",
+          "count": 3,
+          "points": 5
+        },
+        {
+          "date": "2026-09-09",
+          "count": 3,
+          "points": 5
+        },
+        {
+          "date": "2026-09-04",
+          "count": 4,
+          "points": 7
+        },
+        {
+          "date": "2026-08-09",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-07-30",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-07-21",
+          "count": 3,
+          "points": 5
+        },
+        {
+          "date": "2026-07-20",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-07-15",
+          "count": 4,
+          "points": 10
+        },
+        {
+          "date": "2026-07-13",
+          "count": 3,
+          "points": 5
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-04T12:28:20Z",
+          "title": "fix(simulator) - prevent fit-to-selection shortcut from intercepting rom input",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1369",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-04T06:36:12Z",
+          "title": "fix(simulator) - ensure component keyDown runs before mouse bounds check",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7972",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-04T06:30:14Z",
+          "title": "🐞 Bug - Cannot type hex character 'f' in ROM when cursor is outside canvas",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1366",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-04T06:30:15Z",
+          "title": "Labeled issue #1366 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1366",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-10-02T09:13:18Z",
+          "title": "feat - add auto-focus functionality to MessageBox component in V1",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1175",
+          "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-22T18:06:44Z",
+          "title": "test(simulator) - add test coverage for SevenSegDisplay, Counter, and …",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7905",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-22T18:02:16Z",
+          "title": "Bug - Missing unit test coverage for SevenSegDisplay, Counter, and Flag modules in simulator",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7904",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-09-22T18:02:18Z",
+          "title": "Labeled issue #7904 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7904",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-09T17:33:22Z",
+          "title": "fix(ui) - dynamic panel offset and z-index for expanded circuit tabs",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1276",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-09T17:26:11Z",
+          "title": "🐞 Bug - Multiple circuit tabs overlap issue",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1275",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-09-09T17:26:13Z",
+          "title": "Labeled issue #1275 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1275",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-04T16:51:49Z",
+          "title": "fix - restrict draggable panels from moving beyond top navbar header",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1258",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-04T16:41:28Z",
+          "title": "🐞 Bug - Draggable panels (Circuit Elements, Properties, TestBench, Timing Diagram) go beyond top navbar and get stuck",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1257",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-09-04T16:41:29Z",
+          "title": "Labeled issue #1257 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1257",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-09-04T16:41:30Z",
+          "title": "Labeled issue #1257 - pending triage",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1257",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-09T14:21:42Z",
+          "title": "feat(desktop) - add snapcraft package and integrate snap into release …",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1189",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-30T05:56:21Z",
+          "title": "feat - add auto-focus functionality to MessageBox component in V1",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1175",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-21T13:57:14Z",
+          "title": "fix(v1) - adjust top position of panels dynamically on tabs bar height…",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1151",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-21T14:12:19Z",
+          "title": "🐞 Bug - Prompt dialog input not focused automatically and Enter key does not submit in v1",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1152",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-07-21T14:12:20Z",
+          "title": "Labeled issue #1152 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1152",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-20T05:29:52Z",
+          "title": "🐞 Bug - Panels and toolbar overlap with tabs bar when expanded in v1/v0",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1149",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-07-20T05:29:53Z",
+          "title": "Labeled issue #1149 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1149",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-15T03:22:29Z",
+          "title": "style() - reposition testbench panel and report issue button",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1139",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-07-15T15:55:24Z",
+          "title": "style() - reposition testbench panel and report issue button",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1139",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-15T03:08:21Z",
+          "title": "🐞 Bug - Testbench panel and Report an Issue button default positioning overlaps layout",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1138",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-07-15T03:08:22Z",
+          "title": "Labeled issue #1138 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1138",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-07-13T05:34:51Z",
+          "title": "fix - resolve SMTP ArgumentError in development environment (#7648)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7649",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-07-13T05:05:57Z",
+          "title": "🐞 Bug fix - SMTP settings throw ArgumentError due to mutually exclusive ssl and enable_starttls_auto keys in development",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7648",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-07-13T05:05:58Z",
+          "title": "Labeled issue #7648 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7648",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "ujjwalv01",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/219022963?v=4",
@@ -42456,260 +42762,6 @@
       ]
     },
     {
-      "username": "JituRewar",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/229604335?v=4",
-      "role": "Contributor",
-      "total_points": 49,
-      "activity_breakdown": {
-        "PR merged": {
-          "count": 2,
-          "points": 10
-        },
-        "PR opened": {
-          "count": 8,
-          "points": 16
-        },
-        "Issue opened": {
-          "count": 7,
-          "points": 7
-        },
-        "Issue labeled": {
-          "count": 8,
-          "points": 16
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-10-02",
-          "count": 1,
-          "points": 5
-        },
-        {
-          "date": "2026-09-22",
-          "count": 3,
-          "points": 5
-        },
-        {
-          "date": "2026-09-09",
-          "count": 3,
-          "points": 5
-        },
-        {
-          "date": "2026-09-04",
-          "count": 4,
-          "points": 7
-        },
-        {
-          "date": "2026-08-09",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-07-30",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-07-21",
-          "count": 3,
-          "points": 5
-        },
-        {
-          "date": "2026-07-20",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-07-15",
-          "count": 4,
-          "points": 10
-        },
-        {
-          "date": "2026-07-13",
-          "count": 3,
-          "points": 5
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "PR merged",
-          "occured_at": "2026-10-02T09:13:18Z",
-          "title": "feat - add auto-focus functionality to MessageBox component in V1",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1175",
-          "points": 5
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-22T18:06:44Z",
-          "title": "test(simulator) - add test coverage for SevenSegDisplay, Counter, and …",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7905",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-22T18:02:16Z",
-          "title": "Bug - Missing unit test coverage for SevenSegDisplay, Counter, and Flag modules in simulator",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7904",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-22T18:02:18Z",
-          "title": "Labeled issue #7904 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7904",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-09T17:33:22Z",
-          "title": "fix(ui) - dynamic panel offset and z-index for expanded circuit tabs",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1276",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-09T17:26:11Z",
-          "title": "🐞 Bug - Multiple circuit tabs overlap issue",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1275",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-09T17:26:13Z",
-          "title": "Labeled issue #1275 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1275",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-04T16:51:49Z",
-          "title": "fix - restrict draggable panels from moving beyond top navbar header",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1258",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-04T16:41:28Z",
-          "title": "🐞 Bug - Draggable panels (Circuit Elements, Properties, TestBench, Timing Diagram) go beyond top navbar and get stuck",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1257",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-04T16:41:29Z",
-          "title": "Labeled issue #1257 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1257",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-04T16:41:30Z",
-          "title": "Labeled issue #1257 - pending triage",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1257",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-09T14:21:42Z",
-          "title": "feat(desktop) - add snapcraft package and integrate snap into release …",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1189",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-30T05:56:21Z",
-          "title": "feat - add auto-focus functionality to MessageBox component in V1",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1175",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-21T13:57:14Z",
-          "title": "fix(v1) - adjust top position of panels dynamically on tabs bar height…",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1151",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-07-21T14:12:19Z",
-          "title": "🐞 Bug - Prompt dialog input not focused automatically and Enter key does not submit in v1",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1152",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-07-21T14:12:20Z",
-          "title": "Labeled issue #1152 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1152",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-07-20T05:29:52Z",
-          "title": "🐞 Bug - Panels and toolbar overlap with tabs bar when expanded in v1/v0",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1149",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-07-20T05:29:53Z",
-          "title": "Labeled issue #1149 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1149",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-15T03:22:29Z",
-          "title": "style() - reposition testbench panel and report issue button",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1139",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-07-15T15:55:24Z",
-          "title": "style() - reposition testbench panel and report issue button",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1139",
-          "points": 5
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-07-15T03:08:21Z",
-          "title": "🐞 Bug - Testbench panel and Report an Issue button default positioning overlaps layout",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1138",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-07-15T03:08:22Z",
-          "title": "Labeled issue #1138 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1138",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-07-13T05:34:51Z",
-          "title": "fix - resolve SMTP ArgumentError in development environment (#7648)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7649",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-07-13T05:05:57Z",
-          "title": "🐞 Bug fix - SMTP settings throw ArgumentError due to mutually exclusive ssl and enable_starttls_auto keys in development",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7648",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-07-13T05:05:58Z",
-          "title": "Labeled issue #7648 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7648",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "Aaditya-2407",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/172787215?v=4",
@@ -42874,15 +42926,15 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/71930864?v=4",
       "role": "Contributor",
-      "total_points": 45,
+      "total_points": 48,
       "activity_breakdown": {
         "PR opened": {
-          "count": 10,
-          "points": 20
+          "count": 11,
+          "points": 22
         },
         "Issue opened": {
-          "count": 10,
-          "points": 10
+          "count": 11,
+          "points": 11
         },
         "PR merged": {
           "count": 3,
@@ -42890,6 +42942,11 @@
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-10-04",
+          "count": 2,
+          "points": 3
+        },
         {
           "date": "2026-10-03",
           "count": 2,
@@ -42947,6 +43004,20 @@
         }
       ],
       "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-04T14:44:32Z",
+          "title": "fix(vuesim) - point element help links at the current docs site",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1370",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-04T14:45:42Z",
+          "title": "🐞 Bug - Help button opens the docs home page for 21 elements, old docsify URLs left behind",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1371",
+          "points": 1
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-10-03T16:18:16Z",
@@ -44978,6 +45049,184 @@
       ]
     },
     {
+      "username": "YashKumar-404",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/192852439?v=4",
+      "role": "Contributor",
+      "total_points": 35,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 15,
+          "points": 30
+        },
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-10-04",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-10-03",
+          "count": 2,
+          "points": 4
+        },
+        {
+          "date": "2026-10-02",
+          "count": 5,
+          "points": 10
+        },
+        {
+          "date": "2026-10-01",
+          "count": 3,
+          "points": 6
+        },
+        {
+          "date": "2026-09-30",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-09-02",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-08-28",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-08-23",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2026-08-22",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-04T18:43:10Z",
+          "title": "fix - batch star lookups in project serializer to avoid N+1 (#7968)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7977",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-03T17:59:42Z",
+          "title": "fix - batch star lookups in project serializer to avoid N+1 (#7968)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7969",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-03T04:08:46Z",
+          "title": "refactor - replace bootstrap-input-spinner with the native number stepper",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7966",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-02T16:34:54Z",
+          "title": "perf - cache circuit data to stop statement_timeout on repeated reads (#7927)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7962",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-02T15:01:42Z",
+          "title": "fix - authenticate before authorization in CollaborationsController (#7959)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7961",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-02T12:17:48Z",
+          "title": "fix(auth) - fetch GitHub profile and emails in parallel on OAuth login (#7875)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7960",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-02T11:58:43Z",
+          "title": "fix(greetings) - make the welcome workflow work on fork PRs (#7029)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7958",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-02T11:38:39Z",
+          "title": "chore - standardize on a single pinned package manager (#7901)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7957",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-01T22:00:59Z",
+          "title": "fix - install yarn in production runtime image, skip runtime JS build",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7955",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-01T21:49:37Z",
+          "title": "fix - modernize production logging, security, and observability",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7954",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-01T19:01:58Z",
+          "title": "fix - exclude Puma Errno - - EBADF client-disconnect race from Sentry (#7943)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7952",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-30T11:36:39Z",
+          "title": "fix - authenticate before authorization in GroupMembersController (#7816)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7950",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-02T02:06:37Z",
+          "title": "fix - prevent ArgumentError from invalid search page param (#7830)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7834",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-28T23:12:15Z",
+          "title": "Fix footer link cursor extending into empty space beside the text",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7821",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-08-23T15:52:39Z",
+          "title": "fix - remove stray Zone.Identifier blocking Windows checkout",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7807",
+          "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-08-22T06:25:04Z",
+          "title": "fix - remove stray Zone.Identifier blocking Windows checkout",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7807",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "Shruti2110-coder",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/184974249?v=4",
@@ -45584,172 +45833,6 @@
           "occured_at": "2026-01-14T07:28:22Z",
           "title": "docs - fix grammar, broken regional links, and spelling in Linux manual",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/6633",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "YashKumar-404",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/192852439?v=4",
-      "role": "Contributor",
-      "total_points": 33,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 14,
-          "points": 28
-        },
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-10-03",
-          "count": 2,
-          "points": 4
-        },
-        {
-          "date": "2026-10-02",
-          "count": 5,
-          "points": 10
-        },
-        {
-          "date": "2026-10-01",
-          "count": 3,
-          "points": 6
-        },
-        {
-          "date": "2026-09-30",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-09-02",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-08-28",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-08-23",
-          "count": 1,
-          "points": 5
-        },
-        {
-          "date": "2026-08-22",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "raw_activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-03T17:59:42Z",
-          "title": "fix - batch star lookups in project serializer to avoid N+1 (#7968)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7969",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-03T04:08:46Z",
-          "title": "refactor - replace bootstrap-input-spinner with the native number stepper",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7966",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-02T16:34:54Z",
-          "title": "perf - cache circuit data to stop statement_timeout on repeated reads (#7927)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7962",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-02T15:01:42Z",
-          "title": "fix - authenticate before authorization in CollaborationsController (#7959)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7961",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-02T12:17:48Z",
-          "title": "fix(auth) - fetch GitHub profile and emails in parallel on OAuth login (#7875)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7960",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-02T11:58:43Z",
-          "title": "fix(greetings) - make the welcome workflow work on fork PRs (#7029)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7958",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-02T11:38:39Z",
-          "title": "chore - standardize on a single pinned package manager (#7901)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7957",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-01T22:00:59Z",
-          "title": "fix - install yarn in production runtime image, skip runtime JS build",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7955",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-01T21:49:37Z",
-          "title": "fix - modernize production logging, security, and observability",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7954",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-01T19:01:58Z",
-          "title": "fix - exclude Puma Errno - - EBADF client-disconnect race from Sentry (#7943)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7952",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-30T11:36:39Z",
-          "title": "fix - authenticate before authorization in GroupMembersController (#7816)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7950",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-02T02:06:37Z",
-          "title": "fix - prevent ArgumentError from invalid search page param (#7830)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7834",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-28T23:12:15Z",
-          "title": "Fix footer link cursor extending into empty space beside the text",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7821",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-08-23T15:52:39Z",
-          "title": "fix - remove stray Zone.Identifier blocking Windows checkout",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7807",
-          "points": 5
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-08-22T06:25:04Z",
-          "title": "fix - remove stray Zone.Identifier blocking Windows checkout",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7807",
           "points": 2
         }
       ]
@@ -54567,6 +54650,78 @@
           "title": "New - added flutter web target",
           "link": "https://github.com/CircuitVerse/mobile-app/pull/308",
           "points": 5
+        }
+      ]
+    },
+    {
+      "username": "eshantharjun9-hub",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/235510433?v=4",
+      "role": "Contributor",
+      "total_points": 10,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        },
+        "Issue opened": {
+          "count": 2,
+          "points": 2
+        },
+        "Issue labeled": {
+          "count": 2,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-10-04",
+          "count": 6,
+          "points": 10
+        }
+      ],
+      "raw_activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-04T11:47:49Z",
+          "title": "fix - handle malformed Custom Theme localStorage data",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1368",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-04T10:18:22Z",
+          "title": "fix - prevent simulator crash from malformed custom theme data",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7974",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-04T11:15:37Z",
+          "title": "🐞 Bug - Simulator fails to load with malformed Custom Theme localStorage data",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1367",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-04T10:05:00Z",
+          "title": "🐞 Bug - Simulator crashes when Custom Theme localStorage contains invalid JSON",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7973",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-04T11:15:39Z",
+          "title": "Labeled issue #1367 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1367",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-04T10:05:02Z",
+          "title": "Labeled issue #7973 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7973",
+          "points": 2
         }
       ]
     },
