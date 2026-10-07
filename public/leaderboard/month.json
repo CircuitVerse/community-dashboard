@@ -1,8 +1,8 @@
 {
   "period": "month",
-  "updatedAt": 1791258810213,
-  "startDate": "2026-09-06",
-  "endDate": "2026-10-06",
+  "updatedAt": 1791343282360,
+  "startDate": "2026-09-07",
+  "endDate": "2026-10-07",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -723,27 +723,268 @@
       ]
     },
     {
+      "username": "UwaisBaig",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/223514962?v=4",
+      "role": "Contributor",
+      "total_points": 54,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 27,
+          "points": 54
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-10-06",
+          "count": 5,
+          "points": 10
+        },
+        {
+          "date": "2026-09-30",
+          "count": 5,
+          "points": 10
+        },
+        {
+          "date": "2026-09-28",
+          "count": 9,
+          "points": 18
+        },
+        {
+          "date": "2026-09-17",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-09-12",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-09-11",
+          "count": 3,
+          "points": 6
+        },
+        {
+          "date": "2026-09-09",
+          "count": 3,
+          "points": 6
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-06T21:09:06Z",
+          "title": "fix(errors) - handle arbitrary formats via format.all in errors and application controller (#7565)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7992",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-06T21:06:43Z",
+          "title": "fix - sanitize null bytes and rescue ArgumentError across controllers (#7978, #7979)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7991",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-06T21:02:59Z",
+          "title": "fix - rescue ActiveRecord - - QueryCanceled in ApplicationController and tags (#7987)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7990",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-06T21:00:31Z",
+          "title": "fix(simulator) - handle non-HTML formats gracefully in embed action (#7986)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7989",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-06T20:51:34Z",
+          "title": "fix(api) - validate emails presence in GroupMembersController#create (#7852)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7988",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-30T09:36:26Z",
+          "title": "fix(api) - remove duplicate update! call in ProjectsController#update (#7556)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7949",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-30T09:34:43Z",
+          "title": "fix(api) - authorize view access and create_fork in ProjectsController#create_fork (#7640)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7948",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-30T09:31:13Z",
+          "title": "fix(groups) - permit primary_mentor_id only during create (#7641)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7947",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-30T09:27:53Z",
+          "title": "fix(collaborations) - exclude project author from being added as collaborator (#7655)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7946",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-30T09:25:05Z",
+          "title": "fix(api) - eliminate double DB write in GroupsController create and update (#7660)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7945",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-28T20:38:35Z",
+          "title": "fix(api) - rescue ActiveRecord - - QueryCanceled in base and projects controllers (#7927)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7937",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-28T20:31:34Z",
+          "title": "fix(api) - rescue ActiveRecord - - RecordNotUnique in projects#create (#7879)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7936",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-28T20:28:34Z",
+          "title": "fix(simulator) - rescue parse errors in sanitize_data to prevent 500 crash (#7818)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7935",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-28T20:19:28Z",
+          "title": "fix(organizations) - respond with json 404 on organization leave when not a member (#7729)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7934",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-28T20:18:06Z",
+          "title": "fix(api) - remove redundant update! in GroupsController#update (#7923)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7933",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-28T20:17:04Z",
+          "title": "fix(api) - eliminate double DB write and restore error branch in AssignmentsController#update (#7700)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7932",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-28T20:06:39Z",
+          "title": "fix(notifications) - safely access params in fork and star notifications (#7813)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7931",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-28T19:57:17Z",
+          "title": "fix(perf) - eliminate N+1 queries on collaborations in user dashboard (#7840)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7930",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-28T19:54:18Z",
+          "title": "fix(api) - remove redundant update! in users and projects controllers (#7881)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7929",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-17T20:42:07Z",
+          "title": "refactor(specs) - replace deprecated - unprocessable_entity with - unprocessable_content (#7870)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7877",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-12T19:11:05Z",
+          "title": "fix(middleware) - handle incompatible character encodings in requests (#7866)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7868",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-11T17:25:18Z",
+          "title": "fix(simulator) - prevent navbar dropdown menus from overflowing off-screen on small viewports (#7861)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7865",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-11T17:09:01Z",
+          "title": "fix(lti) - rescue URI - - Error on malformed launch_presentation_return_url (#7860)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7864",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-11T16:58:50Z",
+          "title": "fix(api) - remove duplicate save! and update! in groups controller (#7857)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7863",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-09T11:26:31Z",
+          "title": "fix(collaborations) - allow collaborators to remove themselves from a project (#7842)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7855",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-09T11:04:18Z",
+          "title": "fix(footer) - resolve missing translation error for API link (#7843)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7854",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-09T11:02:28Z",
+          "title": "fix(api) - validate emails presence in group members create (#7846, #7852)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7853",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "yashveer-1",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/235941943?v=4",
       "role": "Contributor",
-      "total_points": 60,
+      "total_points": 53,
       "activity_breakdown": {
         "PR opened": {
-          "count": 9,
-          "points": 18
+          "count": 7,
+          "points": 14
         },
         "Issue opened": {
-          "count": 8,
-          "points": 8
+          "count": 7,
+          "points": 7
         },
         "PR merged": {
           "count": 4,
           "points": 20
         },
         "Issue labeled": {
-          "count": 7,
-          "points": 14
+          "count": 6,
+          "points": 12
         }
       },
       "daily_activity": [
@@ -791,11 +1032,6 @@
           "date": "2026-09-08",
           "count": 1,
           "points": 5
-        },
-        {
-          "date": "2026-09-06",
-          "count": 4,
-          "points": 7
         }
       ],
       "activities": [
@@ -966,34 +1202,6 @@
           "title": "fix - correct mouse event type in Extra component",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1271",
           "points": 5
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-06T14:35:45Z",
-          "title": "fix - correct mouse event type in Extra component",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1271",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-06T13:16:40Z",
-          "title": "Fix/extra mouse event type",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1270",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-06T13:06:19Z",
-          "title": "🐞 Bug - Incorrect React.MouseEvent type in Vue Extra component",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1269",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-06T13:06:21Z",
-          "title": "Labeled issue #1269 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1269",
-          "points": 2
         }
       ]
     },
@@ -1254,349 +1462,6 @@
           "title": "🐞 Bug - Element label with & or ' gets mangled by the Properties panel",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1302",
           "points": 1
-        }
-      ]
-    },
-    {
-      "username": "UwaisBaig",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/223514962?v=4",
-      "role": "Contributor",
-      "total_points": 44,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 22,
-          "points": 44
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-09-30",
-          "count": 5,
-          "points": 10
-        },
-        {
-          "date": "2026-09-28",
-          "count": 9,
-          "points": 18
-        },
-        {
-          "date": "2026-09-17",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-09-12",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-09-11",
-          "count": 3,
-          "points": 6
-        },
-        {
-          "date": "2026-09-09",
-          "count": 3,
-          "points": 6
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-30T09:36:26Z",
-          "title": "fix(api) - remove duplicate update! call in ProjectsController#update (#7556)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7949",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-30T09:34:43Z",
-          "title": "fix(api) - authorize view access and create_fork in ProjectsController#create_fork (#7640)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7948",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-30T09:31:13Z",
-          "title": "fix(groups) - permit primary_mentor_id only during create (#7641)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7947",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-30T09:27:53Z",
-          "title": "fix(collaborations) - exclude project author from being added as collaborator (#7655)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7946",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-30T09:25:05Z",
-          "title": "fix(api) - eliminate double DB write in GroupsController create and update (#7660)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7945",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-28T20:38:35Z",
-          "title": "fix(api) - rescue ActiveRecord - - QueryCanceled in base and projects controllers (#7927)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7937",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-28T20:31:34Z",
-          "title": "fix(api) - rescue ActiveRecord - - RecordNotUnique in projects#create (#7879)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7936",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-28T20:28:34Z",
-          "title": "fix(simulator) - rescue parse errors in sanitize_data to prevent 500 crash (#7818)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7935",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-28T20:19:28Z",
-          "title": "fix(organizations) - respond with json 404 on organization leave when not a member (#7729)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7934",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-28T20:18:06Z",
-          "title": "fix(api) - remove redundant update! in GroupsController#update (#7923)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7933",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-28T20:17:04Z",
-          "title": "fix(api) - eliminate double DB write and restore error branch in AssignmentsController#update (#7700)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7932",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-28T20:06:39Z",
-          "title": "fix(notifications) - safely access params in fork and star notifications (#7813)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7931",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-28T19:57:17Z",
-          "title": "fix(perf) - eliminate N+1 queries on collaborations in user dashboard (#7840)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7930",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-28T19:54:18Z",
-          "title": "fix(api) - remove redundant update! in users and projects controllers (#7881)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7929",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-17T20:42:07Z",
-          "title": "refactor(specs) - replace deprecated - unprocessable_entity with - unprocessable_content (#7870)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7877",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-12T19:11:05Z",
-          "title": "fix(middleware) - handle incompatible character encodings in requests (#7866)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7868",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-11T17:25:18Z",
-          "title": "fix(simulator) - prevent navbar dropdown menus from overflowing off-screen on small viewports (#7861)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7865",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-11T17:09:01Z",
-          "title": "fix(lti) - rescue URI - - Error on malformed launch_presentation_return_url (#7860)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7864",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-11T16:58:50Z",
-          "title": "fix(api) - remove duplicate save! and update! in groups controller (#7857)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7863",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-09T11:26:31Z",
-          "title": "fix(collaborations) - allow collaborators to remove themselves from a project (#7842)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7855",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-09T11:04:18Z",
-          "title": "fix(footer) - resolve missing translation error for API link (#7843)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7854",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-09T11:02:28Z",
-          "title": "fix(api) - validate emails presence in group members create (#7846, #7852)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7853",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "Amrit-raj50",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/225853043?v=4",
-      "role": "Contributor",
-      "total_points": 27,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 3,
-          "points": 6
-        },
-        "Issue opened": {
-          "count": 5,
-          "points": 5
-        },
-        "Issue labeled": {
-          "count": 8,
-          "points": 16
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-09-06",
-          "count": 16,
-          "points": 27
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-06T07:38:29Z",
-          "title": "docs - document oxfmt formatting, oxlint, and husky commit standards",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1268",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-06T07:25:49Z",
-          "title": "docs - add testing documentation for Vitest suites",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1267",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-06T06:11:09Z",
-          "title": "docs - add desktop application development instructions",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1261",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-06T07:19:01Z",
-          "title": "🐞 Bug - Locale dropdown menu in UserMenu has unstyled white background breaking dark theme in v1",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1266",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-06T07:11:57Z",
-          "title": "🐞 Bug - README lacks documentation for oxfmt code formatting and husky hooks",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1265",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-06T07:08:18Z",
-          "title": "🐞 Bug - README lacks documentation on running and writing Vitest test suites",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1264",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-06T06:44:15Z",
-          "title": "🐞 Bug - npm run dev crashes on Windows if cloned without Developer Mode symlinks",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1263",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-06T06:38:22Z",
-          "title": "🐞 Bug - npm run lint fails on Windows due to Unix find/xargs commands",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1262",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-06T07:11:58Z",
-          "title": "Labeled issue #1265 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1265",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-06T06:44:16Z",
-          "title": "Labeled issue #1263 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1263",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-06T06:44:17Z",
-          "title": "Labeled issue #1263 - pending triage",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1263",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-06T07:08:19Z",
-          "title": "Labeled issue #1264 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1264",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-06T07:08:20Z",
-          "title": "Labeled issue #1264 - pending triage",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1264",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-06T06:38:24Z",
-          "title": "Labeled issue #1262 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1262",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-06T07:19:02Z",
-          "title": "Labeled issue #1266 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1266",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-06T07:19:03Z",
-          "title": "Labeled issue #1266 - pending triage",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1266",
-          "points": 2
         }
       ]
     },
@@ -2635,86 +2500,6 @@
       ]
     },
     {
-      "username": "Harkeerat24",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/225462441?v=4",
-      "role": "Contributor",
-      "total_points": 18,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        },
-        "Review submitted": {
-          "count": 1,
-          "points": 4
-        },
-        "PR merged": {
-          "count": 2,
-          "points": 10
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-09-18",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-09-09",
-          "count": 1,
-          "points": 4
-        },
-        {
-          "date": "2026-09-07",
-          "count": 1,
-          "points": 5
-        },
-        {
-          "date": "2026-09-06",
-          "count": 2,
-          "points": 7
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-18T20:21:04Z",
-          "title": "docs - make the structured format final report beginner friendly",
-          "link": "https://github.com/CircuitVerse/Blog/pull/279",
-          "points": 2
-        },
-        {
-          "type": "Review submitted",
-          "occured_at": "2026-09-09T20:07:16Z",
-          "title": "Review on PR #1175",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1175",
-          "points": 4
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-09-07T08:57:53Z",
-          "title": "Future Improvements for GSoC26 Project 1",
-          "link": "https://github.com/CircuitVerse/Blog/pull/278",
-          "points": 5
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-06T17:12:04Z",
-          "title": "Future Improvements for GSoC26 Project 1",
-          "link": "https://github.com/CircuitVerse/Blog/pull/278",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-09-06T15:38:25Z",
-          "title": "Harkeerat GSoC 2026 Final Report for Project 1",
-          "link": "https://github.com/CircuitVerse/Blog/pull/277",
-          "points": 5
-        }
-      ]
-    },
-    {
       "username": "magic-peach",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
@@ -3200,6 +2985,67 @@
           "title": "Closed issue #7858 - 🐞 BugWhite profile icon is displayed incorrectly.",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7858",
           "points": 1
+        }
+      ]
+    },
+    {
+      "username": "Harkeerat24",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/225462441?v=4",
+      "role": "Contributor",
+      "total_points": 11,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
+        "Review submitted": {
+          "count": 1,
+          "points": 4
+        },
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-09-18",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-09-09",
+          "count": 1,
+          "points": 4
+        },
+        {
+          "date": "2026-09-07",
+          "count": 1,
+          "points": 5
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-09-18T20:21:04Z",
+          "title": "docs - make the structured format final report beginner friendly",
+          "link": "https://github.com/CircuitVerse/Blog/pull/279",
+          "points": 2
+        },
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-09-09T20:07:16Z",
+          "title": "Review on PR #1175",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1175",
+          "points": 4
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-09-07T08:57:53Z",
+          "title": "Future Improvements for GSoC26 Project 1",
+          "link": "https://github.com/CircuitVerse/Blog/pull/278",
+          "points": 5
         }
       ]
     },
@@ -3735,6 +3581,49 @@
       ]
     },
     {
+      "username": "iUjjwalRaj",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/173326668?v=4",
+      "role": "Contributor",
+      "total_points": 6,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 3,
+          "points": 6
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-10-06",
+          "count": 3,
+          "points": 6
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-06T08:12:44Z",
+          "title": "fix(grades) - ensure authorization is performed in destroy when grade is not found",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7985",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-06T05:55:45Z",
+          "title": "fix(notifications) - handle non-hash and missing params in notifications",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7984",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-06T05:43:45Z",
+          "title": "fix(api) - handle missing page parameter in search_projects",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7983",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "vedant-jain03",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/76901313?u=5494d1c2d4646bf1ce4df09c0951f0b6dc47c33a&v=4",
@@ -3770,83 +3659,6 @@
           "occured_at": "2026-09-27T04:43:49Z",
           "title": "Closed issue #7870 - 🐞 Replace deprecated - unprocessable_entity with - unprocessable_content",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7870",
-          "points": 1
-        }
-      ]
-    },
-    {
-      "username": "deepak0x",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/149673145?v=4",
-      "role": "Contributor",
-      "total_points": 5,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 5,
-          "points": 5
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-09-28",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-09-11",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-09-10",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-09-09",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-09-06",
-          "count": 1,
-          "points": 1
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-28T04:32:34Z",
-          "title": "bug - groups#update - update! makes else/invalid_resource! unreachable",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7923",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-11T06:32:55Z",
-          "title": "bug - LtiController#set_lti_params raises URI - - InvalidURIError on malformed launch_presentation_return_url",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7860",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-10T05:48:41Z",
-          "title": "bug - Unreachable invalid_resource! branch in API groups#create",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7857",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-09T05:33:04Z",
-          "title": "bug - MailsHandler#parse crashes with NoMethodError when emails param is absent",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7852",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-09-06T09:19:48Z",
-          "title": "bug - GroupMembersController#create crashes with NoMethodError when emails param is absent",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7846",
           "points": 1
         }
       ]
@@ -3895,6 +3707,71 @@
           "title": "Labeled issue #7861 - pending triage",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7861",
           "points": 2
+        }
+      ]
+    },
+    {
+      "username": "deepak0x",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/149673145?v=4",
+      "role": "Contributor",
+      "total_points": 4,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 4,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-09-28",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-09-11",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-09-10",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-09-09",
+          "count": 1,
+          "points": 1
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-28T04:32:34Z",
+          "title": "bug - groups#update - update! makes else/invalid_resource! unreachable",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7923",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-11T06:32:55Z",
+          "title": "bug - LtiController#set_lti_params raises URI - - InvalidURIError on malformed launch_presentation_return_url",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7860",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-10T05:48:41Z",
+          "title": "bug - Unreachable invalid_resource! branch in API groups#create",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7857",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-09-09T05:33:04Z",
+          "title": "bug - MailsHandler#parse crashes with NoMethodError when emails param is absent",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7852",
+          "points": 1
         }
       ]
     },
@@ -4173,6 +4050,42 @@
           "title": "Labeled issue #7881 - 🐞 bug",
           "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7881",
           "points": 2
+        }
+      ]
+    },
+    {
+      "username": "shivam-saini18",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/239511134?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 2,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-10-06",
+          "count": 2,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-06T06:57:01Z",
+          "title": "# FEATURE Add Pull Request Reviews to Leaderboard Scoring",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/281",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-06T06:55:37Z",
+          "title": "# ENHANCEMENT Add label triaging activity to leaderboard scoring",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/280",
+          "points": 1
         }
       ]
     },
