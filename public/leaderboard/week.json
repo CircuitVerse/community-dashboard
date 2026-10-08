@@ -1,8 +1,8 @@
 {
   "period": "week",
-  "updatedAt": 1791343282356,
-  "startDate": "2026-09-30",
-  "endDate": "2026-10-07",
+  "updatedAt": 1791430593761,
+  "startDate": "2026-10-01",
+  "endDate": "2026-10-08",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
@@ -11,11 +11,11 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/192852439?v=4",
       "role": "Contributor",
-      "total_points": 26,
+      "total_points": 24,
       "activity_breakdown": {
         "PR opened": {
-          "count": 13,
-          "points": 26
+          "count": 12,
+          "points": 24
         }
       },
       "daily_activity": [
@@ -43,11 +43,6 @@
           "date": "2026-10-01",
           "count": 3,
           "points": 6
-        },
-        {
-          "date": "2026-09-30",
-          "count": 1,
-          "points": 2
         }
       ],
       "activities": [
@@ -134,13 +129,92 @@
           "title": "fix - exclude Puma Errno - - EBADF client-disconnect race from Sentry (#7943)",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7952",
           "points": 2
+        }
+      ]
+    },
+    {
+      "username": "JituRewar",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/229604335?v=4",
+      "role": "Contributor",
+      "total_points": 17,
+      "activity_breakdown": {
+        "PR merged": {
+          "count": 2,
+          "points": 10
+        },
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-10-07",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2026-10-04",
+          "count": 4,
+          "points": 7
+        },
+        {
+          "date": "2026-10-02",
+          "count": 1,
+          "points": 5
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-10-07T06:32:39Z",
+          "title": "fix(simulator) - prevent fit-to-selection shortcut from intercepting keyDown component input",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1369",
+          "points": 5
         },
         {
           "type": "PR opened",
-          "occured_at": "2026-09-30T11:36:39Z",
-          "title": "fix - authenticate before authorization in GroupMembersController (#7816)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7950",
+          "occured_at": "2026-10-04T12:28:20Z",
+          "title": "fix(simulator) - prevent fit-to-selection shortcut from intercepting rom input",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1369",
           "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-04T06:36:12Z",
+          "title": "fix(simulator) - ensure component keyDown runs before mouse bounds check",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7972",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-04T06:30:14Z",
+          "title": "🐞 Bug - Cannot type hex character 'f' in ROM when cursor is outside canvas",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1366",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-04T06:30:15Z",
+          "title": "Labeled issue #1366 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1366",
+          "points": 2
+        },
+        {
+          "type": "PR merged",
+          "occured_at": "2026-10-02T09:13:18Z",
+          "title": "feat - add auto-focus functionality to MessageBox component in V1",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1175",
+          "points": 5
         }
       ]
     },
@@ -149,7 +223,7 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/71930864?v=4",
       "role": "Contributor",
-      "total_points": 22,
+      "total_points": 17,
       "activity_breakdown": {
         "PR opened": {
           "count": 4,
@@ -160,8 +234,8 @@
           "points": 4
         },
         "PR merged": {
-          "count": 2,
-          "points": 10
+          "count": 1,
+          "points": 5
         }
       },
       "daily_activity": [
@@ -184,11 +258,6 @@
           "date": "2026-10-01",
           "count": 3,
           "points": 8
-        },
-        {
-          "date": "2026-09-30",
-          "count": 1,
-          "points": 5
         }
       ],
       "activities": [
@@ -254,13 +323,6 @@
           "title": "🐞 Bug - splitter bit width can go below its split total, overflowing the input pin",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1349",
           "points": 1
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-09-30T17:38:36Z",
-          "title": "fix(vuesim) - keep splitter output widths when its bit width changes",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1332",
-          "points": 5
         }
       ]
     },
@@ -269,26 +331,47 @@
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/223514962?v=4",
       "role": "Contributor",
-      "total_points": 20,
+      "total_points": 16,
       "activity_breakdown": {
         "PR opened": {
-          "count": 10,
-          "points": 20
+          "count": 8,
+          "points": 16
         }
       },
       "daily_activity": [
         {
-          "date": "2026-10-06",
-          "count": 5,
-          "points": 10
+          "date": "2026-10-07",
+          "count": 3,
+          "points": 6
         },
         {
-          "date": "2026-09-30",
+          "date": "2026-10-06",
           "count": 5,
           "points": 10
         }
       ],
       "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-07T20:47:04Z",
+          "title": "fix(simulator) - honor explicit delay=0 in EventQueue.add (#7802)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7999",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-07T20:43:39Z",
+          "title": "fix(simulator) - safe selection handling and operator precedence in copyToClipboard (#7874)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7998",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-07T20:23:20Z",
+          "title": "fix(simulator) - handle nil image data_url safely in SimulatorHelper (#7575)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7997",
+          "points": 2
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-10-06T21:09:06Z",
@@ -322,41 +405,6 @@
           "occured_at": "2026-10-06T20:51:34Z",
           "title": "fix(api) - validate emails presence in GroupMembersController#create (#7852)",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7988",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-30T09:36:26Z",
-          "title": "fix(api) - remove duplicate update! call in ProjectsController#update (#7556)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7949",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-30T09:34:43Z",
-          "title": "fix(api) - authorize view access and create_fork in ProjectsController#create_fork (#7640)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7948",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-30T09:31:13Z",
-          "title": "fix(groups) - permit primary_mentor_id only during create (#7641)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7947",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-30T09:27:53Z",
-          "title": "fix(collaborations) - exclude project author from being added as collaborator (#7655)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7946",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-30T09:25:05Z",
-          "title": "fix(api) - eliminate double DB write in GroupsController create and update (#7660)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7945",
           "points": 2
         }
       ]
@@ -428,87 +476,6 @@
       ]
     },
     {
-      "username": "ManyaJain111",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/224918778?v=4",
-      "role": "Contributor",
-      "total_points": 14,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue labeled": {
-          "count": 2,
-          "points": 4
-        },
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-10-02",
-          "count": 4,
-          "points": 7
-        },
-        {
-          "date": "2026-09-30",
-          "count": 2,
-          "points": 7
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-02T10:57:46Z",
-          "title": "WIP - update redis version in docker compose",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7956",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-10-02T12:01:53Z",
-          "title": "🐞 Bug - CollaborationsController runs authorization before authentication for create/update/destroy",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7959",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-10-02T12:01:54Z",
-          "title": "Labeled issue #7959 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7959",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-10-02T12:01:55Z",
-          "title": "Labeled issue #7959 - pending triage",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7959",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-30T17:29:43Z",
-          "title": "fix - Enforce 254-character limit on pasted emails for groups and projects",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7951",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-09-30T13:28:41Z",
-          "title": "fix - handle null project data for new assignments",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1335",
-          "points": 5
-        }
-      ]
-    },
-    {
       "username": "yashveer-1",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/235941943?v=4",
@@ -572,184 +539,6 @@
       ]
     },
     {
-      "username": "JituRewar",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/229604335?v=4",
-      "role": "Contributor",
-      "total_points": 12,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
-        },
-        "PR merged": {
-          "count": 1,
-          "points": 5
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-10-04",
-          "count": 4,
-          "points": 7
-        },
-        {
-          "date": "2026-10-02",
-          "count": 1,
-          "points": 5
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-04T12:28:20Z",
-          "title": "fix(simulator) - prevent fit-to-selection shortcut from intercepting rom input",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1369",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-04T06:36:12Z",
-          "title": "fix(simulator) - ensure component keyDown runs before mouse bounds check",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7972",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-10-04T06:30:14Z",
-          "title": "🐞 Bug - Cannot type hex character 'f' in ROM when cursor is outside canvas",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1366",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-10-04T06:30:15Z",
-          "title": "Labeled issue #1366 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1366",
-          "points": 2
-        },
-        {
-          "type": "PR merged",
-          "occured_at": "2026-10-02T09:13:18Z",
-          "title": "feat - add auto-focus functionality to MessageBox component in V1",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1175",
-          "points": 5
-        }
-      ]
-    },
-    {
-      "username": "tachyons",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
-      "role": "Maintainer",
-      "total_points": 10,
-      "activity_breakdown": {
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
-        },
-        "Issue closed": {
-          "count": 8,
-          "points": 8
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-10-04",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-10-02",
-          "count": 2,
-          "points": 2
-        },
-        {
-          "date": "2026-10-01",
-          "count": 4,
-          "points": 4
-        },
-        {
-          "date": "2026-09-30",
-          "count": 1,
-          "points": 1
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-10-04T10:43:53Z",
-          "title": "Labeled issue #1366 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1366",
-          "points": 2
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-10-04T10:42:14Z",
-          "title": "Closed issue #7973 - 🐞 Bug - Simulator crashes when Custom Theme localStorage contains invalid JSON",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7973",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-10-02T15:16:18Z",
-          "title": "Closed issue #1153 - 🐞 Bug - vuesim update the forum link",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1153",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-10-02T15:36:15Z",
-          "title": "Closed issue #1147 - 🐞 Bug - D/T/JK/SR flip-flops render as visually identical shapes on canvas — no type indicator",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1147",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-10-01T08:30:54Z",
-          "title": "Closed issue #1284 - 🐞 Bug - vuesim missing test names in testbench's test edit panel",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1284",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-10-01T08:47:33Z",
-          "title": "Closed issue #1302 - 🐞 Bug - Element label with & or ' gets mangled by the Properties panel",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1302",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-10-01T08:30:15Z",
-          "title": "Closed issue #1324 - 🐞 Bug - vuesim switch of title enabling in layout is flipped",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1324",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-10-01T08:29:12Z",
-          "title": "Closed issue #1337 - Feature - Add WebP as an export format option in Render Image",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1337",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-09-30T14:29:14Z",
-          "title": "Closed issue #1330 - 🐞 Bug - \"Could not load\" error popup when starting a new assignment",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1330",
-          "points": 1
-        }
-      ]
-    },
-    {
       "username": "ShinichiShi",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
@@ -782,6 +571,83 @@
           "title": "Fix(vuesim) - testbench title and type not loading when editing",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1286",
           "points": 5
+        }
+      ]
+    },
+    {
+      "username": "ManyaJain111",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/224918778?v=4",
+      "role": "Contributor",
+      "total_points": 10,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 2,
+          "points": 2
+        },
+        "Issue labeled": {
+          "count": 3,
+          "points": 6
+        },
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-10-07",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-10-02",
+          "count": 4,
+          "points": 7
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-07T19:44:11Z",
+          "title": "🐞 Bug - 404 error after clicking keep editing circuit after saving",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1378",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-07T19:44:13Z",
+          "title": "Labeled issue #1378 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1378",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-02T10:57:46Z",
+          "title": "WIP - update redis version in docker compose",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7956",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-02T12:01:53Z",
+          "title": "🐞 Bug - CollaborationsController runs authorization before authentication for create/update/destroy",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7959",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-02T12:01:54Z",
+          "title": "Labeled issue #7959 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7959",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-02T12:01:55Z",
+          "title": "Labeled issue #7959 - pending triage",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7959",
+          "points": 2
         }
       ]
     },
@@ -1065,64 +931,218 @@
       ]
     },
     {
-      "username": "kartikey24prakash",
+      "username": "tachyons",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/146826917?v=4",
-      "role": "Contributor",
-      "total_points": 7,
+      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
+      "role": "Maintainer",
+      "total_points": 9,
       "activity_breakdown": {
-        "PR opened": {
+        "Issue labeled": {
           "count": 1,
           "points": 2
+        },
+        "Issue closed": {
+          "count": 7,
+          "points": 7
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-10-04",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-10-02",
+          "count": 2,
+          "points": 2
+        },
+        {
+          "date": "2026-10-01",
+          "count": 4,
+          "points": 4
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-04T10:43:53Z",
+          "title": "Labeled issue #1366 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1366",
+          "points": 2
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-10-04T10:42:14Z",
+          "title": "Closed issue #7973 - 🐞 Bug - Simulator crashes when Custom Theme localStorage contains invalid JSON",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7973",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-10-02T15:16:18Z",
+          "title": "Closed issue #1153 - 🐞 Bug - vuesim update the forum link",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1153",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-10-02T15:36:15Z",
+          "title": "Closed issue #1147 - 🐞 Bug - D/T/JK/SR flip-flops render as visually identical shapes on canvas — no type indicator",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1147",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-10-01T08:30:54Z",
+          "title": "Closed issue #1284 - 🐞 Bug - vuesim missing test names in testbench's test edit panel",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1284",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-10-01T08:47:33Z",
+          "title": "Closed issue #1302 - 🐞 Bug - Element label with & or ' gets mangled by the Properties panel",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1302",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-10-01T08:30:15Z",
+          "title": "Closed issue #1324 - 🐞 Bug - vuesim switch of title enabling in layout is flipped",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1324",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-10-01T08:29:12Z",
+          "title": "Closed issue #1337 - Feature - Add WebP as an export format option in Render Image",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1337",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "username": "eshanthh",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/235510433?v=4",
+      "role": "Contributor",
+      "total_points": 9,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 3,
+          "points": 6
         },
         "Issue opened": {
           "count": 1,
           "points": 1
         },
         "Issue labeled": {
-          "count": 2,
-          "points": 4
+          "count": 1,
+          "points": 2
         }
       },
       "daily_activity": [
         {
-          "date": "2026-10-01",
-          "count": 1,
-          "points": 2
-        },
-        {
-          "date": "2026-09-30",
+          "date": "2026-10-07",
           "count": 3,
           "points": 5
+        },
+        {
+          "date": "2026-10-05",
+          "count": 2,
+          "points": 4
         }
       ],
       "activities": [
         {
           "type": "PR opened",
-          "occured_at": "2026-10-01T20:13:55Z",
-          "title": "fix - resolve Node 22 test suite crashes and harden localStorage access",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1350",
+          "occured_at": "2026-10-07T17:08:01Z",
+          "title": "fix - 500 error when project search pagination is omitted",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7996",
           "points": 2
         },
         {
           "type": "Issue opened",
-          "occured_at": "2026-09-30T20:46:56Z",
-          "title": "🐞 Bug - Test cases crash on Node 22 due to unhandled local Storage access",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1345",
+          "occured_at": "2026-10-07T17:03:45Z",
+          "title": "🐞 Bug - Project search API returns 500 when pagination parameters are omitted",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7995",
           "points": 1
         },
         {
           "type": "Issue labeled",
-          "occured_at": "2026-09-30T20:47:00Z",
-          "title": "Labeled issue #1345 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1345",
+          "occured_at": "2026-10-07T17:03:47Z",
+          "title": "Labeled issue #7995 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7995",
           "points": 2
         },
         {
-          "type": "Issue labeled",
-          "occured_at": "2026-09-30T20:47:01Z",
-          "title": "Labeled issue #1345 - pending triage",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1345",
+          "type": "PR opened",
+          "occured_at": "2026-10-05T06:26:53Z",
+          "title": "Fix/duplicate hex bin dec dialog",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1373",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-05T03:57:04Z",
+          "title": "fix(i18n) - localize hex-bin-dec dialogs",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1372",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "iUjjwalRaj",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/173326668?v=4",
+      "role": "Contributor",
+      "total_points": 8,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 4,
+          "points": 8
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-10-07",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-10-06",
+          "count": 3,
+          "points": 6
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-07T04:42:24Z",
+          "title": "fix(controllers) - authenticate user before action in CollaborationsController",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7993",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-06T08:12:44Z",
+          "title": "fix(grades) - ensure authorization is performed in destroy when grade is not found",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7985",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-06T05:55:45Z",
+          "title": "fix(notifications) - handle non-hash and missing params in notifications",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7984",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-06T05:43:45Z",
+          "title": "fix(api) - handle missing page parameter in search_projects",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7983",
           "points": 2
         }
       ]
@@ -1173,45 +1193,54 @@
       ]
     },
     {
-      "username": "iUjjwalRaj",
+      "username": "Me-Priyank",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/173326668?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/143987856?u=6426025e5ffabefa05db4baf8b0fd3d71d7bb4e2&v=4",
       "role": "Contributor",
       "total_points": 6,
       "activity_breakdown": {
-        "PR opened": {
-          "count": 3,
-          "points": 6
+        "Review submitted": {
+          "count": 1,
+          "points": 4
+        },
+        "Issue closed": {
+          "count": 2,
+          "points": 2
         }
       },
       "daily_activity": [
         {
-          "date": "2026-10-06",
-          "count": 3,
-          "points": 6
+          "date": "2026-10-07",
+          "count": 2,
+          "points": 5
+        },
+        {
+          "date": "2026-10-01",
+          "count": 1,
+          "points": 1
         }
       ],
       "activities": [
         {
-          "type": "PR opened",
-          "occured_at": "2026-10-06T08:12:44Z",
-          "title": "fix(grades) - ensure authorization is performed in destroy when grade is not found",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7985",
-          "points": 2
+          "type": "Review submitted",
+          "occured_at": "2026-10-07T06:31:58Z",
+          "title": "Review on PR #1369",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1369",
+          "points": 4
         },
         {
-          "type": "PR opened",
-          "occured_at": "2026-10-06T05:55:45Z",
-          "title": "fix(notifications) - handle non-hash and missing params in notifications",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7984",
-          "points": 2
+          "type": "Issue closed",
+          "occured_at": "2026-10-07T06:32:40Z",
+          "title": "Closed issue #1366 - Bug - f/F key intercepted by fit-to-selection shortcut, preventing hex/text input in ROM, Text, and Keyboard components",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1366",
+          "points": 1
         },
         {
-          "type": "PR opened",
-          "occured_at": "2026-10-06T05:43:45Z",
-          "title": "fix(api) - handle missing page parameter in search_projects",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7983",
-          "points": 2
+          "type": "Issue closed",
+          "occured_at": "2026-10-01T05:39:52Z",
+          "title": "Closed issue #1323 - 🐞 Bug - Invalid or missing theme query can break embed",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1323",
+          "points": 1
         }
       ]
     },
@@ -1257,86 +1286,14 @@
       ]
     },
     {
-      "username": "Kavya-Goyal-kcoder005",
+      "username": "kartikey24prakash",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/211192501?v=4",
-      "role": "Contributor",
-      "total_points": 4,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-09-30",
-          "count": 2,
-          "points": 4
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-30T09:01:19Z",
-          "title": "fix - preserve unsigned Counter and Random ranges at wide bit widths",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1344",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-09-30T09:00:42Z",
-          "title": "fix - preserve Constant value when editing is cancelled",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1343",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "eshanthh",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/235510433?v=4",
-      "role": "Contributor",
-      "total_points": 4,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 2,
-          "points": 4
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-10-05",
-          "count": 2,
-          "points": 4
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-05T06:26:53Z",
-          "title": "Fix/duplicate hex bin dec dialog",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1373",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-05T03:57:04Z",
-          "title": "fix(i18n) - localize hex-bin-dec dialogs",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1372",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "Me-Priyank",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/143987856?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/146826917?v=4",
       "role": "Contributor",
       "total_points": 2,
       "activity_breakdown": {
-        "Issue closed": {
-          "count": 2,
+        "PR opened": {
+          "count": 1,
           "points": 2
         }
       },
@@ -1344,56 +1301,15 @@
         {
           "date": "2026-10-01",
           "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-09-30",
-          "count": 1,
-          "points": 1
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-10-01T05:39:52Z",
-          "title": "Closed issue #1323 - 🐞 Bug - Invalid or missing theme query can break embed",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1323",
-          "points": 1
-        },
-        {
-          "type": "Issue closed",
-          "occured_at": "2026-09-30T17:38:37Z",
-          "title": "Closed issue #1331 - 🐞 Bug - changing a Splitter's bit width overwrites its output pin widths",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1331",
-          "points": 1
-        }
-      ]
-    },
-    {
-      "username": "magic-peach",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-09-30",
-          "count": 1,
           "points": 2
         }
       ],
       "activities": [
         {
           "type": "PR opened",
-          "occured_at": "2026-09-30T04:34:24Z",
-          "title": "feat(autograder) - add GradeScaleMapper",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7944",
+          "occured_at": "2026-10-01T20:13:55Z",
+          "title": "fix - resolve Node 22 test suite crashes and harden localStorage access",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1350",
           "points": 2
         }
       ]
@@ -1423,6 +1339,64 @@
           "occured_at": "2026-10-01T11:05:27Z",
           "title": "Fix 1476 escape cancel",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1347",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "anshurajbisoyi98-ctrl",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/230949664?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-10-07",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-07T19:46:39Z",
+          "title": "fix(simulator) - remove deleted nodes from their parent's nodeList",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1379",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "mkumar1205-beep",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/233480203?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-10-07",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-07T08:29:44Z",
+          "title": "Add widget previews for Interactive Book widgets",
+          "link": "https://github.com/CircuitVerse/mobile-app/pull/674",
           "points": 2
         }
       ]
