@@ -205,11 +205,15 @@ export function PeopleStats({ contributors, allContributors }: PeopleStatsProps)
                 <div className="text-sm text-muted-foreground">Avg Active Days</div>
               </div>
               <div className="text-center p-4 bg-muted/30 rounded-lg">
-                <div className="text-2xl font-bold text-green-600 dark:text-green-400">{Math.round(totalActivities / totalContributors)}</div>
+                <div className="text-2xl font-bold text-green-600 dark:text-green-400">
+                  {totalContributors > 0 ? Math.round(totalActivities / totalContributors) : 0}
+                </div>
                 <div className="text-sm text-muted-foreground">Avg Activities</div>
               </div>
               <div className="text-center p-4 bg-muted/30 rounded-lg">
-                <div className="text-2xl font-bold text-green-600 dark:text-green-400">{Math.round((recentlyActive / totalContributors) * 100)}%</div>
+                <div className="text-2xl font-bold text-green-600 dark:text-green-400">
+                  {totalContributors > 0 ? Math.round((recentlyActive / totalContributors) * 100) : 0}%
+                </div>
                 <div className="text-sm text-muted-foreground">Weekly Active Rate</div>
               </div>
             </div>

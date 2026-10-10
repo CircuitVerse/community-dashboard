@@ -4,6 +4,7 @@ import {
   toListingContributor,
   getPeriodWeight,
   compareDatasetPrecedence,
+  validateDailyActivity,
 } from "@/lib/people";
 import type { ContributorEntry, LeaderboardDataset } from "@/types/people";
 
@@ -404,7 +405,7 @@ describe("lib/people - aggregateLeaderboardData (unit)", () => {
     expect(dave.activities).toHaveLength(15);
   });
 
-  it("generates placeholder activities consistently whether contributor appears in one or multiple datasets", () => {
+  it("preserves genuine activities without generating synthetic epoch placeholders", () => {
     // Contributor appearing in a single dataset with breakdown > genuine activities
     const singleDataset: LeaderboardDataset = {
       period: "year",
@@ -430,10 +431,8 @@ describe("lib/people - aggregateLeaderboardData (unit)", () => {
 
     const { people: singleRes } = aggregateLeaderboardData([singleDataset]);
     const singleUser = singleRes[0];
-    expect(singleUser?.activities).toHaveLength(3);
+    expect(singleUser?.activities).toHaveLength(1);
     expect(singleUser?.activities?.[0]?.title).toBe("Real PR");
-    expect(singleUser?.activities?.[1]?.title).toBe("PR opened contribution");
-    expect(singleUser?.activities?.[2]?.title).toBe("PR opened contribution");
 
     // Contributor appearing in multiple datasets
     const multiDataset1: LeaderboardDataset = {
@@ -470,59 +469,31 @@ describe("lib/people - aggregateLeaderboardData (unit)", () => {
 
     const { people: multiRes } = aggregateLeaderboardData([multiDataset1, multiDataset2]);
     const multiUser = multiRes[0];
-    expect(multiUser?.activities).toHaveLength(3);
+    expect(multiUser?.activities).toHaveLength(1);
     expect(multiUser?.activities?.[0]?.title).toBe("Real PR");
-    expect(multiUser?.activities?.[1]?.title).toBe("PR opened contribution");
-    expect(multiUser?.activities?.[2]?.title).toBe("PR opened contribution");
   });
 
-  it("prevents placeholder activities from collapsing during multiple dataset merges", () => {
-    // 3 datasets with the same contributor
-    const ds1: LeaderboardDataset = {
-      period: "week",
+  it("handles empty activity lists gracefully without generating placeholders", () => {
+    const ds: LeaderboardDataset = {
+      period: "year",
       updatedAt: 100,
       entries: [
         makeContributor({
-          username: "three-ds-user",
-          activities: [],
-          activity_breakdown: { "PR opened": { count: 4, points: 40 } },
-        }),
-      ],
-    };
-    const ds2: LeaderboardDataset = {
-      period: "month",
-      updatedAt: 200,
-      entries: [
-        makeContributor({
-          username: "three-ds-user",
-          activities: [],
-          activity_breakdown: { "PR opened": { count: 4, points: 40 } },
-        }),
-      ],
-    };
-    const ds3: LeaderboardDataset = {
-      period: "year",
-      updatedAt: 300,
-      entries: [
-        makeContributor({
-          username: "three-ds-user",
+          username: "no-act-user",
           activities: [],
           activity_breakdown: { "PR opened": { count: 4, points: 40 } },
         }),
       ],
     };
 
-    const { people } = aggregateLeaderboardData([ds1, ds2, ds3]);
+    const { people } = aggregateLeaderboardData([ds]);
     const user = people[0];
-    expect(user?.activities).toHaveLength(4);
-    for (const act of user?.activities ?? []) {
-      expect(act.title).toBe("PR opened contribution");
-    }
+    expect(user?.activities).toHaveLength(0);
   });
 
-  it("ensures placeholders do not push out genuine activities and respect the 15-activity cap", () => {
-    // 12 genuine activities and breakdown count of 20
-    const genuineActivities = Array.from({ length: 12 }, (_, i) => ({
+  it("preserves genuine activities and respects the 15-activity cap", () => {
+    // 20 genuine activities
+    const genuineActivities = Array.from({ length: 20 }, (_, i) => ({
       type: "PR opened",
       title: `Genuine PR ${i + 1}`,
       occured_at: new Date(2026, 0, i + 1).toISOString(),
@@ -546,13 +517,9 @@ describe("lib/people - aggregateLeaderboardData (unit)", () => {
     const user = people[0];
     expect(user?.activities).toHaveLength(15);
 
-    // All 12 genuine activities must be preserved
-    const genuineInResult = user?.activities?.filter((a) => a.title.startsWith("Genuine PR"));
-    expect(genuineInResult).toHaveLength(12);
-
-    // Exactly 3 placeholders added to fill up to 15
-    const placeholdersInResult = user?.activities?.filter((a) => a.title === "PR opened contribution");
-    expect(placeholdersInResult).toHaveLength(3);
+    // Most recent 15 activities must be preserved
+    expect(user?.activities?.[0]?.title).toBe("Genuine PR 20");
+    expect(user?.activities?.[14]?.title).toBe("Genuine PR 6");
   });
 
   it("merges datasets deterministically regardless of input ordering with newer updatedAt taking precedence", () => {
@@ -834,13 +801,13 @@ describe("lib/people - cap before sort on single dataset", () => {
     }
   });
 
-  it("ensures real activities precede epoch-placeholder entries and caps at 15", () => {
+  it("sorts activities newest-first and caps at 15 without epoch placeholders", () => {
     const dataset: LeaderboardDataset = {
       period: "year",
       updatedAt: 100,
       entries: [
         {
-          username: "placeholder_user",
+          username: "single_ds_user",
           total_points: 50,
           activity_breakdown: {
             "PR merged": { count: 10, points: 50 },
@@ -848,9 +815,16 @@ describe("lib/people - cap before sort on single dataset", () => {
           raw_activities: [
             {
               type: "PR merged",
-              title: "Real PR",
-              occured_at: "2026-03-01T00:00:00Z",
+              title: "Old PR",
+              occured_at: "2026-01-01T00:00:00Z",
               link: "https://github.com/pr/1",
+              points: 5,
+            },
+            {
+              type: "PR merged",
+              title: "New PR",
+              occured_at: "2026-03-01T00:00:00Z",
+              link: "https://github.com/pr/2",
               points: 5,
             },
           ],
@@ -860,13 +834,11 @@ describe("lib/people - cap before sort on single dataset", () => {
 
     const { people } = aggregateLeaderboardData([dataset]);
     const user = people[0]!;
-    expect(user.activities).toHaveLength(10);
-    // Real activity must be first
-    expect(user.activities![0]?.title).toBe("Real PR");
+    expect(user.activities).toHaveLength(2);
+    // Real activity must be newest-first
+    expect(user.activities![0]?.title).toBe("New PR");
     expect(user.activities![0]?.occured_at).toBe("2026-03-01T00:00:00Z");
-
-    // Placeholders follow
-    expect(user.activities![1]?.occured_at).toBe(new Date(0).toISOString());
+    expect(user.activities![1]?.title).toBe("Old PR");
   });
 });
 
@@ -1047,3 +1019,146 @@ describe("lib/people - raw_activities support (year.json)", () => {
     expect("raw_activities" in naman).toBe(false);
   });
 });
+
+describe("lib/people - strict validation and edge cases", () => {
+  it("enforces strict YYYY-MM-DD format in validateDailyActivity", () => {
+    const raw = [
+      { date: "2026-03-15", count: 2, points: 10 }, // valid
+      { date: "2026/03/15", count: 1, points: 5 }, // invalid separator
+      { date: "15-03-2026", count: 1, points: 5 }, // wrong order
+      { date: "not-a-date", count: 1, points: 5 }, // non-date string
+      { date: "", count: 1, points: 5 }, // empty
+      { date: "2026-03-15T00:00:00Z", count: 1, points: 5 }, // full ISO timestamp
+      null,
+      {},
+    ];
+    const validated = validateDailyActivity(raw);
+    expect(validated).toEqual([{ date: "2026-03-15", count: 2, points: 10 }]);
+  });
+
+  it("drops activity items with invalid or unparseable occured_at", () => {
+    const dataset: LeaderboardDataset = {
+      period: "week",
+      updatedAt: 100,
+      entries: [
+        {
+          username: "valid_time_user",
+          activities: [
+            {
+              type: "commit",
+              title: "Valid commit",
+              occured_at: "2026-03-01T12:00:00Z",
+              points: 5,
+            },
+            {
+              type: "commit",
+              title: "Invalid commit with unparseable date",
+              occured_at: "not-a-valid-date",
+              points: 5,
+            },
+            {
+              type: "commit",
+              title: "Commit with missing occured_at",
+              points: 5,
+            },
+          ],
+        },
+      ],
+    };
+    const { people } = aggregateLeaderboardData([dataset]);
+    const user = people[0]!;
+    expect(user.activities).toHaveLength(1);
+    expect(user.activities![0]?.title).toBe("Valid commit");
+  });
+
+  it("does not allow malformed incoming activity_breakdown or daily_activity to overwrite valid existing values during merge", () => {
+    const lowerDataset: LeaderboardDataset = {
+      period: "week",
+      updatedAt: 100,
+      entries: [
+        {
+          username: "merge_guard_user",
+          activity_breakdown: {
+            commit: { count: 5, points: 25 },
+          },
+          daily_activity: [
+            { date: "2026-03-01", count: 5, points: 25 },
+          ],
+        },
+      ],
+    };
+
+    const higherDatasetWithMalformed: LeaderboardDataset = {
+      period: "year",
+      updatedAt: 200,
+      entries: [
+        {
+          username: "merge_guard_user",
+          // Malformed breakdown (array or empty object)
+          activity_breakdown: ["not", "an", "object"] as unknown as Record<string, unknown>,
+          // Malformed daily_activity (array with invalid dates)
+          daily_activity: [{ date: "invalid-date" }] as unknown as Array<{ date: string; count: number; points: number }>,
+        },
+      ],
+    };
+
+    const { people } = aggregateLeaderboardData([lowerDataset, higherDatasetWithMalformed]);
+    const user = people[0]!;
+    expect(user.activity_breakdown).toEqual({
+      commit: { count: 5, points: 25 },
+    });
+    expect(user.daily_activity).toEqual([
+      { date: "2026-03-01", count: 5, points: 25 },
+    ]);
+  });
+
+  it("merges usernames differing only by case into a single entry to prevent filesystem route collision", () => {
+    const ds1: LeaderboardDataset = {
+      period: "week",
+      updatedAt: 100,
+      entries: [
+        {
+          username: "JohnDoe",
+          total_points: 50,
+          activities: [
+            {
+              type: "commit",
+              title: "Commit from JohnDoe",
+              occured_at: "2026-03-01T00:00:00Z",
+              points: 5,
+            },
+          ],
+        },
+      ],
+    };
+
+    const ds2: LeaderboardDataset = {
+      period: "year",
+      updatedAt: 200,
+      entries: [
+        {
+          username: "johndoe",
+          total_points: 100,
+          activities: [
+            {
+              type: "PR opened",
+              title: "PR from johndoe",
+              occured_at: "2026-03-02T00:00:00Z",
+              points: 10,
+            },
+          ],
+        },
+      ],
+    };
+
+    const { people } = aggregateLeaderboardData([ds1, ds2]);
+    // Exactly one merged entry
+    expect(people).toHaveLength(1);
+    const user = people[0]!;
+    // Casing from highest-precedence dataset
+    expect(user.username).toBe("johndoe");
+    expect(user.total_points).toBe(100);
+    expect(user.activities).toHaveLength(2);
+  });
+});
+

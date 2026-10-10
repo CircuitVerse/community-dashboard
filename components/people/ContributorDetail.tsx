@@ -214,13 +214,15 @@ export function ContributorDetail({ contributor }: ContributorDetailProps) {
     : [];
 
   const thirtyDaysAgo = mounted ? clientNow - 30 * 24 * 60 * 60 * 1000 : null;
-  const recentContributions = uniqueContributions
-    .filter((a) => {
-      const t = new Date(a.occured_at).getTime();
-      return !isNaN(t) && t > 86400000 && (thirtyDaysAgo === null || t >= thirtyDaysAgo);
-    })
-    .sort((a, b) => new Date(b.occured_at).getTime() - new Date(a.occured_at).getTime())
-    .slice(0, 15);
+  const recentContributions = mounted && thirtyDaysAgo !== null
+    ? uniqueContributions
+        .filter((a) => {
+          const t = new Date(a.occured_at).getTime();
+          return !isNaN(t) && t > 86400000 && t >= thirtyDaysAgo;
+        })
+        .sort((a, b) => new Date(b.occured_at).getTime() - new Date(a.occured_at).getTime())
+        .slice(0, 15)
+    : [];
 
   const nowDate = mounted ? new Date(clientNow) : null;
   const currentMonth = nowDate ? nowDate.getUTCMonth() : null;
@@ -467,11 +469,19 @@ export function ContributorDetail({ contributor }: ContributorDetailProps) {
               <CardTitle className="flex items-center gap-2">
                 <Clock className="w-5 h-5" />
                 Recent Contributions
-                <Badge variant="secondary" className="ml-2">{recentContributions.length}</Badge>
+                {mounted && (
+                  <Badge variant="secondary" className="ml-2">{recentContributions.length}</Badge>
+                )}
               </CardTitle>
             </CardHeader>
             <CardContent>
-              {recentContributions.length === 0 ? (
+              {!mounted ? (
+                <div className="space-y-3">
+                  {[1, 2, 3].map((i) => (
+                    <div key={i} className="h-16 rounded-lg bg-muted/20 animate-pulse" />
+                  ))}
+                </div>
+              ) : recentContributions.length === 0 ? (
                 <p className="text-sm text-muted-foreground text-center mb-4">
                   No contributions in the last 30 days.
                 </p>
@@ -479,12 +489,8 @@ export function ContributorDetail({ contributor }: ContributorDetailProps) {
                 <div className="space-y-3 max-h-80 overflow-y-auto pr-2">
                   {recentContributions.map((activity, index) => {
                     const date = new Date(activity.occured_at);
-                    const isValidDate = !isNaN(date.getTime()) && date.getTime() > 86400000;
                     const isVeryRecent = index < 3;
-                    const daysAgo =
-                      mounted && isValidDate
-                        ? Math.floor((clientNow - date.getTime()) / (1000 * 60 * 60 * 24))
-                        : null;
+                    const daysAgo = Math.floor((clientNow - date.getTime()) / (1000 * 60 * 60 * 24));
                     const config = getActivityConfig(activity.type);
 
                     return (
@@ -521,20 +527,11 @@ export function ContributorDetail({ contributor }: ContributorDetailProps) {
                                 </span>
                                 <span className="flex items-center gap-1 whitespace-nowrap shrink-0">
                                   <Calendar className="w-3 h-3" />
-                                  {!isValidDate
-                                    ? "Historical contribution"
-                                    : daysAgo !== null
-                                    ? daysAgo <= 0
-                                      ? "Today"
-                                      : daysAgo === 1
-                                      ? "Yesterday"
-                                      : `${daysAgo} days ago`
-                                    : date.toLocaleDateString("en-US", {
-                                        timeZone: "UTC",
-                                        month: "short",
-                                        day: "numeric",
-                                        year: "numeric",
-                                      })}
+                                  {daysAgo <= 0
+                                    ? "Today"
+                                    : daysAgo === 1
+                                    ? "Yesterday"
+                                    : `${daysAgo} days ago`}
                                 </span>
                               </div>
                             </div>

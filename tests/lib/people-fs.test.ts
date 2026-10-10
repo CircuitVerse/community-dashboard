@@ -24,7 +24,7 @@ describe("lib/people - filesystem integration tests (isolated fixtures)", () => 
     }
   });
 
-  it("returns empty people list when directory does not exist", () => {
+  it("returns empty people list when directory does not exist and strict is false", () => {
     const nonExistentDir = path.join(tempDir, "does-not-exist");
     const data = loadPeopleData(nonExistentDir);
 
@@ -34,10 +34,51 @@ describe("lib/people - filesystem integration tests (isolated fixtures)", () => 
     expect(data.alumni.length).toBeGreaterThan(0);
   });
 
-  it("returns empty people list when directory contains no json files", () => {
+  it("throws an error when strict: true and directory does not exist", () => {
+    const nonExistentDir = path.join(tempDir, "does-not-exist");
+    expect(() => loadPeopleData(nonExistentDir, { strict: true })).toThrow(
+      /Leaderboard directory does not exist/
+    );
+  });
+
+  it("returns empty people list when directory contains no json files and strict is false", () => {
     const data = loadPeopleData(tempDir);
     expect(data.updatedAt).toBe(0);
     expect(data.people).toEqual([]);
+  });
+
+  it("throws an error when strict: true and directory yields zero contributors", () => {
+    expect(() => loadPeopleData(tempDir, { strict: true })).toThrow(
+      /yielded zero contributors/
+    );
+  });
+
+  it("warns when year.json is missing from loaded directory", () => {
+    // Write week.json with valid contributor
+    const weekData = {
+      period: "week",
+      updatedAt: 100,
+      entries: [
+        {
+          username: "sample_user",
+          total_points: 10,
+        },
+      ],
+    };
+    fs.writeFileSync(path.join(tempDir, "week.json"), JSON.stringify(weekData));
+
+    let warnedMessage = "";
+    const originalWarn = console.warn;
+    console.warn = (...args: unknown[]) => {
+      warnedMessage = args.join(" ");
+    };
+    try {
+      const data = loadPeopleData(tempDir);
+      expect(data.people).toHaveLength(1);
+      expect(warnedMessage).toContain('"year.json" was not found');
+    } finally {
+      console.warn = originalWarn;
+    }
   });
 
   it("safely skips corrupted JSON files and non-leaderboard files like overview.json and recent-activities.json", () => {
@@ -251,4 +292,30 @@ describe("lib/people - lookup and listing utilities (fixture-backed)", () => {
     expect(bob.activeDays).toBe(0);
     expect(bob.hasRecentActivity).toBe(false);
   });
+
+  it("provides getPeopleData with full contributor details", () => {
+    const fullData = getPeopleData(tempDir);
+    expect(fullData).toBeDefined();
+    expect(fullData.people).toHaveLength(2);
+    const alice = fullData.people.find((p) => p.username === "alice_dev")!;
+    expect(alice.activities).toBeDefined();
+    expect(alice.daily_activity).toBeDefined();
+  });
 });
+
+describe("lib/people - filesystem real directory validation", () => {
+  it("exercises KNOWN_PERIOD_FILES against the real public/leaderboard directory without warnings", () => {
+    const realDir = path.join(process.cwd(), "public", "leaderboard");
+    if (!fs.existsSync(realDir)) return;
+
+    // Verify all KNOWN_PERIOD_FILES exist in the real directory
+    for (const filename of KNOWN_PERIOD_FILES) {
+      expect(fs.existsSync(path.join(realDir, filename))).toBe(true);
+    }
+
+    const data = loadPeopleData(realDir, KNOWN_PERIOD_FILES);
+    expect(data.people.length).toBeGreaterThan(0);
+    expect(data.updatedAt).toBeGreaterThan(0);
+  });
+});
+

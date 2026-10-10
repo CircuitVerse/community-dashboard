@@ -145,14 +145,19 @@ function extractActivities(raw: Record<string, unknown>): ActivityItem[] {
     if (act && typeof act === "object") {
       const a = act as Record<string, unknown>;
       if (typeof a.type === "string") {
+        if (typeof a.occured_at !== "string") {
+          continue;
+        }
+        const time = new Date(a.occured_at).getTime();
+        if (isNaN(time)) {
+          continue;
+        }
+
         items.push({
           type: a.type,
           title:
             typeof a.title === "string" ? a.title : `${a.type} contribution`,
-          occured_at:
-            typeof a.occured_at === "string"
-              ? a.occured_at
-              : new Date(0).toISOString(),
+          occured_at: a.occured_at,
           link: typeof a.link === "string" ? a.link : "",
           points:
             typeof a.points === "number" && !isNaN(a.points) ? a.points : 0,
@@ -189,9 +194,11 @@ export function validateActivityBreakdown(
   return result;
 }
 
+const ISO_DATE_REGEX = /^\d{4}-\d{2}-\d{2}$/;
+
 /**
  * Strictly validates and normalizes daily_activity entries.
- * Drops null, non-object entries, or entries without a valid non-empty date string.
+ * Drops null, non-object entries, or entries without a valid YYYY-MM-DD date string.
  */
 export function validateDailyActivity(
   raw: unknown
@@ -203,18 +210,21 @@ export function validateDailyActivity(
   for (const item of raw) {
     if (item && typeof item === "object" && !Array.isArray(item)) {
       const i = item as Record<string, unknown>;
-      if (typeof i.date === "string" && i.date.trim() !== "") {
-        const count =
-          typeof i.count === "number" && !isNaN(i.count) && i.count >= 0
-            ? i.count
-            : 0;
-        const points =
-          typeof i.points === "number" && !isNaN(i.points) ? i.points : 0;
-        result.push({
-          date: i.date.trim(),
-          count,
-          points,
-        });
+      if (typeof i.date === "string") {
+        const trimmedDate = i.date.trim();
+        if (ISO_DATE_REGEX.test(trimmedDate)) {
+          const count =
+            typeof i.count === "number" && !isNaN(i.count) && i.count >= 0
+              ? i.count
+              : 0;
+          const points =
+            typeof i.points === "number" && !isNaN(i.points) ? i.points : 0;
+          result.push({
+            date: trimmedDate,
+            count,
+            points,
+          });
+        }
       }
     }
   }
@@ -277,20 +287,52 @@ export function aggregateLeaderboardData(
         continue;
       }
 
+      const userKey = username.toLowerCase();
       const incomingActivities = extractActivities(entry);
-      const existing = allContributors.get(username);
+      const incomingBreakdown = validateActivityBreakdown(
+        entry.activity_breakdown
+      );
+      const incomingDaily = validateDailyActivity(entry.daily_activity);
+
+      const existing = allContributors.get(userKey);
 
       if (!existing) {
-        const cleanEntry: Record<string, unknown> = { ...entry, username };
+        const cleanEntry: Record<string, unknown> = {
+          ...entry,
+          username,
+          activity_breakdown: incomingBreakdown,
+          daily_activity: incomingDaily,
+        };
         delete cleanEntry.raw_activities;
         delete cleanEntry.activities;
-        allContributors.set(username, cleanEntry);
-        contributorActivities.set(username, incomingActivities);
+        allContributors.set(userKey, cleanEntry);
+        contributorActivities.set(userKey, incomingActivities);
         continue;
       }
 
       // Merge metadata without clobbering:
       // Keep higher precedence fields when defined and valid, but retain existing values if incoming is undefined/null/empty.
+      const existingBreakdown = existing.activity_breakdown as
+        | Record<string, { count: number; points: number }>
+        | undefined;
+      const existingDaily = existing.daily_activity as
+        | Array<{ date: string; count: number; points: number }>
+        | undefined;
+
+      const mergedBreakdown =
+        Object.keys(incomingBreakdown).length > 0
+          ? incomingBreakdown
+          : existingBreakdown && Object.keys(existingBreakdown).length > 0
+          ? existingBreakdown
+          : incomingBreakdown;
+
+      const mergedDaily =
+        incomingDaily.length > 0
+          ? incomingDaily
+          : existingDaily && existingDaily.length > 0
+          ? existingDaily
+          : incomingDaily;
+
       const merged: Record<string, unknown> = {
         ...existing,
         ...entry,
@@ -305,24 +347,16 @@ export function aggregateLeaderboardData(
           typeof entry.total_points === "number" && !isNaN(entry.total_points)
             ? entry.total_points
             : existing.total_points,
-        activity_breakdown:
-          entry.activity_breakdown &&
-          typeof entry.activity_breakdown === "object" &&
-          Object.keys(entry.activity_breakdown as object).length > 0
-            ? entry.activity_breakdown
-            : existing.activity_breakdown,
-        daily_activity:
-          Array.isArray(entry.daily_activity) && entry.daily_activity.length > 0
-            ? entry.daily_activity
-            : existing.daily_activity,
+        activity_breakdown: mergedBreakdown,
+        daily_activity: mergedDaily,
       };
       delete merged.raw_activities;
       delete merged.activities;
 
-      allContributors.set(username, merged);
+      allContributors.set(userKey, merged);
 
       // Merge activities prioritizing the incoming (higher-precedence) dataset metadata
-      const existingActs = contributorActivities.get(username) ?? [];
+      const existingActs = contributorActivities.get(userKey) ?? [];
       const seen = new Set<string>();
       const combined: ActivityItem[] = [];
 
@@ -336,59 +370,25 @@ export function aggregateLeaderboardData(
         }
       }
 
-      combined.sort(
-        (a, b) =>
-          new Date(b.occured_at).getTime() - new Date(a.occured_at).getTime()
-      );
-
-      contributorActivities.set(username, combined);
+      contributorActivities.set(userKey, combined);
     }
   }
 
-  // Final normalization & placeholder step:
-  // Strictly validate activity_breakdown and daily_activity shapes.
-  // Generate missing placeholders if needed to meet activity_breakdown counts.
-  // Sort activities newest-first once in the final step, then cap at 15.
+  // Final normalization step:
+  // Sort activities newest-first once before capping at 15.
   const people: ContributorEntry[] = [];
 
-  for (const [username, raw] of allContributors.entries()) {
+  for (const [userKey, raw] of allContributors.entries()) {
+    const username =
+      typeof raw.username === "string" && raw.username.trim() !== ""
+        ? (raw.username as string).trim()
+        : userKey;
+
     const breakdown = validateActivityBreakdown(raw.activity_breakdown);
     const daily = validateDailyActivity(raw.daily_activity);
 
-    // Initial sort of collected activities newest-first
-    const activities = [...(contributorActivities.get(username) ?? [])].sort(
-      (a, b) =>
-        new Date(b.occured_at).getTime() - new Date(a.occured_at).getTime()
-    );
-
-    const expectedCount = Object.values(breakdown).reduce(
-      (sum, v) => sum + (v && typeof v.count === "number" ? v.count : 0),
-      0
-    );
-
-    if (activities.length < expectedCount && activities.length < 15) {
-      for (const [type, info] of Object.entries(breakdown)) {
-        if (activities.length >= 15) break;
-        const existingCount = activities.filter((a) => a.type === type).length;
-        const missing = (info?.count || 0) - existingCount;
-
-        for (let i = 0; i < missing; i++) {
-          if (activities.length >= 15) break;
-          activities.push({
-            type,
-            title: `${type} contribution`,
-            occured_at: new Date(0).toISOString(),
-            link: "",
-            points:
-              info && info.count > 0 ? Math.round(info.points / info.count) : 0,
-          });
-        }
-      }
-    }
-
-    // Sort newest-first once in the final step before the cap so real activities
-    // take precedence over epoch-placeholder entries (timestamp 0), and single-dataset
-    // contributors are not truncated in arbitrary file order.
+    // Sort collected activities newest-first once before capping at 15
+    const activities = [...(contributorActivities.get(userKey) ?? [])];
     activities.sort(
       (a, b) =>
         new Date(b.occured_at).getTime() - new Date(a.occured_at).getTime()
@@ -435,19 +435,41 @@ export function aggregateLeaderboardData(
   };
 }
 
+export interface LoadPeopleDataOptions {
+  allowedFiles?: Set<string>;
+  strict?: boolean;
+}
+
+function parseLoadOptions(options?: LoadPeopleDataOptions | Set<string>): {
+  allowedFiles: Set<string>;
+  strict: boolean;
+} {
+  if (options instanceof Set) {
+    return {
+      allowedFiles: options,
+      strict: false,
+    };
+  }
+  return {
+    allowedFiles: options?.allowedFiles ?? KNOWN_PERIOD_FILES,
+    strict: Boolean(options?.strict),
+  };
+}
+
 /**
  * Loads leaderboard data from the filesystem and aggregates contributors.
- * Supports an optional custom directory path and injectable file filter.
+ * Supports an optional custom directory path and injectable options.
  */
 export function loadPeopleData(
   customPath?: string,
-  allowedFiles: Set<string> = KNOWN_PERIOD_FILES
+  options?: LoadPeopleDataOptions | Set<string>
 ): PeopleData {
+  const { allowedFiles, strict } = parseLoadOptions(options);
   const publicPath =
     customPath ?? path.join(process.cwd(), "public", "leaderboard");
 
   if (!fs.existsSync(publicPath)) {
-    if (!customPath && process.env.NODE_ENV !== "test") {
+    if (strict) {
       throw new Error(
         `[loadPeopleData] Leaderboard directory does not exist at "${publicPath}". Refusing to build or regenerate with empty data.`
       );
@@ -467,6 +489,12 @@ export function loadPeopleData(
     return allowedFiles.has(file);
   });
 
+  if (allowedFiles.has("year.json") && !files.includes("year.json")) {
+    console.warn(
+      `[loadPeopleData] "year.json" was not found in "${publicPath}". Full-year cumulative metrics may be incomplete.`
+    );
+  }
+
   const datasets: LeaderboardDataset[] = [];
   for (const file of files) {
     try {
@@ -482,7 +510,7 @@ export function loadPeopleData(
 
   const { latestUpdatedAt, people } = aggregateLeaderboardData(datasets);
 
-  if (!customPath && process.env.NODE_ENV !== "test" && people.length === 0) {
+  if (strict && people.length === 0) {
     throw new Error(
       `[loadPeopleData] Leaderboard directory at "${publicPath}" yielded zero contributors. Refusing to build or regenerate with empty data.`
     );
@@ -533,8 +561,11 @@ export function toListingContributor(
  * without leaking stale state across ISR cycles in a long-lived server process.
  */
 export const getPeopleData = cache(
-  (customPath?: string, allowedFiles?: Set<string>): PeopleData => {
-    return loadPeopleData(customPath, allowedFiles);
+  (
+    customPath?: string,
+    options?: LoadPeopleDataOptions | Set<string>
+  ): PeopleData => {
+    return loadPeopleData(customPath, options);
   }
 );
 
@@ -545,9 +576,9 @@ export const getPeopleData = cache(
  */
 export function getPeopleListingData(
   customPath?: string,
-  allowedFiles?: Set<string>
+  options?: LoadPeopleDataOptions | Set<string>
 ): PeopleListingData {
-  const fullData = getPeopleData(customPath, allowedFiles);
+  const fullData = getPeopleData(customPath, options);
   const refTime = fullData.updatedAt > 0 ? fullData.updatedAt : Date.now();
   return {
     ...fullData,
@@ -560,7 +591,8 @@ export function getPeopleListingData(
  */
 export function getContributorByUsername(
   username: string,
-  customPath?: string
+  customPath?: string,
+  options?: LoadPeopleDataOptions | Set<string>
 ): ContributorEntry | null {
   if (!username || typeof username !== "string") return null;
 
@@ -574,14 +606,17 @@ export function getContributorByUsername(
   const target = decoded.trim().toLowerCase();
   if (!target) return null;
 
-  const { people } = getPeopleData(customPath);
+  const { people } = getPeopleData(customPath, options);
   return people.find((p) => p.username.toLowerCase() === target) ?? null;
 }
 
 /**
  * Returns all contributor usernames for static route generation.
  */
-export function getAllContributorUsernames(customPath?: string): string[] {
-  const { people } = getPeopleData(customPath);
+export function getAllContributorUsernames(
+  customPath?: string,
+  options?: LoadPeopleDataOptions | Set<string>
+): string[] {
+  const { people } = getPeopleData(customPath, options);
   return people.map((p) => p.username);
 }

@@ -11,7 +11,8 @@ export const dynamicParams = false;
 export const revalidate = 86400;
 
 export function generateStaticParams() {
-  const usernames = getAllContributorUsernames();
+  const isProd = process.env.NODE_ENV === "production";
+  const usernames = getAllContributorUsernames(undefined, { strict: isProd });
   return usernames.map((username) => ({ username }));
 }
 

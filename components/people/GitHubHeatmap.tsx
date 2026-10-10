@@ -39,19 +39,29 @@ export function GitHubHeatmap({ dailyActivity, className = "" }: HeatmapProps) {
     return parseInt(year ?? "0", 10);
   };
 
-  // Get available years from the activity data
-  const availableYears = useMemo(() => {
-    const years = new Set(dailyActivity.map((d) => getYearFromDateStr(d.date)));
-    // Add current year if not present (for empty states)
-    years.add(new Date().getUTCFullYear());
-    // Sort ascending so buttons show: 2025, 2026 (bigger year last)
-    return Array.from(years).sort((a, b) => a - b);
+  // Compute deterministic default selectedYear from max year in the activity data
+  const defaultYear = useMemo(() => {
+    const years = dailyActivity
+      .map((d) => getYearFromDateStr(d.date))
+      .filter((y) => !isNaN(y) && y > 0);
+    return years.length > 0 ? Math.max(...years) : new Date().getUTCFullYear();
   }, [dailyActivity]);
 
-  // Default to current year
-  const [selectedYear, setSelectedYear] = useState(() => {
-    return new Date().getUTCFullYear();
-  });
+  // Get available years from the activity data
+  const availableYears = useMemo(() => {
+    const years = new Set(
+      dailyActivity
+        .map((d) => getYearFromDateStr(d.date))
+        .filter((y) => !isNaN(y) && y > 0)
+    );
+    // Ensure defaultYear is present
+    years.add(defaultYear);
+    // Sort ascending so buttons show: 2025, 2026 (bigger year last)
+    return Array.from(years).sort((a, b) => a - b);
+  }, [dailyActivity, defaultYear]);
+
+  // Default to deterministic max year in data
+  const [selectedYear, setSelectedYear] = useState(defaultYear);
 
   // Filter activity for selected year
   const yearActivity = useMemo(() => {
@@ -65,8 +75,8 @@ export function GitHubHeatmap({ dailyActivity, className = "" }: HeatmapProps) {
   }, [yearActivity]);
 
   // Generate days for the full calendar year (GitHub style - shows all 12 months in UTC)
-  const generateDays = () => {
-    const days = [];
+  const days = useMemo(() => {
+    const daysList = [];
     const today = new Date();
     const todayStr = formatDateUTC(today);
     const currentYear = today.getUTCFullYear();
@@ -80,26 +90,24 @@ export function GitHubHeatmap({ dailyActivity, className = "" }: HeatmapProps) {
 
     while (currentDate <= endDate) {
       const dateStr = formatDateUTC(currentDate);
-      const isFuture = isCurrentYear && dateStr > todayStr;
+      const isFuture = mounted && isCurrentYear && dateStr > todayStr;
 
       const activity = activityMap.get(dateStr);
 
-      days.push({
+      daysList.push({
         date: dateStr,
         count: activity?.count || 0,
         points: activity?.points || 0,
         dayOfWeek: currentDate.getUTCDay(),
         isToday: mounted && isCurrentYear && dateStr === todayStr,
-        isFuture: isFuture,
+        isFuture,
       });
 
       currentDate.setUTCDate(currentDate.getUTCDate() + 1);
     }
 
-    return days;
-  };
-
-  const days = generateDays();
+    return daysList;
+  }, [selectedYear, mounted, activityMap]);
 
   // Calculate max activity for the selected year's data
   const maxActivity = useMemo(() => {
@@ -143,45 +151,49 @@ export function GitHubHeatmap({ dailyActivity, className = "" }: HeatmapProps) {
   ];
 
   // Group days into weeks (starting from Sunday)
-  const weeks: Array<Array<(typeof days)[0]>> = [];
-  let currentWeek: Array<(typeof days)[0]> = [];
+  const weeks = useMemo(() => {
+    const weeksList: Array<Array<(typeof days)[0]>> = [];
+    let currentWeek: Array<(typeof days)[0]> = [];
 
-  // Add empty days at the beginning if the first day is not Sunday
-  const firstDay = days[0];
-  if (firstDay && firstDay.dayOfWeek !== 0) {
-    for (let i = 0; i < firstDay.dayOfWeek; i++) {
-      currentWeek.push({
-        date: "",
-        count: 0,
-        points: 0,
-        dayOfWeek: i,
-        isToday: false,
-        isFuture: false,
-      });
-    }
-  }
-
-  days.forEach((day) => {
-    currentWeek.push(day);
-
-    if (day.dayOfWeek === 6 || day === days[days.length - 1]) {
-      // Fill remaining slots if needed (only for the last week)
-      while (currentWeek.length < 7 && day === days[days.length - 1]) {
+    // Add empty days at the beginning if the first day is not Sunday
+    const firstDay = days[0];
+    if (firstDay && firstDay.dayOfWeek !== 0) {
+      for (let i = 0; i < firstDay.dayOfWeek; i++) {
         currentWeek.push({
           date: "",
           count: 0,
           points: 0,
-          dayOfWeek: currentWeek.length,
+          dayOfWeek: i,
           isToday: false,
           isFuture: false,
         });
       }
-      weeks.push([...currentWeek]);
-      currentWeek = [];
     }
-  });
 
-  const getMonthPositions = (): Array<{ month: string; position: number }> => {
+    days.forEach((day) => {
+      currentWeek.push(day);
+
+      if (day.dayOfWeek === 6 || day === days[days.length - 1]) {
+        // Fill remaining slots if needed (only for the last week)
+        while (currentWeek.length < 7 && day === days[days.length - 1]) {
+          currentWeek.push({
+            date: "",
+            count: 0,
+            points: 0,
+            dayOfWeek: currentWeek.length,
+            isToday: false,
+            isFuture: false,
+          });
+        }
+        weeksList.push([...currentWeek]);
+        currentWeek = [];
+      }
+    });
+
+    return weeksList;
+  }, [days]);
+
+  const monthPositions = useMemo(() => {
     const cellWidth = 16; // 12px (w-3) + 4px (gap-1)
     const positions: Array<{ month: string; position: number }> = [];
 
@@ -210,9 +222,7 @@ export function GitHubHeatmap({ dailyActivity, className = "" }: HeatmapProps) {
     });
 
     return positions;
-  };
-
-  const monthPositions = getMonthPositions();
+  }, [weeks]);
 
   // Calculate total contributions for the selected year
   const totalContributions = yearActivity.reduce(
