@@ -28,7 +28,6 @@ export interface ContributorListingEntry {
   activity_breakdown: Record<string, { count: number; points: number }>;
   activeDays: number;
   hasRecentActivity: boolean;
-  daily_activity?: Array<{ date: string; count: number; points: number }>;
 }
 
 export interface PeopleListingData {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
+import { useSyncExternalStore, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -111,15 +111,14 @@ const defaultConfig: ActivityUIConfig = {
 
 
 const emptySubscribe = () => () => {};
-const getClientTime = () => Date.now();
-const getServerTime = () => null;
 
 export function ContributorDetail({ contributor }: ContributorDetailProps) {
-  const currentTime = useSyncExternalStore(
+  const mounted = useSyncExternalStore(
     emptySubscribe,
-    getClientTime,
-    getServerTime
+    () => true,
+    () => false
   );
+  const [clientNow] = useState(() => Date.now());
 
   const getActivityConfig = (activityType: string): ActivityUIConfig => {
     const type = activityType.toLowerCase();
@@ -156,45 +155,42 @@ export function ContributorDetail({ contributor }: ContributorDetailProps) {
     ? Math.round((contributor.total_points || 0) / totalDaysActive)
     : 0;
 
-  // Calculate streak
-  const sortedDates = [...recentActivity]
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-
-  // Deterministic baseline timestamp from dataset for SSR; switches to client Date.now() on mount
-  const baselineTimestamp = sortedDates[0]?.date
-    ? new Date(sortedDates[0].date).getTime()
-    : 0;
-  const activeNow =
-    currentTime !== null
-      ? new Date(currentTime)
-      : baselineTimestamp > 0
-      ? new Date(baselineTimestamp)
-      : new Date(0);
+  // Calculate streak using UTC dates only when mounted to avoid misleading SSR numbers
+  const sortedDates = [...recentActivity].sort(
+    (a, b) => new Date(b.date + "T00:00:00Z").getTime() - new Date(a.date + "T00:00:00Z").getTime()
+  );
 
   let currentStreak = 0;
-  const today = new Date(activeNow);
-  today.setHours(0, 0, 0, 0);
+  if (mounted) {
+    const nowDate = new Date(clientNow);
+    const todayUtcDays = Math.floor(
+      Date.UTC(nowDate.getUTCFullYear(), nowDate.getUTCMonth(), nowDate.getUTCDate()) /
+        (1000 * 60 * 60 * 24)
+    );
 
-  const uniqueDates = Array.from(new Set(sortedDates.map((d) => d.date)));
-  
-  let expectedDaysDiff = 0; // Start expecting today (0 days ago)
-  
-  for (const dateStr of uniqueDates) {
-    const activityDate = new Date(dateStr);
-    activityDate.setHours(0, 0, 0, 0);
-    const daysDiff = Math.floor((today.getTime() - activityDate.getTime()) / (1000 * 60 * 60 * 24));
+    const uniqueDates = Array.from(new Set(sortedDates.map((d) => d.date)));
+    let expectedDaysDiff = 0;
 
-    if (currentStreak === 0 && (daysDiff === 0 || daysDiff === 1)) {
-      currentStreak++;
-      expectedDaysDiff = daysDiff + 1;
-      continue;
-    }
+    for (const dateStr of uniqueDates) {
+      const [y, m, d] = dateStr.split("-").map(Number);
+      if (!y || !m || !d) continue;
+      const actUtcDays = Math.floor(
+        Date.UTC(y, m - 1, d) / (1000 * 60 * 60 * 24)
+      );
+      const daysDiff = todayUtcDays - actUtcDays;
 
-    if (daysDiff === expectedDaysDiff) {
-      currentStreak++;
-      expectedDaysDiff++;
-    } else {
-      break;
+      if (currentStreak === 0 && (daysDiff === 0 || daysDiff === 1)) {
+        currentStreak++;
+        expectedDaysDiff = daysDiff + 1;
+        continue;
+      }
+
+      if (daysDiff === expectedDaysDiff) {
+        currentStreak++;
+        expectedDaysDiff++;
+      } else {
+        break;
+      }
     }
   }
 
@@ -202,12 +198,12 @@ export function ContributorDetail({ contributor }: ContributorDetailProps) {
     ? (() => {
         const seen = new Set<string>();
         const unique: typeof contributor.activities = [];
-        
+
         for (const activity of contributor.activities) {
-          const identifier = activity.link 
-            ? `${activity.type}-${activity.link}` 
+          const identifier = activity.link
+            ? `${activity.type}-${activity.link}`
             : `${activity.type}-${activity.title}-${activity.occured_at}`;
-          
+
           if (!seen.has(identifier)) {
             seen.add(identifier);
             unique.push(activity);
@@ -217,37 +213,40 @@ export function ContributorDetail({ contributor }: ContributorDetailProps) {
       })()
     : [];
 
-  const effectiveTimeMs = currentTime ?? baselineTimestamp;
-  const thirtyDaysAgo =
-    effectiveTimeMs > 0 ? effectiveTimeMs - 30 * 24 * 60 * 60 * 1000 : 0;
+  const thirtyDaysAgo = mounted ? clientNow - 30 * 24 * 60 * 60 * 1000 : null;
   const recentContributions = uniqueContributions
     .filter((a) => {
       const t = new Date(a.occured_at).getTime();
-      return !isNaN(t) && t > 86400000 && t >= thirtyDaysAgo;
+      return !isNaN(t) && t > 86400000 && (thirtyDaysAgo === null || t >= thirtyDaysAgo);
     })
     .sort((a, b) => new Date(b.occured_at).getTime() - new Date(a.occured_at).getTime())
     .slice(0, 15);
 
-  const thisMonth = new Date(activeNow);
-  const monthlyActivity = recentActivity.filter((day) => {
-    const dayDate = new Date(day.date);
-    return (
-      dayDate.getMonth() === thisMonth.getMonth() &&
-      dayDate.getFullYear() === thisMonth.getFullYear()
-    );
-  });
+  const nowDate = mounted ? new Date(clientNow) : null;
+  const currentMonth = nowDate ? nowDate.getUTCMonth() : null;
+  const currentYear = nowDate ? nowDate.getUTCFullYear() : null;
+
+  const monthlyActivity =
+    mounted && currentMonth !== null && currentYear !== null
+      ? recentActivity.filter((day) => {
+          const parts = day.date.split("-").map(Number);
+          const y = parts[0];
+          const m = parts[1];
+          if (y === undefined || m === undefined) return false;
+          return y === currentYear && m - 1 === currentMonth;
+        })
+      : [];
 
   const monthlyPoints = monthlyActivity.reduce((sum, day) => sum + day.points, 0);
   const monthlyDays = monthlyActivity.length;
   const monthlyActivityTypes = new Set<string>();
-  if (contributor.activities) {
-    const currentMonth = thisMonth.getMonth();
-    const currentYear = thisMonth.getFullYear();
+  if (mounted && currentMonth !== null && currentYear !== null && contributor.activities) {
     for (const activity of contributor.activities) {
       const activityDate = new Date(activity.occured_at);
       if (
-        activityDate.getMonth() === currentMonth &&
-        activityDate.getFullYear() === currentYear
+        !isNaN(activityDate.getTime()) &&
+        activityDate.getUTCMonth() === currentMonth &&
+        activityDate.getUTCFullYear() === currentYear
       ) {
         monthlyActivityTypes.add(activity.type);
       }
@@ -255,9 +254,9 @@ export function ContributorDetail({ contributor }: ContributorDetailProps) {
   }
   const monthlyActivityTypesCount = monthlyActivityTypes.size;
   const maxPoints =
-  sortedActivities.length > 0
-    ? Math.max(...sortedActivities.map(([, d]) => d.points))
-    : 0;
+    sortedActivities.length > 0
+      ? Math.max(...sortedActivities.map(([, d]) => d.points))
+      : 0;
 
   const displayName = contributor.name || contributor.username;
   const displayUsername = `@${contributor.username}`;
@@ -267,7 +266,7 @@ export function ContributorDetail({ contributor }: ContributorDetailProps) {
       <Button
         asChild
         variant="outline"
-        className="mb-6 hover:bg-primary/10 cursor-pointer transition-colors"
+        className="mb-6 hover:bg-primary/10 transition-colors"
       >
         <Link href="/people/#contributors">
           <ArrowLeft className="w-4 h-4 mr-2" />
@@ -293,7 +292,7 @@ export function ContributorDetail({ contributor }: ContributorDetailProps) {
                         .toUpperCase()}
                     </AvatarFallback>
                   </Avatar>
-                  {currentStreak > 0 && (
+                  {mounted && currentStreak > 0 && (
                     <div className="absolute -bottom-3 -right-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white text-xs px-2 py-1 rounded-full font-bold shadow-lg">
                       {currentStreak}d streak
                     </div>
@@ -342,7 +341,7 @@ export function ContributorDetail({ contributor }: ContributorDetailProps) {
 
                   <div className="flex flex-col items-center p-4 rounded-xl bg-gradient-to-br from-green-50 via-green-50 to-green-100 dark:from-green-400 dark:to-green-300 border border-green-200 dark:border-green-800">
                     <TrendingUp className="w-6 h-6 text-green-600 mb-2" />
-                    <span className="font-bold text-xl text-green-700">{currentStreak}</span>
+                    <span className="font-bold text-xl text-green-700">{mounted ? currentStreak : "—"}</span>
                     <span className="text-xs text-green-600 text-center font-medium">Day Streak</span>
                   </div>
 
@@ -355,7 +354,7 @@ export function ContributorDetail({ contributor }: ContributorDetailProps) {
 
                 <Button
                   asChild
-                  className="w-full mt-4 bg-gradient-to-r cursor-pointer from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-md"
+                  className="w-full mt-4 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-md"
                 >
                   <a
                     href={`https://github.com/${contributor.username}`}
@@ -382,19 +381,19 @@ export function ContributorDetail({ contributor }: ContributorDetailProps) {
             <CardContent>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div className="text-center p-4 bg-background/50 rounded-lg">
-                  <div className="text-2xl font-bold text-primary">{monthlyPoints}</div>
+                  <div className="text-2xl font-bold text-primary">{mounted ? monthlyPoints : "—"}</div>
                   <div className="text-sm text-muted-foreground">Points Earned</div>
                 </div>
                 <div className="text-center p-4 bg-background/50 rounded-lg">
-                  <div className="text-2xl font-bold text-primary">{monthlyDays}</div>
+                  <div className="text-2xl font-bold text-primary">{mounted ? monthlyDays : "—"}</div>
                   <div className="text-sm text-muted-foreground">Active Days</div>
                 </div>
                 <div className="text-center p-4 bg-background/50 rounded-lg">
-                  <div className="text-2xl font-bold text-primary">{monthlyDays > 0 ? Math.round(monthlyPoints / monthlyDays) : 0}</div>
+                  <div className="text-2xl font-bold text-primary">{mounted ? (monthlyDays > 0 ? Math.round(monthlyPoints / monthlyDays) : 0) : "—"}</div>
                   <div className="text-sm text-muted-foreground">Daily Average</div>
                 </div>
                 <div className="text-center p-4 bg-background/50 rounded-lg">
-                  <div className="text-2xl font-bold text-primary">{monthlyActivityTypesCount}</div>
+                  <div className="text-2xl font-bold text-primary">{mounted ? monthlyActivityTypesCount : "—"}</div>
                   <div className="text-sm text-muted-foreground">Activity Types</div>
                 </div>
               </div>
@@ -483,8 +482,8 @@ export function ContributorDetail({ contributor }: ContributorDetailProps) {
                     const isValidDate = !isNaN(date.getTime()) && date.getTime() > 86400000;
                     const isVeryRecent = index < 3;
                     const daysAgo =
-                      currentTime !== null && isValidDate
-                        ? Math.floor((currentTime - date.getTime()) / (1000 * 60 * 60 * 24))
+                      mounted && isValidDate
+                        ? Math.floor((clientNow - date.getTime()) / (1000 * 60 * 60 * 24))
                         : null;
                     const config = getActivityConfig(activity.type);
 
@@ -507,7 +506,7 @@ export function ContributorDetail({ contributor }: ContributorDetailProps) {
                                   href={activity.link}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="font-medium text-sm line-clamp-2 mb-1 group-hover:text-primary transition-colors cursor-pointer hover:underline"
+                                  className="font-medium text-sm line-clamp-2 mb-1 group-hover:text-primary transition-colors hover:underline"
                                 >
                                   {activity.title}
                                 </a>

@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { cache } from "react";
 import { coreTeamMembers, alumniMembers } from "@/lib/team-data";
 import type {
   ActivityItem,
@@ -19,7 +20,7 @@ export const PERIOD_WEIGHT: Record<string, number> = {
   week: 7,
 };
 
-const KNOWN_PERIOD_FILES = new Set([
+export const KNOWN_PERIOD_FILES = new Set([
   "year.json",
   "2month.json",
   "month.json",
@@ -29,15 +30,6 @@ const KNOWN_PERIOD_FILES = new Set([
 ]);
 
 const warnedPeriods = new Set<string>();
-
-/**
- * Module-level cache to memoize loadPeopleData across SSG page renders and metadata calls during build.
- */
-let memoizedPeopleData: PeopleData | null = null;
-
-export function clearPeopleDataCache(): void {
-  memoizedPeopleData = null;
-}
 
 /**
  * Returns the period weight for known periods.
@@ -172,6 +164,64 @@ function extractActivities(raw: Record<string, unknown>): ActivityItem[] {
 }
 
 /**
+ * Strictly validates and normalizes the activity_breakdown map.
+ * Ensures every value is an object with valid numeric count and points.
+ */
+export function validateActivityBreakdown(
+  raw: unknown
+): Record<string, { count: number; points: number }> {
+  if (!raw || typeof raw !== "object" || Array.isArray(raw)) {
+    return {};
+  }
+  const result: Record<string, { count: number; points: number }> = {};
+  for (const [key, value] of Object.entries(raw as Record<string, unknown>)) {
+    if (value && typeof value === "object" && !Array.isArray(value)) {
+      const v = value as Record<string, unknown>;
+      const count =
+        typeof v.count === "number" && !isNaN(v.count) && v.count > 0
+          ? v.count
+          : 0;
+      const points =
+        typeof v.points === "number" && !isNaN(v.points) ? v.points : 0;
+      result[key] = { count, points };
+    }
+  }
+  return result;
+}
+
+/**
+ * Strictly validates and normalizes daily_activity entries.
+ * Drops null, non-object entries, or entries without a valid non-empty date string.
+ */
+export function validateDailyActivity(
+  raw: unknown
+): Array<{ date: string; count: number; points: number }> {
+  if (!Array.isArray(raw)) {
+    return [];
+  }
+  const result: Array<{ date: string; count: number; points: number }> = [];
+  for (const item of raw) {
+    if (item && typeof item === "object" && !Array.isArray(item)) {
+      const i = item as Record<string, unknown>;
+      if (typeof i.date === "string" && i.date.trim() !== "") {
+        const count =
+          typeof i.count === "number" && !isNaN(i.count) && i.count >= 0
+            ? i.count
+            : 0;
+        const points =
+          typeof i.points === "number" && !isNaN(i.points) ? i.points : 0;
+        result.push({
+          date: i.date.trim(),
+          count,
+          points,
+        });
+      }
+    }
+  }
+  return result;
+}
+
+/**
  * Aggregates contributor data across multiple leaderboard datasets.
  * Precedence is deterministic and does not depend on dataset input order.
  * Missing fields in higher-precedence datasets do not clobber valid values
@@ -296,20 +346,21 @@ export function aggregateLeaderboardData(
   }
 
   // Final normalization & placeholder step:
-  // Apply fallback defaults and generate missing placeholders to meet activity_breakdown counts (capped at 15).
+  // Strictly validate activity_breakdown and daily_activity shapes.
+  // Generate missing placeholders if needed to meet activity_breakdown counts.
+  // Sort activities newest-first once in the final step, then cap at 15.
   const people: ContributorEntry[] = [];
 
   for (const [username, raw] of allContributors.entries()) {
-    const breakdown =
-      raw.activity_breakdown && typeof raw.activity_breakdown === "object"
-        ? (raw.activity_breakdown as Record<string, { count: number; points: number }>)
-        : {};
+    const breakdown = validateActivityBreakdown(raw.activity_breakdown);
+    const daily = validateDailyActivity(raw.daily_activity);
 
-    const daily = Array.isArray(raw.daily_activity)
-      ? (raw.daily_activity as Array<{ date: string; count: number; points: number }>)
-      : [];
+    // Initial sort of collected activities newest-first
+    const activities = [...(contributorActivities.get(username) ?? [])].sort(
+      (a, b) =>
+        new Date(b.occured_at).getTime() - new Date(a.occured_at).getTime()
+    );
 
-    const activities = [...(contributorActivities.get(username) ?? [])];
     const expectedCount = Object.values(breakdown).reduce(
       (sum, v) => sum + (v && typeof v.count === "number" ? v.count : 0),
       0
@@ -329,11 +380,19 @@ export function aggregateLeaderboardData(
             occured_at: new Date(0).toISOString(),
             link: "",
             points:
-              info?.count > 0 ? Math.round(info.points / info.count) : 0,
+              info && info.count > 0 ? Math.round(info.points / info.count) : 0,
           });
         }
       }
     }
+
+    // Sort newest-first once in the final step before the cap so real activities
+    // take precedence over epoch-placeholder entries (timestamp 0), and single-dataset
+    // contributors are not truncated in arbitrary file order.
+    activities.sort(
+      (a, b) =>
+        new Date(b.occured_at).getTime() - new Date(a.occured_at).getTime()
+    );
 
     // Explicitly delete raw_activities and un-capped activities so large arrays from year.json
     // are not leaked into the normalized ContributorEntry, reducing RSC and API payload size.
@@ -378,13 +437,21 @@ export function aggregateLeaderboardData(
 
 /**
  * Loads leaderboard data from the filesystem and aggregates contributors.
- * Supports an optional custom directory path for deterministic testing.
+ * Supports an optional custom directory path and injectable file filter.
  */
-export function loadPeopleData(customPath?: string): PeopleData {
+export function loadPeopleData(
+  customPath?: string,
+  allowedFiles: Set<string> = KNOWN_PERIOD_FILES
+): PeopleData {
   const publicPath =
     customPath ?? path.join(process.cwd(), "public", "leaderboard");
 
   if (!fs.existsSync(publicPath)) {
+    if (!customPath && process.env.NODE_ENV !== "test") {
+      throw new Error(
+        `[loadPeopleData] Leaderboard directory does not exist at "${publicPath}". Refusing to build or regenerate with empty data.`
+      );
+    }
     return {
       updatedAt: 0,
       people: [],
@@ -393,12 +460,11 @@ export function loadPeopleData(customPath?: string): PeopleData {
     };
   }
 
-  const isCustom = customPath !== undefined;
   const files = fs.readdirSync(publicPath).filter((file) => {
     if (!file.endsWith(".json")) return false;
     if (file === "recent-activities.json" || file === "overview.json")
       return false;
-    return isCustom || KNOWN_PERIOD_FILES.has(file);
+    return allowedFiles.has(file);
   });
 
   const datasets: LeaderboardDataset[] = [];
@@ -415,6 +481,12 @@ export function loadPeopleData(customPath?: string): PeopleData {
   }
 
   const { latestUpdatedAt, people } = aggregateLeaderboardData(datasets);
+
+  if (!customPath && process.env.NODE_ENV !== "test" && people.length === 0) {
+    throw new Error(
+      `[loadPeopleData] Leaderboard directory at "${publicPath}" yielded zero contributors. Refusing to build or regenerate with empty data.`
+    );
+  }
 
   return {
     updatedAt: latestUpdatedAt,
@@ -434,9 +506,11 @@ export function toListingContributor(
 ): ContributorListingEntry {
   const sevenDaysAgo = referenceTime - 7 * 24 * 60 * 60 * 1000;
   const hasRecent = Array.isArray(entry.daily_activity)
-    ? entry.daily_activity.some(
-        (day) => new Date(day.date).getTime() >= sevenDaysAgo
-      )
+    ? entry.daily_activity.some((day) => {
+        if (!day || typeof day.date !== "string") return false;
+        const time = new Date(day.date).getTime();
+        return !isNaN(time) && time >= sevenDaysAgo;
+      })
     : false;
 
   return {
@@ -454,26 +528,26 @@ export function toListingContributor(
 }
 
 /**
- * Synchronous loader for full PeopleData (used by detail pages and API).
- * Memoized at the module level in production to avoid disk thrashing across SSG renders.
+ * Cached loader for full PeopleData (used by detail pages and API).
+ * Wrapped in React cache to memoize across Server Component render passes
+ * without leaking stale state across ISR cycles in a long-lived server process.
  */
-export function getPeopleData(customPath?: string): PeopleData {
-  if (!customPath && process.env.NODE_ENV === "production" && memoizedPeopleData) {
-    return memoizedPeopleData;
+export const getPeopleData = cache(
+  (customPath?: string, allowedFiles?: Set<string>): PeopleData => {
+    return loadPeopleData(customPath, allowedFiles);
   }
-  const data = loadPeopleData(customPath);
-  if (!customPath && process.env.NODE_ENV === "production") {
-    memoizedPeopleData = data;
-  }
-  return data;
-}
+);
 
 /**
  * Synchronous loader for listing-optimized PeopleListingData.
- * Trims profile-only activities and daily_activity arrays, reducing server-to-client payload by over 91%.
+ * Trims profile-only activities and daily_activity arrays, significantly
+ * reducing server-to-client payload for the listing view.
  */
-export function getPeopleListingData(customPath?: string): PeopleListingData {
-  const fullData = getPeopleData(customPath);
+export function getPeopleListingData(
+  customPath?: string,
+  allowedFiles?: Set<string>
+): PeopleListingData {
+  const fullData = getPeopleData(customPath, allowedFiles);
   const refTime = fullData.updatedAt > 0 ? fullData.updatedAt : Date.now();
   return {
     ...fullData,

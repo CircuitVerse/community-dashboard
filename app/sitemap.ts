@@ -10,48 +10,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const { updatedAt } = getPeopleData();
   const lastModified = updatedAt > 0 ? new Date(updatedAt) : new Date();
 
-  const staticRoutes: MetadataRoute.Sitemap = [
-    {
-      url: `${baseUrl}/`,
-      lastModified,
-      changeFrequency: "daily",
-      priority: 1.0,
-    },
+  const peopleListingRoute: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/people/`,
       lastModified,
       changeFrequency: "daily",
       priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/leaderboard/week/`,
-      lastModified,
-      changeFrequency: "daily",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/leaderboard/month/`,
-      lastModified,
-      changeFrequency: "daily",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/leaderboard/year/`,
-      lastModified,
-      changeFrequency: "daily",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/analytics/`,
-      lastModified,
-      changeFrequency: "daily",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/releases/`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.7,
     },
   ];
 
@@ -63,5 +27,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...contributorRoutes];
+  return [...peopleListingRoute, ...contributorRoutes];
 }

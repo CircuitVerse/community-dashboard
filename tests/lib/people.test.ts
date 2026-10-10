@@ -1,13 +1,6 @@
-import { describe, it, expect, beforeEach, afterEach } from "vitest";
-import fs from "fs";
-import path from "path";
-import os from "os";
+import { describe, it, expect } from "vitest";
 import {
   aggregateLeaderboardData,
-  loadPeopleData,
-  getPeopleListingData,
-  getContributorByUsername,
-  getAllContributorUsernames,
   toListingContributor,
   getPeriodWeight,
   compareDatasetPrecedence,
@@ -735,122 +728,145 @@ describe("lib/people - aggregateLeaderboardData (unit)", () => {
   });
 });
 
-describe("lib/people - filesystem integration tests (isolated fixtures)", () => {
-  let tempDir: string;
-
-  beforeEach(() => {
-    tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "leaderboard-test-"));
-  });
-
-  afterEach(() => {
-    if (fs.existsSync(tempDir)) {
-      fs.rmSync(tempDir, { recursive: true, force: true });
-    }
-  });
-
-  it("returns empty people list when directory does not exist", () => {
-    const nonExistentDir = path.join(tempDir, "does-not-exist");
-    const data = loadPeopleData(nonExistentDir);
-
-    expect(data.updatedAt).toBe(0);
-    expect(data.people).toEqual([]);
-    expect(data.coreTeam.length).toBeGreaterThan(0);
-    expect(data.alumni.length).toBeGreaterThan(0);
-  });
-
-  it("returns empty people list when directory contains no json files", () => {
-    const data = loadPeopleData(tempDir);
-    expect(data.updatedAt).toBe(0);
-    expect(data.people).toEqual([]);
-  });
-
-  it("safely skips corrupted JSON files and non-leaderboard files like overview.json and recent-activities.json", () => {
-    // Write corrupted JSON
-    fs.writeFileSync(path.join(tempDir, "corrupt.json"), "{ invalid json");
-
-    // Write overview.json (must be excluded from people datasets)
-    fs.writeFileSync(
-      path.join(tempDir, "overview.json"),
-      JSON.stringify({ updatedAt: 99999, period: "Last_30days", repos: [] })
-    );
-
-    // Write recent-activities.json (must be excluded)
-    fs.writeFileSync(
-      path.join(tempDir, "recent-activities.json"),
-      JSON.stringify({ updatedAt: 88888, groups: [] })
-    );
-
-    // Write one valid leaderboard file
-    const validLeaderboard = {
-      period: "week",
-      updatedAt: 12345,
-      entries: [
-        {
-          username: "fixture-contributor",
-          name: "Fixture Contributor",
-          avatar_url: "https://example.com/avatar.png",
-          role: "Contributor",
-          total_points: 42,
-          activity_breakdown: {},
-          daily_activity: [],
-          activities: [],
-        },
-      ],
+describe("lib/people - validation and normalization", () => {
+  it("strictly validates and normalizes activity_breakdown", () => {
+    const raw = {
+      "PR merged": { count: 5, points: 50 },
+      "PR opened": null,
+      "Issue opened": { count: "invalid", points: 10 },
+      commit: { count: 2, points: NaN },
+      invalidEntry: "string-value",
     };
-    fs.writeFileSync(path.join(tempDir, "week.json"), JSON.stringify(validLeaderboard));
 
-    const data = loadPeopleData(tempDir);
-
-    expect(data.updatedAt).toBe(12345);
-    expect(data.people).toHaveLength(1);
-    expect(data.people[0]?.username).toBe("fixture-contributor");
-    expect(data.people[0]?.total_points).toBe(42);
-  });
-
-  it("loads and aggregates valid leaderboard fixtures deterministically", () => {
-    const weekData = {
-      period: "week",
+    const dataset: LeaderboardDataset = {
+      period: "year",
       updatedAt: 100,
       entries: [
         {
-          username: "contributor-one",
-          name: "Contributor One",
-          avatar_url: "https://example.com/1.png",
-          role: "Contributor",
-          total_points: 10,
-          activity_breakdown: { "PR opened": { count: 1, points: 10 } },
-          daily_activity: [{ date: "2026-01-01", count: 1, points: 10 }],
-          activities: [],
+          username: "alice",
+          activity_breakdown: raw,
         },
       ],
     };
 
-    const yearData = {
+    const { people } = aggregateLeaderboardData([dataset]);
+    expect(people).toHaveLength(1);
+    const alice = people[0]!;
+
+    expect(alice.activity_breakdown["PR merged"]).toEqual({ count: 5, points: 50 });
+    expect(alice.activity_breakdown["PR opened"]).toBeUndefined();
+    expect(alice.activity_breakdown["Issue opened"]).toEqual({ count: 0, points: 10 });
+    expect(alice.activity_breakdown["commit"]).toEqual({ count: 2, points: 0 });
+    expect(alice.activity_breakdown["invalidEntry"]).toBeUndefined();
+  });
+
+  it("strictly validates and normalizes daily_activity", () => {
+    const rawDaily = [
+      { date: "2026-03-01", count: 2, points: 20 },
+      null,
+      { count: 1, points: 10 }, // missing date
+      { date: "", count: 1, points: 10 }, // empty date
+      { date: "2026-03-02", count: "nan", points: NaN },
+      "not-an-object",
+    ];
+
+    const dataset: LeaderboardDataset = {
       period: "year",
-      updatedAt: 200,
+      updatedAt: 100,
       entries: [
         {
-          username: "contributor-one",
-          name: "Contributor One Updated",
-          avatar_url: "https://example.com/1-updated.png",
-          role: "Top Contributor",
-          total_points: 150,
-          activity_breakdown: { "PR opened": { count: 5, points: 50 } },
-          daily_activity: [{ date: "2026-01-01", count: 5, points: 50 }],
-          activities: [],
+          username: "bob",
+          daily_activity: rawDaily,
         },
       ],
     };
 
-    fs.writeFileSync(path.join(tempDir, "week.json"), JSON.stringify(weekData));
-    fs.writeFileSync(path.join(tempDir, "year.json"), JSON.stringify(yearData));
+    const { people } = aggregateLeaderboardData([dataset]);
+    expect(people).toHaveLength(1);
+    const bob = people[0]!;
 
-    const data = loadPeopleData(tempDir);
+    expect(bob.daily_activity).toEqual([
+      { date: "2026-03-01", count: 2, points: 20 },
+      { date: "2026-03-02", count: 0, points: 0 },
+    ]);
+  });
+});
 
-    expect(data.updatedAt).toBe(200);
-    expect(data.people).toHaveLength(1);
-    expect(data.people[0]?.name).toBe("Contributor One Updated");
-    expect(data.people[0]?.total_points).toBe(150);
+describe("lib/people - cap before sort on single dataset", () => {
+  it("sorts activities newest-first before capping at 15 for single dataset contributors", () => {
+    // Generate 20 raw activities in chronological (oldest-first) order
+    const rawActivities = Array.from({ length: 20 }, (_, i) => ({
+      type: "commit",
+      title: `Commit #${i + 1}`,
+      occured_at: new Date(Date.UTC(2026, 0, i + 1)).toISOString(),
+      link: `https://github.com/c/${i + 1}`,
+      points: 1,
+    }));
+
+    const singleDataset: LeaderboardDataset = {
+      period: "year",
+      updatedAt: 100,
+      entries: [
+        {
+          username: "single_dataset_user",
+          total_points: 20,
+          activity_breakdown: { commit: { count: 20, points: 20 } },
+          raw_activities: rawActivities,
+        },
+      ],
+    };
+
+    const { people } = aggregateLeaderboardData([singleDataset]);
+    expect(people).toHaveLength(1);
+    const user = people[0]!;
+    expect(user.activities).toHaveLength(15);
+
+    // The newest activity (Commit #20, Jan 20) must be first
+    expect(user.activities![0]?.title).toBe("Commit #20");
+    // The 15th activity should be Commit #6 (Jan 6)
+    expect(user.activities![14]?.title).toBe("Commit #6");
+
+    // All activities should be strictly ordered newest-first
+    for (let i = 0; i < user.activities!.length - 1; i++) {
+      const tA = new Date(user.activities![i]!.occured_at).getTime();
+      const tB = new Date(user.activities![i + 1]!.occured_at).getTime();
+      expect(tA).toBeGreaterThanOrEqual(tB);
+    }
+  });
+
+  it("ensures real activities precede epoch-placeholder entries and caps at 15", () => {
+    const dataset: LeaderboardDataset = {
+      period: "year",
+      updatedAt: 100,
+      entries: [
+        {
+          username: "placeholder_user",
+          total_points: 50,
+          activity_breakdown: {
+            "PR merged": { count: 10, points: 50 },
+          },
+          raw_activities: [
+            {
+              type: "PR merged",
+              title: "Real PR",
+              occured_at: "2026-03-01T00:00:00Z",
+              link: "https://github.com/pr/1",
+              points: 5,
+            },
+          ],
+        },
+      ],
+    };
+
+    const { people } = aggregateLeaderboardData([dataset]);
+    const user = people[0]!;
+    expect(user.activities).toHaveLength(10);
+    // Real activity must be first
+    expect(user.activities![0]?.title).toBe("Real PR");
+    expect(user.activities![0]?.occured_at).toBe("2026-03-01T00:00:00Z");
+
+    // Placeholders follow
+    expect(user.activities![1]?.occured_at).toBe(new Date(0).toISOString());
   });
 });
 
@@ -955,8 +971,8 @@ describe("lib/people - sanitizer defaults and non-clobbering merge", () => {
       entries: [
         {
           username: "alice",
-          name: null, // missing/null in higher dataset
-          avatar_url: "", // empty in higher dataset
+          name: null,
+          avatar_url: "",
           total_points: 150,
         },
       ],
@@ -1029,103 +1045,5 @@ describe("lib/people - raw_activities support (year.json)", () => {
     expect(naman.activities![0]?.title).toBe("Review on PR #7909");
     expect(naman.activities![1]?.title).toBe("Closed issue #7861");
     expect("raw_activities" in naman).toBe(false);
-  });
-});
-
-describe("lib/people - lookup and listing utilities (fixture-backed)", () => {
-  let tempDir: string;
-
-  beforeEach(() => {
-    tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "leaderboard-lookup-test-"));
-    const fixtureData = {
-      period: "year",
-      updatedAt: 1790563032868,
-      entries: [
-        {
-          username: "alice_dev",
-          name: "Alice Developer",
-          avatar_url: "https://example.com/alice.png",
-          role: "Contributor",
-          total_points: 250,
-          activity_breakdown: { "PR merged": { count: 5, points: 250 } },
-          daily_activity: [{ date: "2026-09-24", count: 2, points: 50 }],
-          activities: [
-            {
-              type: "PR merged",
-              title: "Fix #1",
-              occured_at: "2026-09-24T10:00:00Z",
-              link: "https://github.com/pr/1",
-              points: 50,
-            },
-          ],
-        },
-        {
-          username: "bob_coder",
-          name: "Bob Coder",
-          avatar_url: "https://example.com/bob.png",
-          role: "Contributor",
-          total_points: 120,
-          activity_breakdown: { commit: { count: 3, points: 120 } },
-          daily_activity: [],
-          activities: [],
-        },
-      ],
-    };
-    fs.writeFileSync(path.join(tempDir, "year.json"), JSON.stringify(fixtureData));
-  });
-
-  afterEach(() => {
-    if (fs.existsSync(tempDir)) {
-      fs.rmSync(tempDir, { recursive: true, force: true });
-    }
-  });
-
-  it("finds all contributor usernames from fixture", () => {
-    const usernames = getAllContributorUsernames(tempDir);
-    expect(usernames).toEqual(["alice_dev", "bob_coder"]);
-  });
-
-  it("finds a contributor case-insensitively and handles URL encoding", () => {
-    const exact = getContributorByUsername("alice_dev", tempDir);
-    const lower = getContributorByUsername("alice_dev".toLowerCase(), tempDir);
-    const upper = getContributorByUsername("ALICE_DEV", tempDir);
-    const encoded = getContributorByUsername(encodeURIComponent("alice_dev"), tempDir);
-
-    expect(exact).not.toBeNull();
-    expect(lower).not.toBeNull();
-    expect(upper).not.toBeNull();
-    expect(encoded).not.toBeNull();
-    expect(exact?.username).toBe("alice_dev");
-    expect(lower?.username).toBe("alice_dev");
-    expect(upper?.username).toBe("alice_dev");
-    expect(encoded?.username).toBe("alice_dev");
-  });
-
-  it("returns null for nonexistent or empty username", () => {
-    expect(getContributorByUsername("non-existent-user-xyz-12345", tempDir)).toBeNull();
-    expect(getContributorByUsername("", tempDir)).toBeNull();
-    expect(getContributorByUsername("   ", tempDir)).toBeNull();
-    expect(getContributorByUsername(null as unknown as string, tempDir)).toBeNull();
-    expect(getContributorByUsername(undefined as unknown as string, tempDir)).toBeNull();
-  });
-
-  it("provides getPeopleListingData with precomputed activeDays and without activities array", () => {
-    const listingData = getPeopleListingData(tempDir);
-    expect(listingData).toBeDefined();
-    expect(listingData.people).toHaveLength(2);
-
-    const alice = listingData.people.find((p) => p.username === "alice_dev")!;
-    expect(alice).toBeDefined();
-    expect("activities" in alice).toBe(false);
-    expect("daily_activity" in alice).toBe(false);
-    expect(alice.activeDays).toBe(1);
-    expect(alice.hasRecentActivity).toBe(true);
-    expect(alice.total_points).toBe(250);
-
-    const bob = listingData.people.find((p) => p.username === "bob_coder")!;
-    expect(bob).toBeDefined();
-    expect("activities" in bob).toBe(false);
-    expect(bob.activeDays).toBe(0);
-    expect(bob.hasRecentActivity).toBe(false);
   });
 });

@@ -15,11 +15,11 @@ interface TooltipData {
   y: number;
 }
 
-// Helper to format date as YYYY-MM-DD in local timezone
-const formatDateLocal = (date: Date): string => {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
+// Helper to format date as YYYY-MM-DD in UTC
+const formatDateUTC = (date: Date): string => {
+  const year = date.getUTCFullYear();
+  const month = String(date.getUTCMonth() + 1).padStart(2, "0");
+  const day = String(date.getUTCDate()).padStart(2, "0");
   return `${year}-${month}-${day}`;
 };
 
@@ -43,14 +43,14 @@ export function GitHubHeatmap({ dailyActivity, className = "" }: HeatmapProps) {
   const availableYears = useMemo(() => {
     const years = new Set(dailyActivity.map((d) => getYearFromDateStr(d.date)));
     // Add current year if not present (for empty states)
-    years.add(new Date().getFullYear());
+    years.add(new Date().getUTCFullYear());
     // Sort ascending so buttons show: 2025, 2026 (bigger year last)
     return Array.from(years).sort((a, b) => a - b);
   }, [dailyActivity]);
 
-  // Default to current year (2026)
+  // Default to current year
   const [selectedYear, setSelectedYear] = useState(() => {
-    return new Date().getFullYear();
+    return new Date().getUTCFullYear();
   });
 
   // Filter activity for selected year
@@ -64,24 +64,23 @@ export function GitHubHeatmap({ dailyActivity, className = "" }: HeatmapProps) {
     return new Map(yearActivity.map((day) => [day.date, day]));
   }, [yearActivity]);
 
-  // Generate days for the full calendar year (GitHub style - shows all 12 months)
+  // Generate days for the full calendar year (GitHub style - shows all 12 months in UTC)
   const generateDays = () => {
     const days = [];
     const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    const todayStr = formatDateLocal(today);
-    const currentYear = today.getFullYear();
+    const todayStr = formatDateUTC(today);
+    const currentYear = today.getUTCFullYear();
     const isCurrentYear = selectedYear === currentYear;
 
     // Always show full year: Jan 1 to Dec 31
-    const startDate = new Date(selectedYear, 0, 1);
-    const endDate = new Date(selectedYear, 11, 31);
+    const startDate = new Date(Date.UTC(selectedYear, 0, 1));
+    const endDate = new Date(Date.UTC(selectedYear, 11, 31));
 
     const currentDate = new Date(startDate);
 
     while (currentDate <= endDate) {
-      const dateStr = formatDateLocal(currentDate);
-      const isFuture = isCurrentYear && currentDate > today;
+      const dateStr = formatDateUTC(currentDate);
+      const isFuture = isCurrentYear && dateStr > todayStr;
 
       const activity = activityMap.get(dateStr);
 
@@ -89,12 +88,12 @@ export function GitHubHeatmap({ dailyActivity, className = "" }: HeatmapProps) {
         date: dateStr,
         count: activity?.count || 0,
         points: activity?.points || 0,
-        dayOfWeek: currentDate.getDay(),
+        dayOfWeek: currentDate.getUTCDay(),
         isToday: mounted && isCurrentYear && dateStr === todayStr,
         isFuture: isFuture,
       });
 
-      currentDate.setDate(currentDate.getDate() + 1);
+      currentDate.setUTCDate(currentDate.getUTCDate() + 1);
     }
 
     return days;
@@ -193,8 +192,10 @@ export function GitHubHeatmap({ dailyActivity, className = "" }: HeatmapProps) {
       const firstDay = week.find((day) => day.date);
       if (!firstDay) return;
 
-      const date = new Date(firstDay.date + "T00:00:00");
-      const month = date.getMonth();
+      const parts = firstDay.date.split("-").map(Number);
+      const m = parts[1];
+      if (m === undefined || isNaN(m)) return;
+      const month = m - 1;
       const position = weekIndex * cellWidth;
 
       // Only add when month changes and labels won't overlap

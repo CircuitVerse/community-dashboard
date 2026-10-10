@@ -29,8 +29,9 @@ export function PeopleClientView({ initialData }: PeopleClientViewProps) {
   const setSearchQuery = setUserQuery;
 
   // Synchronize URL search params with local search state without refreshing route
+  // Only touch the URL once the user has actively typed to avoid wiping ?q= on hydration
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (userQuery === null || typeof window === "undefined") return;
     const url = new URL(window.location.href);
     const currentQ = url.searchParams.get("q") || "";
     const trimmed = searchQuery.trim();
@@ -43,7 +44,7 @@ export function PeopleClientView({ initialData }: PeopleClientViewProps) {
       }
       window.history.replaceState(null, "", url.toString());
     }
-  }, [searchQuery]);
+  }, [userQuery, searchQuery]);
 
   const filteredPeople = useMemo(() => {
     if (!searchQuery.trim()) return people;

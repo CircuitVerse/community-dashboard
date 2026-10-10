@@ -4,14 +4,7 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import {
-  Trophy,
-  GitPullRequest,
-  GitMerge,
-  Calendar,
-  TrendingUp,
-  AlertCircle,
-} from "lucide-react";
+import { Trophy, GitPullRequest, GitMerge, Calendar, TrendingUp, AlertCircle } from "lucide-react";
 import type { ContributorListingEntry } from "@/types/people";
 
 interface ContributorCardProps {
@@ -19,6 +12,9 @@ interface ContributorCardProps {
   variant?: "grid" | "list";
   showStats?: boolean;
 }
+
+
+/* ---------------- ORDER + ICON NORMALIZATION ---------------- */
 
 const ACTIVITY_ORDER = ["PR merged", "PR opened", "Issue opened"];
 
@@ -41,18 +37,21 @@ export function ContributorCard({
   variant = "grid",
   showStats = true,
 }: ContributorCardProps) {
+  // Build ordered activities array with conditional inclusion
   const topActivities: [string, { count: number; points: number }][] = [];
-
-  ACTIVITY_ORDER.forEach((activityType) => {
+  
+  ACTIVITY_ORDER.forEach(activityType => {
     const activityData = contributor.activity_breakdown?.[activityType];
     if (activityData && activityData.count > 0) {
       topActivities.push([activityType, activityData]);
     }
   });
-
   const activeDays = contributor.activeDays;
+
   const avgPerDay =
-    activeDays > 0 ? Math.round(contributor.total_points / activeDays) : 0;
+    activeDays > 0
+      ? Math.round(contributor.total_points / activeDays)
+      : 0;
 
   return (
     <Link
@@ -60,9 +59,7 @@ export function ContributorCard({
       className="block group focus:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-xl h-full"
     >
       <Card
-        className={`hover:shadow-lg transition-all h-full ${
-          variant === "list" ? "flex items-center" : ""
-        }`}
+        className={`hover:shadow-lg transition-all h-full ${variant === "list" ? "flex items-center" : ""}`}
       >
         <CardContent className="p-4 text-center">
           <Avatar className="w-20 h-20 mx-auto mb-3">
