@@ -1,8 +1,10 @@
 "use client";
 
 import { useMemo } from "react";
+import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { 
   Users, 
   Trophy, 
@@ -13,64 +15,43 @@ import {
   Target,
   GitPullRequest
 } from "lucide-react";
-
-interface ContributorEntry {
-  username: string;
-  name: string | null;
-  avatar_url: string;
-  role: string;
-  total_points: number;
-  activity_breakdown: Record<string, { count: number; points: number }>;
-  daily_activity: Array<{ date: string; count: number; points: number }>;
-}
+import type { ContributorListingEntry } from "@/types/people";
 
 interface PeopleStatsProps {
-  contributors: ContributorEntry[];
-  allContributors: ContributorEntry[];
-  onContributorClick?: (contributor: ContributorEntry) => void;
+  contributors: ContributorListingEntry[];
+  allContributors: ContributorListingEntry[];
 }
 
-export function PeopleStats({ contributors, allContributors, onContributorClick }: PeopleStatsProps) {
+export function PeopleStats({ contributors, allContributors }: PeopleStatsProps) {
 
   // Calculate stats
   const totalContributors = contributors.length;
   const totalPoints = contributors.reduce((sum, c) => sum + (c.total_points || 0), 0);
   const averagePoints = totalContributors > 0 ? Math.round(totalPoints / totalContributors) : 0;
-  
 
   // Activity stats
   const totalActivities = contributors.reduce((sum, c) => {
     return sum + Object.values(c.activity_breakdown || {}).reduce((actSum, act) => actSum + act.count, 0);
   }, 0);
 
-  
-// GLOBAL ranking (based on full contributors list)
-const topContributors = useMemo(() => {
-  return [...allContributors]
-    .sort((a, b) => (b.total_points || 0) - (a.total_points || 0))
-    .slice(0, 5)
-    .map((contributor, index) => ({
-      ...contributor,
-      rank: index + 1,
-    }));
-}, [allContributors]);
+  // GLOBAL ranking (based on full contributors list)
+  const topContributors = useMemo(() => {
+    return [...allContributors]
+      .sort((a, b) => (b.total_points || 0) - (a.total_points || 0))
+      .slice(0, 5)
+      .map((contributor, index) => ({
+        ...contributor,
+        rank: index + 1,
+      }));
+  }, [allContributors]);
 
-
-  // Active days stats
-  const activeDaysData = contributors.map(c => c.daily_activity?.length || 0);
+  // Active days stats using precomputed activeDays
+  const activeDaysData = contributors.map(c => c.activeDays);
   const totalActiveDays = activeDaysData.reduce((sum, days) => sum + days, 0);
   const averageActiveDays = totalContributors > 0 ? Math.round(totalActiveDays / totalContributors) : 0;
 
-  // Recent activity (last 7 days)
-  const sevenDaysAgo = new Date();
-  sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
-  
-  const recentlyActive = contributors.filter(contributor => {
-    const lastActivity = contributor.daily_activity?.find(day => 
-      new Date(day.date) >= sevenDaysAgo
-    );
-    return !!lastActivity;
-  }).length;
+  // Recent activity using precomputed hasRecentActivity
+  const recentlyActive = contributors.filter(c => c.hasRecentActivity).length;
 
   // Calculate activity type distribution
   const activityTypes = contributors.reduce((acc, contributor) => {
@@ -141,7 +122,7 @@ const topContributors = useMemo(() => {
                 <TrendingUp className="w-6 h-6 text-white" />
               </div>
               <div>
-                <p className="text-md text-white/80">Active This Year</p>
+                <p className="text-md text-white/80">Active This Week</p>
                 <p className="text-2xl font-bold text-white">{recentlyActive}</p>
                 <p className="text-sm text-white/70">{totalContributors > 0 ? Math.round((recentlyActive/totalContributors)*100) : 0}% of community</p>
               </div>
@@ -161,10 +142,11 @@ const topContributors = useMemo(() => {
           <CardContent>
             <div className="space-y-4">
               {topContributors.map((contributor, index) => (
-                <div 
+                <Link
                   key={contributor.username} 
-                  className="flex items-center gap-3 p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors cursor-pointer"
-                  onClick={() => onContributorClick?.(contributor)}
+                  href={`/people/${encodeURIComponent(contributor.username)}/`}
+                  prefetch={false}
+                  className="flex items-center gap-3 p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors group focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${{
                     0: 'bg-gradient-to-br from-yellow-400 to-yellow-600 text-white shadow-md',
@@ -173,11 +155,17 @@ const topContributors = useMemo(() => {
                   }[index] || 'bg-gradient-to-br from-primary/20 to-primary/40 text-primary font-semibold'}`}>
                     {contributor.rank}
                   </div>
-                  <img 
-                    src={contributor.avatar_url} 
-                    alt={contributor.name || contributor.username}
-                    className="w-10 h-10 rounded-full ring-2 ring-primary/10"
-                  />
+                  <Avatar className="w-10 h-10 ring-2 ring-primary/10">
+                    <AvatarImage
+                      src={contributor.avatar_url}
+                      alt={contributor.name || contributor.username}
+                    />
+                    <AvatarFallback>
+                      {(contributor.name || contributor.username)
+                        .slice(0, 2)
+                        .toUpperCase()}
+                    </AvatarFallback>
+                  </Avatar>
                   <div className="flex-1 min-w-0">
                     <p className="font-semibold text-sm truncate">
                       {contributor.name || contributor.username}
@@ -191,10 +179,10 @@ const topContributors = useMemo(() => {
                       {contributor.total_points || 0} pts
                     </Badge>
                     <p className="text-xs text-muted-foreground mt-1">
-                      {contributor.daily_activity?.length || 0} active days
+                      {contributor.activeDays} active days
                     </p>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </CardContent>
@@ -218,11 +206,15 @@ const topContributors = useMemo(() => {
                 <div className="text-sm text-muted-foreground">Avg Active Days</div>
               </div>
               <div className="text-center p-4 bg-muted/30 rounded-lg">
-                <div className="text-2xl font-bold text-green-600 dark:text-green-400">{Math.round(totalActivities / totalContributors)}</div>
+                <div className="text-2xl font-bold text-green-600 dark:text-green-400">
+                  {totalContributors > 0 ? Math.round(totalActivities / totalContributors) : 0}
+                </div>
                 <div className="text-sm text-muted-foreground">Avg Activities</div>
               </div>
               <div className="text-center p-4 bg-muted/30 rounded-lg">
-                <div className="text-2xl font-bold text-green-600 dark:text-green-400">{Math.round((recentlyActive / totalContributors) * 100)}%</div>
+                <div className="text-2xl font-bold text-green-600 dark:text-green-400">
+                  {totalContributors > 0 ? Math.round((recentlyActive / totalContributors) * 100) : 0}%
+                </div>
                 <div className="text-sm text-muted-foreground">Weekly Active Rate</div>
               </div>
             </div>

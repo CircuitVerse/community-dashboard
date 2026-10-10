@@ -1,27 +1,16 @@
 "use client";
 
 import { ContributorCard } from "./ContributorCard";
-
-interface ContributorEntry {
-  username: string;
-  name: string | null;
-  avatar_url: string;
-  role: string;
-  total_points: number;
-  activity_breakdown: Record<string, { count: number; points: number }>;
-  daily_activity: Array<{ date: string; count: number; points: number }>;
-}
+import type { ContributorListingEntry } from "@/types/people";
 
 interface PeopleGridProps {
-  contributors: ContributorEntry[];
-  onContributorClick: (contributor: ContributorEntry) => void;
+  contributors: ContributorListingEntry[];
   viewMode?: 'grid' | 'list';
   loading?: boolean;
 }
 
 export function PeopleGrid({ 
   contributors, 
-  onContributorClick, 
   viewMode = 'grid',
   loading = false 
 }: PeopleGridProps) {
@@ -95,7 +84,6 @@ export function PeopleGrid({
         <ContributorCard
           key={contributor.username}
           contributor={contributor}
-          onClick={onContributorClick}
           variant={viewMode}
           showStats={true}
         />

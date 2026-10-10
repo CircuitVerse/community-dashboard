@@ -23,7 +23,15 @@ const geistMono = Geist_Mono({
 // Get config for metadata
 const config = getConfig();
 
+let metadataBase: URL | undefined;
+try {
+  metadataBase = new URL(config.meta.site_url);
+} catch {
+  metadataBase = undefined;
+}
+
 export const metadata: Metadata = {
+  ...(metadataBase ? { metadataBase } : {}),
   title: config.meta.title,
   description: config.meta.description,
   icons: {
