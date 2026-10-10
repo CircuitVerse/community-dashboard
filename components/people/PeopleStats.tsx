@@ -145,6 +145,7 @@ export function PeopleStats({ contributors, allContributors }: PeopleStatsProps)
                 <Link
                   key={contributor.username} 
                   href={`/people/${encodeURIComponent(contributor.username)}/`}
+                  prefetch={false}
                   className="flex items-center gap-3 p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors group focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${{

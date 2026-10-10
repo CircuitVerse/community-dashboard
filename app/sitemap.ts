@@ -18,8 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     baseUrl = rawUrl.replace(/\/$/, "") || "https://circuitverse.org";
   }
 
-  const isProd = process.env.NODE_ENV === "production";
-  const { updatedAt } = getPeopleData(undefined, { strict: isProd });
+  const { updatedAt } = getPeopleData();
   const lastModified = updatedAt > 0 ? new Date(updatedAt) : new Date();
 
   const peopleListingRoute: MetadataRoute.Sitemap = [
@@ -31,7 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const usernames = getAllContributorUsernames(undefined, { strict: isProd });
+  const usernames = getAllContributorUsernames();
   const contributorRoutes: MetadataRoute.Sitemap = usernames.map((username) => ({
     url: `${baseUrl}/people/${encodeURIComponent(username)}/`,
     lastModified,

@@ -133,23 +133,36 @@ export function isBotUsername(rawUsername: string): boolean {
  * Note: year.json stores raw activity objects under `raw_activities`, whereas
  * derived period files (week.json, month.json, etc.) store them under `activities`.
  */
+let hasWarnedInvalidOccuredAt = false;
+
 function extractActivities(raw: Record<string, unknown>): ActivityItem[] {
-  const rawList = Array.isArray(raw.activities)
-    ? raw.activities
-    : Array.isArray(raw.raw_activities)
-    ? raw.raw_activities
-    : [];
+  const acts = Array.isArray(raw.activities) ? raw.activities : [];
+  const rawActs = Array.isArray(raw.raw_activities) ? raw.raw_activities : [];
+  // Ensure raw_activities is not shadowed if activities is an empty array
+  const rawList =
+    acts.length > 0 && rawActs.length > 0
+      ? [...acts, ...rawActs]
+      : acts.length > 0
+      ? acts
+      : rawActs;
 
   const items: ActivityItem[] = [];
   for (const act of rawList) {
     if (act && typeof act === "object") {
       const a = act as Record<string, unknown>;
       if (typeof a.type === "string") {
-        if (typeof a.occured_at !== "string") {
-          continue;
-        }
-        const time = new Date(a.occured_at).getTime();
-        if (isNaN(time)) {
+        if (
+          typeof a.occured_at !== "string" ||
+          isNaN(new Date(a.occured_at).getTime())
+        ) {
+          if (!hasWarnedInvalidOccuredAt) {
+            hasWarnedInvalidOccuredAt = true;
+            console.warn(
+              `[extractActivities] Dropped activity with missing or unparseable occured_at: "${String(
+                a.occured_at
+              )}"`
+            );
+          }
           continue;
         }
 
@@ -337,12 +350,18 @@ export function aggregateLeaderboardData(
         ...existing,
         ...entry,
         username,
-        name: typeof entry.name === "string" ? entry.name : existing.name,
+        name:
+          typeof entry.name === "string" && entry.name.trim() !== ""
+            ? entry.name
+            : existing.name,
         avatar_url:
           typeof entry.avatar_url === "string" && entry.avatar_url.trim() !== ""
             ? entry.avatar_url
             : existing.avatar_url,
-        role: typeof entry.role === "string" ? entry.role : existing.role,
+        role:
+          typeof entry.role === "string" && entry.role.trim() !== ""
+            ? entry.role
+            : existing.role,
         total_points:
           typeof entry.total_points === "number" && !isNaN(entry.total_points)
             ? entry.total_points
@@ -440,6 +459,10 @@ export interface LoadPeopleDataOptions {
   strict?: boolean;
 }
 
+export const DEFAULT_LOAD_OPTIONS: LoadPeopleDataOptions = Object.freeze({
+  strict: process.env.NODE_ENV === "production",
+});
+
 function parseLoadOptions(options?: LoadPeopleDataOptions | Set<string>): {
   allowedFiles: Set<string>;
   strict: boolean;
@@ -452,7 +475,7 @@ function parseLoadOptions(options?: LoadPeopleDataOptions | Set<string>): {
   }
   return {
     allowedFiles: options?.allowedFiles ?? KNOWN_PERIOD_FILES,
-    strict: Boolean(options?.strict),
+    strict: options?.strict ?? (process.env.NODE_ENV === "production"),
   };
 }
 
@@ -462,7 +485,7 @@ function parseLoadOptions(options?: LoadPeopleDataOptions | Set<string>): {
  */
 export function loadPeopleData(
   customPath?: string,
-  options?: LoadPeopleDataOptions | Set<string>
+  options: LoadPeopleDataOptions | Set<string> = DEFAULT_LOAD_OPTIONS
 ): PeopleData {
   const { allowedFiles, strict } = parseLoadOptions(options);
   const publicPath =
@@ -563,7 +586,7 @@ export function toListingContributor(
 export const getPeopleData = cache(
   (
     customPath?: string,
-    options?: LoadPeopleDataOptions | Set<string>
+    options: LoadPeopleDataOptions | Set<string> = DEFAULT_LOAD_OPTIONS
   ): PeopleData => {
     return loadPeopleData(customPath, options);
   }
@@ -576,7 +599,7 @@ export const getPeopleData = cache(
  */
 export function getPeopleListingData(
   customPath?: string,
-  options?: LoadPeopleDataOptions | Set<string>
+  options: LoadPeopleDataOptions | Set<string> = DEFAULT_LOAD_OPTIONS
 ): PeopleListingData {
   const fullData = getPeopleData(customPath, options);
   const refTime = fullData.updatedAt > 0 ? fullData.updatedAt : Date.now();
@@ -592,7 +615,7 @@ export function getPeopleListingData(
 export function getContributorByUsername(
   username: string,
   customPath?: string,
-  options?: LoadPeopleDataOptions | Set<string>
+  options: LoadPeopleDataOptions | Set<string> = DEFAULT_LOAD_OPTIONS
 ): ContributorEntry | null {
   if (!username || typeof username !== "string") return null;
 
@@ -615,7 +638,7 @@ export function getContributorByUsername(
  */
 export function getAllContributorUsernames(
   customPath?: string,
-  options?: LoadPeopleDataOptions | Set<string>
+  options: LoadPeopleDataOptions | Set<string> = DEFAULT_LOAD_OPTIONS
 ): string[] {
   const { people } = getPeopleData(customPath, options);
   return people.map((p) => p.username);

@@ -13,7 +13,6 @@ export const metadata: Metadata = {
 };
 
 export default function PeoplePage() {
-  const isProd = process.env.NODE_ENV === "production";
-  const data = getPeopleListingData(undefined, { strict: isProd });
+  const data = getPeopleListingData();
   return <PeopleClientView initialData={data} />;
 }

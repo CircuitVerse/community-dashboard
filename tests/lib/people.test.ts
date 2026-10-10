@@ -1160,5 +1160,65 @@ describe("lib/people - strict validation and edge cases", () => {
     expect(user.total_points).toBe(100);
     expect(user.activities).toHaveLength(2);
   });
-});
 
+  it("does not allow empty activities array to shadow non-empty raw_activities", () => {
+    const dataset: LeaderboardDataset = {
+      period: "year",
+      updatedAt: 100,
+      entries: [
+        {
+          username: "raw_fallback_user",
+          total_points: 50,
+          activities: [], // empty activities array
+          raw_activities: [
+            {
+              type: "commit",
+              title: "Raw commit",
+              occured_at: "2026-03-01T00:00:00Z",
+              points: 5,
+            },
+          ],
+        },
+      ],
+    };
+
+    const { people } = aggregateLeaderboardData([dataset]);
+    const user = people[0]!;
+    expect(user.activities).toHaveLength(1);
+    expect(user.activities![0]?.title).toBe("Raw commit");
+  });
+
+  it("does not overwrite valid name or role with empty strings during merge", () => {
+    const ds1: LeaderboardDataset = {
+      period: "week",
+      updatedAt: 100,
+      entries: [
+        {
+          username: "empty_string_user",
+          name: "Original Name",
+          role: "Core Team",
+          total_points: 50,
+        },
+      ],
+    };
+
+    const ds2: LeaderboardDataset = {
+      period: "year",
+      updatedAt: 200,
+      entries: [
+        {
+          username: "empty_string_user",
+          name: "   ", // whitespace only
+          role: "", // empty string
+          total_points: 100,
+        },
+      ],
+    };
+
+    const { people } = aggregateLeaderboardData([ds1, ds2]);
+    const user = people[0]!;
+    expect(user.name).toBe("Original Name");
+    expect(user.role).toBe("Core Team");
+    expect(user.total_points).toBe(100);
+  });
+});

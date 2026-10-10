@@ -304,18 +304,13 @@ describe("lib/people - lookup and listing utilities (fixture-backed)", () => {
 });
 
 describe("lib/people - filesystem real directory validation", () => {
-  it("exercises KNOWN_PERIOD_FILES against the real public/leaderboard directory without warnings", () => {
+  it("loads real public/leaderboard directory and finds year.json with contributors", () => {
     const realDir = path.join(process.cwd(), "public", "leaderboard");
-    if (!fs.existsSync(realDir)) return;
+    expect(fs.existsSync(realDir)).toBe(true);
+    expect(fs.existsSync(path.join(realDir, "year.json"))).toBe(true);
 
-    // Verify all KNOWN_PERIOD_FILES exist in the real directory
-    for (const filename of KNOWN_PERIOD_FILES) {
-      expect(fs.existsSync(path.join(realDir, filename))).toBe(true);
-    }
-
-    const data = loadPeopleData(realDir, KNOWN_PERIOD_FILES);
+    const data = loadPeopleData(realDir);
     expect(data.people.length).toBeGreaterThan(0);
     expect(data.updatedAt).toBeGreaterThan(0);
   });
 });
-

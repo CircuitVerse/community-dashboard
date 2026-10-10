@@ -56,6 +56,7 @@ export function ContributorCard({
   return (
     <Link
       href={`/people/${encodeURIComponent(contributor.username)}/`}
+      prefetch={false}
       className="block group focus:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-xl h-full"
     >
       <Card
