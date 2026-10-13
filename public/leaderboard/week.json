@@ -1,21 +1,187 @@
 {
   "period": "week",
-  "updatedAt": 1791775216795,
-  "startDate": "2026-10-05",
-  "endDate": "2026-10-12",
+  "updatedAt": 1791866096607,
+  "startDate": "2026-10-06",
+  "endDate": "2026-10-13",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
+    {
+      "username": "mohi2006august",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/218565496?v=4",
+      "role": "Contributor",
+      "total_points": 31,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 9,
+          "points": 9
+        },
+        "Issue labeled": {
+          "count": 11,
+          "points": 22
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-10-12",
+          "count": 20,
+          "points": 31
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-12T18:45:10Z",
+          "title": "🐞 Bug - CommentsController may return 500 on malformed params because it uses params.dig",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8018",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-12T18:43:59Z",
+          "title": "🐞 Bug - GroupMembersController authenticates after loading and authorizing the record",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8017",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-12T18:42:21Z",
+          "title": "🐞 Bug - Push subscriptions skip CSRF protection, create duplicate rows and never prune expired endpoints",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8016",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-12T18:36:45Z",
+          "title": "🐞 Bug - Hotkey binder has a no-op \"if;\" statement and rewrites localStorage inside a loop",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8015",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-12T18:34:53Z",
+          "title": "🐞 Bug - Testbench crashes with a bare TypeError when input/output labels or RST are missing from the circuit",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8014",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-12T18:33:21Z",
+          "title": "🐞 Bug - Group invitations mishandle email case and whitespace, so existing users get pending invites instead of being added",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8013",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-12T18:31:41Z",
+          "title": "🐞 Bug - LTI grade passback sends a score of 0 to the LMS for letter-scale and custom-scale grades",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8012",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-12T18:28:39Z",
+          "title": "🐞 Bug Grades CSV export is vulnerable to CSV/formula injection",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8011",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-12T18:27:04Z",
+          "title": "🐞 Bug Grade format validation uses ^/$ so multi-line input bypasses the grading scale",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8010",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-12T18:45:11Z",
+          "title": "Labeled issue #8018 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8018",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-12T18:34:54Z",
+          "title": "Labeled issue #8014 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8014",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-12T18:44:01Z",
+          "title": "Labeled issue #8017 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8017",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-12T18:27:05Z",
+          "title": "Labeled issue #8010 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8010",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-12T18:27:06Z",
+          "title": "Labeled issue #8010 - pending triage",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8010",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-12T18:36:47Z",
+          "title": "Labeled issue #8015 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8015",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-12T18:31:43Z",
+          "title": "Labeled issue #8012 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8012",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-12T18:42:22Z",
+          "title": "Labeled issue #8016 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8016",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-12T18:33:23Z",
+          "title": "Labeled issue #8013 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8013",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-12T18:28:40Z",
+          "title": "Labeled issue #8011 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8011",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-12T18:28:41Z",
+          "title": "Labeled issue #8011 - pending triage",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8011",
+          "points": 2
+        }
+      ]
+    },
     {
       "username": "tushaar-05",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/131668855?v=4",
       "role": "Contributor",
-      "total_points": 21,
+      "total_points": 17,
       "activity_breakdown": {
         "PR opened": {
-          "count": 5,
-          "points": 10
+          "count": 3,
+          "points": 6
         },
         "Issue opened": {
           "count": 3,
@@ -36,11 +202,6 @@
           "date": "2026-10-09",
           "count": 7,
           "points": 12
-        },
-        {
-          "date": "2026-10-05",
-          "count": 2,
-          "points": 4
         }
       ],
       "activities": [
@@ -112,20 +273,6 @@
           "occured_at": "2026-10-09T14:15:24Z",
           "title": "Labeled issue #1387 - 🐞 bug",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1387",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-05T17:51:54Z",
-          "title": "fix(ui) - fix BCD translation key in Hex-Bin-Dec converter (#1358)",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1377",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-05T16:29:43Z",
-          "title": "fix(ui) - remove duplicate Hex-Bin-Dec converter dialog (#1357)",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1376",
           "points": 2
         }
       ]
@@ -214,71 +361,66 @@
       ]
     },
     {
-      "username": "eshanthh",
+      "username": "Saurabhyadav0",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/235510433?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/134767123?v=4",
       "role": "Contributor",
-      "total_points": 9,
+      "total_points": 8,
       "activity_breakdown": {
         "PR opened": {
-          "count": 3,
-          "points": 6
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue labeled": {
           "count": 1,
           "points": 2
+        },
+        "Issue opened": {
+          "count": 2,
+          "points": 2
+        },
+        "Issue labeled": {
+          "count": 2,
+          "points": 4
         }
       },
       "daily_activity": [
         {
-          "date": "2026-10-07",
-          "count": 3,
-          "points": 5
-        },
-        {
-          "date": "2026-10-05",
-          "count": 2,
-          "points": 4
+          "date": "2026-10-12",
+          "count": 5,
+          "points": 8
         }
       ],
       "activities": [
         {
           "type": "PR opened",
-          "occured_at": "2026-10-07T17:08:01Z",
-          "title": "fix - 500 error when project search pagination is omitted",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7996",
+          "occured_at": "2026-10-12T21:02:30Z",
+          "title": "fix - resolve missing i18n keys in contribute and org UI (#8006)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/8019",
           "points": 2
         },
         {
           "type": "Issue opened",
-          "occured_at": "2026-10-07T17:03:45Z",
-          "title": "🐞 Bug - Project search API returns 500 when pagination parameters are omitted",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7995",
+          "occured_at": "2026-10-12T22:23:44Z",
+          "title": "🐞 Bug - Browser language (Accept-Language header) is never used to pick the site language",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8020",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-12T04:25:38Z",
+          "title": "🐞 Bug - Missing translation keys on Contribute page, Organizations header link and Organization form",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8006",
           "points": 1
         },
         {
           "type": "Issue labeled",
-          "occured_at": "2026-10-07T17:03:47Z",
-          "title": "Labeled issue #7995 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7995",
+          "occured_at": "2026-10-12T22:23:46Z",
+          "title": "Labeled issue #8020 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8020",
           "points": 2
         },
         {
-          "type": "PR opened",
-          "occured_at": "2026-10-05T06:26:53Z",
-          "title": "Fix/duplicate hex bin dec dialog",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1373",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-05T03:57:04Z",
-          "title": "fix(i18n) - localize hex-bin-dec dialogs",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1372",
+          "type": "Issue labeled",
+          "occured_at": "2026-10-12T04:25:39Z",
+          "title": "Labeled issue #8006 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8006",
           "points": 2
         }
       ]
@@ -334,6 +476,69 @@
           "occured_at": "2026-10-06T05:43:45Z",
           "title": "fix(api) - handle missing page parameter in search_projects",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7983",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "eshanthh",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/235510433?v=4",
+      "role": "Contributor",
+      "total_points": 7,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-10-12",
+          "count": 1,
+          "points": 2
+        },
+        {
+          "date": "2026-10-07",
+          "count": 3,
+          "points": 5
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-12T05:14:07Z",
+          "title": "fix - use existing locale keys for organization UI text",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/8007",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-07T17:08:01Z",
+          "title": "fix - 500 error when project search pagination is omitted",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7996",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-07T17:03:45Z",
+          "title": "🐞 Bug - Project search API returns 500 when pagination parameters are omitted",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7995",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-07T17:03:47Z",
+          "title": "Labeled issue #7995 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/7995",
           "points": 2
         }
       ]
@@ -504,6 +709,108 @@
       ]
     },
     {
+      "username": "ShinichiShi",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
+      "role": "Contributor",
+      "total_points": 5,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-10-12",
+          "count": 3,
+          "points": 5
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-12T15:53:03Z",
+          "title": "fix - crash in subcircuit rendering when nodes are undefined",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1396",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-12T15:30:25Z",
+          "title": "🐞 Bug - vuesim crashes when saved node indices are stale/undefined",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1395",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-12T15:30:27Z",
+          "title": "Labeled issue #1395 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1395",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "yashveer-1",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/235941943?v=4",
+      "role": "Contributor",
+      "total_points": 5,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-10-12",
+          "count": 3,
+          "points": 5
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-12T07:08:15Z",
+          "title": "perf - optimize circuit element rendering with viewport culling",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1394",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-12T07:01:23Z",
+          "title": "Feature - Optimize circuit element rendering with viewport culling",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1393",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-12T07:01:25Z",
+          "title": "Labeled issue #1393 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1393",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "JituRewar",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/229604335?v=4",
@@ -533,6 +840,53 @@
       ]
     },
     {
+      "username": "beedell-roke",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/42837531?v=4",
+      "role": "Contributor",
+      "total_points": 5,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "Issue labeled": {
+          "count": 2,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-10-12",
+          "count": 3,
+          "points": 5
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-12T13:57:00Z",
+          "title": "Provide a way to have diagrams automatically adjust their layout to what is optimal.",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8008",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-12T13:57:01Z",
+          "title": "Labeled issue #8008 - 🌟 feature",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8008",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-12T13:57:02Z",
+          "title": "Labeled issue #8008 - pending triage",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8008",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "YashKumar-404",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/192852439?v=4",
@@ -546,12 +900,12 @@
       },
       "daily_activity": [
         {
-          "date": "2026-10-10",
+          "date": "2026-10-12",
           "count": 1,
           "points": 2
         },
         {
-          "date": "2026-10-05",
+          "date": "2026-10-10",
           "count": 1,
           "points": 2
         }
@@ -559,16 +913,16 @@
       "activities": [
         {
           "type": "PR opened",
-          "occured_at": "2026-10-10T16:39:57Z",
-          "title": "fix - reuse one SES client across mail deliveries (#7994)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/8004",
+          "occured_at": "2026-10-12T14:47:32Z",
+          "title": "fix - validate assignment deadline before saving (#8005)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/8009",
           "points": 2
         },
         {
           "type": "PR opened",
-          "occured_at": "2026-10-05T14:19:29Z",
-          "title": "fix - retry on statement timeouts and drop duplicate deadline jobs (#7976)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7980",
+          "occured_at": "2026-10-10T16:39:57Z",
+          "title": "fix - reuse one SES client across mail deliveries (#7994)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/8004",
           "points": 2
         }
       ]
@@ -611,46 +965,6 @@
           "title": "docs - clarify definations for MSB,LSB and Decoder in ch-4",
           "link": "https://github.com/CircuitVerse/CircuitVerseDocs/pull/543",
           "points": 2
-        }
-      ]
-    },
-    {
-      "username": "yashveer-1",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/235941943?v=4",
-      "role": "Contributor",
-      "total_points": 3,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-10-05",
-          "count": 2,
-          "points": 3
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-05T11:49:42Z",
-          "title": "Improve Testbench output lookup using Map",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1375",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-10-05T11:28:54Z",
-          "title": "Performance - Improve testbench output lookup using map",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1374",
-          "points": 1
         }
       ]
     },
@@ -917,35 +1231,6 @@
           "title": "# ENHANCEMENT Add label triaging activity to leaderboard scoring",
           "link": "https://github.com/CircuitVerse/community-dashboard/issues/280",
           "points": 1
-        }
-      ]
-    },
-    {
-      "username": "Ken-Kanike",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/161832615?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-10-05",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-05T18:06:15Z",
-          "title": "fix - correct 32-bit Adder and ALU carry-out on overflow (#4984)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7981",
-          "points": 2
         }
       ]
     },
