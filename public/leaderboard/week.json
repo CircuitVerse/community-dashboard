@@ -1,11 +1,564 @@
 {
   "period": "week",
-  "updatedAt": 1791866096607,
-  "startDate": "2026-10-06",
-  "endDate": "2026-10-13",
+  "updatedAt": 1791945882348,
+  "startDate": "2026-10-07",
+  "endDate": "2026-10-14",
   "hiddenRoles": [],
   "topByActivity": {},
   "entries": [
+    {
+      "username": "tachyons",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/3112976?v=4",
+      "role": "Maintainer",
+      "total_points": 74,
+      "activity_breakdown": {
+        "Issue opened": {
+          "count": 19,
+          "points": 19
+        },
+        "Issue labeled": {
+          "count": 23,
+          "points": 46
+        },
+        "Issue closed": {
+          "count": 9,
+          "points": 9
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-10-13",
+          "count": 51,
+          "points": 74
+        }
+      ],
+      "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-13T14:08:36Z",
+          "title": "typecheck(v1) - merge duplicate useState script blocks in Export and Import dialogs (4 errors)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1423",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-13T14:08:35Z",
+          "title": "typecheck(v1) - canvas strict fixes — rotateAngle tuple type and context null guards (7 errors)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1422",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-13T14:08:35Z",
+          "title": "typecheck(v1) - fix engine simulation-queue types — contentionPending, resolve, message data (8 errors)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1421",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-13T14:08:34Z",
+          "title": "typecheck(v1) - one-line use-site fixes batch — subcircuit, utils, zoom, layout, hotkeys (7 errors)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1420",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-13T14:08:33Z",
+          "title": "typecheck(v1) - fix Node JavaScript-inference shape — queueProperties, verilogLabel, bitWidth (13 errors)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1419",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-13T14:08:33Z",
+          "title": "typecheck(v1) - type DOM and ref access in CustomShortcut dialog (2 errors)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1417",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-13T14:08:33Z",
+          "title": "typecheck(v1) - make SimulationArea interface match runtime use — bounds, canvas, objectList (9 errors)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1418",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-13T14:08:30Z",
+          "title": "typecheck(v1) - narrow SelectableElement at canvas and hotkey use sites (10 errors)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1413",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-13T14:08:30Z",
+          "title": "typecheck(v1) - pin CircuitElement propagationDelay type via JSDoc (9 errors)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1416",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-13T14:08:30Z",
+          "title": "typecheck(v1) - fix DeleteCircuit store cast and unreachable nullish coalescing (3 errors)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1415",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-13T14:08:30Z",
+          "title": "typecheck(v1) - widen Circuit and switchCircuit id types in events.ts (4 errors)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1414",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-13T13:34:17Z",
+          "title": "refactor(v1) - migrate restrictedElementDiv.js to RestrictedElementNotice.vue reactive component",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1411",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-13T13:34:17Z",
+          "title": "refactor(v1) - remove jQuery from ApplyThemes and CombinationalAnalysis Vue dialogs",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1412",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-13T13:34:17Z",
+          "title": "refactor(v1) - add lang=ts + script setup to Logo and TextEditor Vue Single-File Components",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1410",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-13T13:34:11Z",
+          "title": "refactor(v1) - convert sequential + testbench ForceGate to TypeScript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1407",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-13T13:34:11Z",
+          "title": "refactor(v1) - convert verilog arithmetic shims to TypeScript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1408",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-13T13:34:11Z",
+          "title": "refactor(v1) - convert Clock + Dlatch sequential elements to TypeScript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1406",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-13T13:34:11Z",
+          "title": "refactor(v1) - convert LSB + MSB splitter helpers to TypeScript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1409",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-13T13:34:05Z",
+          "title": "refactor(v1) - convert Ground + Power modules to TypeScript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1405",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T14:08:38Z",
+          "title": "Labeled issue #1423 - good first issue",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1423",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T14:08:37Z",
+          "title": "Labeled issue #1422 - good first issue",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1422",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T14:08:36Z",
+          "title": "Labeled issue #1421 - good first issue",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1421",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T14:08:37Z",
+          "title": "Labeled issue #1421 - JS to TS migration",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1421",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T14:08:35Z",
+          "title": "Labeled issue #1419 - good first issue",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1419",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T14:08:32Z",
+          "title": "Labeled issue #1416 - good first issue",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1416",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T14:08:34Z",
+          "title": "Labeled issue #1418 - good first issue",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1418",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T14:08:35Z",
+          "title": "Labeled issue #1418 - JS to TS migration",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1418",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T14:08:35Z",
+          "title": "Labeled issue #1420 - good first issue",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1420",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T14:11:25Z",
+          "title": "Labeled issue #1413 - JS to TS migration",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1413",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T14:08:34Z",
+          "title": "Labeled issue #1417 - good first issue",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1417",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T13:34:12Z",
+          "title": "Labeled issue #1406 - good first issue",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1406",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T13:34:18Z",
+          "title": "Labeled issue #1411 - good first issue",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1411",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T13:34:06Z",
+          "title": "Labeled issue #1405 - good first issue",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1405",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T13:34:07Z",
+          "title": "Labeled issue #1405 - JS to TS migration",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1405",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T13:34:19Z",
+          "title": "Labeled issue #1412 - good first issue",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1412",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T13:34:18Z",
+          "title": "Labeled issue #1410 - good first issue",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1410",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T14:08:32Z",
+          "title": "Labeled issue #1415 - good first issue",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1415",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T14:08:33Z",
+          "title": "Labeled issue #1414 - good first issue",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1414",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T13:34:12Z",
+          "title": "Labeled issue #1407 - good first issue",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1407",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T13:34:13Z",
+          "title": "Labeled issue #1409 - good first issue",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1409",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T13:34:12Z",
+          "title": "Labeled issue #1408 - good first issue",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1408",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T13:34:13Z",
+          "title": "Labeled issue #1408 - JS to TS migration",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1408",
+          "points": 2
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-10-13T13:40:01Z",
+          "title": "Closed issue #1339 - 🐞 Bug - Fix zero-delay event handling in EventQueue",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1339",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-10-13T13:39:57Z",
+          "title": "Closed issue #1364 - 🐞 Bug - Changing TTY rows or columns deletes all connected wires",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1364",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-10-13T13:40:01Z",
+          "title": "Closed issue #1374 - Performance - Improve testbench output lookup using map",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1374",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-10-13T11:49:47Z",
+          "title": "Closed issue #1395 - 🐞 Bug - vuesim crashes when saved node indices are stale/undefined",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1395",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-10-13T13:44:03Z",
+          "title": "Closed issue #1305 - 🐞 Bug - Render Image dialog offers BMP, GIF and TIFF but always saves a PNG",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1305",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-10-13T13:00:37Z",
+          "title": "Closed issue #1234 - refactor - convert XOR, XNOR, Buffer, and ControlledInverter modules to TypeScript in v1",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1234",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-10-13T13:39:57Z",
+          "title": "Closed issue #792 - 🐞 Bug - Verilog module does not initialize correctly on first launch in Tauri app (works after refresh)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/792",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-10-13T13:41:43Z",
+          "title": "Closed issue #491 - Sync the src changes to v0 and v1 versions of the simualtor",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/491",
+          "points": 1
+        },
+        {
+          "type": "Issue closed",
+          "occured_at": "2026-10-13T13:41:26Z",
+          "title": "Closed issue #412 - 🐞 Bug - eslint not configured for typescript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/412",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "username": "tushaar-05",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/131668855?v=4",
+      "role": "Contributor",
+      "total_points": 33,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 11,
+          "points": 22
+        },
+        "Issue opened": {
+          "count": 3,
+          "points": 3
+        },
+        "Issue labeled": {
+          "count": 4,
+          "points": 8
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-10-13",
+          "count": 8,
+          "points": 16
+        },
+        {
+          "date": "2026-10-11",
+          "count": 3,
+          "points": 5
+        },
+        {
+          "date": "2026-10-09",
+          "count": 7,
+          "points": 12
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-13T22:36:49Z",
+          "title": "typecheck(v1) - widen Circuit and switchCircuit id types in events.ts (#1414)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1435",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-13T22:14:47Z",
+          "title": "typecheck(v1) - fix DeleteCircuit store cast and nullish coalescing precedence (#1415)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1434",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-13T21:51:17Z",
+          "title": "typecheck(v1) - make SimulationArea interface match runtime use — bounds, canvas, objectList (#1418)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1433",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-13T21:16:26Z",
+          "title": "typecheck(v1) - type DOM and ref access in CustomShortcut dialog (#1417)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1432",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-13T20:42:37Z",
+          "title": "refactor(v1) - add lang=ts + script setup to Logo and TextEditor SFCs (#1410)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1430",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-13T20:28:18Z",
+          "title": "typecheck(v1) - one-line use-site fixes batch — subcircuit, utils, zoom, layout, hotkeys (#1420)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1429",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-13T19:48:47Z",
+          "title": "typecheck(v1) - canvas strict fixes — rotateAngle tuple type and context null guards (#1422)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1427",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-13T16:55:01Z",
+          "title": "refactor(v1) - remove jQuery from ApplyThemes and CombinationalAnalysis Vue dialogs (#1412)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1424",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-11T12:19:58Z",
+          "title": "fix(ui) - add close/back buttons to truth table and center table layout (#1391)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1392",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-11T12:03:43Z",
+          "title": "🐞 Bug - Combinational Analysis Truth Table lacks Close/Cancel button (trapping user in modal) and table is uncentered",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1391",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-11T12:03:44Z",
+          "title": "Labeled issue #1391 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1391",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-09T14:24:31Z",
+          "title": "fix(ui) - prevent event bubbling on delete, clear stale selection, and add delete confirmation (#1387)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1388",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-09T12:15:56Z",
+          "title": "fix(ui) - fix Custom Shortcut dialog buttons and pencil click target (#1385)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1386",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-09T14:15:22Z",
+          "title": "🐞 Bug - \"Open Offline\" dialog fails to open projects after deletion due to stale selection & event bubbling on delete button",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1387",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-09T11:58:19Z",
+          "title": "🐞 Bug - Custom Shortcut dialog buttons (Save, Close, Reset) crash with TypeError, and keybinding entry erases command name",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1385",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-09T11:58:20Z",
+          "title": "Labeled issue #1385 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1385",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-09T11:58:21Z",
+          "title": "Labeled issue #1385 - pending triage",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1385",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-09T14:15:24Z",
+          "title": "Labeled issue #1387 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1387",
+          "points": 2
+        }
+      ]
+    },
     {
       "username": "mohi2006august",
       "name": null,
@@ -173,214 +726,31 @@
       ]
     },
     {
-      "username": "tushaar-05",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/131668855?v=4",
-      "role": "Contributor",
-      "total_points": 17,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 3,
-          "points": 6
-        },
-        "Issue opened": {
-          "count": 3,
-          "points": 3
-        },
-        "Issue labeled": {
-          "count": 4,
-          "points": 8
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-10-11",
-          "count": 3,
-          "points": 5
-        },
-        {
-          "date": "2026-10-09",
-          "count": 7,
-          "points": 12
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-11T12:19:58Z",
-          "title": "fix(ui) - add close/back buttons to truth table and center table layout (#1391)",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1392",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-10-11T12:03:43Z",
-          "title": "🐞 Bug - Combinational Analysis Truth Table lacks Close/Cancel button (trapping user in modal) and table is uncentered",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1391",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-10-11T12:03:44Z",
-          "title": "Labeled issue #1391 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1391",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-09T14:24:31Z",
-          "title": "fix(ui) - prevent event bubbling on delete, clear stale selection, and add delete confirmation (#1387)",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1388",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-09T12:15:56Z",
-          "title": "fix(ui) - fix Custom Shortcut dialog buttons and pencil click target (#1385)",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1386",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-10-09T14:15:22Z",
-          "title": "🐞 Bug - \"Open Offline\" dialog fails to open projects after deletion due to stale selection & event bubbling on delete button",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1387",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-10-09T11:58:19Z",
-          "title": "🐞 Bug - Custom Shortcut dialog buttons (Save, Close, Reset) crash with TypeError, and keybinding entry erases command name",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1385",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-10-09T11:58:20Z",
-          "title": "Labeled issue #1385 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1385",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-10-09T11:58:21Z",
-          "title": "Labeled issue #1385 - pending triage",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1385",
-          "points": 2
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-10-09T14:15:24Z",
-          "title": "Labeled issue #1387 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1387",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "UwaisBaig",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/223514962?v=4",
-      "role": "Contributor",
-      "total_points": 16,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 8,
-          "points": 16
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-10-07",
-          "count": 3,
-          "points": 6
-        },
-        {
-          "date": "2026-10-06",
-          "count": 5,
-          "points": 10
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-07T20:47:04Z",
-          "title": "fix(simulator) - honor explicit delay=0 in EventQueue.add (#7802)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7999",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-07T20:43:39Z",
-          "title": "fix(simulator) - safe selection handling and operator precedence in copyToClipboard (#7874)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7998",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-07T20:23:20Z",
-          "title": "fix(simulator) - handle nil image data_url safely in SimulatorHelper (#7575)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7997",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-06T21:09:06Z",
-          "title": "fix(errors) - handle arbitrary formats via format.all in errors and application controller (#7565)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7992",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-06T21:06:43Z",
-          "title": "fix - sanitize null bytes and rescue ArgumentError across controllers (#7978, #7979)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7991",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-06T21:02:59Z",
-          "title": "fix - rescue ActiveRecord - - QueryCanceled in ApplicationController and tags (#7987)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7990",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-06T21:00:31Z",
-          "title": "fix(simulator) - handle non-HTML formats gracefully in embed action (#7986)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7989",
-          "points": 2
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-06T20:51:34Z",
-          "title": "fix(api) - validate emails presence in GroupMembersController#create (#7852)",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7988",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "Saurabhyadav0",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/134767123?v=4",
       "role": "Contributor",
-      "total_points": 8,
+      "total_points": 24,
       "activity_breakdown": {
+        "Issue opened": {
+          "count": 6,
+          "points": 6
+        },
+        "Issue labeled": {
+          "count": 8,
+          "points": 16
+        },
         "PR opened": {
           "count": 1,
           "points": 2
-        },
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        },
-        "Issue labeled": {
-          "count": 2,
-          "points": 4
         }
       },
       "daily_activity": [
+        {
+          "date": "2026-10-13",
+          "count": 10,
+          "points": 16
+        },
         {
           "date": "2026-10-12",
           "count": 5,
@@ -388,6 +758,76 @@
         }
       ],
       "activities": [
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-13T19:47:24Z",
+          "title": "🐞 Bug - Adding a project collaborator silently fails when the email contains uppercase letters",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8024",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-13T07:38:43Z",
+          "title": "🐞 Bug - Forked project starts with the original project's star count",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8023",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-13T07:33:19Z",
+          "title": "🐞 Bug - Users can vote for their own contest submission",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8022",
+          "points": 1
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-13T07:27:08Z",
+          "title": "🐞 Bug - Users can submit a project to a contest that has already ended",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8021",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T19:47:25Z",
+          "title": "Labeled issue #8024 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8024",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T19:47:26Z",
+          "title": "Labeled issue #8024 - pending triage",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8024",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T07:38:44Z",
+          "title": "Labeled issue #8023 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8023",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T07:27:10Z",
+          "title": "Labeled issue #8021 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8021",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T07:33:20Z",
+          "title": "Labeled issue #8022 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8022",
+          "points": 2
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T07:33:21Z",
+          "title": "Labeled issue #8022 - pending triage",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/issues/8022",
+          "points": 2
+        },
         {
           "type": "PR opened",
           "occured_at": "2026-10-12T21:02:30Z",
@@ -426,56 +866,274 @@
       ]
     },
     {
-      "username": "iUjjwalRaj",
+      "username": "iamtanishqjain",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/173326668?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/71930864?v=4",
       "role": "Contributor",
-      "total_points": 8,
+      "total_points": 11,
       "activity_breakdown": {
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        },
         "PR opened": {
-          "count": 4,
-          "points": 8
+          "count": 2,
+          "points": 4
+        },
+        "Issue opened": {
+          "count": 2,
+          "points": 2
         }
       },
       "daily_activity": [
         {
-          "date": "2026-10-07",
+          "date": "2026-10-13",
           "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2026-10-10",
+          "count": 2,
+          "points": 3
+        },
+        {
+          "date": "2026-10-08",
+          "count": 2,
+          "points": 3
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-10-13T13:44:01Z",
+          "title": "fix(vuesim) - drop the image formats the canvas cannot produce",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1306",
+          "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-10T18:49:49Z",
+          "title": "fix(vuesim) - add the missing Verilog modules for Dlatch, JK and SR in v1",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1389",
           "points": 2
         },
         {
-          "date": "2026-10-06",
+          "type": "Issue opened",
+          "occured_at": "2026-10-10T18:50:13Z",
+          "title": "🐞 Bug - v1 Verilog export omits the module for D Latch, JK and SR flip flops",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1390",
+          "points": 1
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-08T14:21:38Z",
+          "title": "fix(vuesim) - describe what BitSelector does in its tooltip",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1380",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-08T14:21:57Z",
+          "title": "🐞 Bug - BitSelector's tooltip describes the Splitter",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1381",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "username": "ShinichiShi",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
+      "role": "Contributor",
+      "total_points": 10,
+      "activity_breakdown": {
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        },
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-10-13",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2026-10-12",
           "count": 3,
-          "points": 6
+          "points": 5
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-10-13T11:49:45Z",
+          "title": "fix - crash in subcircuit rendering when nodes are undefined",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1396",
+          "points": 5
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-12T15:53:03Z",
+          "title": "fix - crash in subcircuit rendering when nodes are undefined",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1396",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-12T15:30:25Z",
+          "title": "🐞 Bug - vuesim crashes when saved node indices are stale/undefined",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1395",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-12T15:30:27Z",
+          "title": "Labeled issue #1395 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1395",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "ManyaJain111",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/224918778?v=4",
+      "role": "Contributor",
+      "total_points": 8,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
+        "Issue opened": {
+          "count": 2,
+          "points": 2
+        },
+        "Issue labeled": {
+          "count": 2,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-10-13",
+          "count": 3,
+          "points": 5
+        },
+        {
+          "date": "2026-10-07",
+          "count": 2,
+          "points": 3
         }
       ],
       "activities": [
         {
           "type": "PR opened",
-          "occured_at": "2026-10-07T04:42:24Z",
-          "title": "fix(controllers) - authenticate user before action in CollaborationsController",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7993",
+          "occured_at": "2026-10-13T09:48:59Z",
+          "title": "fix(vuesim) - preserve project name when circuit data is null (#1336)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1398",
           "points": 2
         },
         {
-          "type": "PR opened",
-          "occured_at": "2026-10-06T08:12:44Z",
-          "title": "fix(grades) - ensure authorization is performed in destroy when grade is not found",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7985",
+          "type": "Issue opened",
+          "occured_at": "2026-10-13T10:45:28Z",
+          "title": "🐞 Bug - Memory leak due to uncleaned setInterval on unmount in PropertiesPanel.vue",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1400",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T10:45:30Z",
+          "title": "Labeled issue #1400 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1400",
           "points": 2
         },
         {
-          "type": "PR opened",
-          "occured_at": "2026-10-06T05:55:45Z",
-          "title": "fix(notifications) - handle non-hash and missing params in notifications",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7984",
+          "type": "Issue opened",
+          "occured_at": "2026-10-07T19:44:11Z",
+          "title": "🐞 Bug - 404 error after clicking keep editing circuit after saving",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1378",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-07T19:44:13Z",
+          "title": "Labeled issue #1378 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1378",
           "points": 2
+        }
+      ]
+    },
+    {
+      "username": "amankv1234",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/186990161?v=4",
+      "role": "Contributor",
+      "total_points": 8,
+      "activity_breakdown": {
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-10-13",
+          "count": 1,
+          "points": 5
+        },
+        {
+          "date": "2026-10-09",
+          "count": 1,
+          "points": 1
+        },
+        {
+          "date": "2026-10-08",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-10-13T13:00:35Z",
+          "title": "refactor(v1) - convert XorGate, XnorGate, Buffer, ControlledInverter to TypeScript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1274",
+          "points": 5
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-09T09:07:52Z",
+          "title": "Performance - Optimize PR Review fetching to prevent GitHub API rate limiting",
+          "link": "https://github.com/CircuitVerse/community-dashboard/issues/282",
+          "points": 1
         },
         {
           "type": "PR opened",
-          "occured_at": "2026-10-06T05:43:45Z",
-          "title": "fix(api) - handle missing page parameter in search_projects",
-          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7983",
+          "occured_at": "2026-10-08T16:37:03Z",
+          "title": "feat - Add \"Copy to Clipboard\" button in Render Image dialog",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1382",
           "points": 2
         }
       ]
@@ -610,61 +1268,45 @@
       ]
     },
     {
-      "username": "iamtanishqjain",
+      "username": "UwaisBaig",
       "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/71930864?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/223514962?v=4",
       "role": "Contributor",
       "total_points": 6,
       "activity_breakdown": {
         "PR opened": {
-          "count": 2,
-          "points": 4
-        },
-        "Issue opened": {
-          "count": 2,
-          "points": 2
+          "count": 3,
+          "points": 6
         }
       },
       "daily_activity": [
         {
-          "date": "2026-10-10",
-          "count": 2,
-          "points": 3
-        },
-        {
-          "date": "2026-10-08",
-          "count": 2,
-          "points": 3
+          "date": "2026-10-07",
+          "count": 3,
+          "points": 6
         }
       ],
       "activities": [
         {
           "type": "PR opened",
-          "occured_at": "2026-10-10T18:49:49Z",
-          "title": "fix(vuesim) - add the missing Verilog modules for Dlatch, JK and SR in v1",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1389",
+          "occured_at": "2026-10-07T20:47:04Z",
+          "title": "fix(simulator) - honor explicit delay=0 in EventQueue.add (#7802)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7999",
           "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-10-10T18:50:13Z",
-          "title": "🐞 Bug - v1 Verilog export omits the module for D Latch, JK and SR flip flops",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1390",
-          "points": 1
         },
         {
           "type": "PR opened",
-          "occured_at": "2026-10-08T14:21:38Z",
-          "title": "fix(vuesim) - describe what BitSelector does in its tooltip",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1380",
+          "occured_at": "2026-10-07T20:43:39Z",
+          "title": "fix(simulator) - safe selection handling and operator precedence in copyToClipboard (#7874)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7998",
           "points": 2
         },
         {
-          "type": "Issue opened",
-          "occured_at": "2026-10-08T14:21:57Z",
-          "title": "🐞 Bug - BitSelector's tooltip describes the Splitter",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1381",
-          "points": 1
+          "type": "PR opened",
+          "occured_at": "2026-10-07T20:23:20Z",
+          "title": "fix(simulator) - handle nil image data_url safely in SimulatorHelper (#7575)",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7997",
+          "points": 2
         }
       ]
     },
@@ -705,57 +1347,6 @@
           "title": "Closed issue #1366 - Bug - f/F key intercepted by fit-to-selection shortcut, preventing hex/text input in ROM, Text, and Keyboard components",
           "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1366",
           "points": 1
-        }
-      ]
-    },
-    {
-      "username": "ShinichiShi",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/141218988?v=4",
-      "role": "Contributor",
-      "total_points": 5,
-      "activity_breakdown": {
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        },
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-10-12",
-          "count": 3,
-          "points": 5
-        }
-      ],
-      "activities": [
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-12T15:53:03Z",
-          "title": "fix - crash in subcircuit rendering when nodes are undefined",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1396",
-          "points": 2
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-10-12T15:30:25Z",
-          "title": "🐞 Bug - vuesim crashes when saved node indices are stale/undefined",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1395",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-10-12T15:30:27Z",
-          "title": "Labeled issue #1395 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1395",
-          "points": 2
         }
       ]
     },
@@ -840,6 +1431,86 @@
       ]
     },
     {
+      "username": "ujjwalv01",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/219022963?v=4",
+      "role": "Contributor",
+      "total_points": 5,
+      "activity_breakdown": {
+        "PR merged": {
+          "count": 1,
+          "points": 5
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-10-13",
+          "count": 1,
+          "points": 5
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR merged",
+          "occured_at": "2026-10-13T13:27:06Z",
+          "title": "feat(simulator) - Move keyboard, clipboard and Tauri bindings from `listeners.js` into composables",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1310",
+          "points": 5
+        }
+      ]
+    },
+    {
+      "username": "Eternity0207",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/77221000?v=4",
+      "role": "Contributor",
+      "total_points": 5,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        },
+        "Issue opened": {
+          "count": 1,
+          "points": 1
+        },
+        "Issue labeled": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-10-13",
+          "count": 3,
+          "points": 5
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-13T09:54:08Z",
+          "title": "fix(verilog) - skip elements with no connected outputs in Verilog export",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1399",
+          "points": 2
+        },
+        {
+          "type": "Issue opened",
+          "occured_at": "2026-10-13T08:17:24Z",
+          "title": "🐞 Bug - Verilog export generates invalid \"assign undefined\" lines for gates with an unconnected output",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1397",
+          "points": 1
+        },
+        {
+          "type": "Issue labeled",
+          "occured_at": "2026-10-13T08:17:26Z",
+          "title": "Labeled issue #1397 - 🐞 bug",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1397",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "beedell-roke",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/42837531?v=4",
@@ -887,6 +1558,71 @@
       ]
     },
     {
+      "username": "naman79820",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/159947791?u=c48301089f863779d54d2227553923ff284ac6a4&v=4",
+      "role": "Contributor",
+      "total_points": 4,
+      "activity_breakdown": {
+        "Review submitted": {
+          "count": 1,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-10-13",
+          "count": 1,
+          "points": 4
+        }
+      ],
+      "activities": [
+        {
+          "type": "Review submitted",
+          "occured_at": "2026-10-13T17:44:35Z",
+          "title": "Review on PR #8019",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/8019",
+          "points": 4
+        }
+      ]
+    },
+    {
+      "username": "aryan7071",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/175052103?v=4",
+      "role": "Contributor",
+      "total_points": 4,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-10-13",
+          "count": 2,
+          "points": 4
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-13T20:14:50Z",
+          "title": "fix - stop 'f' shortcut blocking text input and remove double registration of ForceGate/TB_Input/TB_Output",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1428",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-13T17:41:04Z",
+          "title": "refactor(v1) - convert sequential and testbench ForceGate to TypeScript",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1425",
+          "points": 2
+        }
+      ]
+    },
+    {
       "username": "YashKumar-404",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/192852439?v=4",
@@ -923,6 +1659,42 @@
           "occured_at": "2026-10-10T16:39:57Z",
           "title": "fix - reuse one SES client across mail deliveries (#7994)",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/8004",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "peterheo",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/104219687?v=4",
+      "role": "Contributor",
+      "total_points": 4,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 2,
+          "points": 4
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-10-13",
+          "count": 2,
+          "points": 4
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-13T21:08:36Z",
+          "title": "typecheck(v1) - fix engine simulation-queue types — contentionPending, resolve, message data (8 errors)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1431",
+          "points": 2
+        },
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-13T18:47:26Z",
+          "title": "typecheck(v1) - merge duplicate useState script blocks in Export and Import dialogs (4 errors)",
+          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1426",
           "points": 2
         }
       ]
@@ -969,91 +1741,6 @@
       ]
     },
     {
-      "username": "ManyaJain111",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/224918778?v=4",
-      "role": "Contributor",
-      "total_points": 3,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "Issue labeled": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-10-07",
-          "count": 2,
-          "points": 3
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-10-07T19:44:11Z",
-          "title": "🐞 Bug - 404 error after clicking keep editing circuit after saving",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1378",
-          "points": 1
-        },
-        {
-          "type": "Issue labeled",
-          "occured_at": "2026-10-07T19:44:13Z",
-          "title": "Labeled issue #1378 - 🐞 bug",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/issues/1378",
-          "points": 2
-        }
-      ]
-    },
-    {
-      "username": "amankv1234",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/186990161?v=4",
-      "role": "Contributor",
-      "total_points": 3,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 1,
-          "points": 1
-        },
-        "PR opened": {
-          "count": 1,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-10-09",
-          "count": 1,
-          "points": 1
-        },
-        {
-          "date": "2026-10-08",
-          "count": 1,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-10-09T09:07:52Z",
-          "title": "Performance - Optimize PR Review fetching to prevent GitHub API rate limiting",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/282",
-          "points": 1
-        },
-        {
-          "type": "PR opened",
-          "occured_at": "2026-10-08T16:37:03Z",
-          "title": "feat - Add \"Copy to Clipboard\" button in Render Image dialog",
-          "link": "https://github.com/CircuitVerse/cv-frontend-vue/pull/1382",
-          "points": 2
-        }
-      ]
-    },
-    {
       "username": "magic-peach",
       "name": null,
       "avatar_url": "https://avatars.githubusercontent.com/u/146705736?v=4",
@@ -1078,6 +1765,35 @@
           "occured_at": "2026-10-10T07:07:52Z",
           "title": "feat(assignments) - add student grading result view",
           "link": "https://github.com/CircuitVerse/CircuitVerse/pull/8003",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "username": "iUjjwalRaj",
+      "name": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/173326668?v=4",
+      "role": "Contributor",
+      "total_points": 2,
+      "activity_breakdown": {
+        "PR opened": {
+          "count": 1,
+          "points": 2
+        }
+      },
+      "daily_activity": [
+        {
+          "date": "2026-10-07",
+          "count": 1,
+          "points": 2
+        }
+      ],
+      "activities": [
+        {
+          "type": "PR opened",
+          "occured_at": "2026-10-07T04:42:24Z",
+          "title": "fix(controllers) - authenticate user before action in CollaborationsController",
+          "link": "https://github.com/CircuitVerse/CircuitVerse/pull/7993",
           "points": 2
         }
       ]
@@ -1195,42 +1911,6 @@
           "title": "Add widget previews for Interactive Book widgets",
           "link": "https://github.com/CircuitVerse/mobile-app/pull/674",
           "points": 2
-        }
-      ]
-    },
-    {
-      "username": "shivam-saini18",
-      "name": null,
-      "avatar_url": "https://avatars.githubusercontent.com/u/239511134?v=4",
-      "role": "Contributor",
-      "total_points": 2,
-      "activity_breakdown": {
-        "Issue opened": {
-          "count": 2,
-          "points": 2
-        }
-      },
-      "daily_activity": [
-        {
-          "date": "2026-10-06",
-          "count": 2,
-          "points": 2
-        }
-      ],
-      "activities": [
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-10-06T06:57:01Z",
-          "title": "# FEATURE Add Pull Request Reviews to Leaderboard Scoring",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/281",
-          "points": 1
-        },
-        {
-          "type": "Issue opened",
-          "occured_at": "2026-10-06T06:55:37Z",
-          "title": "# ENHANCEMENT Add label triaging activity to leaderboard scoring",
-          "link": "https://github.com/CircuitVerse/community-dashboard/issues/280",
-          "points": 1
         }
       ]
     },
