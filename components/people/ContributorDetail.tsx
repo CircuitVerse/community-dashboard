@@ -1,7 +1,9 @@
 "use client";
 
-import { useSyncExternalStore, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useHasMounted } from "@/lib/hooks/useHasMounted";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -46,6 +48,7 @@ type ActivityKey =
 
 interface ContributorDetailProps {
   contributor: ContributorEntry;
+  referenceTime: number;
 }
 
 // Activity type configuration with unique visual identity
@@ -110,14 +113,24 @@ const defaultConfig: ActivityUIConfig = {
 };
 
 
-const emptySubscribe = () => () => {};
+export function ContributorDetail({ contributor, referenceTime }: ContributorDetailProps) {
+  const mounted = useHasMounted();
+  const router = useRouter();
 
-export function ContributorDetail({ contributor }: ContributorDetailProps) {
-  const mounted = useSyncExternalStore(
-    emptySubscribe,
-    () => true,
-    () => false
-  );
+  const handleBack = (e: React.MouseEvent) => {
+    if (typeof window !== "undefined") {
+      const hasSameOriginReferrer =
+        document.referrer &&
+        new URL(document.referrer, window.location.href).origin === window.location.origin;
+      if (hasSameOriginReferrer || window.history.length > 1) {
+        e.preventDefault();
+        router.back();
+      }
+    }
+  };
+
+  // Live day streak is kept client-only (evaluated on mount) against the user's local clock
+  // to avoid hydration mismatches, while historical data and recent activity remain deterministic SSR.
   const [clientNow] = useState(() => Date.now());
 
   const getActivityConfig = (activityType: string): ActivityUIConfig => {
@@ -213,36 +226,31 @@ export function ContributorDetail({ contributor }: ContributorDetailProps) {
       })()
     : [];
 
-  const thirtyDaysAgo = mounted ? clientNow - 30 * 24 * 60 * 60 * 1000 : null;
-  const recentContributions = mounted && thirtyDaysAgo !== null
-    ? uniqueContributions
-        .filter((a) => {
-          const t = new Date(a.occured_at).getTime();
-          return !isNaN(t) && t > 86400000 && t >= thirtyDaysAgo;
-        })
-        .sort((a, b) => new Date(b.occured_at).getTime() - new Date(a.occured_at).getTime())
-        .slice(0, 15)
-    : [];
+  const thirtyDaysAgo = referenceTime - 30 * 24 * 60 * 60 * 1000;
+  const recentContributions = uniqueContributions
+    .filter((a) => {
+      const t = new Date(a.occured_at).getTime();
+      return !isNaN(t) && t >= thirtyDaysAgo;
+    })
+    .sort((a, b) => new Date(b.occured_at).getTime() - new Date(a.occured_at).getTime())
+    .slice(0, 15);
 
-  const nowDate = mounted ? new Date(clientNow) : null;
-  const currentMonth = nowDate ? nowDate.getUTCMonth() : null;
-  const currentYear = nowDate ? nowDate.getUTCFullYear() : null;
+  const refDate = new Date(referenceTime);
+  const currentMonth = refDate.getUTCMonth();
+  const currentYear = refDate.getUTCFullYear();
 
-  const monthlyActivity =
-    mounted && currentMonth !== null && currentYear !== null
-      ? recentActivity.filter((day) => {
-          const parts = day.date.split("-").map(Number);
-          const y = parts[0];
-          const m = parts[1];
-          if (y === undefined || m === undefined) return false;
-          return y === currentYear && m - 1 === currentMonth;
-        })
-      : [];
+  const monthlyActivity = recentActivity.filter((day) => {
+    const parts = day.date.split("-").map(Number);
+    const y = parts[0];
+    const m = parts[1];
+    if (y === undefined || m === undefined) return false;
+    return y === currentYear && m - 1 === currentMonth;
+  });
 
   const monthlyPoints = monthlyActivity.reduce((sum, day) => sum + day.points, 0);
   const monthlyDays = monthlyActivity.length;
   const monthlyActivityTypes = new Set<string>();
-  if (mounted && currentMonth !== null && currentYear !== null && contributor.activities) {
+  if (contributor.activities) {
     for (const activity of contributor.activities) {
       const activityDate = new Date(activity.occured_at);
       if (
@@ -270,7 +278,7 @@ export function ContributorDetail({ contributor }: ContributorDetailProps) {
         variant="outline"
         className="mb-6 hover:bg-primary/10 transition-colors"
       >
-        <Link href="/people/#contributors">
+        <Link href="/people/#contributors" onClick={handleBack}>
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back to People
         </Link>
@@ -383,19 +391,19 @@ export function ContributorDetail({ contributor }: ContributorDetailProps) {
             <CardContent>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div className="text-center p-4 bg-background/50 rounded-lg">
-                  <div className="text-2xl font-bold text-primary">{mounted ? monthlyPoints : "—"}</div>
+                  <div className="text-2xl font-bold text-primary">{monthlyPoints}</div>
                   <div className="text-sm text-muted-foreground">Points Earned</div>
                 </div>
                 <div className="text-center p-4 bg-background/50 rounded-lg">
-                  <div className="text-2xl font-bold text-primary">{mounted ? monthlyDays : "—"}</div>
+                  <div className="text-2xl font-bold text-primary">{monthlyDays}</div>
                   <div className="text-sm text-muted-foreground">Active Days</div>
                 </div>
                 <div className="text-center p-4 bg-background/50 rounded-lg">
-                  <div className="text-2xl font-bold text-primary">{mounted ? (monthlyDays > 0 ? Math.round(monthlyPoints / monthlyDays) : 0) : "—"}</div>
+                  <div className="text-2xl font-bold text-primary">{monthlyDays > 0 ? Math.round(monthlyPoints / monthlyDays) : 0}</div>
                   <div className="text-sm text-muted-foreground">Daily Average</div>
                 </div>
                 <div className="text-center p-4 bg-background/50 rounded-lg">
-                  <div className="text-2xl font-bold text-primary">{mounted ? monthlyActivityTypesCount : "—"}</div>
+                  <div className="text-2xl font-bold text-primary">{monthlyActivityTypesCount}</div>
                   <div className="text-sm text-muted-foreground">Activity Types</div>
                 </div>
               </div>
@@ -469,19 +477,11 @@ export function ContributorDetail({ contributor }: ContributorDetailProps) {
               <CardTitle className="flex items-center gap-2">
                 <Clock className="w-5 h-5" />
                 Recent Contributions
-                {mounted && (
-                  <Badge variant="secondary" className="ml-2">{recentContributions.length}</Badge>
-                )}
+                <Badge variant="secondary" className="ml-2">{recentContributions.length}</Badge>
               </CardTitle>
             </CardHeader>
             <CardContent>
-              {!mounted ? (
-                <div className="space-y-3">
-                  {[1, 2, 3].map((i) => (
-                    <div key={i} className="h-16 rounded-lg bg-muted/20 animate-pulse" />
-                  ))}
-                </div>
-              ) : recentContributions.length === 0 ? (
+              {recentContributions.length === 0 ? (
                 <p className="text-sm text-muted-foreground text-center mb-4">
                   No contributions in the last 30 days.
                 </p>
@@ -490,7 +490,7 @@ export function ContributorDetail({ contributor }: ContributorDetailProps) {
                   {recentContributions.map((activity, index) => {
                     const date = new Date(activity.occured_at);
                     const isVeryRecent = index < 3;
-                    const daysAgo = Math.floor((clientNow - date.getTime()) / (1000 * 60 * 60 * 24));
+                    const daysAgo = Math.floor((referenceTime - date.getTime()) / (1000 * 60 * 60 * 24));
                     const config = getActivityConfig(activity.type);
 
                     return (

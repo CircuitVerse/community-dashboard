@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getContributorByUsername, getAllContributorUsernames } from "@/lib/people";
+import { getContributorByUsername, getAllContributorUsernames, getPeopleData } from "@/lib/people";
 import { ContributorDetail } from "@/components/people/ContributorDetail";
 
 interface PageProps {
@@ -66,5 +66,10 @@ export default async function ContributorPage({ params }: PageProps) {
     notFound();
   }
 
-  return <ContributorDetail contributor={contributor} />;
+  const { updatedAt } = getPeopleData();
+  // eslint-disable-next-line react-hooks/purity
+  const referenceTime = updatedAt > 0 ? updatedAt : Date.now();
+
+  return <ContributorDetail contributor={contributor} referenceTime={referenceTime} />;
 }
+

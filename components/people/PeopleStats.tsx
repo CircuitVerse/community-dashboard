@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import { 
   Users, 
   Trophy, 
@@ -121,11 +122,18 @@ export function PeopleStats({ contributors, allContributors }: PeopleStatsProps)
               <div className="p-3 bg-white/20 dark:bg-white/10 rounded-xl shadow-sm">
                 <TrendingUp className="w-6 h-6 text-white" />
               </div>
-              <div>
-                <p className="text-md text-white/80">Active This Week</p>
-                <p className="text-2xl font-bold text-white">{recentlyActive}</p>
-                <p className="text-sm text-white/70">{totalContributors > 0 ? Math.round((recentlyActive/totalContributors)*100) : 0}% of community</p>
-              </div>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <div className="cursor-help">
+                    <p className="text-md text-white/80">Active This Week</p>
+                    <p className="text-2xl font-bold text-white">{recentlyActive}</p>
+                    <p className="text-sm text-white/70">in the last 7 days of data</p>
+                  </div>
+                </TooltipTrigger>
+                <TooltipContent sideOffset={4} side="top">
+                  Active in the last 7 days of data ({totalContributors > 0 ? Math.round((recentlyActive / totalContributors) * 100) : 0}% of community)
+                </TooltipContent>
+              </Tooltip>
             </div>
           </CardContent>
         </Card>

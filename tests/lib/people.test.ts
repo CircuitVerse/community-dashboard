@@ -1018,6 +1018,53 @@ describe("lib/people - raw_activities support (year.json)", () => {
     expect(naman.activities![1]?.title).toBe("Closed issue #7861");
     expect("raw_activities" in naman).toBe(false);
   });
+
+  it("deduplicates activities on first-seen branch when entry contains both activities and raw_activities", () => {
+    const sharedActivity = {
+      type: "PR merged",
+      title: "Merged PR #100",
+      occured_at: "2026-09-24T17:00:00Z",
+      link: "https://github.com/CircuitVerse/CircuitVerse/pull/100",
+      points: 50,
+    };
+    const datasetWithBoth: LeaderboardDataset = {
+      period: "year",
+      updatedAt: 100,
+      entries: [
+        {
+          username: "first_seen_user",
+          total_points: 100,
+          activities: [sharedActivity],
+          raw_activities: [
+            sharedActivity,
+            {
+              type: "commit",
+              title: "Commit ABC",
+              occured_at: "2026-09-24T18:00:00Z",
+              link: "",
+              points: 5,
+            },
+            {
+              type: "commit",
+              title: "Commit ABC",
+              occured_at: "2026-09-24T18:00:00Z",
+              link: "",
+              points: 5,
+            },
+          ],
+        },
+      ],
+    };
+
+    const { people } = aggregateLeaderboardData([datasetWithBoth]);
+    expect(people).toHaveLength(1);
+    const user = people[0]!;
+    expect(user.activities).toHaveLength(2);
+    expect(user.activities?.map((a) => a.title)).toEqual([
+      "Commit ABC",
+      "Merged PR #100",
+    ]);
+  });
 });
 
 describe("lib/people - strict validation and edge cases", () => {
@@ -1034,6 +1081,21 @@ describe("lib/people - strict validation and edge cases", () => {
     ];
     const validated = validateDailyActivity(raw);
     expect(validated).toEqual([{ date: "2026-03-15", count: 2, points: 10 }]);
+  });
+
+  it("validates real calendar dates via Date.UTC round-trip (e.g. 2026-13-45 and 2026-02-30)", () => {
+    const raw = [
+      { date: "2026-03-15", count: 2, points: 10 }, // valid
+      { date: "2026-13-45", count: 1, points: 5 }, // invalid month and day
+      { date: "2026-02-30", count: 1, points: 5 }, // Feb 30 does not exist
+      { date: "2026-02-29", count: 1, points: 5 }, // 2026 is not a leap year
+      { date: "2024-02-29", count: 3, points: 15 }, // 2024 is a leap year (valid)
+    ];
+    const validated = validateDailyActivity(raw);
+    expect(validated).toEqual([
+      { date: "2026-03-15", count: 2, points: 10 },
+      { date: "2024-02-29", count: 3, points: 15 },
+    ]);
   });
 
   it("drops activity items with invalid or unparseable occured_at", () => {

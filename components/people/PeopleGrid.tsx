@@ -1,5 +1,3 @@
-"use client";
-
 import { ContributorCard } from "./ContributorCard";
 import type { ContributorListingEntry } from "@/types/people";
 

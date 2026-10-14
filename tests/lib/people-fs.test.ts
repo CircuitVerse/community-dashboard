@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, afterEach } from "vitest";
+import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
 import fs from "fs";
 import path from "path";
 import os from "os";
@@ -8,17 +8,19 @@ import {
   getPeopleListingData,
   getContributorByUsername,
   getAllContributorUsernames,
-  KNOWN_PERIOD_FILES,
+  clearPeopleDataCache,
 } from "@/lib/people";
 
 describe("lib/people - filesystem integration tests (isolated fixtures)", () => {
   let tempDir: string;
 
   beforeEach(() => {
+    clearPeopleDataCache();
     tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "leaderboard-test-"));
   });
 
   afterEach(() => {
+    clearPeopleDataCache();
     if (fs.existsSync(tempDir)) {
       fs.rmSync(tempDir, { recursive: true, force: true });
     }
@@ -194,6 +196,87 @@ describe("lib/people - filesystem integration tests (isolated fixtures)", () => 
     expect(data.people[0]?.name).toBe("Contributor One Updated");
     expect(data.people[0]?.total_points).toBe(150);
   });
+
+  it("memoizes loadPeopleData calls when files are unchanged and invalidates when a file is modified", () => {
+    const fixtureData = {
+      period: "week",
+      updatedAt: 100,
+      entries: [
+        {
+          username: "memo-user",
+          total_points: 50,
+        },
+      ],
+    };
+    const weekPath = path.join(tempDir, "week.json");
+    fs.writeFileSync(weekPath, JSON.stringify(fixtureData));
+
+    const readSpy = vi.spyOn(fs, "readFileSync");
+
+    try {
+      // First call: reads and parses the file
+      const initialCalls = readSpy.mock.calls.length;
+      const data1 = loadPeopleData(tempDir);
+      expect(data1.people).toHaveLength(1);
+      expect(data1.people[0]?.username).toBe("memo-user");
+      const callsAfterFirst = readSpy.mock.calls.length;
+      expect(callsAfterFirst).toBeGreaterThan(initialCalls);
+
+      // Second call with unchanged files: does NOT call readFileSync
+      const data2 = loadPeopleData(tempDir);
+      expect(data2.people).toHaveLength(1);
+      expect(readSpy.mock.calls.length).toBe(callsAfterFirst);
+
+      // Modify the file (updating content and timestamp)
+      const updatedData = {
+        period: "week",
+        updatedAt: 200,
+        entries: [
+          {
+            username: "memo-user-updated",
+            total_points: 150,
+          },
+        ],
+      };
+      // Ensure mtime changes even on fast filesystems
+      fs.writeFileSync(weekPath, JSON.stringify(updatedData));
+      const futureTime = new Date(Date.now() + 5000);
+      fs.utimesSync(weekPath, futureTime, futureTime);
+
+      // Third call: detects file change and invalidates cache
+      const data3 = loadPeopleData(tempDir);
+      expect(data3.people).toHaveLength(1);
+      expect(data3.people[0]?.username).toBe("memo-user-updated");
+      expect(readSpy.mock.calls.length).toBeGreaterThan(callsAfterFirst);
+    } finally {
+      readSpy.mockRestore();
+    }
+  });
+
+  it("logs a one-time console.warn for skipped json files not in allowlist except overview.json and recent-activities.json", () => {
+    fs.writeFileSync(path.join(tempDir, "week.json"), JSON.stringify({
+      period: "week",
+      updatedAt: 100,
+      entries: [{ username: "active_user", total_points: 10 }],
+    }));
+    fs.writeFileSync(path.join(tempDir, "overview.json"), JSON.stringify({}));
+    fs.writeFileSync(path.join(tempDir, "recent-activities.json"), JSON.stringify({}));
+    fs.writeFileSync(path.join(tempDir, "unrecognized-period.json"), JSON.stringify({}));
+
+    const warnSpy = vi.spyOn(console, "warn").mockImplementation(() => {});
+    try {
+      loadPeopleData(tempDir);
+      const skippedWarning = warnSpy.mock.calls.find((call) =>
+        call.join(" ").includes("Skipped leaderboard JSON files not in allowlist")
+      );
+      expect(skippedWarning).toBeDefined();
+      expect(skippedWarning?.join(" ")).toContain("unrecognized-period.json");
+      expect(skippedWarning?.join(" ")).not.toContain("overview.json");
+      expect(skippedWarning?.join(" ")).not.toContain("recent-activities.json");
+    } finally {
+      warnSpy.mockRestore();
+    }
+  });
 });
 
 describe("lib/people - lookup and listing utilities (fixture-backed)", () => {
@@ -304,11 +387,13 @@ describe("lib/people - lookup and listing utilities (fixture-backed)", () => {
 });
 
 describe("lib/people - filesystem real directory validation", () => {
-  it("loads real public/leaderboard directory and finds year.json with contributors", () => {
-    const realDir = path.join(process.cwd(), "public", "leaderboard");
-    expect(fs.existsSync(realDir)).toBe(true);
-    expect(fs.existsSync(path.join(realDir, "year.json"))).toBe(true);
+  it("smoke test: loads real public/leaderboard directory and validates contributors", (ctx) => {
+    const yearFile = path.join(process.cwd(), "public", "leaderboard", "year.json");
+    if (!fs.existsSync(yearFile)) {
+      ctx.skip("Skipping smoke test: public/leaderboard/year.json is absent");
+    }
 
+    const realDir = path.join(process.cwd(), "public", "leaderboard");
     const data = loadPeopleData(realDir);
     expect(data.people.length).toBeGreaterThan(0);
     expect(data.updatedAt).toBeGreaterThan(0);

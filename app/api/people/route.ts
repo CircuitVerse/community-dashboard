@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
 import { getPeopleData } from "@/lib/people";
 
-// Preserved for external programmatic consumers and third-party integrations
+// Preserved for external programmatic consumers and third-party integrations.
+// The JSON response shape ({ updatedAt, people, coreTeam, alumni }) remains unchanged,
+// but data is now resolved at build time (force-static).
 export const dynamic = "force-static";
 export const revalidate = 86400;
 

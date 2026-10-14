@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useMemo, useEffect, useSyncExternalStore } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Activity, Users, Search } from "lucide-react";
+import { useHasMounted } from "@/lib/hooks/useHasMounted";
 import { PeopleStats } from "@/components/people/PeopleStats";
 import { PeopleGrid } from "@/components/people/PeopleGrid";
 import { TeamSection } from "@/components/people/TeamSection";
@@ -12,39 +13,47 @@ interface PeopleClientViewProps {
   initialData: PeopleListingData;
 }
 
-const emptySubscribe = () => () => {};
-
 export function PeopleClientView({ initialData }: PeopleClientViewProps) {
   const { people, coreTeam, alumni, updatedAt } = initialData;
-  const [userQuery, setUserQuery] = useState<string | null>(null);
+  const mounted = useHasMounted();
+  const [searchQuery, setSearchQuery] = useState("");
 
-  // Read URL search parameter on client without bailing out SSG or triggering hydration mismatch
-  const urlQuery = useSyncExternalStore(
-    emptySubscribe,
-    () => (typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("q") ?? "" : ""),
-    () => ""
-  );
-
-  const searchQuery = userQuery ?? urlQuery;
-  const setSearchQuery = setUserQuery;
-
-  // Synchronize URL search params with local search state without refreshing route
-  // Only touch the URL once the user has actively typed to avoid wiping ?q= on hydration
+  // Sync state from URL on initial mount and on popstate (browser back/forward)
   useEffect(() => {
-    if (userQuery === null || typeof window === "undefined") return;
-    const url = new URL(window.location.href);
-    const currentQ = url.searchParams.get("q") || "";
-    const trimmed = searchQuery.trim();
+    if (!mounted) return;
 
-    if (trimmed !== currentQ) {
-      if (trimmed) {
-        url.searchParams.set("q", trimmed);
-      } else {
-        url.searchParams.delete("q");
+    const syncFromUrl = () => {
+      const q = new URLSearchParams(window.location.search).get("q") ?? "";
+      setSearchQuery(q);
+    };
+
+    syncFromUrl();
+
+    window.addEventListener("popstate", syncFromUrl);
+    return () => window.removeEventListener("popstate", syncFromUrl);
+  }, [mounted]);
+
+  // Debounce history.replaceState update (~250ms) when search query changes
+  useEffect(() => {
+    if (!mounted) return;
+
+    const timer = setTimeout(() => {
+      const url = new URL(window.location.href);
+      const currentQ = url.searchParams.get("q") || "";
+      const trimmed = searchQuery.trim();
+
+      if (trimmed !== currentQ) {
+        if (trimmed) {
+          url.searchParams.set("q", trimmed);
+        } else {
+          url.searchParams.delete("q");
+        }
+        window.history.replaceState(null, "", url.toString());
       }
-      window.history.replaceState(null, "", url.toString());
-    }
-  }, [userQuery, searchQuery]);
+    }, 250);
+
+    return () => clearTimeout(timer);
+  }, [searchQuery, mounted]);
 
   const filteredPeople = useMemo(() => {
     if (!searchQuery.trim()) return people;

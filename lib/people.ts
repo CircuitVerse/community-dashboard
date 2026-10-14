@@ -30,6 +30,24 @@ export const KNOWN_PERIOD_FILES = new Set([
 ]);
 
 const warnedPeriods = new Set<string>();
+const warnedSkippedFiles = new Set<string>();
+
+interface PeopleDataMemoEntry {
+  fingerprint: string;
+  data: PeopleData;
+}
+
+const peopleDataMemo = new Map<string, PeopleDataMemoEntry>();
+
+/**
+ * Clears the internal in-memory memoization cache and skip warning flags.
+ * Used in tests to ensure clean state isolation.
+ */
+export function clearPeopleDataCache(): void {
+  peopleDataMemo.clear();
+  warnedSkippedFiles.clear();
+}
+
 
 /**
  * Returns the period weight for known periods.
@@ -211,7 +229,8 @@ const ISO_DATE_REGEX = /^\d{4}-\d{2}-\d{2}$/;
 
 /**
  * Strictly validates and normalizes daily_activity entries.
- * Drops null, non-object entries, or entries without a valid YYYY-MM-DD date string.
+ * Drops null, non-object entries, entries without a valid YYYY-MM-DD date string,
+ * or dates that do not correspond to a real calendar date (validated via Date.UTC round-trip).
  */
 export function validateDailyActivity(
   raw: unknown
@@ -226,22 +245,56 @@ export function validateDailyActivity(
       if (typeof i.date === "string") {
         const trimmedDate = i.date.trim();
         if (ISO_DATE_REGEX.test(trimmedDate)) {
-          const count =
-            typeof i.count === "number" && !isNaN(i.count) && i.count >= 0
-              ? i.count
-              : 0;
-          const points =
-            typeof i.points === "number" && !isNaN(i.points) ? i.points : 0;
-          result.push({
-            date: trimmedDate,
-            count,
-            points,
-          });
+          const [yearStr, monthStr, dayStr] = trimmedDate.split("-");
+          if (yearStr && monthStr && dayStr) {
+            const year = parseInt(yearStr, 10);
+            const month = parseInt(monthStr, 10);
+            const day = parseInt(dayStr, 10);
+
+            // Validate real calendar date by round-tripping through Date.UTC
+            const utcDate = new Date(Date.UTC(year, month - 1, day));
+            const isValidCalendarDate =
+              utcDate.getUTCFullYear() === year &&
+              utcDate.getUTCMonth() === month - 1 &&
+              utcDate.getUTCDate() === day;
+
+            if (isValidCalendarDate) {
+              const count =
+                typeof i.count === "number" && !isNaN(i.count) && i.count >= 0
+                  ? i.count
+                  : 0;
+              const points =
+                typeof i.points === "number" && !isNaN(i.points) ? i.points : 0;
+              result.push({
+                date: trimmedDate,
+                count,
+                points,
+              });
+            }
+          }
         }
       }
     }
   }
   return result;
+}
+
+
+function dedupeActivities(activities: ActivityItem[]): ActivityItem[] {
+  const seen = new Set<string>();
+  const combined: ActivityItem[] = [];
+
+  for (const activity of activities) {
+    const identifier = activity.link
+      ? `${activity.type}-${activity.link}`
+      : `${activity.type}-${activity.title}-${activity.occured_at}`;
+    if (!seen.has(identifier)) {
+      seen.add(identifier);
+      combined.push(activity);
+    }
+  }
+
+  return combined;
 }
 
 /**
@@ -319,7 +372,8 @@ export function aggregateLeaderboardData(
         delete cleanEntry.raw_activities;
         delete cleanEntry.activities;
         allContributors.set(userKey, cleanEntry);
-        contributorActivities.set(userKey, incomingActivities);
+        // Dedupe activities even on first-seen branch (e.g. entry contains both activities and raw_activities)
+        contributorActivities.set(userKey, dedupeActivities(incomingActivities));
         continue;
       }
 
@@ -376,20 +430,10 @@ export function aggregateLeaderboardData(
 
       // Merge activities prioritizing the incoming (higher-precedence) dataset metadata
       const existingActs = contributorActivities.get(userKey) ?? [];
-      const seen = new Set<string>();
-      const combined: ActivityItem[] = [];
-
-      for (const activity of [...incomingActivities, ...existingActs]) {
-        const identifier = activity.link
-          ? `${activity.type}-${activity.link}`
-          : `${activity.type}-${activity.title}-${activity.occured_at}`;
-        if (!seen.has(identifier)) {
-          seen.add(identifier);
-          combined.push(activity);
-        }
-      }
-
-      contributorActivities.set(userKey, combined);
+      contributorActivities.set(
+        userKey,
+        dedupeActivities([...incomingActivities, ...existingActs])
+      );
     }
   }
 
@@ -456,6 +500,11 @@ export function aggregateLeaderboardData(
 
 export interface LoadPeopleDataOptions {
   allowedFiles?: Set<string>;
+  /**
+   * When true, loadPeopleData throws an error if public/leaderboard is missing
+   * or yields zero contributors. Enabled by default in production (NODE_ENV === "production").
+   * Production builds fail if public/leaderboard is missing or empty.
+   */
   strict?: boolean;
 }
 
@@ -482,14 +531,23 @@ function parseLoadOptions(options?: LoadPeopleDataOptions | Set<string>): {
 /**
  * Loads leaderboard data from the filesystem and aggregates contributors.
  * Supports an optional custom directory path and injectable options.
+ *
+ * In production (`NODE_ENV === "production"`), strict mode is enabled by default.
+ * Builds fail immediately if `public/leaderboard` is missing or yields zero contributors.
+ * CI and preview builds satisfy this because `public/leaderboard/*.json` is tracked in the repository.
+ *
+ * Performance:
+ * Employs a module-level memoization cache keyed by (resolved directory, allowedFiles, strict)
+ * and invalidated by the mtimeMs and size of the matched candidate files (stat-ed cheaply on each call).
  */
 export function loadPeopleData(
   customPath?: string,
   options: LoadPeopleDataOptions | Set<string> = DEFAULT_LOAD_OPTIONS
 ): PeopleData {
   const { allowedFiles, strict } = parseLoadOptions(options);
-  const publicPath =
-    customPath ?? path.join(process.cwd(), "public", "leaderboard");
+  const publicPath = path.resolve(
+    customPath ?? path.join(process.cwd(), "public", "leaderboard")
+  );
 
   if (!fs.existsSync(publicPath)) {
     if (strict) {
@@ -505,21 +563,54 @@ export function loadPeopleData(
     };
   }
 
-  const files = fs.readdirSync(publicPath).filter((file) => {
-    if (!file.endsWith(".json")) return false;
-    if (file === "recent-activities.json" || file === "overview.json")
-      return false;
-    return allowedFiles.has(file);
-  });
+  const dirEntries = fs.readdirSync(publicPath);
+  const jsonFiles = dirEntries.filter((file) => file.endsWith(".json"));
 
-  if (allowedFiles.has("year.json") && !files.includes("year.json")) {
+  // Warn once about any *.json files skipped in the directory (except overview.json and recent-activities.json)
+  const skippedFiles = jsonFiles.filter(
+    (file) =>
+      file !== "recent-activities.json" &&
+      file !== "overview.json" &&
+      !allowedFiles.has(file)
+  );
+  if (skippedFiles.length > 0) {
+    const skippedKey = `${publicPath}::${skippedFiles.sort().join(",")}`;
+    if (!warnedSkippedFiles.has(skippedKey)) {
+      warnedSkippedFiles.add(skippedKey);
+      console.warn(
+        `[loadPeopleData] Skipped leaderboard JSON files not in allowlist: ${skippedFiles.join(", ")}`
+      );
+    }
+  }
+
+  const filesToLoad = jsonFiles.filter((file) => allowedFiles.has(file)).sort();
+
+  if (allowedFiles.has("year.json") && !filesToLoad.includes("year.json")) {
     console.warn(
       `[loadPeopleData] "year.json" was not found in "${publicPath}". Full-year cumulative metrics may be incomplete.`
     );
   }
 
+  // Compute cheap cache fingerprint based on candidate files, mtimeMs, and size
+  const statFingerprints: string[] = [];
+  for (const file of filesToLoad) {
+    try {
+      const stat = fs.statSync(path.join(publicPath, file));
+      statFingerprints.push(`${file}:${stat.mtimeMs}:${stat.size}`);
+    } catch {
+      statFingerprints.push(`${file}:missing`);
+    }
+  }
+  const fingerprint = statFingerprints.join("|");
+  const cacheKey = `${publicPath}::${Array.from(allowedFiles).sort().join(",")}::${strict}`;
+
+  const cached = peopleDataMemo.get(cacheKey);
+  if (cached && cached.fingerprint === fingerprint) {
+    return cached.data;
+  }
+
   const datasets: LeaderboardDataset[] = [];
-  for (const file of files) {
+  for (const file of filesToLoad) {
     try {
       const filePath = path.join(publicPath, file);
       const data: LeaderboardDataset = JSON.parse(
@@ -539,17 +630,23 @@ export function loadPeopleData(
     );
   }
 
-  return {
+  const result: PeopleData = {
     updatedAt: latestUpdatedAt,
     people,
     coreTeam: coreTeamMembers,
     alumni: alumniMembers,
   };
+
+  peopleDataMemo.set(cacheKey, { fingerprint, data: result });
+  return result;
 }
 
 /**
  * Converts a full ContributorEntry to a listing-optimized ContributorListingEntry
  * by precomputing activeDays and hasRecentActivity and omitting the heavy activities and daily_activity arrays.
+ *
+ * NOTE: `hasRecentActivity` is evaluated relative to the dataset's `updatedAt` reference time
+ * (not wall-clock time), ensuring deterministic SSR and SSG prerendering.
  */
 export function toListingContributor(
   entry: ContributorEntry,

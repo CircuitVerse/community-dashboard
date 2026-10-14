@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Github } from "lucide-react";
-import { useState, useMemo, useSyncExternalStore } from "react";
+import { useState, useMemo } from "react";
+import { useHasMounted } from "@/lib/hooks/useHasMounted";
 
 interface HeatmapProps {
   dailyActivity: Array<{ date: string; count: number; points: number }>;
@@ -23,15 +24,24 @@ const formatDateUTC = (date: Date): string => {
   return `${year}-${month}-${day}`;
 };
 
-const emptySubscribe = () => () => {};
+const MONTH_LABELS = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
 
 export function GitHubHeatmap({ dailyActivity, className = "" }: HeatmapProps) {
   const [tooltip, setTooltip] = useState<TooltipData | null>(null);
-  const mounted = useSyncExternalStore(
-    emptySubscribe,
-    () => true,
-    () => false
-  );
+  const mounted = useHasMounted();
 
   // Helper to extract year from YYYY-MM-DD string without timezone issues
   const getYearFromDateStr = (dateStr: string): number => {
@@ -135,20 +145,6 @@ export function GitHubHeatmap({ dailyActivity, className = "" }: HeatmapProps) {
   };
 
   const dayLabels = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  const monthLabels = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
 
   // Group days into weeks (starting from Sunday)
   const weeks = useMemo(() => {
@@ -213,7 +209,7 @@ export function GitHubHeatmap({ dailyActivity, className = "" }: HeatmapProps) {
       // Only add when month changes and labels won't overlap
       if (month !== lastMonth && position - lastPosition >= 32) {
         positions.push({
-          month: monthLabels[month] ?? "",
+          month: MONTH_LABELS[month] ?? "",
           position,
         });
         lastMonth = month;
